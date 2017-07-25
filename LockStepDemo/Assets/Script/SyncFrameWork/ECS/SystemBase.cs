@@ -6,27 +6,28 @@ public class SystemBase
 {
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		
 	}
 	
 	// Update is called once per frame
-	public void Update (float time)
+	public void Update (int deltaTime)
     {
 		
 	}
 
-    public void FixedUpdate(float time)
+    public void FixedUpdate(int deltaTime)
     {
 
     }
 
-    public void LateUpdate(float time)
+    public void LateUpdate(int deltaTime)
     {
 
     }
 
-    public void LateFixedUpdate(float time)
+    public void LateFixedUpdate(int deltaTime)
     {
 
     }

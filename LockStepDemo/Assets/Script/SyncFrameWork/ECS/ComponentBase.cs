@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComponentBase : MonoBehaviour {
+public class ComponentBase : MonoBehaviour
+{
 
 	// Use this for initialization
 	void Start () {
