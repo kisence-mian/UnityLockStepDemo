@@ -1,0 +1,11 @@
+F:\workTable\UnityService\CharpServer\LockStepDemo\LockStepDemo\bin\Debug\LockStepDemo.exe.config
+F:\workTable\UnityService\CharpServer\LockStepDemo\LockStepDemo\bin\Debug\LockStepDemo.exe
+F:\workTable\UnityService\CharpServer\LockStepDemo\LockStepDemo\bin\Debug\LockStepDemo.pdb
+F:\workTable\UnityService\CharpServer\LockStepDemo\LockStepDemo\bin\Debug\log4net.dll
+F:\workTable\UnityService\CharpServer\LockStepDemo\LockStepDemo\bin\Debug\SuperSocket.Common.dll
+F:\workTable\UnityService\CharpServer\LockStepDemo\LockStepDemo\bin\Debug\SuperSocket.SocketBase.dll
+F:\workTable\UnityService\CharpServer\LockStepDemo\LockStepDemo\bin\Debug\SuperSocket.SocketEngine.dll
+F:\workTable\UnityService\CharpServer\LockStepDemo\LockStepDemo\obj\Debug\LockStepDemo.exe
+F:\workTable\UnityService\CharpServer\LockStepDemo\LockStepDemo\obj\Debug\LockStepDemo.pdb
+F:\workTable\UnityService\CharpServer\LockStepDemo\LockStepDemo\obj\Debug\LockStepDemo.csprojResolveAssemblyReference.cache
+F:\workTable\UnityService\CharpServer\LockStepDemo\LockStepDemo\bin\Debug\System.Threading.dll
