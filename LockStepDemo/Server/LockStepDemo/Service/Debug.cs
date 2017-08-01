@@ -42,7 +42,9 @@ namespace LockStepDemo
 
             if (s_isDebug)
             {
+                Console.WriteLine("------------------------------ERROR BEGIN----------------------------");
                 Console.WriteLine(content);
+                Console.WriteLine("------------------------------ ERROR END ----------------------------");
             }
             s_logger.Error(content);
         }
@@ -57,7 +59,9 @@ namespace LockStepDemo
 
             if (s_isDebug)
             {
+                Console.WriteLine("------------------------------WARN BEGIN----------------------------");
                 Console.WriteLine(content);
+                Console.WriteLine("------------------------------ WARN END ----------------------------");
             }
             s_logger.Warn(content);
         }

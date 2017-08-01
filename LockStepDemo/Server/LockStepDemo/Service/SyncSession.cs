@@ -11,7 +11,7 @@ namespace LockStepDemo.Service
         {
             base.OnSessionStarted();
 
-            Console.WriteLine("OnSessionStarted ");
+            Debug.Log("OnSessionStarted ");
         }
 
         protected override void HandleUnknownRequest(ProtocolRequestBase requestInfo)
