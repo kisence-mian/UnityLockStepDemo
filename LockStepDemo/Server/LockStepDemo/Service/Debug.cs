@@ -12,6 +12,7 @@ class Debug
 
     public static void SetLogger(ILog logger, bool isDebug)
     {
+        s_isDebug = isDebug;
         s_logger = logger;
     }
 

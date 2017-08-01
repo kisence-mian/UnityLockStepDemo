@@ -43,34 +43,7 @@ public class WorldBase
 
     #region Update
 
-    bool m_start;
-    int m_currentFrame;   //当前帧数
-    int m_logicFrameDelta;//逻辑帧更新时间(ms)
-    int m_logicFrameAdd;  //累积时间(ms)
-
-    public void MainLoop(float deltaTime)
-    {
-        if (!m_start)
-            return;
-
-        int deltaTimeTmp = (int)(deltaTime * 1000);
-
-        Loop(deltaTimeTmp);
-
-        if (m_logicFrameAdd < m_logicFrameDelta)
-        {
-            m_logicFrameAdd += deltaTimeTmp;
-        }
-        else
-        {
-            while (m_logicFrameAdd > m_logicFrameDelta)
-            {
-                m_logicFrameAdd -= m_logicFrameDelta;
-
-                FixedLoop(m_logicFrameDelta);//主循环
-            }
-        }
-    }
+    int m_currentFixedFrame = 0;   //当前帧数
 
     void Loop(int deltaTime)
     {
@@ -78,8 +51,9 @@ public class WorldBase
         LateUpdate(deltaTime);
     }
 
-    void FixedLoop(int deltaTime)
+    public void FixedLoop(int deltaTime)
     {
+        m_currentFixedFrame++;
         FixedUpdate(deltaTime);
         LateFixedUpdate(deltaTime);
     }
@@ -105,7 +79,7 @@ public class WorldBase
     {
         for (int i = 0; i < m_systemList.Count; i++)
         {
-            m_systemList[i].Update(deltaTime);
+            m_systemList[i].FixedUpdate(deltaTime);
         }
     }
 

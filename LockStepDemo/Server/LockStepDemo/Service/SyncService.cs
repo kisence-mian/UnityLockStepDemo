@@ -6,11 +6,14 @@ using System.Text;
 using SuperSocket.SocketBase.Config;
 using Protocol;
 using SuperSocket.SocketBase.Logging;
+using LockStepDemo.GameLogic;
 
 namespace LockStepDemo.Service
 {
     class SyncService : AppServer<SyncSession,ProtocolRequestBase>
     {
+        int updateInterval = 1000; //世界更新间隔ms
+
         public SyncService() : base(new ProtocolReceiveFilterFactory())
         {
         }
@@ -27,6 +30,9 @@ namespace LockStepDemo.Service
         protected override void OnStarted()
         {
             Debug.Log("SyncService OnStarted");
+
+            WorldManager.CreateWorld<DemoWorld>();
+            UpdateEngine.Init(updateInterval);
 
             base.OnStarted();
         }

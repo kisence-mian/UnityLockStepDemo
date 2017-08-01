@@ -85,10 +85,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ECS\ComponentBase.cs" />
+    <Compile Include="ECS\EntityBase.cs" />
+    <Compile Include="ECS\InputCommandManager.cs" />
+    <Compile Include="ECS\MomentBase.cs" />
+    <Compile Include="ECS\SystemBase.cs" />
+    <Compile Include="ECS\TupleBase.cs" />
+    <Compile Include="ECS\WorldBase.cs" />
     <Compile Include="Event\EventService.cs" />
     <Compile Include="FileTool\FileTool.cs" />
+    <Compile Include="GameLogic\CountSystem.cs" />
+    <Compile Include="GameLogic\DemoWorld.cs" />
     <Compile Include="Generate\Protocol\ProtocolAnalysisService.cs" />
     <Compile Include="Generate\Protocol\ProtocolMessageClass.cs" />
+    <Compile Include="Service\Debug.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Protocol\ByteArray.cs" />
@@ -105,6 +115,8 @@
     <Compile Include="Service\Room\RoomManager.cs" />
     <Compile Include="Service\SyncService.cs" />
     <Compile Include="Service\SyncSession.cs" />
+    <Compile Include="Service\Game\UpdateEngine.cs" />
+    <Compile Include="Service\Game\WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Network\MethodInfo.txt">
@@ -127,7 +139,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Game\" />
     <Folder Include="Sync\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
