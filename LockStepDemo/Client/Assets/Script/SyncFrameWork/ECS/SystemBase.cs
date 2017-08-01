@@ -6,28 +6,28 @@ public class SystemBase
 {
 
 	// Use this for initialization
-	void Start ()
-    {
-		
-	}
-	
-	// Update is called once per frame
-	public void Update (int deltaTime)
+	public virtual void Init ()
     {
 		
 	}
 
-    public void FixedUpdate(int deltaTime)
+    // Update is called once per frame
+    public virtual void Update (int deltaTime)
+    {
+		
+	}
+
+    public virtual void FixedUpdate(int deltaTime)
     {
 
     }
 
-    public void LateUpdate(int deltaTime)
+    public virtual void LateUpdate(int deltaTime)
     {
 
     }
 
-    public void LateFixedUpdate(int deltaTime)
+    public virtual void LateFixedUpdate(int deltaTime)
     {
 
     }

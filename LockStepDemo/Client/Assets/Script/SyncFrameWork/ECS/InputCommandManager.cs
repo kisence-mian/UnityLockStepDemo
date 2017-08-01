@@ -1,7 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-
 public class InputCommandManager
 {
     static SyncStatus s_syncStatus;
