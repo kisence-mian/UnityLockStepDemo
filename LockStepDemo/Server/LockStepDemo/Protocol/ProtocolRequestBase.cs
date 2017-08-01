@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LockStepDemo.Protocol
+namespace Protocol
 {
-    class ProtocolRequestBase : IRequestInfo
+    public class ProtocolRequestBase : IRequestInfo
     {
         private string m_key;
 

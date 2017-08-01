@@ -1,0 +1,14 @@
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\Protocol2CSharp.exe.config
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\Protocol2CSharp.exe
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\Protocol2CSharp.pdb
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\LockStepDemo.exe
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\UnityEngine.dll
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\SuperSocket.SocketBase.dll
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\System.Threading.dll
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\SuperSocket.Common.dll
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\log4net.dll
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\LockStepDemo.pdb
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\LockStepDemo.exe.config
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\obj\Debug\Tool_Protocol2CSharp.csprojResolveAssemblyReference.cache
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\obj\Debug\Protocol2CSharp.exe
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\obj\Debug\Protocol2CSharp.pdb

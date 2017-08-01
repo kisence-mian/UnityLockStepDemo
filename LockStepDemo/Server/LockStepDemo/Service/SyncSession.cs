@@ -1,21 +1,23 @@
-﻿using LockStepDemo.Protocol;
+﻿using Protocol;
+using Protocol.roleModule;
 using SuperSocket.SocketBase;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace LockStepDemo.Service
 {
-    class SyncSession : AppSession<SyncSession, ProtocolRequestBase>
+    public class SyncSession : AppSession<SyncSession, ProtocolRequestBase>
     {
-        protected override void HandleUnknownRequest(ProtocolRequestBase requestInfo)
+        protected override void OnSessionStarted()
         {
-            base.HandleUnknownRequest(requestInfo);
+            base.OnSessionStarted();
 
-            Send()
+            Console.WriteLine("OnSessionStarted ");
         }
 
-      
+        protected override void HandleUnknownRequest(ProtocolRequestBase requestInfo)
+        {
+            //解析并派发
+            ProtocolAnalysisService.AnalysisAndDispatchMessage(this, requestInfo);
+        }
     }
 }

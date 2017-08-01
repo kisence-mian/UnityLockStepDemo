@@ -1,9 +1,6 @@
 ﻿using LockStepDemo.Service;
-using SuperSocket.SocketBase;
+using Protocol;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace LockStepDemo
 {
@@ -11,10 +8,7 @@ namespace LockStepDemo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Press any key to start the server!");
-
-            Console.ReadKey();
-            Console.WriteLine();
+            //Console.WriteLine(FileTool.ReadStringByFile(Environment.CurrentDirectory + "/Network/" + ProtocolReceiveFilter.c_ProtocolFileName + ".txt"));
 
             try
             {

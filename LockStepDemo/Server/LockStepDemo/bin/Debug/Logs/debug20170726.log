@@ -1,0 +1,6 @@
+﻿2017-07-26 15:26:02,328 [9944] DEBUG AppServer-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-26 16:22:17,798 [32244] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-26 16:22:17,862 [32244] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-26 16:22:49,653 [29540] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-26 16:22:49,721 [29540] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-26 16:22:49,726 [29540] DEBUG SyncService-54267293 - SyncService OnStarted

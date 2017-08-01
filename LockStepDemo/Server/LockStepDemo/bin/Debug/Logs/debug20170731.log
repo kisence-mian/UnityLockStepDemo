@@ -1,0 +1,63 @@
+﻿2017-07-31 16:19:00,404 [41664] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 16:19:00,921 [41664] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 16:19:00,927 [41664] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 17:02:07,334 [49864] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 17:02:07,392 [49864] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 17:02:07,397 [49864] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 17:19:50,509 [55976] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 17:19:50,569 [55976] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 17:19:50,583 [55976] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 17:21:55,365 [55916] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 17:21:55,419 [55916] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 17:21:55,424 [55916] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 17:23:36,265 [56688] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 17:23:36,318 [56688] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 17:23:36,323 [56688] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 17:24:18,274 [55452] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 17:24:18,334 [55452] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 17:24:18,339 [55452] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 17:25:26,873 [56724] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 17:25:27,022 [56724] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 17:25:27,026 [56724] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 17:26:30,822 [55996] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 17:26:30,876 [55996] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 17:26:30,881 [55996] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 17:27:55,971 [48324] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 17:27:56,025 [48324] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 17:27:56,029 [48324] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 17:28:43,744 [59168] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 17:28:43,796 [59168] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 17:28:43,802 [59168] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 17:30:28,266 [56024] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 17:30:28,320 [56024] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 17:30:28,325 [56024] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 17:37:42,906 [60584] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 17:37:42,959 [60584] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 17:37:42,964 [60584] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 17:44:50,995 [61648] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 17:44:51,048 [61648] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 17:44:51,053 [61648] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 17:46:28,394 [61312] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 17:46:28,455 [61312] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 17:46:28,460 [61312] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 17:48:06,026 [62680] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 17:48:06,086 [62680] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 17:48:06,091 [62680] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 17:51:45,976 [64024] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 17:51:46,085 [64024] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 17:51:46,091 [64024] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 19:03:03,520 [37216] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 19:03:03,579 [37216] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 19:03:03,584 [37216] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 19:04:38,685 [43856] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 19:04:38,746 [43856] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 19:04:38,751 [43856] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 19:05:20,441 [68568] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 19:05:20,508 [68568] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 19:05:20,513 [68568] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 19:11:21,970 [61144] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 19:11:22,029 [61144] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 19:11:22,034 [61144] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-07-31 19:12:34,632 [50296] DEBUG SyncService-54267293 - SyncService Setup
+2017-07-31 19:12:34,694 [50296] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-07-31 19:12:34,700 [50296] DEBUG SyncService-54267293 - SyncService OnStarted
