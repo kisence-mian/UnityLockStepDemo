@@ -5,7 +5,6 @@ using LockStepDemo.Service;
 using Protocol;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 //指令解析类
 //该类自动生成，请勿修改
@@ -1380,7 +1379,7 @@ public static class ProtocolAnalysisService
 			case  "chest_open":Recevicechest_open_s(session , cmd);break;
 			case  "chest_init":Recevicechest_init_s(session , cmd);break;
 			default:
-			Console.WriteLine("SendCommand Exception : 不支持的消息类型!" + cmd.Key);
+                Debug.LogError("SendCommand Exception : 不支持的消息类型!" + cmd.Key);
 				break;
 		}
 	}

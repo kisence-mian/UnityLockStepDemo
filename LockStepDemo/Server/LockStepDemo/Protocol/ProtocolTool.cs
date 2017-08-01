@@ -653,7 +653,7 @@ namespace LockStepDemo.Protocol
             csharpContent += "using Protocol;\n";
             csharpContent += "using System;\n";
             csharpContent += "using System.Collections.Generic;\n";
-            csharpContent += "using UnityEngine;\n";
+            //csharpContent += "using UnityEngine;\n";
 
             csharpContent += "\n";
             csharpContent += "//指令解析类\n";
@@ -905,7 +905,7 @@ namespace LockStepDemo.Protocol
             if (msgList.Count > 0)
             {
                 content += GetTab(3) + "default:\n";
-                content += GetTab(3) + "Console.WriteLine(\"SendCommand Exception : 不支持的消息类型!\" + cmd.Key);\n";
+                content += GetTab(3) + "Debug.LogError(\"SendCommand Exception : 不支持的消息类型!\" + cmd.Key);\n";
                 content += GetTab(4) + "break;\n";
             }
 

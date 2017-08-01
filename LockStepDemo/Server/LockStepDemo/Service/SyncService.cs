@@ -5,20 +5,42 @@ using System.Linq;
 using System.Text;
 using SuperSocket.SocketBase.Config;
 using Protocol;
+using SuperSocket.SocketBase.Logging;
 
 namespace LockStepDemo.Service
 {
     class SyncService : AppServer<SyncSession,ProtocolRequestBase>
     {
-        public SyncService() : base(new ProtocolReceiveFilterFactory())
+#region 静态方法
+
+        static bool isDebug = false;
+
+        private static ILog s_logger;
+
+        public static ILog Loger { get => s_logger;}
+
+        public static void Log(string content)
         {
 
+        }
+
+        public static void Error(string content)
+        {
+            
+        }
+
+#endregion
+
+        public SyncService() : base(new ProtocolReceiveFilterFactory())
+        {
         }
 
         protected override bool Setup(IRootConfig rootConfig, IServerConfig config)
         {
             Console.WriteLine("SyncService Setup");
-            Logger.Debug("SyncService Setup");
+            base.Logger.Debug("SyncService Setup");
+
+            Debug.SetLogger(Logger,true);
 
             return base.Setup(rootConfig, config);
         }
@@ -26,7 +48,7 @@ namespace LockStepDemo.Service
         protected override void OnStarted()
         {
             Console.WriteLine("SyncService OnStarted");
-            Logger.Debug("SyncService OnStarted");
+            base.Logger.Debug("SyncService OnStarted");
 
             base.OnStarted();
         }
