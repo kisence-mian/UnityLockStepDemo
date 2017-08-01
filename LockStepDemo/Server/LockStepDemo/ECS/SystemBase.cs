@@ -6,7 +6,7 @@ public class SystemBase
 {
 
 	// Use this for initialization
-	void Start ()
+	public void Init ()
     {
 		
 	}

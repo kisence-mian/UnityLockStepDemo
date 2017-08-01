@@ -6,10 +6,13 @@ using System.Threading;
 
 namespace LockStepDemo.Service
 {
-    class UpdateEngine
+    public static class UpdateEngine
     {
-        public static void Init()
+        static int s_intervalTime;
+        public static void Init(int intervalTime)
         {
+            s_intervalTime = intervalTime;
+
             Thread t = new Thread(UpdateLogic);
             t.Start();
         }

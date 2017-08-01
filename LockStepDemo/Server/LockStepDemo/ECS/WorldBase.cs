@@ -1,22 +1,42 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class WorldBase
 {
-    List<SystemBase> m_systemList = new List<SystemBase>();
-    Dictionary<int,EntityBase> m_entityDict = new Dictionary<int,EntityBase>();
+    List<SystemBase> m_systemList = new List<SystemBase>();                     //世界里所有的System集合
+    Dictionary<int,EntityBase> m_entityDict = new Dictionary<int,EntityBase>(); //世界里所有的entity集合
+
+    #region 重载方法
+
+    protected Type[] systemArray = new Type[0];
+    public virtual Type[] GetSystemTypes()
+    {
+        return systemArray;
+    }
+
+    #endregion
+
+    #region 初始化
 
     public void Init()
     {
-        //ApplicationManager.s_OnApplicationUpdate += ClientLoop;
-    }
+        try
+        {
+            Type[] types = GetSystemTypes();
 
-    #region ClientLoop
+            for (int i = 0; i < types.Length; i++)
+            {
+                SystemBase tmp = (SystemBase)types[i].Assembly.CreateInstance(types[i].FullName);
+                m_systemList.Add(tmp);
+                tmp.Init();
+            }
+        }
+        catch(Exception e)
+        {
+            Debug.Log("WorldBase Init Exception:" + e.ToString());
+        }
 
-    void ClientLoop()
-    {
-        MainLoop(Time.deltaTime);
     }
 
     #endregion
@@ -24,10 +44,11 @@ public class WorldBase
     #region Update
 
     bool m_start;
-    int m_logicFrameDelta;//逻辑帧更新时间
-    int m_logicFrameAdd;  //累积时间
+    int m_currentFrame;   //当前帧数
+    int m_logicFrameDelta;//逻辑帧更新时间(ms)
+    int m_logicFrameAdd;  //累积时间(ms)
 
-    void MainLoop(float deltaTime)
+    public void MainLoop(float deltaTime)
     {
         if (!m_start)
             return;
