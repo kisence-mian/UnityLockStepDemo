@@ -6,7 +6,6 @@ using System.Text;
 using SuperSocket.SocketBase.Config;
 using Protocol;
 using SuperSocket.SocketBase.Logging;
-using LockStepDemo.GameLogic;
 
 namespace LockStepDemo.Service
 {

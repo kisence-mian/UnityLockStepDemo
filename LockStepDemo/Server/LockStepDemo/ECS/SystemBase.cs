@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class SystemBase
 {
-
-	// Use this for initialization
-	public virtual void Init ()
+    public WorldBase m_world;
+    // Use this for initialization
+    public virtual void Init ()
     {
 		
 	}
+
+    public virtual void BeforeUpdate(int deltaTime)
+    {
+
+    }
+
+    public virtual void BeforeFixedUpdate(int deltaTime)
+    {
+
+    }
 
     // Update is called once per frame
     public virtual void Update (int deltaTime)

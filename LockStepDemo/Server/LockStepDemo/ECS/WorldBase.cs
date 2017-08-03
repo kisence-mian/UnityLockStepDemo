@@ -29,6 +29,7 @@ public class WorldBase
             {
                 SystemBase tmp = (SystemBase)types[i].Assembly.CreateInstance(types[i].FullName);
                 m_systemList.Add(tmp);
+                tmp.m_world = this;
                 tmp.Init();
             }
         }
@@ -43,19 +44,29 @@ public class WorldBase
 
     #region Update
 
-    int m_currentFixedFrame = 0;   //当前帧数
-
+    /// <summary>
+    /// 服务器不执行Loop
+    /// </summary>
     void Loop(int deltaTime)
     {
+        BeforeUpdate(deltaTime);
         Update(deltaTime);
         LateUpdate(deltaTime);
     }
 
     public void FixedLoop(int deltaTime)
     {
-        m_currentFixedFrame++;
+        BeforeFixedUpdate(deltaTime);
         FixedUpdate(deltaTime);
         LateFixedUpdate(deltaTime);
+    }
+
+    void BeforeUpdate(int deltaTime)
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].BeforeUpdate(deltaTime);
+        }
     }
 
     // Update is called once per frame
@@ -72,6 +83,14 @@ public class WorldBase
         for (int i = 0; i < m_systemList.Count; i++)
         {
             m_systemList[i].LateUpdate(deltaTime);
+        }
+    }
+
+    void BeforeFixedUpdate(int deltaTime)
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].BeforeFixedUpdate(deltaTime);
         }
     }
 

@@ -94,8 +94,12 @@
     <Compile Include="ECS\WorldBase.cs" />
     <Compile Include="Event\EventService.cs" />
     <Compile Include="FileTool\FileTool.cs" />
-    <Compile Include="GameLogic\CountSystem.cs" />
-    <Compile Include="GameLogic\DemoWorld.cs" />
+    <Compile Include="GameLogic\Component\MoveComponent.cs" />
+    <Compile Include="GameLogic\Component\SyncComponent.cs" />
+    <Compile Include="GameLogic\System\CountSystem.cs" />
+    <Compile Include="GameLogic\System\MoveSystem.cs" />
+    <Compile Include="GameLogic\System\SyncSystem.cs" />
+    <Compile Include="GameLogic\World\DemoWorld.cs" />
     <Compile Include="Generate\Protocol\ProtocolAnalysisService.cs" />
     <Compile Include="Generate\Protocol\ProtocolMessageClass.cs" />
     <Compile Include="Service\Debug.cs" />
