@@ -803,7 +803,8 @@ namespace LockStepDemo.Protocol
 
                 for (int j = 0; j < msgList.Count; j++)
                 {
-                    if (msgList[j].IsSubclassOf(ModuleList[i]))
+                    if (msgList[j].IsSubclassOf(ModuleList[i]) ||
+                        ModuleList[i].IsAssignableFrom(msgList[i]))
                     {
                         string nameTmp = GenerateProtocolName(msgList[j]);
                         if (!nameList.Contains(nameTmp))
