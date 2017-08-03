@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComponentBase 
+public class AssetComponent : ComponentBase
 {
-    public virtual void Init()
-    {
-
-    }
+    public string m_assetName;
 }

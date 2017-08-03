@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveSystem : SystemBase
 {
-    public override void LateUpdate(int deltaTime)
+    public override void LateFixedUpdate(int deltaTime)
     {
         List<MoveTuple> list = GetMoveTuple();
 
@@ -16,9 +16,9 @@ public class MoveSystem : SystemBase
 
     void UpdateMove(MoveComponent comp,int deltaTime)
     {
-        comp.m_posx = comp.m_dirx * deltaTime * comp.m_velocity;
-        comp.m_posy = comp.m_diry * deltaTime * comp.m_velocity;
-        comp.m_posz = comp.m_dirz * deltaTime * comp.m_velocity;
+        comp.m_posx += comp.m_dirx * deltaTime * comp.m_velocity;
+        comp.m_posy += comp.m_diry * deltaTime * comp.m_velocity;
+        comp.m_posz += comp.m_dirz * deltaTime * comp.m_velocity;
     }
 
 

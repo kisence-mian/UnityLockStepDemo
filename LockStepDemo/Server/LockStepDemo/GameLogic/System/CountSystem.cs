@@ -10,7 +10,7 @@ class CountSystem : SystemBase
     {
         count++;
 
-        Debug.Log("Count " + count + " deltaTime :" + deltaTime);
+        //Debug.Log("Count " + count + " deltaTime :" + deltaTime);
     }
 
 }

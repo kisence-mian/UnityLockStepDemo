@@ -14,7 +14,7 @@ namespace LockStepDemo.Service
         public static void CreateWorld<T>() where T:WorldBase ,new()
         {
             T world = new T();
-            world.Init();
+            world.Init(false);
 
             s_worldList.Add(world);
         }

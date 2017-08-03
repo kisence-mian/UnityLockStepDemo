@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComponentBase 
+public class ViewComponent : ComponentBase
 {
-    public virtual void Init()
-    {
-
-    }
+    
 }
