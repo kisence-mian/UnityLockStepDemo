@@ -113,6 +113,8 @@
     <Compile Include="GameLogic\World\DemoWorld.cs" />
     <Compile Include="Generate\Protocol\ProtocolAnalysisService.cs" />
     <Compile Include="Generate\Protocol\ProtocolMessageClass.cs" />
+    <Compile Include="Reflect\DeJson.cs" />
+    <Compile Include="Reflect\MiniJSON.cs" />
     <Compile Include="Service\Message\SyncMessage.cs" />
     <Compile Include="Service\ServiceLogic\Component\ConnectionComponent.cs" />
     <Compile Include="Service\ServiceLogic\System\ConnectSystem.cs" />

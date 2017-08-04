@@ -1,4 +1,5 @@
-﻿using LockStepDemo.GameLogic.Component;
+﻿using DeJson;
+using LockStepDemo.GameLogic.Component;
 using LockStepDemo.GameLogic.System;
 using LockStepDemo.Service;
 using Protocol;
@@ -54,8 +55,11 @@ namespace LockStepDemo.ServiceLogic.System
 
                 ComponentInfo info = new ComponentInfo();
                 info.m_compName = c.GetType().Name;
-                info.content = JsonUtility.ToJson(c);
+                info.content = Serializer.Serialize(c);
                 msg.infos.Add(info);
+
+
+                Debug.Log("PUSH Data content: " + info.content);
             }
 
             session.SendMsg(msg);
