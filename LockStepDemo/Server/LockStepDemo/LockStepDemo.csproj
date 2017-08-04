@@ -89,6 +89,7 @@
     <Compile Include="ECS\EntityBase.cs" />
     <Compile Include="ECS\InputCommandManager.cs" />
     <Compile Include="ECS\MomentBase.cs" />
+    <Compile Include="ECS\SyncComponentBase.cs" />
     <Compile Include="ECS\SystemBase.cs" />
     <Compile Include="ECS\TupleBase.cs" />
     <Compile Include="ECS\ViewSystemBase.cs" />
@@ -99,8 +100,10 @@
     <Compile Include="GameLogic\Component\CommandComponent.cs" />
     <Compile Include="GameLogic\Component\InputComponent.cs" />
     <Compile Include="GameLogic\Component\MoveComponent.cs" />
+    <Compile Include="GameLogic\Component\PlayerComponent.cs" />
     <Compile Include="GameLogic\Component\SyncComponent.cs" />
     <Compile Include="GameLogic\Component\ViewComponent.cs" />
+    <Compile Include="GameLogic\Component\WaitSyncComponent.cs" />
     <Compile Include="GameLogic\System\CountSystem.cs" />
     <Compile Include="GameLogic\System\InitSystem.cs" />
     <Compile Include="GameLogic\System\MoveSystem.cs" />
@@ -110,8 +113,10 @@
     <Compile Include="GameLogic\World\DemoWorld.cs" />
     <Compile Include="Generate\Protocol\ProtocolAnalysisService.cs" />
     <Compile Include="Generate\Protocol\ProtocolMessageClass.cs" />
-    <Compile Include="ServiceLogic\Component\ConnectionComponent.cs" />
-    <Compile Include="ServiceLogic\System\ConnectSystem.cs" />
+    <Compile Include="Service\Message\SyncMessage.cs" />
+    <Compile Include="Service\ServiceLogic\Component\ConnectionComponent.cs" />
+    <Compile Include="Service\ServiceLogic\System\ConnectSystem.cs" />
+    <Compile Include="Service\ServiceLogic\System\ServiceSyncSystem.cs" />
     <Compile Include="Service\Debug.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,7 +128,6 @@
     <Compile Include="Protocol\ProtocolSendExpand.cs" />
     <Compile Include="Protocol\ProtocolTool.cs" />
     <Compile Include="Reflect\ReflectTool.cs" />
-    <Compile Include="Service\Game\ServiceSyncSystem.cs" />
     <Compile Include="Service\Player\Player.cs" />
     <Compile Include="Service\Player\PlayerManger.cs" />
     <Compile Include="Service\Room\Room.cs" />

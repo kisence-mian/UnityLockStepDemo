@@ -9,7 +9,7 @@ namespace CSharp2Protocol
         {
             ProtocolTool.GenerateAnalysisCode();
 
-            Console.Read();
+            //Console.Read();
         }
     }
 }

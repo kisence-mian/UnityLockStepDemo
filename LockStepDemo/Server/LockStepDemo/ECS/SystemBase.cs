@@ -117,6 +117,30 @@ public class SystemBase
         return m_tupleList;
     }
 
+    public List<EntityBase> GetEntityList(string[] compNames)
+    {
+        for (int i = 0; i < m_world.m_entityList.Count; i++)
+        {
+            if (GetAllExistComp(compNames, m_world.m_entityList[i]))
+            {
+                m_tupleList.Add(m_world.m_entityList[i]);
+            }
+        }
+
+        return m_tupleList;
+    }
+
+    public List<EntityBase> GetEntityList(Type[] compNames)
+    {
+        string[] filter = new string[compNames.Length];
+        for (int i = 0; i < compNames.Length; i++)
+        {
+            filter[i] = compNames[i].Name;
+        }
+
+        return GetEntityList(filter);
+    }
+
     protected void AddEntityCreaterLisnter()
     {
         m_world.OnEntityCreated += ReceviceEntityCreate;

@@ -6,12 +6,15 @@ using System.Text;
 using SuperSocket.SocketBase.Config;
 using Protocol;
 using SuperSocket.SocketBase.Logging;
+using LockStepDemo.ServiceLogic;
+using LockStepDemo.GameLogic.Component;
 
 namespace LockStepDemo.Service
 {
     class SyncService : AppServer<SyncSession,ProtocolRequestBase>
     {
         int updateInterval = 1000; //世界更新间隔ms
+        WorldBase m_world;
 
         public SyncService() : base(new ProtocolReceiveFilterFactory())
         {
@@ -30,7 +33,7 @@ namespace LockStepDemo.Service
         {
             Debug.Log("SyncService OnStarted");
 
-            WorldManager.CreateWorld<DemoWorld>();
+            m_world = WorldManager.CreateWorld<DemoWorld>();
             UpdateEngine.Init(updateInterval);
 
             base.OnStarted();
@@ -40,14 +43,8 @@ namespace LockStepDemo.Service
         {
             Debug.Log("SyncService RegisterSession");
 
+
             return base.RegisterSession(sessionID, appSession);
-        }
-
-        protected override SyncSession CreateAppSession(ISocketSession socketSession)
-        {
-            Debug.Log("SyncService CreateAppSession");
-
-            return base.CreateAppSession(socketSession);
         }
 
         protected override void OnSessionClosed(SyncSession session, CloseReason reason)
@@ -62,6 +59,16 @@ namespace LockStepDemo.Service
             Debug.Log("SyncService OnNewSessionConnected");
 
             base.OnNewSessionConnected(session);
+
+            ConnectionComponent conn = new ConnectionComponent();
+            conn.m_session = session;
+            PlayerComponent pc = new PlayerComponent();
+            WaitSyncComponent ws = new WaitSyncComponent();
+
+            EntityBase entity = m_world.CreateEntity(2);
+            entity.AddComp(conn);
+            entity.AddComp(pc);
+            entity.AddComp(ws);
         }
     }
 }

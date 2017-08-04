@@ -15,8 +15,6 @@ namespace CSharp2Protocol
         static void Main(string[] args)
         {
             ProtocolTool.GenerateProtocolToCsharp();
-
-            Console.Read();
         }
     }
 }

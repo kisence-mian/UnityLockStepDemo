@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tool_Protocol2CSharp", "Pro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tool_GenerateAnalysisCode", "Tool_GenerateAnalysisCode\Tool_GenerateAnalysisCode.csproj", "{2D32A0A9-BD81-4216-8E5D-8F3507AF8618}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tool_ClearAnalysisCode", "Tool_ClearAnalysisCode\Tool_ClearAnalysisCode.csproj", "{BBF1004E-7F63-478A-B04D-4B416B98972A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2D32A0A9-BD81-4216-8E5D-8F3507AF8618}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D32A0A9-BD81-4216-8E5D-8F3507AF8618}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D32A0A9-BD81-4216-8E5D-8F3507AF8618}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBF1004E-7F63-478A-B04D-4B416B98972A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBF1004E-7F63-478A-B04D-4B416B98972A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBF1004E-7F63-478A-B04D-4B416B98972A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBF1004E-7F63-478A-B04D-4B416B98972A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -17,6 +17,39 @@ message m_commandcomponent_c
 	required bool isfire = 5;
 }
 
-message iprotocolstructinterface
+message m_waitsynccomponent_s
 {
+}
+message m_waitsynccomponent_c
+{
+}
+
+message m_syncentitymsg_s
+{
+	required int32 m_id = 1;
+	repeated componentinfo infos = 2;
+}
+message m_syncentitymsg_c
+{
+	required int32 m_id = 1;
+	repeated componentinfo infos = 2;
+}
+
+message m_changecomponentmsg_s
+{
+	required int32 m_id = 1;
+	required int8 m_operation = 2;
+	required string info = 3;
+}
+message m_changecomponentmsg_c
+{
+	required int32 m_id = 1;
+	required int8 m_operation = 2;
+	required string info = 3;
+}
+
+message componentinfo
+{
+	required string m_compname = 1;
+	required string content = 2;
 }

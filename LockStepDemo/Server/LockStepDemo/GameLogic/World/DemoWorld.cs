@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LockStepDemo.ServiceLogic.System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,9 @@ class DemoWorld : WorldBase
             typeof(SyncSystem),
             typeof(CountSystem),
             typeof(MoveSystem),
-            typeof(OperationSystem)
+            typeof(OperationSystem),
+
+            typeof(ServiceSyncSystem)
         };
     }
 }

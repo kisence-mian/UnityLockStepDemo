@@ -1,0 +1,51 @@
+﻿2017-08-04 18:19:52,071 [75400] ERROR SyncService-54267293 - UpdateWorld Exception：System.Security.SecurityException: ECall 方法必须打包到系统模块中。
+   在 UnityEngine.JsonUtility.ToJson(Object obj)
+   在 LockStepDemo.ServiceLogic.System.ServiceSyncSystem.PushSyncEnity(SyncSession session, EntityBase entity) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 57
+   在 LockStepDemo.ServiceLogic.System.ServiceSyncSystem.LateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 36
+   在 WorldBase.LateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 138
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 106
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 49
+失败的程序集的区域是:
+MyComputer
+2017-08-04 18:19:52,548 [75400] ERROR SyncService-54267293 - UpdateWorld Exception：System.Exception: RemoveComp not exist comp !WaitSyncComponent
+   在 EntityBase.RemoveComp(String compName) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\EntityBase.cs:行号 93
+   在 EntityBase.RemoveComp[T]() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\EntityBase.cs:行号 83
+   在 LockStepDemo.ServiceLogic.System.ServiceSyncSystem.LateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 31
+   在 WorldBase.LateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 138
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 106
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 49
+2017-08-04 18:19:53,554 [75400] ERROR SyncService-54267293 - UpdateWorld Exception：System.Exception: RemoveComp not exist comp !WaitSyncComponent
+   在 EntityBase.RemoveComp(String compName) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\EntityBase.cs:行号 93
+   在 EntityBase.RemoveComp[T]() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\EntityBase.cs:行号 83
+   在 LockStepDemo.ServiceLogic.System.ServiceSyncSystem.LateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 31
+   在 WorldBase.LateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 138
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 106
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 49
+2017-08-04 18:19:54,508 [75400] ERROR SyncService-54267293 - UpdateWorld Exception：System.Exception: RemoveComp not exist comp !WaitSyncComponent
+   在 EntityBase.RemoveComp(String compName) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\EntityBase.cs:行号 93
+   在 EntityBase.RemoveComp[T]() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\EntityBase.cs:行号 83
+   在 LockStepDemo.ServiceLogic.System.ServiceSyncSystem.LateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 31
+   在 WorldBase.LateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 138
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 106
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 49
+2017-08-04 18:19:55,504 [75400] ERROR SyncService-54267293 - UpdateWorld Exception：System.Exception: RemoveComp not exist comp !WaitSyncComponent
+   在 EntityBase.RemoveComp(String compName) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\EntityBase.cs:行号 93
+   在 EntityBase.RemoveComp[T]() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\EntityBase.cs:行号 83
+   在 LockStepDemo.ServiceLogic.System.ServiceSyncSystem.LateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 31
+   在 WorldBase.LateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 138
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 106
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 49
+2017-08-04 18:19:56,503 [75400] ERROR SyncService-54267293 - UpdateWorld Exception：System.Exception: RemoveComp not exist comp !WaitSyncComponent
+   在 EntityBase.RemoveComp(String compName) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\EntityBase.cs:行号 93
+   在 EntityBase.RemoveComp[T]() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\EntityBase.cs:行号 83
+   在 LockStepDemo.ServiceLogic.System.ServiceSyncSystem.LateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 31
+   在 WorldBase.LateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 138
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 106
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 49
+2017-08-04 18:19:57,512 [75400] ERROR SyncService-54267293 - UpdateWorld Exception：System.Exception: RemoveComp not exist comp !WaitSyncComponent
+   在 EntityBase.RemoveComp(String compName) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\EntityBase.cs:行号 93
+   在 EntityBase.RemoveComp[T]() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\EntityBase.cs:行号 83
+   在 LockStepDemo.ServiceLogic.System.ServiceSyncSystem.LateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 31
+   在 WorldBase.LateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 138
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 106
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 49

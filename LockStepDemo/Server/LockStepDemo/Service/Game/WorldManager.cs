@@ -11,12 +11,14 @@ namespace LockStepDemo.Service
 
         public static List<WorldBase> WorldList { get => s_worldList; set => s_worldList = value; }
 
-        public static void CreateWorld<T>() where T:WorldBase ,new()
+        public static WorldBase CreateWorld<T>() where T:WorldBase ,new()
         {
             T world = new T();
             world.Init(false);
 
             s_worldList.Add(world);
+
+            return world;
         }
 
         public static void DestroyWorld(WorldBase world)

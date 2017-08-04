@@ -1,0 +1,6 @@
+1,GameSync
+101,commandcomponent
+
+2,EntitySyncModule
+201,createentitymsg
+202,changecomponentmsg

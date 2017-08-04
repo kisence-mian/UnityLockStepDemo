@@ -1,46 +1,5 @@
 package all;
 
-message m_momentbase_s
-{
-}
-message m_momentbase_c
-{
-}
-
-message m_viewcomponent_s
-{
-}
-message m_viewcomponent_c
-{
-}
-
-message m_playercomponent_s
-{
-}
-message m_playercomponent_c
-{
-}
-
-message m_perfabcomponent_s
-{
-	required string perfab = 1;
-}
-message m_perfabcomponent_c
-{
-	required string perfab = 1;
-}
-
-message m_synccomponent_s
-{
-	required int32 currentfixedframe = 1;
-	required double currenttime = 2;
-}
-message m_synccomponent_c
-{
-	required int32 currentfixedframe = 1;
-	required double currenttime = 2;
-}
-
 message m_commandcomponent_s
 {
 	required bool isforward = 1;
@@ -58,47 +17,39 @@ message m_commandcomponent_c
 	required bool isfire = 5;
 }
 
-message m_assetcomponent_s
+message m_waitsynccomponent_s
 {
-	required string m_assetname = 1;
 }
-message m_assetcomponent_c
+message m_waitsynccomponent_c
 {
-	required string m_assetname = 1;
 }
 
-message m_movecomponent_s
+message m_syncentitymsg_s
 {
-	required int32 m_posx = 1;
-	required int32 m_posy = 2;
-	required int32 m_posz = 3;
-	required int32 m_dirx = 4;
-	required int32 m_diry = 5;
-	required int32 m_dirz = 6;
-	required int32 m_velocity = 7;
+	required int32 m_id = 1;
+	repeated componentinfo infos = 2;
 }
-message m_movecomponent_c
+message m_syncentitymsg_c
 {
-	required int32 m_posx = 1;
-	required int32 m_posy = 2;
-	required int32 m_posz = 3;
-	required int32 m_dirx = 4;
-	required int32 m_diry = 5;
-	required int32 m_dirz = 6;
-	required int32 m_velocity = 7;
+	required int32 m_id = 1;
+	repeated componentinfo infos = 2;
 }
 
-message m_inputcomponent_s
+message m_changecomponentmsg_s
 {
-	required bool m_forward = 1;
-	required bool m_fire = 2;
+	required int32 m_id = 1;
+	required int8 m_operation = 2;
+	required string info = 3;
 }
-message m_inputcomponent_c
+message m_changecomponentmsg_c
 {
-	required bool m_forward = 1;
-	required bool m_fire = 2;
+	required int32 m_id = 1;
+	required int8 m_operation = 2;
+	required string info = 3;
 }
 
-message iprotocolstructinterface
+message componentinfo
 {
+	required string m_compname = 1;
+	required string content = 2;
 }

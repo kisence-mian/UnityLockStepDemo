@@ -1,10 +1,7 @@
 1,GameSync
-101,momentbase
-102,viewcomponent
-103,playercomponent
-104,perfabcomponent
-105,synccomponent
-106,commandcomponent
-107,assetcomponent
-108,movecomponent
-109,inputcomponent
+101,commandcomponent
+102,waitsynccomponent
+
+2,EntitySyncModule
+201,syncentitymsg
+202,changecomponentmsg

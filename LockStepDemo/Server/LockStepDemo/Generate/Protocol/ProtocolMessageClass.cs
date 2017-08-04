@@ -6,24 +6,6 @@ namespace Protocol
 	#region Module GameSync
 	namespace GameSyncModule
 	{
-		[MessageMode(SendMode.ToClient)] 
-		public class playercomponent_c : ComponentBase 
-		{
-		}
-		[MessageMode(SendMode.ToServer)] 
-		public class playercomponent_s : ComponentBase 
-		{
-		}
-		[MessageMode(SendMode.ToClient)] 
-		public class perfabcomponent_c : ComponentBase 
-		{
-			public string perfab;
-		}
-		[MessageMode(SendMode.ToServer)] 
-		public class perfabcomponent_s : ComponentBase 
-		{
-			public string perfab;
-		}
 	}
 	#endregion 
 

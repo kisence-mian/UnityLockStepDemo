@@ -1,196 +1,40 @@
-﻿2017-08-01 10:18:12,379 [15332] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 10:18:12,435 [15332] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 10:18:12,440 [15332] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 10:20:34,162 [18864] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 10:20:34,217 [18864] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 10:20:34,222 [18864] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 10:23:44,904 [19952] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 10:23:44,958 [19952] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 10:23:44,964 [19952] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 10:25:30,170 [16000] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 10:25:30,225 [16000] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 10:25:30,230 [16000] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 10:28:20,048 [14056] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 10:28:20,102 [14056] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 10:28:20,107 [14056] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 10:36:25,603 [19084] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 10:36:25,657 [19084] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 10:36:25,662 [19084] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 10:39:40,837 [21208] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 10:39:40,892 [21208] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 10:39:40,897 [21208] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 10:40:32,151 [14276] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 10:40:32,205 [14276] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 10:40:32,210 [14276] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 10:48:46,159 [19724] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 10:48:46,213 [19724] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 10:48:46,219 [19724] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 11:40:41,242 [25828] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 11:40:41,297 [25828] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 11:40:41,303 [25828] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 17:43:39,773 [64008] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 17:43:40,055 [64008] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 17:43:40,067 [64008] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 17:43:40,332 [64008] DEBUG SyncService-54267293 - WorldBase Init Exception:System.InvalidCastException: 无法将类型为“System.Int32”的对象强制转换为类型“SystemBase”。
-   在 WorldBase.Init() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 30
-2017-08-01 17:46:17,572 [45916] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 17:46:17,627 [45916] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 17:46:17,632 [45916] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 17:46:17,908 [45916] DEBUG SyncService-54267293 - WorldBase Init Exception:System.InvalidCastException: 无法将类型为“System.Int32”的对象强制转换为类型“SystemBase”。
-   在 WorldBase.Init() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 30
-2017-08-01 17:46:53,778 [12340] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 17:46:53,841 [12340] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 17:46:53,846 [12340] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 17:48:36,456 [50460] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 17:48:36,575 [50460] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 17:48:36,581 [50460] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 17:53:17,681 [20756] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 17:53:17,743 [20756] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 17:53:17,751 [20756] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 17:53:18,769 [66564] DEBUG SyncService-54267293 - Count 1
-2017-08-01 17:53:19,768 [66564] DEBUG SyncService-54267293 - Count 2
-2017-08-01 17:53:20,768 [66564] DEBUG SyncService-54267293 - Count 3
-2017-08-01 17:53:21,768 [66564] DEBUG SyncService-54267293 - Count 4
-2017-08-01 17:53:22,768 [66564] DEBUG SyncService-54267293 - Count 5
-2017-08-01 17:53:23,768 [66564] DEBUG SyncService-54267293 - Count 6
-2017-08-01 17:53:24,769 [66564] DEBUG SyncService-54267293 - Count 7
-2017-08-01 17:53:25,769 [66564] DEBUG SyncService-54267293 - Count 8
-2017-08-01 17:53:26,769 [66564] DEBUG SyncService-54267293 - Count 9
-2017-08-01 17:53:27,769 [66564] DEBUG SyncService-54267293 - Count 10
-2017-08-01 17:53:28,769 [66564] DEBUG SyncService-54267293 - Count 11
-2017-08-01 17:54:12,633 [71220] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 17:54:12,687 [71220] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 17:54:12,692 [71220] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 17:54:13,698 [67364] DEBUG SyncService-54267293 - Count 1 deltaTime :1412162408
-2017-08-01 17:54:14,697 [67364] DEBUG SyncService-54267293 - Count 2 deltaTime :1412160408
-2017-08-01 17:54:15,697 [67364] DEBUG SyncService-54267293 - Count 3 deltaTime :1412156408
-2017-08-01 17:54:16,697 [67364] DEBUG SyncService-54267293 - Count 4 deltaTime :1412166408
-2017-08-01 17:54:17,698 [67364] DEBUG SyncService-54267293 - Count 5 deltaTime :1412166408
-2017-08-01 17:54:18,698 [67364] DEBUG SyncService-54267293 - Count 6 deltaTime :1412162408
-2017-08-01 17:54:19,698 [67364] DEBUG SyncService-54267293 - Count 7 deltaTime :1412160408
-2017-08-01 17:54:20,698 [67364] DEBUG SyncService-54267293 - Count 8 deltaTime :1412162408
-2017-08-01 17:54:21,698 [67364] DEBUG SyncService-54267293 - Count 9 deltaTime :1412163408
-2017-08-01 17:54:22,699 [67364] DEBUG SyncService-54267293 - Count 10 deltaTime :1412166408
-2017-08-01 17:54:23,699 [67364] DEBUG SyncService-54267293 - Count 11 deltaTime :1412159408
-2017-08-01 17:54:24,699 [67364] DEBUG SyncService-54267293 - Count 12 deltaTime :1412166408
-2017-08-01 17:55:21,776 [73400] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 17:55:21,834 [73400] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 17:55:21,839 [73400] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 17:56:12,634 [67144] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 17:56:12,686 [67144] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 17:56:12,691 [67144] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 17:56:13,701 [67704] DEBUG SyncService-54267293 - Count 1 deltaTime :1422173408
-2017-08-01 17:56:14,700 [67704] DEBUG SyncService-54267293 - Count 2 deltaTime :1412163408
-2017-08-01 17:56:15,700 [67704] DEBUG SyncService-54267293 - Count 3 deltaTime :1412156408
-2017-08-01 17:56:16,701 [67704] DEBUG SyncService-54267293 - Count 4 deltaTime :1412169408
-2017-08-01 18:00:06,863 [73920] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 18:00:06,925 [73920] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 18:00:06,948 [73920] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 18:00:07,989 [74372] DEBUG SyncService-54267293 - Count 1 deltaTime :10002
-2017-08-01 18:00:08,988 [74372] DEBUG SyncService-54267293 - Count 2 deltaTime :10002
-2017-08-01 18:00:09,988 [74372] DEBUG SyncService-54267293 - Count 3 deltaTime :10002
-2017-08-01 18:00:36,237 [74288] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 18:00:36,294 [74288] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 18:00:36,299 [74288] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 18:00:37,307 [74448] DEBUG SyncService-54267293 - Count 1 deltaTime :10002
-2017-08-01 18:00:38,306 [74448] DEBUG SyncService-54267293 - Count 2 deltaTime :10002
-2017-08-01 18:00:39,306 [74448] DEBUG SyncService-54267293 - Count 3 deltaTime :10002
-2017-08-01 18:00:40,306 [74448] DEBUG SyncService-54267293 - Count 4 deltaTime :10002
-2017-08-01 18:00:41,307 [74448] DEBUG SyncService-54267293 - Count 5 deltaTime :10002
-2017-08-01 18:00:42,307 [74448] DEBUG SyncService-54267293 - Count 6 deltaTime :10002
-2017-08-01 18:00:43,307 [74448] DEBUG SyncService-54267293 - Count 7 deltaTime :10002
-2017-08-01 18:00:44,307 [74448] DEBUG SyncService-54267293 - Count 8 deltaTime :10002
-2017-08-01 18:00:45,307 [74448] DEBUG SyncService-54267293 - Count 9 deltaTime :10002
-2017-08-01 18:00:46,308 [74448] DEBUG SyncService-54267293 - Count 10 deltaTime :10002
-2017-08-01 18:00:47,308 [74448] DEBUG SyncService-54267293 - Count 11 deltaTime :10002
-2017-08-01 18:00:48,308 [74448] DEBUG SyncService-54267293 - Count 12 deltaTime :10002
-2017-08-01 18:00:49,308 [74448] DEBUG SyncService-54267293 - Count 13 deltaTime :10002
-2017-08-01 18:00:50,309 [74448] DEBUG SyncService-54267293 - Count 14 deltaTime :10002
-2017-08-01 18:00:51,309 [74448] DEBUG SyncService-54267293 - Count 15 deltaTime :10002
-2017-08-01 18:00:52,309 [74448] DEBUG SyncService-54267293 - Count 16 deltaTime :10002
-2017-08-01 18:00:53,309 [74448] DEBUG SyncService-54267293 - Count 17 deltaTime :10002
-2017-08-01 18:01:38,630 [60800] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 18:01:38,697 [60800] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 18:01:38,702 [60800] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 18:01:39,708 [73300] DEBUG SyncService-54267293 - Count 1 deltaTime :1000
-2017-08-01 18:01:40,707 [73300] DEBUG SyncService-54267293 - Count 2 deltaTime :1000
-2017-08-01 18:01:41,707 [73300] DEBUG SyncService-54267293 - Count 3 deltaTime :1000
-2017-08-01 18:01:42,707 [73300] DEBUG SyncService-54267293 - Count 4 deltaTime :1000
-2017-08-01 18:01:43,708 [73300] DEBUG SyncService-54267293 - Count 5 deltaTime :1000
-2017-08-01 18:01:44,708 [73300] DEBUG SyncService-54267293 - Count 6 deltaTime :1000
-2017-08-01 18:01:45,708 [73300] DEBUG SyncService-54267293 - Count 7 deltaTime :1000
-2017-08-01 18:01:46,708 [73300] DEBUG SyncService-54267293 - Count 8 deltaTime :1000
-2017-08-01 18:01:47,708 [73300] DEBUG SyncService-54267293 - Count 9 deltaTime :1000
-2017-08-01 18:01:48,709 [73300] DEBUG SyncService-54267293 - Count 10 deltaTime :1000
-2017-08-01 18:01:49,709 [73300] DEBUG SyncService-54267293 - Count 11 deltaTime :1000
-2017-08-01 18:01:50,709 [73300] DEBUG SyncService-54267293 - Count 12 deltaTime :1000
-2017-08-01 18:03:18,162 [51636] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 18:03:18,215 [51636] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 18:03:18,220 [51636] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 18:03:19,227 [66876] DEBUG SyncService-54267293 - Count 1 deltaTime :1000
-2017-08-01 18:03:20,225 [66876] DEBUG SyncService-54267293 - Count 2 deltaTime :1000
-2017-08-01 18:03:21,226 [66876] DEBUG SyncService-54267293 - Count 3 deltaTime :1000
-2017-08-01 18:03:22,226 [66876] DEBUG SyncService-54267293 - Count 4 deltaTime :1000
-2017-08-01 18:03:43,873 [66916] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 18:03:43,929 [66916] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 18:03:43,934 [66916] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 18:03:44,946 [67376] DEBUG SyncService-54267293 - Count 1 deltaTime :1000
-2017-08-01 18:03:45,947 [67376] DEBUG SyncService-54267293 - Count 2 deltaTime :1002
-2017-08-01 18:03:46,947 [67376] DEBUG SyncService-54267293 - Count 3 deltaTime :1000
-2017-08-01 18:03:47,947 [67376] DEBUG SyncService-54267293 - Count 4 deltaTime :1000
-2017-08-01 18:03:48,947 [67376] DEBUG SyncService-54267293 - Count 5 deltaTime :1000
-2017-08-01 18:03:49,948 [67376] DEBUG SyncService-54267293 - Count 6 deltaTime :1000
-2017-08-01 18:03:50,949 [67376] DEBUG SyncService-54267293 - Count 7 deltaTime :1000
-2017-08-01 18:03:51,950 [67376] DEBUG SyncService-54267293 - Count 8 deltaTime :1000
-2017-08-01 18:03:52,950 [67376] DEBUG SyncService-54267293 - Count 9 deltaTime :1000
-2017-08-01 18:03:53,951 [67376] DEBUG SyncService-54267293 - Count 10 deltaTime :1000
-2017-08-01 18:03:54,952 [67376] DEBUG SyncService-54267293 - Count 11 deltaTime :1001
-2017-08-01 18:03:55,953 [67376] DEBUG SyncService-54267293 - Count 12 deltaTime :1001
-2017-08-01 18:03:56,953 [67376] DEBUG SyncService-54267293 - Count 13 deltaTime :1000
-2017-08-01 18:03:57,954 [67376] DEBUG SyncService-54267293 - Count 14 deltaTime :1000
-2017-08-01 18:03:58,954 [67376] DEBUG SyncService-54267293 - Count 15 deltaTime :1000
-2017-08-01 18:03:59,955 [67376] DEBUG SyncService-54267293 - Count 16 deltaTime :1000
-2017-08-01 18:04:00,955 [67376] DEBUG SyncService-54267293 - Count 17 deltaTime :1000
-2017-08-01 18:04:01,956 [67376] DEBUG SyncService-54267293 - Count 18 deltaTime :1000
-2017-08-01 18:04:02,956 [67376] DEBUG SyncService-54267293 - Count 19 deltaTime :1000
-2017-08-01 18:04:03,956 [67376] DEBUG SyncService-54267293 - Count 20 deltaTime :1000
-2017-08-01 18:04:04,957 [67376] DEBUG SyncService-54267293 - Count 21 deltaTime :1000
-2017-08-01 18:04:05,958 [67376] DEBUG SyncService-54267293 - Count 22 deltaTime :1000
-2017-08-01 18:04:06,958 [67376] DEBUG SyncService-54267293 - Count 23 deltaTime :1000
-2017-08-01 18:04:07,959 [67376] DEBUG SyncService-54267293 - Count 24 deltaTime :1000
-2017-08-01 18:04:08,959 [67376] DEBUG SyncService-54267293 - Count 25 deltaTime :1000
-2017-08-01 18:04:09,960 [67376] DEBUG SyncService-54267293 - Count 26 deltaTime :1001
-2017-08-01 18:04:10,961 [67376] DEBUG SyncService-54267293 - Count 27 deltaTime :1000
-2017-08-01 18:04:11,962 [67376] DEBUG SyncService-54267293 - Count 28 deltaTime :1001
-2017-08-01 18:04:12,962 [67376] DEBUG SyncService-54267293 - Count 29 deltaTime :1000
-2017-08-01 18:04:13,963 [67376] DEBUG SyncService-54267293 - Count 30 deltaTime :1000
-2017-08-01 18:04:14,963 [67376] DEBUG SyncService-54267293 - Count 31 deltaTime :1000
-2017-08-01 18:04:15,963 [67376] DEBUG SyncService-54267293 - Count 32 deltaTime :1000
-2017-08-01 18:04:16,964 [67376] DEBUG SyncService-54267293 - Count 33 deltaTime :1000
-2017-08-01 18:04:17,964 [67376] DEBUG SyncService-54267293 - Count 34 deltaTime :1000
-2017-08-01 18:04:18,965 [67376] DEBUG SyncService-54267293 - Count 35 deltaTime :1000
-2017-08-01 18:04:19,966 [67376] DEBUG SyncService-54267293 - Count 36 deltaTime :1000
-2017-08-01 18:04:20,966 [67376] DEBUG SyncService-54267293 - Count 37 deltaTime :1000
-2017-08-01 18:04:21,966 [67376] DEBUG SyncService-54267293 - Count 38 deltaTime :1000
-2017-08-01 18:04:22,967 [67376] DEBUG SyncService-54267293 - Count 39 deltaTime :1000
-2017-08-01 18:04:23,968 [67376] DEBUG SyncService-54267293 - Count 40 deltaTime :1000
-2017-08-01 18:04:24,969 [67376] DEBUG SyncService-54267293 - Count 41 deltaTime :1000
-2017-08-01 18:04:25,969 [67376] DEBUG SyncService-54267293 - Count 42 deltaTime :1000
-2017-08-01 18:12:15,344 [73600] DEBUG SyncService-54267293 - SyncService Setup
-2017-08-01 18:12:15,417 [73600] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
-2017-08-01 18:12:15,427 [73600] DEBUG SyncService-54267293 - SyncService OnStarted
-2017-08-01 18:12:15,441 [71292] DEBUG SyncService-54267293 - Count 1 deltaTime :1000
-2017-08-01 18:12:16,439 [71292] DEBUG SyncService-54267293 - Count 2 deltaTime :1000
-2017-08-01 18:12:17,439 [71292] DEBUG SyncService-54267293 - Count 3 deltaTime :1000
-2017-08-01 18:12:18,440 [71292] DEBUG SyncService-54267293 - Count 4 deltaTime :1000
-2017-08-01 18:12:19,440 [71292] DEBUG SyncService-54267293 - Count 5 deltaTime :1000
-2017-08-01 18:12:20,441 [71292] DEBUG SyncService-54267293 - Count 6 deltaTime :1000
-2017-08-01 18:12:21,441 [71292] DEBUG SyncService-54267293 - Count 7 deltaTime :1000
-2017-08-01 18:12:22,441 [71292] DEBUG SyncService-54267293 - Count 8 deltaTime :1000
-2017-08-01 18:12:23,442 [71292] DEBUG SyncService-54267293 - Count 9 deltaTime :1000
-2017-08-01 18:12:24,442 [71292] DEBUG SyncService-54267293 - Count 10 deltaTime :1000
-2017-08-01 18:12:25,443 [71292] DEBUG SyncService-54267293 - Count 11 deltaTime :1000
-2017-08-01 18:12:26,443 [71292] DEBUG SyncService-54267293 - Count 12 deltaTime :1000
-2017-08-01 18:12:27,444 [71292] DEBUG SyncService-54267293 - Count 13 deltaTime :1000
-2017-08-01 18:12:28,444 [71292] DEBUG SyncService-54267293 - Count 14 deltaTime :1000
-2017-08-01 18:12:29,444 [71292] DEBUG SyncService-54267293 - Count 15 deltaTime :1000
+﻿2017-08-04 18:12:57,125 [56308] DEBUG SyncService-54267293 - SyncService Setup
+2017-08-04 18:12:57,178 [56308] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-08-04 18:12:57,183 [56308] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-08-04 18:13:01,724 [73528] DEBUG SyncService-54267293 - SyncService RegisterSession
+2017-08-04 18:13:01,729 [73528] DEBUG SyncService-54267293 - SyncService OnNewSessionConnected
+2017-08-04 18:13:01,885 [71904] DEBUG SyncService-54267293 - OnSessionStarted 
+2017-08-04 18:13:17,637 [71904] DEBUG SyncService-54267293 - SyncService OnSessionClosed
+2017-08-04 18:14:32,531 [73528] DEBUG SyncService-54267293 - SyncService RegisterSession
+2017-08-04 18:14:32,532 [73528] DEBUG SyncService-54267293 - SyncService OnNewSessionConnected
+2017-08-04 18:16:28,432 [72976] DEBUG SyncService-54267293 - SyncService Setup
+2017-08-04 18:16:28,498 [72976] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-08-04 18:16:28,508 [72976] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-08-04 18:16:32,142 [73416] DEBUG SyncService-54267293 - SyncService RegisterSession
+2017-08-04 18:16:32,150 [73416] DEBUG SyncService-54267293 - SyncService OnNewSessionConnected
+2017-08-04 18:16:32,199 [71252] DEBUG SyncService-54267293 - OnSessionStarted 
+2017-08-04 18:16:37,353 [71252] DEBUG SyncService-54267293 - SyncService OnSessionClosed
+2017-08-04 18:17:45,981 [74664] DEBUG SyncService-54267293 - SyncService Setup
+2017-08-04 18:17:46,037 [74664] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-08-04 18:17:46,043 [74664] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-08-04 18:19:45,397 [74992] DEBUG SyncService-54267293 - SyncService Setup
+2017-08-04 18:19:45,456 [74992] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-08-04 18:19:45,463 [74992] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-08-04 18:19:45,502 [75400] DEBUG SyncService-54267293 - LateFixedUpdate >0
+2017-08-04 18:19:46,492 [75400] DEBUG SyncService-54267293 - LateFixedUpdate >0
+2017-08-04 18:19:47,493 [75400] DEBUG SyncService-54267293 - LateFixedUpdate >0
+2017-08-04 18:19:48,493 [75400] DEBUG SyncService-54267293 - LateFixedUpdate >0
+2017-08-04 18:19:49,494 [75400] DEBUG SyncService-54267293 - LateFixedUpdate >0
+2017-08-04 18:19:50,495 [75400] DEBUG SyncService-54267293 - LateFixedUpdate >0
+2017-08-04 18:19:50,530 [75392] DEBUG SyncService-54267293 - SyncService RegisterSession
+2017-08-04 18:19:50,535 [75392] DEBUG SyncService-54267293 - SyncService OnNewSessionConnected
+2017-08-04 18:19:50,561 [74800] DEBUG SyncService-54267293 - OnSessionStarted 
+2017-08-04 18:19:51,496 [75400] DEBUG SyncService-54267293 - LateFixedUpdate >1
+2017-08-04 18:19:51,505 [75400] DEBUG SyncService-54267293 - PUSH Data 1
+2017-08-04 18:19:51,505 [75400] DEBUG SyncService-54267293 - PUSH Data 2
+2017-08-04 18:19:52,496 [75400] DEBUG SyncService-54267293 - LateFixedUpdate >2
+2017-08-04 18:19:53,496 [75400] DEBUG SyncService-54267293 - LateFixedUpdate >2
+2017-08-04 18:19:54,495 [75400] DEBUG SyncService-54267293 - LateFixedUpdate >2
+2017-08-04 18:19:55,496 [75400] DEBUG SyncService-54267293 - LateFixedUpdate >2
+2017-08-04 18:19:56,496 [75400] DEBUG SyncService-54267293 - LateFixedUpdate >2
+2017-08-04 18:19:57,496 [75400] DEBUG SyncService-54267293 - LateFixedUpdate >2
