@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using Protocol;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CommandComponent : ComponentBase
+
+public class CommandComponent : SyncComponentBase
 {
     public bool isForward;
     public bool isBack;

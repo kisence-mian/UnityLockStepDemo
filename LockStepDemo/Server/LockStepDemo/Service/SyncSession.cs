@@ -1,5 +1,4 @@
 ﻿using Protocol;
-using Protocol.roleModule;
 using SuperSocket.SocketBase;
 using System;
 
@@ -17,7 +16,7 @@ namespace LockStepDemo.Service
         protected override void HandleUnknownRequest(ProtocolRequestBase requestInfo)
         {
             //解析并派发
-            ProtocolAnalysisService.AnalysisAndDispatchMessage(this, requestInfo);
+            //ProtocolAnalysisService.AnalysisAndDispatchMessage(this, requestInfo);
         }
     }
 }

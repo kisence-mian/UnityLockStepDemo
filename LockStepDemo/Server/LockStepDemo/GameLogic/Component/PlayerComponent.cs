@@ -3,10 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ComponentBase
+public class PlayerComponent :ComponentBase
 {
-    public virtual void Init()
-    {
-
-    }
+    
 }
