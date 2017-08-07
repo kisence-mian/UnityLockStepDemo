@@ -18,10 +18,22 @@ public class WorldManager
         }
     }
 
+    static int s_intervalTime = 200;
+    public static void Init(int intervalTime)
+    {
+        s_intervalTime = intervalTime;
+        ApplicationManager.s_OnApplicationUpdate += Update;
+    }
+
+    public static void Dispose()
+    {
+        ApplicationManager.s_OnApplicationUpdate -= Update;
+    }
+
     public static void CreateWorld<T>() where T : WorldBase, new()
     {
         T world = new T();
-        world.Init();
+        world.Init(true);
 
         s_worldList.Add(world);
     }
@@ -31,13 +43,44 @@ public class WorldManager
         s_worldList.Remove(world);
     }
 
+    static float s_lastUpdateTime = 0;
+    static float s_UpdateTimer = 0; //ms
     static void Update()
     {
-        for (int i = 0; i < WorldList.Count; i++)
+        s_UpdateTimer += Time.deltaTime * 1000; //换算成ms
+
+        UpdateWorld((int)(Time.deltaTime * 1000));
+
+        while (s_UpdateTimer > s_intervalTime)
+        {
+            FixedUpdateWorld(s_intervalTime);
+
+            s_UpdateTimer -= s_intervalTime;
+        }
+    }
+
+    static void FixedUpdateWorld(int deltaTime)
+    {
+        for (int i = 0; i < s_worldList.Count; i++)
         {
             try
             {
-                //WorldManager.WorldList[i].FixedLoop(deltaTime);
+                s_worldList[i].FixedLoop(deltaTime);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("FixedUpdateWorld Exception：" + e.ToString());
+            }
+        }
+    }
+
+    static void UpdateWorld(int deltaTime)
+    {
+        for (int i = 0; i < s_worldList.Count; i++)
+        {
+            try
+            {
+                s_worldList[i].Loop(deltaTime);
             }
             catch (Exception e)
             {

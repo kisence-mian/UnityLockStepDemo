@@ -1211,7 +1211,7 @@ namespace Protocol
     /// <summary>
     /// 模块名与模块消息编码
     /// </summary>
-    [AttributeUsage(AttributeTargets.Class)]
+    [AttributeUsage(AttributeTargets.Class| AttributeTargets.Interface)]
     public class ModuleAttribute : System.Attribute {
         public int MessageCode;
         public string ModuleName;

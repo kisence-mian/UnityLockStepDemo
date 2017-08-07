@@ -52,6 +52,9 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -67,6 +70,9 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
     </Reference>
@@ -79,6 +85,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\ApplicationStatus\TestStatus.cs" />
+    <Compile Include="Assets\Script\ClientLogic\Component\PerfabComponent.cs" />
+    <Compile Include="Assets\Script\ClientLogic\System\CreatePerfabSystem.cs" />
+    <Compile Include="Assets\Script\ClientLogic\System\InputSystem.cs" />
+    <Compile Include="Assets\Script\ClientLogic\System\MovePerfabSystem.cs" />
     <Compile Include="Assets\Script\Core\AnimSystem\AnimData.cs" />
     <Compile Include="Assets\Script\Core\AnimSystem\AnimSystem.cs" />
     <Compile Include="Assets\Script\Core\Application\ApplicationManager.cs" />
@@ -219,15 +229,33 @@
     <Compile Include="Assets\Script\Core\Utils\ResourceIOTool.cs" />
     <Compile Include="Assets\Script\Core\Utils\SystemInfoTool.cs" />
     <Compile Include="Assets\Script\Core\Utils\UGUITool.cs" />
+    <Compile Include="Assets\Script\GameLogic\Component\AssetComponent.cs" />
+    <Compile Include="Assets\Script\GameLogic\Component\CommandComponent.cs" />
+    <Compile Include="Assets\Script\GameLogic\Component\InputComponent.cs" />
+    <Compile Include="Assets\Script\GameLogic\Component\MoveComponent.cs" />
+    <Compile Include="Assets\Script\GameLogic\Component\PlayerComponent.cs" />
+    <Compile Include="Assets\Script\GameLogic\Component\SyncComponent.cs" />
+    <Compile Include="Assets\Script\GameLogic\Component\ViewComponent.cs" />
+    <Compile Include="Assets\Script\GameLogic\Component\WaitSyncComponent.cs" />
+    <Compile Include="Assets\Script\GameLogic\Module\GameSyncModule.cs" />
+    <Compile Include="Assets\Script\GameLogic\System\CountSystem.cs" />
+    <Compile Include="Assets\Script\GameLogic\System\InitSystem.cs" />
+    <Compile Include="Assets\Script\GameLogic\System\MoveSystem.cs" />
+    <Compile Include="Assets\Script\GameLogic\System\OperationSystem.cs" />
+    <Compile Include="Assets\Script\GameLogic\System\SyncSystem.cs" />
+    <Compile Include="Assets\Script\GameLogic\World\DemoWorld.cs" />
     <Compile Include="Assets\Script\ProtocolGenerate\ProtocolAnalysisService.cs" />
     <Compile Include="Assets\Script\ProtocolGenerate\ProtocolMessageClass.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\ComponentBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\EntityBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\InputCommandManager.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\MomentBase.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ECS\SyncComponentBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\SystemBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\TupleBase.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ECS\ViewSystemBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\WorldBase.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Message\SyncMessage.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>

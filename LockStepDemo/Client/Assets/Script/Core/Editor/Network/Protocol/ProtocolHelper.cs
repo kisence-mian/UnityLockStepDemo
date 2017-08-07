@@ -36,6 +36,7 @@ namespace FrameWork.Protocol
             string protocolList = GeneratePrototalList();
 
             Debug.Log(protocolContent);
+            Debug.Log(protocolList);
 
             string ProtocolSavePath = Application.dataPath + "/Resources/Network/" + ProtocolService.c_ProtocolFileName + ".txt";
             ResourceIOTool.WriteStringByFile(ProtocolSavePath, protocolContent);
@@ -152,7 +153,7 @@ namespace FrameWork.Protocol
                 string content = "repeated ";
                 Type type = field.FieldType.GetGenericArguments()[0];
 
-                content += GetTypeName(type) + " " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
+                content += GetTypeName(type).ToLower() + " " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
 
                 return content;
             }
@@ -366,9 +367,9 @@ namespace FrameWork.Protocol
                 {
                     output += GenerateProtocolClass(2, SendMode.Both, null, s_SubStruct[i], protocolInfo[s_SubStruct[i]], true);
                 }
-                catch
+                catch(Exception e)
                 {
-                    throw new Exception("s_SubStruct[i] ->" + s_SubStruct[i]);
+                    throw new Exception("s_SubStruct[i] ->" + s_SubStruct[i] + "\n" + e.ToString());
                 }
             }
             output += GetTab(1) + "#endregion \n";
@@ -636,7 +637,8 @@ namespace FrameWork.Protocol
 
             for (int i = 0; i < types.Length; i++)
             {
-                if (typeof(IProtocolStructInterface).IsAssignableFrom(types[i]))
+                if (typeof(IProtocolStructInterface).IsAssignableFrom(types[i])
+                    && types[i] != typeof(IProtocolStructInterface))
                 {
                     StructList.Add(types[i]);
                 }
