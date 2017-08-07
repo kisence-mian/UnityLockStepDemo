@@ -25,18 +25,24 @@ namespace LockStepDemo.ServiceLogic.System
         {
             List<EntityBase> list = GetEntityList();
 
-            Debug.Log("LateFixedUpdate >" + list.Count);
+            Debug.Log("LateFixedUpdate >" + list.Count + " start ");
 
             for (int i = 0; i < list.Count; i++)
             {
                 list[i].RemoveComp<WaitSyncComponent>();
+
+                Debug.Log("PushSyncEnity >" + i + " start ");
 
                 List<EntityBase> players = GetEntityList(new string[] { "ConnectionComponent" });
                 for (int j = 0; j < players.Count; j++)
                 {
                     PushSyncEnity(players[i].GetComp<ConnectionComponent>().m_session, list[i]);
                 }
+
+                Debug.Log("PushSyncEnity >" + i + " end ");
             }
+
+            Debug.Log("LateFixedUpdate >" + list.Count + " end ");
         }
 
         #region 推送数据
@@ -54,12 +60,11 @@ namespace LockStepDemo.ServiceLogic.System
                 Debug.Log("PUSH Data 2");
 
                 ComponentInfo info = new ComponentInfo();
-                info.m_compName = c.GetType().Name;
-                info.content = Serializer.Serialize(c);
+                info.m_compName = c.Value.GetType().Name;
+                info.content = Serializer.Serialize(c.Value);
                 msg.infos.Add(info);
 
-
-                Debug.Log("PUSH Data content: " + info.content);
+                Debug.Log("PUSH Data name:"+ info.m_compName + "content: " + info.content);
             }
 
             session.SendMsg(msg);

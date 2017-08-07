@@ -990,7 +990,7 @@ namespace FrameWork.Protocol
                 {
                     content += GetTab(tab) + "{\n";
 
-                    content += GetTab(tab + 1) + "List<" + typeTmp + "> list = new List<" + typeTmp + ">();\n";
+                    content += GetTab(tab + 1) + "List<object> list = new List<object>();\n";
                     content += GetTab(tab + 1) + "for(int i = 0;i <" + sourceName + "." + field.Name + ".Count ; i++)\n";
 
                     content += GetTab(tab + 1) + "{\n";

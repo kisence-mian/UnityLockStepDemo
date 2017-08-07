@@ -1,4 +1,5 @@
-﻿using Protocol;
+﻿using FrameWork;
+using Protocol;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -49,6 +50,7 @@ public class SyncSystem : SystemBase
     }
 
     #region 消息接收
+    Deserializer deserializer = new Deserializer();
 
     void ReceviceSyncEntity(SyncEntityMsg msg, params object[] objs)
     {
@@ -64,7 +66,9 @@ public class SyncSystem : SystemBase
 
         for (int i = 0; i < msg.infos.Count; i++)
         {
-            ComponentBase comp = (ComponentBase)JsonUtility.FromJson(msg.infos[i].content, Type.GetType(msg.infos[i].m_compName));
+            ComponentBase comp = (ComponentBase)deserializer.Deserialize(msg.infos[i].m_compName, msg.infos[i].content);
+
+            //ComponentBase comp = (ComponentBase)JsonUtility.FromJson(msg.infos[i].content, Type.GetType(msg.infos[i].m_compName));
 
             if (entity.GetExistComp(msg.infos[i].m_compName))
             {

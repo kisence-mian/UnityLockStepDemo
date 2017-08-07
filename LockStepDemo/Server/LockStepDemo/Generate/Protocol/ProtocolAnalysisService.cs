@@ -31,7 +31,7 @@ public static class ProtocolAnalysisService
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		data.Add("m_id", msg.m_id);
 		{
-			List<Dictionary<string, object>> list2 = new List<Dictionary<string, object>>();
+			List<object> list2 = new List<object>();
 			for(int i2 = 0;i2 <msg.infos.Count ; i2++)
 			{
 				Dictionary<string, object> data2 = new Dictionary<string, object>();
