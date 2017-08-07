@@ -78,7 +78,7 @@ namespace LockStepDemo
         }
     }
 
-        static int GetStringListLength(List<object> list)
+    static int GetStringListLength(List<object> list)
     {
         int len = 0;
         for (int i = 0; i < list.Count; i++)
@@ -90,15 +90,12 @@ namespace LockStepDemo
         return len;
     }
 
-        static List<List<byte>> m_arrayCache = new List<List<byte>>();
-        static int GetCustomListLength(string customType, List<object> list)
+    static int GetCustomListLength(string customType, List<object> list)
     {
-        m_arrayCache.Clear();
         int len = 0;
         for (int i = 0; i < list.Count; i++)
         {
             List<byte> bs = GetCustomTypeByte(customType, (Dictionary<string, object>)list[i]);
-            m_arrayCache.Add(bs);
             len = len + bs.Count + 4;
         }
         return len;
@@ -106,6 +103,8 @@ namespace LockStepDemo
 
         static List<byte> GetCustomTypeByte(string customType, Dictionary<string, object> data)
     {
+            Debug.Log("GetCustomTypeByte " + customType);
+
         string fieldName = null;
         int fieldType = 0;
         int repeatType = 0;
@@ -122,6 +121,8 @@ namespace LockStepDemo
             }
 
             List<Dictionary<string, object>> tableInfo = ProtocolData.ProtocolInfo[customType];
+
+                Debug.Log("GetCustomTypeByte tableInfo.Count " + tableInfo.Count);
 
             for (int i = 0; i < tableInfo.Count; i++)
             {
@@ -272,10 +273,22 @@ namespace LockStepDemo
                             //这里会修改m_arrayCatch的值，下面就可以直接使用
                             Bytes.WriteInt(GetCustomListLength(customType, tb));
 
-                            for (int j = 0; j < m_arrayCache.Count; j++)
+                            Debug.Log("Count--> " + tb.Count + " GetCustomListLength: " + GetCustomListLength(customType, tb));
+
+                            List<List<byte>> byteTmp = new List<List<byte>>();
+                            for (int j = 0; j < tb.Count; j++)
                             {
-                                List<byte> tempb = m_arrayCache[j];
-                                Bytes.WriteInt(tempb.Count);
+                                List<byte> bs = GetCustomTypeByte(customType, (Dictionary<string, object>)tb[j]);
+                                byteTmp.Add(bs);
+                            }
+
+                            for (int j = 0; j < byteTmp.Count; j++)
+                            {
+                                List<byte> tempb = byteTmp[j];
+
+                                    Debug.Log("tempb.Count " + tempb.Count);
+
+                                    Bytes.WriteInt(tempb.Count);
                                 Bytes.bytes.AddRange(tempb);
                             }
                         }

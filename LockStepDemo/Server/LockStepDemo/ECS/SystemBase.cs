@@ -121,15 +121,16 @@ public class SystemBase
 
     public List<EntityBase> GetEntityList(string[] compNames)
     {
+        List<EntityBase> list = new List<EntityBase>();
         for (int i = 0; i < m_world.m_entityList.Count; i++)
         {
             if (GetAllExistComp(compNames, m_world.m_entityList[i]))
             {
-                m_tupleList.Add(m_world.m_entityList[i]);
+                list.Add(m_world.m_entityList[i]);
             }
         }
 
-        return m_tupleList;
+        return list;
     }
 
     public List<EntityBase> GetEntityList(Type[] compNames)

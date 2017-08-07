@@ -790,6 +790,8 @@ public class ProtocolService : INetworkInterface
 
     private Dictionary<string, object> ReadDictionary(string dictName, ByteArray ba)
     {
+        Debug.Log("ReadDictionary " + dictName);
+
         int fieldType = 0;
         int repeatType = 0;
         string fieldName = null;
@@ -803,6 +805,7 @@ public class ProtocolService : INetworkInterface
 
             if (st_len == 0)
             {
+                Debug.Log("return");
                 return tbl;
             }
 
@@ -914,6 +917,8 @@ public class ProtocolService : INetworkInterface
 
         int len1 = ba.ReadUShort();
         ba.ReadUInt();
+
+        //Debug.Log("len1 " + len1 + " " + ba.ReadUInt());
 
         for (int i = 0; i < len1; i++)
         {
