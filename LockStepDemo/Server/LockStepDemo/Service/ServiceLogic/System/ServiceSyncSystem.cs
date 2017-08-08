@@ -14,6 +14,10 @@ namespace LockStepDemo.ServiceLogic.System
 {
     class ServiceSyncSystem : ServiceSystem
     {
+        public override void Init()
+        {   
+            
+        }
 
         public override Type[] GetFilter()
         {
@@ -61,6 +65,15 @@ namespace LockStepDemo.ServiceLogic.System
             session.SendMsg(msg);
         }
 
-    #endregion
+        #endregion
+
+        #region 接收数据
+
+        public void ReceviceClient(SyncSession session, ChangeComponentMsg msg)
+        {
+
+        }
+
+        #endregion
     }
 }

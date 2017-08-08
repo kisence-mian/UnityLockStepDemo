@@ -1,11 +1,6 @@
 ﻿using SuperSocket.SocketBase;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using SuperSocket.SocketBase.Config;
 using Protocol;
-using SuperSocket.SocketBase.Logging;
 using LockStepDemo.ServiceLogic;
 using LockStepDemo.GameLogic.Component;
 
@@ -43,7 +38,6 @@ namespace LockStepDemo.Service
         {
             Debug.Log("SyncService RegisterSession");
 
-
             return base.RegisterSession(sessionID, appSession);
         }
 
@@ -54,6 +48,7 @@ namespace LockStepDemo.Service
             base.OnSessionClosed(session, reason);
         }
 
+        int id = 0;
         protected override void OnNewSessionConnected(SyncSession session)
         {
             Debug.Log("SyncService OnNewSessionConnected");
@@ -62,6 +57,9 @@ namespace LockStepDemo.Service
 
             ConnectionComponent conn = new ConnectionComponent();
             conn.m_session = session;
+
+            session.m_gameWorld = m_world;
+
             PlayerComponent pc = new PlayerComponent();
             WaitSyncComponent ws = new WaitSyncComponent();
 
@@ -69,7 +67,7 @@ namespace LockStepDemo.Service
             AssetComponent ac = new AssetComponent();
             ac.m_assetName = "Cube";
 
-            EntityBase entity = m_world.CreateEntity(2);
+            EntityBase entity = m_world.CreateEntity(id++);
             entity.AddComp(conn);
             entity.AddComp(pc);
             entity.AddComp(ws);

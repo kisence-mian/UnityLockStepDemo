@@ -22,7 +22,6 @@ namespace Protocol
         public string content;
     }
 
-
     public class ChangeComponentMsg : EntitySyncModule
     {
         public int m_id;

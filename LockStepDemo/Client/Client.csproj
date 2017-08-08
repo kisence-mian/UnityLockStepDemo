@@ -250,7 +250,10 @@
     <Compile Include="Assets\Script\SyncFrameWork\ECS\TupleBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\ViewSystemBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\WorldBase.cs" />
-    <Compile Include="Assets\Script\SyncFrameWork\Message\SyncMessage.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Sync\Component\PlayerCommandBase.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Sync\Component\SelfComponent.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Sync\Message\SyncMessage.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Sync\System\CommandSyncSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>

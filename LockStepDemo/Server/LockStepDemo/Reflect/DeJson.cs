@@ -180,11 +180,18 @@ public class Deserializer {
         return (T)ConvertToType(o, typeof(T), null);
     }
 
-    /// <summary>
-    /// Registers a CustomCreator.
-    /// </summary>
-    /// <param name="creator">The creator to register</param>
-    public void RegisterCreator(CustomCreator creator) {
+    public object Deserialize(string typeName, string json)
+    {
+        object o = Json.Deserialize(json);
+        Type type = Type.GetType(typeName);
+        return ConvertToType(o, type, null);
+    }
+
+        /// <summary>
+        /// Registers a CustomCreator.
+        /// </summary>
+        /// <param name="creator">The creator to register</param>
+        public void RegisterCreator(CustomCreator creator) {
         System.Type t = creator.TypeToCreate();
         m_creators[t] = creator;
     }

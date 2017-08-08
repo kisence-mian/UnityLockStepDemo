@@ -7,7 +7,7 @@ public class InputSystem : ViewSystemBase
     public override Type[] GetFilter()
     {
         return new Type[] {
-            typeof(PlayerComponent),
+            typeof(SelfComponent),
             typeof(CommandComponent)
         };
     }
@@ -36,7 +36,6 @@ public class InputSystem : ViewSystemBase
         for (int i = 0; i < list.Count; i++)
         {
             CommandComponent command = list[i].GetComp<CommandComponent>();
-
             ProtocolAnalysisService.SendCommand(command);
         }
     }

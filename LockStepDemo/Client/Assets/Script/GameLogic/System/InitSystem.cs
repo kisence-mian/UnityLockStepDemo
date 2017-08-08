@@ -6,7 +6,7 @@ public class InitSystem : SystemBase
 {
     public override void Init()
     {
-        EntityBase entity =  m_world.CreateEntity(1);
+        EntityBase entity =  m_world.CreateEntity(1000);
 
         AssetComponent ass = new AssetComponent();
         ass.m_assetName = "Cube";

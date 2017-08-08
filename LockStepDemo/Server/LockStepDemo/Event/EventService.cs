@@ -1,4 +1,5 @@
 ﻿using LockStepDemo.Service;
+using Protocol;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Text;
 namespace LockStepDemo.Event
 {
     public delegate void EventHandle(params object[] args);
+    public delegate void MessageHandle(SyncSession session, ChangeComponentMsg e);
     public delegate void MessageHandle<T>(SyncSession session, T e);
     class EventService
     {
