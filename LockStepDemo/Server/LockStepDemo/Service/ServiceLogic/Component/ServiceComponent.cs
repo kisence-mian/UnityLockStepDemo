@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LockStepDemo.Service.ServiceLogic.Component
 {
-    abstract class ServiceComponent : ComponentBase
+    public abstract class ServiceComponent : ComponentBase
     {
 
     }

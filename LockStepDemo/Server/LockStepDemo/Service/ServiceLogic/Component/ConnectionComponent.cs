@@ -7,7 +7,7 @@ using System.Text;
 
 namespace LockStepDemo.ServiceLogic
 {
-    class ConnectionComponent : ServiceComponent
+    public class ConnectionComponent : ServiceComponent
     {
         public SyncSession m_session; 
     }
