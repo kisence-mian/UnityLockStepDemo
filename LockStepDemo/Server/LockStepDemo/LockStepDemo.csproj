@@ -115,6 +115,7 @@
     <Compile Include="Generate\Protocol\ProtocolMessageClass.cs" />
     <Compile Include="Reflect\DeJson.cs" />
     <Compile Include="Reflect\MiniJSON.cs" />
+    <Compile Include="Service\Game\GameMessageService.cs" />
     <Compile Include="Service\Message\SyncMessage.cs" />
     <Compile Include="Service\ServiceLogic\Component\ConnectionComponent.cs" />
     <Compile Include="Service\ServiceLogic\Component\ServiceComponent.cs" />
@@ -131,10 +132,6 @@
     <Compile Include="Protocol\ProtocolSendExpand.cs" />
     <Compile Include="Protocol\ProtocolTool.cs" />
     <Compile Include="Reflect\ReflectTool.cs" />
-    <Compile Include="Service\Player\Player.cs" />
-    <Compile Include="Service\Player\PlayerManger.cs" />
-    <Compile Include="Service\Room\Room.cs" />
-    <Compile Include="Service\Room\RoomManager.cs" />
     <Compile Include="Service\SyncService.cs" />
     <Compile Include="Service\SyncSession.cs" />
     <Compile Include="Service\Game\UpdateEngine.cs" />
