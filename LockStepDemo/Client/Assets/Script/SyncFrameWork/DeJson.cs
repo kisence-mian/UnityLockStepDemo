@@ -179,8 +179,9 @@ public class Deserializer {
         return (T)ConvertToType(o, typeof(T), null);
     }
 
-    public object Deserialize(string typeName, object o)
+    public object Deserialize(string typeName, string json)
     {
+        object o = Json.Deserialize(json);
         Type type = Type.GetType(typeName);
         return ConvertToType(o, type, null);
     }

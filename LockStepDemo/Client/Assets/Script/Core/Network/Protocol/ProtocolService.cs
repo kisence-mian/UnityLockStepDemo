@@ -1133,9 +1133,9 @@ public class ProtocolService : INetworkInterface
                 {
                     if (data.ContainsKey(fieldName))
                     {
+                        customType = (string)currentField["vp"];
                         if (repeatType == RT_equired)
                         {
-                            customType = (string)currentField["vp"];
                             Bytes.bytes.AddRange(GetSendByte(customType, (Dictionary<string, object>)data[fieldName]));
                         }
                         else

@@ -57,9 +57,9 @@ namespace LockStepDemo
         }
 
 
-        #region 发包
+    #region 发包
 
-        static List<byte> GetSendByte(string messageType, Dictionary<string, object> data)
+    static List<byte> GetSendByte(string messageType, Dictionary<string, object> data)
     {
         try
         {
@@ -102,213 +102,214 @@ namespace LockStepDemo
     }
 
         static List<byte> GetCustomTypeByte(string customType, Dictionary<string, object> data)
-    {
+        {
             Debug.Log("GetCustomTypeByte " + customType);
 
-        string fieldName = null;
-        int fieldType = 0;
-        int repeatType = 0;
+            string fieldName = null;
+            int fieldType = 0;
+            int repeatType = 0;
 
-        try
-        {
-            ByteArray Bytes = new ByteArray();
-            //ByteArray Bytes = new ByteArray();
-            Bytes.clear();
-
-            if (!ProtocolData.ProtocolInfo.ContainsKey(customType))
+            try
             {
-                throw new Exception("ProtocolInfo NOT Exist ->" + customType + "<-");
-            }
+                ByteArray Bytes = new ByteArray();
+                //ByteArray Bytes = new ByteArray();
+                Bytes.clear();
 
-            List<Dictionary<string, object>> tableInfo = ProtocolData.ProtocolInfo[customType];
+                if (!ProtocolData.ProtocolInfo.ContainsKey(customType))
+                {
+                    throw new Exception("ProtocolInfo NOT Exist ->" + customType + "<-");
+                }
 
+                List<Dictionary<string, object>> tableInfo = ProtocolData.ProtocolInfo[customType];
                 Debug.Log("GetCustomTypeByte tableInfo.Count " + tableInfo.Count);
 
-            for (int i = 0; i < tableInfo.Count; i++)
-            {
-                Dictionary<string, object> currentField = tableInfo[i];
-                fieldType = (int)currentField["type"];
-                fieldName = (string)currentField["name"];
-                repeatType = (int)currentField["spl"];
-
-                if (fieldType == TYPE_string)
+                for (int i = 0; i < tableInfo.Count; i++)
                 {
-                    if (data.ContainsKey(fieldName))
+                    Dictionary<string, object> currentField = tableInfo[i];
+                    fieldType = (int)currentField["type"];
+                    fieldName = (string)currentField["name"];
+                    repeatType = (int)currentField["spl"];
+
+                    if (fieldType == TYPE_string)
                     {
-                        if (repeatType == RT_equired)
+                        if (data.ContainsKey(fieldName))
                         {
-                            Bytes.WriteString((string)data[fieldName]);
+                            if (repeatType == RT_equired)
+                            {
+                                Bytes.WriteString((string)data[fieldName]);
+                            }
+                            else
+                            {
+                                List<object> list = (List<object>)data[fieldName];
+
+                                Bytes.WriteShort(list.Count);
+                                Bytes.WriteInt(GetStringListLength(list));
+                                for (int i2 = 0; i2 < list.Count; i2++)
+                                {
+                                    Bytes.WriteString((string)list[i2]);
+                                }
+                            }
                         }
                         else
                         {
-                            List<object> list = (List<object>)data[fieldName];
-
-                            Bytes.WriteShort(list.Count);
-                            Bytes.WriteInt(GetStringListLength(list));
-                            for (int i2 = 0; i2 < list.Count; i2++)
+                            Bytes.WriteShort(0);
+                        }
+                    }
+                    else if (fieldType == TYPE_bool)
+                    {
+                        if (data.ContainsKey(fieldName))
+                        {
+                            if (repeatType == RT_equired)
                             {
-                                Bytes.WriteString((string)list[i2]);
+                                Bytes.WriteBoolean((bool)data[fieldName]);
+                            }
+                            else
+                            {
+                                List<object> tb = (List<object>)data[fieldName];
+                                Bytes.WriteShort(tb.Count);
+                                Bytes.WriteInt(tb.Count);
+                                for (int i2 = 0; i2 < tb.Count; i2++)
+                                {
+                                    Bytes.WriteBoolean((bool)tb[i2]);
+                                }
+                            }
+                        }
+                    }
+                    else if (fieldType == TYPE_double)
+                    {
+                        if (data.ContainsKey(fieldName))
+                        {
+                            if (repeatType == RT_equired)
+                            {
+                                Bytes.WriteDouble((float)data[fieldName]);
+                            }
+                            else
+                            {
+                                List<object> tb = (List<object>)data[fieldName];
+                                Bytes.WriteShort(tb.Count);
+                                Bytes.WriteInt(tb.Count * 8);
+                                for (int j = 0; j < tb.Count; j++)
+                                {
+                                    Bytes.WriteDouble((float)tb[j]);
+                                }
+                            }
+                        }
+                    }
+                    else if (fieldType == TYPE_int32)
+                    {
+                        if (data.ContainsKey(fieldName))
+                        {
+                            if (repeatType == RT_equired)
+                            {
+                                Bytes.WriteInt(int.Parse(data[fieldName].ToString()));
+                            }
+                            else
+                            {
+                                List<object> tb = (List<object>)data[fieldName];
+                                Bytes.WriteShort(tb.Count);
+                                Bytes.WriteInt(tb.Count * 4);
+                                for (int i2 = 0; i2 < tb.Count; i2++)
+                                {
+                                    Bytes.WriteInt(int.Parse(tb[i2].ToString()));
+                                }
+                            }
+                        }
+                    }
+                    else if (fieldType == TYPE_int16)
+                    {
+                        if (data.ContainsKey(fieldName))
+                        {
+                            if (repeatType == RT_equired)
+                            {
+                                Bytes.WriteShort(int.Parse(data[fieldName].ToString()));
+                            }
+                            else
+                            {
+                                List<object> tb = (List<object>)data[fieldName];
+                                Bytes.WriteShort(tb.Count);
+                                Bytes.WriteInt(tb.Count * 2);
+                                for (int i2 = 0; i2 < tb.Count; i2++)
+                                {
+                                    Bytes.WriteShort(int.Parse(tb[i2].ToString()));
+                                }
+                            }
+                        }
+                    }
+                    else if (fieldType == TYPE_int8)
+                    {
+                        if (data.ContainsKey(fieldName))
+                        {
+                            if (repeatType == RT_equired)
+                            {
+                                Bytes.WriteInt8(int.Parse(data[fieldName].ToString()));
+                            }
+                            else
+                            {
+                                List<object> tb = (List<object>)data[fieldName];
+                                Bytes.WriteShort(tb.Count);
+                                Bytes.WriteInt(tb.Count);
+                                for (int i2 = 0; i2 < tb.Count; i2++)
+                                {
+                                    Bytes.WriteInt8(int.Parse(tb[i2].ToString()));
+                                }
                             }
                         }
                     }
                     else
                     {
-                        Bytes.WriteShort(0);
-                    }
-                }
-                else if (fieldType == TYPE_bool)
-                {
-                    if (data.ContainsKey(fieldName))
-                    {
-                        if (repeatType == RT_equired)
-                        {
-                            Bytes.WriteBoolean((bool)data[fieldName]);
-                        }
-                        else
-                        {
-                            List<object> tb = (List<object>)data[fieldName];
-                            Bytes.WriteShort(tb.Count);
-                            Bytes.WriteInt(tb.Count);
-                            for (int i2 = 0; i2 < tb.Count; i2++)
-                            {
-                                Bytes.WriteBoolean((bool)tb[i2]);
-                            }
-                        }
-                    }
-                }
-                else if (fieldType == TYPE_double)
-                {
-                    if (data.ContainsKey(fieldName))
-                    {
-                        if (repeatType == RT_equired)
-                        {
-                            Bytes.WriteDouble((float)data[fieldName]);
-                        }
-                        else
-                        {
-                            List<object> tb = (List<object>)data[fieldName];
-                            Bytes.WriteShort(tb.Count);
-                            Bytes.WriteInt(tb.Count * 8);
-                            for (int j = 0; j < tb.Count; j++)
-                            {
-                                Bytes.WriteDouble((float)tb[j]);
-                            }
-                        }
-                    }
-                }
-                else if (fieldType == TYPE_int32)
-                {
-                    if (data.ContainsKey(fieldName))
-                    {
-                        if (repeatType == RT_equired)
-                        {
-                            Bytes.WriteInt(int.Parse(data[fieldName].ToString()));
-                        }
-                        else
-                        {
-                            List<object> tb = (List<object>)data[fieldName];
-                            Bytes.WriteShort(tb.Count);
-                            Bytes.WriteInt(tb.Count * 4);
-                            for (int i2 = 0; i2 < tb.Count; i2++)
-                            {
-                                Bytes.WriteInt(int.Parse(tb[i2].ToString()));
-                            }
-                        }
-                    }
-                }
-                else if (fieldType == TYPE_int16)
-                {
-                    if (data.ContainsKey(fieldName))
-                    {
-                        if (repeatType == RT_equired)
-                        {
-                            Bytes.WriteShort(int.Parse(data[fieldName].ToString()));
-                        }
-                        else
-                        {
-                            List<object> tb = (List<object>)data[fieldName];
-                            Bytes.WriteShort(tb.Count);
-                            Bytes.WriteInt(tb.Count * 2);
-                            for (int i2 = 0; i2 < tb.Count; i2++)
-                            {
-                                Bytes.WriteShort(int.Parse(tb[i2].ToString()));
-                            }
-                        }
-                    }
-                }
-                else if (fieldType == TYPE_int8)
-                {
-                    if (data.ContainsKey(fieldName))
-                    {
-                        if (repeatType == RT_equired)
-                        {
-                            Bytes.WriteInt8(int.Parse(data[fieldName].ToString()));
-                        }
-                        else
-                        {
-                            List<object> tb = (List<object>)data[fieldName];
-                            Bytes.WriteShort(tb.Count);
-                            Bytes.WriteInt(tb.Count);
-                            for (int i2 = 0; i2 < tb.Count; i2++)
-                            {
-                                Bytes.WriteInt8(int.Parse(tb[i2].ToString()));
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    if (data.ContainsKey(fieldName))
-                    {
-                        if (repeatType == RT_equired)
+                        if (data.ContainsKey(fieldName))
                         {
                             customType = (string)currentField["vp"];
-                            Bytes.bytes.AddRange(GetSendByte(customType, (Dictionary<string, object>)data[fieldName]));
-                        }
-                        else
-                        {
-                            List<object> tb = (List<object>)data[fieldName];
 
-                            Bytes.WriteShort(tb.Count);
-                            //这里会修改m_arrayCatch的值，下面就可以直接使用
-                            Bytes.WriteInt(GetCustomListLength(customType, tb));
-
-                            Debug.Log("Count--> " + tb.Count + " GetCustomListLength: " + GetCustomListLength(customType, tb));
-
-                            List<List<byte>> byteTmp = new List<List<byte>>();
-                            for (int j = 0; j < tb.Count; j++)
+                            if (repeatType == RT_equired)
                             {
-                                List<byte> bs = GetCustomTypeByte(customType, (Dictionary<string, object>)tb[j]);
-                                byteTmp.Add(bs);
+
+                                Bytes.bytes.AddRange(GetSendByte(customType, (Dictionary<string, object>)data[fieldName]));
                             }
-
-                            for (int j = 0; j < byteTmp.Count; j++)
+                            else
                             {
-                                List<byte> tempb = byteTmp[j];
+                                List<object> tb = (List<object>)data[fieldName];
+
+                                Bytes.WriteShort(tb.Count);
+                                //这里会修改m_arrayCatch的值，下面就可以直接使用
+                                Bytes.WriteInt(GetCustomListLength(customType, tb));
+
+                                Debug.Log("Count--> " + tb.Count + " GetCustomListLength: " + GetCustomListLength(customType, tb));
+
+                                List<List<byte>> byteTmp = new List<List<byte>>();
+                                for (int j = 0; j < tb.Count; j++)
+                                {
+                                    List<byte> bs = GetCustomTypeByte(customType, (Dictionary<string, object>)tb[j]);
+                                    byteTmp.Add(bs);
+                                }
+
+                                for (int j = 0; j < byteTmp.Count; j++)
+                                {
+                                    List<byte> tempb = byteTmp[j];
 
                                     Debug.Log("tempb.Count " + tempb.Count);
 
                                     Bytes.WriteInt(tempb.Count);
-                                Bytes.bytes.AddRange(tempb);
+                                    Bytes.bytes.AddRange(tempb);
+                                }
                             }
                         }
                     }
                 }
+                return Bytes.bytes;
             }
-            return Bytes.bytes;
+            catch (Exception e)
+            {
+                throw new Exception(@"GetCustomTypeByte Excepiton CustomType is ->" + customType
+                   + "<-\nFieldName:->" + fieldName
+                   + "<-\nFieldType:->" + GetFieldType(fieldType)
+                   + "<-\nRepeatType:->" + GetRepeatType(repeatType)
+                   + "<-\nCustomType:->" + customType
+                   + "<-\n" + e.ToString());
+            }
         }
-        catch (Exception e)
-        {
-            throw new Exception(@"GetCustomTypeByte Excepiton CustomType is ->" + customType
-               + "<-\nFieldName:->" + fieldName
-               + "<-\nFieldType:->" + GetFieldType(fieldType)
-               + "<-\nRepeatType:->" + GetRepeatType(repeatType)
-               + "<-\nCustomType:->" + customType
-               + "<-\n" + e.ToString());
-        }
-    }
 
-        static string GetFieldType(int fieldType)
+    static string GetFieldType(int fieldType)
     {
         switch (fieldType)
         {
@@ -333,7 +334,7 @@ namespace LockStepDemo
         }
     }
 
-      static  int GetMethodIndex(string messageType)
+    static  int GetMethodIndex(string messageType)
         {
             try
             {

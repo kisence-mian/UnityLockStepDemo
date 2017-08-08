@@ -117,6 +117,7 @@
     <Compile Include="Reflect\MiniJSON.cs" />
     <Compile Include="Service\Message\SyncMessage.cs" />
     <Compile Include="Service\ServiceLogic\Component\ConnectionComponent.cs" />
+    <Compile Include="Service\ServiceLogic\Component\ServiceComponent.cs" />
     <Compile Include="Service\ServiceLogic\System\ConnectSystem.cs" />
     <Compile Include="Service\ServiceLogic\System\ServiceSyncSystem.cs" />
     <Compile Include="Service\Debug.cs" />

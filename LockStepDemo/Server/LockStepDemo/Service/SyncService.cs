@@ -65,10 +65,16 @@ namespace LockStepDemo.Service
             PlayerComponent pc = new PlayerComponent();
             WaitSyncComponent ws = new WaitSyncComponent();
 
+            ViewComponent vc = new ViewComponent();
+            AssetComponent ac = new AssetComponent();
+            ac.m_assetName = "Cube";
+
             EntityBase entity = m_world.CreateEntity(2);
             entity.AddComp(conn);
             entity.AddComp(pc);
             entity.AddComp(ws);
+            entity.AddComp(vc);
+            entity.AddComp(ac);
         }
     }
 }

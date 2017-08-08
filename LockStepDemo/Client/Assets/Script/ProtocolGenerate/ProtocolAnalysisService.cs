@@ -138,15 +138,6 @@ public class ProtocolAnalysisService
 			List<Dictionary<string, object>> data2 = (List<Dictionary<string, object>>)e.Data["infos"];
 			List<Protocol.ComponentInfo> list2 = new List<Protocol.ComponentInfo>();
 
-            Debug.Log(" data2.Count " + data2.Count);
-
-            foreach(var t in data2[0])
-            {
-                Debug.Log("k: " + t.Key + " value " + t.Value);
-            }
-
-            Debug.Log(" data2.Count end" + data2.Count);
-
             for (int i2 = 0; i2 < data2.Count; i2++)
 			{
 				Protocol.ComponentInfo tmp2 = new Protocol.ComponentInfo();

@@ -68,8 +68,6 @@ public class SyncSystem : SystemBase
         {
             ComponentBase comp = (ComponentBase)deserializer.Deserialize(msg.infos[i].m_compName, msg.infos[i].content);
 
-            //ComponentBase comp = (ComponentBase)JsonUtility.FromJson(msg.infos[i].content, Type.GetType(msg.infos[i].m_compName));
-
             if (entity.GetExistComp(msg.infos[i].m_compName))
             {
                 entity.ChangeComp(msg.infos[i].m_compName, comp);
@@ -84,28 +82,3 @@ public class SyncSystem : SystemBase
     }
     #endregion
 }
-
-//    void ReceviceCompChange(ChangeComponentMsg msg, params object[] objs)
-//    {
-//        EntityBase entity = m_world.GetEntity(msg.m_id);
-
-//        if(msg.m_operation != ChangeStatus.Remove)
-//        {
-//            ComponentBase comp = (ComponentBase)JsonUtility.FromJson(msg.info.content, Type.GetType(msg.info.m_compName));
-
-//            if(msg.m_operation == ChangeStatus.Add)
-//            {
-//                entity.AddComp(msg.info.m_compName, comp);
-//            }
-//            else
-//            {
-//                entity.ChangeComp(msg.info.m_compName, comp);
-//            }
-//        }
-//        else
-//        {
-//            entity.RemoveComp(msg.info.m_compName);
-//        }
-//    }
-
-//}
