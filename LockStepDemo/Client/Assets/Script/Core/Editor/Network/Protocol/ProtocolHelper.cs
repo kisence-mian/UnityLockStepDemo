@@ -157,10 +157,17 @@ namespace FrameWork.Protocol
 
                 return content;
             }
+            else if (field.FieldType == typeof(string))
+            {
+                return "required string " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
+            }
 
             else
             {
-                return "required string " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
+                string content = "required ";
+                content += GetTypeName(field.FieldType).ToLower() + " " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
+
+                return content;
             }
         }
 
@@ -1004,7 +1011,7 @@ namespace FrameWork.Protocol
                 {
                     content += GetTab(tab) + "{\n";
 
-                    content += GetTab(tab + 1) + "List<Dictionary<string, object>> list" + tab + " = new List<Dictionary<string, object>>();\n";
+                    content += GetTab(tab + 1) + "List<object> list" + tab + " = new List<object>();\n";
                     content += GetTab(tab + 1) + "for(int i" + tab + " = 0;i" + tab + " <" + sourceName + "." + field.Name + ".Count ; i" + tab + "++)\n";
 
                     content += GetTab(tab + 1) + "{\n";
@@ -1117,8 +1124,9 @@ namespace FrameWork.Protocol
                 else
                 {
                     content += GetTab(tab) + "{\n";
-                    content += GenerateAnalysisClassContent(tab + 1 , field.FieldType, "tmp" + tab + "", sourceName);
-                    
+                    content += GetTab(tab + 1) + "Dictionary<string, object> data" + tab + " = (Dictionary<string, object>)" + sourceName + "[\"" + GenerateProtocolFieldName(field) + "\"];\n";
+                    content += GenerateAnalysisClassContent(tab + 1, field.FieldType, "tmp" + tab + "", "data" + tab);
+
                     content += GetTab(tab + 1) + aimName + "." + field.Name + " = " + "tmp" + tab + ";\n";
 
                     content += GetTab(tab) + "}\n";

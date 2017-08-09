@@ -1132,7 +1132,10 @@ public class ProtocolService : INetworkInterface
                         customType = (string)currentField["vp"];
                         if (repeatType == RT_equired)
                         {
-                            Bytes.bytes.AddRange(GetSendByte(customType, (Dictionary<string, object>)data[fieldName]));
+                            List<byte> byteTmp = GetCustomTypeByte(customType, (Dictionary<string, object>)data[fieldName]);
+
+                            Bytes.WriteInt(byteTmp.Count);
+                            Bytes.bytes.AddRange(byteTmp);
                         }
                         else
                         {

@@ -103,8 +103,6 @@ namespace LockStepDemo
 
         static List<byte> GetCustomTypeByte(string customType, Dictionary<string, object> data)
         {
-            Debug.Log("GetCustomTypeByte " + customType);
-
             string fieldName = null;
             int fieldType = 0;
             int repeatType = 0;
@@ -121,7 +119,6 @@ namespace LockStepDemo
                 }
 
                 List<Dictionary<string, object>> tableInfo = ProtocolData.ProtocolInfo[customType];
-                Debug.Log("GetCustomTypeByte tableInfo.Count " + tableInfo.Count);
 
                 for (int i = 0; i < tableInfo.Count; i++)
                 {
@@ -263,8 +260,10 @@ namespace LockStepDemo
 
                             if (repeatType == RT_equired)
                             {
+                                List<byte> byteTmp = GetCustomTypeByte(customType, (Dictionary<string, object>)data[fieldName]);
 
-                                Bytes.bytes.AddRange(GetSendByte(customType, (Dictionary<string, object>)data[fieldName]));
+                                Bytes.WriteInt(byteTmp.Count);
+                                Bytes.bytes.AddRange(byteTmp);
                             }
                             else
                             {
@@ -273,8 +272,6 @@ namespace LockStepDemo
                                 Bytes.WriteShort(tb.Count);
                                 //这里会修改m_arrayCatch的值，下面就可以直接使用
                                 Bytes.WriteInt(GetCustomListLength(customType, tb));
-
-                                Debug.Log("Count--> " + tb.Count + " GetCustomListLength: " + GetCustomListLength(customType, tb));
 
                                 List<List<byte>> byteTmp = new List<List<byte>>();
                                 for (int j = 0; j < tb.Count; j++)
@@ -286,9 +283,6 @@ namespace LockStepDemo
                                 for (int j = 0; j < byteTmp.Count; j++)
                                 {
                                     List<byte> tempb = byteTmp[j];
-
-                                    Debug.Log("tempb.Count " + tempb.Count);
-
                                     Bytes.WriteInt(tempb.Count);
                                     Bytes.bytes.AddRange(tempb);
                                 }

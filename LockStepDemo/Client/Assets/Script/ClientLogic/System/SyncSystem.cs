@@ -76,8 +76,6 @@ public class SyncSystem : ViewSystemBase
             {
                 entity.AddComp(msg.infos[i].m_compName, comp);
             }
-
-            Debug.Log(msg.infos[i].m_compName);
         }
     }
     #endregion

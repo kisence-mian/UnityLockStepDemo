@@ -17,10 +17,7 @@ public class InputSystem : ViewSystemBase
 
     public override void BeforeUpdate(int deltaTime)
     {
-        Debug.Log("InputSystem BeforeUpdate");
-
         List<EntityBase> list = GetEntityList();
-
         for (int i = 0; i < list.Count; i++)
         {
             CommandComponent command = list[i].GetComp<CommandComponent>();
@@ -35,26 +32,24 @@ public class InputSystem : ViewSystemBase
             if(!list[i].GetExistComp<WaitSyncComponent>())
             {
                 list[i].AddComp<WaitSyncComponent>();
-
-                Debug.Log("InputSystem add");
             }
         }
     }
 
-    public override void BeforeFixedUpdate(int deltaTime)
-    {
-        List<EntityBase> list = GetEntityList();
+    //public override void BeforeFixedUpdate(int deltaTime)
+    //{
+    //    List<EntityBase> list = GetEntityList();
 
-        for (int i = 0; i < list.Count; i++)
-        {
-            ChangeComponentMsg msg = new ChangeComponentMsg();
-            CommandComponent command = list[i].GetComp<CommandComponent>();
+    //    for (int i = 0; i < list.Count; i++)
+    //    {
+    //        ChangeComponentMsg msg = new ChangeComponentMsg();
+    //        CommandComponent command = list[i].GetComp<CommandComponent>();
 
-            msg.m_id = list[i].ID;
-            msg.info.m_compName = "CommandComponent";
-            msg.info.content = Serializer.Serialize(command);
+    //        msg.m_id = list[i].ID;
+    //        msg.info.m_compName = "CommandComponent";
+    //        msg.info.content = Serializer.Serialize(command);
 
-            ProtocolAnalysisService.SendCommand(msg);
-        }
-    }
+    //        ProtocolAnalysisService.SendCommand(msg);
+    //    }
+    //}
 }

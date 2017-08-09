@@ -17,9 +17,11 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         };
     }
 
-    public override void LateFixedUpdate(int deltaTime)
+    public override void LateUpdate(int deltaTime)
     {
-        List<EntityBase> list = new List<EntityBase>();
+        List<EntityBase> list = GetEntityList();
+
+        Debug.Log("CommandSyncSystem LateUpdate " + list.Count);
 
         for (int i = 0; i < list.Count; i++)
         {
@@ -29,6 +31,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
 
             ChangeComponentMsg msg = new ChangeComponentMsg();
             msg.m_id = list[i].ID;
+            msg.info = new ComponentInfo();
             msg.info.m_compName = comp.GetType().Name;
             msg.info.content = Serializer.Serialize(comp);
 

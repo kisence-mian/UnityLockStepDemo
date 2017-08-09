@@ -3,6 +3,7 @@ using SuperSocket.SocketBase.Config;
 using Protocol;
 using LockStepDemo.ServiceLogic;
 using LockStepDemo.GameLogic.Component;
+using LockStepDemo.Service.Game;
 
 namespace LockStepDemo.Service
 {
@@ -27,6 +28,8 @@ namespace LockStepDemo.Service
         protected override void OnStarted()
         {
             Debug.Log("SyncService OnStarted");
+
+            GameMessageService.Init();
 
             m_world = WorldManager.CreateWorld<DemoWorld>();
             UpdateEngine.Init(updateInterval);

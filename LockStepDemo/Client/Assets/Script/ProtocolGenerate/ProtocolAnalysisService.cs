@@ -12,7 +12,6 @@ public class ProtocolAnalysisService
 	public static void Init()
 	{
 		InputManager.AddListener<InputNetworkMessageEvent>("waitsynccomponent",ReceviceWaitSyncComponent);
-		InputManager.AddListener<InputNetworkMessageEvent>("commandcomponent",ReceviceCommandComponent);
 		InputManager.AddListener<InputNetworkMessageEvent>("changecomponentmsg",ReceviceChangeComponentMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("syncentitymsg",ReceviceSyncEntityMsg);
 	}
@@ -20,7 +19,6 @@ public class ProtocolAnalysisService
 	public static void Dispose()
 	{
 		InputManager.RemoveListener<InputNetworkMessageEvent>("waitsynccomponent",ReceviceWaitSyncComponent);
-		InputManager.RemoveListener<InputNetworkMessageEvent>("commandcomponent",ReceviceCommandComponent);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("changecomponentmsg",ReceviceChangeComponentMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("syncentitymsg",ReceviceSyncEntityMsg);
 	}
@@ -29,10 +27,6 @@ public class ProtocolAnalysisService
 		if(cmd is LockStepDemo.GameLogic.Component.WaitSyncComponent )
 		{
 			SendWaitSyncComponent(cmd);
-		}
-		else if(cmd is CommandComponent )
-		{
-			SendCommandComponent(cmd);
 		}
 		else if(cmd is Protocol.ChangeComponentMsg )
 		{
@@ -52,17 +46,6 @@ public class ProtocolAnalysisService
 		LockStepDemo.GameLogic.Component.WaitSyncComponent e = (LockStepDemo.GameLogic.Component.WaitSyncComponent)msg;
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		NetworkManager.SendMessage("waitsynccomponent",data);
-	}
-	static void SendCommandComponent(IProtocolMessageInterface msg)
-	{
-		CommandComponent e = (CommandComponent)msg;
-		Dictionary<string, object> data = new Dictionary<string, object>();
-		data.Add("isforward", e.isForward);
-		data.Add("isback", e.isBack);
-		data.Add("isright", e.isRight);
-		data.Add("isleft", e.isLeft);
-		data.Add("isfire", e.isFire);
-		NetworkManager.SendMessage("commandcomponent",data);
 	}
 	static void SendChangeComponentMsg(IProtocolMessageInterface msg)
 	{
@@ -105,17 +88,6 @@ public class ProtocolAnalysisService
 		
 		GlobalEvent.DispatchTypeEvent(msg);
 	}
-	static void ReceviceCommandComponent(InputNetworkMessageEvent e)
-	{
-		CommandComponent msg = new CommandComponent();
-		msg.isForward = (bool)e.Data["isforward"];
-		msg.isBack = (bool)e.Data["isback"];
-		msg.isRight = (bool)e.Data["isright"];
-		msg.isLeft = (bool)e.Data["isleft"];
-		msg.isFire = (bool)e.Data["isfire"];
-		
-		GlobalEvent.DispatchTypeEvent(msg);
-	}
 	static void ReceviceChangeComponentMsg(InputNetworkMessageEvent e)
 	{
 		Protocol.ChangeComponentMsg msg = new Protocol.ChangeComponentMsg();
@@ -137,8 +109,7 @@ public class ProtocolAnalysisService
 		{
 			List<Dictionary<string, object>> data2 = (List<Dictionary<string, object>>)e.Data["infos"];
 			List<Protocol.ComponentInfo> list2 = new List<Protocol.ComponentInfo>();
-
-            for (int i2 = 0; i2 < data2.Count; i2++)
+			for (int i2 = 0; i2 < data2.Count; i2++)
 			{
 				Protocol.ComponentInfo tmp2 = new Protocol.ComponentInfo();
 				tmp2.m_compName = data2[i2]["m_compname"].ToString();

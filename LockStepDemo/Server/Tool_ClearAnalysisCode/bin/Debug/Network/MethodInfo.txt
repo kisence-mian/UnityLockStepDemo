@@ -1,2 +1,6 @@
 1,GameSync
-101,commandcomponent
+101,waitsynccomponent
+
+2,EntitySyncModule
+201,changecomponentmsg
+202,syncentitymsg

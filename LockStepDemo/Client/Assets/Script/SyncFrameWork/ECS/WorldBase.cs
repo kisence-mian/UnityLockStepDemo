@@ -73,22 +73,6 @@ public class WorldBase
 
     #region Update
 
-    void BeforeUpdate(int deltaTime)
-    {
-        for (int i = 0; i < m_viewSystemList.Count; i++)
-        {
-            m_viewSystemList[i].BeforeUpdate(deltaTime);
-        }
-    }
-
-    void BeforeFixedUpdate(int deltaTime)
-    {
-        for (int i = 0; i < m_systemList.Count; i++)
-        {
-            m_systemList[i].BeforeFixedUpdate(deltaTime);
-        }
-    }
-
     /// <summary>
     /// 服务器不执行Loop
     /// </summary>
@@ -104,6 +88,22 @@ public class WorldBase
         BeforeFixedUpdate(deltaTime);
         FixedUpdate(deltaTime);
         LateFixedUpdate(deltaTime);
+    }
+
+    void BeforeUpdate(int deltaTime)
+    {
+        for (int i = 0; i < m_viewSystemList.Count; i++)
+        {
+            m_viewSystemList[i].BeforeUpdate(deltaTime);
+        }
+    }
+
+    void BeforeFixedUpdate(int deltaTime)
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].BeforeFixedUpdate(deltaTime);
+        }
     }
 
     // Update is called once per frame

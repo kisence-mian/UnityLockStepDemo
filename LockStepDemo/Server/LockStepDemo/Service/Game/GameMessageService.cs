@@ -30,7 +30,10 @@ namespace LockStepDemo.Service.Game
             if (commandComp != null)
             {
                 Type type = Type.GetType(msg.info.m_compName);
-                if(type!= null && type.IsSubclassOf(typeof(PlayerCommandBase)))
+
+                Debug.Log("ReceviceSyncMsg  " + msg.info.m_compName + " --->"+ type.FullName + " "+ type.IsSubclassOf(typeof(PlayerCommandBase)));
+
+                if (type!= null)
                 {
                     PlayerCommandBase comp = (PlayerCommandBase)deserializer.Deserialize(msg.info.m_compName, msg.info.content);
                     commandComp.m_commandList.Add(comp);

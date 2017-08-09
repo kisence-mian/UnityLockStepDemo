@@ -107,7 +107,6 @@ public class SystemBase
     public List<EntityBase> GetEntityList()
     {
         m_tupleList.Clear();
-
         for (int i = 0; i < m_world.m_entityList.Count; i++)
         {
             if (GetAllExistComp(Filter, m_world.m_entityList[i]))
