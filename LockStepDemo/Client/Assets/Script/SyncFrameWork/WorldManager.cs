@@ -36,6 +36,8 @@ public class WorldManager
         world.Init(true);
 
         s_worldList.Add(world);
+
+        GameDataMonitor.PushData("world", world);
     }
 
     public static void DestroyWorld(WorldBase world)

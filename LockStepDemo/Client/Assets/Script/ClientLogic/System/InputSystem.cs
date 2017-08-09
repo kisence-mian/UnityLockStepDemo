@@ -35,21 +35,4 @@ public class InputSystem : ViewSystemBase
             }
         }
     }
-
-    //public override void BeforeFixedUpdate(int deltaTime)
-    //{
-    //    List<EntityBase> list = GetEntityList();
-
-    //    for (int i = 0; i < list.Count; i++)
-    //    {
-    //        ChangeComponentMsg msg = new ChangeComponentMsg();
-    //        CommandComponent command = list[i].GetComp<CommandComponent>();
-
-    //        msg.m_id = list[i].ID;
-    //        msg.info.m_compName = "CommandComponent";
-    //        msg.info.content = Serializer.Serialize(command);
-
-    //        ProtocolAnalysisService.SendCommand(msg);
-    //    }
-    //}
 }

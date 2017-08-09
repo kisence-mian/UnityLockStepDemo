@@ -1,4 +1,5 @@
-﻿using LockStepDemo.ServiceLogic.System;
+﻿using LockStepDemo.Service.ServiceLogic.System;
+using LockStepDemo.ServiceLogic.System;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +16,8 @@ class DemoWorld : WorldBase
             typeof(MoveSystem),
             typeof(OperationSystem),
 
-            typeof(ServiceSyncSystem)
+            typeof(ServiceSyncSystem),
+            typeof(PlayerInputSystem<CommandComponent>)
         };
     }
 }

@@ -24,21 +24,17 @@ namespace LockStepDemo.Service.Game
         static Deserializer deserializer = new Deserializer();
         static void ReceviceSyncMsg(SyncSession session, ChangeComponentMsg msg)
         {
-            Debug.Log("ReceviceSyncMsg 1");
-
             ConnectionComponent commandComp = session.m_connect;
             if (commandComp != null)
             {
                 Type type = Type.GetType(msg.info.m_compName);
-
-                Debug.Log("ReceviceSyncMsg  " + msg.info.m_compName + " --->"+ type.FullName + " "+ type.IsSubclassOf(typeof(PlayerCommandBase)));
 
                 if (type!= null)
                 {
                     PlayerCommandBase comp = (PlayerCommandBase)deserializer.Deserialize(msg.info.m_compName, msg.info.content);
                     commandComp.m_commandList.Add(comp);
 
-                    Debug.Log("ReceviceSyncMsg");
+                    Debug.Log(msg.info.content);
                 }
             }
             else

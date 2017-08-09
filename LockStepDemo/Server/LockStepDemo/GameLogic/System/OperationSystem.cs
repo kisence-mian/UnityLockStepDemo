@@ -25,6 +25,8 @@ public class OperationSystem : SystemBase
 
             if(com.isForward)
             {
+                Debug.Log("com.isForward");
+
                 move.m_velocity = 1;
             }
 

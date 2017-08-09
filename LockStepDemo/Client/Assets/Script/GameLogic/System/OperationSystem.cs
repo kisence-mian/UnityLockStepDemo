@@ -18,6 +18,8 @@ public class OperationSystem : SystemBase
     {
         List<EntityBase> list = GetEntityList();
 
+        Debug.Log("FixedUpdate " + list.Count);
+
         for (int i = 0; i < list.Count; i++)
         {
             CommandComponent com = list[i].GetComp<CommandComponent>();
@@ -25,6 +27,8 @@ public class OperationSystem : SystemBase
 
             if(com.isForward)
             {
+                Debug.Log("com.isForward ");
+
                 move.m_velocity = 1;
             }
 

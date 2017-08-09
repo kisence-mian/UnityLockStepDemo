@@ -116,6 +116,7 @@
     <Compile Include="Reflect\DeJson.cs" />
     <Compile Include="Reflect\MiniJSON.cs" />
     <Compile Include="Service\Game\GameMessageService.cs" />
+    <Compile Include="Service\ServiceLogic\System\PlayerInputSystem.cs" />
     <Compile Include="Service\Sync\Component\PlayerCommandBase.cs" />
     <Compile Include="Service\Sync\Component\SelfComponent.cs" />
     <Compile Include="Service\Sync\Message\SyncMessage.cs" />

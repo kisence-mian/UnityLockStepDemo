@@ -70,6 +70,7 @@ namespace LockStepDemo.Service
             ViewComponent vc = new ViewComponent();
             AssetComponent ac = new AssetComponent();
             SelfComponent sc = new SelfComponent();
+            MoveComponent mc = new MoveComponent();
             ac.m_assetName = "Cube";
 
             EntityBase entity = m_world.CreateEntity(id++);
@@ -80,6 +81,7 @@ namespace LockStepDemo.Service
             entity.AddComp(ac);
             entity.AddComp(cc);
             entity.AddComp(sc);
+            entity.AddComp(mc);
         }
     }
 }
