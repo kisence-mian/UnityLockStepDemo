@@ -58,13 +58,15 @@ namespace LockStepDemo.Service
             ConnectionComponent conn = new ConnectionComponent();
             conn.m_session = session;
 
-            session.m_gameWorld = m_world;
+            session.m_connect = conn;
 
             PlayerComponent pc = new PlayerComponent();
+            CommandComponent cc = new CommandComponent();
             WaitSyncComponent ws = new WaitSyncComponent();
 
             ViewComponent vc = new ViewComponent();
             AssetComponent ac = new AssetComponent();
+            SelfComponent sc = new SelfComponent();
             ac.m_assetName = "Cube";
 
             EntityBase entity = m_world.CreateEntity(id++);
@@ -73,6 +75,8 @@ namespace LockStepDemo.Service
             entity.AddComp(ws);
             entity.AddComp(vc);
             entity.AddComp(ac);
+            entity.AddComp(cc);
+            entity.AddComp(sc);
         }
     }
 }

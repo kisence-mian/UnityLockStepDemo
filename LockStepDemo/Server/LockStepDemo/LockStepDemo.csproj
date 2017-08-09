@@ -116,11 +116,13 @@
     <Compile Include="Reflect\DeJson.cs" />
     <Compile Include="Reflect\MiniJSON.cs" />
     <Compile Include="Service\Game\GameMessageService.cs" />
-    <Compile Include="Service\Message\SyncMessage.cs" />
+    <Compile Include="Service\Sync\Component\PlayerCommandBase.cs" />
+    <Compile Include="Service\Sync\Component\SelfComponent.cs" />
+    <Compile Include="Service\Sync\Message\SyncMessage.cs" />
     <Compile Include="Service\ServiceLogic\Component\ConnectionComponent.cs" />
     <Compile Include="Service\ServiceLogic\Component\ServiceComponent.cs" />
     <Compile Include="Service\ServiceLogic\System\ConnectSystem.cs" />
-    <Compile Include="Service\ServiceLogic\System\ServiceSyncSystem.cs" />
+    <Compile Include="Service\Sync\System\ServiceSyncSystem.cs" />
     <Compile Include="Service\Debug.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

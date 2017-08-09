@@ -9,6 +9,8 @@ namespace LockStepDemo.ServiceLogic
 {
     public class ConnectionComponent : ServiceComponent
     {
-        public SyncSession m_session; 
+        public SyncSession m_session;
+
+        public List<PlayerCommandBase> m_commandList = new List<PlayerCommandBase>();
     }
 }

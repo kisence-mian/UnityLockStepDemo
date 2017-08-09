@@ -251,8 +251,6 @@ public class ProtocolService : INetworkInterface
         WriteBytes(bytes, length);
         int i = 0;
 
-        Debug.Log("SpiltMessage " + length);
-
         while (GetBufferLength() != 0 && ReadLength() <= GetBufferLength())
         {
             ReceiveDataLoad(ReadByte(ReadLength()));
@@ -790,8 +788,6 @@ public class ProtocolService : INetworkInterface
 
     private Dictionary<string, object> ReadDictionary(string dictName, ByteArray ba)
     {
-        Debug.Log("ReadDictionary " + dictName);
-
         int fieldType = 0;
         int repeatType = 0;
         string fieldName = null;

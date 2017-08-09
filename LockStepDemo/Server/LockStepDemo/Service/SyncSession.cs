@@ -7,8 +7,8 @@ namespace LockStepDemo.Service
 {
     public class SyncSession : AppSession<SyncSession, ProtocolRequestBase>
     {
-        public WorldBase m_gameWorld;
-        //public ConnectionComponent m_connect;
+        //public WorldBase m_gameWorld;
+        public ConnectionComponent m_connect;
 
         protected override void OnSessionStarted()
         {

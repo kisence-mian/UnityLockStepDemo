@@ -83,6 +83,7 @@
     <Compile Include="Assets\Script\ClientLogic\System\CreatePerfabSystem.cs" />
     <Compile Include="Assets\Script\ClientLogic\System\InputSystem.cs" />
     <Compile Include="Assets\Script\ClientLogic\System\MovePerfabSystem.cs" />
+    <Compile Include="Assets\Script\ClientLogic\System\SyncSystem.cs" />
     <Compile Include="Assets\Script\Core\AnimSystem\AnimData.cs" />
     <Compile Include="Assets\Script\Core\AnimSystem\AnimSystem.cs" />
     <Compile Include="Assets\Script\Core\Application\ApplicationManager.cs" />
@@ -236,7 +237,6 @@
     <Compile Include="Assets\Script\GameLogic\System\InitSystem.cs" />
     <Compile Include="Assets\Script\GameLogic\System\MoveSystem.cs" />
     <Compile Include="Assets\Script\GameLogic\System\OperationSystem.cs" />
-    <Compile Include="Assets\Script\GameLogic\System\SyncSystem.cs" />
     <Compile Include="Assets\Script\GameLogic\World\DemoWorld.cs" />
     <Compile Include="Assets\Script\ProtocolGenerate\ProtocolAnalysisService.cs" />
     <Compile Include="Assets\Script\ProtocolGenerate\ProtocolMessageClass.cs" />

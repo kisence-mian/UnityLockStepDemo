@@ -66,14 +66,5 @@ namespace LockStepDemo.ServiceLogic.System
         }
 
         #endregion
-
-        #region 接收数据
-
-        public void ReceviceClient(SyncSession session, ChangeComponentMsg msg)
-        {
-
-        }
-
-        #endregion
     }
 }

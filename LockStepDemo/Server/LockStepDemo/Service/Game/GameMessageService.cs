@@ -1,5 +1,6 @@
 ﻿using DeJson;
 using LockStepDemo.Event;
+using LockStepDemo.ServiceLogic;
 using Protocol;
 using System;
 using System.Collections.Generic;
@@ -23,13 +24,18 @@ namespace LockStepDemo.Service.Game
         static Deserializer deserializer = new Deserializer();
         static void ReceviceSyncMsg(SyncSession session, ChangeComponentMsg msg)
         {
-            WorldBase world = session.m_gameWorld;
-            if (world != null)
+            Debug.Log("ReceviceSyncMsg 1");
+
+            ConnectionComponent commandComp = session.m_connect;
+            if (commandComp != null)
             {
                 Type type = Type.GetType(msg.info.m_compName);
                 if(type!= null && type.IsSubclassOf(typeof(PlayerCommandBase)))
                 {
-                    ComponentBase comp = (ComponentBase)deserializer.Deserialize(msg.info.m_compName, msg.info.content);
+                    PlayerCommandBase comp = (PlayerCommandBase)deserializer.Deserialize(msg.info.m_compName, msg.info.content);
+                    commandComp.m_commandList.Add(comp);
+
+                    Debug.Log("ReceviceSyncMsg");
                 }
             }
             else

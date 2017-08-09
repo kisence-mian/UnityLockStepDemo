@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class CommandComponent : SyncComponentBase
+public class CommandComponent : PlayerComponent
 {
     public bool isForward;
     public bool isBack;

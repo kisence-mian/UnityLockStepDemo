@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SelfComponent : ComponentBase
+public class PlayerCommandBase : ComponentBase
 {
 
 }

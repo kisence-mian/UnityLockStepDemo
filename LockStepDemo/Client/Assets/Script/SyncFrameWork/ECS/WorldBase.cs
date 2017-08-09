@@ -64,7 +64,7 @@ public class WorldBase
         }
         catch(Exception e)
         {
-            Debug.Log("WorldBase Init Exception:" + e.ToString());
+            Debug.LogError("WorldBase Init Exception:" + e.ToString());
         }
 
     }

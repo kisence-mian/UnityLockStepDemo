@@ -9,7 +9,6 @@ class DemoWorld : WorldBase
     {
         return new Type[] {
             typeof(InitSystem),
-            typeof(SyncSystem),
             typeof(CountSystem),
             typeof(MoveSystem),
             typeof(OperationSystem)
@@ -21,7 +20,9 @@ class DemoWorld : WorldBase
         return new Type[] {
             typeof(CreatePerfabSystem),
             typeof(MovePerfabSystem),
-            typeof(InputSystem)
+            typeof(InputSystem),
+            typeof(CommandSyncSystem<CommandComponent>),
+            typeof(SyncSystem),
         };
     }
 }

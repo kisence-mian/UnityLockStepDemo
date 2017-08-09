@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SyncSystem : SystemBase
+public class SyncSystem : ViewSystemBase
 {
     public override void Init()
     {
@@ -76,9 +76,9 @@ public class SyncSystem : SystemBase
             {
                 entity.AddComp(msg.infos[i].m_compName, comp);
             }
-        }
 
-        Debug.Log("ReceviceSyncEntity");
+            Debug.Log(msg.infos[i].m_compName);
+        }
     }
     #endregion
 }
