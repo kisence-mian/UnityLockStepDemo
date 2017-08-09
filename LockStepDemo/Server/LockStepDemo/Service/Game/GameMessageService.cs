@@ -33,8 +33,6 @@ namespace LockStepDemo.Service.Game
                 {
                     PlayerCommandBase comp = (PlayerCommandBase)deserializer.Deserialize(msg.info.m_compName, msg.info.content);
                     commandComp.m_commandList.Add(comp);
-
-                    Debug.Log(msg.info.content);
                 }
             }
             else

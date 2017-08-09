@@ -6,13 +6,12 @@ using UnityEngine;
 public class WorldBase
 {
     public List<SystemBase> m_systemList = new List<SystemBase>();                     //世界里所有的System集合
-    public List<ViewSystemBase> m_viewSystemList = new List<ViewSystemBase>();         //世界里所有的View System集合
     public Dictionary<int,EntityBase> m_entityDict = new Dictionary<int,EntityBase>(); //世界里所有的entity集合
     public List<EntityBase> m_entityList = new List<EntityBase>();                     //世界里所有的entity列表
 
     Stack<EntityBase> m_entitiesPool = new Stack<EntityBase>();  //TODO: 实体对象池
 
-    public event EntityChangedCallBack OnEntityCreated;
+    public event EntityChangedCallBack OnEntityCreated; 
     public event EntityChangedCallBack OnEntityWillBeDestroyed;
     public event EntityChangedCallBack OnEntityDestroyed;
 
@@ -56,7 +55,7 @@ public class WorldBase
                 for (int i = 0; i < types.Length; i++)
                 {
                     ViewSystemBase tmp = (ViewSystemBase)types[i].Assembly.CreateInstance(types[i].FullName);
-                    m_viewSystemList.Add(tmp);
+                    m_systemList.Add(tmp);
                     tmp.m_world = this;
                     tmp.Init();
                 }
@@ -92,9 +91,9 @@ public class WorldBase
 
     void BeforeUpdate(int deltaTime)
     {
-        for (int i = 0; i < m_viewSystemList.Count; i++)
+        for (int i = 0; i < m_systemList.Count; i++)
         {
-            m_viewSystemList[i].BeforeUpdate(deltaTime);
+            m_systemList[i].BeforeUpdate(deltaTime);
         }
     }
 
@@ -109,17 +108,17 @@ public class WorldBase
     // Update is called once per frame
     void Update (int deltaTime)
     {
-        for (int i = 0; i < m_viewSystemList.Count; i++)
+        for (int i = 0; i < m_systemList.Count; i++)
         {
-            m_viewSystemList[i].Update(deltaTime);
+            m_systemList[i].Update(deltaTime);
         }
 	}
 
     void LateUpdate(int deltaTime)
     {
-        for (int i = 0; i < m_viewSystemList.Count; i++)
+        for (int i = 0; i < m_systemList.Count; i++)
         {
-            m_viewSystemList[i].LateUpdate(deltaTime);
+            m_systemList[i].LateUpdate(deltaTime);
         }
     }
 

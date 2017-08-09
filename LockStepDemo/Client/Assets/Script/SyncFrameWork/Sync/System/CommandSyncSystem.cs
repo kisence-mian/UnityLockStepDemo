@@ -17,7 +17,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         };
     }
 
-    public override void LateUpdate(int deltaTime)
+    public override void LateFixedUpdate(int deltaTime)
     {
         List<EntityBase> list = GetEntityList();
 
@@ -34,8 +34,6 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
             msg.info.content = Serializer.Serialize(comp);
 
             ProtocolAnalysisService.SendCommand(msg);
-
-            Debug.Log("Send 123");
         }
     }
 }

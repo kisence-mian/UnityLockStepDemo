@@ -22,7 +22,7 @@ namespace LockStepDemo.ServiceLogic.System
         public override Type[] GetFilter()
         {
             return new Type[] {
-                typeof(WaitSyncComponent)
+                typeof(SyncComponent)
             };
         }
 
@@ -32,20 +32,28 @@ namespace LockStepDemo.ServiceLogic.System
 
             for (int i = 0; i < list.Count; i++)
             {
-                list[i].RemoveComp<WaitSyncComponent>();
-
-                List<EntityBase> players = GetEntityList(new string[] { "ConnectionComponent" });
-                for (int j = 0; j < players.Count; j++)
-                {
-                    PushSyncEnity(players[i].GetComp<ConnectionComponent>().m_session, list[i]);
-                }
+                PushSyncEnity(list[i].GetComp<SyncComponent>(), list[i]);
             }
         }
 
         #region 推送数据
 
+        public void PushSyncEnity(SyncComponent connectionComp, EntityBase entity)
+        {
+            for (int i = 0; i < connectionComp.m_waitSyncList.Count; i++)
+            {
+                PushSyncEnity(connectionComp.m_waitSyncList[i].m_session, entity);
+            }
+            connectionComp.m_waitSyncList.Clear();
+        }
+
         public void PushSyncEnity(SyncSession session, EntityBase entity)
         {
+            if(!session.Connected)
+            {
+                return;
+            }
+
             SyncEntityMsg msg = new SyncEntityMsg();
             msg.m_id = entity.ID;
             msg.infos = new List<ComponentInfo>();

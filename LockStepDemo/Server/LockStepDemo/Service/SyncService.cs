@@ -82,6 +82,8 @@ namespace LockStepDemo.Service
             entity.AddComp(cc);
             entity.AddComp(sc);
             entity.AddComp(mc);
+
+            Debug.Log("new entity " + id);
         }
     }
 }

@@ -31,6 +31,8 @@ public class SystemBase
     #endregion
 
     #region 重载方法
+
+    #region 生命周期
     // Use this for initialization
     public virtual void Init ()
     {
@@ -42,9 +44,44 @@ public class SystemBase
 
     }
 
+    #endregion
+
+    #region 过滤器
+
     public virtual Type[] GetFilter()
     {
         return new Type[0];
+    }
+
+    #endregion
+
+    #region Update
+
+    /// <summary>
+    /// 服务器不执行
+    /// </summary>
+    /// <param name="deltaTime"></param>
+    public virtual void BeforeUpdate(int deltaTime)
+    {
+
+    }
+
+    /// <summary>
+    /// 服务器不执行
+    /// </summary>
+    /// <param name="deltaTime"></param>
+    public virtual void Update(int deltaTime)
+    {
+
+    }
+
+    /// <summary>
+    /// 服务器不执行
+    /// </summary>
+    /// <param name="deltaTime"></param>
+    public virtual void LateUpdate(int deltaTime)
+    {
+
     }
 
     public virtual void BeforeFixedUpdate(int deltaTime)
@@ -61,6 +98,10 @@ public class SystemBase
     {
 
     }
+
+    #endregion
+
+    #region 事件回调
 
     public virtual void OnEntityCreate(EntityBase entity)
     {
@@ -86,6 +127,7 @@ public class SystemBase
     {
 
     }
+    #endregion
 
     #endregion
 

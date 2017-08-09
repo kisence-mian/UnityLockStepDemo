@@ -19,6 +19,8 @@ public class MoveSystem : SystemBase
         comp.m_posx += comp.m_dirx * deltaTime * comp.m_velocity;
         comp.m_posy += comp.m_diry * deltaTime * comp.m_velocity;
         comp.m_posz += comp.m_dirz * deltaTime * comp.m_velocity;
+
+        Debug.Log("comp.m_posx " + comp.m_posx + " deltaTime " + deltaTime + "comp.m_velocity " + comp.m_velocity + "comp.m_dirx " + comp.m_dirx);
     }
 
 
