@@ -61,10 +61,30 @@ namespace LockStepDemo.ServiceLogic.System
 
         public override void OnEntityDestroy(EntityBase entity)
         {
+            Debug.Log("OnEntityDestroy");
+
             if (entity.GetExistComp<SyncComponent>())
             {
-                PushDestroyEntity(entity.GetComp<SyncComponent>(), entity);
+                Debug.Log("PushDestroyEntity 1");
+                SyncComponent sc = entity.GetComp<SyncComponent>();
+                SetAllSync(sc);
+                PushDestroyEntity(sc, entity);
             }
+        }
+
+        public void SetAllSync(SyncComponent connectionComp)
+        {
+            List<EntityBase> list = GetEntityList(new string[] { "ConnectionComponent"});
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                ConnectionComponent comp = list[i].GetComp<ConnectionComponent>();
+                if (!connectionComp.m_waitSyncList.Contains(comp))
+                {
+                    connectionComp.m_waitSyncList.Add(comp);
+                }
+            }
+
         }
 
         #region 推送数据
@@ -140,6 +160,8 @@ namespace LockStepDemo.ServiceLogic.System
             msg.m_id = entityID;
 
             session.SendMsg(msg);
+
+            Debug.Log("PushDestroyEntity 3");
         }
 
         #endregion

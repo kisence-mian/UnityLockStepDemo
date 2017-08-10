@@ -28,8 +28,6 @@ namespace LockStepDemo.Service.ServiceLogic.System
                     T cmd = (T)comp.m_commandList[0];
                     comp.m_commandList.RemoveAt(0);
                     list[i].ChangeComp(cmd);
-
-                    Debug.Log("Change comp " + list.Count);
                 }
             }
         }
