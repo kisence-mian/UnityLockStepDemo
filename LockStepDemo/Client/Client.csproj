@@ -79,11 +79,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\ApplicationStatus\TestStatus.cs" />
-    <Compile Include="Assets\Script\ClientLogic\Component\PerfabComponent.cs" />
-    <Compile Include="Assets\Script\ClientLogic\System\CreatePerfabSystem.cs" />
-    <Compile Include="Assets\Script\ClientLogic\System\InputSystem.cs" />
-    <Compile Include="Assets\Script\ClientLogic\System\MovePerfabSystem.cs" />
-    <Compile Include="Assets\Script\ClientLogic\System\SyncSystem.cs" />
     <Compile Include="Assets\Script\Core\AnimSystem\AnimData.cs" />
     <Compile Include="Assets\Script\Core\AnimSystem\AnimSystem.cs" />
     <Compile Include="Assets\Script\Core\Application\ApplicationManager.cs" />
@@ -240,6 +235,10 @@
     <Compile Include="Assets\Script\GameLogic\World\DemoWorld.cs" />
     <Compile Include="Assets\Script\ProtocolGenerate\ProtocolAnalysisService.cs" />
     <Compile Include="Assets\Script\ProtocolGenerate\ProtocolMessageClass.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ClientLogic\Component\PerfabComponent.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ClientLogic\System\CreatePerfabSystem.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ClientLogic\System\InputSystem.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ClientLogic\System\MovePerfabSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\DeJson.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\ComponentBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\EntityBase.cs" />
@@ -250,10 +249,12 @@
     <Compile Include="Assets\Script\SyncFrameWork\ECS\TupleBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\ViewSystemBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\WorldBase.cs" />
-    <Compile Include="Assets\Script\SyncFrameWork\Sync\Component\PlayerCommandBase.cs" />
-    <Compile Include="Assets\Script\SyncFrameWork\Sync\Component\SelfComponent.cs" />
-    <Compile Include="Assets\Script\SyncFrameWork\Sync\Message\SyncMessage.cs" />
-    <Compile Include="Assets\Script\SyncFrameWork\Sync\System\CommandSyncSystem.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Message\SyncMessage.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\PlayerCommandBase.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\SelfComponent.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\TheirComponent.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\CommandSyncSystem.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\SyncSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>

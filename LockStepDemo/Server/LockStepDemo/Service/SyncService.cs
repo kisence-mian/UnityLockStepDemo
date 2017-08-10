@@ -46,15 +46,20 @@ namespace LockStepDemo.Service
 
         protected override void OnSessionClosed(SyncSession session, CloseReason reason)
         {
-            Debug.Log("SyncService OnSessionClosed");
+            Debug.Log("SyncService OnSessionClosed " + session.SessionID);
 
             base.OnSessionClosed(session, reason);
+
+            if(session.m_connect != null)
+            {
+
+            }
         }
 
         int id = 0;
         protected override void OnNewSessionConnected(SyncSession session)
         {
-            Debug.Log("SyncService OnNewSessionConnected");
+            Debug.Log("SyncService OnNewSessionConnected " + session.SessionID);
 
             base.OnNewSessionConnected(session);
 
@@ -65,22 +70,21 @@ namespace LockStepDemo.Service
 
             PlayerComponent pc = new PlayerComponent();
             CommandComponent cc = new CommandComponent();
-            WaitSyncComponent ws = new WaitSyncComponent();
+            SyncComponent syc = new SyncComponent();
+            syc.m_waitSyncList.Add(conn);
 
             ViewComponent vc = new ViewComponent();
             AssetComponent ac = new AssetComponent();
-            SelfComponent sc = new SelfComponent();
             MoveComponent mc = new MoveComponent();
             ac.m_assetName = "Cube";
 
             EntityBase entity = m_world.CreateEntity(id++);
             entity.AddComp(conn);
             entity.AddComp(pc);
-            entity.AddComp(ws);
+            entity.AddComp(syc);
             entity.AddComp(vc);
             entity.AddComp(ac);
             entity.AddComp(cc);
-            entity.AddComp(sc);
             entity.AddComp(mc);
 
             Debug.Log("new entity " + id);

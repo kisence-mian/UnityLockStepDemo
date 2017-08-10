@@ -14,7 +14,7 @@ public class TestStatus : IApplicationStatus {
 
         //GlobalEvent.AddTypeEvent<role_login_c>(Recevice);
 
-        WorldManager.Init(900);
+        WorldManager.Init(1000);
         WorldManager.CreateWorld<DemoWorld>();
     }
     public override void OnUpdate()

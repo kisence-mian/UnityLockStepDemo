@@ -101,9 +101,10 @@
     <Compile Include="GameLogic\Component\InputComponent.cs" />
     <Compile Include="GameLogic\Component\MoveComponent.cs" />
     <Compile Include="GameLogic\Component\PlayerComponent.cs" />
-    <Compile Include="GameLogic\Component\SyncComponent.cs" />
+    <Compile Include="Service\ServiceLogic\Component\SyncComponent.cs" />
     <Compile Include="GameLogic\Component\ViewComponent.cs" />
-    <Compile Include="GameLogic\Component\WaitSyncComponent.cs" />
+    <Compile Include="Service\Sync\Component\TheirComponent.cs" />
+    <Compile Include="Service\Sync\Component\WaitSyncComponent.cs" />
     <Compile Include="GameLogic\System\CountSystem.cs" />
     <Compile Include="GameLogic\System\InitSystem.cs" />
     <Compile Include="GameLogic\System\MoveSystem.cs" />

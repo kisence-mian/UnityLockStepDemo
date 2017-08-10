@@ -6,8 +6,7 @@ using UnityEngine;
 public class WorldBase
 {
     public List<SystemBase> m_systemList = new List<SystemBase>();                     //世界里所有的System集合
-    public List<ViewSystemBase> m_viewSystemList = new List<ViewSystemBase>();         //世界里所有的View System集合
-    public Dictionary<int,EntityBase> m_entityDict = new Dictionary<int,EntityBase>(); //世界里所有的entity集合
+    public Dictionary<int, EntityBase> m_entityDict = new Dictionary<int, EntityBase>(); //世界里所有的entity集合
     public List<EntityBase> m_entityList = new List<EntityBase>();                     //世界里所有的entity列表
 
     Stack<EntityBase> m_entitiesPool = new Stack<EntityBase>();  //TODO: 实体对象池
@@ -18,7 +17,7 @@ public class WorldBase
 
     public event EntityComponentChangedCallBack OnEntityComponentAdded;
     public event EntityComponentChangedCallBack OnEntityComponentRemoved;
-    public event EntityComponentReplaceCallBack OnEntityComponentReplaced;
+    public event EntityComponentReplaceCallBack OnEntityComponentChange;
 
     #region 重载方法
     public virtual Type[] GetSystemTypes()
@@ -50,21 +49,21 @@ public class WorldBase
             }
 
             //初始化ViweSystem
-            if(isView)
+            if (isView)
             {
                 types = GetViewSystemTypes();
                 for (int i = 0; i < types.Length; i++)
                 {
                     ViewSystemBase tmp = (ViewSystemBase)types[i].Assembly.CreateInstance(types[i].FullName);
-                    m_viewSystemList.Add(tmp);
+                    m_systemList.Add(tmp);
                     tmp.m_world = this;
                     tmp.Init();
                 }
             }
         }
-        catch(Exception e)
+        catch (Exception e)
         {
-            Debug.Log("WorldBase Init Exception:" + e.ToString());
+            Debug.LogError("WorldBase Init Exception:" + e.ToString());
         }
 
     }
@@ -72,22 +71,6 @@ public class WorldBase
     #endregion
 
     #region Update
-
-    void BeforeUpdate(int deltaTime)
-    {
-        for (int i = 0; i < m_viewSystemList.Count; i++)
-        {
-            m_viewSystemList[i].BeforeUpdate(deltaTime);
-        }
-    }
-
-    void BeforeFixedUpdate(int deltaTime)
-    {
-        for (int i = 0; i < m_systemList.Count; i++)
-        {
-            m_systemList[i].BeforeFixedUpdate(deltaTime);
-        }
-    }
 
     /// <summary>
     /// 服务器不执行Loop
@@ -106,20 +89,36 @@ public class WorldBase
         LateFixedUpdate(deltaTime);
     }
 
-    // Update is called once per frame
-    void Update (int deltaTime)
+    void BeforeUpdate(int deltaTime)
     {
-        for (int i = 0; i < m_viewSystemList.Count; i++)
+        for (int i = 0; i < m_systemList.Count; i++)
         {
-            m_viewSystemList[i].Update(deltaTime);
+            m_systemList[i].BeforeUpdate(deltaTime);
         }
-	}
+    }
+
+    void BeforeFixedUpdate(int deltaTime)
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].BeforeFixedUpdate(deltaTime);
+        }
+    }
+
+    // Update is called once per frame
+    void Update(int deltaTime)
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].Update(deltaTime);
+        }
+    }
 
     void LateUpdate(int deltaTime)
     {
-        for (int i = 0; i < m_viewSystemList.Count; i++)
+        for (int i = 0; i < m_systemList.Count; i++)
         {
-            m_viewSystemList[i].LateUpdate(deltaTime);
+            m_systemList[i].LateUpdate(deltaTime);
         }
     }
 
@@ -144,7 +143,7 @@ public class WorldBase
 
     public EntityBase CreateEntity(int ID)
     {
-        if(m_entityDict.ContainsKey(ID))
+        if (m_entityDict.ContainsKey(ID))
         {
             throw new Exception("CreateEntity Exception: Entity ID has exist ! ->" + ID + "<-");
         }
@@ -157,7 +156,7 @@ public class WorldBase
 
         entity.OnComponentAdded += OnEntityComponentAdded;
         entity.OnComponentRemoved += OnEntityComponentRemoved;
-        entity.OnComponentReplaced += OnEntityComponentReplaced;
+        entity.OnComponentReplaced += OnEntityComponentChange;
 
         if (OnEntityCreated != null)
         {
@@ -165,6 +164,11 @@ public class WorldBase
         }
 
         return entity;
+    }
+
+    public bool GetEntityIsExist(int ID)
+    {
+        return m_entityDict.ContainsKey(ID);
     }
 
     public EntityBase GetEntity(int ID)
@@ -196,11 +200,11 @@ public class WorldBase
 
         entity.OnComponentAdded -= OnEntityComponentAdded;
         entity.OnComponentRemoved -= OnEntityComponentRemoved;
-        entity.OnComponentReplaced -= OnEntityComponentReplaced;
+        entity.OnComponentReplaced -= OnEntityComponentChange;
 
         if (OnEntityDestroyed != null)
         {
-            OnEntityDestroyed( entity);
+            OnEntityDestroyed(entity);
         }
     }
 

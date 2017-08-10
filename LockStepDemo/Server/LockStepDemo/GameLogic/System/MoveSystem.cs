@@ -6,12 +6,16 @@ public class MoveSystem : SystemBase
 {
     public override void LateFixedUpdate(int deltaTime)
     {
+        Debug.Log("BEGIN ------------------->");
+
         List<MoveTuple> list = GetMoveTuple();
 
         for (int i = 0; i < list.Count; i++)
         {
             UpdateMove(list[i].m_moveComp,deltaTime);
         }
+
+        Debug.Log("END");
     }
 
     void UpdateMove(MoveComponent comp,int deltaTime)

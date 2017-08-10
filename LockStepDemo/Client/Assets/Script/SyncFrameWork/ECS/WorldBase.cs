@@ -17,7 +17,7 @@ public class WorldBase
 
     public event EntityComponentChangedCallBack OnEntityComponentAdded;
     public event EntityComponentChangedCallBack OnEntityComponentRemoved;
-    public event EntityComponentReplaceCallBack OnEntityComponentReplaced;
+    public event EntityComponentReplaceCallBack OnEntityComponentChange;
 
     #region 重载方法
     public virtual Type[] GetSystemTypes()
@@ -156,7 +156,7 @@ public class WorldBase
 
         entity.OnComponentAdded += OnEntityComponentAdded;
         entity.OnComponentRemoved += OnEntityComponentRemoved;
-        entity.OnComponentReplaced += OnEntityComponentReplaced;
+        entity.OnComponentReplaced += OnEntityComponentChange;
 
         if (OnEntityCreated != null)
         {
@@ -200,7 +200,7 @@ public class WorldBase
 
         entity.OnComponentAdded -= OnEntityComponentAdded;
         entity.OnComponentRemoved -= OnEntityComponentRemoved;
-        entity.OnComponentReplaced -= OnEntityComponentReplaced;
+        entity.OnComponentReplaced -= OnEntityComponentChange;
 
         if (OnEntityDestroyed != null)
         {

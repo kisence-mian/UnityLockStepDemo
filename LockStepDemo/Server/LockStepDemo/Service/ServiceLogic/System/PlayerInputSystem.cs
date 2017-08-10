@@ -2,8 +2,6 @@
 using LockStepDemo.ServiceLogic;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace LockStepDemo.Service.ServiceLogic.System
 {
@@ -28,8 +26,10 @@ namespace LockStepDemo.Service.ServiceLogic.System
                 if(comp.m_commandList.Count > 0)
                 {
                     T cmd = (T)comp.m_commandList[0];
-
+                    comp.m_commandList.RemoveAt(0);
                     list[i].ChangeComp(cmd);
+
+                    Debug.Log("Change comp " + list.Count);
                 }
             }
         }

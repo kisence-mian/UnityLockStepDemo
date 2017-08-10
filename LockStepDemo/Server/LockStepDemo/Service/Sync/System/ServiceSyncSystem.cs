@@ -15,8 +15,8 @@ namespace LockStepDemo.ServiceLogic.System
     class ServiceSyncSystem : ServiceSystem
     {
         public override void Init()
-        {   
-            
+        {
+            AddEntityCompChangeLisenter();
         }
 
         public override Type[] GetFilter()
@@ -26,13 +26,35 @@ namespace LockStepDemo.ServiceLogic.System
             };
         }
 
+        int frame = 0;
         public override void LateFixedUpdate(int deltaTime)
         {
+            Debug.Log("-------------------- Frame:" + frame++ +"------------------------------");
+
             List<EntityBase> list = GetEntityList();
 
             for (int i = 0; i < list.Count; i++)
             {
                 PushSyncEnity(list[i].GetComp<SyncComponent>(), list[i]);
+            }
+        }
+
+
+        public override void OnEntityCompChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
+        {
+            if (entity.GetExistComp<SyncComponent>())
+            {
+                List<EntityBase> list = GetEntityList(new string[] { "ConnectionComponent" });
+                for (int i = 0; i < list.Count; i++)
+                {
+                    SyncComponent comp = entity.GetComp<SyncComponent>();
+                    ConnectionComponent connComp = list[i].GetComp<ConnectionComponent>();
+
+                    if (!comp.m_waitSyncList.Contains(connComp))
+                    {
+                        comp.m_waitSyncList.Add(connComp);
+                    }
+                }
             }
         }
 
@@ -70,6 +92,27 @@ namespace LockStepDemo.ServiceLogic.System
                     msg.infos.Add(info);
                 }
             }
+
+            //给有连接组件的增加Self组件
+            if (entity.GetExistComp<ConnectionComponent>())
+            {
+                ConnectionComponent comp = entity.GetComp<ConnectionComponent>();
+                if(comp.m_session == session)
+                {
+                    ComponentInfo info = new ComponentInfo();
+                    info.m_compName = "SelfComponent";
+                    info.content = "{}";
+                    msg.infos.Add(info);
+                }
+                else
+                {
+                    ComponentInfo info = new ComponentInfo();
+                    info.m_compName = "TheirComponent";
+                    info.content = "{}";
+                    msg.infos.Add(info);
+                }
+            }
+
             session.SendMsg(msg);
         }
 

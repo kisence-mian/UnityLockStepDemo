@@ -34,10 +34,10 @@ public class SystemBase
 
     #region 生命周期
     // Use this for initialization
-    public virtual void Init ()
+    public virtual void Init()
     {
-		
-	}
+
+    }
 
     public virtual void Dispose()
     {
@@ -123,7 +123,7 @@ public class SystemBase
 
     }
 
-    public virtual void OnEntityCompReplace(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
+    public virtual void OnEntityCompChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
     {
 
     }
@@ -133,11 +133,11 @@ public class SystemBase
 
     #region 继承方法
 
-    public bool GetAllExistComp(string[] compNames,EntityBase entity)
+    public bool GetAllExistComp(string[] compNames, EntityBase entity)
     {
         for (int i = 0; i < compNames.Length; i++)
         {
-            if(!entity.GetExistComp(compNames[i]))
+            if (!entity.GetExistComp(compNames[i]))
             {
                 return false;
             }
@@ -160,6 +160,20 @@ public class SystemBase
         return m_tupleList;
     }
 
+    public List<EntityBase> GetEntityList(string[] filter)
+    {
+        List<EntityBase> tupleList = new List<EntityBase>();
+        for (int i = 0; i < m_world.m_entityList.Count; i++)
+        {
+            if (GetAllExistComp(filter, m_world.m_entityList[i]))
+            {
+                tupleList.Add(m_world.m_entityList[i]);
+            }
+        }
+
+        return tupleList;
+    }
+
     protected void AddEntityCreaterLisnter()
     {
         m_world.OnEntityCreated += ReceviceEntityCreate;
@@ -170,9 +184,24 @@ public class SystemBase
         m_world.OnEntityDestroyed += ReceviceEntityDestroy;
     }
 
+    protected void AddEntityCompAddLisenter()
+    {
+        m_world.OnEntityComponentAdded += OnEntityCompAdd;
+    }
+
+    protected void AddEntityCompRemoveLisenter()
+    {
+        m_world.OnEntityComponentRemoved += OnEntityCompRemove;
+    }
+
+    protected void AddEntityCompChangeLisenter()
+    {
+        m_world.OnEntityComponentChange += OnEntityCompChange;
+    }
+
     void ReceviceEntityCreate(EntityBase entity)
     {
-        if(GetAllExistComp(Filter, entity))
+        if (GetAllExistComp(Filter, entity))
         {
             OnEntityCreate(entity);
         }
