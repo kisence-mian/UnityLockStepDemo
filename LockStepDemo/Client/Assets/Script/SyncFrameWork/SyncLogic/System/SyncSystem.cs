@@ -10,11 +10,13 @@ public class SyncSystem : ViewSystemBase
     public override void Init()
     {
         GlobalEvent.AddTypeEvent<SyncEntityMsg>(ReceviceSyncEntity);
+        GlobalEvent.AddTypeEvent<DestroyEntityMsg>(ReceviceDestroyEntityMsg);
     }
 
     public override void Dispose()
     {
         GlobalEvent.RemoveTypeEvent<SyncEntityMsg>(ReceviceSyncEntity);
+        GlobalEvent.RemoveTypeEvent<DestroyEntityMsg>(ReceviceDestroyEntityMsg);
     }
 
     public override void LateFixedUpdate(int deltaTime)
@@ -77,6 +79,13 @@ public class SyncSystem : ViewSystemBase
                 entity.AddComp(msg.infos[i].m_compName, comp);
             }
         }
+    }
+
+    void ReceviceDestroyEntityMsg(DestroyEntityMsg msg, params object[] objs)
+    {
+        Debug.Log("ReceviceDestroyEntityMsg");
+
+        m_world.DestroyEntity(msg.m_id);
     }
     #endregion
 }

@@ -11,13 +11,13 @@ message m_changecomponentmsg_s
 {
 	required int32 m_id = 1;
 	required int8 m_operation = 2;
-	required string info = 3;
+	required componentinfo info = 3;
 }
 message m_changecomponentmsg_c
 {
 	required int32 m_id = 1;
 	required int8 m_operation = 2;
-	required string info = 3;
+	required componentinfo info = 3;
 }
 
 message m_syncentitymsg_s

@@ -20,6 +20,15 @@ message m_changecomponentmsg_c
 	required componentinfo info = 3;
 }
 
+message m_destroyentitymsg_s
+{
+	required int32 m_id = 1;
+}
+message m_destroyentitymsg_c
+{
+	required int32 m_id = 1;
+}
+
 message m_syncentitymsg_s
 {
 	required int32 m_id = 1;

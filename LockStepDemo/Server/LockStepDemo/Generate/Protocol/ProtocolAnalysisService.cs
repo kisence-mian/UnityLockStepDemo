@@ -16,19 +16,6 @@ public static class ProtocolAnalysisService
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		session.SendMsg("waitsynccomponent",data);
 	}
-	public static void SendMsg(this SyncSession session,Protocol.ChangeComponentMsg msg)
-	{
-		Dictionary<string, object> data = new Dictionary<string, object>();
-		data.Add("m_id", msg.m_id);
-		data.Add("m_operation", (int)msg.m_operation);
-			{
-				Dictionary<string, object> data2 = new Dictionary<string, object>();
-				data2.Add("m_compname", msg.info.m_compName);
-				data2.Add("content", msg.info.content);
-				data.Add("info",data2);
-			}
-		session.SendMsg("changecomponentmsg",data);
-	}
 	public static void SendMsg(this SyncSession session,Protocol.SyncEntityMsg msg)
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
@@ -46,6 +33,25 @@ public static class ProtocolAnalysisService
 		}
 		session.SendMsg("syncentitymsg",data);
 	}
+	public static void SendMsg(this SyncSession session,Protocol.DestroyEntityMsg msg)
+	{
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("m_id", msg.m_id);
+		session.SendMsg("destroyentitymsg",data);
+	}
+	public static void SendMsg(this SyncSession session,Protocol.ChangeComponentMsg msg)
+	{
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("m_id", msg.m_id);
+		data.Add("m_operation", (int)msg.m_operation);
+			{
+				Dictionary<string, object> data2 = new Dictionary<string, object>();
+				data2.Add("m_compname", msg.info.m_compName);
+				data2.Add("content", msg.info.content);
+				data.Add("info",data2);
+			}
+		session.SendMsg("changecomponentmsg",data);
+	}
 	#endregion
 
 	#region 事件接收
@@ -54,8 +60,9 @@ public static class ProtocolAnalysisService
 		switch (cmd.Key)
 		{
 			case  "waitsynccomponent":ReceviceWaitSyncComponent(session , cmd);break;
-			case  "changecomponentmsg":ReceviceChangeComponentMsg(session , cmd);break;
 			case  "syncentitymsg":ReceviceSyncEntityMsg(session , cmd);break;
+			case  "destroyentitymsg":ReceviceDestroyEntityMsg(session , cmd);break;
+			case  "changecomponentmsg":ReceviceChangeComponentMsg(session , cmd);break;
 			default:
 			Debug.LogError("SendCommand Exception : 不支持的消息类型!" + cmd.Key);
 				break;
@@ -64,21 +71,6 @@ public static class ProtocolAnalysisService
 	static void ReceviceWaitSyncComponent(SyncSession session ,ProtocolRequestBase e)
 	{
 		LockStepDemo.GameLogic.Component.WaitSyncComponent msg = new LockStepDemo.GameLogic.Component.WaitSyncComponent();
-		
-		EventService.DispatchTypeEvent(session,msg);
-	}
-	static void ReceviceChangeComponentMsg(SyncSession session ,ProtocolRequestBase e)
-	{
-		Protocol.ChangeComponentMsg msg = new Protocol.ChangeComponentMsg();
-		msg.m_id = (int)e.m_data["m_id"];
-		msg.m_operation = (Protocol.ChangeStatus)e.m_data["m_operation"];
-		{
-			Dictionary<string, object> data2 = (Dictionary<string, object>)e.m_data["info"];
-			Protocol.ComponentInfo tmp2 = new Protocol.ComponentInfo();
-			tmp2.m_compName = data2["m_compname"].ToString();
-			tmp2.content = data2["content"].ToString();
-			msg.info = tmp2;
-		}
 		
 		EventService.DispatchTypeEvent(session,msg);
 	}
@@ -97,6 +89,28 @@ public static class ProtocolAnalysisService
 				list2.Add(tmp2);
 			}
 			msg.infos =  list2;
+		}
+		
+		EventService.DispatchTypeEvent(session,msg);
+	}
+	static void ReceviceDestroyEntityMsg(SyncSession session ,ProtocolRequestBase e)
+	{
+		Protocol.DestroyEntityMsg msg = new Protocol.DestroyEntityMsg();
+		msg.m_id = (int)e.m_data["m_id"];
+		
+		EventService.DispatchTypeEvent(session,msg);
+	}
+	static void ReceviceChangeComponentMsg(SyncSession session ,ProtocolRequestBase e)
+	{
+		Protocol.ChangeComponentMsg msg = new Protocol.ChangeComponentMsg();
+		msg.m_id = (int)e.m_data["m_id"];
+		msg.m_operation = (Protocol.ChangeStatus)e.m_data["m_operation"];
+		{
+			Dictionary<string, object> data2 = (Dictionary<string, object>)e.m_data["info"];
+			Protocol.ComponentInfo tmp2 = new Protocol.ComponentInfo();
+			tmp2.m_compName = data2["m_compname"].ToString();
+			tmp2.content = data2["content"].ToString();
+			msg.info = tmp2;
 		}
 		
 		EventService.DispatchTypeEvent(session,msg);

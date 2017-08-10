@@ -2,5 +2,6 @@
 101,waitsynccomponent
 
 2,EntitySyncModule
-201,changecomponentmsg
-202,syncentitymsg
+201,syncentitymsg
+202,destroyentitymsg
+203,changecomponentmsg

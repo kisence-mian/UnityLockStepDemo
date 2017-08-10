@@ -16,10 +16,5 @@ namespace Protocol
 	#endregion 
 
 	#region Struct
-		public class componentinfo : IProtocolStructInterface 
-		{
-			public string m_compname;
-			public string content;
-		}
 	#endregion 
 }

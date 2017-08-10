@@ -371,13 +371,22 @@ namespace LockStepDemo.Protocol
             output += GetTab(1) + "#region Struct\n";
             for (int i = 0; i < s_SubStruct.Count; i++)
             {
-                try
+                if (GetAimStructType(s_SubStruct[i]) == null)
                 {
-                    output += GenerateProtocolClass(2, SendMode.Both, null, s_SubStruct[i], protocolInfo[s_SubStruct[i]], true);
+                    try
+                    {
+                        output += GenerateProtocolClass(2, SendMode.Both, null, s_SubStruct[i], protocolInfo[s_SubStruct[i]], true);
+                    }
+                    catch (Exception e)
+                    {
+                        throw new Exception("s_SubStruct[i] ->" + s_SubStruct[i] + "\n" + e.ToString());
+                    }
                 }
-                catch
+                else
                 {
-                    throw new Exception("s_SubStruct[i] ->" + s_SubStruct[i]);
+                    log += ("跳过了 " + s_SubStruct[i] + " 结构\n");
+                    //检查结构的子结构，放入Struct列表中
+                    GenerateProtocolClass(2, SendMode.Both, null, s_SubStruct[i], protocolInfo[s_SubStruct[i]], true);
                 }
             }
             output += GetTab(1) + "#endregion \n";
@@ -516,6 +525,23 @@ namespace LockStepDemo.Protocol
             for (int i = 0; i < types.Length; i++)
             {
                 if (typeof(CsharpProtocolInterface).IsAssignableFrom(types[i])
+                    && types[i].Name.ToLower() == name.ToLower()
+                    )
+                {
+                    return types[i];
+                }
+            }
+
+            return null;
+        }
+
+        static Type GetAimStructType(string name)
+        {
+            Type[] types = ReflectTool.GetTypes();
+
+            for (int i = 0; i < types.Length; i++)
+            {
+                if (typeof(IProtocolStructInterface).IsAssignableFrom(types[i])
                     && types[i].Name.ToLower() == name.ToLower()
                     )
                 {

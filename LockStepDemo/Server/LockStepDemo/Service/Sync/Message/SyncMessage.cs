@@ -16,6 +16,11 @@ namespace Protocol
         public List<ComponentInfo> infos;
     }
 
+    public class DestroyEntityMsg : EntitySyncModule
+    {
+        public int m_id;
+    }
+
     public class ComponentInfo : IProtocolStructInterface
     {
         public string m_compName;

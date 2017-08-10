@@ -52,7 +52,7 @@ namespace LockStepDemo.Service
 
             if(session.m_connect != null)
             {
-
+                m_world.DestroyEntity(session.m_entity.ID);
             }
         }
 
@@ -65,8 +65,6 @@ namespace LockStepDemo.Service
 
             ConnectionComponent conn = new ConnectionComponent();
             conn.m_session = session;
-
-            session.m_connect = conn;
 
             PlayerComponent pc = new PlayerComponent();
             CommandComponent cc = new CommandComponent();
@@ -86,6 +84,9 @@ namespace LockStepDemo.Service
             entity.AddComp(ac);
             entity.AddComp(cc);
             entity.AddComp(mc);
+
+            session.m_entity = entity;
+            session.m_connect = conn;
 
             Debug.Log("new entity " + id);
         }

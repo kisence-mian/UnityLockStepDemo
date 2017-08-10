@@ -17,6 +17,7 @@ namespace LockStepDemo.ServiceLogic.System
         public override void Init()
         {
             AddEntityCompChangeLisenter();
+            AddEntityDestroyLisnter();
         }
 
         public override Type[] GetFilter()
@@ -55,6 +56,14 @@ namespace LockStepDemo.ServiceLogic.System
                         comp.m_waitSyncList.Add(connComp);
                     }
                 }
+            }
+        }
+
+        public override void OnEntityDestroy(EntityBase entity)
+        {
+            if (entity.GetExistComp<SyncComponent>())
+            {
+                PushDestroyEntity(entity.GetComp<SyncComponent>(), entity);
             }
         }
 
@@ -112,6 +121,23 @@ namespace LockStepDemo.ServiceLogic.System
                     msg.infos.Add(info);
                 }
             }
+
+            session.SendMsg(msg);
+        }
+
+        public void PushDestroyEntity(SyncComponent connectionComp, EntityBase entity)
+        {
+            for (int i = 0; i < connectionComp.m_waitSyncList.Count; i++)
+            {
+                PushDestroyEntity(connectionComp.m_waitSyncList[i].m_session, entity.ID);
+            }
+            connectionComp.m_waitSyncList.Clear();
+        }
+
+        void PushDestroyEntity(SyncSession session, int entityID)
+        {
+            DestroyEntityMsg msg = new DestroyEntityMsg();
+            msg.m_id = entityID;
 
             session.SendMsg(msg);
         }
