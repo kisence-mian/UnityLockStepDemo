@@ -900,7 +900,14 @@ namespace FrameWork.Protocol
                 vy = ((ModuleAttribute)objy[0]).MessageCode;
             }
 
-            return vx.CompareTo(vy);
+            if (vx == vy)
+            {
+                return x.Name.CompareTo(y.Name);
+            }
+            else
+            {
+                return vx.CompareTo(vy);
+            }
         }
 
         static bool GetIsModule(Type type)
