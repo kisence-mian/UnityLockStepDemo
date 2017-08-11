@@ -82,16 +82,140 @@ public class SyncSystem : ViewSystemBase
     public void Recalc(int frameCount)
     {
         FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
+
         //回退到目标帧
+        RevertToFrame(frameCount);
 
         for (int i = frameCount; i < fc.count; i++)
         {
-            //重新处理操作
+            //重新读取操作
+            LoadPlayerInput(i);
+
+            //服务器输入其他人操作
+            ExecuteServiceMessage(i);
 
             //重新演算
             m_world.FixedLoop(1000);
         }
+
+        ClearRecordInfo(fc.count - 1);
     }
+
+    #region 状态回滚
+
+    public List<RecordInfo> GetRecordInfo(int frameCount)
+    {
+        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+
+        List<RecordInfo> list = new List<RecordInfo>();
+
+        for (int i = 0; i < rc.m_recordList.Count; i++)
+        {
+            if (rc.m_recordList[i].frame >= frameCount)
+            {
+                list.Add(rc.m_recordList[i]);
+            }
+        }
+
+        return list;
+    }
+
+    public void ClearRecordInfo(int frameCount)
+    {
+        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+        for (int i = 0; i < rc.m_recordList.Count; i++)
+        {
+            if (rc.m_recordList[i].frame >= frameCount)
+            {
+                rc.m_recordList.RemoveAt(i);
+                i--;
+            }
+        }
+    }
+
+    public void RevertToFrame(int frameCount)
+    {
+        List<RecordInfo> list = GetRecordInfo(frameCount);
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            for (int j = 0; j < list[i].m_changeData.Count; j++)
+            {
+                RevertByChangeRecordInfo(list[i].m_changeData[j]);
+            }
+        }
+    }
+
+    public void RevertByChangeRecordInfo(ChangeRecordInfo info)
+    {
+        switch (info.m_type)
+        {
+            case ChangeType.AddComp: RevertAddComp(info); break;
+            case ChangeType.ChangeComp: RevertChangeComp(info); break;
+            case ChangeType.RemoveComp: RevertRemoveComp(info); break;
+            case ChangeType.CreateEntity: RevertCreateEntity(info); break;
+            case ChangeType.DestroyEntity: RevertDestroyEntity(info); break;
+        }
+    }
+
+    public void RevertAddComp(ChangeRecordInfo info)
+    {
+        EntityBase entity = m_world.GetEntity(info.m_EnityID);
+
+        entity.RemoveComp(info.m_compName);
+    }
+
+    public void RevertChangeComp(ChangeRecordInfo info)
+    {
+        EntityBase entity = m_world.GetEntity(info.m_EnityID);
+
+        entity.ChangeComp(info.m_compName, info.m_comp);
+    }
+
+    public void RevertRemoveComp(ChangeRecordInfo info)
+    {
+        EntityBase entity = m_world.GetEntity(info.m_EnityID);
+
+        entity.AddComp(info.m_compName, info.m_comp);
+    }
+
+    public void RevertCreateEntity(ChangeRecordInfo info)
+    {
+        m_world.DestroyEntity(info.m_EnityID);
+    }
+
+    public void RevertDestroyEntity(ChangeRecordInfo info)
+    {
+        m_world.CreateEntity(info.m_EnityID);
+    }
+
+    #endregion
+
+    #region 读取历史输入数据
+
+    void LoadPlayerInput(int frameCount)
+    {
+        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+
+        for (int i = 0; i < rc.m_recordList.Count; i++)
+        {
+            if (rc.m_recordList[i].frame == frameCount)
+            {
+                //todo something
+            }
+        }
+    }
+
+    #endregion
+
+    #region 读取并执行服务器数据
+
+    void ExecuteServiceMessage(int frameCount)
+    {
+
+    }
+
+    #endregion
 
     #endregion
 }

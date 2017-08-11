@@ -6,14 +6,14 @@ using System.Text;
 public class RecordComponent : SingletonComponent
 {
     public PlayerCommandBase m_inputCache;
-    public List<ComponentRecordInfo> m_changeCache = new List<ComponentRecordInfo>();
-    public List<ComponentRecordInfo> m_AddCompDataCache = new List<ComponentRecordInfo>();
-    public List<ComponentRecordInfo> m_RemoveCompDataCache = new List<ComponentRecordInfo>();
-
-    public List<EntityRecordInfo> m_CreateEntitypDataCache = new List<EntityRecordInfo>();
-    public List<EntityRecordInfo> m_DestroyEntitypDataCache = new List<EntityRecordInfo>();
+    public List<ChangeRecordInfo> m_changeCache = new List<ChangeRecordInfo>();
 
     public List<RecordInfo> m_recordList = new List<RecordInfo>();
+
+    public void ClearCache()
+    {
+        m_changeCache.Clear();
+    }
 }
 
 public class RecordInfo
@@ -21,22 +21,23 @@ public class RecordInfo
     public int frame;
 
     public PlayerCommandBase m_inputCmd;
-    public List<ComponentRecordInfo> m_ChangeCompData = new List<ComponentRecordInfo>();
-    public List<ComponentRecordInfo> m_AddCompData = new List<ComponentRecordInfo>();
-    public List<ComponentRecordInfo> m_RemoveCompData = new List<ComponentRecordInfo>();
-
-    public List<EntityRecordInfo> m_CreateEntitypData = new List<EntityRecordInfo>();
-    public List<EntityRecordInfo> m_DestroyEntitypData = new List<EntityRecordInfo>();
+    public List<ChangeRecordInfo> m_changeData = new List<ChangeRecordInfo>();
 }
 
-public class ComponentRecordInfo
+public struct ChangeRecordInfo
 {
-    public string m_name;
+    public ChangeType m_type;
+    public int m_EnityID;
+    public string m_compName;
     public ComponentBase m_comp;
 }
 
-public class EntityRecordInfo
+public enum ChangeType
 {
-    public int m_id;
-    public ComponentBase m_comp;
+    AddComp,
+    RemoveComp,
+    ChangeComp,
+
+    CreateEntity,
+    DestroyEntity,
 }

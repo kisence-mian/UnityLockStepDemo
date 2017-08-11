@@ -9,6 +9,11 @@ public class RecordSystem : SystemBase
     public override void Init()
     {
         AddEntityCompChangeLisenter();
+        AddEntityCompAddLisenter();
+        AddEntityCompRemoveLisenter();
+
+        AddEntityCreaterLisnter();
+        AddEntityDestroyLisnter();
     }
 
     public override void LateFixedUpdate(int deltaTime)
@@ -19,17 +24,24 @@ public class RecordSystem : SystemBase
         RecordInfo info = new RecordInfo();
         info.frame = fc.count;
         info.m_inputCmd = rc.m_inputCache;
-        info.m_ChangeCompData = rc.m_changeCache;
+        info.m_changeData = rc.m_changeCache;
 
         rc.m_recordList.Add(info);
+
+        //清空缓存
+        rc.ClearCache();
     }
+
+    #region 事件接收
 
     public override void OnEntityCompChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
     {
         RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
 
-        ComponentRecordInfo info = new ComponentRecordInfo();
-        info.m_name = compName;
+        ChangeRecordInfo info = new ChangeRecordInfo();
+        info.m_type = ChangeType.ChangeComp;
+        info.m_EnityID = entity.ID;
+        info.m_compName = compName;
         info.m_comp = previousComponent;
 
         rc.m_changeCache.Add(info);
@@ -37,21 +49,50 @@ public class RecordSystem : SystemBase
 
     public override void OnEntityCompAdd(EntityBase entity, string compName, ComponentBase component)
     {
-        base.OnEntityCompAdd(entity, compName, component);
+        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+
+        ChangeRecordInfo info = new ChangeRecordInfo();
+        info.m_type = ChangeType.AddComp;
+        info.m_EnityID = entity.ID;
+        info.m_compName = compName;
+        info.m_comp = component;
+
+        rc.m_changeCache.Add(info);
     }
 
     public override void OnEntityCompRemove(EntityBase entity, string compName, ComponentBase component)
     {
-        base.OnEntityCompRemove(entity, compName, component);
+        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+
+        ChangeRecordInfo info = new ChangeRecordInfo();
+        info.m_type = ChangeType.RemoveComp;
+        info.m_EnityID = entity.ID;
+        info.m_compName = compName;
+        info.m_comp = component;
+
+        rc.m_changeCache.Add(info);
     }
 
     public override void OnEntityCreate(EntityBase entity)
     {
-        base.OnEntityCreate(entity);
+        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+
+        ChangeRecordInfo info = new ChangeRecordInfo();
+        info.m_type = ChangeType.CreateEntity;
+        info.m_EnityID = entity.ID;
+
+        rc.m_changeCache.Add(info);
     }
 
     public override void OnEntityDestroy(EntityBase entity)
     {
-        base.OnEntityDestroy(entity);
+        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+
+        ChangeRecordInfo info = new ChangeRecordInfo();
+        info.m_type = ChangeType.DestroyEntity;
+        info.m_EnityID = entity.ID;
+
+        rc.m_changeCache.Add(info);
     }
+    #endregion
 }
