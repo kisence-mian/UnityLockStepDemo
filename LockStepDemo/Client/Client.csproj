@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>5.5.0f3</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -228,7 +230,6 @@
     <Compile Include="Assets\Script\GameLogic\Component\ViewComponent.cs" />
     <Compile Include="Assets\Script\GameLogic\Component\WaitSyncComponent.cs" />
     <Compile Include="Assets\Script\GameLogic\Module\GameSyncModule.cs" />
-    <Compile Include="Assets\Script\GameLogic\System\CountSystem.cs" />
     <Compile Include="Assets\Script\GameLogic\System\InitSystem.cs" />
     <Compile Include="Assets\Script\GameLogic\System\MoveSystem.cs" />
     <Compile Include="Assets\Script\GameLogic\System\OperationSystem.cs" />
@@ -244,16 +245,20 @@
     <Compile Include="Assets\Script\SyncFrameWork\ECS\EntityBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\InputCommandManager.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\MomentBase.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ECS\SingletonComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\SyncComponentBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\SystemBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\TupleBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\ViewSystemBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\WorldBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\Message\SyncMessage.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\FrameCountComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\PlayerCommandBase.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\RecordComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\SelfComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\TheirComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\CommandSyncSystem.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\RecordSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\SyncSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\WorldManager.cs" />
   </ItemGroup>

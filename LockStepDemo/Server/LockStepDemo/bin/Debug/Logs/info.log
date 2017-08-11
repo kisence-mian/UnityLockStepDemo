@@ -189,3 +189,5 @@ This session was closed for ClientClosing!
 A new session connected!
 2017-08-10 18:02:25,498 [76840] INFO  SyncService-54267293 - Session: 179d3750-90fe-44b4-87d0-ff83b395e364/127.0.0.1:43629
 This session was closed for ClientClosing!
+2017-08-10 18:13:02,135 [76840] INFO  SyncService-54267293 - Session: 8e9c23df-45d7-435c-95b8-dcb8a569558d/127.0.0.1:43603
+This session was closed for ClientClosing!

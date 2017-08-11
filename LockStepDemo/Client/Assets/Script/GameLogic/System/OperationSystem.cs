@@ -24,7 +24,6 @@ public class OperationSystem : SystemBase
 
             if(com.isForward)
             {
-
                 move.m_velocity = 5;
             }
 
@@ -35,8 +34,6 @@ public class OperationSystem : SystemBase
 
             if(com.isLeft)
             {
-                Debug.Log("com.isForward ");
-
                 move.m_dirx = -5;
             }
 

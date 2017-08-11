@@ -99,6 +99,11 @@ public class SystemBase
 
     }
 
+    public virtual void Recalculation(int deltaTime)
+    {
+
+    }
+
     #endregion
 
     #region 事件回调

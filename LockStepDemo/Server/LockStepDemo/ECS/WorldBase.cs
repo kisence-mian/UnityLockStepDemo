@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class WorldBase
 {
-    public List<SystemBase> m_systemList = new List<SystemBase>();                     //世界里所有的System集合
+    public List<SystemBase> m_systemList = new List<SystemBase>();                       //世界里所有的System集合
     public Dictionary<int, EntityBase> m_entityDict = new Dictionary<int, EntityBase>(); //世界里所有的entity集合
-    public List<EntityBase> m_entityList = new List<EntityBase>();                     //世界里所有的entity列表
+    public List<EntityBase> m_entityList = new List<EntityBase>();                       //世界里所有的entity列表
+
+    public Dictionary<string, SingletonComponent> m_singleCompDict = new Dictionary<string, SingletonComponent>(); //所有的单例组件集合
 
     Stack<EntityBase> m_entitiesPool = new Stack<EntityBase>();  //TODO: 实体对象池
 
@@ -205,6 +207,66 @@ public class WorldBase
         if (OnEntityDestroyed != null)
         {
             OnEntityDestroyed(entity);
+        }
+    }
+
+    #endregion
+
+    #region 单例组件
+
+    public T GetSingletonComp<T>()  where T : SingletonComponent, new()
+    {
+        string key = typeof(T).Name;
+
+        SingletonComponent comp = null;
+
+        if (m_singleCompDict.ContainsKey(key))
+        {
+            comp = m_singleCompDict[key];
+        }
+        else
+        {
+            comp = new T();
+            m_singleCompDict.Add(key, comp);
+        }
+
+        return (T)comp;
+    }
+
+    public SingletonComponent GetSingletonComp(string compName)
+    {
+        SingletonComponent comp = null;
+
+        if (m_singleCompDict.ContainsKey(compName))
+        {
+            comp = m_singleCompDict[compName];
+        }
+        else
+        {
+            Type compType = Type.GetType(compName);
+            
+            comp = (SingletonComponent)compType.Assembly.CreateInstance(compType.FullName);
+            m_singleCompDict.Add(compName, comp);
+        }
+
+        return comp;
+    }
+
+    public void ChangeSingletonComp<T>(T comp) where T: SingletonComponent,new()
+    {
+        string compName = typeof(T).Name;
+        ChangeSingleComp(compName, comp);
+    }
+
+    public void ChangeSingleComp(string compName,SingletonComponent comp)
+    {
+        if (m_singleCompDict.ContainsKey(compName))
+        {
+            m_singleCompDict[compName] = comp;
+        }
+        else
+        {
+            m_singleCompDict.Add(compName, comp);
         }
     }
 

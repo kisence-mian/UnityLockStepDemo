@@ -11902,3 +11902,971 @@
 2017-08-10 18:09:02,554 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
 2017-08-10 18:09:02,557 [78736] DEBUG SyncService-54267293 - END
 2017-08-10 18:09:02,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:688------------------------------
+2017-08-10 18:09:03,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:03,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:03,557 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:03,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:689------------------------------
+2017-08-10 18:09:04,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:04,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:04,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:04,558 [78736] DEBUG SyncService-54267293 - -------------------- Frame:690------------------------------
+2017-08-10 18:09:05,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:05,566 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:05,577 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:05,579 [78736] DEBUG SyncService-54267293 - -------------------- Frame:691------------------------------
+2017-08-10 18:09:06,556 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:06,557 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:06,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:06,559 [78736] DEBUG SyncService-54267293 - -------------------- Frame:692------------------------------
+2017-08-10 18:09:07,557 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:07,557 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:07,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:07,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:693------------------------------
+2017-08-10 18:09:08,575 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:08,592 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:08,626 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:08,663 [78736] DEBUG SyncService-54267293 - -------------------- Frame:694------------------------------
+2017-08-10 18:09:09,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:09,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:09,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:09,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:695------------------------------
+2017-08-10 18:09:10,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:10,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:10,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:10,567 [78736] DEBUG SyncService-54267293 - -------------------- Frame:696------------------------------
+2017-08-10 18:09:11,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:11,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:11,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:11,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:697------------------------------
+2017-08-10 18:09:12,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:12,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:12,566 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:12,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:698------------------------------
+2017-08-10 18:09:13,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:13,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:13,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:13,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:699------------------------------
+2017-08-10 18:09:14,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:14,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:14,566 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:14,567 [78736] DEBUG SyncService-54267293 - -------------------- Frame:700------------------------------
+2017-08-10 18:09:15,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:15,565 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:15,567 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:15,568 [78736] DEBUG SyncService-54267293 - -------------------- Frame:701------------------------------
+2017-08-10 18:09:16,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:16,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:16,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:16,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:702------------------------------
+2017-08-10 18:09:17,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:17,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:17,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:17,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:703------------------------------
+2017-08-10 18:09:18,565 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:18,566 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:18,568 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:18,568 [78736] DEBUG SyncService-54267293 - -------------------- Frame:704------------------------------
+2017-08-10 18:09:19,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:19,565 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:19,566 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:19,567 [78736] DEBUG SyncService-54267293 - -------------------- Frame:705------------------------------
+2017-08-10 18:09:20,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:20,565 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:20,567 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:20,568 [78736] DEBUG SyncService-54267293 - -------------------- Frame:706------------------------------
+2017-08-10 18:09:21,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:21,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:21,566 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:21,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:707------------------------------
+2017-08-10 18:09:22,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:22,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:22,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:22,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:708------------------------------
+2017-08-10 18:09:23,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:23,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:23,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:23,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:709------------------------------
+2017-08-10 18:09:24,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:24,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:24,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:24,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:710------------------------------
+2017-08-10 18:09:25,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:25,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:25,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:25,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:711------------------------------
+2017-08-10 18:09:26,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:26,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:26,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:26,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:712------------------------------
+2017-08-10 18:09:27,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:27,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:27,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:27,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:713------------------------------
+2017-08-10 18:09:28,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:28,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:28,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:28,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:714------------------------------
+2017-08-10 18:09:29,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:29,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:29,566 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:29,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:715------------------------------
+2017-08-10 18:09:30,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:30,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:30,566 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:30,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:716------------------------------
+2017-08-10 18:09:31,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:31,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:31,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:31,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:717------------------------------
+2017-08-10 18:09:32,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:32,563 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:32,564 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:32,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:718------------------------------
+2017-08-10 18:09:33,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:33,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:33,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:33,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:719------------------------------
+2017-08-10 18:09:34,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:34,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:34,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:34,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:720------------------------------
+2017-08-10 18:09:35,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:35,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:35,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:35,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:721------------------------------
+2017-08-10 18:09:36,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:36,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:36,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:36,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:722------------------------------
+2017-08-10 18:09:37,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:37,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:37,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:37,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:723------------------------------
+2017-08-10 18:09:38,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:38,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:38,566 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:38,567 [78736] DEBUG SyncService-54267293 - -------------------- Frame:724------------------------------
+2017-08-10 18:09:39,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:39,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:39,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:39,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:725------------------------------
+2017-08-10 18:09:40,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:40,563 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:40,564 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:40,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:726------------------------------
+2017-08-10 18:09:41,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:41,563 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:41,564 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:41,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:727------------------------------
+2017-08-10 18:09:42,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:42,563 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:42,564 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:42,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:728------------------------------
+2017-08-10 18:09:43,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:43,565 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:43,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:43,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:729------------------------------
+2017-08-10 18:09:44,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:44,563 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:44,564 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:44,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:730------------------------------
+2017-08-10 18:09:45,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:45,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:45,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:45,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:731------------------------------
+2017-08-10 18:09:46,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:46,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:46,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:46,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:732------------------------------
+2017-08-10 18:09:47,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:47,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:47,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:47,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:733------------------------------
+2017-08-10 18:09:48,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:48,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:48,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:48,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:734------------------------------
+2017-08-10 18:09:49,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:49,565 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:49,566 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:49,567 [78736] DEBUG SyncService-54267293 - -------------------- Frame:735------------------------------
+2017-08-10 18:09:50,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:50,565 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:50,566 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:50,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:736------------------------------
+2017-08-10 18:09:51,564 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:51,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:51,566 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:51,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:737------------------------------
+2017-08-10 18:09:52,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:52,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:52,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:52,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:738------------------------------
+2017-08-10 18:09:53,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:53,563 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:53,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:53,567 [78736] DEBUG SyncService-54267293 - -------------------- Frame:739------------------------------
+2017-08-10 18:09:54,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:54,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:54,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:54,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:740------------------------------
+2017-08-10 18:09:55,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:55,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:55,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:55,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:741------------------------------
+2017-08-10 18:09:56,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:56,563 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:56,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:56,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:742------------------------------
+2017-08-10 18:09:57,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:57,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:57,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:57,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:743------------------------------
+2017-08-10 18:09:58,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:58,563 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:58,564 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:58,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:744------------------------------
+2017-08-10 18:09:59,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:09:59,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:09:59,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:09:59,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:745------------------------------
+2017-08-10 18:10:00,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:00,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:00,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:00,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:746------------------------------
+2017-08-10 18:10:01,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:01,564 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:01,565 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:01,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:747------------------------------
+2017-08-10 18:10:02,563 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:02,563 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:02,564 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:02,566 [78736] DEBUG SyncService-54267293 - -------------------- Frame:748------------------------------
+2017-08-10 18:10:03,562 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:03,563 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:03,564 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:03,564 [78736] DEBUG SyncService-54267293 - -------------------- Frame:749------------------------------
+2017-08-10 18:10:04,562 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:04,563 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:04,564 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:04,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:750------------------------------
+2017-08-10 18:10:05,562 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:05,562 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:05,563 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:05,564 [78736] DEBUG SyncService-54267293 - -------------------- Frame:751------------------------------
+2017-08-10 18:10:06,561 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:06,562 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:06,563 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:06,564 [78736] DEBUG SyncService-54267293 - -------------------- Frame:752------------------------------
+2017-08-10 18:10:07,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:07,561 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:07,562 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:07,563 [78736] DEBUG SyncService-54267293 - -------------------- Frame:753------------------------------
+2017-08-10 18:10:08,561 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:08,562 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:08,563 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:08,564 [78736] DEBUG SyncService-54267293 - -------------------- Frame:754------------------------------
+2017-08-10 18:10:09,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:09,561 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:09,562 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:09,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:755------------------------------
+2017-08-10 18:10:10,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:10,561 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:10,562 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:10,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:756------------------------------
+2017-08-10 18:10:11,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:11,561 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:11,563 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:11,564 [78736] DEBUG SyncService-54267293 - -------------------- Frame:757------------------------------
+2017-08-10 18:10:12,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:12,560 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:12,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:12,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:758------------------------------
+2017-08-10 18:10:13,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:13,561 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:13,562 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:13,563 [78736] DEBUG SyncService-54267293 - -------------------- Frame:759------------------------------
+2017-08-10 18:10:14,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:14,561 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:14,562 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:14,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:760------------------------------
+2017-08-10 18:10:15,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:15,560 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:15,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:15,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:761------------------------------
+2017-08-10 18:10:16,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:16,560 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:16,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:16,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:762------------------------------
+2017-08-10 18:10:17,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:17,561 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:17,563 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:17,564 [78736] DEBUG SyncService-54267293 - -------------------- Frame:763------------------------------
+2017-08-10 18:10:18,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:18,560 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:18,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:18,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:764------------------------------
+2017-08-10 18:10:19,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:19,560 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:19,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:19,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:765------------------------------
+2017-08-10 18:10:20,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:20,560 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:20,562 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:20,563 [78736] DEBUG SyncService-54267293 - -------------------- Frame:766------------------------------
+2017-08-10 18:10:21,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:21,560 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:21,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:21,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:767------------------------------
+2017-08-10 18:10:22,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:22,561 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:22,562 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:22,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:768------------------------------
+2017-08-10 18:10:23,559 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:23,560 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:23,562 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:23,563 [78736] DEBUG SyncService-54267293 - -------------------- Frame:769------------------------------
+2017-08-10 18:10:24,559 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:24,560 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:24,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:24,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:770------------------------------
+2017-08-10 18:10:25,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:25,560 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:25,562 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:25,563 [78736] DEBUG SyncService-54267293 - -------------------- Frame:771------------------------------
+2017-08-10 18:10:26,559 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:26,559 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:26,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:26,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:772------------------------------
+2017-08-10 18:10:27,559 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:27,560 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:27,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:27,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:773------------------------------
+2017-08-10 18:10:28,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:28,561 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:28,562 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:28,563 [78736] DEBUG SyncService-54267293 - -------------------- Frame:774------------------------------
+2017-08-10 18:10:29,559 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:29,559 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:29,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:29,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:775------------------------------
+2017-08-10 18:10:30,559 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:30,559 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:30,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:30,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:776------------------------------
+2017-08-10 18:10:31,559 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:31,559 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:31,562 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:31,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:777------------------------------
+2017-08-10 18:10:32,559 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:32,560 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:32,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:32,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:778------------------------------
+2017-08-10 18:10:33,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:33,561 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:33,563 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:33,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:779------------------------------
+2017-08-10 18:10:34,560 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:34,561 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:34,564 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:34,564 [78736] DEBUG SyncService-54267293 - -------------------- Frame:780------------------------------
+2017-08-10 18:10:35,559 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:35,559 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:35,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:35,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:781------------------------------
+2017-08-10 18:10:36,559 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:36,560 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:36,564 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:36,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:782------------------------------
+2017-08-10 18:10:37,559 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:37,560 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:37,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:37,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:783------------------------------
+2017-08-10 18:10:38,559 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:38,560 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:38,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:38,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:784------------------------------
+2017-08-10 18:10:39,559 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:39,560 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:39,562 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:39,563 [78736] DEBUG SyncService-54267293 - -------------------- Frame:785------------------------------
+2017-08-10 18:10:40,559 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:40,559 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:40,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:40,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:786------------------------------
+2017-08-10 18:10:41,558 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:41,559 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:41,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:41,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:787------------------------------
+2017-08-10 18:10:42,558 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:42,559 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:42,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:42,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:788------------------------------
+2017-08-10 18:10:43,558 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:43,559 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:43,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:43,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:789------------------------------
+2017-08-10 18:10:44,558 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:44,558 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:44,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:44,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:790------------------------------
+2017-08-10 18:10:45,557 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:45,558 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:45,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:45,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:791------------------------------
+2017-08-10 18:10:46,557 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:46,558 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:46,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:46,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:792------------------------------
+2017-08-10 18:10:47,557 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:47,558 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:47,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:47,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:793------------------------------
+2017-08-10 18:10:48,557 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:48,557 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:48,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:48,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:794------------------------------
+2017-08-10 18:10:49,556 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:49,557 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:49,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:49,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:795------------------------------
+2017-08-10 18:10:50,557 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:50,558 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:50,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:50,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:796------------------------------
+2017-08-10 18:10:51,557 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:51,558 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:51,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:51,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:797------------------------------
+2017-08-10 18:10:52,557 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:52,558 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:52,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:52,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:798------------------------------
+2017-08-10 18:10:53,558 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:53,559 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:53,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:53,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:799------------------------------
+2017-08-10 18:10:54,557 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:54,558 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:54,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:54,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:800------------------------------
+2017-08-10 18:10:55,557 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:55,558 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:55,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:55,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:801------------------------------
+2017-08-10 18:10:56,558 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:56,561 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:56,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:56,563 [78736] DEBUG SyncService-54267293 - -------------------- Frame:802------------------------------
+2017-08-10 18:10:57,558 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:57,559 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:57,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:57,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:803------------------------------
+2017-08-10 18:10:58,556 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:58,557 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:58,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:58,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:804------------------------------
+2017-08-10 18:10:59,557 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:10:59,558 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:10:59,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:10:59,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:805------------------------------
+2017-08-10 18:11:00,556 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:00,557 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:00,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:00,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:806------------------------------
+2017-08-10 18:11:01,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:01,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:01,558 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:01,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:807------------------------------
+2017-08-10 18:11:02,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:02,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:02,558 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:02,559 [78736] DEBUG SyncService-54267293 - -------------------- Frame:808------------------------------
+2017-08-10 18:11:03,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:03,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:03,557 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:03,558 [78736] DEBUG SyncService-54267293 - -------------------- Frame:809------------------------------
+2017-08-10 18:11:04,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:04,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:04,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:04,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:810------------------------------
+2017-08-10 18:11:05,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:05,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:05,558 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:05,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:811------------------------------
+2017-08-10 18:11:06,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:06,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:06,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:06,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:812------------------------------
+2017-08-10 18:11:07,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:07,558 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:07,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:07,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:813------------------------------
+2017-08-10 18:11:08,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:08,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:08,558 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:08,559 [78736] DEBUG SyncService-54267293 - -------------------- Frame:814------------------------------
+2017-08-10 18:11:09,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:09,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:09,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:09,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:815------------------------------
+2017-08-10 18:11:10,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:10,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:10,558 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:10,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:816------------------------------
+2017-08-10 18:11:11,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:11,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:11,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:11,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:817------------------------------
+2017-08-10 18:11:12,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:12,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:12,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:12,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:818------------------------------
+2017-08-10 18:11:13,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:13,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:13,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:13,555 [78736] DEBUG SyncService-54267293 - -------------------- Frame:819------------------------------
+2017-08-10 18:11:14,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:14,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:14,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:14,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:820------------------------------
+2017-08-10 18:11:15,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:15,554 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:15,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:15,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:821------------------------------
+2017-08-10 18:11:16,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:16,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:16,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:16,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:822------------------------------
+2017-08-10 18:11:17,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:17,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:17,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:17,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:823------------------------------
+2017-08-10 18:11:18,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:18,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:18,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:18,558 [78736] DEBUG SyncService-54267293 - -------------------- Frame:824------------------------------
+2017-08-10 18:11:19,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:19,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:19,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:19,555 [78736] DEBUG SyncService-54267293 - -------------------- Frame:825------------------------------
+2017-08-10 18:11:20,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:20,554 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:20,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:20,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:826------------------------------
+2017-08-10 18:11:21,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:21,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:21,557 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:21,558 [78736] DEBUG SyncService-54267293 - -------------------- Frame:827------------------------------
+2017-08-10 18:11:22,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:22,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:22,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:22,555 [78736] DEBUG SyncService-54267293 - -------------------- Frame:828------------------------------
+2017-08-10 18:11:23,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:23,554 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:23,558 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:23,559 [78736] DEBUG SyncService-54267293 - -------------------- Frame:829------------------------------
+2017-08-10 18:11:24,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:24,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:24,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:24,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:830------------------------------
+2017-08-10 18:11:25,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:25,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:25,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:25,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:831------------------------------
+2017-08-10 18:11:26,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:26,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:26,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:26,555 [78736] DEBUG SyncService-54267293 - -------------------- Frame:832------------------------------
+2017-08-10 18:11:27,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:27,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:27,558 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:27,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:833------------------------------
+2017-08-10 18:11:28,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:28,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:28,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:28,554 [78736] DEBUG SyncService-54267293 - -------------------- Frame:834------------------------------
+2017-08-10 18:11:29,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:29,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:29,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:29,555 [78736] DEBUG SyncService-54267293 - -------------------- Frame:835------------------------------
+2017-08-10 18:11:30,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:30,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:30,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:30,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:836------------------------------
+2017-08-10 18:11:31,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:31,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:31,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:31,555 [78736] DEBUG SyncService-54267293 - -------------------- Frame:837------------------------------
+2017-08-10 18:11:32,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:32,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:32,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:32,555 [78736] DEBUG SyncService-54267293 - -------------------- Frame:838------------------------------
+2017-08-10 18:11:33,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:33,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:33,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:33,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:839------------------------------
+2017-08-10 18:11:34,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:34,552 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:34,553 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:34,554 [78736] DEBUG SyncService-54267293 - -------------------- Frame:840------------------------------
+2017-08-10 18:11:35,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:35,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:35,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:35,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:841------------------------------
+2017-08-10 18:11:36,551 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:36,552 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:36,553 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:36,553 [78736] DEBUG SyncService-54267293 - -------------------- Frame:842------------------------------
+2017-08-10 18:11:37,551 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:37,552 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:37,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:37,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:843------------------------------
+2017-08-10 18:11:38,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:38,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:38,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:38,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:844------------------------------
+2017-08-10 18:11:39,551 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:39,552 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:39,553 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:39,554 [78736] DEBUG SyncService-54267293 - -------------------- Frame:845------------------------------
+2017-08-10 18:11:40,551 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:40,551 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:40,552 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:40,553 [78736] DEBUG SyncService-54267293 - -------------------- Frame:846------------------------------
+2017-08-10 18:11:41,551 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:41,552 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:41,553 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:41,554 [78736] DEBUG SyncService-54267293 - -------------------- Frame:847------------------------------
+2017-08-10 18:11:42,551 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:42,552 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:42,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:42,555 [78736] DEBUG SyncService-54267293 - -------------------- Frame:848------------------------------
+2017-08-10 18:11:43,551 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:43,551 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:43,553 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:43,555 [78736] DEBUG SyncService-54267293 - -------------------- Frame:849------------------------------
+2017-08-10 18:11:44,551 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:44,551 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:44,552 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:44,552 [78736] DEBUG SyncService-54267293 - -------------------- Frame:850------------------------------
+2017-08-10 18:11:45,551 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:45,552 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:45,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:45,555 [78736] DEBUG SyncService-54267293 - -------------------- Frame:851------------------------------
+2017-08-10 18:11:46,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:46,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:46,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:46,555 [78736] DEBUG SyncService-54267293 - -------------------- Frame:852------------------------------
+2017-08-10 18:11:47,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:47,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:47,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:47,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:853------------------------------
+2017-08-10 18:11:48,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:48,554 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:48,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:48,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:854------------------------------
+2017-08-10 18:11:49,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:49,554 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:49,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:49,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:855------------------------------
+2017-08-10 18:11:50,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:50,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:50,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:50,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:856------------------------------
+2017-08-10 18:11:51,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:51,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:51,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:51,558 [78736] DEBUG SyncService-54267293 - -------------------- Frame:857------------------------------
+2017-08-10 18:11:52,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:52,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:52,558 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:52,558 [78736] DEBUG SyncService-54267293 - -------------------- Frame:858------------------------------
+2017-08-10 18:11:53,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:53,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:53,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:53,563 [78736] DEBUG SyncService-54267293 - -------------------- Frame:859------------------------------
+2017-08-10 18:11:54,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:54,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:54,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:54,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:860------------------------------
+2017-08-10 18:11:55,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:55,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:55,558 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:55,558 [78736] DEBUG SyncService-54267293 - -------------------- Frame:861------------------------------
+2017-08-10 18:11:56,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:56,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:56,557 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:56,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:862------------------------------
+2017-08-10 18:11:57,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:57,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:57,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:57,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:863------------------------------
+2017-08-10 18:11:58,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:58,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:58,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:58,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:864------------------------------
+2017-08-10 18:11:59,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:11:59,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:11:59,557 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:11:59,559 [78736] DEBUG SyncService-54267293 - -------------------- Frame:865------------------------------
+2017-08-10 18:12:00,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:00,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:00,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:00,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:866------------------------------
+2017-08-10 18:12:01,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:01,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:01,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:01,559 [78736] DEBUG SyncService-54267293 - -------------------- Frame:867------------------------------
+2017-08-10 18:12:02,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:02,554 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:02,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:02,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:868------------------------------
+2017-08-10 18:12:03,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:03,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:03,557 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:03,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:869------------------------------
+2017-08-10 18:12:04,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:04,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:04,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:04,559 [78736] DEBUG SyncService-54267293 - -------------------- Frame:870------------------------------
+2017-08-10 18:12:05,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:05,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:05,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:05,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:871------------------------------
+2017-08-10 18:12:06,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:06,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:06,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:06,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:872------------------------------
+2017-08-10 18:12:07,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:07,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:07,558 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:07,558 [78736] DEBUG SyncService-54267293 - -------------------- Frame:873------------------------------
+2017-08-10 18:12:08,556 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:08,557 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:08,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:08,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:874------------------------------
+2017-08-10 18:12:09,556 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:09,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:09,557 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:09,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:875------------------------------
+2017-08-10 18:12:10,556 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:10,557 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:10,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:10,559 [78736] DEBUG SyncService-54267293 - -------------------- Frame:876------------------------------
+2017-08-10 18:12:11,556 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:11,557 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:11,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:11,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:877------------------------------
+2017-08-10 18:12:12,556 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:12,557 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:12,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:12,559 [78736] DEBUG SyncService-54267293 - -------------------- Frame:878------------------------------
+2017-08-10 18:12:13,556 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:13,557 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:13,563 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:13,565 [78736] DEBUG SyncService-54267293 - -------------------- Frame:879------------------------------
+2017-08-10 18:12:14,556 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:14,557 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:14,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:14,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:880------------------------------
+2017-08-10 18:12:15,556 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:15,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:15,558 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:15,558 [78736] DEBUG SyncService-54267293 - -------------------- Frame:881------------------------------
+2017-08-10 18:12:16,556 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:16,557 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:16,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:16,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:882------------------------------
+2017-08-10 18:12:17,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:17,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:17,558 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:17,558 [78736] DEBUG SyncService-54267293 - -------------------- Frame:883------------------------------
+2017-08-10 18:12:18,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:18,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:18,557 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:18,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:884------------------------------
+2017-08-10 18:12:19,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:19,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:19,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:19,559 [78736] DEBUG SyncService-54267293 - -------------------- Frame:885------------------------------
+2017-08-10 18:12:20,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:20,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:20,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:20,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:886------------------------------
+2017-08-10 18:12:21,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:21,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:21,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:21,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:887------------------------------
+2017-08-10 18:12:22,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:22,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:22,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:22,559 [78736] DEBUG SyncService-54267293 - -------------------- Frame:888------------------------------
+2017-08-10 18:12:23,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:23,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:23,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:23,558 [78736] DEBUG SyncService-54267293 - -------------------- Frame:889------------------------------
+2017-08-10 18:12:24,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:24,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:24,557 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:24,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:890------------------------------
+2017-08-10 18:12:25,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:25,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:25,557 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:25,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:891------------------------------
+2017-08-10 18:12:26,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:26,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:26,557 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:26,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:892------------------------------
+2017-08-10 18:12:27,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:27,558 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:27,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:27,562 [78736] DEBUG SyncService-54267293 - -------------------- Frame:893------------------------------
+2017-08-10 18:12:28,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:28,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:28,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:28,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:894------------------------------
+2017-08-10 18:12:29,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:29,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:29,558 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:29,559 [78736] DEBUG SyncService-54267293 - -------------------- Frame:895------------------------------
+2017-08-10 18:12:30,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:30,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:30,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:30,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:896------------------------------
+2017-08-10 18:12:31,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:31,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:31,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:31,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:897------------------------------
+2017-08-10 18:12:32,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:32,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:32,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:32,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:898------------------------------
+2017-08-10 18:12:33,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:33,556 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:33,559 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:33,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:899------------------------------
+2017-08-10 18:12:34,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:34,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:34,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:34,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:900------------------------------
+2017-08-10 18:12:35,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:35,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:35,557 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:35,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:901------------------------------
+2017-08-10 18:12:36,555 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:36,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:36,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:36,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:902------------------------------
+2017-08-10 18:12:37,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:37,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:37,558 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:37,558 [78736] DEBUG SyncService-54267293 - -------------------- Frame:903------------------------------
+2017-08-10 18:12:38,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:38,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:38,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:38,558 [78736] DEBUG SyncService-54267293 - -------------------- Frame:904------------------------------
+2017-08-10 18:12:39,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:39,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:39,557 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:39,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:905------------------------------
+2017-08-10 18:12:40,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:40,555 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:40,558 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:40,559 [78736] DEBUG SyncService-54267293 - -------------------- Frame:906------------------------------
+2017-08-10 18:12:41,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:41,561 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:41,561 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:41,561 [78736] DEBUG SyncService-54267293 - -------------------- Frame:907------------------------------
+2017-08-10 18:12:42,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:42,554 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:42,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:42,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:908------------------------------
+2017-08-10 18:12:43,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:43,554 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:43,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:43,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:909------------------------------
+2017-08-10 18:12:44,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:44,554 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:44,560 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:44,560 [78736] DEBUG SyncService-54267293 - -------------------- Frame:910------------------------------
+2017-08-10 18:12:45,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:45,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:45,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:45,555 [78736] DEBUG SyncService-54267293 - -------------------- Frame:911------------------------------
+2017-08-10 18:12:46,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:46,554 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:46,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:46,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:912------------------------------
+2017-08-10 18:12:47,554 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:47,554 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:47,557 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:47,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:913------------------------------
+2017-08-10 18:12:48,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:48,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:48,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:48,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:914------------------------------
+2017-08-10 18:12:49,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:49,554 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:49,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:49,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:915------------------------------
+2017-08-10 18:12:50,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:50,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:50,556 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:50,556 [78736] DEBUG SyncService-54267293 - -------------------- Frame:916------------------------------
+2017-08-10 18:12:51,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:51,553 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:51,555 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:51,557 [78736] DEBUG SyncService-54267293 - -------------------- Frame:917------------------------------
+2017-08-10 18:12:52,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:52,552 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:52,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:52,554 [78736] DEBUG SyncService-54267293 - -------------------- Frame:918------------------------------
+2017-08-10 18:12:53,551 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:53,552 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:53,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:53,555 [78736] DEBUG SyncService-54267293 - -------------------- Frame:919------------------------------
+2017-08-10 18:12:54,550 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:54,551 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:54,553 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:54,554 [78736] DEBUG SyncService-54267293 - -------------------- Frame:920------------------------------
+2017-08-10 18:12:55,550 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:55,551 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:55,552 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:55,553 [78736] DEBUG SyncService-54267293 - -------------------- Frame:921------------------------------
+2017-08-10 18:12:56,550 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:56,551 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:56,552 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:56,553 [78736] DEBUG SyncService-54267293 - -------------------- Frame:922------------------------------
+2017-08-10 18:12:57,551 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:57,551 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:57,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:57,554 [78736] DEBUG SyncService-54267293 - -------------------- Frame:923------------------------------
+2017-08-10 18:12:58,551 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:58,552 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:58,553 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:58,554 [78736] DEBUG SyncService-54267293 - -------------------- Frame:924------------------------------
+2017-08-10 18:12:59,551 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:12:59,552 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:12:59,552 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:12:59,553 [78736] DEBUG SyncService-54267293 - -------------------- Frame:925------------------------------
+2017-08-10 18:13:00,551 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:13:00,552 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:13:00,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:13:00,554 [78736] DEBUG SyncService-54267293 - -------------------- Frame:926------------------------------
+2017-08-10 18:13:01,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:13:01,552 [78736] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000comp.m_velocity 0comp.m_dirx 0
+2017-08-10 18:13:01,553 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:13:01,554 [78736] DEBUG SyncService-54267293 - -------------------- Frame:927------------------------------
+2017-08-10 18:13:02,135 [76840] DEBUG SyncService-54267293 - SyncService OnSessionClosed 8e9c23df-45d7-435c-95b8-dcb8a569558d
+2017-08-10 18:13:02,137 [76840] DEBUG SyncService-54267293 - OnEntityDestroy
+2017-08-10 18:13:02,137 [76840] DEBUG SyncService-54267293 - PushDestroyEntity 1
+2017-08-10 18:13:02,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:13:02,552 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:13:02,553 [78736] DEBUG SyncService-54267293 - -------------------- Frame:928------------------------------
+2017-08-10 18:13:03,552 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:13:03,553 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:13:03,553 [78736] DEBUG SyncService-54267293 - -------------------- Frame:929------------------------------
+2017-08-10 18:13:04,553 [78736] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-10 18:13:04,554 [78736] DEBUG SyncService-54267293 - END
+2017-08-10 18:13:04,554 [78736] DEBUG SyncService-54267293 - -------------------- Frame:930------------------------------

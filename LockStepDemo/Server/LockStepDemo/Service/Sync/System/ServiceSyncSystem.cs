@@ -27,11 +27,17 @@ namespace LockStepDemo.ServiceLogic.System
             };
         }
 
-        int frame = 0;
+        public override void BeforeFixedUpdate(int deltaTime)
+        {
+            FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
+
+            fc.count++;
+
+            Debug.Log("-------------------- Frame:" + fc.count + "------------------------------");
+        }
+
         public override void LateFixedUpdate(int deltaTime)
         {
-            Debug.Log("-------------------- Frame:" + frame++ +"------------------------------");
-
             List<EntityBase> list = GetEntityList();
 
             for (int i = 0; i < list.Count; i++)
@@ -89,6 +95,8 @@ namespace LockStepDemo.ServiceLogic.System
 
         #region 推送数据
 
+        #region 实体
+
         public void PushSyncEnity(SyncComponent connectionComp, EntityBase entity)
         {
             for (int i = 0; i < connectionComp.m_waitSyncList.Count; i++)
@@ -105,8 +113,11 @@ namespace LockStepDemo.ServiceLogic.System
                 return;
             }
 
+            FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
+
             SyncEntityMsg msg = new SyncEntityMsg();
-            msg.m_id = entity.ID;
+            msg.frame = fc.count;
+            msg.id = entity.ID;
             msg.infos = new List<ComponentInfo>();
 
             foreach (var c in entity.m_compDict)
@@ -156,13 +167,40 @@ namespace LockStepDemo.ServiceLogic.System
 
         void PushDestroyEntity(SyncSession session, int entityID)
         {
+            FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
             DestroyEntityMsg msg = new DestroyEntityMsg();
-            msg.m_id = entityID;
+            msg.id = entityID;
+            msg.frame = fc.count;
 
             session.SendMsg(msg);
 
             Debug.Log("PushDestroyEntity 3");
         }
+
+        #endregion
+
+        #region
+
+        public void PushSingletonComp<T>(SyncSession session) where T :SingletonComponent,new()
+        {
+            string key = typeof(T).Name;
+            PushSingletonComp(session,key);
+        }
+
+        public void PushSingletonComp(SyncSession session, string compName)
+        {
+            FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
+
+            SingletonComponent comp = m_world.GetSingletonComp(compName);
+            ChangeSingletonComponentMsg msg = new ChangeSingletonComponentMsg();
+            msg.info.m_compName = compName;
+            msg.info.content = Serializer.Serialize(comp);
+            msg.frame = fc.count;
+
+            session.SendMsg(msg);
+        }
+
+        #endregion
 
         #endregion
     }

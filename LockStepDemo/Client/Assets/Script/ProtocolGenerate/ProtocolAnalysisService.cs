@@ -13,6 +13,7 @@ public class ProtocolAnalysisService
 	{
 		InputManager.AddListener<InputNetworkMessageEvent>("waitsynccomponent",ReceviceWaitSyncComponent);
 		InputManager.AddListener<InputNetworkMessageEvent>("changecomponentmsg",ReceviceChangeComponentMsg);
+		InputManager.AddListener<InputNetworkMessageEvent>("changesingletoncomponentmsg",ReceviceChangeSingletonComponentMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("destroyentitymsg",ReceviceDestroyEntityMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("syncentitymsg",ReceviceSyncEntityMsg);
 	}
@@ -21,6 +22,7 @@ public class ProtocolAnalysisService
 	{
 		InputManager.RemoveListener<InputNetworkMessageEvent>("waitsynccomponent",ReceviceWaitSyncComponent);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("changecomponentmsg",ReceviceChangeComponentMsg);
+		InputManager.RemoveListener<InputNetworkMessageEvent>("changesingletoncomponentmsg",ReceviceChangeSingletonComponentMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("destroyentitymsg",ReceviceDestroyEntityMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("syncentitymsg",ReceviceSyncEntityMsg);
 	}
@@ -33,6 +35,10 @@ public class ProtocolAnalysisService
 		else if(cmd is Protocol.ChangeComponentMsg )
 		{
 			SendChangeComponentMsg(cmd);
+		}
+		else if(cmd is Protocol.ChangeSingletonComponentMsg )
+		{
+			SendChangeSingletonComponentMsg(cmd);
 		}
 		else if(cmd is Protocol.DestroyEntityMsg )
 		{
@@ -57,8 +63,8 @@ public class ProtocolAnalysisService
 	{
 		Protocol.ChangeComponentMsg e = (Protocol.ChangeComponentMsg)msg;
 		Dictionary<string, object> data = new Dictionary<string, object>();
-		data.Add("m_id", e.m_id);
-		data.Add("m_operation", (int)e.m_operation);
+		data.Add("frame", e.frame);
+		data.Add("id", e.id);
 			{
 				Dictionary<string, object> data2 = new Dictionary<string, object>();
 				data2.Add("m_compname", e.info.m_compName);
@@ -67,18 +73,33 @@ public class ProtocolAnalysisService
 			}
 		NetworkManager.SendMessage("changecomponentmsg",data);
 	}
+	static void SendChangeSingletonComponentMsg(IProtocolMessageInterface msg)
+	{
+		Protocol.ChangeSingletonComponentMsg e = (Protocol.ChangeSingletonComponentMsg)msg;
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("frame", e.frame);
+			{
+				Dictionary<string, object> data2 = new Dictionary<string, object>();
+				data2.Add("m_compname", e.info.m_compName);
+				data2.Add("content", e.info.content);
+				data.Add("info",data2);
+			}
+		NetworkManager.SendMessage("changesingletoncomponentmsg",data);
+	}
 	static void SendDestroyEntityMsg(IProtocolMessageInterface msg)
 	{
 		Protocol.DestroyEntityMsg e = (Protocol.DestroyEntityMsg)msg;
 		Dictionary<string, object> data = new Dictionary<string, object>();
-		data.Add("m_id", e.m_id);
+		data.Add("frame", e.frame);
+		data.Add("id", e.id);
 		NetworkManager.SendMessage("destroyentitymsg",data);
 	}
 	static void SendSyncEntityMsg(IProtocolMessageInterface msg)
 	{
 		Protocol.SyncEntityMsg e = (Protocol.SyncEntityMsg)msg;
 		Dictionary<string, object> data = new Dictionary<string, object>();
-		data.Add("m_id", e.m_id);
+		data.Add("frame", e.frame);
+		data.Add("id", e.id);
 		{
 			List<object> list2 = new List<object>();
 			for(int i2 = 0;i2 <e.infos.Count ; i2++)
@@ -104,8 +125,22 @@ public class ProtocolAnalysisService
 	static void ReceviceChangeComponentMsg(InputNetworkMessageEvent e)
 	{
 		Protocol.ChangeComponentMsg msg = new Protocol.ChangeComponentMsg();
-		msg.m_id = (int)e.Data["m_id"];
-		msg.m_operation = (ChangeStatus)e.Data["m_operation"];
+		msg.frame = (int)e.Data["frame"];
+		msg.id = (int)e.Data["id"];
+		{
+			Dictionary<string, object> data2 = (Dictionary<string, object>)e.Data["info"];
+			Protocol.ComponentInfo tmp2 = new Protocol.ComponentInfo();
+			tmp2.m_compName = data2["m_compname"].ToString();
+			tmp2.content = data2["content"].ToString();
+			msg.info = tmp2;
+		}
+		
+		GlobalEvent.DispatchTypeEvent(msg);
+	}
+	static void ReceviceChangeSingletonComponentMsg(InputNetworkMessageEvent e)
+	{
+		Protocol.ChangeSingletonComponentMsg msg = new Protocol.ChangeSingletonComponentMsg();
+		msg.frame = (int)e.Data["frame"];
 		{
 			Dictionary<string, object> data2 = (Dictionary<string, object>)e.Data["info"];
 			Protocol.ComponentInfo tmp2 = new Protocol.ComponentInfo();
@@ -119,14 +154,16 @@ public class ProtocolAnalysisService
 	static void ReceviceDestroyEntityMsg(InputNetworkMessageEvent e)
 	{
 		Protocol.DestroyEntityMsg msg = new Protocol.DestroyEntityMsg();
-		msg.m_id = (int)e.Data["m_id"];
+		msg.frame = (int)e.Data["frame"];
+		msg.id = (int)e.Data["id"];
 		
 		GlobalEvent.DispatchTypeEvent(msg);
 	}
 	static void ReceviceSyncEntityMsg(InputNetworkMessageEvent e)
 	{
 		Protocol.SyncEntityMsg msg = new Protocol.SyncEntityMsg();
-		msg.m_id = (int)e.Data["m_id"];
+		msg.frame = (int)e.Data["frame"];
+		msg.id = (int)e.Data["id"];
 		{
 			List<Dictionary<string, object>> data2 = (List<Dictionary<string, object>>)e.Data["infos"];
 			List<Protocol.ComponentInfo> list2 = new List<Protocol.ComponentInfo>();

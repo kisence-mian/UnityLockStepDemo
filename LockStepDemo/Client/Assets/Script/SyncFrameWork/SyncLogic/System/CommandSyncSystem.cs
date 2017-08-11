@@ -11,29 +11,47 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
     public override Type[] GetFilter()
     {
         return new Type[] {
-            typeof(WaitSyncComponent),
             typeof(SelfComponent),
             typeof(T)
         };
     }
 
-    public override void LateFixedUpdate(int deltaTime)
+    public override void BeforeFixedUpdate(int deltaTime)
     {
         List<EntityBase> list = GetEntityList();
 
-        for (int i = 0; i < list.Count; i++)
+        if (list.Count > 1)
         {
-            list[i].RemoveComp<WaitSyncComponent>();
+            Debug.LogError("CommandSyncSystem Error exist two selfComponet!");
+            return;
+        }
 
-            T comp = list[i].GetComp<T>();
+        if (list.Count > 0)
+        {
+            EntityBase entity = list[0];
+            FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
+            T comp = new T();
+
+            BuildCommand(comp);
+            entity.ChangeComp(comp);
+
+            //缓存起来
+            RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+            rc.m_inputCache = comp;
 
             ChangeComponentMsg msg = new ChangeComponentMsg();
-            msg.m_id = list[i].ID;
+            msg.frame = fc.count;
+            msg.id = entity.ID;
             msg.info = new ComponentInfo();
             msg.info.m_compName = comp.GetType().Name;
             msg.info.content = Serializer.Serialize(comp);
 
             ProtocolAnalysisService.SendCommand(msg);
         }
+    }
+
+    public virtual void BuildCommand(T command)
+    {
+
     }
 }

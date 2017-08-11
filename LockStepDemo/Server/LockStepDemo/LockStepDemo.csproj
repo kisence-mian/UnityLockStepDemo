@@ -89,6 +89,7 @@
     <Compile Include="ECS\EntityBase.cs" />
     <Compile Include="ECS\InputCommandManager.cs" />
     <Compile Include="ECS\MomentBase.cs" />
+    <Compile Include="ECS\SingletonComponent.cs" />
     <Compile Include="ECS\SyncComponentBase.cs" />
     <Compile Include="ECS\SystemBase.cs" />
     <Compile Include="ECS\TupleBase.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="GameLogic\Component\PlayerComponent.cs" />
     <Compile Include="Service\ServiceLogic\Component\SyncComponent.cs" />
     <Compile Include="GameLogic\Component\ViewComponent.cs" />
+    <Compile Include="Service\Sync\Component\FrameCountComponent.cs" />
     <Compile Include="Service\Sync\Component\TheirComponent.cs" />
     <Compile Include="Service\Sync\Component\WaitSyncComponent.cs" />
     <Compile Include="GameLogic\System\CountSystem.cs" />

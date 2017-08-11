@@ -5,20 +5,22 @@ using System.Text;
 namespace Protocol
 {
     [Module(2, "EntitySyncModule")]
-    public abstract class EntitySyncModule:CsharpProtocolInterface
+    public abstract class EntitySyncModule : CsharpProtocolInterface
     {
 
     }
 
     public class SyncEntityMsg : EntitySyncModule
     {
-        public int m_id;
+        public int frame;
+        public int id;
         public List<ComponentInfo> infos;
     }
 
     public class DestroyEntityMsg : EntitySyncModule
     {
-        public int m_id;
+        public int frame;
+        public int id;
     }
 
     public class ComponentInfo : IProtocolStructInterface
@@ -30,8 +32,14 @@ namespace Protocol
 
     public class ChangeComponentMsg : EntitySyncModule
     {
-        public int m_id;
-        public ChangeStatus m_operation;
+        public int frame;
+        public int id;
+        public ComponentInfo info;
+    }
+
+    public class ChangeSingletonComponentMsg : EntitySyncModule
+    {
+        public int frame;
         public ComponentInfo info;
     }
 
