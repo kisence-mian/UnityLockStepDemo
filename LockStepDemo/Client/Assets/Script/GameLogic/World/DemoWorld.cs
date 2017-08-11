@@ -9,7 +9,6 @@ class DemoWorld : WorldBase
     {
         return new Type[] {
             typeof(InitSystem),
-            typeof(CountSystem),
             typeof(MoveSystem),
             typeof(OperationSystem)
         };

@@ -1,13 +1,12 @@
-﻿using System;
+﻿using Protocol;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 public class RecordComponent : SingletonComponent
 {
     public PlayerCommandBase m_inputCache;
     public List<ChangeRecordInfo> m_changeCache = new List<ChangeRecordInfo>();
 
+    public List<ServiceMessageInfo> m_messageList = new List<ServiceMessageInfo>();
     public List<RecordInfo> m_recordList = new List<RecordInfo>();
 
     public void ClearCache()
@@ -32,6 +31,13 @@ public struct ChangeRecordInfo
     public ComponentBase m_comp;
 }
 
+public struct ServiceMessageInfo
+{
+    public int m_frame;
+    public MessageType m_type;
+    public SyncModule m_msg;
+}
+
 public enum ChangeType
 {
     AddComp,
@@ -40,4 +46,11 @@ public enum ChangeType
 
     CreateEntity,
     DestroyEntity,
+}
+
+public enum MessageType
+{
+    SyncEntity,
+    DestroyEntity,
+    ChangeSingletonComponent
 }

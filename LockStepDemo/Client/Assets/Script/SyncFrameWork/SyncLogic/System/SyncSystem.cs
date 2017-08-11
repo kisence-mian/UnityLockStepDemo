@@ -32,44 +32,50 @@ public class SyncSystem : ViewSystemBase
 
     void ReceviceSyncEntity(SyncEntityMsg msg, params object[] objs)
     {
-        EntityBase entity;
-        if(!m_world.GetEntityIsExist(msg.id))
-        {
-            entity = m_world.CreateEntity(msg.id);
-        }
-        else
-        {
-            entity = m_world.GetEntity(msg.id);
-        }
+        Debug.Log("ReceviceSyncEntity");
 
-        for (int i = 0; i < msg.infos.Count; i++)
-        {
-            ComponentBase comp = (ComponentBase)deserializer.Deserialize(msg.infos[i].m_compName, msg.infos[i].content);
+        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
 
-            if (entity.GetExistComp(msg.infos[i].m_compName))
-            {
-                entity.ChangeComp(msg.infos[i].m_compName, comp);
-            }
-            else
-            {
-                entity.AddComp(msg.infos[i].m_compName, comp);
-            }
-        }
+        ServiceMessageInfo info = new ServiceMessageInfo();
+        info.m_frame = msg.frame;
+        info.m_type = MessageType.SyncEntity;
+        info.m_msg = msg;
+
+        rc.m_messageList.Add(info);
+
+        Recalc(msg.frame);
     }
 
     void ReceviceDestroyEntityMsg(DestroyEntityMsg msg, params object[] objs)
     {
         Debug.Log("ReceviceDestroyEntityMsg");
 
-        m_world.DestroyEntity(msg.id);
+        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+
+        ServiceMessageInfo info = new ServiceMessageInfo();
+        info.m_frame = msg.frame;
+        info.m_type = MessageType.DestroyEntity;
+        info.m_msg = msg;
+
+        rc.m_messageList.Add(info);
+
+        Recalc(msg.frame);
     }
 
     void ReceviceChangeSingletonCompMsg(ChangeSingletonComponentMsg msg,params object[] objs)
     {
         Debug.Log("ChangeSingletonCompMsg");
 
-        SingletonComponent comp = (SingletonComponent)deserializer.Deserialize(msg.info.m_compName, msg.info.content);
-        m_world.ChangeSingleComp(msg.info.m_compName, comp);
+        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+
+        ServiceMessageInfo info = new ServiceMessageInfo();
+        info.m_frame = msg.frame;
+        info.m_type = MessageType.ChangeSingletonComponent;
+        info.m_msg = msg;
+
+        rc.m_messageList.Add(info);
+
+        Recalc(msg.frame);
     }
     #endregion
 
@@ -79,6 +85,10 @@ public class SyncSystem : ViewSystemBase
 
     #region 同步重新演算
 
+    /// <summary>
+    /// 从目标帧开始重新演算
+    /// </summary>
+    /// <param name="frameCount"></param>
     public void Recalc(int frameCount)
     {
         FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
@@ -212,8 +222,90 @@ public class SyncSystem : ViewSystemBase
 
     void ExecuteServiceMessage(int frameCount)
     {
+        List<ServiceMessageInfo> list = LoadMessage(frameCount);
 
+        for (int i = 0; i < list.Count; i++)
+        {
+            ExecuteMessgae(list[i]);
+        }
     }
+
+    #region 读取服务器消息
+
+    List<ServiceMessageInfo> LoadMessage(int frameCount)
+    {
+        List<ServiceMessageInfo> list = new List<ServiceMessageInfo>();
+        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+
+        for (int i = 0; i < rc.m_messageList.Count; i++)
+        {
+            if(frameCount == rc.m_messageList[i].m_frame)
+            {
+                list.Add(rc.m_messageList[i]);
+            }
+        }
+
+        return list;
+    }
+
+    #endregion
+
+    #region 执行服务器消息
+
+    void ExecuteMessgae(ServiceMessageInfo info)
+    {
+        switch(info.m_type)
+        {
+            case MessageType.ChangeSingletonComponent:
+                ExecuteChangeSingletonCompMsg((ChangeSingletonComponentMsg)info.m_msg);
+                break;
+            case MessageType.DestroyEntity:
+                ExecuteDestroyEntityMsg((DestroyEntityMsg)info.m_msg);
+                break;
+            case MessageType.SyncEntity:
+                ExecuteSyncEntity((SyncEntityMsg)info.m_msg);
+                break;
+        }
+    }
+
+    void ExecuteSyncEntity(SyncEntityMsg msg)
+    {
+        EntityBase entity;
+        if (!m_world.GetEntityIsExist(msg.id))
+        {
+            entity = m_world.CreateEntity(msg.id);
+        }
+        else
+        {
+            entity = m_world.GetEntity(msg.id);
+        }
+
+        for (int i = 0; i < msg.infos.Count; i++)
+        {
+            ComponentBase comp = (ComponentBase)deserializer.Deserialize(msg.infos[i].m_compName, msg.infos[i].content);
+
+            if (entity.GetExistComp(msg.infos[i].m_compName))
+            {
+                entity.ChangeComp(msg.infos[i].m_compName, comp);
+            }
+            else
+            {
+                entity.AddComp(msg.infos[i].m_compName, comp);
+            }
+        }
+    }
+
+    void ExecuteDestroyEntityMsg(DestroyEntityMsg msg)
+    {
+        m_world.DestroyEntity(msg.id);
+    }
+
+    void ExecuteChangeSingletonCompMsg(ChangeSingletonComponentMsg msg)
+    {
+        SingletonComponent comp = (SingletonComponent)deserializer.Deserialize(msg.info.m_compName, msg.info.content);
+        m_world.ChangeSingleComp(msg.info.m_compName, comp);
+    }
+    #endregion
 
     #endregion
 
