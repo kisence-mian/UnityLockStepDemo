@@ -4,43 +4,51 @@ using System.Linq;
 using System.Text;
 namespace Protocol
 {
-    [Module(2, "EntitySyncModule")]
-    public abstract class EntitySyncModule : CsharpProtocolInterface
+    [Module(2, "SyncModule")]
+    public abstract class SyncModule : CsharpProtocolInterface
     {
 
     }
 
-    public class SyncEntityMsg : EntitySyncModule
+    /// <summary>
+    /// 同步帧ID和帧间隔
+    /// </summary>
+    public class StartSyncMsg : SyncModule
+    {
+        public int frame;
+        public int intervalTime;
+    }
+
+    public class SyncEntityMsg : SyncModule
     {
         public int frame;
         public int id;
         public List<ComponentInfo> infos;
     }
 
-    public class DestroyEntityMsg : EntitySyncModule
+    public class DestroyEntityMsg : SyncModule
     {
         public int frame;
         public int id;
+    }
+
+    public class ChangeComponentMsg : SyncModule
+    {
+        public int frame;
+        public int id;
+        public ComponentInfo info;
+    }
+
+    public class ChangeSingletonComponentMsg : SyncModule
+    {
+        public int frame;
+        public ComponentInfo info;
     }
 
     public class ComponentInfo : IProtocolStructInterface
     {
         public string m_compName;
         public string content;
-    }
-
-
-    public class ChangeComponentMsg : EntitySyncModule
-    {
-        public int frame;
-        public int id;
-        public ComponentInfo info;
-    }
-
-    public class ChangeSingletonComponentMsg : EntitySyncModule
-    {
-        public int frame;
-        public ComponentInfo info;
     }
 
     public enum ChangeStatus

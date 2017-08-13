@@ -30,6 +30,14 @@ public class SyncSystem : ViewSystemBase
     #region 消息接收
     Deserializer deserializer = new Deserializer();
 
+    void ReceviceStartSyncMsg(StartSyncMsg msg, params object[] objs)
+    {
+        FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
+        fc.count = msg.frame;
+        WorldManager.IntervalTime = msg.intervalTime;
+        WorldManager.IsStart = true;
+    }
+
     void ReceviceSyncEntity(SyncEntityMsg msg, params object[] objs)
     {
         Debug.Log("ReceviceSyncEntity");
@@ -92,6 +100,8 @@ public class SyncSystem : ViewSystemBase
     public void Recalc(int frameCount)
     {
         FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
+
+        Debug.Log("Recalc " +frameCount + " current " + fc.count);
 
         //回退到目标帧
         RevertToFrame(frameCount);

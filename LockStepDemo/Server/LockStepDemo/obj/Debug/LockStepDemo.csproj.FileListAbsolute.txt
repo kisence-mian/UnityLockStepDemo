@@ -23,3 +23,17 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debu
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\log4net.dll
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Network\MethodInfo.txt
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Network\ProtocolInfo.txt
+G:\workTable\unityProject\UnityLockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Network\MethodInfo.txt
+G:\workTable\unityProject\UnityLockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Network\ProtocolInfo.txt
+G:\workTable\unityProject\UnityLockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\LockStepDemo.exe.config
+G:\workTable\unityProject\UnityLockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\LockStepDemo.exe
+G:\workTable\unityProject\UnityLockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\LockStepDemo.pdb
+G:\workTable\unityProject\UnityLockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\SuperSocket.Common.dll
+G:\workTable\unityProject\UnityLockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\SuperSocket.SocketBase.dll
+G:\workTable\unityProject\UnityLockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\SuperSocket.SocketEngine.dll
+G:\workTable\unityProject\UnityLockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\System.Threading.dll
+G:\workTable\unityProject\UnityLockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\UnityEngine.dll
+G:\workTable\unityProject\UnityLockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\log4net.dll
+G:\workTable\unityProject\UnityLockStepDemo\LockStepDemo\Server\LockStepDemo\obj\Debug\LockStepDemo.csprojResolveAssemblyReference.cache
+G:\workTable\unityProject\UnityLockStepDemo\LockStepDemo\Server\LockStepDemo\obj\Debug\LockStepDemo.exe
+G:\workTable\unityProject\UnityLockStepDemo\LockStepDemo\Server\LockStepDemo\obj\Debug\LockStepDemo.pdb

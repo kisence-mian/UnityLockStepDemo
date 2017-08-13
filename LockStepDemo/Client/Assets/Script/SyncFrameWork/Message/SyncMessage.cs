@@ -10,6 +10,15 @@ namespace Protocol
 
     }
 
+    /// <summary>
+    /// 同步帧ID和帧间隔
+    /// </summary>
+    public class StartSyncMsg : SyncModule
+    {
+        public int frame;
+        public int intervalTime;
+    }
+
     public class SyncEntityMsg : SyncModule
     {
         public int frame;

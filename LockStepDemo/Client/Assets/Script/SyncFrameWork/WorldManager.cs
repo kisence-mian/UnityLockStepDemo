@@ -18,7 +18,36 @@ public class WorldManager
         }
     }
 
+    public static int IntervalTime
+    {
+        get
+        {
+            return s_intervalTime;
+        }
+
+        set
+        {
+            s_intervalTime = value;
+        }
+    }
+
+    public static bool IsStart
+    {
+        get
+        {
+            return s_isStart;
+        }
+
+        set
+        {
+            s_isStart = value;
+        }
+    }
+
+    static bool s_isStart = false;
     static int s_intervalTime = 200;
+    static float s_UpdateTimer = 0; //ms
+
     public static void Init(int intervalTime)
     {
         s_intervalTime = intervalTime;
@@ -45,19 +74,20 @@ public class WorldManager
         s_worldList.Remove(world);
     }
 
-    static float s_lastUpdateTime = 0;
-    static float s_UpdateTimer = 0; //ms
     static void Update()
     {
-        s_UpdateTimer += Time.deltaTime * 1000; //换算成ms
-
-        UpdateWorld((int)(Time.deltaTime * 1000));
-
-        while (s_UpdateTimer > s_intervalTime)
+        if(IsStart)
         {
-            FixedUpdateWorld(s_intervalTime);
+            s_UpdateTimer += Time.deltaTime * 1000; //换算成ms
 
-            s_UpdateTimer -= s_intervalTime;
+            UpdateWorld((int)(Time.deltaTime * 1000));
+
+            while (s_UpdateTimer > IntervalTime)
+            {
+                FixedUpdateWorld(IntervalTime);
+
+                s_UpdateTimer -= IntervalTime;
+            }
         }
     }
 

@@ -3,5 +3,6 @@
 
 2,EntitySyncModule
 201,changecomponentmsg
-202,destroyentitymsg
-203,syncentitymsg
+202,changesingletoncomponentmsg
+203,destroyentitymsg
+204,syncentitymsg
