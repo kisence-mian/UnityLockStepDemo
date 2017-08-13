@@ -48,6 +48,13 @@ public static class ProtocolAnalysisService
 		data.Add("id", msg.id);
 		session.SendMsg("destroyentitymsg",data);
 	}
+	public static void SendMsg(this SyncSession session,Protocol.StartSyncMsg msg)
+	{
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("frame", msg.frame);
+		data.Add("intervaltime", msg.intervalTime);
+		session.SendMsg("startsyncmsg",data);
+	}
 	public static void SendMsg(this SyncSession session,Protocol.SyncEntityMsg msg)
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
@@ -77,6 +84,7 @@ public static class ProtocolAnalysisService
 			case  "changecomponentmsg":ReceviceChangeComponentMsg(session , cmd);break;
 			case  "changesingletoncomponentmsg":ReceviceChangeSingletonComponentMsg(session , cmd);break;
 			case  "destroyentitymsg":ReceviceDestroyEntityMsg(session , cmd);break;
+			case  "startsyncmsg":ReceviceStartSyncMsg(session , cmd);break;
 			case  "syncentitymsg":ReceviceSyncEntityMsg(session , cmd);break;
 			default:
 			Debug.LogError("SendCommand Exception : 不支持的消息类型!" + cmd.Key);
@@ -123,6 +131,14 @@ public static class ProtocolAnalysisService
 		Protocol.DestroyEntityMsg msg = new Protocol.DestroyEntityMsg();
 		msg.frame = (int)e.m_data["frame"];
 		msg.id = (int)e.m_data["id"];
+		
+		EventService.DispatchTypeEvent(session,msg);
+	}
+	static void ReceviceStartSyncMsg(SyncSession session ,ProtocolRequestBase e)
+	{
+		Protocol.StartSyncMsg msg = new Protocol.StartSyncMsg();
+		msg.frame = (int)e.m_data["frame"];
+		msg.intervalTime = (int)e.m_data["intervaltime"];
 		
 		EventService.DispatchTypeEvent(session,msg);
 	}

@@ -104,7 +104,6 @@
     <Compile Include="GameLogic\Component\PlayerComponent.cs" />
     <Compile Include="Service\ServiceLogic\Component\SyncComponent.cs" />
     <Compile Include="GameLogic\Component\ViewComponent.cs" />
-    <Compile Include="Service\Sync\Component\FrameCountComponent.cs" />
     <Compile Include="Service\Sync\Component\TheirComponent.cs" />
     <Compile Include="Service\Sync\Component\WaitSyncComponent.cs" />
     <Compile Include="GameLogic\System\CountSystem.cs" />
@@ -126,7 +125,7 @@
     <Compile Include="Service\ServiceLogic\Component\ConnectionComponent.cs" />
     <Compile Include="Service\ServiceLogic\Component\ServiceComponent.cs" />
     <Compile Include="Service\ServiceLogic\System\ConnectSystem.cs" />
-    <Compile Include="Service\Sync\System\ServiceSyncSystem.cs" />
+    <Compile Include="Service\ServiceLogic\System\ServiceSyncSystem.cs" />
     <Compile Include="Service\Debug.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -163,6 +162,8 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Service\Sync\System\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

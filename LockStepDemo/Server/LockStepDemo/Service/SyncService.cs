@@ -32,6 +32,8 @@ namespace LockStepDemo.Service
             GameMessageService.Init();
 
             m_world = WorldManager.CreateWorld<DemoWorld>();
+            m_world.IsStart = true;
+
             UpdateEngine.Init(updateInterval);
 
             base.OnStarted();

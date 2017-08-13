@@ -12,6 +12,7 @@ public class SyncSystem : ViewSystemBase
         GlobalEvent.AddTypeEvent<SyncEntityMsg>(ReceviceSyncEntity);
         GlobalEvent.AddTypeEvent<DestroyEntityMsg>(ReceviceDestroyEntityMsg);
         GlobalEvent.AddTypeEvent<ChangeSingletonComponentMsg>(ReceviceChangeSingletonCompMsg);
+        GlobalEvent.AddTypeEvent<StartSyncMsg>(ReceviceStartSyncMsg);
     }
 
     public override void Dispose()
@@ -19,6 +20,7 @@ public class SyncSystem : ViewSystemBase
         GlobalEvent.RemoveTypeEvent<SyncEntityMsg>(ReceviceSyncEntity);
         GlobalEvent.RemoveTypeEvent<DestroyEntityMsg>(ReceviceDestroyEntityMsg);
         GlobalEvent.RemoveTypeEvent<ChangeSingletonComponentMsg>(ReceviceChangeSingletonCompMsg);
+        GlobalEvent.RemoveTypeEvent<StartSyncMsg>(ReceviceStartSyncMsg);
     }
 
     #region 消息接收
@@ -26,6 +28,8 @@ public class SyncSystem : ViewSystemBase
 
     void ReceviceStartSyncMsg(StartSyncMsg msg, params object[] objs)
     {
+        Debug.Log("StartSyncMsg " + msg.frame);
+
         m_world.FrameCount = msg.frame;
         m_world.IsStart = true;
 

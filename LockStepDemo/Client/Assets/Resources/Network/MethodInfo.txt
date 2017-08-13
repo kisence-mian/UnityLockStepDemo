@@ -1,8 +1,9 @@
 1,GameSync
 101,waitsynccomponent
 
-2,EntitySyncModule
+2,SyncModule
 201,changecomponentmsg
 202,changesingletoncomponentmsg
 203,destroyentitymsg
-204,syncentitymsg
+204,startsyncmsg
+205,syncentitymsg

@@ -15,6 +15,7 @@ public class ProtocolAnalysisService
 		InputManager.AddListener<InputNetworkMessageEvent>("changecomponentmsg",ReceviceChangeComponentMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("changesingletoncomponentmsg",ReceviceChangeSingletonComponentMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("destroyentitymsg",ReceviceDestroyEntityMsg);
+		InputManager.AddListener<InputNetworkMessageEvent>("startsyncmsg",ReceviceStartSyncMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("syncentitymsg",ReceviceSyncEntityMsg);
 	}
 
@@ -24,6 +25,7 @@ public class ProtocolAnalysisService
 		InputManager.RemoveListener<InputNetworkMessageEvent>("changecomponentmsg",ReceviceChangeComponentMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("changesingletoncomponentmsg",ReceviceChangeSingletonComponentMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("destroyentitymsg",ReceviceDestroyEntityMsg);
+		InputManager.RemoveListener<InputNetworkMessageEvent>("startsyncmsg",ReceviceStartSyncMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("syncentitymsg",ReceviceSyncEntityMsg);
 	}
 	public static void SendCommand (IProtocolMessageInterface cmd)
@@ -43,6 +45,10 @@ public class ProtocolAnalysisService
 		else if(cmd is Protocol.DestroyEntityMsg )
 		{
 			SendDestroyEntityMsg(cmd);
+		}
+		else if(cmd is Protocol.StartSyncMsg )
+		{
+			SendStartSyncMsg(cmd);
 		}
 		else if(cmd is Protocol.SyncEntityMsg )
 		{
@@ -93,6 +99,14 @@ public class ProtocolAnalysisService
 		data.Add("frame", e.frame);
 		data.Add("id", e.id);
 		NetworkManager.SendMessage("destroyentitymsg",data);
+	}
+	static void SendStartSyncMsg(IProtocolMessageInterface msg)
+	{
+		Protocol.StartSyncMsg e = (Protocol.StartSyncMsg)msg;
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("frame", e.frame);
+		data.Add("intervaltime", e.intervalTime);
+		NetworkManager.SendMessage("startsyncmsg",data);
 	}
 	static void SendSyncEntityMsg(IProtocolMessageInterface msg)
 	{
@@ -156,6 +170,14 @@ public class ProtocolAnalysisService
 		Protocol.DestroyEntityMsg msg = new Protocol.DestroyEntityMsg();
 		msg.frame = (int)e.Data["frame"];
 		msg.id = (int)e.Data["id"];
+		
+		GlobalEvent.DispatchTypeEvent(msg);
+	}
+	static void ReceviceStartSyncMsg(InputNetworkMessageEvent e)
+	{
+		Protocol.StartSyncMsg msg = new Protocol.StartSyncMsg();
+		msg.frame = (int)e.Data["frame"];
+		msg.intervalTime = (int)e.Data["intervaltime"];
 		
 		GlobalEvent.DispatchTypeEvent(msg);
 	}
