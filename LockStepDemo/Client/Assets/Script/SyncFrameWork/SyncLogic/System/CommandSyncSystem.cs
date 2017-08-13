@@ -26,6 +26,8 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
             return;
         }
 
+        Debug.Log("CommandSyncSystem " + list.Count);
+
         if (list.Count > 0)
         {
             EntityBase entity = list[0];
@@ -46,6 +48,8 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
             msg.info.content = Serializer.Serialize(comp);
 
             ProtocolAnalysisService.SendCommand(msg);
+
+            Debug.Log("ProtocolAnalysisService SendCommand");
         }
     }
 

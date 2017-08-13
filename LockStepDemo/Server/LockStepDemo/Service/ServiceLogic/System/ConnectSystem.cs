@@ -18,6 +18,8 @@ namespace LockStepDemo.ServiceLogic.System
 
         public override void OnEntityCompAdd(EntityBase entity, string compName, ComponentBase component)
         {
+            Debug.Log("OnEntityCompAdd " + compName);
+
             if(compName == "ConnectionComponent")
             {
                 List<EntityBase> list = GetEntityList();
@@ -26,6 +28,8 @@ namespace LockStepDemo.ServiceLogic.System
                     SyncComponent sc = list[i].GetComp<SyncComponent>();
                     sc.m_waitSyncList.Add((ConnectionComponent)component);
                 }
+
+                PushStartSyncMsg(entity.GetComp<ConnectionComponent>().m_session);
             }
         }
 
@@ -56,9 +60,13 @@ namespace LockStepDemo.ServiceLogic.System
 
         public void PushStartSyncMsg(SyncSession session)
         {
+            Debug.Log("PushStartSyncMsg");
+
             StartSyncMsg msg = new StartSyncMsg();
-            msg.frame = m_world.FrameCount;
+            msg.frame = m_world.FrameCount + 1;
             msg.intervalTime = UpdateEngine.IntervalTime;
+
+            session.SendMsg(msg);
         }
     }
 }

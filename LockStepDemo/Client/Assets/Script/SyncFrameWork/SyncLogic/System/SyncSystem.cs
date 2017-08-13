@@ -102,7 +102,7 @@ public class SyncSystem : ViewSystemBase
         //回退到目标帧
         RevertToFrame(frameCount);
 
-        for (int i = frameCount; i < m_world.FrameCount; i++)
+        for (int i = frameCount; i <= m_world.FrameCount; i++)
         {
             //重新读取操作
             LoadPlayerInput(i);
@@ -111,7 +111,7 @@ public class SyncSystem : ViewSystemBase
             ExecuteServiceMessage(i);
 
             //重新演算
-            m_world.FixedLoop(1000);
+            m_world.Recalc(m_world.IntervalTime);
         }
 
         ClearRecordInfo(m_world.FrameCount - 1);

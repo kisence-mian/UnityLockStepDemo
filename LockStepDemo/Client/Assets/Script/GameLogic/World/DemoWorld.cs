@@ -20,7 +20,7 @@ class DemoWorld : WorldBase
             typeof(CreatePerfabSystem),
             typeof(MovePerfabSystem),
             typeof(InputSystem),
-            typeof(CommandSyncSystem<CommandComponent>),
+            //typeof(CommandSyncSystem<CommandComponent>),
             typeof(SyncSystem),
         };
     }

@@ -207,9 +207,9 @@ public class WorldBase
         m_entityList.Add(entity);
         m_entityDict.Add(ID, entity);
 
-        entity.OnComponentAdded += OnEntityComponentAdded;
-        entity.OnComponentRemoved += OnEntityComponentRemoved;
-        entity.OnComponentReplaced += OnEntityComponentChange;
+        entity.OnComponentAdded += DispatchEntityComponentAdded;
+        entity.OnComponentRemoved += DispatchEntityComponentRemoved;
+        entity.OnComponentReplaced += DispatchEntityComponentChange;
 
         if (OnEntityCreated != null)
         {
@@ -251,9 +251,9 @@ public class WorldBase
         m_entityList.Remove(entity);
         m_entityDict.Remove(ID);
 
-        entity.OnComponentAdded -= OnEntityComponentAdded;
-        entity.OnComponentRemoved -= OnEntityComponentRemoved;
-        entity.OnComponentReplaced -= OnEntityComponentChange;
+        entity.OnComponentAdded -= DispatchEntityComponentAdded;
+        entity.OnComponentRemoved -= DispatchEntityComponentRemoved;
+        entity.OnComponentReplaced -= DispatchEntityComponentChange;
 
         if (OnEntityDestroyed != null)
         {
@@ -324,6 +324,30 @@ public class WorldBase
     #endregion
 
     #region 事件派发
+
+    void DispatchEntityComponentAdded(EntityBase entity, string compName, ComponentBase component)
+    {
+        if(OnEntityComponentAdded != null)
+        {
+            OnEntityComponentAdded(entity,compName,component);
+        }
+    }
+
+    void DispatchEntityComponentRemoved(EntityBase entity, string compName, ComponentBase component)
+    {
+        if (OnEntityComponentRemoved != null)
+        {
+            OnEntityComponentRemoved(entity, compName, component);
+        }
+    }
+
+    void DispatchEntityComponentChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
+    {
+        if (OnEntityComponentChange != null)
+        {
+            OnEntityComponentChange(entity, compName, previousComponent, newComponent);
+        }
+    }
 
     public delegate void EntityChangedCallBack(EntityBase entity);
 

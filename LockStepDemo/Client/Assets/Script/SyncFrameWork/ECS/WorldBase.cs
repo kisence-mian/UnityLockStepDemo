@@ -139,7 +139,20 @@ public class WorldBase
             BeforeFixedUpdate(deltaTime);
             FixedUpdate(deltaTime);
             LateFixedUpdate(deltaTime);
+
+            Debug.Log("FixedLoop " + FrameCount);
         }
+    }
+
+    /// <summary>
+    /// 重演算接口
+    /// </summary>
+    /// <param name="deltaTime"></param>
+    public void Recalc(int deltaTime)
+    {
+        //BeforeFixedUpdate(deltaTime);
+        FixedUpdate(deltaTime);
+        //LateFixedUpdate(deltaTime);
     }
 
     void BeforeUpdate(int deltaTime)

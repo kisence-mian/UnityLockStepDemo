@@ -11,11 +11,10 @@ class DemoWorld : WorldBase
     {
         return new Type[] {
             typeof(InitSystem),
-            typeof(SyncSystem),
-            typeof(CountSystem),
             typeof(MoveSystem),
             typeof(OperationSystem),
 
+            typeof(ConnectSystem),
             typeof(ServiceSyncSystem),
             typeof(PlayerInputSystem<CommandComponent>)
         };

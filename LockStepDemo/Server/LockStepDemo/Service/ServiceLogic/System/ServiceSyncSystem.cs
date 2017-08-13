@@ -18,6 +18,7 @@ namespace LockStepDemo.ServiceLogic.System
         {
             AddEntityCompChangeLisenter();
             AddEntityDestroyLisnter();
+            AddEntityCreaterLisnter();
         }
 
         public override Type[] GetFilter()
@@ -60,6 +61,11 @@ namespace LockStepDemo.ServiceLogic.System
                 }
             }
         }
+
+        //public override void OnEntityCreate(EntityBase entity)
+        //{
+        //    base.OnEntityCreate(entity);
+        //}
 
         public override void OnEntityDestroy(EntityBase entity)
         {
