@@ -1,4 +1,6 @@
 ﻿using LockStepDemo.GameLogic.System;
+using LockStepDemo.Service;
+using Protocol;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,6 +52,13 @@ namespace LockStepDemo.ServiceLogic.System
             return new Type[] {
                 typeof(SyncComponent),
             };
+        }
+
+        public void PushStartSyncMsg(SyncSession session)
+        {
+            StartSyncMsg msg = new StartSyncMsg();
+            msg.frame = m_world.FrameCount;
+            msg.intervalTime = UpdateEngine.IntervalTime;
         }
     }
 }

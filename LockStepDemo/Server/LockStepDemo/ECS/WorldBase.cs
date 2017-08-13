@@ -5,6 +5,34 @@ using UnityEngine;
 
 public class WorldBase
 {
+    bool m_isStart = false;
+    public bool IsStart
+    {
+        get
+        {
+            return m_isStart;
+        }
+
+        set
+        {
+            m_isStart = value;
+        }
+    }
+
+    int m_frameCount = 0;
+    public int FrameCount
+    {
+        get
+        {
+            return m_frameCount;
+        }
+
+        set
+        {
+            m_frameCount = value;
+        }
+    }
+
     public List<SystemBase> m_systemList = new List<SystemBase>();                       //世界里所有的System集合
     public Dictionary<int, EntityBase> m_entityDict = new Dictionary<int, EntityBase>(); //世界里所有的entity集合
     public List<EntityBase> m_entityList = new List<EntityBase>();                       //世界里所有的entity列表
@@ -74,21 +102,44 @@ public class WorldBase
 
     #region Update
 
+    public int IntervalTime
+    {
+        get
+        {
+            return m_intervalTime;
+        }
+
+        set
+        {
+            m_intervalTime = value;
+        }
+    }
+
+    int m_intervalTime = 200;
+
     /// <summary>
     /// 服务器不执行Loop
     /// </summary>
     public void Loop(int deltaTime)
     {
-        BeforeUpdate(deltaTime);
-        Update(deltaTime);
-        LateUpdate(deltaTime);
+        if(IsStart)
+        {
+            BeforeUpdate(deltaTime);
+            Update(deltaTime);
+            LateUpdate(deltaTime);
+        }
     }
 
     public void FixedLoop(int deltaTime)
     {
-        BeforeFixedUpdate(deltaTime);
-        FixedUpdate(deltaTime);
-        LateFixedUpdate(deltaTime);
+        if (IsStart)
+        {
+            FrameCount++;
+
+            BeforeFixedUpdate(deltaTime);
+            FixedUpdate(deltaTime);
+            LateFixedUpdate(deltaTime);
+        }
     }
 
     void BeforeUpdate(int deltaTime)

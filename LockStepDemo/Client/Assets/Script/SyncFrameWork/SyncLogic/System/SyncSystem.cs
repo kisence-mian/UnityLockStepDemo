@@ -21,21 +21,15 @@ public class SyncSystem : ViewSystemBase
         GlobalEvent.RemoveTypeEvent<ChangeSingletonComponentMsg>(ReceviceChangeSingletonCompMsg);
     }
 
-    public override void BeforeFixedUpdate(int deltaTime)
-    {
-        FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
-        fc.count++;
-    }
-
     #region 消息接收
     Deserializer deserializer = new Deserializer();
 
     void ReceviceStartSyncMsg(StartSyncMsg msg, params object[] objs)
     {
-        FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
-        fc.count = msg.frame;
+        m_world.FrameCount = msg.frame;
+        m_world.IsStart = true;
+
         WorldManager.IntervalTime = msg.intervalTime;
-        WorldManager.IsStart = true;
     }
 
     void ReceviceSyncEntity(SyncEntityMsg msg, params object[] objs)
@@ -99,14 +93,12 @@ public class SyncSystem : ViewSystemBase
     /// <param name="frameCount"></param>
     public void Recalc(int frameCount)
     {
-        FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
-
-        Debug.Log("Recalc " +frameCount + " current " + fc.count);
+        Debug.Log("Recalc " +frameCount + " current " + m_world.FrameCount);
 
         //回退到目标帧
         RevertToFrame(frameCount);
 
-        for (int i = frameCount; i < fc.count; i++)
+        for (int i = frameCount; i < m_world.FrameCount; i++)
         {
             //重新读取操作
             LoadPlayerInput(i);
@@ -118,7 +110,7 @@ public class SyncSystem : ViewSystemBase
             m_world.FixedLoop(1000);
         }
 
-        ClearRecordInfo(fc.count - 1);
+        ClearRecordInfo(m_world.FrameCount - 1);
     }
 
     #region 状态回滚

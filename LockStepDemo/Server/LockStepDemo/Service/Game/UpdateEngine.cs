@@ -10,6 +10,23 @@ namespace LockStepDemo.Service
     {
         const int Tick2ms = 10000;
         static long s_intervalTime = Tick2ms * 200; //单位毫微秒
+
+        /// <summary>
+        ///         给外部使用的间隔时间，单位毫秒
+        /// </summary>
+
+        public static int IntervalTime {
+            get
+            {
+                return (int)(s_intervalTime / Tick2ms);
+            }
+
+            set
+            {
+                s_intervalTime = (long)value * Tick2ms;
+            }
+        }
+
         public static void Init(int intervalTime) //单位ms
         {
             s_intervalTime = Tick2ms *  intervalTime; //毫秒 转化为100毫微秒

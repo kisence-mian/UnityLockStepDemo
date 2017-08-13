@@ -5,15 +5,43 @@ using UnityEngine;
 
 public class WorldBase
 {
-    public List<SystemBase> m_systemList = new List<SystemBase>();                     //世界里所有的System集合
-    public Dictionary<int,EntityBase> m_entityDict = new Dictionary<int,EntityBase>(); //世界里所有的entity集合
-    public List<EntityBase> m_entityList = new List<EntityBase>();                     //世界里所有的entity列表
+    bool m_isStart = false;
+    public bool IsStart
+    {
+        get
+        {
+            return m_isStart;
+        }
+
+        set
+        {
+            m_isStart = value;
+        }
+    }
+
+    int m_frameCount = 0;
+    public int FrameCount
+    {
+        get
+        {
+            return m_frameCount;
+        }
+
+        set
+        {
+            m_frameCount = value;
+        }
+    }
+
+    public List<SystemBase> m_systemList = new List<SystemBase>();                       //世界里所有的System集合
+    public Dictionary<int, EntityBase> m_entityDict = new Dictionary<int, EntityBase>(); //世界里所有的entity集合
+    public List<EntityBase> m_entityList = new List<EntityBase>();                       //世界里所有的entity列表
 
     public Dictionary<string, SingletonComponent> m_singleCompDict = new Dictionary<string, SingletonComponent>(); //所有的单例组件集合
 
     Stack<EntityBase> m_entitiesPool = new Stack<EntityBase>();  //TODO: 实体对象池
 
-    public event EntityChangedCallBack OnEntityCreated; 
+    public event EntityChangedCallBack OnEntityCreated;
     public event EntityChangedCallBack OnEntityWillBeDestroyed;
     public event EntityChangedCallBack OnEntityDestroyed;
 
@@ -51,7 +79,7 @@ public class WorldBase
             }
 
             //初始化ViweSystem
-            if(isView)
+            if (isView)
             {
                 types = GetViewSystemTypes();
                 for (int i = 0; i < types.Length; i++)
@@ -63,7 +91,7 @@ public class WorldBase
                 }
             }
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             Debug.LogError("WorldBase Init Exception:" + e.ToString());
         }
@@ -74,21 +102,44 @@ public class WorldBase
 
     #region Update
 
+    public int IntervalTime
+    {
+        get
+        {
+            return m_intervalTime;
+        }
+
+        set
+        {
+            m_intervalTime = value;
+        }
+    }
+
+    int m_intervalTime = 200;
+
     /// <summary>
     /// 服务器不执行Loop
     /// </summary>
     public void Loop(int deltaTime)
     {
-        BeforeUpdate(deltaTime);
-        Update(deltaTime);
-        LateUpdate(deltaTime);
+        if (IsStart)
+        {
+            BeforeUpdate(deltaTime);
+            Update(deltaTime);
+            LateUpdate(deltaTime);
+        }
     }
 
     public void FixedLoop(int deltaTime)
     {
-        BeforeFixedUpdate(deltaTime);
-        FixedUpdate(deltaTime);
-        LateFixedUpdate(deltaTime);
+        if (IsStart)
+        {
+            FrameCount++;
+
+            BeforeFixedUpdate(deltaTime);
+            FixedUpdate(deltaTime);
+            LateFixedUpdate(deltaTime);
+        }
     }
 
     void BeforeUpdate(int deltaTime)
@@ -108,13 +159,13 @@ public class WorldBase
     }
 
     // Update is called once per frame
-    void Update (int deltaTime)
+    void Update(int deltaTime)
     {
         for (int i = 0; i < m_systemList.Count; i++)
         {
             m_systemList[i].Update(deltaTime);
         }
-	}
+    }
 
     void LateUpdate(int deltaTime)
     {
@@ -145,7 +196,7 @@ public class WorldBase
 
     public EntityBase CreateEntity(int ID)
     {
-        if(m_entityDict.ContainsKey(ID))
+        if (m_entityDict.ContainsKey(ID))
         {
             throw new Exception("CreateEntity Exception: Entity ID has exist ! ->" + ID + "<-");
         }
@@ -206,7 +257,7 @@ public class WorldBase
 
         if (OnEntityDestroyed != null)
         {
-            OnEntityDestroyed( entity);
+            OnEntityDestroyed(entity);
         }
     }
 
@@ -233,6 +284,24 @@ public class WorldBase
         return (T)comp;
     }
 
+    public SingletonComponent GetSingletonComp(string compName)
+    {
+        SingletonComponent comp = null;
+
+        if (m_singleCompDict.ContainsKey(compName))
+        {
+            comp = m_singleCompDict[compName];
+        }
+        else
+        {
+            Type compType = Type.GetType(compName);
+
+            comp = (SingletonComponent)compType.Assembly.CreateInstance(compType.FullName);
+            m_singleCompDict.Add(compName, comp);
+        }
+
+        return comp;
+    }
 
     public void ChangeSingletonComp<T>(T comp) where T : SingletonComponent, new()
     {

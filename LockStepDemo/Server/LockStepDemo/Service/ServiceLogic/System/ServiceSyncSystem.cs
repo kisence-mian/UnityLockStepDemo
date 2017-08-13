@@ -29,11 +29,7 @@ namespace LockStepDemo.ServiceLogic.System
 
         public override void BeforeFixedUpdate(int deltaTime)
         {
-            FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
-
-            fc.count++;
-
-            Debug.Log("-------------------- Frame:" + fc.count + "------------------------------");
+            Debug.Log("-------------------- Frame:" +m_world.FrameCount + "------------------------------");
         }
 
         public override void LateFixedUpdate(int deltaTime)
@@ -113,10 +109,8 @@ namespace LockStepDemo.ServiceLogic.System
                 return;
             }
 
-            FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
-
             SyncEntityMsg msg = new SyncEntityMsg();
-            msg.frame = fc.count;
+            msg.frame = m_world.FrameCount;
             msg.id = entity.ID;
             msg.infos = new List<ComponentInfo>();
 
@@ -167,10 +161,9 @@ namespace LockStepDemo.ServiceLogic.System
 
         void PushDestroyEntity(SyncSession session, int entityID)
         {
-            FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
             DestroyEntityMsg msg = new DestroyEntityMsg();
             msg.id = entityID;
-            msg.frame = fc.count;
+            msg.frame = m_world.FrameCount;
 
             session.SendMsg(msg);
 
@@ -179,7 +172,7 @@ namespace LockStepDemo.ServiceLogic.System
 
         #endregion
 
-        #region
+        #region 单例组件
 
         public void PushSingletonComp<T>(SyncSession session) where T :SingletonComponent,new()
         {
@@ -189,13 +182,11 @@ namespace LockStepDemo.ServiceLogic.System
 
         public void PushSingletonComp(SyncSession session, string compName)
         {
-            FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
-
             SingletonComponent comp = m_world.GetSingletonComp(compName);
             ChangeSingletonComponentMsg msg = new ChangeSingletonComponentMsg();
             msg.info.m_compName = compName;
             msg.info.content = Serializer.Serialize(comp);
-            msg.frame = fc.count;
+            msg.frame = m_world.FrameCount;
 
             session.SendMsg(msg);
         }

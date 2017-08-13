@@ -31,20 +31,6 @@ public class WorldManager
         }
     }
 
-    public static bool IsStart
-    {
-        get
-        {
-            return s_isStart;
-        }
-
-        set
-        {
-            s_isStart = value;
-        }
-    }
-
-    static bool s_isStart = false;
     static int s_intervalTime = 200;
     static float s_UpdateTimer = 0; //ms
 
@@ -76,18 +62,15 @@ public class WorldManager
 
     static void Update()
     {
-        if(IsStart)
+        s_UpdateTimer += Time.deltaTime * 1000; //换算成ms
+
+        UpdateWorld((int)(Time.deltaTime * 1000));
+
+        while (s_UpdateTimer > IntervalTime)
         {
-            s_UpdateTimer += Time.deltaTime * 1000; //换算成ms
+            FixedUpdateWorld(IntervalTime);
 
-            UpdateWorld((int)(Time.deltaTime * 1000));
-
-            while (s_UpdateTimer > IntervalTime)
-            {
-                FixedUpdateWorld(IntervalTime);
-
-                s_UpdateTimer -= IntervalTime;
-            }
+            s_UpdateTimer -= IntervalTime;
         }
     }
 

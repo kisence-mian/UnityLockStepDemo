@@ -19,10 +19,9 @@ public class RecordSystem : SystemBase
     public override void LateFixedUpdate(int deltaTime)
     {
         RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
-        FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
 
         RecordInfo info = new RecordInfo();
-        info.frame = fc.count;
+        info.frame = m_world.FrameCount;
         info.m_inputCmd = rc.m_inputCache;
         info.m_changeData = rc.m_changeCache;
 

@@ -29,7 +29,6 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         if (list.Count > 0)
         {
             EntityBase entity = list[0];
-            FrameCountComponent fc = m_world.GetSingletonComp<FrameCountComponent>();
             T comp = new T();
 
             BuildCommand(comp);
@@ -40,7 +39,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
             rc.m_inputCache = comp;
 
             ChangeComponentMsg msg = new ChangeComponentMsg();
-            msg.frame = fc.count;
+            msg.frame = m_world.FrameCount;
             msg.id = entity.ID;
             msg.info = new ComponentInfo();
             msg.info.m_compName = comp.GetType().Name;
