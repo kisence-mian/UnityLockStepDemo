@@ -65,6 +65,7 @@ namespace LockStepDemo.Service
 
             base.OnNewSessionConnected(session);
 
+            WaitSyncComponent wsc = new WaitSyncComponent();
             ConnectionComponent conn = new ConnectionComponent();
             conn.m_session = session;
 
@@ -86,6 +87,7 @@ namespace LockStepDemo.Service
             entity.AddComp(ac);
             entity.AddComp(cc);
             entity.AddComp(mc);
+            entity.AddComp(wsc);
 
             session.m_entity = entity;
             session.m_connect = conn;

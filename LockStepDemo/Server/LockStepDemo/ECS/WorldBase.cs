@@ -263,6 +263,11 @@ public class WorldBase
         }
     }
 
+    public List<EntityBase> GetEntiyList()
+    {
+
+    }
+
     #endregion
 
     #region 单例组件

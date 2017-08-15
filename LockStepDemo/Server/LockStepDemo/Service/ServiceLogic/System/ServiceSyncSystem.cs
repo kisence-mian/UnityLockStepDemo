@@ -24,6 +24,7 @@ namespace LockStepDemo.ServiceLogic.System
         public override Type[] GetFilter()
         {
             return new Type[] {
+                typeof(WaitSyncComponent),
                 typeof(SyncComponent)
             };
         }
@@ -39,6 +40,7 @@ namespace LockStepDemo.ServiceLogic.System
 
             for (int i = 0; i < list.Count; i++)
             {
+                list[i].RemoveComp<WaitSyncComponent>();
                 PushSyncEnity(list[i].GetComp<SyncComponent>(), list[i]);
             }
         }
@@ -68,11 +70,8 @@ namespace LockStepDemo.ServiceLogic.System
 
         public override void OnEntityDestroy(EntityBase entity)
         {
-            Debug.Log("OnEntityDestroy");
-
             if (entity.GetExistComp<SyncComponent>())
             {
-                Debug.Log("PushDestroyEntity 1");
                 SyncComponent sc = entity.GetComp<SyncComponent>();
                 SetAllSync(sc);
                 PushDestroyEntity(sc, entity);

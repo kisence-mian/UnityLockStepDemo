@@ -47,6 +47,8 @@ public class OperationSystem : SystemBase
             {
                 move.m_dirx = 1;
             }
+
+            Debug.Log("com.isBack " + com.isBack + " com.isForward " + com.isForward + " com.isRight " + com.isRight + "comp.isLeft " + com.isLeft);
         }
     }
 }

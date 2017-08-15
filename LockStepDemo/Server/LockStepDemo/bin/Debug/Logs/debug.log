@@ -270,3 +270,1073 @@
 2017-08-15 17:53:59,244 [95620] DEBUG SyncService-54267293 - BEGIN ------------------->
 2017-08-15 17:53:59,245 [95620] DEBUG SyncService-54267293 - comp.m_posx 5000 deltaTime 1000 comp.m_velocity 1comp.m_dirx 1
 2017-08-15 17:53:59,245 [95620] DEBUG SyncService-54267293 - END
+2017-08-15 18:12:15,244 [97656] DEBUG SyncService-54267293 - SyncService Setup
+2017-08-15 18:12:15,303 [97656] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-08-15 18:12:15,309 [97656] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-08-15 18:12:15,329 [99900] DEBUG SyncService-54267293 - -------------------- Frame:1------------------------------
+2017-08-15 18:12:15,340 [99900] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:12:15,344 [99900] DEBUG SyncService-54267293 - END
+2017-08-15 18:12:16,327 [99900] DEBUG SyncService-54267293 - -------------------- Frame:2------------------------------
+2017-08-15 18:12:16,327 [99900] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:12:16,327 [99900] DEBUG SyncService-54267293 - END
+2017-08-15 18:12:17,327 [99900] DEBUG SyncService-54267293 - -------------------- Frame:3------------------------------
+2017-08-15 18:12:17,327 [99900] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:12:17,327 [99900] DEBUG SyncService-54267293 - END
+2017-08-15 18:12:18,328 [99900] DEBUG SyncService-54267293 - -------------------- Frame:4------------------------------
+2017-08-15 18:12:18,328 [99900] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:12:18,328 [99900] DEBUG SyncService-54267293 - END
+2017-08-15 18:12:19,329 [99900] DEBUG SyncService-54267293 - -------------------- Frame:5------------------------------
+2017-08-15 18:12:19,329 [99900] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:12:19,329 [99900] DEBUG SyncService-54267293 - END
+2017-08-15 18:12:19,878 [92144] DEBUG SyncService-54267293 - SyncService RegisterSession
+2017-08-15 18:12:19,885 [92144] DEBUG SyncService-54267293 - SyncService OnNewSessionConnected 9cb2b431-58bc-439b-bfc3-da96a9587669
+2017-08-15 18:12:19,891 [92144] DEBUG SyncService-54267293 - OnEntityCompAdd ConnectionComponent
+2017-08-15 18:12:19,892 [92144] DEBUG SyncService-54267293 - PushStartSyncMsg
+2017-08-15 18:12:19,920 [92144] DEBUG SyncService-54267293 - OnEntityCompAdd PlayerComponent
+2017-08-15 18:12:19,920 [92144] DEBUG SyncService-54267293 - OnEntityCompAdd SyncComponent
+2017-08-15 18:12:19,921 [92144] DEBUG SyncService-54267293 - OnEntityCompAdd ViewComponent
+2017-08-15 18:12:19,921 [92144] DEBUG SyncService-54267293 - OnEntityCompAdd AssetComponent
+2017-08-15 18:12:19,921 [92144] DEBUG SyncService-54267293 - OnEntityCompAdd CommandComponent
+2017-08-15 18:12:19,921 [92144] DEBUG SyncService-54267293 - OnEntityCompAdd MoveComponent
+2017-08-15 18:12:19,922 [92144] DEBUG SyncService-54267293 - new entity 1
+2017-08-15 18:12:19,943 [97764] DEBUG SyncService-54267293 - OnSessionStarted 
+2017-08-15 18:12:20,330 [99900] DEBUG SyncService-54267293 - -------------------- Frame:6------------------------------
+2017-08-15 18:12:20,331 [99900] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:12:20,334 [99900] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:12:20,334 [99900] DEBUG SyncService-54267293 - END
+2017-08-15 18:12:21,329 [99900] DEBUG SyncService-54267293 - -------------------- Frame:7------------------------------
+2017-08-15 18:12:21,332 [99900] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:12:21,333 [99900] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:12:21,335 [99900] DEBUG SyncService-54267293 - END
+2017-08-15 18:12:22,330 [99900] DEBUG SyncService-54267293 - -------------------- Frame:8------------------------------
+2017-08-15 18:12:22,331 [99900] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:12:22,332 [99900] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:12:22,332 [99900] DEBUG SyncService-54267293 - END
+2017-08-15 18:12:23,330 [99900] DEBUG SyncService-54267293 - -------------------- Frame:9------------------------------
+2017-08-15 18:12:23,330 [99900] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:12:23,331 [99900] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:12:23,331 [99900] DEBUG SyncService-54267293 - END
+2017-08-15 18:12:24,330 [99900] DEBUG SyncService-54267293 - -------------------- Frame:10------------------------------
+2017-08-15 18:12:24,331 [99900] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:12:24,334 [99900] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:12:24,336 [99900] DEBUG SyncService-54267293 - END
+2017-08-15 18:12:25,329 [99900] DEBUG SyncService-54267293 - -------------------- Frame:11------------------------------
+2017-08-15 18:12:25,330 [99900] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:12:25,330 [99900] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:12:25,331 [99900] DEBUG SyncService-54267293 - END
+2017-08-15 18:12:26,329 [99900] DEBUG SyncService-54267293 - -------------------- Frame:12------------------------------
+2017-08-15 18:12:26,330 [99900] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:12:26,331 [99900] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 1
+2017-08-15 18:12:26,331 [99900] DEBUG SyncService-54267293 - END
+2017-08-15 18:12:27,329 [99900] DEBUG SyncService-54267293 - -------------------- Frame:13------------------------------
+2017-08-15 18:12:27,330 [99900] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:12:27,330 [99900] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 1
+2017-08-15 18:12:27,331 [99900] DEBUG SyncService-54267293 - END
+2017-08-15 18:12:28,329 [99900] DEBUG SyncService-54267293 - -------------------- Frame:14------------------------------
+2017-08-15 18:12:28,330 [99900] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:12:28,330 [99900] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 1
+2017-08-15 18:12:28,331 [99900] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:33,671 [98728] DEBUG SyncService-54267293 - SyncService Setup
+2017-08-15 18:15:33,727 [98728] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-08-15 18:15:33,732 [98728] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-08-15 18:15:33,754 [98960] DEBUG SyncService-54267293 - -------------------- Frame:1------------------------------
+2017-08-15 18:15:33,757 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:33,758 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:34,752 [98960] DEBUG SyncService-54267293 - -------------------- Frame:2------------------------------
+2017-08-15 18:15:34,752 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:34,752 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:35,753 [98960] DEBUG SyncService-54267293 - -------------------- Frame:3------------------------------
+2017-08-15 18:15:35,753 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:35,753 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:36,752 [98960] DEBUG SyncService-54267293 - -------------------- Frame:4------------------------------
+2017-08-15 18:15:36,752 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:36,752 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:37,753 [98960] DEBUG SyncService-54267293 - -------------------- Frame:5------------------------------
+2017-08-15 18:15:37,753 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:37,753 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:37,823 [100148] DEBUG SyncService-54267293 - SyncService RegisterSession
+2017-08-15 18:15:37,834 [100148] DEBUG SyncService-54267293 - SyncService OnNewSessionConnected b17b98d7-d91f-4de5-a8ee-a4bd2042d981
+2017-08-15 18:15:37,840 [100148] DEBUG SyncService-54267293 - OnEntityCompAdd ConnectionComponent
+2017-08-15 18:15:37,842 [100148] DEBUG SyncService-54267293 - PushStartSyncMsg
+2017-08-15 18:15:37,890 [100148] DEBUG SyncService-54267293 - OnEntityCompAdd PlayerComponent
+2017-08-15 18:15:37,891 [100148] DEBUG SyncService-54267293 - OnEntityCompAdd SyncComponent
+2017-08-15 18:15:37,892 [100148] DEBUG SyncService-54267293 - OnEntityCompAdd ViewComponent
+2017-08-15 18:15:37,892 [100148] DEBUG SyncService-54267293 - OnEntityCompAdd AssetComponent
+2017-08-15 18:15:37,892 [100148] DEBUG SyncService-54267293 - OnEntityCompAdd CommandComponent
+2017-08-15 18:15:37,892 [100148] DEBUG SyncService-54267293 - OnEntityCompAdd MoveComponent
+2017-08-15 18:15:37,893 [100148] DEBUG SyncService-54267293 - new entity 1
+2017-08-15 18:15:37,949 [56984] DEBUG SyncService-54267293 - OnSessionStarted 
+2017-08-15 18:15:38,754 [98960] DEBUG SyncService-54267293 - -------------------- Frame:6------------------------------
+2017-08-15 18:15:38,757 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:38,759 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:15:38,760 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:39,754 [98960] DEBUG SyncService-54267293 - -------------------- Frame:7------------------------------
+2017-08-15 18:15:39,761 [98960] DEBUG SyncService-54267293 - GetCmd 7
+2017-08-15 18:15:39,767 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:39,767 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:15:39,768 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:40,754 [98960] DEBUG SyncService-54267293 - -------------------- Frame:8------------------------------
+2017-08-15 18:15:40,754 [98960] DEBUG SyncService-54267293 - GetCmd 8
+2017-08-15 18:15:40,756 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:40,758 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:15:40,758 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:41,753 [98960] DEBUG SyncService-54267293 - -------------------- Frame:9------------------------------
+2017-08-15 18:15:41,754 [98960] DEBUG SyncService-54267293 - GetCmd 9
+2017-08-15 18:15:41,754 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:41,756 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:15:41,756 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:42,754 [98960] DEBUG SyncService-54267293 - -------------------- Frame:10------------------------------
+2017-08-15 18:15:42,755 [98960] DEBUG SyncService-54267293 - GetCmd 10
+2017-08-15 18:15:42,757 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:42,762 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:15:42,764 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:43,754 [98960] DEBUG SyncService-54267293 - -------------------- Frame:11------------------------------
+2017-08-15 18:15:43,758 [98960] DEBUG SyncService-54267293 - GetCmd 11
+2017-08-15 18:15:43,758 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:43,760 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:15:43,761 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:44,753 [98960] DEBUG SyncService-54267293 - -------------------- Frame:12------------------------------
+2017-08-15 18:15:44,754 [98960] DEBUG SyncService-54267293 - GetCmd 12
+2017-08-15 18:15:44,755 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:44,759 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:15:44,761 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:45,753 [98960] DEBUG SyncService-54267293 - -------------------- Frame:13------------------------------
+2017-08-15 18:15:45,753 [98960] DEBUG SyncService-54267293 - GetCmd 13
+2017-08-15 18:15:45,754 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:45,756 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:15:45,757 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:46,753 [98960] DEBUG SyncService-54267293 - -------------------- Frame:14------------------------------
+2017-08-15 18:15:46,753 [98960] DEBUG SyncService-54267293 - GetCmd 14
+2017-08-15 18:15:46,753 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:46,755 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:15:46,757 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:47,753 [98960] DEBUG SyncService-54267293 - -------------------- Frame:15------------------------------
+2017-08-15 18:15:47,753 [98960] DEBUG SyncService-54267293 - GetCmd 15
+2017-08-15 18:15:47,754 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:47,754 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:15:47,755 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:48,752 [98960] DEBUG SyncService-54267293 - -------------------- Frame:16------------------------------
+2017-08-15 18:15:48,753 [98960] DEBUG SyncService-54267293 - GetCmd 16
+2017-08-15 18:15:48,755 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:48,756 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 1
+2017-08-15 18:15:48,756 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:49,752 [98960] DEBUG SyncService-54267293 - -------------------- Frame:17------------------------------
+2017-08-15 18:15:49,753 [98960] DEBUG SyncService-54267293 - GetCmd 17
+2017-08-15 18:15:49,753 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:49,754 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 1
+2017-08-15 18:15:49,756 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:50,752 [98960] DEBUG SyncService-54267293 - -------------------- Frame:18------------------------------
+2017-08-15 18:15:50,753 [98960] DEBUG SyncService-54267293 - GetCmd 18
+2017-08-15 18:15:50,753 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:50,756 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 1
+2017-08-15 18:15:50,757 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:51,753 [98960] DEBUG SyncService-54267293 - -------------------- Frame:19------------------------------
+2017-08-15 18:15:51,753 [98960] DEBUG SyncService-54267293 - GetCmd 19
+2017-08-15 18:15:51,754 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:51,754 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 1
+2017-08-15 18:15:51,754 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:52,753 [98960] DEBUG SyncService-54267293 - -------------------- Frame:20------------------------------
+2017-08-15 18:15:52,755 [98960] DEBUG SyncService-54267293 - GetCmd 20
+2017-08-15 18:15:52,759 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:52,762 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 1
+2017-08-15 18:15:52,764 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:53,753 [98960] DEBUG SyncService-54267293 - -------------------- Frame:21------------------------------
+2017-08-15 18:15:53,754 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:53,759 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 1
+2017-08-15 18:15:53,764 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:15:54,753 [98960] DEBUG SyncService-54267293 - -------------------- Frame:22------------------------------
+2017-08-15 18:15:54,754 [98960] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:15:54,755 [98960] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 1
+2017-08-15 18:15:54,755 [98960] DEBUG SyncService-54267293 - END
+2017-08-15 18:20:09,450 [100856] DEBUG SyncService-54267293 - SyncService Setup
+2017-08-15 18:20:09,512 [100856] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-08-15 18:20:09,518 [100856] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-08-15 18:20:09,537 [93360] DEBUG SyncService-54267293 - -------------------- Frame:1------------------------------
+2017-08-15 18:20:09,540 [93360] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:20:09,541 [93360] DEBUG SyncService-54267293 - END
+2017-08-15 18:20:10,533 [93360] DEBUG SyncService-54267293 - -------------------- Frame:2------------------------------
+2017-08-15 18:20:10,533 [93360] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:20:10,533 [93360] DEBUG SyncService-54267293 - END
+2017-08-15 18:20:11,532 [93360] DEBUG SyncService-54267293 - -------------------- Frame:3------------------------------
+2017-08-15 18:20:11,532 [93360] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:20:11,532 [93360] DEBUG SyncService-54267293 - END
+2017-08-15 18:20:12,533 [93360] DEBUG SyncService-54267293 - -------------------- Frame:4------------------------------
+2017-08-15 18:20:12,533 [93360] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:20:12,534 [93360] DEBUG SyncService-54267293 - END
+2017-08-15 18:20:13,533 [93360] DEBUG SyncService-54267293 - -------------------- Frame:5------------------------------
+2017-08-15 18:20:13,533 [93360] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:20:13,533 [93360] DEBUG SyncService-54267293 - END
+2017-08-15 18:20:14,534 [93360] DEBUG SyncService-54267293 - -------------------- Frame:6------------------------------
+2017-08-15 18:20:14,534 [93360] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:20:14,534 [93360] DEBUG SyncService-54267293 - END
+2017-08-15 18:20:14,541 [53392] DEBUG SyncService-54267293 - SyncService RegisterSession
+2017-08-15 18:20:14,547 [53392] DEBUG SyncService-54267293 - SyncService OnNewSessionConnected 07292e6b-10c2-4e76-ac70-0d7af6e37541
+2017-08-15 18:20:14,555 [53392] DEBUG SyncService-54267293 - OnEntityCompAdd ConnectionComponent
+2017-08-15 18:20:14,557 [53392] DEBUG SyncService-54267293 - PushStartSyncMsg
+2017-08-15 18:20:14,604 [53392] DEBUG SyncService-54267293 - OnEntityCompAdd PlayerComponent
+2017-08-15 18:20:14,604 [53392] DEBUG SyncService-54267293 - OnEntityCompAdd SyncComponent
+2017-08-15 18:20:14,605 [53392] DEBUG SyncService-54267293 - OnEntityCompAdd ViewComponent
+2017-08-15 18:20:14,605 [53392] DEBUG SyncService-54267293 - OnEntityCompAdd AssetComponent
+2017-08-15 18:20:14,606 [53392] DEBUG SyncService-54267293 - OnEntityCompAdd CommandComponent
+2017-08-15 18:20:14,606 [53392] DEBUG SyncService-54267293 - OnEntityCompAdd MoveComponent
+2017-08-15 18:20:14,606 [53392] DEBUG SyncService-54267293 - OnEntityCompAdd WaitSyncComponent
+2017-08-15 18:20:14,606 [53392] DEBUG SyncService-54267293 - new entity 1
+2017-08-15 18:20:14,628 [54412] DEBUG SyncService-54267293 - OnSessionStarted 
+2017-08-15 18:20:15,535 [93360] DEBUG SyncService-54267293 - -------------------- Frame:7------------------------------
+2017-08-15 18:20:15,537 [93360] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:20:15,539 [93360] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:20:15,540 [93360] DEBUG SyncService-54267293 - END
+2017-08-15 18:20:16,535 [93360] DEBUG SyncService-54267293 - -------------------- Frame:8------------------------------
+2017-08-15 18:20:16,537 [93360] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:20:16,538 [93360] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:20:16,539 [93360] DEBUG SyncService-54267293 - END
+2017-08-15 18:20:17,535 [93360] DEBUG SyncService-54267293 - -------------------- Frame:9------------------------------
+2017-08-15 18:20:17,536 [93360] DEBUG SyncService-54267293 - GetCmd 9
+2017-08-15 18:20:17,541 [93360] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:20:17,542 [93360] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:20:17,542 [93360] DEBUG SyncService-54267293 - END
+2017-08-15 18:20:18,537 [93360] DEBUG SyncService-54267293 - -------------------- Frame:10------------------------------
+2017-08-15 18:20:18,539 [93360] DEBUG SyncService-54267293 - GetCmd 10
+2017-08-15 18:20:18,539 [93360] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:20:18,540 [93360] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx -1
+2017-08-15 18:20:18,540 [93360] DEBUG SyncService-54267293 - END
+2017-08-15 18:20:19,537 [93360] DEBUG SyncService-54267293 - -------------------- Frame:11------------------------------
+2017-08-15 18:20:19,538 [93360] DEBUG SyncService-54267293 - GetCmd 11
+2017-08-15 18:20:19,540 [93360] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:20:19,541 [93360] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx -1
+2017-08-15 18:20:19,541 [93360] DEBUG SyncService-54267293 - END
+2017-08-15 18:20:20,537 [93360] DEBUG SyncService-54267293 - -------------------- Frame:12------------------------------
+2017-08-15 18:20:20,538 [93360] DEBUG SyncService-54267293 - GetCmd 12
+2017-08-15 18:20:20,540 [93360] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:20:20,541 [93360] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx -1
+2017-08-15 18:20:20,541 [93360] DEBUG SyncService-54267293 - END
+2017-08-15 18:20:21,536 [93360] DEBUG SyncService-54267293 - -------------------- Frame:13------------------------------
+2017-08-15 18:20:21,537 [93360] DEBUG SyncService-54267293 - GetCmd 13
+2017-08-15 18:20:21,539 [93360] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:20:21,539 [93360] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx -1
+2017-08-15 18:20:21,540 [93360] DEBUG SyncService-54267293 - END
+2017-08-15 18:20:22,536 [93360] DEBUG SyncService-54267293 - -------------------- Frame:14------------------------------
+2017-08-15 18:20:22,537 [93360] DEBUG SyncService-54267293 - GetCmd 14
+2017-08-15 18:20:22,538 [93360] DEBUG SyncService-54267293 - BEGIN ------------------->
+2017-08-15 18:20:22,539 [93360] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx -1
+2017-08-15 18:20:22,539 [93360] DEBUG SyncService-54267293 - END
+2017-08-15 18:27:46,716 [101576] DEBUG SyncService-54267293 - SyncService Setup
+2017-08-15 18:27:46,776 [101576] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-08-15 18:27:46,782 [101576] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-08-15 18:27:46,817 [102100] DEBUG SyncService-54267293 - -------------------- Frame:1------------------------------
+2017-08-15 18:27:46,822 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:27:46,822 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:27:46,823 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:27:47,815 [102100] DEBUG SyncService-54267293 - -------------------- Frame:2------------------------------
+2017-08-15 18:27:47,815 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:27:47,815 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:27:47,815 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:27:48,815 [102100] DEBUG SyncService-54267293 - -------------------- Frame:3------------------------------
+2017-08-15 18:27:48,816 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:27:48,816 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:27:48,816 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:27:49,815 [102100] DEBUG SyncService-54267293 - -------------------- Frame:4------------------------------
+2017-08-15 18:27:49,816 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:27:49,816 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:27:49,816 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:27:50,815 [102100] DEBUG SyncService-54267293 - -------------------- Frame:5------------------------------
+2017-08-15 18:27:50,815 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:27:50,815 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:27:50,815 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:27:51,815 [102100] DEBUG SyncService-54267293 - -------------------- Frame:6------------------------------
+2017-08-15 18:27:51,815 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:27:51,815 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:27:51,816 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:27:52,815 [102100] DEBUG SyncService-54267293 - -------------------- Frame:7------------------------------
+2017-08-15 18:27:52,816 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:27:52,816 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:27:52,817 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:27:53,815 [102100] DEBUG SyncService-54267293 - -------------------- Frame:8------------------------------
+2017-08-15 18:27:53,816 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:27:53,816 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:27:53,817 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:27:54,817 [102100] DEBUG SyncService-54267293 - -------------------- Frame:9------------------------------
+2017-08-15 18:27:54,821 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:27:54,821 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:27:54,822 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:27:55,816 [102100] DEBUG SyncService-54267293 - -------------------- Frame:10------------------------------
+2017-08-15 18:27:55,819 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:27:55,820 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:27:55,820 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:27:56,816 [102100] DEBUG SyncService-54267293 - -------------------- Frame:11------------------------------
+2017-08-15 18:27:56,820 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:27:56,821 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:27:56,821 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:27:57,816 [102100] DEBUG SyncService-54267293 - -------------------- Frame:12------------------------------
+2017-08-15 18:27:57,817 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:27:57,817 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:27:57,817 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:27:58,216 [102096] DEBUG SyncService-54267293 - SyncService RegisterSession
+2017-08-15 18:27:58,223 [102096] DEBUG SyncService-54267293 - SyncService OnNewSessionConnected 4dd0f1fb-b75d-4b64-b4b3-cd242a710819
+2017-08-15 18:27:58,230 [102096] DEBUG SyncService-54267293 - OnEntityCompAdd ConnectionComponent
+2017-08-15 18:27:58,232 [102096] DEBUG SyncService-54267293 - PushStartSyncMsg
+2017-08-15 18:27:58,263 [102096] DEBUG SyncService-54267293 - OnEntityCompAdd PlayerComponent
+2017-08-15 18:27:58,263 [102096] DEBUG SyncService-54267293 - OnEntityCompAdd SyncComponent
+2017-08-15 18:27:58,264 [102096] DEBUG SyncService-54267293 - OnEntityCompAdd ViewComponent
+2017-08-15 18:27:58,264 [102096] DEBUG SyncService-54267293 - OnEntityCompAdd AssetComponent
+2017-08-15 18:27:58,264 [102096] DEBUG SyncService-54267293 - OnEntityCompAdd CommandComponent
+2017-08-15 18:27:58,264 [102096] DEBUG SyncService-54267293 - OnEntityCompAdd MoveComponent
+2017-08-15 18:27:58,265 [102096] DEBUG SyncService-54267293 - OnEntityCompAdd WaitSyncComponent
+2017-08-15 18:27:58,265 [102096] DEBUG SyncService-54267293 - new entity 1
+2017-08-15 18:27:58,289 [100672] DEBUG SyncService-54267293 - OnSessionStarted 
+2017-08-15 18:27:58,818 [102100] DEBUG SyncService-54267293 - -------------------- Frame:13------------------------------
+2017-08-15 18:27:58,818 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:27:58,819 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:27:58,822 [102100] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:27:58,823 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:27:59,816 [102100] DEBUG SyncService-54267293 - -------------------- Frame:14------------------------------
+2017-08-15 18:27:59,818 [102100] DEBUG SyncService-54267293 - GetCmd 14
+2017-08-15 18:27:59,821 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:27:59,821 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:27:59,822 [102100] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:27:59,822 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:00,816 [102100] DEBUG SyncService-54267293 - -------------------- Frame:15------------------------------
+2017-08-15 18:28:00,816 [102100] DEBUG SyncService-54267293 - GetCmd 15
+2017-08-15 18:28:00,817 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:00,821 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:00,821 [102100] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:28:00,822 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:01,815 [102100] DEBUG SyncService-54267293 - -------------------- Frame:16------------------------------
+2017-08-15 18:28:01,817 [102100] DEBUG SyncService-54267293 - GetCmd 16
+2017-08-15 18:28:01,819 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:01,819 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:01,820 [102100] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:28:01,821 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:02,815 [102100] DEBUG SyncService-54267293 - -------------------- Frame:17------------------------------
+2017-08-15 18:28:02,816 [102100] DEBUG SyncService-54267293 - GetCmd 17
+2017-08-15 18:28:02,816 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:02,817 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:02,820 [102100] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:28:02,821 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:03,132 [100672] DEBUG SyncService-54267293 - SyncService OnSessionClosed 4dd0f1fb-b75d-4b64-b4b3-cd242a710819
+2017-08-15 18:28:03,815 [102100] DEBUG SyncService-54267293 - -------------------- Frame:18------------------------------
+2017-08-15 18:28:03,821 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:03,822 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:03,822 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:04,815 [102100] DEBUG SyncService-54267293 - -------------------- Frame:19------------------------------
+2017-08-15 18:28:04,815 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:04,816 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:04,818 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:05,815 [102100] DEBUG SyncService-54267293 - -------------------- Frame:20------------------------------
+2017-08-15 18:28:05,815 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:05,816 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:05,816 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:06,815 [102100] DEBUG SyncService-54267293 - -------------------- Frame:21------------------------------
+2017-08-15 18:28:06,815 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:06,816 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:06,816 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:07,815 [102100] DEBUG SyncService-54267293 - -------------------- Frame:22------------------------------
+2017-08-15 18:28:07,816 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:07,816 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:07,816 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:08,816 [102100] DEBUG SyncService-54267293 - -------------------- Frame:23------------------------------
+2017-08-15 18:28:08,816 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:08,817 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:08,817 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:09,816 [102100] DEBUG SyncService-54267293 - -------------------- Frame:24------------------------------
+2017-08-15 18:28:09,817 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:09,817 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:09,818 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:10,816 [102100] DEBUG SyncService-54267293 - -------------------- Frame:25------------------------------
+2017-08-15 18:28:10,816 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:10,817 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:10,817 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:11,817 [102100] DEBUG SyncService-54267293 - -------------------- Frame:26------------------------------
+2017-08-15 18:28:11,818 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:11,821 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:11,822 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:12,816 [102100] DEBUG SyncService-54267293 - -------------------- Frame:27------------------------------
+2017-08-15 18:28:12,817 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:12,817 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:12,819 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:13,817 [102100] DEBUG SyncService-54267293 - -------------------- Frame:28------------------------------
+2017-08-15 18:28:13,817 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:13,817 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:13,818 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:14,817 [102100] DEBUG SyncService-54267293 - -------------------- Frame:29------------------------------
+2017-08-15 18:28:14,818 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:14,821 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:14,822 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:15,817 [102100] DEBUG SyncService-54267293 - -------------------- Frame:30------------------------------
+2017-08-15 18:28:15,817 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:15,818 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:15,818 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:16,816 [102100] DEBUG SyncService-54267293 - -------------------- Frame:31------------------------------
+2017-08-15 18:28:16,817 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:16,818 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:16,818 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:17,817 [102100] DEBUG SyncService-54267293 - -------------------- Frame:32------------------------------
+2017-08-15 18:28:17,818 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:17,820 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:17,821 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:18,817 [102100] DEBUG SyncService-54267293 - -------------------- Frame:33------------------------------
+2017-08-15 18:28:18,817 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:18,818 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:18,821 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:19,817 [102100] DEBUG SyncService-54267293 - -------------------- Frame:34------------------------------
+2017-08-15 18:28:19,817 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:19,819 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:19,821 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:20,817 [102100] DEBUG SyncService-54267293 - -------------------- Frame:35------------------------------
+2017-08-15 18:28:20,818 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:20,821 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:20,822 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:21,818 [102100] DEBUG SyncService-54267293 - -------------------- Frame:36------------------------------
+2017-08-15 18:28:21,819 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:21,823 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:21,826 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:22,817 [102100] DEBUG SyncService-54267293 - -------------------- Frame:37------------------------------
+2017-08-15 18:28:22,818 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:22,820 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:22,821 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:23,818 [102100] DEBUG SyncService-54267293 - -------------------- Frame:38------------------------------
+2017-08-15 18:28:23,819 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:23,822 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:23,822 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:24,819 [102100] DEBUG SyncService-54267293 - -------------------- Frame:39------------------------------
+2017-08-15 18:28:24,820 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:24,822 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:24,823 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:25,819 [102100] DEBUG SyncService-54267293 - -------------------- Frame:40------------------------------
+2017-08-15 18:28:25,819 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:25,820 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:25,820 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:26,821 [102100] DEBUG SyncService-54267293 - -------------------- Frame:41------------------------------
+2017-08-15 18:28:26,822 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:26,822 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:26,823 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:27,819 [102100] DEBUG SyncService-54267293 - -------------------- Frame:42------------------------------
+2017-08-15 18:28:27,823 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:27,826 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:27,828 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:28,819 [102100] DEBUG SyncService-54267293 - -------------------- Frame:43------------------------------
+2017-08-15 18:28:28,820 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:28,822 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:28,823 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:29,818 [102100] DEBUG SyncService-54267293 - -------------------- Frame:44------------------------------
+2017-08-15 18:28:29,818 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:29,820 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:29,821 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:30,818 [102100] DEBUG SyncService-54267293 - -------------------- Frame:45------------------------------
+2017-08-15 18:28:30,818 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:30,821 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:30,821 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:31,819 [102100] DEBUG SyncService-54267293 - -------------------- Frame:46------------------------------
+2017-08-15 18:28:31,821 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:31,824 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:31,825 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:32,818 [102100] DEBUG SyncService-54267293 - -------------------- Frame:47------------------------------
+2017-08-15 18:28:32,820 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:32,824 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:32,826 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:33,818 [102100] DEBUG SyncService-54267293 - -------------------- Frame:48------------------------------
+2017-08-15 18:28:33,822 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:33,824 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:33,826 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:34,819 [102100] DEBUG SyncService-54267293 - -------------------- Frame:49------------------------------
+2017-08-15 18:28:34,820 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:34,822 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:34,823 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:35,819 [102100] DEBUG SyncService-54267293 - -------------------- Frame:50------------------------------
+2017-08-15 18:28:35,822 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:35,822 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:35,824 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:36,822 [102100] DEBUG SyncService-54267293 - -------------------- Frame:51------------------------------
+2017-08-15 18:28:36,822 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:36,822 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:36,822 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:37,818 [102100] DEBUG SyncService-54267293 - -------------------- Frame:52------------------------------
+2017-08-15 18:28:37,819 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:37,822 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:37,823 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:38,818 [102100] DEBUG SyncService-54267293 - -------------------- Frame:53------------------------------
+2017-08-15 18:28:38,818 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:38,820 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:38,820 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:39,817 [102100] DEBUG SyncService-54267293 - -------------------- Frame:54------------------------------
+2017-08-15 18:28:39,819 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:39,822 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:39,824 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:40,817 [102100] DEBUG SyncService-54267293 - -------------------- Frame:55------------------------------
+2017-08-15 18:28:40,817 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:40,818 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:40,821 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:28:41,817 [102100] DEBUG SyncService-54267293 - -------------------- Frame:56------------------------------
+2017-08-15 18:28:41,821 [102100] DEBUG SyncService-54267293 - OperationSystem
+2017-08-15 18:28:41,822 [102100] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:28:41,822 [102100] DEBUG SyncService-54267293 - END
+2017-08-15 18:33:41,066 [103076] DEBUG SyncService-54267293 - SyncService Setup
+2017-08-15 18:33:41,156 [103076] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-08-15 18:33:41,168 [103076] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-08-15 18:33:41,191 [102872] DEBUG SyncService-54267293 - -------------------- Frame:1------------------------------
+2017-08-15 18:33:41,194 [102872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:33:41,195 [102872] DEBUG SyncService-54267293 - END
+2017-08-15 18:33:42,189 [102872] DEBUG SyncService-54267293 - -------------------- Frame:2------------------------------
+2017-08-15 18:33:42,189 [102872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:33:42,189 [102872] DEBUG SyncService-54267293 - END
+2017-08-15 18:33:43,190 [102872] DEBUG SyncService-54267293 - -------------------- Frame:3------------------------------
+2017-08-15 18:33:43,190 [102872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:33:43,190 [102872] DEBUG SyncService-54267293 - END
+2017-08-15 18:33:44,190 [102872] DEBUG SyncService-54267293 - -------------------- Frame:4------------------------------
+2017-08-15 18:33:44,191 [102872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:33:44,191 [102872] DEBUG SyncService-54267293 - END
+2017-08-15 18:33:45,190 [102872] DEBUG SyncService-54267293 - -------------------- Frame:5------------------------------
+2017-08-15 18:33:45,190 [102872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:33:45,190 [102872] DEBUG SyncService-54267293 - END
+2017-08-15 18:33:46,191 [102872] DEBUG SyncService-54267293 - -------------------- Frame:6------------------------------
+2017-08-15 18:33:46,191 [102872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:33:46,191 [102872] DEBUG SyncService-54267293 - END
+2017-08-15 18:33:47,191 [102872] DEBUG SyncService-54267293 - -------------------- Frame:7------------------------------
+2017-08-15 18:33:47,191 [102872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:33:47,191 [102872] DEBUG SyncService-54267293 - END
+2017-08-15 18:33:48,191 [102872] DEBUG SyncService-54267293 - -------------------- Frame:8------------------------------
+2017-08-15 18:33:48,192 [102872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:33:48,192 [102872] DEBUG SyncService-54267293 - END
+2017-08-15 18:33:49,193 [102872] DEBUG SyncService-54267293 - -------------------- Frame:9------------------------------
+2017-08-15 18:33:49,193 [102872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:33:49,194 [102872] DEBUG SyncService-54267293 - END
+2017-08-15 18:33:49,734 [100004] DEBUG SyncService-54267293 - SyncService RegisterSession
+2017-08-15 18:33:49,740 [100004] DEBUG SyncService-54267293 - SyncService OnNewSessionConnected cedd2f88-ff1d-43bb-bea8-1182c805b218
+2017-08-15 18:33:49,746 [100004] DEBUG SyncService-54267293 - OnEntityCompAdd ConnectionComponent
+2017-08-15 18:33:49,748 [100004] DEBUG SyncService-54267293 - PushStartSyncMsg
+2017-08-15 18:33:49,783 [100004] DEBUG SyncService-54267293 - OnEntityCompAdd PlayerComponent
+2017-08-15 18:33:49,785 [100004] DEBUG SyncService-54267293 - OnEntityCompAdd SyncComponent
+2017-08-15 18:33:49,785 [100004] DEBUG SyncService-54267293 - OnEntityCompAdd ViewComponent
+2017-08-15 18:33:49,785 [100004] DEBUG SyncService-54267293 - OnEntityCompAdd AssetComponent
+2017-08-15 18:33:49,785 [100004] DEBUG SyncService-54267293 - OnEntityCompAdd CommandComponent
+2017-08-15 18:33:49,786 [100004] DEBUG SyncService-54267293 - OnEntityCompAdd MoveComponent
+2017-08-15 18:33:49,786 [100004] DEBUG SyncService-54267293 - OnEntityCompAdd WaitSyncComponent
+2017-08-15 18:33:49,786 [100004] DEBUG SyncService-54267293 - new entity 1
+2017-08-15 18:33:49,806 [98864] DEBUG SyncService-54267293 - OnSessionStarted 
+2017-08-15 18:33:50,192 [102872] DEBUG SyncService-54267293 - -------------------- Frame:10------------------------------
+2017-08-15 18:33:50,195 [102872] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:33:50,195 [102872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:33:50,197 [102872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:33:50,198 [102872] DEBUG SyncService-54267293 - END
+2017-08-15 18:33:51,192 [102872] DEBUG SyncService-54267293 - -------------------- Frame:11------------------------------
+2017-08-15 18:33:51,193 [102872] DEBUG SyncService-54267293 - GetCmd 11
+2017-08-15 18:33:51,195 [102872] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:33:51,196 [102872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:33:51,197 [102872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:33:51,197 [102872] DEBUG SyncService-54267293 - END
+2017-08-15 18:33:52,193 [102872] DEBUG SyncService-54267293 - -------------------- Frame:12------------------------------
+2017-08-15 18:33:52,194 [102872] DEBUG SyncService-54267293 - GetCmd 12
+2017-08-15 18:33:52,195 [102872] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:33:52,196 [102872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:33:52,197 [102872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:33:52,197 [102872] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:08,103 [102912] DEBUG SyncService-54267293 - SyncService Setup
+2017-08-15 18:34:08,159 [102912] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-08-15 18:34:08,164 [102912] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-08-15 18:34:08,185 [101132] DEBUG SyncService-54267293 - -------------------- Frame:1------------------------------
+2017-08-15 18:34:08,188 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:08,189 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:09,180 [101132] DEBUG SyncService-54267293 - -------------------- Frame:2------------------------------
+2017-08-15 18:34:09,180 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:09,180 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:10,180 [101132] DEBUG SyncService-54267293 - -------------------- Frame:3------------------------------
+2017-08-15 18:34:10,181 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:10,181 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:10,766 [91140] DEBUG SyncService-54267293 - SyncService RegisterSession
+2017-08-15 18:34:10,772 [91140] DEBUG SyncService-54267293 - SyncService OnNewSessionConnected 3526f3d0-6b6e-4517-86e5-05e0d8061b21
+2017-08-15 18:34:10,781 [91140] DEBUG SyncService-54267293 - OnEntityCompAdd ConnectionComponent
+2017-08-15 18:34:10,782 [91140] DEBUG SyncService-54267293 - PushStartSyncMsg
+2017-08-15 18:34:10,829 [91140] DEBUG SyncService-54267293 - OnEntityCompAdd PlayerComponent
+2017-08-15 18:34:10,833 [91140] DEBUG SyncService-54267293 - OnEntityCompAdd SyncComponent
+2017-08-15 18:34:10,833 [91140] DEBUG SyncService-54267293 - OnEntityCompAdd ViewComponent
+2017-08-15 18:34:10,833 [91140] DEBUG SyncService-54267293 - OnEntityCompAdd AssetComponent
+2017-08-15 18:34:10,833 [91140] DEBUG SyncService-54267293 - OnEntityCompAdd CommandComponent
+2017-08-15 18:34:10,833 [91140] DEBUG SyncService-54267293 - OnEntityCompAdd MoveComponent
+2017-08-15 18:34:10,833 [91140] DEBUG SyncService-54267293 - OnEntityCompAdd WaitSyncComponent
+2017-08-15 18:34:10,833 [91140] DEBUG SyncService-54267293 - new entity 1
+2017-08-15 18:34:10,856 [103736] DEBUG SyncService-54267293 - OnSessionStarted 
+2017-08-15 18:34:11,180 [101132] DEBUG SyncService-54267293 - -------------------- Frame:4------------------------------
+2017-08-15 18:34:11,181 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:11,181 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:11,184 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:11,186 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:12,180 [101132] DEBUG SyncService-54267293 - -------------------- Frame:5------------------------------
+2017-08-15 18:34:12,181 [101132] DEBUG SyncService-54267293 - GetCmd 5
+2017-08-15 18:34:12,184 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:12,184 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:12,184 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:12,184 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:13,179 [101132] DEBUG SyncService-54267293 - -------------------- Frame:6------------------------------
+2017-08-15 18:34:13,181 [101132] DEBUG SyncService-54267293 - GetCmd 6
+2017-08-15 18:34:13,181 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:13,181 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:13,182 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:13,182 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:14,178 [101132] DEBUG SyncService-54267293 - -------------------- Frame:7------------------------------
+2017-08-15 18:34:14,179 [101132] DEBUG SyncService-54267293 - GetCmd 7
+2017-08-15 18:34:14,181 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:14,182 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:14,182 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:14,182 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:15,178 [101132] DEBUG SyncService-54267293 - -------------------- Frame:8------------------------------
+2017-08-15 18:34:15,178 [101132] DEBUG SyncService-54267293 - GetCmd 8
+2017-08-15 18:34:15,180 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:15,180 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:15,180 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:15,180 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:16,178 [101132] DEBUG SyncService-54267293 - -------------------- Frame:9------------------------------
+2017-08-15 18:34:16,179 [101132] DEBUG SyncService-54267293 - GetCmd 9
+2017-08-15 18:34:16,179 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:16,179 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:16,179 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:16,180 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:17,178 [101132] DEBUG SyncService-54267293 - -------------------- Frame:10------------------------------
+2017-08-15 18:34:17,180 [101132] DEBUG SyncService-54267293 - GetCmd 10
+2017-08-15 18:34:17,180 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:17,180 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:17,181 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:17,181 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:18,178 [101132] DEBUG SyncService-54267293 - -------------------- Frame:11------------------------------
+2017-08-15 18:34:18,180 [101132] DEBUG SyncService-54267293 - GetCmd 11
+2017-08-15 18:34:18,180 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:18,182 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:18,182 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:18,183 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:19,177 [101132] DEBUG SyncService-54267293 - -------------------- Frame:12------------------------------
+2017-08-15 18:34:19,178 [101132] DEBUG SyncService-54267293 - GetCmd 12
+2017-08-15 18:34:19,179 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:19,180 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:19,180 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:19,180 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:20,177 [101132] DEBUG SyncService-54267293 - -------------------- Frame:13------------------------------
+2017-08-15 18:34:20,178 [101132] DEBUG SyncService-54267293 - GetCmd 13
+2017-08-15 18:34:20,179 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:20,179 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:20,180 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:20,180 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:21,180 [101132] DEBUG SyncService-54267293 - -------------------- Frame:14------------------------------
+2017-08-15 18:34:21,181 [101132] DEBUG SyncService-54267293 - GetCmd 14
+2017-08-15 18:34:21,182 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:21,184 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:21,184 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:21,184 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:22,180 [101132] DEBUG SyncService-54267293 - -------------------- Frame:15------------------------------
+2017-08-15 18:34:22,181 [101132] DEBUG SyncService-54267293 - GetCmd 15
+2017-08-15 18:34:22,182 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:22,182 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:22,183 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:22,183 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:23,178 [101132] DEBUG SyncService-54267293 - -------------------- Frame:16------------------------------
+2017-08-15 18:34:23,179 [101132] DEBUG SyncService-54267293 - GetCmd 16
+2017-08-15 18:34:23,179 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:23,180 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:23,180 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:23,180 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:24,178 [101132] DEBUG SyncService-54267293 - -------------------- Frame:17------------------------------
+2017-08-15 18:34:24,178 [101132] DEBUG SyncService-54267293 - GetCmd 17
+2017-08-15 18:34:24,179 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:24,179 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:24,180 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:24,180 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:25,178 [101132] DEBUG SyncService-54267293 - -------------------- Frame:18------------------------------
+2017-08-15 18:34:25,181 [101132] DEBUG SyncService-54267293 - GetCmd 18
+2017-08-15 18:34:25,182 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:25,182 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:25,182 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:25,183 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:26,179 [101132] DEBUG SyncService-54267293 - -------------------- Frame:19------------------------------
+2017-08-15 18:34:26,182 [101132] DEBUG SyncService-54267293 - GetCmd 19
+2017-08-15 18:34:26,183 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:26,184 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:26,184 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:26,184 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:27,177 [101132] DEBUG SyncService-54267293 - -------------------- Frame:20------------------------------
+2017-08-15 18:34:27,179 [101132] DEBUG SyncService-54267293 - GetCmd 20
+2017-08-15 18:34:27,182 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:27,182 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:27,182 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:27,182 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:28,177 [101132] DEBUG SyncService-54267293 - -------------------- Frame:21------------------------------
+2017-08-15 18:34:28,178 [101132] DEBUG SyncService-54267293 - GetCmd 21
+2017-08-15 18:34:28,181 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:28,182 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:28,182 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:28,182 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:29,177 [101132] DEBUG SyncService-54267293 - -------------------- Frame:22------------------------------
+2017-08-15 18:34:29,178 [101132] DEBUG SyncService-54267293 - GetCmd 22
+2017-08-15 18:34:29,179 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:29,179 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:29,179 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:29,180 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:30,178 [101132] DEBUG SyncService-54267293 - -------------------- Frame:23------------------------------
+2017-08-15 18:34:30,179 [101132] DEBUG SyncService-54267293 - GetCmd 23
+2017-08-15 18:34:30,180 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:30,181 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:30,185 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:30,186 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:31,179 [101132] DEBUG SyncService-54267293 - -------------------- Frame:24------------------------------
+2017-08-15 18:34:31,180 [101132] DEBUG SyncService-54267293 - GetCmd 24
+2017-08-15 18:34:31,181 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:31,181 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:31,182 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:31,182 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:32,178 [101132] DEBUG SyncService-54267293 - -------------------- Frame:25------------------------------
+2017-08-15 18:34:32,179 [101132] DEBUG SyncService-54267293 - GetCmd 25
+2017-08-15 18:34:32,180 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:32,180 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:32,180 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:32,181 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:33,179 [101132] DEBUG SyncService-54267293 - -------------------- Frame:26------------------------------
+2017-08-15 18:34:33,180 [101132] DEBUG SyncService-54267293 - GetCmd 26
+2017-08-15 18:34:33,181 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:33,182 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:33,184 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:33,184 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:34,179 [101132] DEBUG SyncService-54267293 - -------------------- Frame:27------------------------------
+2017-08-15 18:34:34,179 [101132] DEBUG SyncService-54267293 - GetCmd 27
+2017-08-15 18:34:34,180 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:34,181 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:34,181 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:34,181 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:35,180 [101132] DEBUG SyncService-54267293 - -------------------- Frame:28------------------------------
+2017-08-15 18:34:35,181 [101132] DEBUG SyncService-54267293 - GetCmd 28
+2017-08-15 18:34:35,183 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Falsecomp.isLeft False
+2017-08-15 18:34:35,183 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:35,185 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:34:35,186 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:36,180 [101132] DEBUG SyncService-54267293 - -------------------- Frame:29------------------------------
+2017-08-15 18:34:36,184 [101132] DEBUG SyncService-54267293 - GetCmd 29
+2017-08-15 18:34:36,186 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Truecomp.isLeft False
+2017-08-15 18:34:36,186 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:36,186 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 1
+2017-08-15 18:34:36,187 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:37,181 [101132] DEBUG SyncService-54267293 - -------------------- Frame:30------------------------------
+2017-08-15 18:34:37,182 [101132] DEBUG SyncService-54267293 - GetCmd 30
+2017-08-15 18:34:37,182 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Truecomp.isLeft False
+2017-08-15 18:34:37,183 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:37,183 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 1
+2017-08-15 18:34:37,183 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:38,180 [101132] DEBUG SyncService-54267293 - -------------------- Frame:31------------------------------
+2017-08-15 18:34:38,183 [101132] DEBUG SyncService-54267293 - GetCmd 31
+2017-08-15 18:34:38,186 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Truecomp.isLeft False
+2017-08-15 18:34:38,186 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:38,186 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 1
+2017-08-15 18:34:38,186 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:39,180 [101132] DEBUG SyncService-54267293 - -------------------- Frame:32------------------------------
+2017-08-15 18:34:39,184 [101132] DEBUG SyncService-54267293 - GetCmd 32
+2017-08-15 18:34:39,185 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward False com.isRight Truecomp.isLeft False
+2017-08-15 18:34:39,186 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:39,186 [101132] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 1
+2017-08-15 18:34:39,186 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:34:40,180 [101132] DEBUG SyncService-54267293 - -------------------- Frame:33------------------------------
+2017-08-15 18:34:40,182 [101132] DEBUG SyncService-54267293 - GetCmd 33
+2017-08-15 18:34:40,182 [101132] DEBUG SyncService-54267293 - com.isBack False com.isForward True com.isRight Truecomp.isLeft False
+2017-08-15 18:34:40,183 [101132] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:34:40,183 [101132] DEBUG SyncService-54267293 - comp.m_posx 1000 deltaTime 1000 comp.m_velocity 1comp.m_dirx 1
+2017-08-15 18:34:40,183 [101132] DEBUG SyncService-54267293 - END
+2017-08-15 18:35:55,400 [103716] DEBUG SyncService-54267293 - SyncService Setup
+2017-08-15 18:35:55,457 [103716] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-08-15 18:35:55,462 [103716] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-08-15 18:35:55,482 [103872] DEBUG SyncService-54267293 - -------------------- Frame:1------------------------------
+2017-08-15 18:35:55,485 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:35:55,486 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:35:56,482 [103872] DEBUG SyncService-54267293 - -------------------- Frame:2------------------------------
+2017-08-15 18:35:56,482 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:35:56,482 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:35:57,481 [103872] DEBUG SyncService-54267293 - -------------------- Frame:3------------------------------
+2017-08-15 18:35:57,481 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:35:57,481 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:35:58,481 [103872] DEBUG SyncService-54267293 - -------------------- Frame:4------------------------------
+2017-08-15 18:35:58,481 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:35:58,481 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:35:58,646 [104328] DEBUG SyncService-54267293 - SyncService RegisterSession
+2017-08-15 18:35:58,653 [104328] DEBUG SyncService-54267293 - SyncService OnNewSessionConnected b709dcd1-750b-480d-a639-c36ce83e6f3c
+2017-08-15 18:35:58,659 [104328] DEBUG SyncService-54267293 - OnEntityCompAdd ConnectionComponent
+2017-08-15 18:35:58,660 [104328] DEBUG SyncService-54267293 - PushStartSyncMsg
+2017-08-15 18:35:58,688 [104328] DEBUG SyncService-54267293 - OnEntityCompAdd PlayerComponent
+2017-08-15 18:35:58,689 [104328] DEBUG SyncService-54267293 - OnEntityCompAdd SyncComponent
+2017-08-15 18:35:58,689 [104328] DEBUG SyncService-54267293 - OnEntityCompAdd ViewComponent
+2017-08-15 18:35:58,689 [104328] DEBUG SyncService-54267293 - OnEntityCompAdd AssetComponent
+2017-08-15 18:35:58,689 [104328] DEBUG SyncService-54267293 - OnEntityCompAdd CommandComponent
+2017-08-15 18:35:58,689 [104328] DEBUG SyncService-54267293 - OnEntityCompAdd MoveComponent
+2017-08-15 18:35:58,689 [104328] DEBUG SyncService-54267293 - OnEntityCompAdd WaitSyncComponent
+2017-08-15 18:35:58,689 [104328] DEBUG SyncService-54267293 - new entity 1
+2017-08-15 18:35:58,711 [103168] DEBUG SyncService-54267293 - OnSessionStarted 
+2017-08-15 18:35:59,480 [103872] DEBUG SyncService-54267293 - -------------------- Frame:5------------------------------
+2017-08-15 18:35:59,481 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:35:59,483 [103872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:35:59,483 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:35:59,663 [103168] DEBUG SyncService-54267293 -  world.FrameCount: 5 msg frame:6
+2017-08-15 18:36:00,480 [103872] DEBUG SyncService-54267293 - -------------------- Frame:6------------------------------
+2017-08-15 18:36:00,481 [103872] DEBUG SyncService-54267293 - GetCmd 6
+2017-08-15 18:36:00,484 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:36:00,484 [103872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:36:00,484 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:36:00,637 [103168] DEBUG SyncService-54267293 -  world.FrameCount: 6 msg frame:7
+2017-08-15 18:36:01,480 [103872] DEBUG SyncService-54267293 - -------------------- Frame:7------------------------------
+2017-08-15 18:36:01,481 [103872] DEBUG SyncService-54267293 - GetCmd 7
+2017-08-15 18:36:01,481 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:36:01,481 [103872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:36:01,481 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:36:01,637 [103168] DEBUG SyncService-54267293 -  world.FrameCount: 7 msg frame:8
+2017-08-15 18:36:02,481 [103872] DEBUG SyncService-54267293 - -------------------- Frame:8------------------------------
+2017-08-15 18:36:02,483 [103872] DEBUG SyncService-54267293 - GetCmd 8
+2017-08-15 18:36:02,484 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:36:02,484 [103872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:36:02,485 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:36:02,642 [103168] DEBUG SyncService-54267293 -  world.FrameCount: 8 msg frame:9
+2017-08-15 18:36:03,481 [103872] DEBUG SyncService-54267293 - -------------------- Frame:9------------------------------
+2017-08-15 18:36:03,481 [103872] DEBUG SyncService-54267293 - GetCmd 9
+2017-08-15 18:36:03,482 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:36:03,482 [103872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:36:03,483 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:36:03,645 [103168] DEBUG SyncService-54267293 -  world.FrameCount: 9 msg frame:10
+2017-08-15 18:36:04,480 [103872] DEBUG SyncService-54267293 - -------------------- Frame:10------------------------------
+2017-08-15 18:36:04,481 [103872] DEBUG SyncService-54267293 - GetCmd 10
+2017-08-15 18:36:04,482 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:36:04,482 [103872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:36:04,482 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:36:04,632 [103168] DEBUG SyncService-54267293 -  world.FrameCount: 10 msg frame:11
+2017-08-15 18:36:05,480 [103872] DEBUG SyncService-54267293 - -------------------- Frame:11------------------------------
+2017-08-15 18:36:05,480 [103872] DEBUG SyncService-54267293 - GetCmd 11
+2017-08-15 18:36:05,481 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:36:05,482 [103872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:36:05,482 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:36:05,632 [103168] DEBUG SyncService-54267293 -  world.FrameCount: 11 msg frame:12
+2017-08-15 18:36:06,480 [103872] DEBUG SyncService-54267293 - -------------------- Frame:12------------------------------
+2017-08-15 18:36:06,480 [103872] DEBUG SyncService-54267293 - GetCmd 12
+2017-08-15 18:36:06,481 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:36:06,482 [103872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:36:06,482 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:36:06,632 [103168] DEBUG SyncService-54267293 -  world.FrameCount: 12 msg frame:13
+2017-08-15 18:36:07,480 [103872] DEBUG SyncService-54267293 - -------------------- Frame:13------------------------------
+2017-08-15 18:36:07,482 [103872] DEBUG SyncService-54267293 - GetCmd 13
+2017-08-15 18:36:07,482 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:36:07,483 [103872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:36:07,483 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:36:07,633 [103168] DEBUG SyncService-54267293 -  world.FrameCount: 13 msg frame:14
+2017-08-15 18:36:08,480 [103872] DEBUG SyncService-54267293 - -------------------- Frame:14------------------------------
+2017-08-15 18:36:08,481 [103872] DEBUG SyncService-54267293 - GetCmd 14
+2017-08-15 18:36:08,481 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:36:08,481 [103872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:36:08,482 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:36:08,634 [103168] DEBUG SyncService-54267293 -  world.FrameCount: 14 msg frame:15
+2017-08-15 18:36:09,480 [103872] DEBUG SyncService-54267293 - -------------------- Frame:15------------------------------
+2017-08-15 18:36:09,481 [103872] DEBUG SyncService-54267293 - GetCmd 15
+2017-08-15 18:36:09,482 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:36:09,482 [103872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:36:09,483 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:36:09,634 [103168] DEBUG SyncService-54267293 -  world.FrameCount: 15 msg frame:16
+2017-08-15 18:36:10,480 [103872] DEBUG SyncService-54267293 - -------------------- Frame:16------------------------------
+2017-08-15 18:36:10,481 [103872] DEBUG SyncService-54267293 - GetCmd 16
+2017-08-15 18:36:10,481 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:36:10,481 [103872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:36:10,482 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:36:10,633 [103168] DEBUG SyncService-54267293 -  world.FrameCount: 16 msg frame:17
+2017-08-15 18:36:11,480 [103872] DEBUG SyncService-54267293 - -------------------- Frame:17------------------------------
+2017-08-15 18:36:11,480 [103872] DEBUG SyncService-54267293 - GetCmd 17
+2017-08-15 18:36:11,481 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:36:11,481 [103872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:36:11,481 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:36:11,639 [103168] DEBUG SyncService-54267293 -  world.FrameCount: 17 msg frame:18
+2017-08-15 18:36:12,480 [103872] DEBUG SyncService-54267293 - -------------------- Frame:18------------------------------
+2017-08-15 18:36:12,481 [103872] DEBUG SyncService-54267293 - GetCmd 18
+2017-08-15 18:36:12,481 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:36:12,481 [103872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:36:12,482 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:36:12,641 [103168] DEBUG SyncService-54267293 -  world.FrameCount: 18 msg frame:19
+2017-08-15 18:36:13,480 [103872] DEBUG SyncService-54267293 - -------------------- Frame:19------------------------------
+2017-08-15 18:36:13,481 [103872] DEBUG SyncService-54267293 - GetCmd 19
+2017-08-15 18:36:13,481 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:36:13,482 [103872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 1
+2017-08-15 18:36:13,482 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:36:13,631 [103168] DEBUG SyncService-54267293 -  world.FrameCount: 19 msg frame:20
+2017-08-15 18:36:14,480 [103872] DEBUG SyncService-54267293 - -------------------- Frame:20------------------------------
+2017-08-15 18:36:14,480 [103872] DEBUG SyncService-54267293 - GetCmd 20
+2017-08-15 18:36:14,481 [103872] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:36:14,482 [103872] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 1
+2017-08-15 18:36:14,482 [103872] DEBUG SyncService-54267293 - END
+2017-08-15 18:38:10,103 [58200] DEBUG SyncService-54267293 - SyncService Setup
+2017-08-15 18:38:10,205 [58200] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-08-15 18:38:10,217 [58200] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-08-15 18:38:10,264 [103812] DEBUG SyncService-54267293 - -------------------- Frame:1------------------------------
+2017-08-15 18:38:10,269 [103812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:38:10,271 [103812] DEBUG SyncService-54267293 - END
+2017-08-15 18:38:11,257 [103812] DEBUG SyncService-54267293 - -------------------- Frame:2------------------------------
+2017-08-15 18:38:11,257 [103812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:38:11,257 [103812] DEBUG SyncService-54267293 - END
+2017-08-15 18:38:12,099 [101856] DEBUG SyncService-54267293 - SyncService RegisterSession
+2017-08-15 18:38:12,105 [101856] DEBUG SyncService-54267293 - SyncService OnNewSessionConnected 29f2a8f8-a465-4c83-97c2-edbd3ace92bc
+2017-08-15 18:38:12,111 [101856] DEBUG SyncService-54267293 - OnEntityCompAdd ConnectionComponent
+2017-08-15 18:38:12,112 [101856] DEBUG SyncService-54267293 - PushStartSyncMsg
+2017-08-15 18:38:12,140 [101856] DEBUG SyncService-54267293 - OnEntityCompAdd PlayerComponent
+2017-08-15 18:38:12,141 [101856] DEBUG SyncService-54267293 - OnEntityCompAdd SyncComponent
+2017-08-15 18:38:12,141 [101856] DEBUG SyncService-54267293 - OnEntityCompAdd ViewComponent
+2017-08-15 18:38:12,141 [101856] DEBUG SyncService-54267293 - OnEntityCompAdd AssetComponent
+2017-08-15 18:38:12,141 [101856] DEBUG SyncService-54267293 - OnEntityCompAdd CommandComponent
+2017-08-15 18:38:12,141 [101856] DEBUG SyncService-54267293 - OnEntityCompAdd MoveComponent
+2017-08-15 18:38:12,141 [101856] DEBUG SyncService-54267293 - OnEntityCompAdd WaitSyncComponent
+2017-08-15 18:38:12,142 [101856] DEBUG SyncService-54267293 - new entity 1
+2017-08-15 18:38:12,166 [104408] DEBUG SyncService-54267293 - OnSessionStarted 
+2017-08-15 18:38:12,258 [103812] DEBUG SyncService-54267293 - -------------------- Frame:3------------------------------
+2017-08-15 18:38:12,258 [103812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:38:12,260 [103812] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:38:12,260 [103812] DEBUG SyncService-54267293 - END
+2017-08-15 18:38:13,129 [104408] DEBUG SyncService-54267293 -  world.FrameCount: 3 msg frame:4
+2017-08-15 18:38:13,257 [103812] DEBUG SyncService-54267293 - -------------------- Frame:4------------------------------
+2017-08-15 18:38:13,258 [103812] DEBUG SyncService-54267293 - GetCmd 4
+2017-08-15 18:38:13,261 [103812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:38:13,261 [103812] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:38:13,262 [103812] DEBUG SyncService-54267293 - END
+2017-08-15 18:38:14,103 [104408] DEBUG SyncService-54267293 -  world.FrameCount: 4 msg frame:5
+2017-08-15 18:38:14,257 [103812] DEBUG SyncService-54267293 - -------------------- Frame:5------------------------------
+2017-08-15 18:38:14,258 [103812] DEBUG SyncService-54267293 - GetCmd 5
+2017-08-15 18:38:14,258 [103812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:38:14,259 [103812] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:38:14,259 [103812] DEBUG SyncService-54267293 - END
+2017-08-15 18:38:15,096 [104408] DEBUG SyncService-54267293 -  world.FrameCount: 5 msg frame:6
+2017-08-15 18:38:15,257 [103812] DEBUG SyncService-54267293 - -------------------- Frame:6------------------------------
+2017-08-15 18:38:15,257 [103812] DEBUG SyncService-54267293 - GetCmd 6
+2017-08-15 18:38:15,260 [103812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:38:15,261 [103812] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:38:15,261 [103812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:07,724 [103992] DEBUG SyncService-54267293 - SyncService Setup
+2017-08-15 18:39:07,780 [103992] DEBUG SyncService-54267293 - Listener (0.0.0.0:2012) was started
+2017-08-15 18:39:07,786 [103992] DEBUG SyncService-54267293 - SyncService OnStarted
+2017-08-15 18:39:07,807 [104812] DEBUG SyncService-54267293 - -------------------- Frame:1------------------------------
+2017-08-15 18:39:07,810 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:07,811 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:08,805 [104812] DEBUG SyncService-54267293 - -------------------- Frame:2------------------------------
+2017-08-15 18:39:08,805 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:08,805 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:09,806 [104812] DEBUG SyncService-54267293 - -------------------- Frame:3------------------------------
+2017-08-15 18:39:09,806 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:09,806 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:10,806 [104812] DEBUG SyncService-54267293 - -------------------- Frame:4------------------------------
+2017-08-15 18:39:10,806 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:10,806 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:11,477 [104816] DEBUG SyncService-54267293 - SyncService RegisterSession
+2017-08-15 18:39:11,484 [104816] DEBUG SyncService-54267293 - SyncService OnNewSessionConnected e8d3415b-92af-4aa4-9bf5-54545b602979
+2017-08-15 18:39:11,492 [104816] DEBUG SyncService-54267293 - OnEntityCompAdd ConnectionComponent
+2017-08-15 18:39:11,493 [104816] DEBUG SyncService-54267293 - PushStartSyncMsg
+2017-08-15 18:39:11,522 [104816] DEBUG SyncService-54267293 - OnEntityCompAdd PlayerComponent
+2017-08-15 18:39:11,523 [104816] DEBUG SyncService-54267293 - OnEntityCompAdd SyncComponent
+2017-08-15 18:39:11,524 [104816] DEBUG SyncService-54267293 - OnEntityCompAdd ViewComponent
+2017-08-15 18:39:11,524 [104816] DEBUG SyncService-54267293 - OnEntityCompAdd AssetComponent
+2017-08-15 18:39:11,524 [104816] DEBUG SyncService-54267293 - OnEntityCompAdd CommandComponent
+2017-08-15 18:39:11,524 [104816] DEBUG SyncService-54267293 - OnEntityCompAdd MoveComponent
+2017-08-15 18:39:11,524 [104816] DEBUG SyncService-54267293 - OnEntityCompAdd WaitSyncComponent
+2017-08-15 18:39:11,524 [104816] DEBUG SyncService-54267293 - new entity 1
+2017-08-15 18:39:11,551 [62268] DEBUG SyncService-54267293 - OnSessionStarted 
+2017-08-15 18:39:11,807 [104812] DEBUG SyncService-54267293 - -------------------- Frame:5------------------------------
+2017-08-15 18:39:11,808 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:11,810 [104812] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:39:11,810 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:12,526 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 5 msg frame:6
+2017-08-15 18:39:12,809 [104812] DEBUG SyncService-54267293 - -------------------- Frame:6------------------------------
+2017-08-15 18:39:12,811 [104812] DEBUG SyncService-54267293 - GetCmd 6
+2017-08-15 18:39:12,813 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:12,814 [104812] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:39:12,814 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:13,483 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 6 msg frame:7
+2017-08-15 18:39:13,807 [104812] DEBUG SyncService-54267293 - -------------------- Frame:7------------------------------
+2017-08-15 18:39:13,807 [104812] DEBUG SyncService-54267293 - GetCmd 7
+2017-08-15 18:39:13,808 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:13,808 [104812] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:39:13,808 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:14,467 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 7 msg frame:8
+2017-08-15 18:39:14,808 [104812] DEBUG SyncService-54267293 - -------------------- Frame:8------------------------------
+2017-08-15 18:39:14,809 [104812] DEBUG SyncService-54267293 - GetCmd 8
+2017-08-15 18:39:14,809 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:14,810 [104812] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx 0
+2017-08-15 18:39:14,810 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:15,478 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 8 msg frame:9
+2017-08-15 18:39:15,809 [104812] DEBUG SyncService-54267293 - -------------------- Frame:9------------------------------
+2017-08-15 18:39:15,809 [104812] DEBUG SyncService-54267293 - GetCmd 9
+2017-08-15 18:39:15,810 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:15,811 [104812] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx -1
+2017-08-15 18:39:15,812 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:16,466 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 9 msg frame:10
+2017-08-15 18:39:16,809 [104812] DEBUG SyncService-54267293 - -------------------- Frame:10------------------------------
+2017-08-15 18:39:16,810 [104812] DEBUG SyncService-54267293 - GetCmd 10
+2017-08-15 18:39:16,811 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:16,811 [104812] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 0comp.m_dirx -1
+2017-08-15 18:39:16,811 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:17,470 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 10 msg frame:11
+2017-08-15 18:39:17,809 [104812] DEBUG SyncService-54267293 - -------------------- Frame:11------------------------------
+2017-08-15 18:39:17,812 [104812] DEBUG SyncService-54267293 - GetCmd 11
+2017-08-15 18:39:17,812 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:17,813 [104812] DEBUG SyncService-54267293 - comp.m_posx -1000 deltaTime 1000 comp.m_velocity 1comp.m_dirx -1
+2017-08-15 18:39:17,813 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:18,478 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 11 msg frame:12
+2017-08-15 18:39:18,810 [104812] DEBUG SyncService-54267293 - -------------------- Frame:12------------------------------
+2017-08-15 18:39:18,811 [104812] DEBUG SyncService-54267293 - GetCmd 12
+2017-08-15 18:39:18,813 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:18,814 [104812] DEBUG SyncService-54267293 - comp.m_posx -2000 deltaTime 1000 comp.m_velocity 1comp.m_dirx -1
+2017-08-15 18:39:18,814 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:19,480 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 12 msg frame:13
+2017-08-15 18:39:19,811 [104812] DEBUG SyncService-54267293 - -------------------- Frame:13------------------------------
+2017-08-15 18:39:19,812 [104812] DEBUG SyncService-54267293 - GetCmd 13
+2017-08-15 18:39:19,812 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:19,813 [104812] DEBUG SyncService-54267293 - comp.m_posx -3000 deltaTime 1000 comp.m_velocity 1comp.m_dirx -1
+2017-08-15 18:39:19,813 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:20,466 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 13 msg frame:14
+2017-08-15 18:39:20,810 [104812] DEBUG SyncService-54267293 - -------------------- Frame:14------------------------------
+2017-08-15 18:39:20,811 [104812] DEBUG SyncService-54267293 - GetCmd 14
+2017-08-15 18:39:20,811 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:20,811 [104812] DEBUG SyncService-54267293 - comp.m_posx -4000 deltaTime 1000 comp.m_velocity 1comp.m_dirx -1
+2017-08-15 18:39:20,812 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:21,470 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 14 msg frame:15
+2017-08-15 18:39:21,810 [104812] DEBUG SyncService-54267293 - -------------------- Frame:15------------------------------
+2017-08-15 18:39:21,812 [104812] DEBUG SyncService-54267293 - GetCmd 15
+2017-08-15 18:39:21,812 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:21,813 [104812] DEBUG SyncService-54267293 - comp.m_posx -3000 deltaTime 1000 comp.m_velocity 1comp.m_dirx 1
+2017-08-15 18:39:21,813 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:22,475 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 15 msg frame:16
+2017-08-15 18:39:22,811 [104812] DEBUG SyncService-54267293 - -------------------- Frame:16------------------------------
+2017-08-15 18:39:22,811 [104812] DEBUG SyncService-54267293 - GetCmd 16
+2017-08-15 18:39:22,813 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:22,813 [104812] DEBUG SyncService-54267293 - comp.m_posx -2000 deltaTime 1000 comp.m_velocity 1comp.m_dirx 1
+2017-08-15 18:39:22,814 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:23,479 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 16 msg frame:17
+2017-08-15 18:39:23,811 [104812] DEBUG SyncService-54267293 - -------------------- Frame:17------------------------------
+2017-08-15 18:39:23,812 [104812] DEBUG SyncService-54267293 - GetCmd 17
+2017-08-15 18:39:23,813 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:23,813 [104812] DEBUG SyncService-54267293 - comp.m_posx -1000 deltaTime 1000 comp.m_velocity 1comp.m_dirx 1
+2017-08-15 18:39:23,813 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:24,466 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 17 msg frame:18
+2017-08-15 18:39:24,811 [104812] DEBUG SyncService-54267293 - -------------------- Frame:18------------------------------
+2017-08-15 18:39:24,812 [104812] DEBUG SyncService-54267293 - GetCmd 18
+2017-08-15 18:39:24,813 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:24,813 [104812] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 1comp.m_dirx 1
+2017-08-15 18:39:24,813 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:25,469 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 18 msg frame:19
+2017-08-15 18:39:25,811 [104812] DEBUG SyncService-54267293 - -------------------- Frame:19------------------------------
+2017-08-15 18:39:25,811 [104812] DEBUG SyncService-54267293 - GetCmd 19
+2017-08-15 18:39:25,812 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:25,812 [104812] DEBUG SyncService-54267293 - comp.m_posx -1000 deltaTime 1000 comp.m_velocity 1comp.m_dirx -1
+2017-08-15 18:39:25,813 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:26,476 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 19 msg frame:20
+2017-08-15 18:39:26,810 [104812] DEBUG SyncService-54267293 - -------------------- Frame:20------------------------------
+2017-08-15 18:39:26,811 [104812] DEBUG SyncService-54267293 - GetCmd 20
+2017-08-15 18:39:26,812 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:26,812 [104812] DEBUG SyncService-54267293 - comp.m_posx -2000 deltaTime 1000 comp.m_velocity 1comp.m_dirx -1
+2017-08-15 18:39:26,813 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:27,480 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 20 msg frame:21
+2017-08-15 18:39:27,810 [104812] DEBUG SyncService-54267293 - -------------------- Frame:21------------------------------
+2017-08-15 18:39:27,811 [104812] DEBUG SyncService-54267293 - GetCmd 21
+2017-08-15 18:39:27,811 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:27,812 [104812] DEBUG SyncService-54267293 - comp.m_posx -1000 deltaTime 1000 comp.m_velocity 1comp.m_dirx 1
+2017-08-15 18:39:27,812 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:28,468 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 21 msg frame:22
+2017-08-15 18:39:28,809 [104812] DEBUG SyncService-54267293 - -------------------- Frame:22------------------------------
+2017-08-15 18:39:28,810 [104812] DEBUG SyncService-54267293 - GetCmd 22
+2017-08-15 18:39:28,810 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:28,811 [104812] DEBUG SyncService-54267293 - comp.m_posx 0 deltaTime 1000 comp.m_velocity 1comp.m_dirx 1
+2017-08-15 18:39:28,811 [104812] DEBUG SyncService-54267293 - END
+2017-08-15 18:39:29,470 [62268] DEBUG SyncService-54267293 -  world.FrameCount: 22 msg frame:23
+2017-08-15 18:39:29,809 [104812] DEBUG SyncService-54267293 - -------------------- Frame:23------------------------------
+2017-08-15 18:39:29,811 [104812] DEBUG SyncService-54267293 - GetCmd 23
+2017-08-15 18:39:29,811 [104812] DEBUG SyncService-54267293 - MoveSystem BEGIN ------------------->
+2017-08-15 18:39:29,812 [104812] DEBUG SyncService-54267293 - comp.m_posx -1000 deltaTime 1000 comp.m_velocity 1comp.m_dirx -1
+2017-08-15 18:39:29,812 [104812] DEBUG SyncService-54267293 - END

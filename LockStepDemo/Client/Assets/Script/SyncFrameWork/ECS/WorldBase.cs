@@ -135,12 +135,13 @@ public class WorldBase
         if (IsStart)
         {
             FrameCount++;
+            Debug.Log("Begin FixedLoop " + FrameCount + "------------");
 
             BeforeFixedUpdate(deltaTime);
             FixedUpdate(deltaTime);
             LateFixedUpdate(deltaTime);
 
-            Debug.Log("FixedLoop " + FrameCount);
+            Debug.Log("End FixedLoop " + FrameCount + "------------");
         }
     }
 

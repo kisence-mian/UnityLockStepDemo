@@ -34,12 +34,12 @@ namespace LockStepDemo.Service.Game
                 if (msg.frame > world.FrameCount)
                 {
                     commandComp.m_commandList.Add(comp);
-                    //广播操作
-
+                    //TODO 广播操作
+                    
                 }
                 else
                 {
-                    //潜在的不同步威胁
+                    //TODO 潜在的不同步威胁
                     Debug.Log("帧数落后 丢弃玩家操作 world.FrameCount: " + world.FrameCount + " msg frame:" + msg.frame);
 
                     commandComp.m_lastInputCache = comp;

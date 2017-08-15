@@ -6,7 +6,7 @@ public class MoveSystem : SystemBase
 {
     public override void LateFixedUpdate(int deltaTime)
     {
-        Debug.Log("BEGIN ------------------->");
+        Debug.Log("MoveSystem BEGIN ------------------->");
 
         List<MoveTuple> list = GetMoveTuple();
 
