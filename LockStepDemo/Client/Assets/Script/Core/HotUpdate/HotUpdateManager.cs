@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -381,8 +382,6 @@ public class HotUpdateManager
                     dataJson = text.text;
                     ab.Unload(true);
             }
-
-
         }
 
         return dataJson;

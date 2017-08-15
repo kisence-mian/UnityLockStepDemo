@@ -26,12 +26,13 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
             return;
         }
 
-        Debug.Log("CommandSyncSystem " + list.Count);
-
         if (list.Count > 0)
         {
             EntityBase entity = list[0];
             T comp = new T();
+
+            comp.frame = m_world.FrameCount;
+            comp.id = entity.ID;
 
             BuildCommand(comp);
             entity.ChangeComp(comp);
@@ -40,16 +41,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
             RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
             rc.m_inputCache = comp;
 
-            ChangeComponentMsg msg = new ChangeComponentMsg();
-            msg.frame = m_world.FrameCount;
-            msg.id = entity.ID;
-            msg.info = new ComponentInfo();
-            msg.info.m_compName = comp.GetType().Name;
-            msg.info.content = Serializer.Serialize(comp);
-
-            ProtocolAnalysisService.SendCommand(msg);
-
-            Debug.Log("ProtocolAnalysisService SendCommand");
+            ProtocolAnalysisService.SendCommand(comp);
         }
     }
 

@@ -43,7 +43,6 @@ namespace LockStepDemo.ServiceLogic.System
             }
         }
 
-
         public override void OnEntityCompChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
         {
             if (entity.GetExistComp<SyncComponent>())
@@ -92,7 +91,6 @@ namespace LockStepDemo.ServiceLogic.System
                     connectionComp.m_waitSyncList.Add(comp);
                 }
             }
-
         }
 
         #region 推送数据

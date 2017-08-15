@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SyncSystem : ViewSystemBase
+public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 {
     public override void Init()
     {
@@ -13,6 +13,7 @@ public class SyncSystem : ViewSystemBase
         GlobalEvent.AddTypeEvent<DestroyEntityMsg>(ReceviceDestroyEntityMsg);
         GlobalEvent.AddTypeEvent<ChangeSingletonComponentMsg>(ReceviceChangeSingletonCompMsg);
         GlobalEvent.AddTypeEvent<StartSyncMsg>(ReceviceStartSyncMsg);
+        GlobalEvent.AddTypeEvent<T>(ReceviceCommandMsg);
     }
 
     public override void Dispose()
@@ -21,6 +22,7 @@ public class SyncSystem : ViewSystemBase
         GlobalEvent.RemoveTypeEvent<DestroyEntityMsg>(ReceviceDestroyEntityMsg);
         GlobalEvent.RemoveTypeEvent<ChangeSingletonComponentMsg>(ReceviceChangeSingletonCompMsg);
         GlobalEvent.RemoveTypeEvent<StartSyncMsg>(ReceviceStartSyncMsg);
+        GlobalEvent.RemoveTypeEvent<T>(ReceviceCommandMsg);
     }
 
     #region 消息接收
@@ -83,6 +85,28 @@ public class SyncSystem : ViewSystemBase
 
         Recalc(msg.frame);
     }
+
+    void ReceviceCommandMsg(T cmd ,params object[] objs)
+    {
+        //判断帧数
+        if(m_world.FrameCount > cmd.frame)
+        {
+            RecordInfo info = GetRecordInfo(cmd.frame);
+            info.m_commandList.Add(cmd);
+
+            //与本地预测做判断，如果不一致则需要重新演算
+            if (!info.GetForecastCmd(cmd.id).Equals(cmd))
+            { 
+                Recalc(cmd.frame);
+            }
+        }
+        //存入缓存
+        else
+        {
+            RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+            rc.m_commandList.Add(cmd);
+        }
+    }
     #endregion
 
     #region 消息发送
@@ -107,8 +131,11 @@ public class SyncSystem : ViewSystemBase
             //重新读取操作
             LoadPlayerInput(i);
 
-            //服务器输入其他人操作
+            //服务器数据改动
             ExecuteServiceMessage(i);
+
+            //其他人操作
+            ExecuteCommand(i);
 
             //重新演算
             m_world.Recalc(m_world.IntervalTime);
@@ -119,7 +146,12 @@ public class SyncSystem : ViewSystemBase
 
     #region 状态回滚
 
-    public List<RecordInfo> GetRecordInfo(int frameCount)
+    /// <summary>
+    /// 获取目标帧之后的所有记录(包括目标帧)
+    /// </summary>
+    /// <param name="frameCount"></param>
+    /// <returns></returns>
+    public List<RecordInfo> GetRecordInfoAfterFrame(int frameCount)
     {
         RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
 
@@ -134,6 +166,23 @@ public class SyncSystem : ViewSystemBase
         }
 
         return list;
+    }
+
+    public RecordInfo GetRecordInfo(int frameCount)
+    {
+        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+
+        List<RecordInfo> list = new List<RecordInfo>();
+
+        for (int i = 0; i < rc.m_recordList.Count; i++)
+        {
+            if (rc.m_recordList[i].frame == frameCount)
+            {
+                return rc.m_recordList[i];
+            }
+        }
+
+        throw new Exception("GetRecordInfo Exception not find record by "+ frameCount) ;
     }
 
     public void ClearRecordInfo(int frameCount)
@@ -151,7 +200,7 @@ public class SyncSystem : ViewSystemBase
 
     public void RevertToFrame(int frameCount)
     {
-        List<RecordInfo> list = GetRecordInfo(frameCount);
+        List<RecordInfo> list = GetRecordInfoAfterFrame(frameCount);
 
         for (int i = 0; i < list.Count; i++)
         {
@@ -217,9 +266,15 @@ public class SyncSystem : ViewSystemBase
         {
             if (rc.m_recordList[i].frame == frameCount)
             {
-                //todo something
+                ExecuteCommand((T)rc.m_recordList[i].m_inputCmd);
             }
         }
+    }
+
+    void ExecuteCommand(T cmd)
+    {
+        EntityBase entity = m_world.GetEntity(cmd.id);
+        entity.ChangeComp(cmd);
     }
 
     #endregion
@@ -314,6 +369,28 @@ public class SyncSystem : ViewSystemBase
     #endregion
 
     #endregion
+
+    #region 读取其他玩家操作
+
+    void ExecuteCommand(int frameCount)
+    {
+        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+
+        for (int i = 0; i < rc.m_recordList.Count; i++)
+        {
+            if (rc.m_recordList[i].frame == frameCount)
+            {
+                for (int j = 0; j < rc.m_recordList[i].m_commandList.Count; j++)
+                {
+                    ExecuteCommand((T)rc.m_recordList[i].m_commandList[j]);
+                }
+            }
+        }
+    }
+
+    #endregion
+
+
 
     #endregion
 }

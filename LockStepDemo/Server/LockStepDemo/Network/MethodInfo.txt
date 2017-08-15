@@ -7,3 +7,6 @@
 203,destroyentitymsg
 204,startsyncmsg
 205,syncentitymsg
+
+3,Command
+301,commandcomponent

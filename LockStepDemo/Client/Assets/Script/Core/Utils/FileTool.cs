@@ -188,6 +188,11 @@ public class FileTool
         }
     }
 
+    public static string GetExpandName(string name)
+    {
+        return name.Substring(name.LastIndexOf(".") + 1, (name.Length - name.LastIndexOf(".") - 1));
+    }
+
     //取出一个路径下的文件名
     public static string GetFileNameByPath(string path)
     {

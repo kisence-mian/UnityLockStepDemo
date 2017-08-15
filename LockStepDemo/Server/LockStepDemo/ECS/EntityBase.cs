@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class EntityBase
 {
+    private WorldBase world;
+
     private int id = 0;
     public int ID
     {
@@ -13,6 +15,19 @@ public class EntityBase
         set
         {
             id = value;
+        }
+    }
+
+    public WorldBase World
+    {
+        get
+        {
+            return world;
+        }
+
+        set
+        {
+            world = value;
         }
     }
 
@@ -40,6 +55,8 @@ public class EntityBase
         T comp = new T();
         comp.Init();
 
+        comp.Entity = this;
+
         string key = typeof(T).Name;
 
         if(m_compDict.ContainsKey(key))
@@ -62,6 +79,8 @@ public class EntityBase
     {
         string key = typeof(T).Name;
 
+        comp.Entity = this;
+
         if (m_compDict.ContainsKey(key))
         {
             throw new System.Exception("AddComp exist comp !" + key);
@@ -72,6 +91,26 @@ public class EntityBase
             if (OnComponentAdded != null)
             {
                 OnComponentAdded(this, key, comp);
+            }
+        }
+
+        return this;
+    }
+
+    public EntityBase AddComp(string compName, ComponentBase comp)
+    {
+        comp.Entity = this;
+
+        if (m_compDict.ContainsKey(compName))
+        {
+            throw new System.Exception("AddComp exist comp !" + compName);
+        }
+        else
+        {
+            m_compDict.Add(compName, comp);
+            if (OnComponentAdded != null)
+            {
+                OnComponentAdded(this, compName, comp);
             }
         }
 
@@ -92,12 +131,13 @@ public class EntityBase
         else
         {
             ComponentBase comp = m_compDict[compName];
-
             m_compDict.Remove(compName);
             if (OnComponentRemoved != null)
             {
                 OnComponentRemoved(this, compName, comp);
             }
+
+            comp.Entity = null;
         }
     }
 
@@ -123,7 +163,10 @@ public class EntityBase
         if (m_compDict.ContainsKey(compName))
         {
             ComponentBase oldComp = m_compDict[compName];
+            oldComp.Entity = null;
+
             m_compDict[compName] = comp;
+            comp.Entity = this;
 
             if (OnComponentReplaced != null)
             {

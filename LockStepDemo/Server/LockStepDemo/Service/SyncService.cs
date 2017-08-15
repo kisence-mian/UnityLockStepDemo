@@ -29,7 +29,7 @@ namespace LockStepDemo.Service
         {
             Debug.Log("SyncService OnStarted");
 
-            GameMessageService.Init();
+            GameMessageService<CommandComponent>.Init();
 
             m_world = WorldManager.CreateWorld<DemoWorld>();
             m_world.IsStart = true;

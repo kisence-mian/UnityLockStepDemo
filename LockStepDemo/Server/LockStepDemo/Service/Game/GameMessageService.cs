@@ -9,40 +9,41 @@ using System.Text;
 
 namespace LockStepDemo.Service.Game
 {
-    class GameMessageService
+    class GameMessageService<T> where T : PlayerCommandBase, new()
     {
         public static void Init()
         {
-            EventService.AddTypeEvent<ChangeComponentMsg>(ReceviceSyncMsg);
+            EventService.AddTypeEvent<T>(ReceviceSyncMsg);
         }
 
         public static void Dispose()
         {
-            EventService.RemoveTypeEvent<ChangeComponentMsg>(ReceviceSyncMsg);
+            EventService.RemoveTypeEvent<T>(ReceviceSyncMsg);
         }
 
         static Deserializer deserializer = new Deserializer();
-        static void ReceviceSyncMsg(SyncSession session, ChangeComponentMsg msg)
+        static void ReceviceSyncMsg(SyncSession session, T msg)
         {
             ConnectionComponent commandComp = session.m_connect;
+            WorldBase world = session.m_entity.World;
             if (commandComp != null)
             {
-                Type type = Type.GetType(msg.info.m_compName);
+                PlayerCommandBase comp = msg;
+                comp.frame = msg.frame;
 
-                if (type!= null)
+                if (msg.frame > world.FrameCount)
                 {
-                    PlayerCommandBase comp = (PlayerCommandBase)deserializer.Deserialize(msg.info.m_compName, msg.info.content);
                     commandComp.m_commandList.Add(comp);
-                    Debug.Log("ReceviceSyncMsg " + msg.info.content);
+                    //广播操作
+
                 }
                 else
                 {
-                    Debug.LogError("type is null " + msg.info.m_compName);
-                }
-            }
-            else
-            {
+                    //潜在的不同步威胁
+                    Debug.Log("帧数落后 丢弃玩家操作 world.FrameCount: " + world.FrameCount + " msg frame:" + msg.frame);
 
+                    commandComp.m_lastInputCache = comp;
+                }
             }
         }
     }

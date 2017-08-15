@@ -2,9 +2,11 @@ package all;
 
 message m_waitsynccomponent_s
 {
+	required entitybase m_entity = 1;
 }
 message m_waitsynccomponent_c
 {
+	required entitybase m_entity = 1;
 }
 
 message m_changecomponentmsg_s
@@ -42,6 +44,17 @@ message m_destroyentitymsg_c
 	required int32 id = 2;
 }
 
+message m_startsyncmsg_s
+{
+	required int32 frame = 1;
+	required int32 intervaltime = 2;
+}
+message m_startsyncmsg_c
+{
+	required int32 frame = 1;
+	required int32 intervaltime = 2;
+}
+
 message m_syncentitymsg_s
 {
 	required int32 frame = 1;
@@ -53,6 +66,29 @@ message m_syncentitymsg_c
 	required int32 frame = 1;
 	required int32 id = 2;
 	repeated componentinfo infos = 3;
+}
+
+message m_commandcomponent_s
+{
+	required bool isforward = 1;
+	required bool isback = 2;
+	required bool isright = 3;
+	required bool isleft = 4;
+	required bool isfire = 5;
+	required int32 id = 6;
+	required int32 frame = 7;
+	required entitybase m_entity = 8;
+}
+message m_commandcomponent_c
+{
+	required bool isforward = 1;
+	required bool isback = 2;
+	required bool isright = 3;
+	required bool isleft = 4;
+	required bool isfire = 5;
+	required int32 id = 6;
+	required int32 frame = 7;
+	required entitybase m_entity = 8;
 }
 
 message componentinfo

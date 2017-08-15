@@ -25,8 +25,7 @@ namespace LockStepDemo.Service.ServiceLogic.System
 
                 if(comp.m_commandList.Count > 0)
                 {
-                    T cmd = (T)comp.m_commandList[0];
-                    comp.m_commandList.RemoveAt(0);
+                    T cmd = (T)comp.GetCommand(m_world.FrameCount);
                     list[i].ChangeComp(cmd);
                 }
             }

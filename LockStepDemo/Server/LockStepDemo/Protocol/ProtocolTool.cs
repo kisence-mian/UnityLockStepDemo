@@ -1004,6 +1004,11 @@ namespace LockStepDemo.Protocol
 
         static string GenerateSerializeFieldContent(int tab, FieldInfo field, string aimName, string sourceName)
         {
+            if(tab > 200)
+            {
+                throw new Exception("Stack out of range ");
+            }
+
             string content = "";
             if (field.FieldType.IsSubclassOf(typeof(Enum)))
             {

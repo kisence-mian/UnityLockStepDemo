@@ -7,7 +7,7 @@ namespace Protocol
     [Module(2, "SyncModule")]
     public abstract class SyncModule : CsharpProtocolInterface
     {
-
+        
     }
 
     /// <summary>

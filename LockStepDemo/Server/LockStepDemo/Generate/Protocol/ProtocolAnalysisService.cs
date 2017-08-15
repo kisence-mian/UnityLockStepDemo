@@ -73,6 +73,18 @@ public static class ProtocolAnalysisService
 		}
 		session.SendMsg("syncentitymsg",data);
 	}
+	public static void SendMsg(this SyncSession session,CommandComponent msg)
+	{
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("isforward", msg.isForward);
+		data.Add("isback", msg.isBack);
+		data.Add("isright", msg.isRight);
+		data.Add("isleft", msg.isLeft);
+		data.Add("isfire", msg.isFire);
+		data.Add("id", msg.id);
+		data.Add("frame", msg.frame);
+		session.SendMsg("commandcomponent",data);
+	}
 	#endregion
 
 	#region 事件接收
@@ -86,6 +98,7 @@ public static class ProtocolAnalysisService
 			case  "destroyentitymsg":ReceviceDestroyEntityMsg(session , cmd);break;
 			case  "startsyncmsg":ReceviceStartSyncMsg(session , cmd);break;
 			case  "syncentitymsg":ReceviceSyncEntityMsg(session , cmd);break;
+			case  "commandcomponent":ReceviceCommandComponent(session , cmd);break;
 			default:
 			Debug.LogError("SendCommand Exception : 不支持的消息类型!" + cmd.Key);
 				break;
@@ -159,6 +172,19 @@ public static class ProtocolAnalysisService
 			}
 			msg.infos =  list2;
 		}
+		
+		EventService.DispatchTypeEvent(session,msg);
+	}
+	static void ReceviceCommandComponent(SyncSession session ,ProtocolRequestBase e)
+	{
+		CommandComponent msg = new CommandComponent();
+		msg.isForward = (bool)e.m_data["isforward"];
+		msg.isBack = (bool)e.m_data["isback"];
+		msg.isRight = (bool)e.m_data["isright"];
+		msg.isLeft = (bool)e.m_data["isleft"];
+		msg.isFire = (bool)e.m_data["isfire"];
+		msg.id = (int)e.m_data["id"];
+		msg.frame = (int)e.m_data["frame"];
 		
 		EventService.DispatchTypeEvent(session,msg);
 	}

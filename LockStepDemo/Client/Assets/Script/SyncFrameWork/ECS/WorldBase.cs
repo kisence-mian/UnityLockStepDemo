@@ -217,6 +217,8 @@ public class WorldBase
         EntityBase entity = new EntityBase();
         entity.ID = ID;
 
+        entity.World = this;
+
         m_entityList.Add(entity);
         m_entityDict.Add(ID, entity);
 

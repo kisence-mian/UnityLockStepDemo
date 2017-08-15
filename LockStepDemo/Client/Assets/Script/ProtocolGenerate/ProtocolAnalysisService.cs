@@ -17,6 +17,7 @@ public class ProtocolAnalysisService
 		InputManager.AddListener<InputNetworkMessageEvent>("destroyentitymsg",ReceviceDestroyEntityMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("startsyncmsg",ReceviceStartSyncMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("syncentitymsg",ReceviceSyncEntityMsg);
+		InputManager.AddListener<InputNetworkMessageEvent>("commandcomponent",ReceviceCommandComponent);
 	}
 
 	public static void Dispose()
@@ -27,6 +28,7 @@ public class ProtocolAnalysisService
 		InputManager.RemoveListener<InputNetworkMessageEvent>("destroyentitymsg",ReceviceDestroyEntityMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("startsyncmsg",ReceviceStartSyncMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("syncentitymsg",ReceviceSyncEntityMsg);
+		InputManager.RemoveListener<InputNetworkMessageEvent>("commandcomponent",ReceviceCommandComponent);
 	}
 	public static void SendCommand (IProtocolMessageInterface cmd)
 	{
@@ -53,6 +55,10 @@ public class ProtocolAnalysisService
 		else if(cmd is Protocol.SyncEntityMsg )
 		{
 			SendSyncEntityMsg(cmd);
+		}
+		else if(cmd is CommandComponent )
+		{
+			SendCommandComponent(cmd);
 		}
 		else
 		{
@@ -127,6 +133,19 @@ public class ProtocolAnalysisService
 		}
 		NetworkManager.SendMessage("syncentitymsg",data);
 	}
+	static void SendCommandComponent(IProtocolMessageInterface msg)
+	{
+		CommandComponent e = (CommandComponent)msg;
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("isforward", e.isForward);
+		data.Add("isback", e.isBack);
+		data.Add("isright", e.isRight);
+		data.Add("isleft", e.isLeft);
+		data.Add("isfire", e.isFire);
+		data.Add("id", e.id);
+		data.Add("frame", e.frame);
+		NetworkManager.SendMessage("commandcomponent",data);
+	}
 	#endregion
 
 	#region 事件接收
@@ -198,6 +217,19 @@ public class ProtocolAnalysisService
 			}
 			msg.infos =  list2;
 		}
+		
+		GlobalEvent.DispatchTypeEvent(msg);
+	}
+	static void ReceviceCommandComponent(InputNetworkMessageEvent e)
+	{
+		CommandComponent msg = new CommandComponent();
+		msg.isForward = (bool)e.Data["isforward"];
+		msg.isBack = (bool)e.Data["isback"];
+		msg.isRight = (bool)e.Data["isright"];
+		msg.isLeft = (bool)e.Data["isleft"];
+		msg.isFire = (bool)e.Data["isfire"];
+		msg.id = (int)e.Data["id"];
+		msg.frame = (int)e.Data["frame"];
 		
 		GlobalEvent.DispatchTypeEvent(msg);
 	}
