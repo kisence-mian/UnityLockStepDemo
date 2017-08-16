@@ -22,7 +22,6 @@ public class RecordSystem : SystemBase
 
         RecordInfo info = new RecordInfo();
         info.frame = m_world.FrameCount;
-        info.m_inputCmd = rc.m_inputCache;
         info.m_changeData = rc.m_changeCache;
 
         rc.m_recordList.Add(info);

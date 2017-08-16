@@ -216,7 +216,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
         for (int i = 0; i < list.Count; i++)
         {
-            for (int j = 0; j < list[i].m_changeData.Count; j++)
+            for (int j = list[i].m_changeData.Count -1; j >=0; j--)
             {
                 RevertByChangeRecordInfo(list[i].m_changeData[j]);
             }
@@ -277,7 +277,15 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         for (int i = 0; i < list.Count; i++)
         {
             PlayerCommandRecordComponent pcrc = list[i].GetComp<PlayerCommandRecordComponent>();
-            list[i].ChangeComp((T)pcrc.GetInputCahae(frameCount));
+            T cmd = (T)pcrc.GetInputCahae(frameCount);
+            if (cmd != null)
+            {
+                list[i].ChangeComp(cmd);
+            }
+            else
+            {
+                Debug.Log("LoadPlayerInput faild frameCount:" + frameCount);
+            }
         }
     }
 

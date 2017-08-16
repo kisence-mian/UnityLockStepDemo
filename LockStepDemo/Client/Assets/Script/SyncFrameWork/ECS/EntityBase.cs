@@ -143,7 +143,7 @@ public class EntityBase
         }
         else
         {
-            throw new System.Exception("GetComp not exist comp !" + compName);
+            throw new System.Exception("GetComp not exist comp !->" + compName);
         }
     }
 

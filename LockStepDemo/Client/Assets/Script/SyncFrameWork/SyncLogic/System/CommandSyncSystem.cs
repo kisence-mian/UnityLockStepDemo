@@ -8,11 +8,28 @@ using UnityEngine;
 
 public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new()
 {
+    public override void Init()
+    {
+        AddEntityCompAddLisenter();
+    }
+
     public override Type[] GetFilter()
     {
         return new Type[] {
             typeof(T),
         };
+    }
+
+    public override void OnEntityCompAdd(EntityBase entity, string compName, ComponentBase component)
+    {
+        if(entity.GetExistComp<T>())
+        {
+            if(!entity.GetExistComp<PlayerCommandRecordComponent>())
+            {
+                //自动添加记录组件
+                entity.AddComp<PlayerCommandRecordComponent>();
+            }
+        }
     }
 
     public override void BeforeFixedUpdate(int deltaTime)
@@ -22,12 +39,6 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         int selfCount = 0;
         for (int i = 0; i < list.Count; i++)
         {
-            //自动添加记录组件
-            if(!list[i].GetExistComp<PlayerCommandRecordComponent>())
-            {
-                list[i].AddComp<PlayerCommandRecordComponent>();
-            }
-
             if(list[i].GetExistComp<SelfComponent>())
             {
                 selfCount++;
@@ -75,17 +86,18 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         //没有的话预测一份
         if (cmd == null)
         {
-            Debug.Log("预测输入 ");
+            Debug.Log("预测输入 " + entity.ID);
+
+            cmd = new T();
+            cmd.id = entity.ID;
+            cmd.frame = m_world.FrameCount;
 
             //取最后一次输入缓存，没有的话New一个新的
-            cmd = (T)rc.m_lastInput;
-
-            if(cmd == null)
+            if(rc.m_lastInput == null)
             {
-                cmd = new T();
-                cmd.frame = m_world.FrameCount;
-                cmd.id = entity.ID;
+                rc.m_lastInput.
             }
+
             rc.m_forecastInput = cmd;
         }
         else
