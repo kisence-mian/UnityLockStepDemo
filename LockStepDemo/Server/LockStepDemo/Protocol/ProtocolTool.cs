@@ -729,6 +729,8 @@ namespace LockStepDemo.Protocol
 
             csharpContent += "\t#region 消息发送\n";
 
+            csharpContent += GenerateSendFunction();
+
             for (int i = 0; i < msgList.Count; i++)
             {
                 if (GetSendMode(msgList[i]) == SendMode.ToClient
@@ -926,6 +928,52 @@ namespace LockStepDemo.Protocol
             }
         }
 
+        static string GenerateSendFunction()
+        {
+            string content = "";
+
+            content += GetTab(1) + "public static void SendMsg (SyncSession session,IProtocolMessageInterface msg)\n";
+            content += GetTab(1) + "{\n";
+
+            content += GetTab(2) + "string key = msg.GetType().Name.ToLower();\n";
+            content += GetTab(2) + "switch (key)\n";
+            content += GetTab(2) + "{\n";
+
+            for (int i = 0; i < msgList.Count; i++)
+            {
+                if (GetSendMode(msgList[i]) == SendMode.ToClient
+                    || GetSendMode(msgList[i]) == SendMode.Both)
+                {
+                    content += GenerateSendIfContent(msgList[i], i != 0);
+                }
+            }
+
+            if (msgList.Count > 0)
+            {
+                content += GetTab(3) + "default:\n";
+                content += GetTab(3) + "Debug.LogError(\"SendCommand Exception : 不支持的消息类型!\" + key);\n";
+                content += GetTab(4) + "break;\n";
+            }
+
+            content += GetTab(2) + "}\n";
+
+            content += GetTab(1) + "}\n";
+
+            return content;
+        }
+
+        static string GenerateSendIfContent(Type type, bool isElseIf)
+        {
+            string content = "";
+            content += GetTab(3) + "case  \"" + GenerateProtocolName(type) + "\":";
+
+            content += GenerateSendFunctionName(type) + "(session , (" + type.FullName + ")msg);";
+
+            content += "break;\n";
+
+            return content;
+        }
+
         static string GenerateReceviceFunction()
         {
             string content = "";
@@ -948,7 +996,7 @@ namespace LockStepDemo.Protocol
             if (msgList.Count > 0)
             {
                 content += GetTab(3) + "default:\n";
-                content += GetTab(3) + "Debug.LogError(\"SendCommand Exception : 不支持的消息类型!\" + cmd.Key);\n";
+                content += GetTab(3) + "Debug.LogError(\"Recevice Exception : 不支持的消息类型!\" + cmd.Key);\n";
                 content += GetTab(4) + "break;\n";
             }
 
@@ -975,7 +1023,7 @@ namespace LockStepDemo.Protocol
         {
             string content = "";
 
-            content += GetTab(1) + "public static void SendMsg(this SyncSession session," + type.FullName + " msg)\n";
+            content += GetTab(1) + "static void "+ GenerateSendFunctionName(type) + "(SyncSession session," + type.FullName + " msg)\n";
             content += GetTab(1) + "{\n";
             //content += GetTab(2) + type.FullName + " e = (" + type.FullName + ")msg;\n";
             content += GenerateSerializeClassContent(2, type, "data", "msg");

@@ -277,6 +277,33 @@ public class WorldBase
         }
     }
 
+
+    public List<EntityBase> GetEntiyList(string[] compNames)
+    {
+        List<EntityBase> tupleList = new List<EntityBase>();
+        for (int i = 0; i < m_entityList.Count; i++)
+        {
+            if (GetAllExistComp(compNames, m_entityList[i]))
+            {
+                tupleList.Add(m_entityList[i]);
+            }
+        }
+
+        return tupleList;
+    }
+
+    public bool GetAllExistComp(string[] compNames, EntityBase entity)
+    {
+        for (int i = 0; i < compNames.Length; i++)
+        {
+            if (!entity.GetExistComp(compNames[i]))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     #endregion
 
     #region 单例组件

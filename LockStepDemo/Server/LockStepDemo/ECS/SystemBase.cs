@@ -6,7 +6,7 @@ using UnityEngine;
 public class SystemBase
 {
     public WorldBase m_world;
-
+    
     #region 私有属性
 
     string[] m_filter;

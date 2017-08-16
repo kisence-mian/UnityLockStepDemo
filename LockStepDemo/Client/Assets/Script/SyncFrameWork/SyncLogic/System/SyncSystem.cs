@@ -88,14 +88,29 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     void ReceviceCommandMsg(T cmd ,params object[] objs)
     {
+        Debug.Log("ReceviceCommandMsg " + cmd.frame + " world " + m_world.FrameCount);
+        PlayerCommandRecordComponent pcrc = m_world.GetEntity(cmd.id).GetComp<PlayerCommandRecordComponent>();
+
         //判断帧数
-        if(m_world.FrameCount > cmd.frame)
+        if (m_world.FrameCount >= cmd.frame)
         {
-            RecordInfo info = GetRecordInfo(cmd.frame);
-            info.m_commandList.Add(cmd);
+            Debug.Log("重计算");
+            PlayerCommandBase input = null;
+            
+            if (m_world.FrameCount == cmd.frame)
+            {
+                input = pcrc.m_forecastInput;
+            }
+            else
+            {
+                input = pcrc.GetInputCahae(cmd.frame);
+            }
+
+            //替换原来的记录
+            pcrc.ReplaceCommand(cmd);
 
             //与本地预测做判断，如果不一致则需要重新演算
-            if (!info.GetForecastCmd(cmd.id).Equals(cmd))
+            if (!cmd.Equals(input))
             { 
                 Recalc(cmd.frame);
             }
@@ -103,8 +118,8 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         //存入缓存
         else
         {
-            RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
-            rc.m_commandList.Add(cmd);
+            Debug.Log("存入缓存");
+            pcrc.m_serverCache.Add(cmd);
         }
     }
     #endregion
@@ -133,9 +148,6 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
             //服务器数据改动
             ExecuteServiceMessage(i);
-
-            //其他人操作
-            ExecuteCommand(i);
 
             //重新演算
             m_world.Recalc(m_world.IntervalTime);
@@ -260,21 +272,13 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     void LoadPlayerInput(int frameCount)
     {
-        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+        List<EntityBase> list = m_world.GetEntiyList(new string[] { "PlayerCommandRecordComponent", typeof(T).Name });
 
-        for (int i = 0; i < rc.m_recordList.Count; i++)
+        for (int i = 0; i < list.Count; i++)
         {
-            if (rc.m_recordList[i].frame == frameCount)
-            {
-                ExecuteCommand((T)rc.m_recordList[i].m_inputCmd);
-            }
+            PlayerCommandRecordComponent pcrc = list[i].GetComp<PlayerCommandRecordComponent>();
+            list[i].ChangeComp((T)pcrc.GetInputCahae(frameCount));
         }
-    }
-
-    void ExecuteCommand(T cmd)
-    {
-        EntityBase entity = m_world.GetEntity(cmd.id);
-        entity.ChangeComp(cmd);
     }
 
     #endregion
@@ -343,6 +347,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
         for (int i = 0; i < msg.infos.Count; i++)
         {
+            //Debug.Log("msg.infos[i].m_compName " + msg.infos[i].m_compName);
             ComponentBase comp = (ComponentBase)deserializer.Deserialize(msg.infos[i].m_compName, msg.infos[i].content);
 
             if (entity.GetExistComp(msg.infos[i].m_compName))
@@ -369,28 +374,6 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     #endregion
 
     #endregion
-
-    #region 读取其他玩家操作
-
-    void ExecuteCommand(int frameCount)
-    {
-        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
-
-        for (int i = 0; i < rc.m_recordList.Count; i++)
-        {
-            if (rc.m_recordList[i].frame == frameCount)
-            {
-                for (int j = 0; j < rc.m_recordList[i].m_commandList.Count; j++)
-                {
-                    ExecuteCommand((T)rc.m_recordList[i].m_commandList[j]);
-                }
-            }
-        }
-    }
-
-    #endregion
-
-
 
     #endregion
 }

@@ -35,7 +35,17 @@ namespace LockStepDemo.Service.Game
                 {
                     commandComp.m_commandList.Add(comp);
                     //TODO 广播操作
-                    
+                    List<EntityBase> list = world.GetEntiyList(new string[] { "ConnectionComponent" });
+
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        ConnectionComponent cp = list[i].GetComp<ConnectionComponent>();
+                        if(cp != commandComp)
+                        {
+                            Debug.Log("Push player Command");
+                            ProtocolAnalysisService.SendMsg(cp.m_session, msg);
+                        }
+                    }
                 }
                 else
                 {

@@ -16,15 +16,13 @@ namespace LockStepDemo.ServiceLogic.System
     {
         public override void Init()
         {
-            AddEntityCompChangeLisenter();
+            AddEntityCompAddLisenter();
             AddEntityDestroyLisnter();
-            AddEntityCreaterLisnter();
         }
 
         public override Type[] GetFilter()
         {
             return new Type[] {
-                typeof(WaitSyncComponent),
                 typeof(SyncComponent)
             };
         }
@@ -40,33 +38,31 @@ namespace LockStepDemo.ServiceLogic.System
 
             for (int i = 0; i < list.Count; i++)
             {
-                list[i].RemoveComp<WaitSyncComponent>();
                 PushSyncEnity(list[i].GetComp<SyncComponent>(), list[i]);
             }
         }
 
-        public override void OnEntityCompChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
+        public override void OnEntityCompAdd(EntityBase entity, string compName, ComponentBase component)
         {
             if (entity.GetExistComp<SyncComponent>())
             {
-                List<EntityBase> list = GetEntityList(new string[] { "ConnectionComponent" });
+                SyncComponent comp = entity.GetComp<SyncComponent>();
+                SetAllSync(comp);
+            }
+
+            if(entity.GetExistComp<ConnectionComponent>())
+            {
+                List<EntityBase> list = GetEntityList();
+
                 for (int i = 0; i < list.Count; i++)
                 {
-                    SyncComponent comp = entity.GetComp<SyncComponent>();
-                    ConnectionComponent connComp = list[i].GetComp<ConnectionComponent>();
-
-                    if (!comp.m_waitSyncList.Contains(connComp))
+                    if(!list[i].GetComp<SyncComponent>().m_waitSyncList.Contains(entity.GetComp<ConnectionComponent>()))
                     {
-                        comp.m_waitSyncList.Add(connComp);
+                        list[i].GetComp<SyncComponent>().m_waitSyncList.Add(entity.GetComp<ConnectionComponent>());
                     }
                 }
             }
         }
-
-        //public override void OnEntityCreate(EntityBase entity)
-        //{
-        //    base.OnEntityCreate(entity);
-        //}
 
         public override void OnEntityDestroy(EntityBase entity)
         {
@@ -100,6 +96,7 @@ namespace LockStepDemo.ServiceLogic.System
         {
             for (int i = 0; i < connectionComp.m_waitSyncList.Count; i++)
             {
+                Debug.Log("Push " + connectionComp.m_waitSyncList[i].m_session.SessionID + " entity " + entity.ID);
                 PushSyncEnity(connectionComp.m_waitSyncList[i].m_session, entity);
             }
             connectionComp.m_waitSyncList.Clear();
@@ -149,8 +146,7 @@ namespace LockStepDemo.ServiceLogic.System
                     msg.infos.Add(info);
                 }
             }
-
-            session.SendMsg(msg);
+            ProtocolAnalysisService.SendMsg(session, msg);
         }
 
         public void PushDestroyEntity(SyncComponent connectionComp, EntityBase entity)
@@ -168,7 +164,7 @@ namespace LockStepDemo.ServiceLogic.System
             msg.id = entityID;
             msg.frame = m_world.FrameCount;
 
-            session.SendMsg(msg);
+            ProtocolAnalysisService.SendMsg(session, msg);
 
             Debug.Log("PushDestroyEntity 3");
         }
@@ -191,7 +187,7 @@ namespace LockStepDemo.ServiceLogic.System
             msg.info.content = Serializer.Serialize(comp);
             msg.frame = m_world.FrameCount;
 
-            session.SendMsg(msg);
+            ProtocolAnalysisService.SendMsg(session, msg);
         }
 
         #endregion

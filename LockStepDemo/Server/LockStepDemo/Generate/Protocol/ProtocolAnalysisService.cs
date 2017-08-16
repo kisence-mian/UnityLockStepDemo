@@ -11,12 +11,29 @@ using System.Collections.Generic;
 public static class ProtocolAnalysisService
 {
 	#region 消息发送
-	public static void SendMsg(this SyncSession session,LockStepDemo.GameLogic.Component.WaitSyncComponent msg)
+	public static void SendMsg (SyncSession session,IProtocolMessageInterface msg)
+	{
+		string key = msg.GetType().Name.ToLower();
+		switch (key)
+		{
+			case  "waitsynccomponent":SendWaitSyncComponent(session , (LockStepDemo.GameLogic.Component.WaitSyncComponent)msg);break;
+			case  "changecomponentmsg":SendChangeComponentMsg(session , (Protocol.ChangeComponentMsg)msg);break;
+			case  "changesingletoncomponentmsg":SendChangeSingletonComponentMsg(session , (Protocol.ChangeSingletonComponentMsg)msg);break;
+			case  "destroyentitymsg":SendDestroyEntityMsg(session , (Protocol.DestroyEntityMsg)msg);break;
+			case  "startsyncmsg":SendStartSyncMsg(session , (Protocol.StartSyncMsg)msg);break;
+			case  "syncentitymsg":SendSyncEntityMsg(session , (Protocol.SyncEntityMsg)msg);break;
+			case  "commandcomponent":SendCommandComponent(session , (CommandComponent)msg);break;
+			default:
+			Debug.LogError("SendCommand Exception : 不支持的消息类型!" + key);
+				break;
+		}
+	}
+	static void SendWaitSyncComponent(SyncSession session,LockStepDemo.GameLogic.Component.WaitSyncComponent msg)
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		session.SendMsg("waitsynccomponent",data);
 	}
-	public static void SendMsg(this SyncSession session,Protocol.ChangeComponentMsg msg)
+	static void SendChangeComponentMsg(SyncSession session,Protocol.ChangeComponentMsg msg)
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		data.Add("frame", msg.frame);
@@ -29,7 +46,7 @@ public static class ProtocolAnalysisService
 			}
 		session.SendMsg("changecomponentmsg",data);
 	}
-	public static void SendMsg(this SyncSession session,Protocol.ChangeSingletonComponentMsg msg)
+	static void SendChangeSingletonComponentMsg(SyncSession session,Protocol.ChangeSingletonComponentMsg msg)
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		data.Add("frame", msg.frame);
@@ -41,21 +58,21 @@ public static class ProtocolAnalysisService
 			}
 		session.SendMsg("changesingletoncomponentmsg",data);
 	}
-	public static void SendMsg(this SyncSession session,Protocol.DestroyEntityMsg msg)
+	static void SendDestroyEntityMsg(SyncSession session,Protocol.DestroyEntityMsg msg)
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		data.Add("frame", msg.frame);
 		data.Add("id", msg.id);
 		session.SendMsg("destroyentitymsg",data);
 	}
-	public static void SendMsg(this SyncSession session,Protocol.StartSyncMsg msg)
+	static void SendStartSyncMsg(SyncSession session,Protocol.StartSyncMsg msg)
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		data.Add("frame", msg.frame);
 		data.Add("intervaltime", msg.intervalTime);
 		session.SendMsg("startsyncmsg",data);
 	}
-	public static void SendMsg(this SyncSession session,Protocol.SyncEntityMsg msg)
+	static void SendSyncEntityMsg(SyncSession session,Protocol.SyncEntityMsg msg)
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		data.Add("frame", msg.frame);
@@ -73,7 +90,7 @@ public static class ProtocolAnalysisService
 		}
 		session.SendMsg("syncentitymsg",data);
 	}
-	public static void SendMsg(this SyncSession session,CommandComponent msg)
+	static void SendCommandComponent(SyncSession session,CommandComponent msg)
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		data.Add("isforward", msg.isForward);
@@ -100,7 +117,7 @@ public static class ProtocolAnalysisService
 			case  "syncentitymsg":ReceviceSyncEntityMsg(session , cmd);break;
 			case  "commandcomponent":ReceviceCommandComponent(session , cmd);break;
 			default:
-			Debug.LogError("SendCommand Exception : 不支持的消息类型!" + cmd.Key);
+			Debug.LogError("Recevice Exception : 不支持的消息类型!" + cmd.Key);
 				break;
 		}
 	}

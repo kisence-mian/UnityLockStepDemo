@@ -1,0 +1,8 @@
+﻿2017-08-16 11:23:22,100 [30692] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!StartSyncMsg
+2017-08-16 11:23:22,810 [27380] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!SyncEntityMsg
+2017-08-16 11:23:34,096 [30692] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!StartSyncMsg
+2017-08-16 11:23:34,778 [27380] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!SyncEntityMsg
+2017-08-16 11:26:28,860 [28496] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!StartSyncMsg
+2017-08-16 11:26:29,006 [26764] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!SyncEntityMsg
+2017-08-16 11:27:13,415 [32184] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!StartSyncMsg
+2017-08-16 11:27:13,445 [24252] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!SyncEntityMsg

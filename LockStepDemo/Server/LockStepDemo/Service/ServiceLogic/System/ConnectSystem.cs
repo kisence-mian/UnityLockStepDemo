@@ -66,7 +66,9 @@ namespace LockStepDemo.ServiceLogic.System
             msg.frame = m_world.FrameCount + 1;
             msg.intervalTime = UpdateEngine.IntervalTime;
 
-            session.SendMsg(msg);
+            //session.SendMsg(msg);
+
+            ProtocolAnalysisService.SendMsg(session,msg);
         }
     }
 }
