@@ -17,18 +17,35 @@ namespace LockStepDemo.ServiceLogic
         public PlayerCommandBase GetCommand(int frame)
         {
             //没有收到玩家输入复制玩家的最后一次输入
-            if(m_commandList.Count == 0)
+            if (m_commandList.Count == 0)
             {
-                return m_lastInputCache;
+                return GetForecast(frame);
             }
             else
             {
-                m_lastInputCache = m_commandList[0];
+                for (int i = 0; i < m_commandList.Count; i++)
+                {
+                    if(m_commandList[i].frame == frame)
+                    {
+                        m_lastInputCache = m_commandList[0];
 
-                m_commandList.RemoveAt(0);
+                        m_commandList.RemoveAt(0);
 
-                return m_lastInputCache;
+                        return m_lastInputCache;
+                    }
+                }
+
+                return GetForecast(frame);
             }
+        }
+
+        public PlayerCommandBase GetForecast(int frame)
+        {
+            Debug.Log("预测操作 id:" + Entity.ID + " frame " + frame);
+
+            PlayerCommandBase cmd = m_lastInputCache.DeepCopy();
+            cmd.frame = frame;
+            return cmd;
         }
     }
 }

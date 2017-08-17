@@ -44,10 +44,20 @@ public class PlayerCommandRecordComponent : ComponentBase
             if(m_inputCache[i].frame == cmd.frame)
             {
                 m_inputCache[i] = cmd;
+                //TODO 这里可能产生不同步
+                m_lastInput = cmd;        //最后的输入也改变了
+                return;
             }
         }
 
-        throw new Exception("ReplaceCommand faild ! id:->" + cmd.id + " frame:-> " + cmd.frame);
+        string content = "";
+
+        for (int i = 0; i < m_inputCache.Count; i++)
+        {
+            content += "id " + m_inputCache[i].id + " frame " + m_inputCache[i].frame + "\n";
+        }
+
+        throw new Exception("ReplaceCommand faild ! id:->" + cmd.id + " frame:-> " + cmd.frame + " Count " + m_inputCache.Count + "\n" + content);
     }
 
     public void ClearCache(int frame)

@@ -2,11 +2,9 @@ package all;
 
 message m_waitsynccomponent_s
 {
-	required entitybase m_entity = 1;
 }
 message m_waitsynccomponent_c
 {
-	required entitybase m_entity = 1;
 }
 
 message m_changecomponentmsg_s
@@ -77,7 +75,6 @@ message m_commandcomponent_s
 	required bool isfire = 5;
 	required int32 id = 6;
 	required int32 frame = 7;
-	required entitybase m_entity = 8;
 }
 message m_commandcomponent_c
 {
@@ -88,7 +85,6 @@ message m_commandcomponent_c
 	required bool isfire = 5;
 	required int32 id = 6;
 	required int32 frame = 7;
-	required entitybase m_entity = 8;
 }
 
 message componentinfo

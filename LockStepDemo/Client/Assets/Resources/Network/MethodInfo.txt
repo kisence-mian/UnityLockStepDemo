@@ -4,9 +4,10 @@
 2,SyncModule
 201,changecomponentmsg
 202,changesingletoncomponentmsg
-203,destroyentitymsg
-204,startsyncmsg
-205,syncentitymsg
+203,debugmsg
+204,destroyentitymsg
+205,startsyncmsg
+206,syncentitymsg
 
 3,Command
 301,commandcomponent

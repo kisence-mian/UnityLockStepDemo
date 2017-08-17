@@ -1,96 +1,73 @@
-﻿using System;
+﻿using FrameWork;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
-
-public class RecordSystem : SystemBase
+public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,new()
 {
-    public override void Init()
+    public override Type[] GetFilter()
     {
-        AddEntityCompChangeLisenter();
-        AddEntityCompAddLisenter();
-        AddEntityCompRemoveLisenter();
-
-        AddEntityCreaterLisnter();
-        AddEntityDestroyLisnter();
+        return new Type[] { typeof(T) };
     }
 
-    public override void LateFixedUpdate(int deltaTime)
+    public override void Record()
     {
-        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>> ();
 
-        RecordInfo info = new RecordInfo();
-        info.frame = m_world.FrameCount;
-        info.m_changeData = rc.m_changeCache;
+        List<EntityBase> list = GetEntityList();
 
-        rc.m_recordList.Add(info);
+        for (int i = 0; i < list.Count; i++)
+        {
+            T record = (T)list[i].GetComp<T>().DeepCopy();
+            record.Frame = m_world.FrameCount;
+            record.ID    = list[i].ID;
 
-        //清空缓存
-        rc.ClearCache();
+            rc.m_record.Add(record);
+        }
     }
 
-    #region 事件接收
-
-    public override void OnEntityCompChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
+    public override void RevertToFrame(int frame)
     {
-        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
 
-        ChangeRecordInfo info = new ChangeRecordInfo();
-        info.m_type = ChangeType.ChangeComp;
-        info.m_EnityID = entity.ID;
-        info.m_compName = compName;
-        info.m_comp = previousComponent;
+        List<T> list = rc.GetRecordList(frame);
 
-        rc.m_changeCache.Add(info);
+        for (int i = 0; i < list.Count; i++)
+        {
+            EntityBase entity = m_world.GetEntity(list[i].ID);
+
+            entity.ChangeComp(list[i]);
+
+            //Debug.Log("数据回滚 ID：" + list[i].ID + " frame:"+ list[i].Frame +" conent:"+  Serializer.Serialize(list[i]));
+        }
     }
 
-    public override void OnEntityCompAdd(EntityBase entity, string compName, ComponentBase component)
+    public override void ClearAfter(int frame)
     {
-        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
-
-        ChangeRecordInfo info = new ChangeRecordInfo();
-        info.m_type = ChangeType.AddComp;
-        info.m_EnityID = entity.ID;
-        info.m_compName = compName;
-        info.m_comp = component;
-
-        rc.m_changeCache.Add(info);
+        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
+        rc.ClearAfter(frame);
     }
 
-    public override void OnEntityCompRemove(EntityBase entity, string compName, ComponentBase component)
+    public override void ClearBefore(int frame)
     {
-        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
-
-        ChangeRecordInfo info = new ChangeRecordInfo();
-        info.m_type = ChangeType.RemoveComp;
-        info.m_EnityID = entity.ID;
-        info.m_compName = compName;
-        info.m_comp = component;
-
-        rc.m_changeCache.Add(info);
+        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
+        rc.ClearBefore(frame);
     }
 
-    public override void OnEntityCreate(EntityBase entity)
+    public override MomentComponentBase GetRecord(int id, int frame)
     {
-        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
+        for (int i = 0; i < rc.m_record.Count; i++)
+        {
+            if(rc.m_record[i].ID == id &&
+                rc.m_record[i].Frame == frame)
+            {
+                return rc.m_record[i];
+            }
+        }
 
-        ChangeRecordInfo info = new ChangeRecordInfo();
-        info.m_type = ChangeType.CreateEntity;
-        info.m_EnityID = entity.ID;
-
-        rc.m_changeCache.Add(info);
+        return null;
     }
-
-    public override void OnEntityDestroy(EntityBase entity)
-    {
-        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
-
-        ChangeRecordInfo info = new ChangeRecordInfo();
-        info.m_type = ChangeType.DestroyEntity;
-        info.m_EnityID = entity.ID;
-
-        rc.m_changeCache.Add(info);
-    }
-    #endregion
 }

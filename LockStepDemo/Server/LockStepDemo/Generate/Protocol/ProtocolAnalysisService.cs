@@ -16,9 +16,9 @@ public static class ProtocolAnalysisService
 		string key = msg.GetType().Name.ToLower();
 		switch (key)
 		{
-			case  "waitsynccomponent":SendWaitSyncComponent(session , (LockStepDemo.GameLogic.Component.WaitSyncComponent)msg);break;
 			case  "changecomponentmsg":SendChangeComponentMsg(session , (Protocol.ChangeComponentMsg)msg);break;
 			case  "changesingletoncomponentmsg":SendChangeSingletonComponentMsg(session , (Protocol.ChangeSingletonComponentMsg)msg);break;
+			case  "debugmsg":SendDebugMsg(session , (Protocol.DebugMsg)msg);break;
 			case  "destroyentitymsg":SendDestroyEntityMsg(session , (Protocol.DestroyEntityMsg)msg);break;
 			case  "startsyncmsg":SendStartSyncMsg(session , (Protocol.StartSyncMsg)msg);break;
 			case  "syncentitymsg":SendSyncEntityMsg(session , (Protocol.SyncEntityMsg)msg);break;
@@ -27,11 +27,6 @@ public static class ProtocolAnalysisService
 			Debug.LogError("SendCommand Exception : 不支持的消息类型!" + key);
 				break;
 		}
-	}
-	static void SendWaitSyncComponent(SyncSession session,LockStepDemo.GameLogic.Component.WaitSyncComponent msg)
-	{
-		Dictionary<string, object> data = new Dictionary<string, object>();
-		session.SendMsg("waitsynccomponent",data);
 	}
 	static void SendChangeComponentMsg(SyncSession session,Protocol.ChangeComponentMsg msg)
 	{
@@ -57,6 +52,33 @@ public static class ProtocolAnalysisService
 				data.Add("info",data2);
 			}
 		session.SendMsg("changesingletoncomponentmsg",data);
+	}
+	static void SendDebugMsg(SyncSession session,Protocol.DebugMsg msg)
+	{
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("frame", msg.frame);
+		{
+			List<object> list2 = new List<object>();
+			for(int i2 = 0;i2 <msg.infos.Count ; i2++)
+			{
+				Dictionary<string, object> data2 = new Dictionary<string, object>();
+				data2.Add("id", msg.infos[i2].id);
+				{
+					List<object> list4 = new List<object>();
+					for(int i4 = 0;i4 <msg.infos[i2].infos.Count ; i4++)
+					{
+						Dictionary<string, object> data4 = new Dictionary<string, object>();
+						data4.Add("m_compname", msg.infos[i2].infos[i4].m_compName);
+						data4.Add("content", msg.infos[i2].infos[i4].content);
+						list4.Add( data4);
+					}
+					data2.Add("infos",list4);
+				}
+				list2.Add( data2);
+			}
+			data.Add("infos",list2);
+		}
+		session.SendMsg("debugmsg",data);
 	}
 	static void SendDestroyEntityMsg(SyncSession session,Protocol.DestroyEntityMsg msg)
 	{
@@ -109,9 +131,9 @@ public static class ProtocolAnalysisService
 	{
 		switch (cmd.Key)
 		{
-			case  "waitsynccomponent":ReceviceWaitSyncComponent(session , cmd);break;
 			case  "changecomponentmsg":ReceviceChangeComponentMsg(session , cmd);break;
 			case  "changesingletoncomponentmsg":ReceviceChangeSingletonComponentMsg(session , cmd);break;
+			case  "debugmsg":ReceviceDebugMsg(session , cmd);break;
 			case  "destroyentitymsg":ReceviceDestroyEntityMsg(session , cmd);break;
 			case  "startsyncmsg":ReceviceStartSyncMsg(session , cmd);break;
 			case  "syncentitymsg":ReceviceSyncEntityMsg(session , cmd);break;
@@ -120,12 +142,6 @@ public static class ProtocolAnalysisService
 			Debug.LogError("Recevice Exception : 不支持的消息类型!" + cmd.Key);
 				break;
 		}
-	}
-	static void ReceviceWaitSyncComponent(SyncSession session ,ProtocolRequestBase e)
-	{
-		LockStepDemo.GameLogic.Component.WaitSyncComponent msg = new LockStepDemo.GameLogic.Component.WaitSyncComponent();
-		
-		EventService.DispatchTypeEvent(session,msg);
 	}
 	static void ReceviceChangeComponentMsg(SyncSession session ,ProtocolRequestBase e)
 	{
@@ -152,6 +168,36 @@ public static class ProtocolAnalysisService
 			tmp2.m_compName = data2["m_compname"].ToString();
 			tmp2.content = data2["content"].ToString();
 			msg.info = tmp2;
+		}
+		
+		EventService.DispatchTypeEvent(session,msg);
+	}
+	static void ReceviceDebugMsg(SyncSession session ,ProtocolRequestBase e)
+	{
+		Protocol.DebugMsg msg = new Protocol.DebugMsg();
+		msg.frame = (int)e.m_data["frame"];
+		{
+			List<Dictionary<string, object>> data2 = (List<Dictionary<string, object>>)e.m_data["infos"];
+			List<Protocol.EntityInfo> list2 = new List<Protocol.EntityInfo>();
+			for (int i2 = 0; i2 < data2.Count; i2++)
+			{
+				Protocol.EntityInfo tmp2 = new Protocol.EntityInfo();
+				tmp2.id = (int)data2[i2]["id"];
+				{
+					List<Dictionary<string, object>> data4 = (List<Dictionary<string, object>>)data2[i2]["infos"];
+					List<Protocol.ComponentInfo> list4 = new List<Protocol.ComponentInfo>();
+					for (int i4 = 0; i4 < data4.Count; i4++)
+					{
+						Protocol.ComponentInfo tmp4 = new Protocol.ComponentInfo();
+						tmp4.m_compName = data4[i4]["m_compname"].ToString();
+						tmp4.content = data4[i4]["content"].ToString();
+						list4.Add(tmp4);
+					}
+					tmp2.infos =  list4;
+				}
+				list2.Add(tmp2);
+			}
+			msg.infos =  list2;
 		}
 		
 		EventService.DispatchTypeEvent(session,msg);

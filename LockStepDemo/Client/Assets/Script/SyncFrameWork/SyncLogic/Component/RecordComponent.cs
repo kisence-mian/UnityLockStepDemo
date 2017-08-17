@@ -1,53 +1,47 @@
 ﻿using Protocol;
 using System.Collections.Generic;
 
-public class RecordComponent : SingletonComponent
+public class RecordComponent<T> : SingletonComponent where T : MomentComponentBase, new()
 {
-    public List<ChangeRecordInfo> m_changeCache = new List<ChangeRecordInfo>();
+    public List<T> m_record = new List<T>(); 
 
-    public List<ServiceMessageInfo> m_messageList = new List<ServiceMessageInfo>(); 
-    public List<RecordInfo> m_recordList = new List<RecordInfo>();
-
-    public void ClearCache()
+    public void ClearBefore(int frame)
     {
-        m_changeCache.Clear();
+        for (int i = 0; i < m_record.Count; i++)
+        {
+            if(m_record[i].Frame < frame)
+            {
+                m_record.RemoveAt(i);
+                i--;
+            }
+        }
     }
-}
 
-public class RecordInfo
-{
-    public int frame;
-    public List<ChangeRecordInfo> m_changeData = new List<ChangeRecordInfo>(); //所有本地改动
-}
+    public void ClearAfter(int frame)
+    {
+        for (int i = 0; i < m_record.Count; i++)
+        {
+            if (m_record[i].Frame > frame)
+            {
+                m_record.RemoveAt(i);
+                i--;
+            }
+        }
+    }
 
-public struct ChangeRecordInfo
-{
-    public ChangeType m_type;
-    public int m_EnityID;
-    public string m_compName;
-    public ComponentBase m_comp;
-}
+    List<T> list = new List<T>();
+    public List<T> GetRecordList(int frame)
+    {
+        list.Clear();
 
-public struct ServiceMessageInfo
-{
-    public int m_frame;
-    public MessageType m_type;
-    public SyncModule m_msg;
-}
+        for (int i = 0; i < m_record.Count; i++)
+        {
+            if (m_record[i].Frame == frame)
+            {
+                list.Add(m_record[i]);
+            }
+        }
 
-public enum ChangeType
-{
-    AddComp,
-    RemoveComp,
-    ChangeComp,
-
-    CreateEntity,
-    DestroyEntity,
-}
-
-public enum MessageType
-{
-    SyncEntity,
-    DestroyEntity,
-    ChangeSingletonComponent
+        return list;
+    }
 }

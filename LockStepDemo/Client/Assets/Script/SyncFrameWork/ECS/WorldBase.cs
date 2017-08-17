@@ -33,9 +33,13 @@ public class WorldBase
         }
     }
 
-    public List<SystemBase> m_systemList = new List<SystemBase>();                       //世界里所有的System集合
+    public List<SystemBase> m_systemList       = new List<SystemBase>();                 //世界里所有的System集合
+    
     public Dictionary<int, EntityBase> m_entityDict = new Dictionary<int, EntityBase>(); //世界里所有的entity集合
     public List<EntityBase> m_entityList = new List<EntityBase>();                       //世界里所有的entity列表
+
+    public List<RecordSystemBase> m_recordList = new List<RecordSystemBase>();           //世界里所有的RecordSystem列表
+    public Dictionary<string, RecordSystemBase> m_recordDict = new Dictionary<string, RecordSystemBase>(); //世界里所有的RecordSystem集合
 
     public Dictionary<string, SingletonComponent> m_singleCompDict = new Dictionary<string, SingletonComponent>(); //所有的单例组件集合
 
@@ -55,7 +59,7 @@ public class WorldBase
         return new Type[0];
     }
 
-    public virtual Type[] GetViewSystemTypes()
+    public virtual Type[] GetRecordSystemTypes()
     {
         return new Type[0];
     }
@@ -78,17 +82,19 @@ public class WorldBase
                 tmp.Init();
             }
 
-            //初始化ViweSystem
-            if (isView)
+            //初始化RecordSystemBase
+
+            types = GetRecordSystemTypes();
+            for (int i = 0; i < types.Length; i++)
             {
-                types = GetViewSystemTypes();
-                for (int i = 0; i < types.Length; i++)
-                {
-                    ViewSystemBase tmp = (ViewSystemBase)types[i].Assembly.CreateInstance(types[i].FullName);
-                    m_systemList.Add(tmp);
-                    tmp.m_world = this;
-                    tmp.Init();
-                }
+                Type type = typeof(RecordSystem<>);
+                type = type.MakeGenericType(types[i]);
+
+                RecordSystemBase tmp = (RecordSystemBase)Activator.CreateInstance(type); ;
+                m_recordList.Add(tmp);
+                m_recordDict.Add(types[i].Name, tmp);
+                tmp.m_world = this;
+                tmp.Init();
             }
         }
         catch (Exception e)
@@ -101,21 +107,6 @@ public class WorldBase
     #endregion
 
     #region Update
-
-    public int IntervalTime
-    {
-        get
-        {
-            return m_intervalTime;
-        }
-
-        set
-        {
-            m_intervalTime = value;
-        }
-    }
-
-    int m_intervalTime = 200;
 
     /// <summary>
     /// 服务器不执行Loop
@@ -135,13 +126,19 @@ public class WorldBase
         if (IsStart)
         {
             FrameCount++;
-            Debug.Log("Begin FixedLoop " + FrameCount + "------------");
+
+            Record();
+            //Debug.Log("Begin FixedLoop " + FrameCount + "------------");
+
+            NoRecalcBeforeFixedUpdate(deltaTime);
 
             BeforeFixedUpdate(deltaTime);
             FixedUpdate(deltaTime);
             LateFixedUpdate(deltaTime);
 
-            Debug.Log("End FixedLoop " + FrameCount + "------------");
+            NoRecalcLateFixedUpdate(deltaTime);
+
+            //Debug.Log("End FixedLoop " + FrameCount + "------------");
         }
     }
 
@@ -151,9 +148,9 @@ public class WorldBase
     /// <param name="deltaTime"></param>
     public void Recalc(int deltaTime)
     {
-        //BeforeFixedUpdate(deltaTime);
+        BeforeFixedUpdate(deltaTime);
         FixedUpdate(deltaTime);
-        //LateFixedUpdate(deltaTime);
+        LateFixedUpdate(deltaTime);
     }
 
     void BeforeUpdate(int deltaTime)
@@ -169,6 +166,14 @@ public class WorldBase
         for (int i = 0; i < m_systemList.Count; i++)
         {
             m_systemList[i].BeforeFixedUpdate(deltaTime);
+        }
+    }
+
+    void NoRecalcBeforeFixedUpdate(int deltaTime)
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].NoRecalcBeforeFixedUpdate(deltaTime);
         }
     }
 
@@ -204,6 +209,55 @@ public class WorldBase
             m_systemList[i].LateFixedUpdate(deltaTime);
         }
     }
+
+    void NoRecalcLateFixedUpdate(int deltaTime)
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].NoRecalcLateFixedUpdate(deltaTime);
+        }
+    }
+    #endregion
+
+    #region 回滚相关 
+
+    public void Record()
+    {
+        for (int i = 0; i < m_recordList.Count; i++)
+        {
+            m_recordList[i].Record();
+        }
+    }
+
+    public void RevertToFrame(int frame)
+    {
+        for (int i = 0; i < m_recordList.Count; i++)
+        {
+            m_recordList[i].RevertToFrame(frame);
+        }
+    }
+
+    public void ClearBefore(int frame)
+    {
+        for (int i = 0; i < m_recordList.Count; i++)
+        {
+            m_recordList[i].ClearBefore(frame);
+        }
+    }
+
+    public void ClearAfter(int frame)
+    {
+        for (int i = 0; i < m_recordList.Count; i++)
+        {
+            m_recordList[i].ClearAfter(frame);
+        }
+    }
+
+    public RecordSystemBase GetRecordSystemBase(string name)
+    {
+        return m_recordDict[name];
+    }
+
     #endregion
 
     #region 实体相关

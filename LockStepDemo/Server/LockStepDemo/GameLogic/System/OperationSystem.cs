@@ -14,7 +14,7 @@ public class OperationSystem : SystemBase
         };
     }
 
-    public override void FixedUpdate(int deltaTime)
+    public override void BeforeFixedUpdate(int deltaTime)
     {
         List<EntityBase> list = GetEntityList();
 
@@ -48,7 +48,7 @@ public class OperationSystem : SystemBase
                 move.m_dirx = 1;
             }
 
-            //Debug.Log("com.isBack " + com.isBack + " com.isForward " + com.isForward + " com.isRight " + com.isRight + "comp.isLeft " + com.isLeft);
+            Debug.Log("id: " + list[i].ID + "　isBack " + com.isBack + " isForward " + com.isForward + " isRight " + com.isRight + " isLeft " + com.isLeft + "com frame " + com.frame);
         }
     }
 }

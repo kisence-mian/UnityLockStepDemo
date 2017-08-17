@@ -9,7 +9,7 @@ namespace LockStepDemo.Service
 {
     class SyncService : AppServer<SyncSession,ProtocolRequestBase>
     {
-        int updateInterval = 1000; //世界更新间隔ms
+        int updateInterval = 250; //世界更新间隔ms
         WorldBase m_world;
 
         public SyncService() : base(new ProtocolReceiveFilterFactory())

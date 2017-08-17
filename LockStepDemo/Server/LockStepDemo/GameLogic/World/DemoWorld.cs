@@ -16,7 +16,8 @@ class DemoWorld : WorldBase
 
             typeof(ConnectSystem),
             typeof(ServiceSyncSystem),
-            typeof(PlayerInputSystem<CommandComponent>)
+            typeof(PlayerInputSystem<CommandComponent>),
+                        typeof(SyncDebugSystem),
         };
     }
 }

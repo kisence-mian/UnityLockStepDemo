@@ -102,27 +102,12 @@ public class WorldBase
 
     #region Update
 
-    public int IntervalTime
-    {
-        get
-        {
-            return m_intervalTime;
-        }
-
-        set
-        {
-            m_intervalTime = value;
-        }
-    }
-
-    int m_intervalTime = 200;
-
     /// <summary>
     /// 服务器不执行Loop
     /// </summary>
     public void Loop(int deltaTime)
     {
-        if(IsStart)
+        if (IsStart)
         {
             BeforeUpdate(deltaTime);
             Update(deltaTime);
@@ -135,11 +120,29 @@ public class WorldBase
         if (IsStart)
         {
             FrameCount++;
+            Debug.Log("Begin FixedLoop " + FrameCount + "------------");
+
+            NoRecalcBeforeFixedUpdate(deltaTime);
 
             BeforeFixedUpdate(deltaTime);
             FixedUpdate(deltaTime);
             LateFixedUpdate(deltaTime);
+
+            NoRecalcLateFixedUpdate(deltaTime);
+
+            Debug.Log("End FixedLoop " + FrameCount + "------------");
         }
+    }
+
+    /// <summary>
+    /// 重演算接口
+    /// </summary>
+    /// <param name="deltaTime"></param>
+    public void Recalc(int deltaTime)
+    {
+        BeforeFixedUpdate(deltaTime);
+        FixedUpdate(deltaTime);
+        LateFixedUpdate(deltaTime);
     }
 
     void BeforeUpdate(int deltaTime)
@@ -155,6 +158,14 @@ public class WorldBase
         for (int i = 0; i < m_systemList.Count; i++)
         {
             m_systemList[i].BeforeFixedUpdate(deltaTime);
+        }
+    }
+
+    void NoRecalcBeforeFixedUpdate(int deltaTime)
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].NoRecalcBeforeFixedUpdate(deltaTime);
         }
     }
 
@@ -190,6 +201,14 @@ public class WorldBase
             m_systemList[i].LateFixedUpdate(deltaTime);
         }
     }
+
+    void NoRecalcLateFixedUpdate(int deltaTime)
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].NoRecalcLateFixedUpdate(deltaTime);
+        }
+    }
     #endregion
 
     #region 实体相关
@@ -209,9 +228,9 @@ public class WorldBase
         m_entityList.Add(entity);
         m_entityDict.Add(ID, entity);
 
-        entity.OnComponentAdded += DispatchEntityComponentAdded;
-        entity.OnComponentRemoved += DispatchEntityComponentRemoved;
-        entity.OnComponentReplaced += DispatchEntityComponentChange;
+        entity.OnComponentAdded += OnEntityComponentAdded;
+        entity.OnComponentRemoved += OnEntityComponentRemoved;
+        entity.OnComponentReplaced += OnEntityComponentChange;
 
         if (OnEntityCreated != null)
         {
@@ -253,15 +272,16 @@ public class WorldBase
         m_entityList.Remove(entity);
         m_entityDict.Remove(ID);
 
-        entity.OnComponentAdded -= DispatchEntityComponentAdded;
-        entity.OnComponentRemoved -= DispatchEntityComponentRemoved;
-        entity.OnComponentReplaced -= DispatchEntityComponentChange;
+        entity.OnComponentAdded -= OnEntityComponentAdded;
+        entity.OnComponentRemoved -= OnEntityComponentRemoved;
+        entity.OnComponentReplaced -= OnEntityComponentChange;
 
         if (OnEntityDestroyed != null)
         {
             OnEntityDestroyed(entity);
         }
     }
+
 
     public List<EntityBase> GetEntiyList(string[] compNames)
     {
@@ -293,7 +313,7 @@ public class WorldBase
 
     #region 单例组件
 
-    public T GetSingletonComp<T>()  where T : SingletonComponent, new()
+    public T GetSingletonComp<T>() where T : SingletonComponent, new()
     {
         string key = typeof(T).Name;
 
@@ -323,7 +343,7 @@ public class WorldBase
         else
         {
             Type compType = Type.GetType(compName);
-            
+
             comp = (SingletonComponent)compType.Assembly.CreateInstance(compType.FullName);
             m_singleCompDict.Add(compName, comp);
         }
@@ -331,13 +351,13 @@ public class WorldBase
         return comp;
     }
 
-    public void ChangeSingletonComp<T>(T comp) where T: SingletonComponent,new()
+    public void ChangeSingletonComp<T>(T comp) where T : SingletonComponent, new()
     {
         string compName = typeof(T).Name;
         ChangeSingleComp(compName, comp);
     }
 
-    public void ChangeSingleComp(string compName,SingletonComponent comp)
+    public void ChangeSingleComp(string compName, SingletonComponent comp)
     {
         if (m_singleCompDict.ContainsKey(compName))
         {
@@ -352,30 +372,6 @@ public class WorldBase
     #endregion
 
     #region 事件派发
-
-    void DispatchEntityComponentAdded(EntityBase entity, string compName, ComponentBase component)
-    {
-        if(OnEntityComponentAdded != null)
-        {
-            OnEntityComponentAdded(entity,compName,component);
-        }
-    }
-
-    void DispatchEntityComponentRemoved(EntityBase entity, string compName, ComponentBase component)
-    {
-        if (OnEntityComponentRemoved != null)
-        {
-            OnEntityComponentRemoved(entity, compName, component);
-        }
-    }
-
-    void DispatchEntityComponentChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
-    {
-        if (OnEntityComponentChange != null)
-        {
-            OnEntityComponentChange(entity, compName, previousComponent, newComponent);
-        }
-    }
 
     public delegate void EntityChangedCallBack(EntityBase entity);
 

@@ -6,7 +6,7 @@ using UnityEngine;
 public class SystemBase
 {
     public WorldBase m_world;
-    
+
     #region 私有属性
 
     string[] m_filter;
@@ -61,48 +61,36 @@ public class SystemBase
     /// 服务器不执行
     /// </summary>
     /// <param name="deltaTime"></param>
-    public virtual void BeforeUpdate(int deltaTime)
-    {
-
-    }
+    public virtual void BeforeUpdate(int deltaTime) { }
 
     /// <summary>
     /// 服务器不执行
     /// </summary>
     /// <param name="deltaTime"></param>
-    public virtual void Update(int deltaTime)
-    {
-
-    }
+    public virtual void Update(int deltaTime) { }
 
     /// <summary>
     /// 服务器不执行
     /// </summary>
     /// <param name="deltaTime"></param>
-    public virtual void LateUpdate(int deltaTime)
-    {
+    public virtual void LateUpdate(int deltaTime) { }
 
-    }
+    /// <summary>
+    /// 重新演算时不执行
+    /// </summary>
+    /// <param name="deltaTime"></param>
+    public virtual void NoRecalcBeforeFixedUpdate(int deltaTime) { }
 
-    public virtual void BeforeFixedUpdate(int deltaTime)
-    {
+    public virtual void BeforeFixedUpdate(int deltaTime) { }
 
-    }
+    public virtual void FixedUpdate(int deltaTime) { }
 
-    public virtual void FixedUpdate(int deltaTime)
-    {
+    public virtual void LateFixedUpdate(int deltaTime) { }
 
-    }
-
-    public virtual void LateFixedUpdate(int deltaTime)
-    {
-
-    }
-
-    public virtual void Recalculation(int deltaTime)
-    {
-
-    }
+    /// <summary>
+    /// 重新演算时不执行
+    /// </summary>
+    public virtual void NoRecalcLateFixedUpdate(int deltaTime) { }
 
     #endregion
 

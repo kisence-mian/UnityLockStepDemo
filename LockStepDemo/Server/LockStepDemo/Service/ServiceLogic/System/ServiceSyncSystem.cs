@@ -27,11 +27,6 @@ namespace LockStepDemo.ServiceLogic.System
             };
         }
 
-        public override void BeforeFixedUpdate(int deltaTime)
-        {
-            Debug.Log("-------------------- Frame:" +m_world.FrameCount + "------------------------------");
-        }
-
         public override void LateFixedUpdate(int deltaTime)
         {
             List<EntityBase> list = GetEntityList();

@@ -9,8 +9,7 @@ public abstract class PlayerCommandBase : ComponentBase, CsharpProtocolInterface
     public int id;
     public int frame;
 
-    //public virtual PlayerCommandBase DeepCopy()
-    //{
+    public abstract PlayerCommandBase DeepCopy();
 
-    //}
+    public abstract bool EqualsCmd(PlayerCommandBase cmd);
 }

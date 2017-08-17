@@ -32,7 +32,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         }
     }
 
-    public override void BeforeFixedUpdate(int deltaTime)
+    public override void NoRecalcBeforeFixedUpdate(int deltaTime)
     {
         List<EntityBase> list = GetEntityList();
 
@@ -86,23 +86,25 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         //没有的话预测一份
         if (cmd == null)
         {
-            Debug.Log("预测输入 " + entity.ID);
-
-            cmd = new T();
-            cmd.id = entity.ID;
-            cmd.frame = m_world.FrameCount;
-
+            //Debug.Log("预测输入 id: " + entity.ID + " m_world.FrameCount " + m_world.FrameCount);
             //取最后一次输入缓存，没有的话New一个新的
             if(rc.m_lastInput == null)
             {
-                rc.m_lastInput.
+                cmd = new T();
             }
+            else
+            {
+                cmd = (T)rc.m_lastInput.DeepCopy();
+            }
+
+            cmd.id = entity.ID;
+            cmd.frame = m_world.FrameCount;
 
             rc.m_forecastInput = cmd;
         }
         else
         {
-            Debug.Log("读取缓存 ");
+            //Debug.Log("读取缓存 ");
         }
 
         rc.m_lastInput = cmd;

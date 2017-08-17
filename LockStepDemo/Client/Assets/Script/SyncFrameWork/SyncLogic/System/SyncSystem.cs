@@ -42,7 +42,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     {
         Debug.Log("ReceviceSyncEntity");
 
-        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+        ServerCacheComponent rc = m_world.GetSingletonComp<ServerCacheComponent>();
 
         ServiceMessageInfo info = new ServiceMessageInfo();
         info.m_frame = msg.frame;
@@ -58,7 +58,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     {
         Debug.Log("ReceviceDestroyEntityMsg");
 
-        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+        ServerCacheComponent rc = m_world.GetSingletonComp<ServerCacheComponent>();
 
         ServiceMessageInfo info = new ServiceMessageInfo();
         info.m_frame = msg.frame;
@@ -74,7 +74,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     {
         Debug.Log("ChangeSingletonCompMsg");
 
-        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+        ServerCacheComponent rc = m_world.GetSingletonComp<ServerCacheComponent>();
 
         ServiceMessageInfo info = new ServiceMessageInfo();
         info.m_frame = msg.frame;
@@ -88,13 +88,12 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     void ReceviceCommandMsg(T cmd ,params object[] objs)
     {
-        Debug.Log("ReceviceCommandMsg " + cmd.frame + " world " + m_world.FrameCount);
+        //Debug.Log("ReceviceCommandMsg " + cmd.frame + " world " + m_world.FrameCount);
         PlayerCommandRecordComponent pcrc = m_world.GetEntity(cmd.id).GetComp<PlayerCommandRecordComponent>();
 
         //判断帧数
         if (m_world.FrameCount >= cmd.frame)
         {
-            Debug.Log("重计算");
             PlayerCommandBase input = null;
             
             if (m_world.FrameCount == cmd.frame)
@@ -110,15 +109,15 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
             pcrc.ReplaceCommand(cmd);
 
             //与本地预测做判断，如果不一致则需要重新演算
-            if (!cmd.Equals(input))
-            { 
+            if (!cmd.EqualsCmd(input))
+            {
                 Recalc(cmd.frame);
             }
         }
         //存入缓存
         else
         {
-            Debug.Log("存入缓存");
+            //Debug.Log("存入缓存");
             pcrc.m_serverCache.Add(cmd);
         }
     }
@@ -136,10 +135,10 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     /// <param name="frameCount"></param>
     public void Recalc(int frameCount)
     {
-        Debug.Log("Recalc " +frameCount + " current " + m_world.FrameCount);
+        //Debug.Log("重计算 Recalc " +frameCount + " current " + m_world.FrameCount);
 
         //回退到目标帧
-        RevertToFrame(frameCount);
+        m_world.RevertToFrame(frameCount);
 
         for (int i = frameCount; i <= m_world.FrameCount; i++)
         {
@@ -150,123 +149,11 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
             ExecuteServiceMessage(i);
 
             //重新演算
-            m_world.Recalc(m_world.IntervalTime);
+            m_world.Recalc(WorldManager.IntervalTime);
         }
 
-        ClearRecordInfo(m_world.FrameCount - 1);
+        m_world.ClearBefore(m_world.FrameCount - 1);
     }
-
-    #region 状态回滚
-
-    /// <summary>
-    /// 获取目标帧之后的所有记录(包括目标帧)
-    /// </summary>
-    /// <param name="frameCount"></param>
-    /// <returns></returns>
-    public List<RecordInfo> GetRecordInfoAfterFrame(int frameCount)
-    {
-        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
-
-        List<RecordInfo> list = new List<RecordInfo>();
-
-        for (int i = 0; i < rc.m_recordList.Count; i++)
-        {
-            if (rc.m_recordList[i].frame >= frameCount)
-            {
-                list.Add(rc.m_recordList[i]);
-            }
-        }
-
-        return list;
-    }
-
-    public RecordInfo GetRecordInfo(int frameCount)
-    {
-        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
-
-        List<RecordInfo> list = new List<RecordInfo>();
-
-        for (int i = 0; i < rc.m_recordList.Count; i++)
-        {
-            if (rc.m_recordList[i].frame == frameCount)
-            {
-                return rc.m_recordList[i];
-            }
-        }
-
-        throw new Exception("GetRecordInfo Exception not find record by "+ frameCount) ;
-    }
-
-    public void ClearRecordInfo(int frameCount)
-    {
-        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
-        for (int i = 0; i < rc.m_recordList.Count; i++)
-        {
-            if (rc.m_recordList[i].frame >= frameCount)
-            {
-                rc.m_recordList.RemoveAt(i);
-                i--;
-            }
-        }
-    }
-
-    public void RevertToFrame(int frameCount)
-    {
-        List<RecordInfo> list = GetRecordInfoAfterFrame(frameCount);
-
-        for (int i = 0; i < list.Count; i++)
-        {
-            for (int j = list[i].m_changeData.Count -1; j >=0; j--)
-            {
-                RevertByChangeRecordInfo(list[i].m_changeData[j]);
-            }
-        }
-    }
-
-    public void RevertByChangeRecordInfo(ChangeRecordInfo info)
-    {
-        switch (info.m_type)
-        {
-            case ChangeType.AddComp: RevertAddComp(info); break;
-            case ChangeType.ChangeComp: RevertChangeComp(info); break;
-            case ChangeType.RemoveComp: RevertRemoveComp(info); break;
-            case ChangeType.CreateEntity: RevertCreateEntity(info); break;
-            case ChangeType.DestroyEntity: RevertDestroyEntity(info); break;
-        }
-    }
-
-    public void RevertAddComp(ChangeRecordInfo info)
-    {
-        EntityBase entity = m_world.GetEntity(info.m_EnityID);
-
-        entity.RemoveComp(info.m_compName);
-    }
-
-    public void RevertChangeComp(ChangeRecordInfo info)
-    {
-        EntityBase entity = m_world.GetEntity(info.m_EnityID);
-
-        entity.ChangeComp(info.m_compName, info.m_comp);
-    }
-
-    public void RevertRemoveComp(ChangeRecordInfo info)
-    {
-        EntityBase entity = m_world.GetEntity(info.m_EnityID);
-
-        entity.AddComp(info.m_compName, info.m_comp);
-    }
-
-    public void RevertCreateEntity(ChangeRecordInfo info)
-    {
-        m_world.DestroyEntity(info.m_EnityID);
-    }
-
-    public void RevertDestroyEntity(ChangeRecordInfo info)
-    {
-        m_world.CreateEntity(info.m_EnityID);
-    }
-
-    #endregion
 
     #region 读取历史输入数据
 
@@ -308,7 +195,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     List<ServiceMessageInfo> LoadMessage(int frameCount)
     {
         List<ServiceMessageInfo> list = new List<ServiceMessageInfo>();
-        RecordComponent rc = m_world.GetSingletonComp<RecordComponent>();
+        ServerCacheComponent rc = m_world.GetSingletonComp<ServerCacheComponent>();
 
         for (int i = 0; i < rc.m_messageList.Count; i++)
         {

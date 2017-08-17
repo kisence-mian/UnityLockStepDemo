@@ -15,7 +15,7 @@ namespace LockStepDemo.Service.ServiceLogic.System
             };
         }
 
-        public override void BeforeFixedUpdate(int deltaTime)
+        public override void NoRecalcBeforeFixedUpdate(int deltaTime)
         {
             List<EntityBase> list = GetEntityList();
 
@@ -26,6 +26,9 @@ namespace LockStepDemo.Service.ServiceLogic.System
                 if(comp.m_commandList.Count > 0)
                 {
                     T cmd = (T)comp.GetCommand(m_world.FrameCount);
+                    cmd.id = list[i].ID;
+                    cmd.frame = m_world.FrameCount;
+
                     list[i].ChangeComp(cmd);
                 }
             }

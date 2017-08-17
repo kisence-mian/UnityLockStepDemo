@@ -31,6 +31,17 @@ message m_changesingletoncomponentmsg_c
 	required componentinfo info = 2;
 }
 
+message m_debugmsg_s
+{
+	required int32 frame = 1;
+	repeated entityinfo infos = 2;
+}
+message m_debugmsg_c
+{
+	required int32 frame = 1;
+	repeated entityinfo infos = 2;
+}
+
 message m_destroyentitymsg_s
 {
 	required int32 frame = 1;
@@ -87,6 +98,11 @@ message m_commandcomponent_c
 	required int32 frame = 7;
 }
 
+message entityinfo
+{
+	required int32 id = 1;
+	repeated componentinfo infos = 2;
+}
 message componentinfo
 {
 	required string m_compname = 1;

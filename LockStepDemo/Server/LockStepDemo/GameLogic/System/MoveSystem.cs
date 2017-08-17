@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveSystem : SystemBase
 {
-    public override void LateFixedUpdate(int deltaTime)
+    public override void FixedUpdate(int deltaTime)
     {
         Debug.Log("MoveSystem BEGIN ------------------->");
 
@@ -24,7 +24,7 @@ public class MoveSystem : SystemBase
         comp.m_posy += comp.m_diry * deltaTime * comp.m_velocity;
         comp.m_posz += comp.m_dirz * deltaTime * comp.m_velocity;
 
-        Debug.Log("comp.m_posx " + comp.m_posx + " deltaTime " + deltaTime + " comp.m_velocity " + comp.m_velocity + "comp.m_dirx " + comp.m_dirx);
+        Debug.Log("id: " + comp.Entity.ID + " m_posx " + comp.m_posx + " deltaTime " + deltaTime + " m_velocity " + comp.m_velocity + " m_dirx " + comp.m_dirx);
     }
 
 

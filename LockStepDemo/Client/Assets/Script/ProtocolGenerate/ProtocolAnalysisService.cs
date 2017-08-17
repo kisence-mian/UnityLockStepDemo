@@ -14,6 +14,7 @@ public class ProtocolAnalysisService
 		InputManager.AddListener<InputNetworkMessageEvent>("waitsynccomponent",ReceviceWaitSyncComponent);
 		InputManager.AddListener<InputNetworkMessageEvent>("changecomponentmsg",ReceviceChangeComponentMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("changesingletoncomponentmsg",ReceviceChangeSingletonComponentMsg);
+		InputManager.AddListener<InputNetworkMessageEvent>("debugmsg",ReceviceDebugMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("destroyentitymsg",ReceviceDestroyEntityMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("startsyncmsg",ReceviceStartSyncMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("syncentitymsg",ReceviceSyncEntityMsg);
@@ -25,6 +26,7 @@ public class ProtocolAnalysisService
 		InputManager.RemoveListener<InputNetworkMessageEvent>("waitsynccomponent",ReceviceWaitSyncComponent);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("changecomponentmsg",ReceviceChangeComponentMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("changesingletoncomponentmsg",ReceviceChangeSingletonComponentMsg);
+		InputManager.RemoveListener<InputNetworkMessageEvent>("debugmsg",ReceviceDebugMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("destroyentitymsg",ReceviceDestroyEntityMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("startsyncmsg",ReceviceStartSyncMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("syncentitymsg",ReceviceSyncEntityMsg);
@@ -43,6 +45,10 @@ public class ProtocolAnalysisService
 		else if(cmd is Protocol.ChangeSingletonComponentMsg )
 		{
 			SendChangeSingletonComponentMsg(cmd);
+		}
+		else if(cmd is Protocol.DebugMsg )
+		{
+			SendDebugMsg(cmd);
 		}
 		else if(cmd is Protocol.DestroyEntityMsg )
 		{
@@ -97,6 +103,34 @@ public class ProtocolAnalysisService
 				data.Add("info",data2);
 			}
 		NetworkManager.SendMessage("changesingletoncomponentmsg",data);
+	}
+	static void SendDebugMsg(IProtocolMessageInterface msg)
+	{
+		Protocol.DebugMsg e = (Protocol.DebugMsg)msg;
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("frame", e.frame);
+		{
+			List<object> list2 = new List<object>();
+			for(int i2 = 0;i2 <e.infos.Count ; i2++)
+			{
+				Dictionary<string, object> data2 = new Dictionary<string, object>();
+				data2.Add("id", e.infos[i2].id);
+				{
+					List<object> list4 = new List<object>();
+					for(int i4 = 0;i4 <e.infos[i2].infos.Count ; i4++)
+					{
+						Dictionary<string, object> data4 = new Dictionary<string, object>();
+						data4.Add("m_compname", e.infos[i2].infos[i4].m_compName);
+						data4.Add("content", e.infos[i2].infos[i4].content);
+						list4.Add( data4);
+					}
+					data2.Add("infos",list4);
+				}
+				list2.Add( data2);
+			}
+			data.Add("infos",list2);
+		}
+		NetworkManager.SendMessage("debugmsg",data);
 	}
 	static void SendDestroyEntityMsg(IProtocolMessageInterface msg)
 	{
@@ -180,6 +214,36 @@ public class ProtocolAnalysisService
 			tmp2.m_compName = data2["m_compname"].ToString();
 			tmp2.content = data2["content"].ToString();
 			msg.info = tmp2;
+		}
+		
+		GlobalEvent.DispatchTypeEvent(msg);
+	}
+	static void ReceviceDebugMsg(InputNetworkMessageEvent e)
+	{
+		Protocol.DebugMsg msg = new Protocol.DebugMsg();
+		msg.frame = (int)e.Data["frame"];
+		{
+			List<Dictionary<string, object>> data2 = (List<Dictionary<string, object>>)e.Data["infos"];
+			List<Protocol.EntityInfo> list2 = new List<Protocol.EntityInfo>();
+			for (int i2 = 0; i2 < data2.Count; i2++)
+			{
+				Protocol.EntityInfo tmp2 = new Protocol.EntityInfo();
+				tmp2.id = (int)data2[i2]["id"];
+				{
+					List<Dictionary<string, object>> data4 = (List<Dictionary<string, object>>)data2[i2]["infos"];
+					List<Protocol.ComponentInfo> list4 = new List<Protocol.ComponentInfo>();
+					for (int i4 = 0; i4 < data4.Count; i4++)
+					{
+						Protocol.ComponentInfo tmp4 = new Protocol.ComponentInfo();
+						tmp4.m_compName = data4[i4]["m_compname"].ToString();
+						tmp4.content = data4[i4]["content"].ToString();
+						list4.Add(tmp4);
+					}
+					tmp2.infos =  list4;
+				}
+				list2.Add(tmp2);
+			}
+			msg.infos =  list2;
 		}
 		
 		GlobalEvent.DispatchTypeEvent(msg);

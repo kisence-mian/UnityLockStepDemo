@@ -44,6 +44,17 @@ namespace Protocol
         public int frame;
         public ComponentInfo info;
     }
+    public class DebugMsg : SyncModule
+    {
+        public int frame;
+        public List<EntityInfo> infos;
+    }
+
+    public class EntityInfo : IProtocolStructInterface
+    {
+        public int id;
+        public List<ComponentInfo> infos;
+    }
 
     public class ComponentInfo : IProtocolStructInterface
     {
