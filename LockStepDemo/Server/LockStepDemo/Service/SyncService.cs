@@ -33,6 +33,7 @@ namespace LockStepDemo.Service
 
             m_world = WorldManager.CreateWorld<DemoWorld>();
             m_world.IsStart = true;
+            m_world.SyncRule = SyncRule.Status;
 
             UpdateEngine.Init(updateInterval);
 
@@ -64,7 +65,6 @@ namespace LockStepDemo.Service
 
             base.OnNewSessionConnected(session);
 
-            WaitSyncComponent wsc = new WaitSyncComponent();
             ConnectionComponent conn = new ConnectionComponent();
             conn.m_session = session;
 
@@ -76,7 +76,7 @@ namespace LockStepDemo.Service
             MoveComponent mc  = new MoveComponent();
             ac.m_assetName = "Cube";
 
-            m_world.CreateEntity(conn, pc, vc, ac, cc, mc, wsc);
+            m_world.CreateEntity(conn, pc, vc, ac, cc, mc);
 
             session.m_connect = conn;
         }

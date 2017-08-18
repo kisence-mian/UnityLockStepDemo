@@ -13,6 +13,7 @@ class DemoWorld : WorldBase
             typeof(InitSystem),
             typeof(MoveSystem),
             typeof(OperationSystem),
+            typeof(FireSystem),
 
             typeof(ConnectSystem),
             typeof(ServiceSyncSystem),

@@ -89,6 +89,9 @@
     <Compile Include="ECS\EntityBase.cs" />
     <Compile Include="ECS\InputCommandManager.cs" />
     <Compile Include="ECS\MomentComponentBase.cs" />
+    <Compile Include="ECS\Record\RecordComponent.cs" />
+    <Compile Include="ECS\Record\RecordSystem.cs" />
+    <Compile Include="ECS\Record\RecordSystemBase.cs" />
     <Compile Include="ECS\SingletonComponent.cs" />
     <Compile Include="ECS\SyncComponentBase.cs" />
     <Compile Include="ECS\SystemBase.cs" />
@@ -98,10 +101,12 @@
     <Compile Include="Event\EventService.cs" />
     <Compile Include="FileTool\FileTool.cs" />
     <Compile Include="GameLogic\Component\AssetComponent.cs" />
+    <Compile Include="GameLogic\Component\CDComponent.cs" />
     <Compile Include="GameLogic\Component\CommandComponent.cs" />
     <Compile Include="GameLogic\Component\InputComponent.cs" />
     <Compile Include="GameLogic\Component\MoveComponent.cs" />
     <Compile Include="GameLogic\Component\PlayerComponent.cs" />
+    <Compile Include="GameLogic\System\FireSystem.cs" />
     <Compile Include="Service\ServiceLogic\Component\SyncComponent.cs" />
     <Compile Include="GameLogic\Component\ViewComponent.cs" />
     <Compile Include="Service\ServiceLogic\System\SyncDebugSystem.cs" />

@@ -92,6 +92,8 @@ public static class ProtocolAnalysisService
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		data.Add("frame", msg.frame);
 		data.Add("intervaltime", msg.intervalTime);
+		data.Add("createentityindex", msg.createEntityIndex);
+		data.Add("syncrule", (int)msg.SyncRule);
 		session.SendMsg("startsyncmsg",data);
 	}
 	static void SendSyncEntityMsg(SyncSession session,Protocol.SyncEntityMsg msg)
@@ -215,6 +217,8 @@ public static class ProtocolAnalysisService
 		Protocol.StartSyncMsg msg = new Protocol.StartSyncMsg();
 		msg.frame = (int)e.m_data["frame"];
 		msg.intervalTime = (int)e.m_data["intervaltime"];
+		msg.createEntityIndex = (int)e.m_data["createentityindex"];
+		msg.SyncRule = (SyncRule)e.m_data["syncrule"];
 		
 		EventService.DispatchTypeEvent(session,msg);
 	}

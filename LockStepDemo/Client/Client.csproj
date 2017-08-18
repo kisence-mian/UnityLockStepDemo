@@ -222,6 +222,7 @@
     <Compile Include="Assets\Script\Core\Utils\SystemInfoTool.cs" />
     <Compile Include="Assets\Script\Core\Utils\UGUITool.cs" />
     <Compile Include="Assets\Script\GameLogic\Component\AssetComponent.cs" />
+    <Compile Include="Assets\Script\GameLogic\Component\CDComponent.cs" />
     <Compile Include="Assets\Script\GameLogic\Component\CommandComponent.cs" />
     <Compile Include="Assets\Script\GameLogic\Component\InputComponent.cs" />
     <Compile Include="Assets\Script\GameLogic\Component\MoveComponent.cs" />
@@ -230,6 +231,7 @@
     <Compile Include="Assets\Script\GameLogic\Component\ViewComponent.cs" />
     <Compile Include="Assets\Script\GameLogic\Component\WaitSyncComponent.cs" />
     <Compile Include="Assets\Script\GameLogic\Module\GameSyncModule.cs" />
+    <Compile Include="Assets\Script\GameLogic\System\FireSystem.cs" />
     <Compile Include="Assets\Script\GameLogic\System\InitSystem.cs" />
     <Compile Include="Assets\Script\GameLogic\System\MoveSystem.cs" />
     <Compile Include="Assets\Script\GameLogic\System\OperationSystem.cs" />
@@ -245,6 +247,9 @@
     <Compile Include="Assets\Script\SyncFrameWork\ECS\EntityBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\InputCommandManager.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\MomentComponentBase.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ECS\Record\RecordComponent.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ECS\Record\RecordSystem.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ECS\Record\RecordSystemBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\SystemBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\TupleBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\ViewSystemBase.cs" />
@@ -254,7 +259,6 @@
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\GameDataCacheComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\PlayerCommandBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\PlayerCommandRecordComponent.cs" />
-    <Compile Include="Assets\Script\SyncFrameWork\ECS\Record\RecordComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\SelfComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\ServerCacheComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\SingletonComponent.cs" />
@@ -262,8 +266,6 @@
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\TheirComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\CommandSyncSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\EntityRecordSystem.cs" />
-    <Compile Include="Assets\Script\SyncFrameWork\ECS\Record\RecordSystem.cs" />
-    <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\RecordSystemBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\SyncDebugSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\SyncSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\WorldManager.cs" />

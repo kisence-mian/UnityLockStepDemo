@@ -146,6 +146,8 @@ public class ProtocolAnalysisService
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		data.Add("frame", e.frame);
 		data.Add("intervaltime", e.intervalTime);
+		data.Add("createentityindex", e.createEntityIndex);
+		data.Add("syncrule", (int)e.SyncRule);
 		NetworkManager.SendMessage("startsyncmsg",data);
 	}
 	static void SendSyncEntityMsg(IProtocolMessageInterface msg)
@@ -261,6 +263,8 @@ public class ProtocolAnalysisService
 		Protocol.StartSyncMsg msg = new Protocol.StartSyncMsg();
 		msg.frame = (int)e.Data["frame"];
 		msg.intervalTime = (int)e.Data["intervaltime"];
+		msg.createEntityIndex = (int)e.Data["createentityindex"];
+		msg.SyncRule = (SyncRule)e.Data["syncrule"];
 		
 		GlobalEvent.DispatchTypeEvent(msg);
 	}

@@ -25,7 +25,7 @@ namespace LockStepDemo.Service.Game
         static void ReceviceSyncMsg(SyncSession session, T msg)
         {
             ConnectionComponent commandComp = session.m_connect;
-            WorldBase world = session.m_entity.World;
+            WorldBase world = session.m_connect.Entity.World;
             if (commandComp != null)
             {
                 PlayerCommandBase comp = msg;

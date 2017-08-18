@@ -74,7 +74,7 @@ public class WorldBase
 
     public Dictionary<string, SingletonComponent> m_singleCompDict = new Dictionary<string, SingletonComponent>(); //所有的单例组件集合
 
-    Stack<EntityBase> m_entitiesPool = new Stack<EntityBase>();  //TODO: 实体对象池
+    Stack<EntityBase> m_entitiesPool = new Stack<EntityBase>();  //TODO: 实体对象池 组件对象池
 
     public event EntityChangedCallBack OnEntityCreated;
     public event EntityChangedCallBack OnEntityWillBeDestroyed;
@@ -313,6 +313,8 @@ public class WorldBase
     /// <returns></returns>
     public EntityBase CreateEntity(int ID, params ComponentBase[] compList)
     {
+        Debug.Log("CreateEntity " + ID);
+
         if (m_entityDict.ContainsKey(ID))
         {
             throw new Exception("CreateEntity Exception: Entity ID has exist ! ->" + ID + "<-");
@@ -330,6 +332,8 @@ public class WorldBase
         {
             for (int i = 0; i < compList.Length; i++)
             {
+                Debug.Log("CreateEntity AddComp " + compList[i].GetType().Name);
+
                 entity.AddComp(compList[i].GetType().Name, compList[i]);
             }
         }

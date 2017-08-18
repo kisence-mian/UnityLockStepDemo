@@ -38,7 +38,7 @@ namespace LockStepDemo.ServiceLogic.System
 
         public override void OnEntityCompAdd(EntityBase entity, string compName, ComponentBase component)
         {
-            //Debug.Log("OnEntityCompAdd " + compName);
+            Debug.Log("OnEntityCompAdd " + compName);
 
             //有新玩家加入
             if (entity.GetExistComp<ConnectionComponent>()
@@ -104,6 +104,8 @@ namespace LockStepDemo.ServiceLogic.System
         
         void OnPlayerJoin(EntityBase entity)
         {
+            Debug.Log("OnPlayerJoin ");
+
             ConnectionComponent comp = entity.GetComp<ConnectionComponent>();
             SyncComponent syc = entity.GetComp<SyncComponent>();
 

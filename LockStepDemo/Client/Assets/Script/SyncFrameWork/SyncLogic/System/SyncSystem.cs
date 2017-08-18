@@ -35,6 +35,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         m_world.FrameCount = msg.frame;
         m_world.IsStart = true;
         m_world.EntityIndex = msg.createEntityIndex;
+        m_world.SyncRule = msg.SyncRule;
 
         WorldManager.IntervalTime = msg.intervalTime;
 
