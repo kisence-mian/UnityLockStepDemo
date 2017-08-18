@@ -34,7 +34,7 @@ namespace LockStepDemo.Service.Game
                 if (msg.frame > world.FrameCount)
                 {
                     commandComp.m_commandList.Add(comp);
-                    //TODO 广播操作
+                    //TODO 与预测一致不广播节约带宽
                     List<EntityBase> list = world.GetEntiyList(new string[] { "ConnectionComponent" });
 
                     for (int i = 0; i < list.Count; i++)
@@ -50,6 +50,7 @@ namespace LockStepDemo.Service.Game
                 else
                 {
                     //TODO 潜在的不同步威胁
+                    //发送给玩家自己 服务器给他预测的操作
                     Debug.Log("帧数落后 丢弃玩家操作 world.FrameCount: " + world.FrameCount + " msg frame:" + msg.frame);
 
                     commandComp.m_lastInputCache = comp;

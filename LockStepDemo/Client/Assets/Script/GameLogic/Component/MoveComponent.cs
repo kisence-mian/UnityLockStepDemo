@@ -19,6 +19,9 @@ public class MoveComponent : MomentComponentBase
     {
         MoveComponent mc = new MoveComponent();
 
+        mc.ID = ID;
+        mc.Frame = Frame;
+
         mc.m_posx = m_posx;
         mc.m_posy = m_posy;
         mc.m_posz = m_posz;

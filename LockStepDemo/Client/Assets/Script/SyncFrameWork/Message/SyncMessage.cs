@@ -17,6 +17,7 @@ namespace Protocol
     {
         public int frame;
         public int intervalTime;
+        public int createEntityIndex;
     }
 
     public class SyncEntityMsg : SyncModule

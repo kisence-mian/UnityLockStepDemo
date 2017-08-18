@@ -34,24 +34,39 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
         m_world.FrameCount = msg.frame;
         m_world.IsStart = true;
+        m_world.EntityIndex = msg.createEntityIndex;
 
         WorldManager.IntervalTime = msg.intervalTime;
+
+        //执行未处理的命令
+        GameDataCacheComponent gdcc = m_world.GetSingletonComp<GameDataCacheComponent>();
+        for (int i = 0; i < gdcc.m_noExecuteCommandList.Count; i++)
+        {
+            ReceviceCommandMsg((T)gdcc.m_noExecuteCommandList[i]);
+        }
     }
 
     void ReceviceSyncEntity(SyncEntityMsg msg, params object[] objs)
     {
         Debug.Log("ReceviceSyncEntity");
 
-        ServerCacheComponent rc = m_world.GetSingletonComp<ServerCacheComponent>();
+        if(m_world.IsStart)
+        {
+            ServerCacheComponent rc = m_world.GetSingletonComp<ServerCacheComponent>();
 
-        ServiceMessageInfo info = new ServiceMessageInfo();
-        info.m_frame = msg.frame;
-        info.m_type = MessageType.SyncEntity;
-        info.m_msg = msg;
+            ServiceMessageInfo info = new ServiceMessageInfo();
+            info.m_frame = msg.frame;
+            info.m_type = MessageType.SyncEntity;
+            info.m_msg = msg;
 
-        rc.m_messageList.Add(info);
+            rc.m_messageList.Add(info);
 
-        Recalc(msg.frame);
+            Recalc(msg.frame);
+        }
+        else
+        {
+            ExecuteSyncEntity(msg);
+        }
     }
 
     void ReceviceDestroyEntityMsg(DestroyEntityMsg msg, params object[] objs)
@@ -74,51 +89,72 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     {
         Debug.Log("ChangeSingletonCompMsg");
 
-        ServerCacheComponent rc = m_world.GetSingletonComp<ServerCacheComponent>();
+        if (m_world.IsStart)
+        {
+            ServerCacheComponent rc = m_world.GetSingletonComp<ServerCacheComponent>();
 
-        ServiceMessageInfo info = new ServiceMessageInfo();
-        info.m_frame = msg.frame;
-        info.m_type = MessageType.ChangeSingletonComponent;
-        info.m_msg = msg;
+            ServiceMessageInfo info = new ServiceMessageInfo();
+            info.m_frame = msg.frame;
+            info.m_type = MessageType.ChangeSingletonComponent;
+            info.m_msg = msg;
 
-        rc.m_messageList.Add(info);
+            rc.m_messageList.Add(info);
 
-        Recalc(msg.frame);
+            Recalc(msg.frame);
+        }
+        else
+        {
+            ExecuteChangeSingletonCompMsg(msg);
+        }
     }
 
     void ReceviceCommandMsg(T cmd ,params object[] objs)
     {
-        //Debug.Log("ReceviceCommandMsg " + cmd.frame + " world " + m_world.FrameCount);
-        PlayerCommandRecordComponent pcrc = m_world.GetEntity(cmd.id).GetComp<PlayerCommandRecordComponent>();
-
-        //判断帧数
-        if (m_world.FrameCount >= cmd.frame)
+        if(m_world.IsStart)
         {
-            PlayerCommandBase input = null;
-            
-            if (m_world.FrameCount == cmd.frame)
+            //Debug.Log("ReceviceCommandMsg " + cmd.frame + " world " + m_world.FrameCount);
+            PlayerCommandRecordComponent pcrc = m_world.GetEntity(cmd.id).GetComp<PlayerCommandRecordComponent>();
+
+            //判断帧数
+            if (m_world.FrameCount >= cmd.frame)
             {
-                input = pcrc.m_forecastInput;
+                PlayerCommandBase input = null;
+
+                if (m_world.FrameCount == cmd.frame)
+                {
+                    input = pcrc.m_forecastInput;
+                }
+                else
+                {
+                    input = pcrc.GetInputCahae(cmd.frame);
+                }
+
+                //替换原来的记录
+                pcrc.ReplaceCommand(cmd);
+
+                //与本地预测做判断，如果不一致则需要重新演算
+                if (!cmd.EqualsCmd(input))
+                {
+                    Recalc(cmd.frame);
+                }
+                else
+                {
+                    //清除以前的记录
+                    m_world.ClearBefore(cmd.frame - 1);
+                }
             }
+            //存入缓存
             else
             {
-                input = pcrc.GetInputCahae(cmd.frame);
-            }
-
-            //替换原来的记录
-            pcrc.ReplaceCommand(cmd);
-
-            //与本地预测做判断，如果不一致则需要重新演算
-            if (!cmd.EqualsCmd(input))
-            {
-                Recalc(cmd.frame);
+                //Debug.Log("存入缓存");
+                pcrc.m_serverCache.Add(cmd);
             }
         }
-        //存入缓存
         else
         {
-            //Debug.Log("存入缓存");
-            pcrc.m_serverCache.Add(cmd);
+            //存入未执行命令列表
+            GameDataCacheComponent gdcc = m_world.GetSingletonComp<GameDataCacheComponent>();
+            gdcc.m_noExecuteCommandList.Add(cmd);
         }
     }
     #endregion
@@ -135,10 +171,13 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     /// <param name="frameCount"></param>
     public void Recalc(int frameCount)
     {
-        //Debug.Log("重计算 Recalc " +frameCount + " current " + m_world.FrameCount);
+        Debug.Log("重计算 Recalc " +frameCount + " current " + m_world.FrameCount);
 
         //回退到目标帧
-        m_world.RevertToFrame(frameCount);
+        m_world.RevertToFrame(frameCount - 1);
+
+        //目标帧之后的历史记录作废
+        m_world.ClearAfter(frameCount - 1);
 
         for (int i = frameCount; i <= m_world.FrameCount; i++)
         {
@@ -150,9 +189,13 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
             //重新演算
             m_world.Recalc(WorldManager.IntervalTime);
+
+            //重新保存历史记录
+            m_world.Record(i);
         }
 
-        m_world.ClearBefore(m_world.FrameCount - 1);
+        //重计算的结果认定为最终结果，清除历史记录
+        m_world.ClearBefore(frameCount - 1);
     }
 
     #region 读取历史输入数据

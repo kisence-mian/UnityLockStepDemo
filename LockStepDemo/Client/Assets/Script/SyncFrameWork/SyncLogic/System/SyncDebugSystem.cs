@@ -36,7 +36,10 @@ namespace Assets.Script.SyncFrameWork.SyncLogic.System
 
                         if (!content.Equals(msg.infos[i].infos[j].content))
                         {
+                            RecordSystemBase rsb = m_world.GetRecordSystemBase(msg.infos[i].infos[j].m_compName);
+
                             Debug.LogWarning("error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entity.ID + " msg.id " + msg.infos[i].id + " comp:" + msg.infos[i].infos[j].m_compName + "\n remote:" + msg.infos[i].infos[j].content + "\n local:" + content);
+                            rsb.PrintRecord(entity.ID);
                         }
                     }
                 }
@@ -51,7 +54,7 @@ namespace Assets.Script.SyncFrameWork.SyncLogic.System
                     {
                         RecordSystemBase rsb = m_world.GetRecordSystemBase(msg.infos[i].infos[j].m_compName);
 
-                        ComponentBase compLocal = rsb.GetRecord(msg.infos[i].id, msg.frame + 1);
+                        ComponentBase compLocal = rsb.GetRecord(msg.infos[i].id, msg.frame);
 
                         if(compLocal != null)
                         {
@@ -60,11 +63,13 @@ namespace Assets.Script.SyncFrameWork.SyncLogic.System
                             if (!content.Equals(msg.infos[i].infos[j].content))
                             {
                                 Debug.LogWarning("error: frame" + msg.frame +" currentFrame:" + m_world.FrameCount + " id:" + entity.ID + " msg.id " + msg.infos[i].id + " comp:" + msg.infos[i].infos[j].m_compName + "\n remote:" + msg.infos[i].infos[j].content + "\n local:" + content);
+                                rsb.PrintRecord(entity.ID);
                             }
                         }
                         else
                         {
                             Debug.LogWarning("not find Record ->> frame:" + msg.frame + " id " + msg.infos[i].id + " compName: " + msg.infos[i].infos[j].m_compName);
+                            rsb.PrintRecord(entity.ID);
                         }
                     }
                 }

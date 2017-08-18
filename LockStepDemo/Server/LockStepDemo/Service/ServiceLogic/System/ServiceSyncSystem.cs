@@ -17,7 +17,8 @@ namespace LockStepDemo.ServiceLogic.System
         public override void Init()
         {
             AddEntityCompAddLisenter();
-            AddEntityDestroyLisnter();
+
+            AddEntityCompRemoveLisenter();
         }
 
         public override Type[] GetFilter()
@@ -29,33 +30,31 @@ namespace LockStepDemo.ServiceLogic.System
 
         public override void LateFixedUpdate(int deltaTime)
         {
-            List<EntityBase> list = GetEntityList();
+            //全推送
+            PushAllData();
 
-            for (int i = 0; i < list.Count; i++)
-            {
-                PushSyncEnity(list[i].GetComp<SyncComponent>(), list[i]);
-            }
+            //推送开始消息
+            PushStartSyncMsg();
         }
 
         public override void OnEntityCompAdd(EntityBase entity, string compName, ComponentBase component)
         {
-            if (entity.GetExistComp<SyncComponent>())
+            //Debug.Log("OnEntityCompAdd " + compName);
+
+            //有新玩家加入
+            if (entity.GetExistComp<ConnectionComponent>()
+                && entity.GetExistComp<SyncComponent>())
             {
-                SyncComponent comp = entity.GetComp<SyncComponent>();
-                SetAllSync(comp);
+                OnPlayerJoin(entity);
             }
+        }
 
-            if(entity.GetExistComp<ConnectionComponent>())
+        public override void OnEntityCompRemove(EntityBase entity, string compName, ComponentBase component)
+        {
+            if (entity.GetExistComp<ConnectionComponent>()
+                && entity.GetExistComp<SyncComponent>())
             {
-                List<EntityBase> list = GetEntityList();
-
-                for (int i = 0; i < list.Count; i++)
-                {
-                    if(!list[i].GetComp<SyncComponent>().m_waitSyncList.Contains(entity.GetComp<ConnectionComponent>()))
-                    {
-                        list[i].GetComp<SyncComponent>().m_waitSyncList.Add(entity.GetComp<ConnectionComponent>());
-                    }
-                }
+                OnPlayerExit(entity);
             }
         }
 
@@ -83,7 +82,86 @@ namespace LockStepDemo.ServiceLogic.System
             }
         }
 
+        #region 玩家相关
+        
+        void OnPlayerJoin(EntityBase entity)
+        {
+            ConnectionComponent comp = entity.GetComp<ConnectionComponent>();
+            SyncComponent syc = entity.GetComp<SyncComponent>();
+
+            comp.m_isWaitPushStart = true;
+
+            List<EntityBase> list = GetEntityList();
+            for (int i = 0; i < list.Count; i++)
+            {
+                //在所有同步对象的同步队列里加入这个新玩家 (把这个世界的数据告诉新玩家)
+                SyncComponent sycTmp = list[i].GetComp<SyncComponent>();
+                if(!sycTmp.m_waitSyncList.Contains(comp))
+                {
+                    sycTmp.m_waitSyncList.Add(comp);
+                }
+                
+            }
+
+            //把自己广播给所有人
+            SetAllSync(syc);
+        }
+
+        void OnPlayerExit(EntityBase entity)
+        {
+            ConnectionComponent comp = entity.GetComp<ConnectionComponent>();
+            comp.m_isWaitPushStart = false;
+
+            SyncComponent sc = entity.GetComp<SyncComponent>();
+            SetAllSync(sc);
+
+            //TODO 将来改成推送 移除连接组件
+            PushDestroyEntity(sc, entity);
+        }
+
+        #endregion
+
         #region 推送数据
+
+        #region 游戏进程
+
+        void PushStartSyncMsg()
+        {
+            List<EntityBase> list = GetEntityList(new string[] { "ConnectionComponent" });
+            for (int i = 0; i < list.Count; i++)
+            {
+                ConnectionComponent comp = list[i].GetComp<ConnectionComponent>();
+                
+                if(comp.m_isWaitPushStart == true)
+                {
+                    comp.m_isWaitPushStart = false;
+                    PushStartSyncMsg(comp.m_session);
+                }
+            }
+        }
+
+        void PushStartSyncMsg(SyncSession session)
+        {
+            StartSyncMsg msg = new StartSyncMsg();
+            msg.frame = m_world.FrameCount + 1;
+            msg.intervalTime = UpdateEngine.IntervalTime;
+            msg.createEntityIndex = m_world.EntityIndex;
+
+            ProtocolAnalysisService.SendMsg(session, msg);
+        }
+
+        //推送所有数据(把所有同步队列的数据推送出去)
+        public void PushAllData()
+        {
+            List<EntityBase> list = GetEntityList();
+            for (int i = 0; i < list.Count; i++)
+            {
+                SyncComponent sc = list[i].GetComp<SyncComponent>();
+                PushSyncEnity(sc, list[i]);
+            }
+        }
+
+        #endregion
 
         #region 实体
 

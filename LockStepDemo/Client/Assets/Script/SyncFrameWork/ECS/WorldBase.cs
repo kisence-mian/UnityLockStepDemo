@@ -5,6 +5,21 @@ using UnityEngine;
 
 public class WorldBase
 {
+    SyncRule m_syncRule;
+
+    public SyncRule SyncRule
+    {
+        get
+        {
+            return m_syncRule;
+        }
+
+        set
+        {
+            m_syncRule = value;
+        }
+    }
+
     bool m_isStart = false;
     public bool IsStart
     {
@@ -30,6 +45,20 @@ public class WorldBase
         set
         {
             m_frameCount = value;
+        }
+    }
+
+    int m_entityIndex = 0;
+    public int EntityIndex
+    {
+        get
+        {
+            return m_entityIndex;
+        }
+
+        set
+        {
+            m_entityIndex = value;
         }
     }
 
@@ -125,10 +154,11 @@ public class WorldBase
     {
         if (IsStart)
         {
+            Record(FrameCount);
+
             FrameCount++;
 
-            Record();
-            //Debug.Log("Begin FixedLoop " + FrameCount + "------------");
+            Debug.Log("Begin FixedLoop " + FrameCount + "------------");
 
             NoRecalcBeforeFixedUpdate(deltaTime);
 
@@ -138,7 +168,7 @@ public class WorldBase
 
             NoRecalcLateFixedUpdate(deltaTime);
 
-            //Debug.Log("End FixedLoop " + FrameCount + "------------");
+            Debug.Log("End FixedLoop " + FrameCount + "------------");
         }
     }
 
@@ -221,11 +251,11 @@ public class WorldBase
 
     #region 回滚相关 
 
-    public void Record()
+    public void Record(int frame)
     {
         for (int i = 0; i < m_recordList.Count; i++)
         {
-            m_recordList[i].Record();
+            m_recordList[i].Record(frame);
         }
     }
 
@@ -262,6 +292,16 @@ public class WorldBase
 
     #region 实体相关
 
+    public EntityBase CreateEntity()
+    {
+        return CreateEntity(EntityIndex++);
+    }
+
+    /// <summary>
+    /// 使用指定的实体ID创建实体，不再建议使用
+    /// </summary>
+    /// <param name="ID"></param>
+    /// <returns></returns>
     public EntityBase CreateEntity(int ID)
     {
         if (m_entityDict.ContainsKey(ID))
@@ -426,3 +466,20 @@ public class WorldBase
 
     #endregion
 }
+
+/// <summary>
+/// 同步规则
+/// </summary>
+public enum SyncRule
+{
+    /// <summary>
+    /// 状态同步，所有对实体的操作都交给服务器下发,服务器可能针对每个玩家做剪枝
+    /// </summary>
+    Status,
+
+    /// <summary>
+    /// 帧同步，本地计算所有结果，本地了解游戏里的一切情况
+    /// </summary>
+    Frame,
+}
+

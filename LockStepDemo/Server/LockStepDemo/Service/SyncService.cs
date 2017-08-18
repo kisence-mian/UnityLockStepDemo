@@ -58,7 +58,6 @@ namespace LockStepDemo.Service
             }
         }
 
-        int id = 0;
         protected override void OnNewSessionConnected(SyncSession session)
         {
             Debug.Log("SyncService OnNewSessionConnected " + session.SessionID);
@@ -79,10 +78,10 @@ namespace LockStepDemo.Service
             MoveComponent mc = new MoveComponent();
             ac.m_assetName = "Cube";
 
-            EntityBase entity = m_world.CreateEntity(id++);
+            EntityBase entity = m_world.CreateEntity();
+            entity.AddComp(syc);
             entity.AddComp(conn);
             entity.AddComp(pc);
-            entity.AddComp(syc);
             entity.AddComp(vc);
             entity.AddComp(ac);
             entity.AddComp(cc);
@@ -91,8 +90,6 @@ namespace LockStepDemo.Service
 
             session.m_entity = entity;
             session.m_connect = conn;
-
-            Debug.Log("new entity " + id);
         }
     }
 }

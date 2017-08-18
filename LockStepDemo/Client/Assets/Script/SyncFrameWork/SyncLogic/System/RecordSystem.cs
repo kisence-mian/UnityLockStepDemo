@@ -12,7 +12,7 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
         return new Type[] { typeof(T) };
     }
 
-    public override void Record()
+    public override void Record(int frame)
     {
         RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>> ();
 
@@ -21,10 +21,12 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
         for (int i = 0; i < list.Count; i++)
         {
             T record = (T)list[i].GetComp<T>().DeepCopy();
-            record.Frame = m_world.FrameCount;
+            record.Frame = frame;
             record.ID    = list[i].ID;
 
             rc.m_record.Add(record);
+
+            //Debug.Log("数据记录 ID：" + list[i].ID + " frame:" + frame + " conent:" + Serializer.Serialize(record));
         }
     }
 
@@ -37,8 +39,7 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
         for (int i = 0; i < list.Count; i++)
         {
             EntityBase entity = m_world.GetEntity(list[i].ID);
-
-            entity.ChangeComp(list[i]);
+            entity.ChangeComp((T)list[i].DeepCopy());
 
             //Debug.Log("数据回滚 ID：" + list[i].ID + " frame:"+ list[i].Frame +" conent:"+  Serializer.Serialize(list[i]));
         }
@@ -69,5 +70,19 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
         }
 
         return null;
+    }
+    public override void PrintRecord(int id)
+    {
+        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
+
+        string content = "compName : " + typeof(T).Name + "\n";
+        for (int i = 0; i < rc.m_record.Count; i++)
+        {
+            if(id == -1 || rc.m_record[i].ID == id)
+            {
+                content += " ID:" + rc.m_record[i].ID + " Frame:" + rc.m_record[i].Frame + " content:" + Serializer.Serialize(rc.m_record[i]) + "\n";
+            }
+        }
+        Debug.LogWarning("PrintRecord:" + content);
     }
 }
