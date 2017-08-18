@@ -54,7 +54,7 @@ namespace LockStepDemo.Service
 
             if(session.m_connect != null)
             {
-                m_world.DestroyEntity(session.m_entity.ID);
+                m_world.DestroyEntity(session.m_connect.Entity.ID);
             }
         }
 
@@ -70,25 +70,14 @@ namespace LockStepDemo.Service
 
             PlayerComponent pc = new PlayerComponent();
             CommandComponent cc = new CommandComponent();
-            SyncComponent syc = new SyncComponent();
-            syc.m_waitSyncList.Add(conn);
 
-            ViewComponent vc = new ViewComponent();
+            ViewComponent vc  = new ViewComponent();
             AssetComponent ac = new AssetComponent();
-            MoveComponent mc = new MoveComponent();
+            MoveComponent mc  = new MoveComponent();
             ac.m_assetName = "Cube";
 
-            EntityBase entity = m_world.CreateEntity();
-            entity.AddComp(syc);
-            entity.AddComp(conn);
-            entity.AddComp(pc);
-            entity.AddComp(vc);
-            entity.AddComp(ac);
-            entity.AddComp(cc);
-            entity.AddComp(mc);
-            entity.AddComp(wsc);
+            m_world.CreateEntity(conn, pc, vc, ac, cc, mc, wsc);
 
-            session.m_entity = entity;
             session.m_connect = conn;
         }
     }

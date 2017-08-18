@@ -17,7 +17,6 @@ namespace LockStepDemo.ServiceLogic.System
         public override void Init()
         {
             AddEntityCompAddLisenter();
-
             AddEntityCompRemoveLisenter();
         }
 
@@ -55,6 +54,25 @@ namespace LockStepDemo.ServiceLogic.System
                 && entity.GetExistComp<SyncComponent>())
             {
                 OnPlayerExit(entity);
+            }
+        }
+
+        public override void OnEntityCreate(EntityBase entity)
+        {
+            SyncComponent sc = null;
+            //自动创建Sync组件
+            if (!entity.GetExistComp<SyncComponent>())
+            {
+                sc = entity.AddComp<SyncComponent>();
+            }
+            else
+            {
+                sc = entity.GetComp<SyncComponent>();
+            }
+
+            if(m_world.SyncRule == SyncRule.Status)
+            {
+                SetAllSync(sc);
             }
         }
 
@@ -100,7 +118,6 @@ namespace LockStepDemo.ServiceLogic.System
                 {
                     sycTmp.m_waitSyncList.Add(comp);
                 }
-                
             }
 
             //把自己广播给所有人
@@ -115,7 +132,7 @@ namespace LockStepDemo.ServiceLogic.System
             SyncComponent sc = entity.GetComp<SyncComponent>();
             SetAllSync(sc);
 
-            //TODO 将来改成推送 移除连接组件
+            //TODO 将来改成推送移除连接组件
             PushDestroyEntity(sc, entity);
         }
 

@@ -9,7 +9,7 @@ namespace LockStepDemo.Service
     {
         public WorldBase m_gameWorld;
         public ConnectionComponent m_connect;
-        public EntityBase m_entity;
+        //public EntityBase m_entity;
 
         protected override void OnSessionStarted()
         {

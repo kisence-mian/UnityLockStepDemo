@@ -21,6 +21,8 @@ public class WorldBase
     }
 
     bool m_isStart = false;
+    bool m_isView = false; //是否是在客户端运行
+
     public bool IsStart
     {
         get
@@ -62,9 +64,13 @@ public class WorldBase
         }
     }
 
-    public List<SystemBase> m_systemList = new List<SystemBase>();                       //世界里所有的System集合
+    public List<SystemBase> m_systemList = new List<SystemBase>();                 //世界里所有的System集合
+
     public Dictionary<int, EntityBase> m_entityDict = new Dictionary<int, EntityBase>(); //世界里所有的entity集合
     public List<EntityBase> m_entityList = new List<EntityBase>();                       //世界里所有的entity列表
+
+    public List<RecordSystemBase> m_recordList = new List<RecordSystemBase>();           //世界里所有的RecordSystem列表
+    public Dictionary<string, RecordSystemBase> m_recordDict = new Dictionary<string, RecordSystemBase>(); //世界里所有的RecordSystem集合
 
     public Dictionary<string, SingletonComponent> m_singleCompDict = new Dictionary<string, SingletonComponent>(); //所有的单例组件集合
 
@@ -84,7 +90,7 @@ public class WorldBase
         return new Type[0];
     }
 
-    public virtual Type[] GetViewSystemTypes()
+    public virtual Type[] GetRecordSystemTypes()
     {
         return new Type[0];
     }
@@ -95,6 +101,7 @@ public class WorldBase
 
     public void Init(bool isView)
     {
+        m_isView = isView;
         try
         {
             Type[] types = GetSystemTypes();
@@ -107,17 +114,19 @@ public class WorldBase
                 tmp.Init();
             }
 
-            //初始化ViweSystem
-            if (isView)
+            //初始化RecordSystemBase
+
+            types = GetRecordSystemTypes();
+            for (int i = 0; i < types.Length; i++)
             {
-                types = GetViewSystemTypes();
-                for (int i = 0; i < types.Length; i++)
-                {
-                    ViewSystemBase tmp = (ViewSystemBase)types[i].Assembly.CreateInstance(types[i].FullName);
-                    m_systemList.Add(tmp);
-                    tmp.m_world = this;
-                    tmp.Init();
-                }
+                Type type = typeof(RecordSystem<>);
+                type = type.MakeGenericType(types[i]);
+
+                RecordSystemBase tmp = (RecordSystemBase)Activator.CreateInstance(type); ;
+                m_recordList.Add(tmp);
+                m_recordDict.Add(types[i].Name, tmp);
+                tmp.m_world = this;
+                tmp.Init();
             }
         }
         catch (Exception e)
@@ -148,7 +157,10 @@ public class WorldBase
     {
         if (IsStart)
         {
+            Record(FrameCount);
+
             FrameCount++;
+
             Debug.Log("Begin FixedLoop " + FrameCount + "------------");
 
             NoRecalcBeforeFixedUpdate(deltaTime);
@@ -240,18 +252,66 @@ public class WorldBase
     }
     #endregion
 
+    #region 回滚相关 
+
+    public void Record(int frame)
+    {
+        for (int i = 0; i < m_recordList.Count; i++)
+        {
+            m_recordList[i].Record(frame);
+        }
+    }
+
+    public void RevertToFrame(int frame)
+    {
+        for (int i = 0; i < m_recordList.Count; i++)
+        {
+            m_recordList[i].RevertToFrame(frame);
+        }
+    }
+
+    public void ClearBefore(int frame)
+    {
+        for (int i = 0; i < m_recordList.Count; i++)
+        {
+            m_recordList[i].ClearBefore(frame);
+        }
+    }
+
+    public void ClearAfter(int frame)
+    {
+        for (int i = 0; i < m_recordList.Count; i++)
+        {
+            m_recordList[i].ClearAfter(frame);
+        }
+    }
+
+    public RecordSystemBase GetRecordSystemBase(string name)
+    {
+        return m_recordDict[name];
+    }
+
+    #endregion
+
     #region 实体相关
 
-    public EntityBase CreateEntity()
+    public void CreateEntity(params ComponentBase[] comps)
     {
-        return  CreateEntity(EntityIndex++);
+        //状态同步本地不创建实体
+        if (m_isView && m_syncRule == SyncRule.Status)
+        {
+            return;
+        }
+
+        CreateEntity(EntityIndex++, comps);
     }
 
     /// <summary>
-    /// 使用指定的实体ID创建实体，不再建议使用
+    /// 使用指定的实体ID创建实体，不建议直接使用
     /// </summary>
     /// <param name="ID"></param>
-    public EntityBase CreateEntity(int ID)
+    /// <returns></returns>
+    public EntityBase CreateEntity(int ID, params ComponentBase[] compList)
     {
         if (m_entityDict.ContainsKey(ID))
         {
@@ -265,6 +325,14 @@ public class WorldBase
 
         m_entityList.Add(entity);
         m_entityDict.Add(ID, entity);
+
+        if (compList != null)
+        {
+            for (int i = 0; i < compList.Length; i++)
+            {
+                entity.AddComp(compList[i].GetType().Name, compList[i]);
+            }
+        }
 
         entity.OnComponentAdded += OnEntityComponentAdded;
         entity.OnComponentRemoved += OnEntityComponentRemoved;
@@ -319,7 +387,6 @@ public class WorldBase
             OnEntityDestroyed(entity);
         }
     }
-
 
     public List<EntityBase> GetEntiyList(string[] compNames)
     {
@@ -422,12 +489,12 @@ public class WorldBase
 public enum SyncRule
 {
     /// <summary>
-    /// 状态同步，所有对实体的操作都交给服务器下发
+    /// 状态同步，所有对实体的操作都交给服务器下发,服务器可能针对每个玩家做剪枝
     /// </summary>
     Status,
 
     /// <summary>
-    /// 帧同步，本地计算所有结果
+    /// 帧同步，本地计算所有结果，本地了解游戏里的一切情况
     /// </summary>
     Frame,
 }

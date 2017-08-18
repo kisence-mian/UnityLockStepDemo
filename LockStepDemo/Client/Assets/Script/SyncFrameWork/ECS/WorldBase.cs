@@ -21,6 +21,8 @@ public class WorldBase
     }
 
     bool m_isStart = false;
+    bool m_isView = false; //是否是在客户端运行
+
     public bool IsStart
     {
         get
@@ -99,6 +101,7 @@ public class WorldBase
 
     public void Init(bool isView)
     {
+        m_isView = isView;
         try
         {
             Type[] types = GetSystemTypes();
@@ -292,17 +295,23 @@ public class WorldBase
 
     #region 实体相关
 
-    public EntityBase CreateEntity()
+    public void CreateEntity(params ComponentBase[] comps)
     {
-        return CreateEntity(EntityIndex++);
+        //状态同步本地不创建实体
+        if(m_isView && m_syncRule == SyncRule.Status)
+        {
+            return;
+        }
+
+        CreateEntity(EntityIndex++, comps);
     }
 
     /// <summary>
-    /// 使用指定的实体ID创建实体，不再建议使用
+    /// 使用指定的实体ID创建实体，不建议直接使用
     /// </summary>
     /// <param name="ID"></param>
     /// <returns></returns>
-    public EntityBase CreateEntity(int ID)
+    public EntityBase CreateEntity(int ID, params ComponentBase[] compList)
     {
         if (m_entityDict.ContainsKey(ID))
         {
@@ -316,6 +325,14 @@ public class WorldBase
 
         m_entityList.Add(entity);
         m_entityDict.Add(ID, entity);
+
+        if(compList != null)
+        {
+            for (int i = 0; i < compList.Length; i++)
+            {
+                entity.AddComp(compList[i].GetType().Name, compList[i]);
+            }
+        }
 
         entity.OnComponentAdded += OnEntityComponentAdded;
         entity.OnComponentRemoved += OnEntityComponentRemoved;
@@ -370,7 +387,6 @@ public class WorldBase
             OnEntityDestroyed(entity);
         }
     }
-
 
     public List<EntityBase> GetEntiyList(string[] compNames)
     {
