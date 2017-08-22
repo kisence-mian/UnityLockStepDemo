@@ -9,7 +9,7 @@ namespace LockStepDemo.Service
 {
     class SyncService : AppServer<SyncSession,ProtocolRequestBase>
     {
-        int updateInterval = 250; //世界更新间隔ms
+        int updateInterval = 1000; //世界更新间隔ms
         WorldBase m_world;
 
         public SyncService() : base(new ProtocolReceiveFilterFactory())
@@ -67,6 +67,7 @@ namespace LockStepDemo.Service
 
             ConnectionComponent conn = new ConnectionComponent();
             conn.m_session = session;
+            conn.m_lastInputCache = new CommandComponent(); //预测一个输入
 
             PlayerComponent pc = new PlayerComponent();
             CommandComponent cc = new CommandComponent();

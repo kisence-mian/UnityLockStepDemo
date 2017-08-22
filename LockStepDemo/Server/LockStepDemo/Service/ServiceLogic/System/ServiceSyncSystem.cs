@@ -16,6 +16,8 @@ namespace LockStepDemo.ServiceLogic.System
     {
         public override void Init()
         {
+            AddEntityCreaterLisnter();
+
             AddEntityCompAddLisenter();
             AddEntityCompRemoveLisenter();
         }
@@ -59,10 +61,13 @@ namespace LockStepDemo.ServiceLogic.System
 
         public override void OnEntityCreate(EntityBase entity)
         {
+            Debug.Log("OnEntityCreate ");
+
             SyncComponent sc = null;
             //自动创建Sync组件
             if (!entity.GetExistComp<SyncComponent>())
             {
+                Debug.Log("自动创建Sync组件 ");
                 sc = entity.AddComp<SyncComponent>();
             }
             else
@@ -161,6 +166,8 @@ namespace LockStepDemo.ServiceLogic.System
 
         void PushStartSyncMsg(SyncSession session)
         {
+            Debug.Log("PushStartSyncMsg ");
+
             StartSyncMsg msg = new StartSyncMsg();
             msg.frame = m_world.FrameCount + 1;
             msg.intervalTime = UpdateEngine.IntervalTime;

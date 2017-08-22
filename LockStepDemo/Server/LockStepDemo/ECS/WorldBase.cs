@@ -328,19 +328,17 @@ public class WorldBase
         m_entityList.Add(entity);
         m_entityDict.Add(ID, entity);
 
+        entity.OnComponentAdded += DispatchCompAdd;
+        entity.OnComponentRemoved += DispatchCompRemove;
+        entity.OnComponentReplaced += DispatchCompChange;
+
         if (compList != null)
         {
             for (int i = 0; i < compList.Length; i++)
             {
-                Debug.Log("CreateEntity AddComp " + compList[i].GetType().Name);
-
                 entity.AddComp(compList[i].GetType().Name, compList[i]);
             }
         }
-
-        entity.OnComponentAdded += OnEntityComponentAdded;
-        entity.OnComponentRemoved += OnEntityComponentRemoved;
-        entity.OnComponentReplaced += OnEntityComponentChange;
 
         if (OnEntityCreated != null)
         {
@@ -483,6 +481,30 @@ public class WorldBase
     #region 事件派发
 
     public delegate void EntityChangedCallBack(EntityBase entity);
+
+    public void DispatchCompAdd(EntityBase entity, string compName, ComponentBase component)
+    {
+        if (OnEntityComponentAdded != null)
+        {
+            OnEntityComponentAdded(entity, compName, component);
+        }
+    }
+
+    public void DispatchCompRemove(EntityBase entity, string compName, ComponentBase component)
+    {
+        if (OnEntityComponentRemoved != null)
+        {
+            OnEntityComponentRemoved(entity, compName, component);
+        }
+    }
+
+    public void DispatchCompChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponentt)
+    {
+        if(OnEntityComponentChange != null)
+        {
+            OnEntityComponentChange(entity, compName,previousComponent,newComponentt);
+        }
+    }
 
     #endregion
 }

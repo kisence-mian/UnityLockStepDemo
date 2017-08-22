@@ -1,0 +1,126 @@
+﻿2017-08-18 11:52:46,789 [32012] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 168
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 125
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 11:53:57,975 [35324] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 168
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 125
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 11:53:58,698 [35324] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 168
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 125
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 11:55:43,570 [35560] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 168
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 125
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 12:01:10,394 [35844] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 168
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 125
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 12:01:51,774 [35844] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 168
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 125
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 12:01:54,522 [35844] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 168
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 125
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 12:02:00,828 [35844] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 168
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 125
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 12:02:03,341 [35844] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 168
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 125
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 12:13:09,252 [35844] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 168
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 125
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 14:22:27,411 [35844] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 168
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 125
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 14:52:56,083 [35844] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 168
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 125
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 15:04:01,790 [35844] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 168
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 125
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 15:05:51,430 [35844] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 168
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 125
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 15:12:51,746 [42948] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 168
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 125
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 15:12:53,739 [42948] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 168
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 125
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 15:34:32,421 [54128] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 182
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 139
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-18 15:34:38,906 [54128] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 47
+   在 LockStepDemo.ServiceLogic.ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 39
+   在 LockStepDemo.Service.ServiceLogic.System.PlayerInputSystem`1.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 182
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 139
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
