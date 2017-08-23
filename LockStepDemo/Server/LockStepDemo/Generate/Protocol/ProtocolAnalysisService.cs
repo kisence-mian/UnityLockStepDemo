@@ -20,6 +20,7 @@ public static class ProtocolAnalysisService
 			case  "changesingletoncomponentmsg":SendChangeSingletonComponentMsg(session , (Protocol.ChangeSingletonComponentMsg)msg);break;
 			case  "debugmsg":SendDebugMsg(session , (Protocol.DebugMsg)msg);break;
 			case  "destroyentitymsg":SendDestroyEntityMsg(session , (Protocol.DestroyEntityMsg)msg);break;
+			case  "pursuemsg":SendPursueMsg(session , (Protocol.PursueMsg)msg);break;
 			case  "startsyncmsg":SendStartSyncMsg(session , (Protocol.StartSyncMsg)msg);break;
 			case  "syncentitymsg":SendSyncEntityMsg(session , (Protocol.SyncEntityMsg)msg);break;
 			case  "commandcomponent":SendCommandComponent(session , (CommandComponent)msg);break;
@@ -87,10 +88,18 @@ public static class ProtocolAnalysisService
 		data.Add("id", msg.id);
 		session.SendMsg("destroyentitymsg",data);
 	}
+	static void SendPursueMsg(SyncSession session,Protocol.PursueMsg msg)
+	{
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("frame", msg.frame);
+		data.Add("advancecount", msg.advanceCount);
+		session.SendMsg("pursuemsg",data);
+	}
 	static void SendStartSyncMsg(SyncSession session,Protocol.StartSyncMsg msg)
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		data.Add("frame", msg.frame);
+		data.Add("advancecount", msg.advanceCount);
 		data.Add("intervaltime", msg.intervalTime);
 		data.Add("createentityindex", msg.createEntityIndex);
 		data.Add("syncrule", (int)msg.SyncRule);
@@ -137,6 +146,7 @@ public static class ProtocolAnalysisService
 			case  "changesingletoncomponentmsg":ReceviceChangeSingletonComponentMsg(session , cmd);break;
 			case  "debugmsg":ReceviceDebugMsg(session , cmd);break;
 			case  "destroyentitymsg":ReceviceDestroyEntityMsg(session , cmd);break;
+			case  "pursuemsg":RecevicePursueMsg(session , cmd);break;
 			case  "startsyncmsg":ReceviceStartSyncMsg(session , cmd);break;
 			case  "syncentitymsg":ReceviceSyncEntityMsg(session , cmd);break;
 			case  "commandcomponent":ReceviceCommandComponent(session , cmd);break;
@@ -212,10 +222,19 @@ public static class ProtocolAnalysisService
 		
 		EventService.DispatchTypeEvent(session,msg);
 	}
+	static void RecevicePursueMsg(SyncSession session ,ProtocolRequestBase e)
+	{
+		Protocol.PursueMsg msg = new Protocol.PursueMsg();
+		msg.frame = (int)e.m_data["frame"];
+		msg.advanceCount = (int)e.m_data["advancecount"];
+		
+		EventService.DispatchTypeEvent(session,msg);
+	}
 	static void ReceviceStartSyncMsg(SyncSession session ,ProtocolRequestBase e)
 	{
 		Protocol.StartSyncMsg msg = new Protocol.StartSyncMsg();
 		msg.frame = (int)e.m_data["frame"];
+		msg.advanceCount = (int)e.m_data["advancecount"];
 		msg.intervalTime = (int)e.m_data["intervaltime"];
 		msg.createEntityIndex = (int)e.m_data["createentityindex"];
 		msg.SyncRule = (SyncRule)e.m_data["syncrule"];

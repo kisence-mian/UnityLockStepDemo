@@ -49,11 +49,25 @@ namespace LockStepDemo.Service.Game
                 }
                 else
                 {
-                    //TODO 潜在的不同步威胁
-                    //发送给玩家自己 服务器给他预测的操作
+                    //潜在的不同步威胁
+                    
                     Debug.Log("帧数落后 丢弃玩家操作 world.FrameCount: " + world.FrameCount + " msg frame:" + msg.frame);
 
+                    //发送给玩家自己 服务器给他预测的操作，
+                    for (int i = 0; i < commandComp.m_forecastList.Count; i++)
+                    {
+                        ProtocolAnalysisService.SendMsg(session, commandComp.m_forecastList[i]);
+                    }
+                    commandComp.m_forecastList.Clear();
+
+                    //并且让这个玩家提前
                     commandComp.m_lastInputCache = comp;
+
+                    PursueMsg pmsg = new PursueMsg();
+                    pmsg.frame = world.FrameCount;
+                    pmsg.advanceCount = 1;
+
+                    ProtocolAnalysisService.SendMsg(session, pmsg);
                 }
             }
         }

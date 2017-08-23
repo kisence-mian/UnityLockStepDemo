@@ -16,9 +16,16 @@ namespace Protocol
     public class StartSyncMsg : SyncModule
     {
         public int frame;
+        public int advanceCount; //客户端提前量
         public int intervalTime;
         public int createEntityIndex;
         public SyncRule SyncRule;
+    }
+
+    public class PursueMsg : SyncModule
+    {
+        public int frame;
+        public int advanceCount; //客户端提前量
     }
 
     public class SyncEntityMsg : SyncModule

@@ -29,7 +29,7 @@ namespace LockStepDemo.ServiceLogic.System
             };
         }
 
-        public override void LateFixedUpdate(int deltaTime)
+        public override void BeforeFixedUpdate(int deltaTime)
         {
             //全推送
             PushAllData();
@@ -169,7 +169,8 @@ namespace LockStepDemo.ServiceLogic.System
             Debug.Log("PushStartSyncMsg ");
 
             StartSyncMsg msg = new StartSyncMsg();
-            msg.frame = m_world.FrameCount + 1;
+            msg.frame = m_world.FrameCount;
+            msg.advanceCount = 1; //客户端提前一帧
             msg.intervalTime = UpdateEngine.IntervalTime;
             msg.createEntityIndex = m_world.EntityIndex;
 

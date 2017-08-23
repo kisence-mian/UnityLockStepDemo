@@ -6,8 +6,9 @@
 202,changesingletoncomponentmsg
 203,debugmsg
 204,destroyentitymsg
-205,startsyncmsg
-206,syncentitymsg
+205,pursuemsg
+206,startsyncmsg
+207,syncentitymsg
 
 3,Command
 301,commandcomponent

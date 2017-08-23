@@ -53,19 +53,32 @@ message m_destroyentitymsg_c
 	required int32 id = 2;
 }
 
+message m_pursuemsg_s
+{
+	required int32 frame = 1;
+	required int32 advancecount = 2;
+}
+message m_pursuemsg_c
+{
+	required int32 frame = 1;
+	required int32 advancecount = 2;
+}
+
 message m_startsyncmsg_s
 {
 	required int32 frame = 1;
-	required int32 intervaltime = 2;
-	required int32 createentityindex = 3;
-	required int8 syncrule = 4;
+	required int32 advancecount = 2;
+	required int32 intervaltime = 3;
+	required int32 createentityindex = 4;
+	required int8 syncrule = 5;
 }
 message m_startsyncmsg_c
 {
 	required int32 frame = 1;
-	required int32 intervaltime = 2;
-	required int32 createentityindex = 3;
-	required int8 syncrule = 4;
+	required int32 advancecount = 2;
+	required int32 intervaltime = 3;
+	required int32 createentityindex = 4;
+	required int8 syncrule = 5;
 }
 
 message m_syncentitymsg_s

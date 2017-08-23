@@ -71,13 +71,14 @@ namespace LockStepDemo.Service
 
             PlayerComponent pc = new PlayerComponent();
             CommandComponent cc = new CommandComponent();
+            CDComponent cdc = new CDComponent();
 
             ViewComponent vc  = new ViewComponent();
             AssetComponent ac = new AssetComponent();
             MoveComponent mc  = new MoveComponent();
             ac.m_assetName = "Cube";
 
-            m_world.CreateEntity(conn, pc, vc, ac, cc, mc);
+            m_world.CreateEntity(conn, pc, vc, ac, cc, mc, cdc);
 
             session.m_connect = conn;
         }

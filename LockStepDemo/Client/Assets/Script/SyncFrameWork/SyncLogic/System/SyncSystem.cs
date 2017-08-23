@@ -10,6 +10,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     public override void Init()
     {
         GlobalEvent.AddTypeEvent<SyncEntityMsg>(ReceviceSyncEntity);
+        GlobalEvent.AddTypeEvent<PursueMsg>(RecevicePursueMsg);
         GlobalEvent.AddTypeEvent<DestroyEntityMsg>(ReceviceDestroyEntityMsg);
         GlobalEvent.AddTypeEvent<ChangeSingletonComponentMsg>(ReceviceChangeSingletonCompMsg);
         GlobalEvent.AddTypeEvent<StartSyncMsg>(ReceviceStartSyncMsg);
@@ -19,6 +20,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     public override void Dispose()
     {
         GlobalEvent.RemoveTypeEvent<SyncEntityMsg>(ReceviceSyncEntity);
+        GlobalEvent.RemoveTypeEvent<PursueMsg>(RecevicePursueMsg);
         GlobalEvent.RemoveTypeEvent<DestroyEntityMsg>(ReceviceDestroyEntityMsg);
         GlobalEvent.RemoveTypeEvent<ChangeSingletonComponentMsg>(ReceviceChangeSingletonCompMsg);
         GlobalEvent.RemoveTypeEvent<StartSyncMsg>(ReceviceStartSyncMsg);
@@ -32,7 +34,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     {
         Debug.Log("StartSyncMsg " + msg.frame);
 
-        m_world.FrameCount = msg.frame;
+        m_world.FrameCount = msg.frame ;
         m_world.IsStart = true;
         m_world.EntityIndex = msg.createEntityIndex;
         m_world.SyncRule = msg.SyncRule;
@@ -45,6 +47,13 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         {
             ReceviceCommandMsg((T)gdcc.m_noExecuteCommandList[i]);
         }
+
+        AdvanceCalc(msg.frame + msg.advanceCount); //提前计算一帧
+    }
+
+    void RecevicePursueMsg(PursueMsg msg, params object[] objs)
+    {
+        AdvanceCalc(msg.frame + msg.advanceCount); //提前计算
     }
 
     void ReceviceSyncEntity(SyncEntityMsg msg, params object[] objs)
@@ -199,6 +208,33 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         m_world.ClearBefore(frameCount - 1);
     }
 
+    /// <summary>
+    /// 提前计算到目标帧
+    /// </summary>
+    /// <param name="frameCount"></param>
+    public void AdvanceCalc(int frameCount)
+    {
+        //第一帧重新计算
+        m_world.RevertToFrame(m_world.FrameCount - 1);
+
+        for (int i = m_world.FrameCount; i <= frameCount; i++)
+        {
+            //重新读取操作
+            LoadPlayerInput(i);
+
+            //服务器数据改动
+            ExecuteServiceMessage(i);
+
+            //重新演算
+            m_world.Recalc(WorldManager.IntervalTime);
+
+            //重新保存历史记录
+            m_world.Record(i);
+        }
+
+        m_world.FrameCount = frameCount;
+    }
+
     #region 读取历史输入数据
 
     void LoadPlayerInput(int frameCount)
@@ -286,7 +322,6 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
         for (int i = 0; i < msg.infos.Count; i++)
         {
-            //Debug.Log("msg.infos[i].m_compName " + msg.infos[i].m_compName);
             ComponentBase comp = (ComponentBase)deserializer.Deserialize(msg.infos[i].m_compName, msg.infos[i].content);
 
             if (entity.GetExistComp(msg.infos[i].m_compName))
@@ -297,6 +332,8 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
             {
                 entity.AddComp(msg.infos[i].m_compName, comp);
             }
+
+            Debug.Log("frame: "+ msg.frame + " id: "+msg.id + " comp: " + msg.infos[i].m_compName + " content: " + msg.infos[i].content);
         }
     }
 

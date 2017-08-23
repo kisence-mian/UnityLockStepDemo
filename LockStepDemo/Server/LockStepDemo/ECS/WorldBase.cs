@@ -422,7 +422,14 @@ public class WorldBase
 
     public T GetSingletonComp<T>() where T : SingletonComponent, new()
     {
+        Type type = typeof(T);
+
         string key = typeof(T).Name;
+
+        if (type.IsGenericType)
+        {
+            key += type.GetGenericArguments()[0].Name;
+        }
 
         SingletonComponent comp = null;
 

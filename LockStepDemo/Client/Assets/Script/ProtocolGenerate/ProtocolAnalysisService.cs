@@ -16,6 +16,7 @@ public class ProtocolAnalysisService
 		InputManager.AddListener<InputNetworkMessageEvent>("changesingletoncomponentmsg",ReceviceChangeSingletonComponentMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("debugmsg",ReceviceDebugMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("destroyentitymsg",ReceviceDestroyEntityMsg);
+		InputManager.AddListener<InputNetworkMessageEvent>("pursuemsg",RecevicePursueMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("startsyncmsg",ReceviceStartSyncMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("syncentitymsg",ReceviceSyncEntityMsg);
 		InputManager.AddListener<InputNetworkMessageEvent>("commandcomponent",ReceviceCommandComponent);
@@ -28,6 +29,7 @@ public class ProtocolAnalysisService
 		InputManager.RemoveListener<InputNetworkMessageEvent>("changesingletoncomponentmsg",ReceviceChangeSingletonComponentMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("debugmsg",ReceviceDebugMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("destroyentitymsg",ReceviceDestroyEntityMsg);
+		InputManager.RemoveListener<InputNetworkMessageEvent>("pursuemsg",RecevicePursueMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("startsyncmsg",ReceviceStartSyncMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("syncentitymsg",ReceviceSyncEntityMsg);
 		InputManager.RemoveListener<InputNetworkMessageEvent>("commandcomponent",ReceviceCommandComponent);
@@ -53,6 +55,10 @@ public class ProtocolAnalysisService
 		else if(cmd is Protocol.DestroyEntityMsg )
 		{
 			SendDestroyEntityMsg(cmd);
+		}
+		else if(cmd is Protocol.PursueMsg )
+		{
+			SendPursueMsg(cmd);
 		}
 		else if(cmd is Protocol.StartSyncMsg )
 		{
@@ -140,11 +146,20 @@ public class ProtocolAnalysisService
 		data.Add("id", e.id);
 		NetworkManager.SendMessage("destroyentitymsg",data);
 	}
+	static void SendPursueMsg(IProtocolMessageInterface msg)
+	{
+		Protocol.PursueMsg e = (Protocol.PursueMsg)msg;
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("frame", e.frame);
+		data.Add("advancecount", e.advanceCount);
+		NetworkManager.SendMessage("pursuemsg",data);
+	}
 	static void SendStartSyncMsg(IProtocolMessageInterface msg)
 	{
 		Protocol.StartSyncMsg e = (Protocol.StartSyncMsg)msg;
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		data.Add("frame", e.frame);
+		data.Add("advancecount", e.advanceCount);
 		data.Add("intervaltime", e.intervalTime);
 		data.Add("createentityindex", e.createEntityIndex);
 		data.Add("syncrule", (int)e.SyncRule);
@@ -258,10 +273,19 @@ public class ProtocolAnalysisService
 		
 		GlobalEvent.DispatchTypeEvent(msg);
 	}
+	static void RecevicePursueMsg(InputNetworkMessageEvent e)
+	{
+		Protocol.PursueMsg msg = new Protocol.PursueMsg();
+		msg.frame = (int)e.Data["frame"];
+		msg.advanceCount = (int)e.Data["advancecount"];
+		
+		GlobalEvent.DispatchTypeEvent(msg);
+	}
 	static void ReceviceStartSyncMsg(InputNetworkMessageEvent e)
 	{
 		Protocol.StartSyncMsg msg = new Protocol.StartSyncMsg();
 		msg.frame = (int)e.Data["frame"];
+		msg.advanceCount = (int)e.Data["advancecount"];
 		msg.intervalTime = (int)e.Data["intervaltime"];
 		msg.createEntityIndex = (int)e.Data["createentityindex"];
 		msg.SyncRule = (SyncRule)e.Data["syncrule"];

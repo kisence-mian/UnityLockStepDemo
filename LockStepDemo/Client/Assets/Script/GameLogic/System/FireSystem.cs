@@ -32,6 +32,7 @@ public class FireSystem : ViewSystemBase
                 MoveComponent mc = new MoveComponent();
 
                 mc.m_dirx = 1;
+                mc.m_velocity = 1;
 
                 m_world.CreateEntity(vc, ac, mc);
             }

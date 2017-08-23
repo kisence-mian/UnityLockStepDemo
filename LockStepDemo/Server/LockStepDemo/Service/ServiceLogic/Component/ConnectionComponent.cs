@@ -12,6 +12,7 @@ namespace LockStepDemo.ServiceLogic
         public bool m_isWaitPushStart = false;
         public SyncSession m_session;
         public List<PlayerCommandBase> m_commandList = new List<PlayerCommandBase>();
+        public List<PlayerCommandBase> m_forecastList = new List<PlayerCommandBase>(); //预测操作列表
 
         public PlayerCommandBase m_lastInputCache = null; //玩家的最后一次输入
 
@@ -20,7 +21,10 @@ namespace LockStepDemo.ServiceLogic
             //没有收到玩家输入复制玩家的最后一次输入
             if (m_commandList.Count == 0)
             {
-                return GetForecast(frame);
+                PlayerCommandBase pb = GetForecast(frame);
+                m_forecastList.Add(pb);
+
+                return pb;
             }
             else
             {

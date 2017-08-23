@@ -26,6 +26,7 @@ class DemoWorld : WorldBase
     {
         return new Type[] {
 
+            typeof(CDComponent),
             typeof(MoveComponent),
         };
     }

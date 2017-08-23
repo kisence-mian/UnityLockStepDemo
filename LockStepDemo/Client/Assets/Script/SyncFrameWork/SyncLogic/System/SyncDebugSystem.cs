@@ -26,21 +26,28 @@ namespace Assets.Script.SyncFrameWork.SyncLogic.System
             {
                 for (int i = 0; i < msg.infos.Count; i++)
                 {
-                    EntityBase entity = m_world.GetEntity(msg.infos[i].id);
-
-                    for (int j = 0; j < msg.infos[i].infos.Count; j++)
+                    if(m_world.GetEntityIsExist(msg.infos[i].id))
                     {
-                        ComponentBase compLocal = entity.GetComp(msg.infos[i].infos[j].m_compName);
+                        EntityBase entity = m_world.GetEntity(msg.infos[i].id);
 
-                        string content = Serializer.Serialize(compLocal);
-
-                        if (!content.Equals(msg.infos[i].infos[j].content))
+                        for (int j = 0; j < msg.infos[i].infos.Count; j++)
                         {
-                            RecordSystemBase rsb = m_world.GetRecordSystemBase(msg.infos[i].infos[j].m_compName);
+                            ComponentBase compLocal = entity.GetComp(msg.infos[i].infos[j].m_compName);
 
-                            Debug.LogWarning("error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entity.ID + " msg.id " + msg.infos[i].id + " comp:" + msg.infos[i].infos[j].m_compName + "\n remote:" + msg.infos[i].infos[j].content + "\n local:" + content);
-                            rsb.PrintRecord(entity.ID);
+                            string content = Serializer.Serialize(compLocal);
+
+                            if (!content.Equals(msg.infos[i].infos[j].content))
+                            {
+                                RecordSystemBase rsb = m_world.GetRecordSystemBase(msg.infos[i].infos[j].m_compName);
+
+                                Debug.LogWarning("error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entity.ID + " msg.id " + msg.infos[i].id + " comp:" + msg.infos[i].infos[j].m_compName + "\n remote:" + msg.infos[i].infos[j].content + "\n local:" + content);
+                                rsb.PrintRecord(entity.ID);
+                            }
                         }
+                    }
+                    else
+                    {
+                        Debug.LogWarning("error not find entity frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + msg.infos[i].id);
                     }
                 }
             }
@@ -48,29 +55,36 @@ namespace Assets.Script.SyncFrameWork.SyncLogic.System
             {
                 for (int i = 0; i < msg.infos.Count; i++)
                 {
-                    EntityBase entity = m_world.GetEntity(msg.infos[i].id);
-
-                    for (int j = 0; j < msg.infos[i].infos.Count; j++)
+                    if (m_world.GetEntityIsExist(msg.infos[i].id))
                     {
-                        RecordSystemBase rsb = m_world.GetRecordSystemBase(msg.infos[i].infos[j].m_compName);
+                        EntityBase entity = m_world.GetEntity(msg.infos[i].id);
 
-                        ComponentBase compLocal = rsb.GetRecord(msg.infos[i].id, msg.frame);
-
-                        if(compLocal != null)
+                        for (int j = 0; j < msg.infos[i].infos.Count; j++)
                         {
-                            string content = Serializer.Serialize(compLocal);
+                            RecordSystemBase rsb = m_world.GetRecordSystemBase(msg.infos[i].infos[j].m_compName);
 
-                            if (!content.Equals(msg.infos[i].infos[j].content))
+                            ComponentBase compLocal = rsb.GetRecord(msg.infos[i].id, msg.frame);
+
+                            if (compLocal != null)
                             {
-                                Debug.LogWarning("error: frame" + msg.frame +" currentFrame:" + m_world.FrameCount + " id:" + entity.ID + " msg.id " + msg.infos[i].id + " comp:" + msg.infos[i].infos[j].m_compName + "\n remote:" + msg.infos[i].infos[j].content + "\n local:" + content);
+                                string content = Serializer.Serialize(compLocal);
+
+                                if (!content.Equals(msg.infos[i].infos[j].content))
+                                {
+                                    Debug.LogWarning("error: frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entity.ID + " msg.id " + msg.infos[i].id + " comp:" + msg.infos[i].infos[j].m_compName + "\n remote:" + msg.infos[i].infos[j].content + "\n local:" + content);
+                                    rsb.PrintRecord(entity.ID);
+                                }
+                            }
+                            else
+                            {
+                                Debug.LogWarning("not find Record ->> frame:" + msg.frame + " id " + msg.infos[i].id + " compName: " + msg.infos[i].infos[j].m_compName);
                                 rsb.PrintRecord(entity.ID);
                             }
                         }
-                        else
-                        {
-                            Debug.LogWarning("not find Record ->> frame:" + msg.frame + " id " + msg.infos[i].id + " compName: " + msg.infos[i].infos[j].m_compName);
-                            rsb.PrintRecord(entity.ID);
-                        }
+                    }
+                    else
+                    {
+                        Debug.LogWarning("error not find entity frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + msg.infos[i].id);
                     }
                 }
             }
