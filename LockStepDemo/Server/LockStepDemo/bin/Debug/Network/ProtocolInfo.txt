@@ -89,25 +89,25 @@ message m_syncentitymsg_c
 
 message m_commandcomponent_s
 {
-	required bool isforward = 1;
-	required bool isback = 2;
-	required bool isright = 3;
-	required bool isleft = 4;
-	required bool isfire = 5;
-	required int32 id = 6;
-	required int32 frame = 7;
+	required syncvector3 movedir = 1;
+	required syncvector3 skilldir = 2;
+	required int32 id = 3;
+	required int32 frame = 4;
 }
 message m_commandcomponent_c
 {
-	required bool isforward = 1;
-	required bool isback = 2;
-	required bool isright = 3;
-	required bool isleft = 4;
-	required bool isfire = 5;
-	required int32 id = 6;
-	required int32 frame = 7;
+	required syncvector3 movedir = 1;
+	required syncvector3 skilldir = 2;
+	required int32 id = 3;
+	required int32 frame = 4;
 }
 
+message syncvector3
+{
+	required int32 x = 1;
+	required int32 y = 2;
+	required int32 z = 3;
+}
 message entityinfo
 {
 	required int32 id = 1;

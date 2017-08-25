@@ -100,13 +100,21 @@
     <Compile Include="ECS\WorldBase.cs" />
     <Compile Include="Event\EventService.cs" />
     <Compile Include="FileTool\FileTool.cs" />
+    <Compile Include="FrameWork\Data\DataGenerateManager.cs" />
+    <Compile Include="FrameWork\Data\DataGenerateTool.cs" />
+    <Compile Include="FrameWork\Data\DataManager.cs" />
+    <Compile Include="FrameWork\Data\DataTable.cs" />
+    <Compile Include="FrameWork\Utils\ParseTool.cs" />
     <Compile Include="GameLogic\Component\AssetComponent.cs" />
     <Compile Include="GameLogic\Component\CDComponent.cs" />
     <Compile Include="GameLogic\Component\CommandComponent.cs" />
     <Compile Include="GameLogic\Component\InputComponent.cs" />
     <Compile Include="GameLogic\Component\MoveComponent.cs" />
     <Compile Include="GameLogic\Component\PlayerComponent.cs" />
+    <Compile Include="GameLogic\Component\SkillStatusComponent.cs" />
+    <Compile Include="GameLogic\Module\SkillData.cs" />
     <Compile Include="GameLogic\System\FireSystem.cs" />
+    <Compile Include="Service\Calc\Calc.cs" />
     <Compile Include="Service\ServiceLogic\Component\SyncComponent.cs" />
     <Compile Include="GameLogic\Component\ViewComponent.cs" />
     <Compile Include="Service\ServiceLogic\System\SyncDebugSystem.cs" />
@@ -148,6 +156,12 @@
     <Compile Include="Service\Game\WorldManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\SkillData.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\SkillStatusData.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Network\MethodInfo.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

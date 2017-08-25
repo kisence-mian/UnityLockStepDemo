@@ -7,7 +7,7 @@ public class OperationSystem : SystemBase
 {
     public override Type[] GetFilter()
     {
-        return new Type[] 
+        return new Type[]
         {
             typeof(CommandComponent),
             typeof(MoveComponent),
@@ -23,32 +23,16 @@ public class OperationSystem : SystemBase
             CommandComponent com = list[i].GetComp<CommandComponent>();
             MoveComponent move = list[i].GetComp<MoveComponent>();
 
-            if(com.isForward)
-            {
-                move.m_velocity = 1;
-            }
+            move.dir = com.moveDir;
 
-            if(com.isBack)
+            if (com.moveDir.ToVector() != Vector3.zero)
+            {
+                move.m_velocity = 5;
+            }
+            else
             {
                 move.m_velocity = 0;
-
-                if(move.m_velocity < 0)
-                {
-                    move.m_velocity = 0;
-                }
             }
-
-            if(com.isLeft)
-            {
-                move.m_dirx = -1;
-            }
-
-            if (com.isRight)
-            {
-                move.m_dirx = 1;
-            }
-
-            Debug.Log("id: " + list[i].ID + "　isBack " + com.isBack + " isForward " + com.isForward + " isRight " + com.isRight + " isLeft " + com.isLeft + "com frame " + com.frame);
         }
     }
 }

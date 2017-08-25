@@ -181,9 +181,12 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     /// <param name="frameCount"></param>
     public void Recalc(int frameCount)
     {
-        Debug.Log("重计算 Recalc " +frameCount + " current " + m_world.FrameCount);
+        if (SyncDebugSystem.isDebug)
+        {
+            Debug.Log("重计算 Recalc " + frameCount + " current " + m_world.FrameCount);
+        }
 
-        //回退到目标帧
+        //回退到目标帧的上一帧，重新计算该帧
         m_world.RevertToFrame(frameCount - 1);
 
         //目标帧之后的历史记录作废

@@ -109,7 +109,7 @@ namespace LockStepDemo.ServiceLogic.System
         
         void OnPlayerJoin(EntityBase entity)
         {
-            Debug.Log("OnPlayerJoin ");
+            Debug.Log("ServiceSyncSystem OnPlayerJoin ");
 
             ConnectionComponent comp = entity.GetComp<ConnectionComponent>();
             SyncComponent syc = entity.GetComp<SyncComponent>();

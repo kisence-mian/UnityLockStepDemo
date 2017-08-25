@@ -44,7 +44,7 @@ namespace LockStepDemo.Service.Game
                         {
                             Debug.Log("Push player Command");
                             ProtocolAnalysisService.SendMsg(cp.m_session, msg);
-                        }
+                        } 
                     }
                 }
                 else

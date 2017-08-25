@@ -1,3 +1,5 @@
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\Network\MethodInfo.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\Network\ProtocolInfo.txt
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\Protocol2CSharp.exe.config
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\Protocol2CSharp.exe
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\Protocol2CSharp.pdb
@@ -12,5 +14,3 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\D
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\obj\Debug\Tool_Protocol2CSharp.csprojResolveAssemblyReference.cache
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\obj\Debug\Protocol2CSharp.exe
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\obj\Debug\Protocol2CSharp.pdb
-F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\Network\MethodInfo.txt
-F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Protocol2CSharp\bin\Debug\Network\ProtocolInfo.txt

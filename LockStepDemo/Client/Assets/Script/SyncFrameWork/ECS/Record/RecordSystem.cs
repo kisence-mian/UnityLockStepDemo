@@ -26,12 +26,20 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
 
             rc.m_record.Add(record);
 
-            //Debug.Log("数据记录 ID：" + list[i].ID + " frame:" + frame + " conent:" + Serializer.Serialize(record));
+            if (SyncDebugSystem.isDebug)
+            {
+                Debug.Log("数据记录 ID：" + list[i].ID + " frame:" + frame + " conent:" + Serializer.Serialize(record));
+            }
         }
     }
 
     public override void RevertToFrame(int frame)
     {
+        if (SyncDebugSystem.isDebug)
+        {
+            Debug.Log("数据回滚  ----------->> frame：" + frame);
+        }
+
         RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
 
         List<T> list = rc.GetRecordList(frame);
@@ -41,7 +49,10 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
             EntityBase entity = m_world.GetEntity(list[i].ID);
             entity.ChangeComp((T)list[i].DeepCopy());
 
-            //Debug.Log("数据回滚 ID：" + list[i].ID + " frame:"+ list[i].Frame +" conent:"+  Serializer.Serialize(list[i]));
+            if (SyncDebugSystem.isDebug)
+            {
+                Debug.Log("数据回滚 ID：" + list[i].ID + " frame:" + list[i].Frame + " conent:" + Serializer.Serialize(list[i]));
+            }
         }
     }
 
@@ -55,6 +66,11 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
     {
         RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
         rc.ClearBefore(frame);
+
+        if (SyncDebugSystem.isDebug)
+        {
+            Debug.Log("ClearBefore frame：" + frame);
+        }
     }
 
     public override MomentComponentBase GetRecord(int id, int frame)

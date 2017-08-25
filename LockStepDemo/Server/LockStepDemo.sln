@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tool_GenerateAnalysisCode",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tool_ClearAnalysisCode", "Tool_ClearAnalysisCode\Tool_ClearAnalysisCode.csproj", "{BBF1004E-7F63-478A-B04D-4B416B98972A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tool_GenerateDataClass", "Tool_GenerateDataClass\Tool_GenerateDataClass.csproj", "{EF5FC172-7227-4681-8971-CC1320325791}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{BBF1004E-7F63-478A-B04D-4B416B98972A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBF1004E-7F63-478A-B04D-4B416B98972A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBF1004E-7F63-478A-B04D-4B416B98972A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF5FC172-7227-4681-8971-CC1320325791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF5FC172-7227-4681-8971-CC1320325791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF5FC172-7227-4681-8971-CC1320325791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF5FC172-7227-4681-8971-CC1320325791}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

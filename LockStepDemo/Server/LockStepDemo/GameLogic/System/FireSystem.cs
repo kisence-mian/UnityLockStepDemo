@@ -23,19 +23,19 @@ public class FireSystem : ViewSystemBase
             CommandComponent cc = list[i].GetComp<CommandComponent>();
             CDComponent cdc = list[i].GetComp<CDComponent>();
 
-            if (cc.isFire)
-            {
-                ViewComponent vc = new ViewComponent();
-                AssetComponent ac = new AssetComponent();
-                ac.m_assetName = "Sphere";
+            //if (cc.isFire)
+            //{
+            //    ViewComponent vc = new ViewComponent();
+            //    AssetComponent ac = new AssetComponent();
+            //    ac.m_assetName = "Sphere";
 
-                MoveComponent mc = new MoveComponent();
+            //    MoveComponent mc = new MoveComponent();
 
-                mc.m_dirx = 1;
-                mc.m_velocity = 1;
+            //    mc.m_dirx = 1;
+            //    mc.m_velocity = 1;
 
-                m_world.CreateEntity(vc, ac, mc);
-            }
+            //    m_world.CreateEntity(vc, ac, mc);
+            //}
         }
     }
 }

@@ -6,25 +6,21 @@ public class MoveSystem : SystemBase
 {
     public override void FixedUpdate(int deltaTime)
     {
-        Debug.Log("MoveSystem BEGIN ------------------->");
-
         List<MoveTuple> list = GetMoveTuple();
 
         for (int i = 0; i < list.Count; i++)
         {
             UpdateMove(list[i].m_moveComp,deltaTime);
         }
-
-        Debug.Log("END");
     }
 
     void UpdateMove(MoveComponent comp,int deltaTime)
     {
-        comp.m_posx += comp.m_dirx * deltaTime * comp.m_velocity;
-        comp.m_posy += comp.m_diry * deltaTime * comp.m_velocity;
-        comp.m_posz += comp.m_dirz * deltaTime * comp.m_velocity;
+        comp.pos.x += comp.dir.x * deltaTime * comp.m_velocity / 1000;
+        comp.pos.y += comp.dir.y * deltaTime * comp.m_velocity / 1000;
+        comp.pos.z += comp.dir.z * deltaTime * comp.m_velocity / 1000;
 
-        Debug.Log("id: " + comp.Entity.ID + " m_posx " + comp.m_posx + " deltaTime " + deltaTime + " m_velocity " + comp.m_velocity + " m_dirx " + comp.m_dirx);
+        Debug.Log("id: " + comp.Entity.ID + " m_pos " + comp.pos.ToVector() + " deltaTime " + deltaTime + " m_velocity " + comp.m_velocity + " m_dir " + comp.dir.ToVector());
     }
 
 

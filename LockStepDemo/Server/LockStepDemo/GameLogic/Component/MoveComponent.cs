@@ -5,13 +5,9 @@ using UnityEngine;
 
 public class MoveComponent : MomentComponentBase
 {
-    public int m_posx;
-    public int m_posy;
-    public int m_posz;
+    public SyncVector3 pos = new SyncVector3();
 
-    public int m_dirx;
-    public int m_diry;
-    public int m_dirz;
+    public SyncVector3 dir = new SyncVector3();
 
     public int m_velocity; //速度
 
@@ -19,13 +15,11 @@ public class MoveComponent : MomentComponentBase
     {
         MoveComponent mc = new MoveComponent();
 
-        mc.m_posx = m_posx;
-        mc.m_posy = m_posy;
-        mc.m_posz = m_posz;
+        mc.ID = ID;
+        mc.Frame = Frame;
 
-        mc.m_dirx = m_dirx;
-        mc.m_diry = m_diry;
-        mc.m_dirz = m_dirz;
+        mc.pos = pos.DeepCopy();
+        mc.dir = dir.DeepCopy();
 
         mc.m_velocity = m_velocity;
 

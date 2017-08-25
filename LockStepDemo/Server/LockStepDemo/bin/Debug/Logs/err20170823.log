@@ -1,0 +1,48 @@
+﻿2017-08-23 11:27:29,949 [27936] ERROR SyncService-54267293 - System.ArgumentOutOfRangeException: 索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+   在 System.ThrowHelper.ThrowArgumentOutOfRangeException()
+   在 System.Collections.Generic.List`1.RemoveAt(Int32 index)
+   在 System.Collections.Generic.List`1.Remove(T item)
+   在 WorldBase.DestroyEntity(Int32 ID) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 380
+   在 LockStepDemo.Service.SyncService.OnSessionClosed(SyncSession session, CloseReason reason) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\SyncService.cs:行号 58
+   在 SuperSocket.SocketBase.AppServerBase`2.OnSocketSessionClosed(ISocketSession session, CloseReason reason)
+   在 System.Action`2.Invoke(T1 arg1, T2 arg2)
+   在 SuperSocket.SocketEngine.SocketSession.OnClosed(CloseReason reason)
+   在 SuperSocket.SocketEngine.AsyncSocketSession.OnClosed(CloseReason reason)
+   在 SuperSocket.SocketEngine.SocketSession.InternalClose(Socket client, CloseReason reason, Boolean setCloseReason)
+   在 SuperSocket.SocketEngine.SocketSession.Close(CloseReason reason)
+   在 SuperSocket.SocketEngine.SocketSession.ValidateClosed(CloseReason closeReason)
+   在 SuperSocket.SocketEngine.SocketSession.OnReceiveTerminated(CloseReason closeReason)
+   在 SuperSocket.SocketEngine.AsyncSocketSession.ProcessReceive(SocketAsyncEventArgs e)
+   在 SuperSocket.SocketEngine.AsyncSocket.SocketAsyncEventArgsProxy.<>c__DisplayClass2.<SocketEventArgs_Completed>b__0()
+   在 System.Threading.Tasks.Task.InnerInvoke()
+   在 System.Threading.Tasks.Task.Execute()
+2017-08-23 18:17:30,538 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:31,557 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:32,532 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:33,548 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:34,535 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:35,543 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:36,538 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:37,527 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:38,532 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:39,535 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:40,550 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:41,542 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:42,545 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:43,542 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:44,537 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:45,528 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:46,540 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:47,543 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:48,528 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:49,534 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:17:50,526 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:18:06,097 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:18:07,118 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:18:08,115 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:18:09,102 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:18:10,100 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:18:11,117 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:18:12,100 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg
+2017-08-23 18:18:13,097 [53828] ERROR SyncService-54267293 - SendCommand Exception : 不支持的消息类型!pursuemsg

@@ -24,7 +24,7 @@ public class MovePerfabSystem : ViewSystemBase
 
             Vector3 pos = new Vector3(move.m_posx * 0.001f, move.m_posy * 0.001f, move.m_posz * 0.001f);
 
-            perfab.transform.position = Vector3.Lerp(perfab.transform.position,pos,Time.deltaTime /10);
+            perfab.transform.position = Vector3.Lerp(perfab.transform.position,pos,Time.deltaTime /2);
 
             //Debug.Log("MovePerfabSystem Update ->" + pos);
         }

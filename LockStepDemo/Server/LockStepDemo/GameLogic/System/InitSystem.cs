@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using LockStepDemo.ServiceLogic;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,19 +7,72 @@ public class InitSystem : SystemBase
 {
     public override void Init()
     {
-        //EntityBase entity =  m_world.CreateEntity(1);
+        AddEntityCreaterLisnter();
+        AddEntityDestroyLisnter();
+    }
 
-        //AssetComponent ass = new AssetComponent();
-        //ass.m_assetName = "Cube";
+    public override void OnEntityCreate(EntityBase entity)
+    {
+        //服务器这里要改成判断connection组件进来
+        if (entity.GetExistComp<ConnectionComponent>())
+        {
+            PlayerJoin(entity);
+        }
+    }
 
-        //MoveComponent move = new MoveComponent();
+    public void PlayerJoin(EntityBase entity)
+    {
+        Debug.Log("InitSystem PlayerJoin");
 
-        //move.m_dirx = 1;
-        //move.m_velocity = 1;
+        if (!entity.GetExistComp<CommandComponent>())
+        {
+            CommandComponent c = new CommandComponent();
+            entity.AddComp(c);
+        }
 
-        //entity.AddComp(ass);
-        //entity.AddComp(move);
-        //entity.AddComp<CommandComponent>();
-        //entity.AddComp<PlayerComponent>();
+        if (!entity.GetExistComp<ViewComponent>())
+        {
+            ViewComponent c = new ViewComponent();
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<AssetComponent>())
+        {
+            AssetComponent c = new AssetComponent();
+            c.m_assetName = "male_01";
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<MoveComponent>())
+        {
+            MoveComponent c = new MoveComponent();
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<PlayerComponent>())
+        {
+            PlayerComponent c = new PlayerComponent();
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<SkillStatusComponent>())
+        {
+            SkillStatusComponent c = new SkillStatusComponent();
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<CDComponent>())
+        {
+            CDComponent c = new CDComponent();
+            entity.AddComp(c);
+        }
+
+        //预测一个输入
+        //TODO 放在框架中
+        if (entity.GetExistComp<ConnectionComponent>())
+        {
+            ConnectionComponent cc = entity.GetComp<ConnectionComponent>();
+            cc.m_lastInputCache = new CommandComponent(); 
+        }
     }
 }

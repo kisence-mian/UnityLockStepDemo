@@ -126,11 +126,20 @@ public static class ProtocolAnalysisService
 	static void SendCommandComponent(SyncSession session,CommandComponent msg)
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
-		data.Add("isforward", msg.isForward);
-		data.Add("isback", msg.isBack);
-		data.Add("isright", msg.isRight);
-		data.Add("isleft", msg.isLeft);
-		data.Add("isfire", msg.isFire);
+			{
+				Dictionary<string, object> data2 = new Dictionary<string, object>();
+				data2.Add("x", msg.moveDir.x);
+				data2.Add("y", msg.moveDir.y);
+				data2.Add("z", msg.moveDir.z);
+				data.Add("movedir",data2);
+			}
+			{
+				Dictionary<string, object> data2 = new Dictionary<string, object>();
+				data2.Add("x", msg.skillDir.x);
+				data2.Add("y", msg.skillDir.y);
+				data2.Add("z", msg.skillDir.z);
+				data.Add("skilldir",data2);
+			}
 		data.Add("id", msg.id);
 		data.Add("frame", msg.frame);
 		session.SendMsg("commandcomponent",data);
@@ -264,11 +273,22 @@ public static class ProtocolAnalysisService
 	static void ReceviceCommandComponent(SyncSession session ,ProtocolRequestBase e)
 	{
 		CommandComponent msg = new CommandComponent();
-		msg.isForward = (bool)e.m_data["isforward"];
-		msg.isBack = (bool)e.m_data["isback"];
-		msg.isRight = (bool)e.m_data["isright"];
-		msg.isLeft = (bool)e.m_data["isleft"];
-		msg.isFire = (bool)e.m_data["isfire"];
+		{
+			Dictionary<string, object> data2 = (Dictionary<string, object>)e.m_data["movedir"];
+			SyncVector3 tmp2 = new SyncVector3();
+			tmp2.x = (int)data2["x"];
+			tmp2.y = (int)data2["y"];
+			tmp2.z = (int)data2["z"];
+			msg.moveDir = tmp2;
+		}
+		{
+			Dictionary<string, object> data2 = (Dictionary<string, object>)e.m_data["skilldir"];
+			SyncVector3 tmp2 = new SyncVector3();
+			tmp2.x = (int)data2["x"];
+			tmp2.y = (int)data2["y"];
+			tmp2.z = (int)data2["z"];
+			msg.skillDir = tmp2;
+		}
 		msg.id = (int)e.m_data["id"];
 		msg.frame = (int)e.m_data["frame"];
 		

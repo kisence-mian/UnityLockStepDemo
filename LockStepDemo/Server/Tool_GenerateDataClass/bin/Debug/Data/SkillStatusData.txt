@@ -1,0 +1,19 @@
+StatusStyleID	AnimName	Time	SFXDelay	SFXName	FXCreatPoint	FXLifeTime	FXDelay	FXName	FollowFXCreatPoint	FollowFXLifeTime	FollowFXName	CameraMove
+type	String	Float|AnimType	Float	String	Enum|HardPointEnum	Float	Float	String	Enum|HardPointEnum	Float	String	String
+note	动作名字	状态持续时间	音效延迟	音效文件	特效创建点	特效存活时间	特效延迟	特效名称	跟随特效创建点	特效时间	特效名	镜头特写
+default	hero_male_attack_1	0	0	null	position	1	0	null	Weapon_01	1	null	null
+1999	male_01_att_m1	0.83							Weapon_01			
+2000	male_01_att_m1	0.8						EFX_fire_001	Weapon_01			
+2001	male_01_att_m1											
+2002	male_01_att_s	0.35						EFX_bolt_001				
+2003	male_01_att_m1											
+2100	male_01_att_m1	0.2						EFX_soil_01_1				
+2101	male_01_att_m2											
+2102	male_01_att_m1	0.2						EFX_soil_01_1				
+2103	male_01_att_m1											
+2104	male_01_att_m1	1.8						EFX_soil_01_1				
+2105	male_01_att_m1	0.35						EFX_soil_01_1				
+3101		0.1						EFX_soil_01_1				
+3102		2						EFX_soil_01_1				
+NoTimeDefaultSkillStatus	male_01_att_m1											
+defaultSkillStatus	male_01_att_m1											

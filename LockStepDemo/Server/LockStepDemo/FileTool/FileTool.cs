@@ -206,6 +206,25 @@ namespace LockStepDemo
 
         #endregion
 
+        #region 文件工具
+
+        /// <summary>
+        /// 获取某个目录下的相对路径
+        /// </summary>
+        /// <param name="FullPath">完整路径</param>
+        /// <param name="DirectoryPath">目标目录</param>
+        public static string GetDirectoryRelativePath(string DirectoryPath, string FullPath)
+        {
+            DirectoryPath = DirectoryPath.Replace(@"\", "/");
+            FullPath = FullPath.Replace(@"\", "/");
+
+            FullPath = FullPath.Replace(DirectoryPath, "");
+
+            return FullPath;
+        }
+
+        #endregion
+
         #region 文件编码
 
         /// <summary>

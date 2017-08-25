@@ -1,0 +1,304 @@
+﻿2017-08-24 14:34:38,784 [27596] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 14:34:52,843 [26876] INFO  SyncService-54267293 - Session: 19e817b0-9e46-4126-974a-4e9993ab3889/127.0.0.1:17750
+A new session connected!
+2017-08-24 14:34:54,468 [27668] INFO  SyncService-54267293 - Session: a0941303-6483-4965-ba76-2e4055e8413d/127.0.0.1:17755
+A new session connected!
+2017-08-24 14:45:42,720 [27308] INFO  SyncService-54267293 - Session: a0941303-6483-4965-ba76-2e4055e8413d/127.0.0.1:17755
+This session was closed for ClientClosing!
+2017-08-24 14:45:43,924 [27308] INFO  SyncService-54267293 - Session: 19e817b0-9e46-4126-974a-4e9993ab3889/127.0.0.1:17750
+This session was closed for ClientClosing!
+2017-08-24 14:46:04,255 [28912] INFO  SyncService-54267293 - Session: 6c107704-f5a0-4c23-84b9-4846867b505e/127.0.0.1:18624
+A new session connected!
+2017-08-24 14:46:05,848 [28912] INFO  SyncService-54267293 - Session: c2148ca3-5f28-4bdb-91aa-0069f01b2b32/127.0.0.1:18628
+A new session connected!
+2017-08-24 14:48:00,689 [28972] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 14:48:07,324 [27320] INFO  SyncService-54267293 - Session: d473e9da-e4ed-439f-a6c7-1865f79bedb8/127.0.0.1:18841
+A new session connected!
+2017-08-24 14:48:10,570 [28236] INFO  SyncService-54267293 - Session: 28450589-c317-41dd-8e34-50da025b9c5a/127.0.0.1:18846
+A new session connected!
+2017-08-24 14:56:30,402 [21880] INFO  SyncService-54267293 - Session: d473e9da-e4ed-439f-a6c7-1865f79bedb8/127.0.0.1:18841
+This session was closed for ClientClosing!
+2017-08-24 14:57:39,101 [28416] INFO  SyncService-54267293 - Session: 3117124e-f816-400b-bf44-c3daddc0ab10/127.0.0.1:19590
+A new session connected!
+2017-08-24 14:57:39,523 [21880] INFO  SyncService-54267293 - Session: 28450589-c317-41dd-8e34-50da025b9c5a/127.0.0.1:18846
+This session was closed for ClientClosing!
+2017-08-24 14:57:41,527 [28416] INFO  SyncService-54267293 - Session: 8b3ccd0b-4c04-43b7-8cad-4a5f98fdd702/127.0.0.1:19596
+A new session connected!
+2017-08-24 14:57:48,145 [21880] INFO  SyncService-54267293 - Session: 3117124e-f816-400b-bf44-c3daddc0ab10/127.0.0.1:19590
+This session was closed for ClientClosing!
+2017-08-24 14:57:49,025 [21880] INFO  SyncService-54267293 - Session: 8b3ccd0b-4c04-43b7-8cad-4a5f98fdd702/127.0.0.1:19596
+This session was closed for ClientClosing!
+2017-08-24 14:57:54,215 [32648] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 14:57:58,242 [31904] INFO  SyncService-54267293 - Session: df9ad1f1-26fc-4d3b-b40d-a7986e3624e9/127.0.0.1:19626
+A new session connected!
+2017-08-24 14:57:59,759 [31904] INFO  SyncService-54267293 - Session: 9b0dd1ec-57bc-4ab7-bdfa-349509a65a0a/127.0.0.1:19631
+A new session connected!
+2017-08-24 14:58:38,334 [28624] INFO  SyncService-54267293 - Session: df9ad1f1-26fc-4d3b-b40d-a7986e3624e9/127.0.0.1:19626
+This session was closed for ClientClosing!
+2017-08-24 14:58:41,211 [28624] INFO  SyncService-54267293 - Session: 9b0dd1ec-57bc-4ab7-bdfa-349509a65a0a/127.0.0.1:19631
+This session was closed for ClientClosing!
+2017-08-24 14:58:48,248 [22336] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 14:58:51,982 [31192] INFO  SyncService-54267293 - Session: 348b4a65-d167-488c-b50d-720cf3796d2f/127.0.0.1:19711
+A new session connected!
+2017-08-24 14:58:53,152 [31192] INFO  SyncService-54267293 - Session: b0a36467-aea8-4d06-acb1-6d0840aa880e/127.0.0.1:19716
+A new session connected!
+2017-08-24 15:02:31,533 [32256] INFO  SyncService-54267293 - Session: 348b4a65-d167-488c-b50d-720cf3796d2f/127.0.0.1:19711
+This session was closed for SocketError!
+2017-08-24 15:02:32,522 [32256] INFO  SyncService-54267293 - Session: b0a36467-aea8-4d06-acb1-6d0840aa880e/127.0.0.1:19716
+This session was closed for ClientClosing!
+2017-08-24 15:02:42,894 [31192] INFO  SyncService-54267293 - Session: 1ecdde54-2a9b-440e-9253-7938ffb38d8d/127.0.0.1:20030
+A new session connected!
+2017-08-24 15:02:44,141 [31192] INFO  SyncService-54267293 - Session: 5364a1b6-8fbb-42d0-8025-b1ad1d95780d/127.0.0.1:20032
+A new session connected!
+2017-08-24 15:02:49,574 [32256] INFO  SyncService-54267293 - Session: 1ecdde54-2a9b-440e-9253-7938ffb38d8d/127.0.0.1:20030
+This session was closed for ClientClosing!
+2017-08-24 15:02:51,040 [32256] INFO  SyncService-54267293 - Session: 5364a1b6-8fbb-42d0-8025-b1ad1d95780d/127.0.0.1:20032
+This session was closed for ClientClosing!
+2017-08-24 15:02:57,848 [33668] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 15:03:03,018 [33140] INFO  SyncService-54267293 - Session: 189706ac-65b1-4ff6-8a25-5d1fb90affe0/127.0.0.1:20067
+A new session connected!
+2017-08-24 15:03:12,026 [33140] INFO  SyncService-54267293 - Session: fe455488-81d3-414d-95c2-79f93b5c543b/127.0.0.1:20081
+A new session connected!
+2017-08-24 15:03:46,360 [33484] INFO  SyncService-54267293 - Session: 189706ac-65b1-4ff6-8a25-5d1fb90affe0/127.0.0.1:20067
+This session was closed for ClientClosing!
+2017-08-24 15:03:50,346 [33484] INFO  SyncService-54267293 - Session: fe455488-81d3-414d-95c2-79f93b5c543b/127.0.0.1:20081
+This session was closed for ClientClosing!
+2017-08-24 15:04:01,057 [32600] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 15:16:56,286 [34528] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 15:17:01,227 [4620] INFO  SyncService-54267293 - Session: be2b279c-6f52-4e9e-8d2f-4cf5208f41a3/127.0.0.1:21177
+A new session connected!
+2017-08-24 15:17:15,692 [4620] INFO  SyncService-54267293 - Session: d71fe1ec-02bd-43d8-9d97-08df9374fcb3/127.0.0.1:21205
+A new session connected!
+2017-08-24 15:17:24,127 [28668] INFO  SyncService-54267293 - Session: d71fe1ec-02bd-43d8-9d97-08df9374fcb3/127.0.0.1:21205
+This session was closed for ClientClosing!
+2017-08-24 15:17:30,124 [28668] INFO  SyncService-54267293 - Session: be2b279c-6f52-4e9e-8d2f-4cf5208f41a3/127.0.0.1:21177
+This session was closed for ClientClosing!
+2017-08-24 15:37:14,628 [33620] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 15:37:21,011 [35724] INFO  SyncService-54267293 - Session: a8811d32-4b2d-418d-a7d1-b20441758252/127.0.0.1:22953
+A new session connected!
+2017-08-24 15:37:22,704 [35724] INFO  SyncService-54267293 - Session: 392e0e8e-32d8-44b9-9e18-b2b5b16b8f99/127.0.0.1:22957
+A new session connected!
+2017-08-24 15:37:58,707 [32404] INFO  SyncService-54267293 - Session: a8811d32-4b2d-418d-a7d1-b20441758252/127.0.0.1:22953
+This session was closed for ClientClosing!
+2017-08-24 15:38:00,752 [34952] INFO  SyncService-54267293 - Session: 651f5038-d848-4305-8181-e1c79bd02a64/127.0.0.1:23030
+A new session connected!
+2017-08-24 15:38:05,944 [32404] INFO  SyncService-54267293 - Session: 651f5038-d848-4305-8181-e1c79bd02a64/127.0.0.1:23030
+This session was closed for ClientClosing!
+2017-08-24 15:38:19,576 [32404] INFO  SyncService-54267293 - Session: 392e0e8e-32d8-44b9-9e18-b2b5b16b8f99/127.0.0.1:22957
+This session was closed for ClientClosing!
+2017-08-24 15:38:24,220 [35172] INFO  SyncService-54267293 - Session: a3d6e71d-74a7-477b-bbab-b2b394aaa7ef/127.0.0.1:23068
+A new session connected!
+2017-08-24 15:38:25,707 [33612] INFO  SyncService-54267293 - Session: 15edcaae-186f-4a3d-beef-cca39580aa7f/127.0.0.1:23072
+A new session connected!
+2017-08-24 15:38:29,870 [32404] INFO  SyncService-54267293 - Session: a3d6e71d-74a7-477b-bbab-b2b394aaa7ef/127.0.0.1:23068
+This session was closed for ClientClosing!
+2017-08-24 15:38:30,820 [32404] INFO  SyncService-54267293 - Session: 15edcaae-186f-4a3d-beef-cca39580aa7f/127.0.0.1:23072
+This session was closed for ClientClosing!
+2017-08-24 15:38:38,134 [27064] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 15:38:48,341 [32488] INFO  SyncService-54267293 - Session: 7a64032a-a708-4b13-9361-76b9f0d7f42f/127.0.0.1:23103
+A new session connected!
+2017-08-24 15:38:51,313 [32488] INFO  SyncService-54267293 - Session: cac80e9d-4cc6-4734-8793-496f98f72e4d/127.0.0.1:23110
+A new session connected!
+2017-08-24 15:39:27,652 [33996] INFO  SyncService-54267293 - Session: 7a64032a-a708-4b13-9361-76b9f0d7f42f/127.0.0.1:23103
+This session was closed for ClientClosing!
+2017-08-24 15:39:30,628 [33996] INFO  SyncService-54267293 - Session: cac80e9d-4cc6-4734-8793-496f98f72e4d/127.0.0.1:23110
+This session was closed for ClientClosing!
+2017-08-24 15:39:35,724 [24280] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 15:39:40,204 [34188] INFO  SyncService-54267293 - Session: 161d3da2-ca6f-4c82-a936-635806d624bf/127.0.0.1:23170
+A new session connected!
+2017-08-24 15:39:41,047 [34188] INFO  SyncService-54267293 - Session: dbcd2096-c3da-49f2-b152-9fcdf0e94368/127.0.0.1:23174
+A new session connected!
+2017-08-24 15:40:12,861 [35216] INFO  SyncService-54267293 - Session: 161d3da2-ca6f-4c82-a936-635806d624bf/127.0.0.1:23170
+This session was closed for ClientClosing!
+2017-08-24 15:40:14,059 [35216] INFO  SyncService-54267293 - Session: dbcd2096-c3da-49f2-b152-9fcdf0e94368/127.0.0.1:23174
+This session was closed for ClientClosing!
+2017-08-24 15:41:23,221 [34684] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 15:41:27,957 [36020] INFO  SyncService-54267293 - Session: 34758b57-290a-4a5e-83df-0fa8e9984970/127.0.0.1:23398
+A new session connected!
+2017-08-24 15:41:28,832 [37600] INFO  SyncService-54267293 - Session: 8dd4c8b5-0263-4ef9-8eb5-f0fc543c6d42/127.0.0.1:23401
+A new session connected!
+2017-08-24 15:42:18,605 [36888] INFO  SyncService-54267293 - Session: 34758b57-290a-4a5e-83df-0fa8e9984970/127.0.0.1:23398
+This session was closed for ClientClosing!
+2017-08-24 15:42:19,760 [37604] INFO  SyncService-54267293 - Session: 8dd4c8b5-0263-4ef9-8eb5-f0fc543c6d42/127.0.0.1:23401
+This session was closed for ClientClosing!
+2017-08-24 15:42:42,578 [37608] INFO  SyncService-54267293 - Session: 9945af34-2514-4fe0-9bfc-51686105fde0/127.0.0.1:23489
+A new session connected!
+2017-08-24 15:42:43,250 [37608] INFO  SyncService-54267293 - Session: dbcbbf21-5fcf-4788-b8d0-081c103680d6/127.0.0.1:23492
+A new session connected!
+2017-08-24 15:42:58,109 [36888] INFO  SyncService-54267293 - Session: dbcbbf21-5fcf-4788-b8d0-081c103680d6/127.0.0.1:23492
+This session was closed for ClientClosing!
+2017-08-24 15:43:03,324 [34340] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 16:33:27,909 [41696] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 16:33:36,117 [39800] INFO  SyncService-54267293 - Session: f0272eb6-643c-49d3-9b0a-a1ba2780c349/127.0.0.1:27921
+A new session connected!
+2017-08-24 16:33:40,251 [41980] INFO  SyncService-54267293 - Session: f0272eb6-643c-49d3-9b0a-a1ba2780c349/127.0.0.1:27921
+This session was closed for ClientClosing!
+2017-08-24 16:36:05,225 [40996] INFO  SyncService-54267293 - Session: fe11f11e-ad86-444a-8601-3a5a4ff686e8/127.0.0.1:28127
+A new session connected!
+2017-08-24 16:36:08,462 [41980] INFO  SyncService-54267293 - Session: fe11f11e-ad86-444a-8601-3a5a4ff686e8/127.0.0.1:28127
+This session was closed for ClientClosing!
+2017-08-24 16:36:46,472 [40428] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 16:36:56,829 [41792] INFO  SyncService-54267293 - Session: 394c85bc-e52b-44c3-8d2c-b3e056065ee0/127.0.0.1:28200
+A new session connected!
+2017-08-24 16:36:59,815 [37052] INFO  SyncService-54267293 - Session: 394c85bc-e52b-44c3-8d2c-b3e056065ee0/127.0.0.1:28200
+This session was closed for ClientClosing!
+2017-08-24 16:37:17,704 [41792] INFO  SyncService-54267293 - Session: 8284b4be-d5d7-4c00-986c-e69550747802/127.0.0.1:28256
+A new session connected!
+2017-08-24 16:39:37,142 [39948] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 16:39:44,211 [34592] INFO  SyncService-54267293 - Session: dab9c1e0-1b58-4e3f-b256-473b21e1cd3c/127.0.0.1:28463
+A new session connected!
+2017-08-24 16:40:00,882 [19680] INFO  SyncService-54267293 - Session: dab9c1e0-1b58-4e3f-b256-473b21e1cd3c/127.0.0.1:28463
+This session was closed for ClientClosing!
+2017-08-24 16:40:24,148 [36484] INFO  SyncService-54267293 - Session: 00d46a5d-bf5d-4e5f-bba5-3deb6483471c/127.0.0.1:28513
+A new session connected!
+2017-08-24 16:40:34,699 [19680] INFO  SyncService-54267293 - Session: 00d46a5d-bf5d-4e5f-bba5-3deb6483471c/127.0.0.1:28513
+This session was closed for ClientClosing!
+2017-08-24 16:51:14,496 [38064] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 16:51:18,934 [11120] INFO  SyncService-54267293 - Session: d6d41cea-bb2a-4d83-80af-7c31b79a1d77/127.0.0.1:29295
+A new session connected!
+2017-08-24 16:55:28,534 [19980] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 16:55:39,848 [41560] INFO  SyncService-54267293 - Session: d9f01001-a59c-4418-a9e5-e9d456bda85c/127.0.0.1:29607
+A new session connected!
+2017-08-24 16:55:57,755 [34880] INFO  SyncService-54267293 - Session: d9f01001-a59c-4418-a9e5-e9d456bda85c/127.0.0.1:29607
+This session was closed for ClientClosing!
+2017-08-24 16:57:54,336 [41164] INFO  SyncService-54267293 - Session: 1ed0fe30-80ec-4bb5-8533-18393a342982/127.0.0.1:29777
+A new session connected!
+2017-08-24 16:58:21,414 [34880] INFO  SyncService-54267293 - Session: 1ed0fe30-80ec-4bb5-8533-18393a342982/127.0.0.1:29777
+This session was closed for ClientClosing!
+2017-08-24 16:58:56,853 [41164] INFO  SyncService-54267293 - Session: 048095c5-fcca-46cd-8013-fd67c774fc0f/127.0.0.1:29861
+A new session connected!
+2017-08-24 16:59:33,986 [34880] INFO  SyncService-54267293 - Session: 048095c5-fcca-46cd-8013-fd67c774fc0f/127.0.0.1:29861
+This session was closed for ClientClosing!
+2017-08-24 17:32:49,891 [45396] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 17:32:55,782 [45800] INFO  SyncService-54267293 - Session: ba3f9ef9-aadd-4996-8983-b809cf258da4/127.0.0.1:32587
+A new session connected!
+2017-08-24 17:33:14,112 [42892] INFO  SyncService-54267293 - Session: ba3f9ef9-aadd-4996-8983-b809cf258da4/127.0.0.1:32587
+This session was closed for ClientClosing!
+2017-08-24 17:34:55,439 [45364] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 17:35:02,226 [43160] INFO  SyncService-54267293 - Session: 1aea0004-9742-4a41-8fea-260a42aef191/127.0.0.1:32739
+A new session connected!
+2017-08-24 17:35:04,379 [41260] INFO  SyncService-54267293 - Session: 1aea0004-9742-4a41-8fea-260a42aef191/127.0.0.1:32739
+This session was closed for ClientClosing!
+2017-08-24 17:35:55,433 [43120] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 17:36:00,023 [48704] INFO  SyncService-54267293 - Session: ebd017f2-f392-4241-ac84-b219f363a7f7/127.0.0.1:32897
+A new session connected!
+2017-08-24 17:36:57,121 [47568] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 17:37:01,728 [42080] INFO  SyncService-54267293 - Session: 554453ee-520a-4286-b952-a6b78c01324e/127.0.0.1:32972
+A new session connected!
+2017-08-24 17:37:23,264 [48068] INFO  SyncService-54267293 - Session: 554453ee-520a-4286-b952-a6b78c01324e/127.0.0.1:32972
+This session was closed for ClientClosing!
+2017-08-24 17:38:10,684 [33948] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 17:38:14,288 [44344] INFO  SyncService-54267293 - Session: 9c6ff15b-96fb-43b4-b6bd-b7bea7d52693/127.0.0.1:33105
+A new session connected!
+2017-08-24 17:38:17,197 [49132] INFO  SyncService-54267293 - Session: 9c6ff15b-96fb-43b4-b6bd-b7bea7d52693/127.0.0.1:33105
+This session was closed for ClientClosing!
+2017-08-24 17:40:12,175 [40204] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 17:40:16,138 [46180] INFO  SyncService-54267293 - Session: eedccdfc-a891-4683-b351-cb9291c1fe7b/127.0.0.1:33243
+A new session connected!
+2017-08-24 17:41:23,507 [46264] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 17:41:27,389 [45076] INFO  SyncService-54267293 - Session: 3a479c56-a791-41b3-9fd0-4d2b507f091e/127.0.0.1:33331
+A new session connected!
+2017-08-24 17:43:46,670 [45464] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 17:43:50,808 [47776] INFO  SyncService-54267293 - Session: caa1bcec-8c70-4f33-8fb2-771cca688b43/127.0.0.1:33511
+A new session connected!
+2017-08-24 17:43:57,523 [42420] INFO  SyncService-54267293 - Session: caa1bcec-8c70-4f33-8fb2-771cca688b43/127.0.0.1:33511
+This session was closed for ClientClosing!
+2017-08-24 17:44:27,250 [47776] INFO  SyncService-54267293 - Session: f4738fbc-e252-4d3e-80d7-26a8014d0db5/127.0.0.1:33557
+A new session connected!
+2017-08-24 17:44:42,417 [42420] INFO  SyncService-54267293 - Session: f4738fbc-e252-4d3e-80d7-26a8014d0db5/127.0.0.1:33557
+This session was closed for ClientClosing!
+2017-08-24 17:45:56,967 [34064] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 17:46:00,500 [47144] INFO  SyncService-54267293 - Session: 5899f49b-c712-45f1-a621-54bae3a3982b/127.0.0.1:33672
+A new session connected!
+2017-08-24 17:46:24,935 [49692] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 17:46:29,894 [45860] INFO  SyncService-54267293 - Session: d636193f-99da-483f-a849-e38b071f0b87/127.0.0.1:33813
+A new session connected!
+2017-08-24 17:49:31,687 [37836] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 17:49:35,201 [44636] INFO  SyncService-54267293 - Session: c910a52b-de9f-466d-a654-d9a28af4aa66/127.0.0.1:34070
+A new session connected!
+2017-08-24 17:49:35,389 [31680] INFO  SyncService-54267293 - Session: c910a52b-de9f-466d-a654-d9a28af4aa66/127.0.0.1:34070
+This session was closed for ApplicationError!
+2017-08-24 17:51:00,722 [49164] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 17:51:04,288 [42188] INFO  SyncService-54267293 - Session: 3f5b2d2a-f79a-4b75-ba4c-f0a5f6ce17cc/127.0.0.1:34182
+A new session connected!
+2017-08-24 17:52:38,949 [43676] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 17:52:45,035 [51104] INFO  SyncService-54267293 - Session: e5dc96c7-aaed-4d87-84ef-8406108e5545/127.0.0.1:34298
+A new session connected!
+2017-08-24 17:55:23,656 [33692] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 17:55:23,759 [46540] INFO  SyncService-54267293 - Session: a799d408-1717-46c3-aec0-0a0e6983d01c/127.0.0.1:34612
+A new session connected!
+2017-08-24 17:55:47,738 [46640] INFO  SyncService-54267293 - Session: a799d408-1717-46c3-aec0-0a0e6983d01c/127.0.0.1:34612
+This session was closed for ClientClosing!
+2017-08-24 17:57:21,116 [50240] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 17:57:30,075 [46576] INFO  SyncService-54267293 - Session: 677413e5-99f5-4970-83fd-6af297768d24/127.0.0.1:34786
+A new session connected!
+2017-08-24 17:58:10,772 [47372] INFO  SyncService-54267293 - Session: 677413e5-99f5-4970-83fd-6af297768d24/127.0.0.1:34786
+This session was closed for ClientClosing!
+2017-08-24 18:00:43,505 [48032] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 18:00:48,674 [50344] INFO  SyncService-54267293 - Session: 03d2cc24-f2a1-44da-ac2c-9f5bcd4b071c/127.0.0.1:35111
+A new session connected!
+2017-08-24 18:01:16,233 [16656] INFO  SyncService-54267293 - Session: 03d2cc24-f2a1-44da-ac2c-9f5bcd4b071c/127.0.0.1:35111
+This session was closed for ClientClosing!
+2017-08-24 18:01:31,916 [46220] INFO  SyncService-54267293 - Session: 26dad5fa-3b9d-4e39-b0e4-867da79312b4/127.0.0.1:35202
+A new session connected!
+2017-08-24 18:02:49,045 [33120] INFO  SyncService-54267293 - Session: 26dad5fa-3b9d-4e39-b0e4-867da79312b4/127.0.0.1:35202
+This session was closed for ClientClosing!
+2017-08-24 18:03:23,839 [46220] INFO  SyncService-54267293 - Session: e77f79e7-e499-4e3e-b890-43e530350f90/127.0.0.1:35330
+A new session connected!
+2017-08-24 18:04:53,104 [16656] INFO  SyncService-54267293 - Session: e77f79e7-e499-4e3e-b890-43e530350f90/127.0.0.1:35330
+This session was closed for ClientClosing!
+2017-08-24 18:07:19,580 [46220] INFO  SyncService-54267293 - Session: 5402c3aa-93b3-4704-8915-6b1ffbff7fea/127.0.0.1:35610
+A new session connected!
+2017-08-24 18:08:24,455 [16656] INFO  SyncService-54267293 - Session: 5402c3aa-93b3-4704-8915-6b1ffbff7fea/127.0.0.1:35610
+This session was closed for ClientClosing!
+2017-08-24 18:09:15,183 [46220] INFO  SyncService-54267293 - Session: 2519efb3-a1cc-4f87-976e-92c17d821090/127.0.0.1:35773
+A new session connected!
+2017-08-24 18:10:37,991 [16656] INFO  SyncService-54267293 - Session: 2519efb3-a1cc-4f87-976e-92c17d821090/127.0.0.1:35773
+This session was closed for SocketError!
+2017-08-24 18:10:52,569 [46788] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 18:10:56,268 [46376] INFO  SyncService-54267293 - Session: a6e1f1c6-d5a1-46a3-85a8-4d213d019c93/127.0.0.1:35888
+A new session connected!
+2017-08-24 18:11:55,894 [46104] INFO  SyncService-54267293 - Session: a6e1f1c6-d5a1-46a3-85a8-4d213d019c93/127.0.0.1:35888
+This session was closed for ClientClosing!
+2017-08-24 18:13:27,315 [35656] INFO  SyncService-54267293 - Session: cffe47a5-9b3d-484d-afa6-91029370098e/127.0.0.1:36061
+A new session connected!
+2017-08-24 18:14:19,079 [46104] INFO  SyncService-54267293 - Session: cffe47a5-9b3d-484d-afa6-91029370098e/127.0.0.1:36061
+This session was closed for ClientClosing!
+2017-08-24 18:15:44,674 [35656] INFO  SyncService-54267293 - Session: 5fc59de0-0e4d-4a6d-a353-b2735d94c7f3/127.0.0.1:36247
+A new session connected!
+2017-08-24 18:15:57,336 [46104] INFO  SyncService-54267293 - Session: 5fc59de0-0e4d-4a6d-a353-b2735d94c7f3/127.0.0.1:36247
+This session was closed for ClientClosing!
+2017-08-24 18:16:42,175 [35656] INFO  SyncService-54267293 - Session: 29604782-9ca3-4ddf-a824-c284895aefa7/127.0.0.1:36428
+A new session connected!
+2017-08-24 18:16:43,617 [35656] INFO  SyncService-54267293 - Session: 1a96d2d9-1d2c-41d7-bfd7-437bf1d1c77a/127.0.0.1:36432
+A new session connected!
+2017-08-24 18:16:47,355 [46104] INFO  SyncService-54267293 - Session: 29604782-9ca3-4ddf-a824-c284895aefa7/127.0.0.1:36428
+This session was closed for ClientClosing!
+2017-08-24 18:16:58,895 [46104] INFO  SyncService-54267293 - Session: 1a96d2d9-1d2c-41d7-bfd7-437bf1d1c77a/127.0.0.1:36432
+This session was closed for ClientClosing!
+2017-08-24 18:17:35,775 [35656] INFO  SyncService-54267293 - Session: 25237660-2f8f-437c-bbea-7e397312f413/127.0.0.1:36533
+A new session connected!
+2017-08-24 18:17:36,524 [35656] INFO  SyncService-54267293 - Session: d35e690d-6440-4c46-a216-f88db1fafe38/127.0.0.1:36538
+A new session connected!
+2017-08-24 18:18:36,430 [46104] INFO  SyncService-54267293 - Session: 25237660-2f8f-437c-bbea-7e397312f413/127.0.0.1:36533
+This session was closed for ClientClosing!
+2017-08-24 18:18:37,257 [46104] INFO  SyncService-54267293 - Session: d35e690d-6440-4c46-a216-f88db1fafe38/127.0.0.1:36538
+This session was closed for ClientClosing!
+2017-08-24 18:20:50,289 [46520] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 18:20:55,017 [40008] INFO  SyncService-54267293 - Session: debc72ea-500e-415f-8060-9d82b1861ab4/127.0.0.1:36884
+A new session connected!
+2017-08-24 18:21:01,479 [40008] INFO  SyncService-54267293 - Session: e48508d5-c3be-4362-ae22-8ab73b399f20/127.0.0.1:36894
+A new session connected!
+2017-08-24 18:21:53,197 [45468] INFO  SyncService-54267293 - Session: debc72ea-500e-415f-8060-9d82b1861ab4/127.0.0.1:36884
+This session was closed for ClientClosing!
+2017-08-24 18:21:54,128 [45468] INFO  SyncService-54267293 - Session: e48508d5-c3be-4362-ae22-8ab73b399f20/127.0.0.1:36894
+This session was closed for ClientClosing!
+2017-08-24 18:40:06,544 [49216] INFO  SyncService-54267293 - The server instance SyncService-54267293 has been started!
+2017-08-24 18:40:11,239 [52328] INFO  SyncService-54267293 - Session: f4f52337-0972-493d-b496-586fec51ed16/127.0.0.1:38619
+A new session connected!
+2017-08-24 18:40:12,202 [52328] INFO  SyncService-54267293 - Session: e30bf788-92cf-451a-bdea-4a7ad9103baf/127.0.0.1:38622
+A new session connected!
+2017-08-24 18:41:53,768 [53144] INFO  SyncService-54267293 - Session: f4f52337-0972-493d-b496-586fec51ed16/127.0.0.1:38619
+This session was closed for ClientClosing!
+2017-08-24 18:41:55,236 [50792] INFO  SyncService-54267293 - Session: e30bf788-92cf-451a-bdea-4a7ad9103baf/127.0.0.1:38622
+This session was closed for ClientClosing!

@@ -292,10 +292,16 @@ namespace Protocol
 
             int methodIndex = bytes.ReadUShort(); //方法名
 
-            msg.Key = m_methodNameInfo[methodIndex];
-            int re_len = bytes.Length - 5;
-            msg.m_data = AnalysisData(msg.Key, bytes.ReadBytes(re_len));
-
+            try
+            {
+                msg.Key = m_methodNameInfo[methodIndex];
+                int re_len = bytes.Length - 5;
+                msg.m_data = AnalysisData(msg.Key, bytes.ReadBytes(re_len));
+            }
+            catch(Exception e)
+            {
+                Debug.LogError("methodIndex:" + methodIndex + " Ex:" + e.ToString() );
+            }
 
             return msg;
         }
