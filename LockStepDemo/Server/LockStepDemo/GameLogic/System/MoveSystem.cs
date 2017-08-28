@@ -16,9 +16,9 @@ public class MoveSystem : SystemBase
 
     void UpdateMove(MoveComponent comp,int deltaTime)
     {
-        comp.pos.x += comp.dir.x * deltaTime * comp.m_velocity / 1000;
-        comp.pos.y += comp.dir.y * deltaTime * comp.m_velocity / 1000;
-        comp.pos.z += comp.dir.z * deltaTime * comp.m_velocity / 1000;
+        comp.pos.x += comp.dir.x * deltaTime * comp.m_velocity / (1000 * 1000);
+        comp.pos.y += comp.dir.y * deltaTime * comp.m_velocity / (1000 * 1000);
+        comp.pos.z += comp.dir.z * deltaTime * comp.m_velocity / (1000 * 1000);
 
         if (SyncDebugSystem.isDebug)
             Debug.Log("id: " + comp.Entity.ID + " m_pos " + comp.pos.ToVector() + " deltaTime " + deltaTime + " m_velocity " + comp.m_velocity + " m_dir " + comp.dir.ToVector());

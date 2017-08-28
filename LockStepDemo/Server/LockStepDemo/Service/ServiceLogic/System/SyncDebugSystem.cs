@@ -10,6 +10,7 @@ using System.Text;
 
 class SyncDebugSystem : SystemBase
 {
+    public static bool isDebug = false;
     public override Type[] GetFilter()
     {
         return new Type[] {
@@ -19,6 +20,10 @@ class SyncDebugSystem : SystemBase
 
     public override void NoRecalcLateFixedUpdate(int deltaTime)
     {
+        if(!isDebug)
+        {
+            return;
+        }
         Debug.Log("SyncDebugSystem " + m_world.FrameCount);
 
         DebugMsg msg = new DebugMsg();

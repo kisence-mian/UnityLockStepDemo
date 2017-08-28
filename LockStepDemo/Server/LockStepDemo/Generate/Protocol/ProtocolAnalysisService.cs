@@ -140,6 +140,7 @@ public static class ProtocolAnalysisService
 				data2.Add("z", msg.skillDir.z);
 				data.Add("skilldir",data2);
 			}
+		data.Add("isfire", msg.isFire);
 		data.Add("id", msg.id);
 		data.Add("frame", msg.frame);
 		session.SendMsg("commandcomponent",data);
@@ -289,6 +290,7 @@ public static class ProtocolAnalysisService
 			tmp2.z = (int)data2["z"];
 			msg.skillDir = tmp2;
 		}
+		msg.isFire = (bool)e.m_data["isfire"];
 		msg.id = (int)e.m_data["id"];
 		msg.frame = (int)e.m_data["frame"];
 		

@@ -10,11 +10,16 @@ class DemoWorld : WorldBase
     public override Type[] GetSystemTypes()
     {
         return new Type[] {
+            typeof(CollisionSystem),
             typeof(InitSystem),
             typeof(MoveSystem),
             typeof(OperationSystem),
             typeof(FireSystem),
             typeof(SkillStatusSystem),
+            typeof(SkillSystem),
+            typeof(LifeSpanSystem),
+            typeof(CollisionSystem),
+            typeof(CollisionDamageSystem),
 
             typeof(ConnectSystem),
             typeof(ServiceSyncSystem),

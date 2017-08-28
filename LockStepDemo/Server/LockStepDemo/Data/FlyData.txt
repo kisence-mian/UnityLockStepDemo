@@ -1,0 +1,13 @@
+ID	ModelName	HitFXCreatPoint	HitEffect	Speed	Radius	LiveTime	CollisionTrigger	TriggerSkill	AcrossEnemy	HitSFX
+type	String	Enum|HardPointEnum	String	Float	Float	Float	Bool	String	Bool	String
+note				飞行速度	碰撞半径	存活时间	是否进行碰撞检测	碰撞后释放技能	穿透敌人	
+default	AssMFX_DuBiao_fly_00	chest	AssMFX_DuBiao_hit_00	30	0.2	5	TRUE	null	FALSE	null
+att1999Fly	EFX_atk_01	chest	EFX_atk_02	4	0.2	1.2	TRUE	null	FALSE	null
+att2000Fly	EFX_fire_01_1	chest	EFX_fire_01_3	4	0.3	1.2	TRUE	null	FALSE	null
+att2001Fly	EFX_water_01_1	chest	EFX_water_01_3	3.8	0.15	1.35	TRUE	null	FALSE	null
+att2003Fly	EFX_soil_01_1	chest	EFX_soil_01_3	2	0.25	2	FALSE	null	TRUE	null
+att2101Fly	EFX_soil_01_1	chest	EFX_soil_01_3	4.5	0.15	1	TRUE	3000	FALSE	null
+att2102Fly		chest								
+att2103Fly		chest								
+att2104Fly		chest								
+att2105Fly		chest								

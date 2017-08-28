@@ -42,7 +42,6 @@ namespace LockStepDemo.Service.Game
                         ConnectionComponent cp = list[i].GetComp<ConnectionComponent>();
                         if(cp != commandComp)
                         {
-                            Debug.Log("Push player Command");
                             ProtocolAnalysisService.SendMsg(cp.m_session, msg);
                         } 
                     }

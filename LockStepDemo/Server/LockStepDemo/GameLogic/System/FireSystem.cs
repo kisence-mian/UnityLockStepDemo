@@ -39,6 +39,7 @@ public class FireSystem : ViewSystemBase
                 string skillID = "2000";
 
                 ssc.m_skillTime = 0;
+                ssc.m_isTriggerSkill = false;
                 ssc.m_skillStstus = SkillStatusEnum.Before;
                 ssc.m_currentSkillData = ssc.GetSkillData(skillID);
                 ssc.m_currentSkillData.UpdateInfo();

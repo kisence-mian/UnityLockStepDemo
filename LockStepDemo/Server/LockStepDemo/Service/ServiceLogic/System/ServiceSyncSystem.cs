@@ -17,6 +17,7 @@ namespace LockStepDemo.ServiceLogic.System
         public override void Init()
         {
             AddEntityCreaterLisnter();
+            AddEntityDestroyLisnter();
 
             AddEntityCompAddLisenter();
             AddEntityCompRemoveLisenter();
@@ -83,6 +84,8 @@ namespace LockStepDemo.ServiceLogic.System
 
         public override void OnEntityDestroy(EntityBase entity)
         {
+            Debug.Log("OnEntityDestroy ");
+
             if (entity.GetExistComp<SyncComponent>())
             {
                 SyncComponent sc = entity.GetComp<SyncComponent>();

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using LockStepDemo.ServiceLogic;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public class InitSystem : SystemBase
     public override void OnEntityCreate(EntityBase entity)
     {
         //服务器这里要改成判断connection组件进来
-        if(entity.GetExistComp<SelfComponent>() && entity.GetExistComp<TheirComponent>())
+        if(entity.GetExistComp<ConnectionComponent>())
         {
             PlayerJoin(entity);
         }
@@ -40,6 +41,12 @@ public class InitSystem : SystemBase
             entity.AddComp(c);
         }
 
+        if (!entity.GetExistComp<MoveComponent>())
+        {
+            MoveComponent c = new MoveComponent();
+            entity.AddComp(c);
+        }
+
         if (!entity.GetExistComp<PlayerComponent>())
         {
             PlayerComponent c = new PlayerComponent();
@@ -49,6 +56,12 @@ public class InitSystem : SystemBase
         if (!entity.GetExistComp<SkillStatusComponent>())
         {
             SkillStatusComponent c = new SkillStatusComponent();
+
+            DataTable data = DataManager.GetData("SkillData");
+            for (int i = 0; i < data.TableIDs.Count; i++)
+            {
+                c.m_skillList.Add(new SkillData(data.TableIDs[i], i));
+            }
             entity.AddComp(c);
         }
 
@@ -62,6 +75,28 @@ public class InitSystem : SystemBase
         {
             MoveComponent c = new MoveComponent();
             entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<CampComponent>())
+        {
+            CampComponent c = new CampComponent();
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<CollisionComponent>())
+        {
+            CollisionComponent c = new CollisionComponent();
+            c.area.areaType = AreaType.Circle;
+            c.area.radius = 1;
+            entity.AddComp(c);
+        }
+
+        //预测一个输入
+        //TODO 放在框架中
+        if (entity.GetExistComp<ConnectionComponent>())
+        {
+            ConnectionComponent cc = entity.GetComp<ConnectionComponent>();
+            cc.m_lastInputCache = new CommandComponent();
         }
     }
 }

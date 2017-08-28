@@ -16,3 +16,5 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClas
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\obj\Debug\Tool_GenerateDataClass.pdb
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\bin\Debug\Data\SkillData.txt
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\bin\Debug\Data\SkillStatusData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\bin\Debug\Data\AreaData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\bin\Debug\Data\FlyData.txt

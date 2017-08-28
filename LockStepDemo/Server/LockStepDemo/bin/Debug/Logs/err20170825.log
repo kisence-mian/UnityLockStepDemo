@@ -1,0 +1,7 @@
+﻿2017-08-25 16:36:53,982 [416] ERROR SyncService-54267293 - UpdateWorld Exception：System.InvalidOperationException: 集合已修改；可能无法执行枚举操作。
+   在 System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   在 System.Collections.Generic.Dictionary`2.Enumerator.MoveNext()
+   在 SyncDebugSystem.NoRecalcLateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\SyncDebugSystem.cs:行号 36
+   在 WorldBase.NoRecalcLateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 250
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 172
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66

@@ -31,7 +31,7 @@ public class OperationSystem : SystemBase
 
             if (com.moveDir.ToVector() != Vector3.zero)
             {
-                move.m_velocity = 5;
+                move.m_velocity = 5 * 1000;
             }
             else
             {

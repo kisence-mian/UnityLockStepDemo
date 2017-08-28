@@ -1,7 +1,60 @@
-﻿2017-08-25 16:36:53,982 [416] ERROR SyncService-54267293 - UpdateWorld Exception：System.InvalidOperationException: 集合已修改；可能无法执行枚举操作。
-   在 System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
-   在 System.Collections.Generic.Dictionary`2.Enumerator.MoveNext()
-   在 SyncDebugSystem.NoRecalcLateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\SyncDebugSystem.cs:行号 36
-   在 WorldBase.NoRecalcLateFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 250
-   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 172
+﻿2017-08-28 16:03:13,492 [31692] ERROR SyncService-54267293 - UpdateWorld Exception：System.Exception: DestroyEntity Exception: Entity ID has not exist ! ->0<-
+   在 WorldBase.DestroyEntity(Int32 ID) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 375
+   在 LifeSpanSystem.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\GameLogic\System\LifeSpanSystem.cs:行号 28
+   在 WorldBase.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 236
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 170
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-28 16:03:13,496 [31692] ERROR SyncService-54267293 - UpdateWorld Exception：System.Exception: DestroyEntity Exception: Entity ID has not exist ! ->0<-
+   在 WorldBase.DestroyEntity(Int32 ID) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 375
+   在 LifeSpanSystem.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\GameLogic\System\LifeSpanSystem.cs:行号 28
+   在 WorldBase.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 236
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 170
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-28 16:03:13,695 [31692] ERROR SyncService-54267293 - UpdateWorld Exception：System.Exception: DestroyEntity Exception: Entity ID has not exist ! ->0<-
+   在 WorldBase.DestroyEntity(Int32 ID) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 375
+   在 LifeSpanSystem.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\GameLogic\System\LifeSpanSystem.cs:行号 28
+   在 WorldBase.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 236
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 170
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-28 16:03:13,896 [31692] ERROR SyncService-54267293 - UpdateWorld Exception：System.Exception: DestroyEntity Exception: Entity ID has not exist ! ->0<-
+   在 WorldBase.DestroyEntity(Int32 ID) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 375
+   在 LifeSpanSystem.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\GameLogic\System\LifeSpanSystem.cs:行号 28
+   在 WorldBase.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 236
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 170
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-28 16:03:14,096 [31692] ERROR SyncService-54267293 - UpdateWorld Exception：System.Exception: DestroyEntity Exception: Entity ID has not exist ! ->0<-
+   在 WorldBase.DestroyEntity(Int32 ID) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 375
+   在 LifeSpanSystem.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\GameLogic\System\LifeSpanSystem.cs:行号 28
+   在 WorldBase.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 236
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 170
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-28 16:03:14,302 [31692] ERROR SyncService-54267293 - UpdateWorld Exception：System.Exception: DestroyEntity Exception: Entity ID has not exist ! ->0<-
+   在 WorldBase.DestroyEntity(Int32 ID) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 375
+   在 LifeSpanSystem.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\GameLogic\System\LifeSpanSystem.cs:行号 28
+   在 WorldBase.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 236
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 170
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-28 16:03:14,496 [31692] ERROR SyncService-54267293 - UpdateWorld Exception：System.Exception: DestroyEntity Exception: Entity ID has not exist ! ->0<-
+   在 WorldBase.DestroyEntity(Int32 ID) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 375
+   在 LifeSpanSystem.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\GameLogic\System\LifeSpanSystem.cs:行号 28
+   在 WorldBase.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 236
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 170
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-28 16:03:14,697 [31692] ERROR SyncService-54267293 - UpdateWorld Exception：System.Exception: DestroyEntity Exception: Entity ID has not exist ! ->0<-
+   在 WorldBase.DestroyEntity(Int32 ID) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 375
+   在 LifeSpanSystem.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\GameLogic\System\LifeSpanSystem.cs:行号 28
+   在 WorldBase.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 236
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 170
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-28 16:03:14,899 [31692] ERROR SyncService-54267293 - UpdateWorld Exception：System.Exception: DestroyEntity Exception: Entity ID has not exist ! ->0<-
+   在 WorldBase.DestroyEntity(Int32 ID) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 375
+   在 LifeSpanSystem.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\GameLogic\System\LifeSpanSystem.cs:行号 28
+   在 WorldBase.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 236
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 170
+   在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-08-28 16:03:15,101 [31692] ERROR SyncService-54267293 - UpdateWorld Exception：System.Exception: DestroyEntity Exception: Entity ID has not exist ! ->0<-
+   在 WorldBase.DestroyEntity(Int32 ID) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 375
+   在 LifeSpanSystem.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\GameLogic\System\LifeSpanSystem.cs:行号 28
+   在 WorldBase.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 236
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 170
    在 LockStepDemo.Service.UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66

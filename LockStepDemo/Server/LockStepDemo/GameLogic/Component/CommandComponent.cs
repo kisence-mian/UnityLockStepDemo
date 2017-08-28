@@ -18,16 +18,16 @@ public class CommandComponent : PlayerCommandBase
         cc.id = id;
         cc.frame = frame;
 
-        cc.isFire = isFire;
-        cc.moveDir = moveDir.DeepCopy();
-        cc.skillDir = skillDir.DeepCopy();
+        cc.isFire    = isFire;
+        cc.moveDir   = moveDir.DeepCopy();
+        cc.skillDir  = skillDir.DeepCopy();
 
         return cc;
     }
 
     public override bool EqualsCmd(PlayerCommandBase cmd)
     {
-        if (!(cmd is CommandComponent))
+        if(!(cmd is CommandComponent))
         {
             return false;
         }

@@ -161,7 +161,8 @@ public class WorldBase
 
             FrameCount++;
 
-            Debug.Log("Begin FixedLoop " + FrameCount + "------------");
+            if(SyncDebugSystem.isDebug)
+                Debug.Log("Begin FixedLoop " + FrameCount + "------------");
 
             NoRecalcBeforeFixedUpdate(deltaTime);
 
@@ -171,7 +172,8 @@ public class WorldBase
 
             NoRecalcLateFixedUpdate(deltaTime);
 
-            Debug.Log("End FixedLoop " + FrameCount + "------------");
+            if (SyncDebugSystem.isDebug)
+                Debug.Log("End FixedLoop " + FrameCount + "------------");
         }
     }
 
@@ -361,6 +363,20 @@ public class WorldBase
         }
 
         return m_entityDict[ID];
+    }
+
+    public void ClientDestroyEntity(int ID)
+    {
+        if (m_isView && m_syncRule == SyncRule.Status)
+        {
+            //状态同步下本地创建的对象才立即销毁
+            if (ID > 0)
+            {
+                return;
+            }
+        }
+
+        DestroyEntity(ID);
     }
 
     public void DestroyEntity(int ID)

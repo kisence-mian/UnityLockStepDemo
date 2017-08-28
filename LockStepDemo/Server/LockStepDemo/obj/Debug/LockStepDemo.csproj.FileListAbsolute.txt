@@ -39,3 +39,5 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\obj\Debu
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\obj\Debug\LockStepDemo.csprojResolveAssemblyReference.cache
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Data\SkillData.txt
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Data\SkillStatusData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Data\AreaData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Data\FlyData.txt
