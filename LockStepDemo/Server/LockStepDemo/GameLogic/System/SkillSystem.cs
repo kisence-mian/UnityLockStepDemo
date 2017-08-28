@@ -73,6 +73,10 @@ public class SkillSystem : SystemBase
                 cc.area.areaType = AreaType.Circle;
                 cc.area.radius = flyData.m_Radius;
 
+                FlyObjectComponent fc = new FlyObjectComponent();
+                fc.createrID = skiller.ID;
+                fc.damage = skillData.m_DamageValue;
+
                 m_world.CreateEntity(mc, ac, cp, lsc, cc);
 
                 Debug.Log(poss[i].m_pos.ToString());

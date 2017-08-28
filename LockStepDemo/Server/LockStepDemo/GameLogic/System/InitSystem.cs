@@ -91,6 +91,14 @@ public class InitSystem : SystemBase
             entity.AddComp(c);
         }
 
+        if (!entity.GetExistComp<LifeComponent>())
+        {
+            LifeComponent c = new LifeComponent();
+            c.maxLife = 100;
+            c.life = 100;
+            entity.AddComp(c);
+        }
+
         //预测一个输入
         //TODO 放在框架中
         if (entity.GetExistComp<ConnectionComponent>())

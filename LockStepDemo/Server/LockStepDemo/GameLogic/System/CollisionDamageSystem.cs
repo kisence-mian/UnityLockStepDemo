@@ -11,6 +11,7 @@ public class CollisionDamageSystem : SystemBase
         return new Type[] {
             typeof(CollisionComponent),
             typeof(Camp),
+            typeof(FlyObjectComponent),
         };
     }
 
@@ -31,7 +32,24 @@ public class CollisionDamageSystem : SystemBase
         if (cc.CollisionList.Count > 0)
         {
             Debug.Log("collision " + cc.CollisionList[0].ID);
+
+            for (int i = 0; i < cc.CollisionList.Count; i++)
+            {
+                if(cc.CollisionList[i].GetExistComp<LifeComponent>())
+                {
+                    FlyDamageLogic(entity, cc.CollisionList[i]);
+                }
+            }
         }
+    }
+
+    void FlyDamageLogic(EntityBase fly, EntityBase entity)
+    {
+        FlyObjectComponent fc = fly.GetComp<FlyObjectComponent>();
+        LifeComponent lc = entity.GetComp<LifeComponent>();
+
+        lc.life -= fc.damage;
+        //派发事件
     }
 }
 
