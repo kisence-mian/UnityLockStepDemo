@@ -11,6 +11,7 @@ public class OperationSystem : SystemBase
         {
             typeof(CommandComponent),
             typeof(MoveComponent),
+            typeof(PlayerComponent),
         };
     }
 
@@ -22,8 +23,11 @@ public class OperationSystem : SystemBase
         {
             CommandComponent com = list[i].GetComp<CommandComponent>();
             MoveComponent move = list[i].GetComp<MoveComponent>();
+            PlayerComponent pc = list[i].GetComp<PlayerComponent>();
 
-            move.dir = com.moveDir;
+            pc.faceDir = com.skillDir.DeepCopy();
+
+            move.dir = com.moveDir.DeepCopy();
 
             if (com.moveDir.ToVector() != Vector3.zero)
             {

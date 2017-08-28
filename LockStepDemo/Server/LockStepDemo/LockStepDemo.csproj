@@ -113,7 +113,10 @@
     <Compile Include="GameLogic\Component\PlayerComponent.cs" />
     <Compile Include="GameLogic\Component\SkillStatusComponent.cs" />
     <Compile Include="GameLogic\Module\SkillData.cs" />
+    <Compile Include="GameLogic\Module\statement.cs" />
     <Compile Include="GameLogic\System\FireSystem.cs" />
+    <Compile Include="Generate\Data\SkillDataGenerate.cs" />
+    <Compile Include="Generate\Data\SkillStatusDataGenerate.cs" />
     <Compile Include="Service\Calc\Calc.cs" />
     <Compile Include="Service\ServiceLogic\Component\SyncComponent.cs" />
     <Compile Include="GameLogic\Component\ViewComponent.cs" />

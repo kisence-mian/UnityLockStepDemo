@@ -1,5 +1,4 @@
-﻿using LockStepDemo.ServiceLogic;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +13,7 @@ public class InitSystem : SystemBase
     public override void OnEntityCreate(EntityBase entity)
     {
         //服务器这里要改成判断connection组件进来
-        if (entity.GetExistComp<ConnectionComponent>())
+        if(entity.GetExistComp<SelfComponent>() && entity.GetExistComp<TheirComponent>())
         {
             PlayerJoin(entity);
         }
@@ -22,9 +21,7 @@ public class InitSystem : SystemBase
 
     public void PlayerJoin(EntityBase entity)
     {
-        Debug.Log("InitSystem PlayerJoin");
-
-        if (!entity.GetExistComp<CommandComponent>())
+        if(!entity.GetExistComp<CommandComponent>())
         {
             CommandComponent c = new CommandComponent();
             entity.AddComp(c);
@@ -40,12 +37,6 @@ public class InitSystem : SystemBase
         {
             AssetComponent c = new AssetComponent();
             c.m_assetName = "male_01";
-            entity.AddComp(c);
-        }
-
-        if (!entity.GetExistComp<MoveComponent>())
-        {
-            MoveComponent c = new MoveComponent();
             entity.AddComp(c);
         }
 
@@ -67,12 +58,10 @@ public class InitSystem : SystemBase
             entity.AddComp(c);
         }
 
-        //预测一个输入
-        //TODO 放在框架中
-        if (entity.GetExistComp<ConnectionComponent>())
+        if (!entity.GetExistComp<MoveComponent>())
         {
-            ConnectionComponent cc = entity.GetComp<ConnectionComponent>();
-            cc.m_lastInputCache = new CommandComponent(); 
+            MoveComponent c = new MoveComponent();
+            entity.AddComp(c);
         }
     }
 }

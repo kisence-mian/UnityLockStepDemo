@@ -9,7 +9,7 @@ public class CommandComponent : PlayerCommandBase
     public SyncVector3 moveDir = new SyncVector3();
     public SyncVector3 skillDir = new SyncVector3();
 
-    //public bool isFire;
+    public bool isFire = false;
 
     public override PlayerCommandBase DeepCopy()
     {
@@ -18,16 +18,16 @@ public class CommandComponent : PlayerCommandBase
         cc.id = id;
         cc.frame = frame;
 
-        //cc.isFire    = isFire;
-        cc.moveDir   = moveDir.DeepCopy();
-        cc.skillDir  = skillDir.DeepCopy();
+        cc.isFire = isFire;
+        cc.moveDir = moveDir.DeepCopy();
+        cc.skillDir = skillDir.DeepCopy();
 
         return cc;
     }
 
     public override bool EqualsCmd(PlayerCommandBase cmd)
     {
-        if(!(cmd is CommandComponent))
+        if (!(cmd is CommandComponent))
         {
             return false;
         }
@@ -40,8 +40,8 @@ public class CommandComponent : PlayerCommandBase
         if (frame != cc.frame)
             return false;
 
-        //if (isFire != cc.isFire)
-        //    return false;
+        if (isFire != cc.isFire)
+            return false;
 
         if (!moveDir.Equals(cc.moveDir))
             return false;

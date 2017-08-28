@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using UnityEngine;
 
 public class FireSystem : ViewSystemBase
 {
@@ -11,6 +11,7 @@ public class FireSystem : ViewSystemBase
         return new Type[] {
                 typeof(CDComponent),
                 typeof(CommandComponent),
+                typeof(SkillStatusComponent),
             };
     }
 
@@ -22,20 +23,26 @@ public class FireSystem : ViewSystemBase
         {
             CommandComponent cc = list[i].GetComp<CommandComponent>();
             CDComponent cdc = list[i].GetComp<CDComponent>();
+            SkillStatusComponent ssc = list[i].GetComp<SkillStatusComponent>();
 
-            //if (cc.isFire)
-            //{
-            //    ViewComponent vc = new ViewComponent();
-            //    AssetComponent ac = new AssetComponent();
-            //    ac.m_assetName = "Sphere";
+            cdc.CD -= deltaTime;
 
-            //    MoveComponent mc = new MoveComponent();
+            if (cc.skillDir.ToVector() != Vector3.zero
+                && cc.isFire
+                && cdc.CD <= 0)
+            {
+                cdc.CD = 2 * 1000;
 
-            //    mc.m_dirx = 1;
-            //    mc.m_velocity = 1;
+                Debug.Log("FIRE!!!");
 
-            //    m_world.CreateEntity(vc, ac, mc);
-            //}
+                //FIRE!!!
+                string skillID = "2000";
+
+                ssc.m_skillTime = 0;
+                ssc.m_skillStstus = SkillStatusEnum.Before;
+                ssc.m_currentSkillData = ssc.GetSkillData(skillID);
+                ssc.m_currentSkillData.UpdateInfo();
+            }
         }
     }
 }

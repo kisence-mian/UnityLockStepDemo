@@ -14,11 +14,12 @@ class DemoWorld : WorldBase
             typeof(MoveSystem),
             typeof(OperationSystem),
             typeof(FireSystem),
+            typeof(SkillStatusSystem),
 
             typeof(ConnectSystem),
             typeof(ServiceSyncSystem),
             typeof(PlayerInputSystem<CommandComponent>),
-                        typeof(SyncDebugSystem),
+            typeof(SyncDebugSystem),
         };
     }
 }
