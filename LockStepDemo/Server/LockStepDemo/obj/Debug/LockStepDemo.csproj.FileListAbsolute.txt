@@ -41,3 +41,4 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debu
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Data\SkillStatusData.txt
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Data\AreaData.txt
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Data\FlyData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Map\mapData.txt

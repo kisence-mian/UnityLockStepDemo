@@ -77,7 +77,7 @@ public class SkillSystem : SystemBase
                 fc.createrID = skiller.ID;
                 fc.damage = skillData.m_DamageValue;
 
-                m_world.CreateEntity(mc, ac, cp, lsc, cc);
+                m_world.CreateEntity(mc, ac, cp, lsc, cc, fc);
 
                 Debug.Log(poss[i].m_pos.ToString());
             }

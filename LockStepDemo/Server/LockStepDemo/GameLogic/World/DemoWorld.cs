@@ -11,7 +11,6 @@ class DemoWorld : WorldBase
     {
         return new Type[] {
             typeof(CollisionSystem),
-            typeof(InitSystem),
             typeof(MoveSystem),
             typeof(OperationSystem),
             typeof(FireSystem),
@@ -20,6 +19,7 @@ class DemoWorld : WorldBase
             typeof(LifeSpanSystem),
             typeof(CollisionSystem),
             typeof(CollisionDamageSystem),
+            typeof(InitSystem),
 
             typeof(ConnectSystem),
             typeof(ServiceSyncSystem),

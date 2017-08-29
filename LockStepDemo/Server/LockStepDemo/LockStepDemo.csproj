@@ -112,10 +112,12 @@
     <Compile Include="GameLogic\Component\CollisionComponent.cs" />
     <Compile Include="GameLogic\Component\CommandComponent.cs" />
     <Compile Include="GameLogic\Component\InputComponent.cs" />
+    <Compile Include="GameLogic\Component\LifeComponent.cs" />
     <Compile Include="GameLogic\Component\LifeSpanComponent.cs" />
     <Compile Include="GameLogic\Component\MoveComponent.cs" />
     <Compile Include="GameLogic\Component\PlayerComponent.cs" />
     <Compile Include="GameLogic\Component\SkillStatusComponent.cs" />
+    <Compile Include="GameLogic\FlyObjectComponent.cs" />
     <Compile Include="GameLogic\Module\Calculate.cs" />
     <Compile Include="GameLogic\Module\SkillData.cs" />
     <Compile Include="GameLogic\Module\statement.cs" />
@@ -130,6 +132,7 @@
     <Compile Include="Generate\Data\SkillDataGenerate.cs" />
     <Compile Include="Generate\Data\SkillStatusDataGenerate.cs" />
     <Compile Include="Service\Calc\Calc.cs" />
+    <Compile Include="Service\Event\ECSEvent.cs" />
     <Compile Include="Service\ServiceLogic\Component\SyncComponent.cs" />
     <Compile Include="GameLogic\Component\ViewComponent.cs" />
     <Compile Include="Service\ServiceLogic\System\SyncDebugSystem.cs" />
@@ -181,6 +184,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\SkillStatusData.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Map\mapData.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Network\MethodInfo.txt">

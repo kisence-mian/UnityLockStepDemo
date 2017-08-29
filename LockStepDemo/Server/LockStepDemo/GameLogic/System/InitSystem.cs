@@ -1,4 +1,7 @@
-﻿using LockStepDemo.ServiceLogic;
+﻿using DeJson;
+using LockStepDemo;
+using LockStepDemo.ServiceLogic;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +12,8 @@ public class InitSystem : SystemBase
     {
         AddEntityCreaterLisnter();
         AddEntityDestroyLisnter();
+
+        InitMap();
     }
 
     public override void OnEntityCreate(EntityBase entity)
@@ -37,7 +42,7 @@ public class InitSystem : SystemBase
         if (!entity.GetExistComp<AssetComponent>())
         {
             AssetComponent c = new AssetComponent();
-            c.m_assetName = "male_01";
+            c.m_assetName = "famale_01";
             entity.AddComp(c);
         }
 
@@ -105,6 +110,33 @@ public class InitSystem : SystemBase
         {
             ConnectionComponent cc = entity.GetComp<ConnectionComponent>();
             cc.m_lastInputCache = new CommandComponent();
+        }
+    }
+
+    Deserializer deserializer = new Deserializer();
+    public void InitMap()
+    {
+        List<Area> list = new List<Area>();
+
+        string content = FileTool.ReadStringByFile(Environment.CurrentDirectory + "/Map/mapData.txt");
+        string[] contentArray = content.Split('\n');
+
+        for (int i = 0; i < contentArray.Length; i++)
+        {
+            if (contentArray[i] != "")
+            {
+                list.Add(deserializer.Deserialize<Area>(contentArray[i]));
+            }
+        }
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            CollisionComponent cc = new CollisionComponent();
+            cc.area = list[i];
+
+            m_world.CreateEntity(cc);
+
+            Debug.Log("Create map");
         }
     }
 }
