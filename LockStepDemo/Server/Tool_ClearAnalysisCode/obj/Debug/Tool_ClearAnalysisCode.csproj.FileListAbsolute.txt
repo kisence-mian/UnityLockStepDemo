@@ -14,3 +14,8 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCod
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\obj\Debug\Tool_ClearAnalysisCode.csprojResolveAssemblyReference.cache
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\obj\Debug\Tool_ClearAnalysisCode.exe
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\obj\Debug\Tool_ClearAnalysisCode.pdb
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\bin\Debug\Data\AreaData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\bin\Debug\Data\FlyData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\bin\Debug\Data\SkillData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\bin\Debug\Data\SkillStatusData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\bin\Debug\Map\mapData.txt

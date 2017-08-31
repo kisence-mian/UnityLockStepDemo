@@ -1,0 +1,5 @@
+{"areaType":"Rectangle","position":{"x":21.4552555,"y":0.488285065,"z":-0.373625517},"direction":{"x":0,"y":0,"z":1},"radius":0,"length":50,"Width":1,"angle":0}
+{"areaType":"Rectangle","position":{"x":8.735256,"y":0.488285065,"z":-14.1736259},"direction":{"x":1.00000012,"y":0,"z":-1.1920929E-07},"radius":0,"length":48.25,"Width":6,"angle":0}
+{"areaType":"Rectangle","position":{"x":-22.5647449,"y":0.488285065,"z":12.4263744},"direction":{"x":1.00000012,"y":0,"z":-1.1920929E-07},"radius":0,"length":50.00005,"Width":1.00000048,"angle":0}
+{"areaType":"Rectangle","position":{"x":-31.1647434,"y":0.488285065,"z":3.42637444},"direction":{"x":0,"y":0,"z":1},"radius":0,"length":50.0001,"Width":1.00000048,"angle":0}
+{"areaType":"Circle","position":{"x":-4.46474361,"y":0.488285065,"z":-20.8736248},"direction":{"x":0,"y":0,"z":1},"radius":15,"length":0,"Width":0,"angle":360}

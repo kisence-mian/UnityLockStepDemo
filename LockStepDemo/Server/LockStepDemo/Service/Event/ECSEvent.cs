@@ -7,33 +7,33 @@ public delegate void ECSEventHandle(EntityBase entity);
 
 public class ECSEvent
 {
-    private static Dictionary<Enum, ECSEventHandle> m_EventDict = new Dictionary<Enum, ECSEventHandle>();
+    private static Dictionary<string, ECSEventHandle> m_EventDict = new Dictionary<string, ECSEventHandle>();
 
-    public static void AddEvent(Enum type, ECSEventHandle handle)
+    public static void AddListener(string key, ECSEventHandle handle)
     {
-        if (m_EventDict.ContainsKey(type))
+        if (m_EventDict.ContainsKey(key))
         {
-            m_EventDict[type] += handle;
+            m_EventDict[key] += handle;
         }
         else
         {
-            m_EventDict.Add(type, handle);
+            m_EventDict.Add(key, handle);
         }
     }
 
-    public static void RemoveEvent(Enum type, ECSEventHandle handle)
+    public static void RemoveListener(string key, ECSEventHandle handle)
     {
-        if (m_EventDict.ContainsKey(type))
+        if (m_EventDict.ContainsKey(key))
         {
-            m_EventDict[type] -= handle;
+            m_EventDict[key] -= handle;
         }
     }
 
-    public static void DispatchEvent(Enum type, EntityBase entity)
+    public static void DispatchEvent(string key, EntityBase entity)
     {
-        if (m_EventDict.ContainsKey(type))
+        if (m_EventDict.ContainsKey(key))
         {
-            m_EventDict[type](entity);
+            m_EventDict[key](entity);
         }
     }
 }

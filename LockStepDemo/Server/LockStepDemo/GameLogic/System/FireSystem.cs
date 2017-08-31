@@ -36,7 +36,7 @@ public class FireSystem : ViewSystemBase
                 Debug.Log("FIRE!!!");
 
                 //FIRE!!!
-                string skillID = "2000";
+                string skillID = "2002";
 
                 ssc.m_skillTime = 0;
                 ssc.m_isTriggerSkill = false;

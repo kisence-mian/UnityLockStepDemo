@@ -19,6 +19,7 @@ public class SkillStatusComponent : MomentComponentBase
 
     public List<SkillData> m_skillList = new List<SkillData>();
 
+
     public override MomentComponentBase DeepCopy()
     {
         SkillStatusComponent sc = new SkillStatusComponent();
@@ -29,8 +30,12 @@ public class SkillStatusComponent : MomentComponentBase
 
         sc.m_isHit = m_isHit;
         sc.m_isEnter = m_isEnter;
+        sc.m_isTriggerSkill = m_isTriggerSkill;
 
-        sc.m_currentSkillData = m_currentSkillData.DeepCopy();
+        if (m_currentSkillData != null)
+        {
+            sc.m_currentSkillData = m_currentSkillData.DeepCopy();
+        }
 
         for (int i = 0; i < m_skillList.Count; i++)
         {

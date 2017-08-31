@@ -92,7 +92,7 @@ public class InitSystem : SystemBase
         {
             CollisionComponent c = new CollisionComponent();
             c.area.areaType = AreaType.Circle;
-            c.area.radius = 1;
+            c.area.radius = 0.5f;
             entity.AddComp(c);
         }
 
@@ -134,7 +134,11 @@ public class InitSystem : SystemBase
             CollisionComponent cc = new CollisionComponent();
             cc.area = list[i];
 
-            m_world.CreateEntity(cc);
+            SyncComponent sc = new SyncComponent();
+
+            BlockComponent bc = new BlockComponent();
+
+            m_world.CreateEntity(cc, sc, bc);
 
             Debug.Log("Create map");
         }

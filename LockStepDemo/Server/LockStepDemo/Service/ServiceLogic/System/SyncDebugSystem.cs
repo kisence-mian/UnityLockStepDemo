@@ -10,7 +10,7 @@ using System.Text;
 
 class SyncDebugSystem : SystemBase
 {
-    public static bool isDebug = false;
+    public static bool isDebug = true;
     public override Type[] GetFilter()
     {
         return new Type[] {
@@ -24,7 +24,6 @@ class SyncDebugSystem : SystemBase
         {
             return;
         }
-        Debug.Log("SyncDebugSystem " + m_world.FrameCount);
 
         DebugMsg msg = new DebugMsg();
         msg.frame = m_world.FrameCount;
@@ -51,7 +50,7 @@ class SyncDebugSystem : SystemBase
                     if(info.m_compName == "MoveComponent" 
                         || info.m_compName == "CommandComponent")
                     {
-                        Debug.Log(".id " + einfo.id + " m_compName "+ info.m_compName + " content : " + info.content);
+                        //Debug.Log(".id " + einfo.id + " m_compName "+ info.m_compName + " content : " + info.content);
                     }
                 }
             }

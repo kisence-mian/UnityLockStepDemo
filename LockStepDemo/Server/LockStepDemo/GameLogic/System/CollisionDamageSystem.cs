@@ -51,24 +51,9 @@ public class CollisionDamageSystem : SystemBase
 
         lc.life -= fc.damage;
         //派发事件
-        ECSEvent.DispatchEvent(CharacterEventType.Damage, entity);
+        ECSEvent.DispatchEvent(GameUtils.GetEventKey(entity.ID,CharacterEventType.Damage), entity);
     }
 }
 
-public enum CharacterEventType
-{
-    Init,   //初始化
-    Move,   //移动
-    Attack, //攻击
-    Damage, //受伤
-    Recover,//恢复
-    Die,    //死亡
-    SKill,  //使用技能
-    BeBreak,//被打断
-    Resurgence, //复活
-    EnterArea,  //进入某区域
-    ExitArea,   //离开某区域
-    Destroy,
-}
 
 

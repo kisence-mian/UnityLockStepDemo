@@ -64,6 +64,24 @@ public class WorldBase
         }
     }
 
+    /// <summary>
+    /// 客户端实体ID都为负数
+    /// </summary>
+    int m_clientEntityIndex = -1;
+
+    public int ClientEntityIndex
+    {
+        get
+        {
+            return m_clientEntityIndex;
+        }
+
+        set
+        {
+            m_clientEntityIndex = value;
+        }
+    }
+
     public List<SystemBase> m_systemList = new List<SystemBase>();                 //世界里所有的System集合
 
     public Dictionary<int, EntityBase> m_entityDict = new Dictionary<int, EntityBase>(); //世界里所有的entity集合
@@ -161,8 +179,8 @@ public class WorldBase
 
             FrameCount++;
 
-            if(SyncDebugSystem.isDebug)
-                Debug.Log("Begin FixedLoop " + FrameCount + "------------");
+            //if(SyncDebugSystem.isDebug)
+            //    Debug.Log("Begin FixedLoop " + FrameCount + "------------");
 
             NoRecalcBeforeFixedUpdate(deltaTime);
 
@@ -172,8 +190,8 @@ public class WorldBase
 
             NoRecalcLateFixedUpdate(deltaTime);
 
-            if (SyncDebugSystem.isDebug)
-                Debug.Log("End FixedLoop " + FrameCount + "------------");
+            //if (SyncDebugSystem.isDebug)
+            //    Debug.Log("End FixedLoop " + FrameCount + "------------");
         }
     }
 
@@ -307,6 +325,20 @@ public class WorldBase
 
         CreateEntity(EntityIndex++, comps);
     }
+    /// <summary>
+    /// 客户端创建的实体,不影响同步
+    /// </summary>
+    /// <param name="comps"></param>
+    public void CreateClientEntity(params ComponentBase[] comps)
+    {
+        //状态同步本地不创建实体
+        if (m_isView && m_syncRule == SyncRule.Status)
+        {
+            return;
+        }
+
+        CreateEntity(ClientEntityIndex--, comps);
+    }
 
     /// <summary>
     /// 使用指定的实体ID创建实体，不建议直接使用
@@ -315,8 +347,6 @@ public class WorldBase
     /// <returns></returns>
     public EntityBase CreateEntity(int ID, params ComponentBase[] compList)
     {
-        Debug.Log("CreateEntity " + ID);
-
         if (m_entityDict.ContainsKey(ID))
         {
             throw new Exception("CreateEntity Exception: Entity ID has exist ! ->" + ID + "<-");
@@ -330,10 +360,6 @@ public class WorldBase
         m_entityList.Add(entity);
         m_entityDict.Add(ID, entity);
 
-        entity.OnComponentAdded += DispatchCompAdd;
-        entity.OnComponentRemoved += DispatchCompRemove;
-        entity.OnComponentReplaced += DispatchCompChange;
-
         if (compList != null)
         {
             for (int i = 0; i < compList.Length; i++)
@@ -341,6 +367,10 @@ public class WorldBase
                 entity.AddComp(compList[i].GetType().Name, compList[i]);
             }
         }
+
+        entity.OnComponentAdded += OnEntityComponentAdded;
+        entity.OnComponentRemoved += OnEntityComponentRemoved;
+        entity.OnComponentReplaced += OnEntityComponentChange;
 
         if (OnEntityCreated != null)
         {

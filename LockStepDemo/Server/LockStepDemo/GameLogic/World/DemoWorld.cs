@@ -20,6 +20,7 @@ class DemoWorld : WorldBase
             typeof(CollisionSystem),
             typeof(CollisionDamageSystem),
             typeof(InitSystem),
+            typeof(BlowFlySystem),
 
             typeof(ConnectSystem),
             typeof(ServiceSyncSystem),

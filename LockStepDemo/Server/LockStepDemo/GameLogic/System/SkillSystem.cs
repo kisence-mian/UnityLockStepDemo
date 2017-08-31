@@ -19,6 +19,7 @@ public class SkillSystem : SystemBase
     public override void FixedUpdate(int deltaTime)
     {
         List<EntityBase> list = GetEntityList();
+
         for (int i = 0; i < list.Count; i++)
         {
             SkillLogic(list[i], deltaTime);
@@ -32,12 +33,29 @@ public class SkillSystem : SystemBase
 
         if (ssc.m_isHit)
         {
-            SkillDataGenerate skillData = ssc.m_currentSkillData.m_skillInfo;
-            Debug.Log("isHit");
-            //获取伤害列表
+            SkillDataGenerate skillData = ssc.m_currentSkillData.SkillInfo;
 
+            //TODO 技能代处理
+
+
+            //获取伤害列表
+            List<EntityBase> damageList = GetSkillDamageList(entity, skillData);
             //创建飞行物
             CreateFlyObject(skillData, entity);
+
+            for (int i = 0; i < damageList.Count; i++)
+            {
+                //伤害处理
+                Damage(entity, damageList[i], skillData);
+
+                //击飞处理
+                BlowFly(entity, damageList[i], skillData);
+
+                //伤害Buff处理
+                DamageBuff(entity, damageList[i], skillData);
+            }
+
+            //TODO 恢复
         }
     }
 
@@ -76,10 +94,9 @@ public class SkillSystem : SystemBase
                 FlyObjectComponent fc = new FlyObjectComponent();
                 fc.createrID = skiller.ID;
                 fc.damage = skillData.m_DamageValue;
+                fc.flyObjectID = skillData.m_FlyObjectName[i];
 
                 m_world.CreateEntity(mc, ac, cp, lsc, cc, fc);
-
-                Debug.Log(poss[i].m_pos.ToString());
             }
         }
     }
@@ -188,6 +205,90 @@ public class SkillSystem : SystemBase
 
     #endregion
 
+    #region 击飞处理
+
+    public void BlowFly(EntityBase skiller, EntityBase hurter, SkillDataGenerate skillData)
+    {
+        MoveComponent amc = skiller.GetComp<MoveComponent>();
+        MoveComponent bmc = hurter.GetComp<MoveComponent>();
+        PlayerComponent apc = skiller.GetComp<PlayerComponent>();
+
+        string blowFlyID = skillData.m_BlowFlyID;
+
+        if (blowFlyID != "null")
+        {
+            //击飞处理
+            if (hurter.GetExistComp<BlowFlyComponent>())
+            {
+                BlowFlyComponent bfc = hurter.GetComp<BlowFlyComponent>();
+                bfc.blowFlyID = blowFlyID;
+                bfc.blowTime = (int)(bfc.BlowData.m_Time * 1000);
+                bfc.SetBlowFly(amc.pos.ToVector(), bmc.pos.ToVector(), apc.faceDir.ToVector());
+            }
+        }
+    }
+
+    #endregion
+
+    #region 技能伤害
+
+    public void Damage(EntityBase skiller, EntityBase hurter, SkillDataGenerate skillData)
+    {
+        bool isCrit = false;
+        bool isDisrupting = false;
+        int damageNumber = DamageValueFormula(skillData, skiller, hurter, out isCrit, out isDisrupting);
+
+        if (damageNumber == 0)
+        {
+            return;
+        }
+
+        Debug.Log("Damage!");
+
+        //TODO 吸血
+        Absorb(damageNumber, skiller, skillData);
+
+        //伤害处理
+        LifeComponent lc = hurter.GetComp<LifeComponent>();
+        lc.life -= damageNumber;
+
+        ECSEvent.DispatchEvent(GameUtils.GetEventKey(hurter.ID, CharacterEventType.Damage), hurter);
+    }
+
+    void Absorb(int damageNumber, EntityBase character, SkillDataGenerate skillData)
+    {
+        //if (character.m_Property.m_HpAbsorb > 0)
+        //{
+        //    int AbsorbNumber = (int)((float)damageNumber * (float)character.m_Property.m_HpAbsorb / 10000f);
+
+        //    RecoverCmd rcmd = HeapObjectPool<RecoverCmd>.GetObject();
+        //    rcmd.SetData(time + SyncService.SyncAheadTime, character.m_characterID, character.m_characterID, skillID, null, AbsorbNumber, false);
+        //    CommandRouteService.SendSyncCommand(rcmd);
+        //}
+    }
+
+    #endregion
+
+    #region Buff处理
+
+    void DamageBuff(EntityBase skiller, EntityBase hurter, SkillDataGenerate skillData)
+    {
+        if (skillData.m_HurtBuff.Length > 0)
+        {
+            for (int i = 0; i < skillData.m_HurtBuff.Length; i++)
+            {
+                //TODO 添加BUFF
+
+                //AddBuffCmd acmd = HeapObjectPool<AddBuffCmd>.GetObject();
+                //acmd.SetData(time + SyncService.SyncAheadTime, hurter.m_characterID, skiller.m_characterID, data.m_HurtBuff[i], skillID);
+
+                //CommandRouteService.SendSyncCommand(acmd);
+            }
+        }
+    }
+
+    #endregion
+
     #region 范围拓展方法
 
     public static Area UpdatSkillArea(Area area, SkillDataGenerate skillData, EntityBase skiller, EntityBase aim = null)
@@ -248,6 +349,7 @@ public class SkillSystem : SystemBase
         if (aim != null)
         {
             MoveComponent amc = aim.GetComp<MoveComponent>();
+
             switch (areaData.m_SkewDirection)
             {
                 case DirectionEnum.Forward: l_dir = pc.faceDir.ToVector(); break;
@@ -262,18 +364,47 @@ public class SkillSystem : SystemBase
 
     #endregion
 
+    #region 获取对象
+
+    Area skillAreaCache = new Area();
+    List<EntityBase> GetSkillDamageList(EntityBase entity, SkillDataGenerate skillData)
+    {
+        List<EntityBase> result = new List<EntityBase>();
+        List<EntityBase> list = GetEntityList(new string[] { "CollisionComponent", "LifeComponent","CampComponent" });
+
+        UpdateArea(skillAreaCache, skillData.m_EffectArea, entity);
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            CollisionComponent bcc = list[i].GetComp<CollisionComponent>();
+            CampComponent cc = list[i].GetComp<CampComponent>();
+
+            if (skillAreaCache.AreaCollideSucceed(bcc.area)
+                && entity.ID != list[i].ID)
+            {
+                result.Add(list[i]);
+            }
+        }
+
+        return result;
+    }
+
+    #endregion
+
+    #region 伤害公式
+
+    int DamageValueFormula(SkillDataGenerate skillData, EntityBase attacker, EntityBase hurter, out bool isCrit, out bool isDisrupting)
+    {
+        isCrit = false;
+        isDisrupting = false;
+        return skillData.m_DamageValue;
+    }
+
+    #endregion
+
     struct CreatPostionInfo
     {
         public Vector3 m_pos;
         public Vector3 m_dir;
     }
-
-}
-
-public enum DirectionEnum
-{
-    Forward, //施法者前方
-    Backward,//施法者后方
-    Leave,//受击者远离施法者方向
-    Close,//受击者靠近施法者方向
 }
