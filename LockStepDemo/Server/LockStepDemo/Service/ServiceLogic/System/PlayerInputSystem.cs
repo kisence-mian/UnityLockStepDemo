@@ -1,36 +1,32 @@
-﻿using LockStepDemo.GameLogic.System;
-using LockStepDemo.ServiceLogic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace LockStepDemo.Service.ServiceLogic.System
+
+public class PlayerInputSystem<T> : ServiceSystem where T : PlayerCommandBase, new()
 {
-    class PlayerInputSystem<T> :ServiceSystem where T: PlayerCommandBase,new()
+    public override Type[] GetFilter()
     {
-        public override Type[] GetFilter()
-        {
-            return new Type[] {
+        return new Type[] {
                 typeof(T),
                 typeof(ConnectionComponent),
             };
-        }
+    }
 
-        public override void NoRecalcBeforeFixedUpdate(int deltaTime)
+    public override void NoRecalcBeforeFixedUpdate(int deltaTime)
+    {
+        List<EntityBase> list = GetEntityList();
+
+        for (int i = 0; i < list.Count; i++)
         {
-            List<EntityBase> list = GetEntityList();
+            ConnectionComponent comp = list[i].GetComp<ConnectionComponent>();
 
-            for (int i = 0; i < list.Count; i++)
+            if (comp.m_commandList.Count > 0)
             {
-                ConnectionComponent comp = list[i].GetComp<ConnectionComponent>();
+                T cmd = (T)comp.GetCommand(m_world.FrameCount);
+                cmd.id = list[i].ID;
+                cmd.frame = m_world.FrameCount;
 
-                if(comp.m_commandList.Count > 0)
-                {
-                    T cmd = (T)comp.GetCommand(m_world.FrameCount);
-                    cmd.id = list[i].ID;
-                    cmd.frame = m_world.FrameCount;
-
-                    list[i].ChangeComp(cmd);
-                }
+                list[i].ChangeComp(cmd);
             }
         }
     }

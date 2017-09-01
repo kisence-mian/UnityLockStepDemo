@@ -3,27 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LockStepDemo.Service
+
+public static class WorldManager
 {
-    public static class WorldManager
+    static List<WorldBase> s_worldList = new List<WorldBase>();
+
+    public static List<WorldBase> WorldList { get => s_worldList; set => s_worldList = value; }
+
+    public static WorldBase CreateWorld<T>() where T : WorldBase, new()
     {
-        static List<WorldBase> s_worldList = new List<WorldBase>();
+        T world = new T();
+        world.Init(false);
 
-        public static List<WorldBase> WorldList { get => s_worldList; set => s_worldList = value; }
+        s_worldList.Add(world);
 
-        public static WorldBase CreateWorld<T>() where T:WorldBase ,new()
-        {
-            T world = new T();
-            world.Init(false);
+        return world;
+    }
 
-            s_worldList.Add(world);
-
-            return world;
-        }
-
-        public static void DestroyWorld(WorldBase world)
-        {
-            s_worldList.Remove(world);
-        }
+    public static void DestroyWorld(WorldBase world)
+    {
+        s_worldList.Remove(world);
     }
 }

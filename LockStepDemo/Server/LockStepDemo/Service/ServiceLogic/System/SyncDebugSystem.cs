@@ -1,6 +1,4 @@
 ﻿using DeJson;
-using LockStepDemo.Service.ServiceLogic.Component;
-using LockStepDemo.ServiceLogic;
 using Protocol;
 using System;
 using System.Collections.Generic;
@@ -11,6 +9,11 @@ using System.Text;
 class SyncDebugSystem : SystemBase
 {
     public static bool isDebug = true;
+
+    public static string[] DebugFilter = new string[] { "SkillStatusComponent" };
+
+    public static string syncLog = "";
+
     public override Type[] GetFilter()
     {
         return new Type[] {
@@ -64,6 +67,24 @@ class SyncDebugSystem : SystemBase
             ConnectionComponent cc = list[i].GetComp<ConnectionComponent>();
             ProtocolAnalysisService.SendMsg(cc.m_session, msg);
         }
+    }
+
+    public static bool IsFilter(string compName)
+    {
+        if (DebugFilter.Length == 0)
+        {
+            return true;
+        }
+
+        for (int i = 0; i < DebugFilter.Length; i++)
+        {
+            if (DebugFilter[i] == compName)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
 

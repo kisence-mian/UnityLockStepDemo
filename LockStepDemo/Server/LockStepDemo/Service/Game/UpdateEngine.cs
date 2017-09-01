@@ -4,71 +4,70 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace LockStepDemo.Service
+
+public static class UpdateEngine
 {
-    public static class UpdateEngine
+    const int Tick2ms = 10000;
+    static long s_intervalTime = Tick2ms * 200; //单位毫微秒
+
+    /// <summary>
+    ///         给外部使用的间隔时间，单位毫秒
+    /// </summary>
+
+    public static int IntervalTime
     {
-        const int Tick2ms = 10000;
-        static long s_intervalTime = Tick2ms * 200; //单位毫微秒
-
-        /// <summary>
-        ///         给外部使用的间隔时间，单位毫秒
-        /// </summary>
-
-        public static int IntervalTime {
-            get
-            {
-                return (int)(s_intervalTime / Tick2ms);
-            }
-
-            set
-            {
-                s_intervalTime = (long)value * Tick2ms;
-            }
+        get
+        {
+            return (int)(s_intervalTime / Tick2ms);
         }
 
-        public static void Init(int intervalTime) //单位ms
+        set
         {
-            s_intervalTime = Tick2ms *  intervalTime; //毫秒 转化为100毫微秒
-
-            Thread t = new Thread(UpdateLogic);
-            t.Start();
+            s_intervalTime = (long)value * Tick2ms;
         }
+    }
 
-        static void UpdateLogic()
+    public static void Init(int intervalTime) //单位ms
+    {
+        s_intervalTime = Tick2ms * intervalTime; //毫秒 转化为100毫微秒
+
+        Thread t = new Thread(UpdateLogic);
+        t.Start();
+    }
+
+    static void UpdateLogic()
+    {
+        long time = DateTime.Now.Ticks;
+        long lastTime = DateTime.Now.Ticks;
+
+        while (true)
         {
-            long time     = DateTime.Now.Ticks;
-            long lastTime = DateTime.Now.Ticks;
+            lastTime = DateTime.Now.Ticks;
 
-            while (true)
+            UpdateWorld((int)(s_intervalTime / Tick2ms));
+
+            time = DateTime.Now.Ticks;
+
+            int sleepTime = (int)((s_intervalTime - (time - lastTime)) / Tick2ms);
+
+            if (sleepTime > 0)
             {
-                lastTime = DateTime.Now.Ticks;
-
-                UpdateWorld((int)(s_intervalTime / Tick2ms));
-
-                time = DateTime.Now.Ticks;
-
-                int sleepTime = (int)((s_intervalTime - (time - lastTime)) / Tick2ms);
-
-                if(sleepTime > 0)
-                {
-                    Thread.Sleep(sleepTime);
-                }
+                Thread.Sleep(sleepTime);
             }
         }
+    }
 
-        static void UpdateWorld(int deltaTime) 
+    static void UpdateWorld(int deltaTime)
+    {
+        for (int i = 0; i < WorldManager.WorldList.Count; i++)
         {
-            for (int i = 0; i < WorldManager.WorldList.Count; i++)
+            try
             {
-                try
-                {
-                    WorldManager.WorldList[i].FixedLoop(deltaTime);
-                }
-                catch(Exception e)
-                {
-                    Debug.LogError("UpdateWorld Exception："+ e.ToString());
-                }
+                WorldManager.WorldList[i].FixedLoop(deltaTime);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("UpdateWorld Exception：" + e.ToString());
             }
         }
     }

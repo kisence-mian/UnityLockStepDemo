@@ -1,8 +1,6 @@
 ﻿using SuperSocket.SocketBase;
 using SuperSocket.SocketBase.Config;
 using Protocol;
-using LockStepDemo.ServiceLogic;
-using LockStepDemo.GameLogic.Component;
 using LockStepDemo.Service.Game;
 
 namespace LockStepDemo.Service
