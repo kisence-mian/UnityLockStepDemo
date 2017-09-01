@@ -40,8 +40,6 @@ public class SkillSystem : SystemBase
             //获取伤害列表
             List<EntityBase> damageList = GetSkillDamageList(entity, skillData);
 
-            Debug.Log("damageList " + damageList.Count);
-
             //创建飞行物
             CreateFlyObject(skillData, entity);
 
@@ -66,6 +64,8 @@ public class SkillSystem : SystemBase
     void CreateFlyObject(SkillDataGenerate skillData, EntityBase skiller)
     {
         CampComponent campComp = skiller.GetComp<CampComponent>();
+
+        Debug.Log("CreateFlyObject " + skiller.ID + "  " + campComp.creater);
 
         if (skillData.m_FlyObjectName.Length != 0)
         {
@@ -220,13 +220,19 @@ public class SkillSystem : SystemBase
 
         if (blowFlyID != "null")
         {
+            Debug.Log("BlowFly " + hurter.ID + " skillID " + skillData.m_key);
+
             //击飞处理
             if (hurter.GetExistComp<BlowFlyComponent>())
-            {
+            { 
                 BlowFlyComponent bfc = hurter.GetComp<BlowFlyComponent>();
-                bfc.blowFlyID = blowFlyID;
-                bfc.blowTime = (int)(bfc.BlowData.m_Time * 1000);
-                bfc.SetBlowFly(amc.pos.ToVector(), bmc.pos.ToVector(), assc.skillDir.ToVector());
+                if(!bfc.isBlow)
+                {
+                    bfc.isBlow = true;
+                    bfc.blowFlyID = blowFlyID;
+                    bfc.blowTime = (int)(bfc.BlowData.m_Time * 1000);
+                    bfc.SetBlowFly(amc.pos.ToVector(), bmc.pos.ToVector(), assc.skillDir.ToVector());
+                }
             }
         }
     }
@@ -246,7 +252,10 @@ public class SkillSystem : SystemBase
             return;
         }
 
-        Debug.Log("Damage!");
+        CampComponent acc = skiller.GetComp<CampComponent>();
+        CampComponent bcc = hurter.GetComp<CampComponent>();
+
+        Debug.Log("Damage == " + damageNumber + " hurter  " + hurter.ID + " acc " + acc.creater + " bcc " + bcc.creater);
 
         //TODO 吸血
         Absorb(damageNumber, skiller, skillData);
@@ -387,8 +396,6 @@ public class SkillSystem : SystemBase
             if (skillAreaCache.AreaCollideSucceed(bcc.area)
                 && acc.creater != bcampc.creater)
             {
-                Debug.Log("Damage!!");
-
                 result.Add(list[i]);
             }
         }

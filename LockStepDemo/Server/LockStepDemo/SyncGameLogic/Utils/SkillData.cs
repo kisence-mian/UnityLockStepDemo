@@ -6,7 +6,6 @@ public class SkillData
     /// <summary>
     /// 技能冷却时间
     /// </summary>
-    private float cDSpace = 0;
     private int index = 0;
     public string m_skillID;
     private float lastExecuteTime = -1; //上次执行时间，用来作为CD判断
@@ -15,11 +14,6 @@ public class SkillData
     private SkillStatusDataGenerate beforeInfo;
     private SkillStatusDataGenerate currentInfo;
     private SkillStatusDataGenerate laterInfo;
-
-    private float beforeTime;
-    private float hitTime;
-    private float currentTime;
-    private float laterTime;
 
     public SkillDataGenerate SkillInfo
     {
@@ -96,12 +90,7 @@ public class SkillData
     {
         get
         {
-            return beforeTime;
-        }
-
-        set
-        {
-            beforeTime = value;
+            return BeforeInfo.m_Time;
         }
     }
 
@@ -109,12 +98,7 @@ public class SkillData
     {
         get
         {
-            return hitTime;
-        }
-
-        set
-        {
-            hitTime = value;
+            return BeforeTime + SkillInfo.m_HitTime;
         }
     }
 
@@ -122,12 +106,7 @@ public class SkillData
     {
         get
         {
-            return currentTime;
-        }
-
-        set
-        {
-            currentTime = value;
+            return BeforeTime + CurrentInfo.m_Time;
         }
     }
 
@@ -135,12 +114,7 @@ public class SkillData
     {
         get
         {
-            return laterTime;
-        }
-
-        set
-        {
-            laterTime = value;
+            return CurrentTime + LaterInfo.m_Time;
         }
     }
 
@@ -148,12 +122,7 @@ public class SkillData
     {
         get
         {
-            return cDSpace;
-        }
-
-        set
-        {
-            cDSpace = value;
+            return SkillInfo.m_CD;
         }
     }
 
@@ -197,6 +166,17 @@ public class SkillData
 
     #region 外部调用
 
+    public SkillDataGenerate GetInfo()
+    {
+        return SkillInfo;
+    }
+
+    //开始cd
+    public void BegionCD(float lastExecuteTime)
+    {
+        LastExecuteTime = lastExecuteTime + 0.4f;
+    }
+
     /// <summary>
     /// 重置运行时数据
     /// </summary>
@@ -205,33 +185,22 @@ public class SkillData
         LastExecuteTime = -1;
     }
 
-
     #endregion
 
     public void UpdateInfo()
     {
         if (m_skillID != "" && m_skillID != "null")
         {
-
             SkillInfo = DataGenerateManager<SkillDataGenerate>.GetData(m_skillID);
             BeforeInfo = DataGenerateManager<SkillStatusDataGenerate>.GetData(SkillInfo.m_BeforeStatus);
             CurrentInfo = DataGenerateManager<SkillStatusDataGenerate>.GetData(SkillInfo.m_CurrentStatus);
             LaterInfo = DataGenerateManager<SkillStatusDataGenerate>.GetData(SkillInfo.m_LaterStatus);
-
-            BeforeTime = BeforeInfo.m_Time;
-
-            HitTime = BeforeTime + SkillInfo.m_HitTime;
-            CurrentTime = BeforeTime + CurrentInfo.m_Time;
-            LaterTime = CurrentTime + LaterInfo.m_Time;
-            CDSpace = SkillInfo.m_CD;
-
         }
     }
 
     public SkillData DeepCopy()
     {
         SkillData sd = new SkillData(m_skillID, Index);
-        sd.CDSpace = CDSpace;
 
         return sd;
     }

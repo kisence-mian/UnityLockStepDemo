@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class SkillStatusSystem : SystemBase
 {
+    public override void OnEntityCreate(EntityBase entity)
+    {
+    }
+
     public override Type[] GetFilter()
     {
         return new Type[] {
@@ -30,6 +34,8 @@ public class SkillStatusSystem : SystemBase
         if (sc.m_skillStstus != SkillStatusEnum.Finish
             && sc.m_skillStstus != SkillStatusEnum.None)
         {
+            //Debug.Log("ID: " + entity.ID + " m_skillStstus " + sc.m_skillStstus + " frame " + m_world.FrameCount + " LaterTime " + sc.m_currentSkillData.LaterTime);
+
             sc.m_skillTime += deltaTime;
 
             if (sc.m_skillTime > sc.m_currentSkillData.BeforeTime * 1000)

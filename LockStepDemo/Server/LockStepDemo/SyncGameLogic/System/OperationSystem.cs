@@ -33,7 +33,6 @@ public class OperationSystem : SystemBase
                 && !blc.isBlow)
             {
                 pc.faceDir = com.skillDir.DeepCopy();
-
                 move.dir = com.moveDir.DeepCopy();
 
                 if (com.moveDir.ToVector() != Vector3.zero)

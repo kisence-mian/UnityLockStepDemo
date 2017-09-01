@@ -92,7 +92,7 @@ public class WorldBase
 
     public Dictionary<string, SingletonComponent> m_singleCompDict = new Dictionary<string, SingletonComponent>(); //所有的单例组件集合
 
-    Stack<EntityBase> m_entitiesPool = new Stack<EntityBase>();  //TODO: 实体对象池 组件对象池
+    Stack<EntityBase> m_entitiesPool = new Stack<EntityBase>();  //TODO: 实体对象池
 
     public event EntityChangedCallBack OnEntityCreated;
     public event EntityChangedCallBack OnEntityWillBeDestroyed;
@@ -167,7 +167,7 @@ public class WorldBase
         {
             BeforeUpdate(deltaTime);
             Update(deltaTime);
-            LateUpdate(deltaTime);
+            //LateUpdate(deltaTime);
         }
     }
 
@@ -175,12 +175,17 @@ public class WorldBase
     {
         if (IsStart)
         {
+            LazyExecuteEntityOperation();
+
             Record(FrameCount);
 
             FrameCount++;
 
-            //if(SyncDebugSystem.isDebug)
-            //    Debug.Log("Begin FixedLoop " + FrameCount + "------------");
+            if (SyncDebugSystem.isDebug)
+            {
+                string content = "Begin FixedLoop " + FrameCount + "------------\n";
+                SyncDebugSystem.syncLog += content;
+            }
 
             NoRecalcBeforeFixedUpdate(deltaTime);
 
@@ -190,8 +195,11 @@ public class WorldBase
 
             NoRecalcLateFixedUpdate(deltaTime);
 
-            //if (SyncDebugSystem.isDebug)
-            //    Debug.Log("End FixedLoop " + FrameCount + "------------");
+            if (SyncDebugSystem.isDebug)
+            {
+                string content = "End FixedLoop " + FrameCount + "------------\n";
+                SyncDebugSystem.syncLog += content;
+            }
         }
     }
 
@@ -201,6 +209,8 @@ public class WorldBase
     /// <param name="deltaTime"></param>
     public void Recalc(int deltaTime)
     {
+        LazyExecuteEntityOperation();
+
         BeforeFixedUpdate(deltaTime);
         FixedUpdate(deltaTime);
         LateFixedUpdate(deltaTime);
@@ -239,7 +249,7 @@ public class WorldBase
         }
     }
 
-    void LateUpdate(int deltaTime)
+    public void LateUpdate(int deltaTime)
     {
         for (int i = 0; i < m_systemList.Count; i++)
         {
@@ -308,12 +318,36 @@ public class WorldBase
 
     public RecordSystemBase GetRecordSystemBase(string name)
     {
+        if (!m_recordDict.ContainsKey(name))
+        {
+            throw new Exception("GetRecordSystemBase error not find " + name);
+        }
+
         return m_recordDict[name];
     }
 
     #endregion
 
     #region 实体相关
+
+    List<EntityBase> createCache = new List<EntityBase>();
+    List<EntityBase> destroyCache = new List<EntityBase>();
+
+    //集中执行实体的创建删除操作
+    void LazyExecuteEntityOperation()
+    {
+        for (int i = 0; i < createCache.Count; i++)
+        {
+            AddEntity(createCache[i]);
+        }
+        createCache.Clear();
+
+        for (int i = 0; i < destroyCache.Count; i++)
+        {
+            RemoveEntity(destroyCache[i]);
+        }
+        destroyCache.Clear();
+    }
 
     public void CreateEntity(params ComponentBase[] comps)
     {
@@ -357,9 +391,6 @@ public class WorldBase
 
         entity.World = this;
 
-        m_entityList.Add(entity);
-        m_entityDict.Add(ID, entity);
-
         if (compList != null)
         {
             for (int i = 0; i < compList.Length; i++)
@@ -367,6 +398,16 @@ public class WorldBase
                 entity.AddComp(compList[i].GetType().Name, compList[i]);
             }
         }
+
+        createCache.Add(entity);
+
+        return entity;
+    }
+
+    void AddEntity(EntityBase entity)
+    {
+        m_entityList.Add(entity);
+        m_entityDict.Add(entity.ID, entity);
 
         entity.OnComponentAdded += OnEntityComponentAdded;
         entity.OnComponentRemoved += OnEntityComponentRemoved;
@@ -376,8 +417,6 @@ public class WorldBase
         {
             OnEntityCreated(entity);
         }
-
-        return entity;
     }
 
     public bool GetEntityIsExist(int ID)
@@ -418,13 +457,18 @@ public class WorldBase
 
         EntityBase entity = m_entityDict[ID];
 
+        destroyCache.Add(entity);
+    }
+
+    void RemoveEntity(EntityBase entity)
+    {
         if (OnEntityWillBeDestroyed != null)
         {
             OnEntityWillBeDestroyed(entity);
         }
 
         m_entityList.Remove(entity);
-        m_entityDict.Remove(ID);
+        m_entityDict.Remove(entity.ID);
 
         entity.OnComponentAdded -= OnEntityComponentAdded;
         entity.OnComponentRemoved -= OnEntityComponentRemoved;
@@ -486,6 +530,7 @@ public class WorldBase
         else
         {
             comp = new T();
+            comp.Init();
             m_singleCompDict.Add(key, comp);
         }
 
@@ -534,30 +579,6 @@ public class WorldBase
     #region 事件派发
 
     public delegate void EntityChangedCallBack(EntityBase entity);
-
-    public void DispatchCompAdd(EntityBase entity, string compName, ComponentBase component)
-    {
-        if (OnEntityComponentAdded != null)
-        {
-            OnEntityComponentAdded(entity, compName, component);
-        }
-    }
-
-    public void DispatchCompRemove(EntityBase entity, string compName, ComponentBase component)
-    {
-        if (OnEntityComponentRemoved != null)
-        {
-            OnEntityComponentRemoved(entity, compName, component);
-        }
-    }
-
-    public void DispatchCompChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponentt)
-    {
-        if(OnEntityComponentChange != null)
-        {
-            OnEntityComponentChange(entity, compName,previousComponent,newComponentt);
-        }
-    }
 
     #endregion
 }

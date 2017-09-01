@@ -36,7 +36,6 @@ public class FireSystem : ViewSystemBase
                 cdc.CD = 2 * 1000;
 
                 //FIRE!!! 2000 2002技能可用
-
                 Debug.Log("FIRE!!!");
                 string skillID = "2001";
 
@@ -45,7 +44,7 @@ public class FireSystem : ViewSystemBase
                 ssc.m_isTriggerSkill = false;
                 ssc.m_currentSkillData = ssc.GetSkillData(skillID);
                 ssc.m_currentSkillData.UpdateInfo();
-                ssc.skillDir = pc.faceDir.DeepCopy();
+                ssc.skillDir = cc.skillDir.DeepCopy();
             }
         }
     }

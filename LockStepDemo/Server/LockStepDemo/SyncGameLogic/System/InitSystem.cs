@@ -75,15 +75,16 @@ public class InitSystem : SystemBase
             entity.AddComp(c);
         }
 
-        if (!entity.GetExistComp<MoveComponent>())
-        {
-            MoveComponent c = new MoveComponent();
-            entity.AddComp(c);
-        }
-
         if (!entity.GetExistComp<CampComponent>())
         {
             CampComponent c = new CampComponent();
+            c.creater = entity.ID;
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<MoveComponent>())
+        {
+            MoveComponent c = new MoveComponent();
             entity.AddComp(c);
         }
 

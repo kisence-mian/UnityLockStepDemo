@@ -10,8 +10,9 @@ class DemoWorld : WorldBase
         return new Type[] {
             //逻辑层
             typeof(CollisionSystem),
-            typeof(MoveSystem),
             typeof(OperationSystem),
+            typeof(BlowFlySystem),
+            typeof(MoveSystem),
             typeof(FireSystem),
             typeof(SkillStatusSystem),
             typeof(SkillSystem),
@@ -20,8 +21,7 @@ class DemoWorld : WorldBase
             typeof(CollisionDamageSystem),
             typeof(FlyObjectCollisionSystem),
             typeof(InitSystem),
-            typeof(BlowFlySystem),
-
+            
             //服务器系统
             typeof(ConnectSystem),
             typeof(ServiceSyncSystem),

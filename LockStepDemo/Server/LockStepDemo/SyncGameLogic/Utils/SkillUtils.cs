@@ -13,14 +13,13 @@ public class SkillUtils
         CampComponent campComp = fly.GetComp<CampComponent>();
         MoveComponent mc = fly.GetComp<MoveComponent>();
 
+        Debug.Log("FlyDamageLogic " + entity.ID + " ===> " + fc.damage);
+
         lc.life -= fc.damage;
         //派发事件
         ECSEvent.DispatchEvent(GameUtils.GetEventKey(entity.ID, CharacterEventType.Damage), entity);
 
-        Debug.Log("FlyDamageLogic !" + lc.life);
-
         //释放触发技能
-
         TokenUseSkill(world,campComp.creater,fc.FlyData.m_TriggerSkill, mc.pos.ToVector(),mc.dir.ToVector());
     }
 
@@ -32,9 +31,7 @@ public class SkillUtils
             && skillID != "null" 
             && skillID != "Null")
         {
-            MoveComponent mc = new MoveComponent();
-            mc.pos.FromVector(pos);
-            mc.dir.FromVector(dir);
+
 
             SkillStatusComponent ssc = new SkillStatusComponent();
             ssc.m_skillTime = 0;
@@ -44,6 +41,16 @@ public class SkillUtils
             ssc.m_currentSkillData = ssc.GetSkillData(skillID);
             ssc.m_currentSkillData.UpdateInfo();
             ssc.skillDir.FromVector(dir);
+
+            if(ssc.m_currentSkillData.LaterTime == 0)
+            {
+                Debug.LogError("技能代 " + skillID + "的持续时间不能为 0 !");
+                return;
+            }
+
+            MoveComponent mc = new MoveComponent();
+            mc.pos.FromVector(pos);
+            mc.dir.FromVector(dir);
 
             CampComponent cc = new CampComponent();
             cc.creater = createrID;

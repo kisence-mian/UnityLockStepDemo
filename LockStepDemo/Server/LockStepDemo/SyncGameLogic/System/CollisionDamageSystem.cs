@@ -29,26 +29,24 @@ public class CollisionDamageSystem : SystemBase
     {
         CollisionComponent cc = entity.GetComp<CollisionComponent>();
         FlyObjectComponent fc = entity.GetComp<FlyObjectComponent>();
+        CampComponent acc = entity.GetComp<CampComponent>();
 
         if (cc.CollisionList.Count > 0)
         {
-            Debug.Log("collision " + entity.ID);
-
             for (int i = 0; i < cc.CollisionList.Count; i++)
             {
-                Debug.Log("碰撞 --> " + cc.CollisionList[i].ID );
-
                 if (cc.CollisionList[i].GetExistComp<LifeComponent>()
-                    && fc.createrID != cc.CollisionList[i].ID)
+                    && cc.CollisionList[i].GetExistComp<CampComponent>()
+                    && acc.creater != cc.CollisionList[i].GetComp<CampComponent>().creater)
                 {
-                    SkillUtils.FlyDamageLogic(m_world,entity, cc.CollisionList[i]);
+                    SkillUtils.FlyDamageLogic(m_world, entity, cc.CollisionList[i]);
 
                     //不能穿人销毁飞行物
-                    if(!fc.FlyData.m_AcrossEnemy)
+                    if (!fc.FlyData.m_AcrossEnemy)
                         m_world.ClientDestroyEntity(entity.ID);
                 }
 
-                if(cc.CollisionList[i].GetExistComp<BlockComponent>())
+                if (cc.CollisionList[i].GetExistComp<BlockComponent>())
                 {
                     //不能穿墙摧毁飞行物
                     if (fc.FlyData.m_CollisionTrigger)

@@ -32,6 +32,7 @@ public class SkillStatusComponent : MomentComponentBase
         sc.m_isEnter = m_isEnter;
         sc.m_isTriggerSkill = m_isTriggerSkill;
 
+        sc.skillDir = skillDir.DeepCopy();
         if (m_currentSkillData != null)
         {
             sc.m_currentSkillData = m_currentSkillData.DeepCopy();

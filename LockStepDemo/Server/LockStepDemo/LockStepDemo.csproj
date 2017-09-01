@@ -175,6 +175,7 @@
     <Compile Include="SyncGameLogic\Utils\Calculate.cs" />
     <Compile Include="SyncGameLogic\Utils\GameUtils.cs" />
     <Compile Include="SyncGameLogic\Utils\SkillData.cs" />
+    <Compile Include="SyncGameLogic\Utils\SkillUtils.cs" />
     <Compile Include="SyncGameLogic\Utils\statement.cs" />
     <Compile Include="SyncGameLogic\World\DemoWorld.cs" />
   </ItemGroup>

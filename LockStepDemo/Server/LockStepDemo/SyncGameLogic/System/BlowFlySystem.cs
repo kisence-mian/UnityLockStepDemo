@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using UnityEngine;
 
 public class BlowFlySystem : SystemBase
 {
@@ -44,6 +44,8 @@ public class BlowFlySystem : SystemBase
             {
                 bfc.isBlow = false;
             }
+
+            Debug.Log("BlowFlyLogic " + entity.ID + " blow dir : " + bfc.blowDir.ToVector() + " mc.m_velocity " + mc.m_velocity + "  bfc.blowTime " + bfc.blowTime);
         }
     }
 }

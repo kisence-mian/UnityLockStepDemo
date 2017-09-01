@@ -34,6 +34,7 @@ public class BlowFlyComponent : MomentComponentBase
     public override MomentComponentBase DeepCopy()
     {
         BlowFlyComponent mc = new BlowFlyComponent();
+        mc.isBlow = isBlow;
         mc.blowFlyID = blowFlyID;
         mc.blowTime = blowTime;
         mc.blowDir = blowDir.DeepCopy();

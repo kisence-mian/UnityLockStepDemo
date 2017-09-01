@@ -3,7 +3,7 @@ type	Enum|DirectionEnum	Float	Float	Float	Vector3
 note	方向	距离	高度	时间	残影颜色
 default	Forward	0	0	0	0|0|0
 shift01	Forward	2	0	0.2	
-shift02	Leave	0.5	0	0.25	
+shift02	Forward	5	0	0.25	
 forward_10_3_0.5	Forward	10	3	0.5	
 up01	Leave	0.1	1	0.2	
 Bqinlong	Close	4		0.2	
