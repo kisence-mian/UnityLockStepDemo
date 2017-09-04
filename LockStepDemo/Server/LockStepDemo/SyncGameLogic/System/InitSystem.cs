@@ -54,6 +54,27 @@ public class InitSystem : SystemBase
         if (!entity.GetExistComp<PlayerComponent>())
         {
             PlayerComponent c = new PlayerComponent();
+
+            ElementData e1 = new ElementData();
+            e1.id = 100;
+            e1.num = 10;
+            c.elementData.Add(e1);
+
+            ElementData e2 = new ElementData();
+            e2.id = 101;
+            e2.num = 10;
+            c.elementData.Add(e2);
+
+            ElementData e3 = new ElementData();
+            e3.id = 102;
+            e3.num = 10;
+            c.elementData.Add(e3);
+
+            ElementData e4 = new ElementData();
+            e4.id = 103;
+            e4.num = 00;
+            c.elementData.Add(e4);
+
             entity.AddComp(c);
         }
 

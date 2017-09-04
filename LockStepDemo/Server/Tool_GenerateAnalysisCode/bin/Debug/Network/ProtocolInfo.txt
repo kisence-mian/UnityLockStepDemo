@@ -91,17 +91,21 @@ message m_commandcomponent_s
 {
 	required syncvector3 movedir = 1;
 	required syncvector3 skilldir = 2;
-	required bool isfire = 3;
-	required int32 id = 4;
-	required int32 frame = 5;
+	required int32 element1 = 3;
+	required int32 element2 = 4;
+	required bool isfire = 5;
+	required int32 id = 6;
+	required int32 frame = 7;
 }
 message m_commandcomponent_c
 {
 	required syncvector3 movedir = 1;
 	required syncvector3 skilldir = 2;
-	required bool isfire = 3;
-	required int32 id = 4;
-	required int32 frame = 5;
+	required int32 element1 = 3;
+	required int32 element2 = 4;
+	required bool isfire = 5;
+	required int32 id = 6;
+	required int32 frame = 7;
 }
 
 message syncvector3

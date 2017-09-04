@@ -20,3 +20,4 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClas
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\bin\Debug\Data\FlyData.txt
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\bin\Debug\Map\mapData.txt
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\bin\Debug\Data\ShiftData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\bin\Debug\Data\CombineData.txt

@@ -35,3 +35,5 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\CSharp2Protocol\bin\D
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\CSharp2Protocol\bin\Debug\Data\SkillData.txt
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\CSharp2Protocol\bin\Debug\Data\SkillStatusData.txt
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\CSharp2Protocol\bin\Debug\Map\mapData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\CSharp2Protocol\bin\Debug\Data\CombineData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\CSharp2Protocol\bin\Debug\Data\ShiftData.txt

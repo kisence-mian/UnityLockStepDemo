@@ -218,6 +218,8 @@ public class SkillSystem : SystemBase
 
         string blowFlyID = skillData.m_BlowFlyID;
 
+        Debug.Log("BlowFly --> skill id " + skillData.m_key + "  blowfly id " + blowFlyID + " skilltoken pos " + amc.pos.ToVector() + " ");
+
         if (blowFlyID != "null")
         {
             Debug.Log("BlowFly " + hurter.ID + " skillID " + skillData.m_key);

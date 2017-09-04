@@ -28,7 +28,7 @@ public class ServiceSyncSystem : ServiceSystem
             };
     }
 
-    public override void BeforeFixedUpdate(int deltaTime)
+    public override void EndFrame(int deltaTime)
     {
         //全推送
         PushAllData();
@@ -60,7 +60,7 @@ public class ServiceSyncSystem : ServiceSystem
 
     public override void OnEntityCreate(EntityBase entity)
     {
-        Debug.Log("OnEntityCreate ");
+        Debug.Log("OnEntityCreate ID: " + entity.ID + " frame " + m_world.FrameCount);
 
         SyncComponent sc = null;
         //自动创建Sync组件
@@ -82,7 +82,7 @@ public class ServiceSyncSystem : ServiceSystem
 
     public override void OnEntityDestroy(EntityBase entity)
     {
-        Debug.Log("OnEntityDestroy ");
+        Debug.Log("OnEntityDestroy " + entity.ID + " frame " + m_world.FrameCount);
 
         if (entity.GetExistComp<SyncComponent>())
         {
@@ -187,6 +187,13 @@ public class ServiceSyncSystem : ServiceSystem
             SyncComponent sc = list[i].GetComp<SyncComponent>();
             PushSyncEnity(sc, list[i]);
         }
+
+        List<EntityBase> list2 = GetEntityList(new string[] { "ConnectionComponent" });
+        for (int i = 0; i < list2.Count; i++)
+        {
+            ConnectionComponent cc = list2[i].GetComp<ConnectionComponent>();
+            PushSyncEnity(cc, list2[i]);
+        }
     }
 
     #endregion
@@ -198,22 +205,42 @@ public class ServiceSyncSystem : ServiceSystem
         for (int i = 0; i < connectionComp.m_waitSyncList.Count; i++)
         {
             Debug.Log("Push " + connectionComp.m_waitSyncList[i].m_session.SessionID + " entity " + entity.ID);
-            PushSyncEnity(connectionComp.m_waitSyncList[i].m_session, entity);
+            //PushSyncEnity(connectionComp.m_waitSyncList[i].m_session, entity);
+
+            connectionComp.m_waitSyncList[i].m_waitSyncEntity.Add(entity);
         }
         connectionComp.m_waitSyncList.Clear();
     }
 
-    public void PushSyncEnity(SyncSession session, EntityBase entity)
+    public void PushSyncEnity(ConnectionComponent connect, EntityBase entity)
     {
-        if (!session.Connected)
+        if (!connect.m_session.Connected)
         {
             return;
         }
 
         SyncEntityMsg msg = new SyncEntityMsg();
         msg.frame = m_world.FrameCount;
-        msg.id = entity.ID;
-        msg.infos = new List<ComponentInfo>();
+        //msg.id = entity.ID;
+        msg.infos = new List<EntityInfo>();
+
+        for (int i = 0; i < connect.m_waitSyncEntity.Count; i++)
+        {
+            msg.infos.Add(CreateEntityInfo(connect.m_waitSyncEntity[i], connect.m_session));
+        }
+
+        connect.m_waitSyncEntity.Clear();
+        if(msg.infos.Count > 0)
+        {
+            ProtocolAnalysisService.SendMsg(connect.m_session, msg);
+        }
+    }
+
+    public EntityInfo CreateEntityInfo(EntityBase entity,SyncSession session)
+    {
+        EntityInfo Data = new EntityInfo();
+        Data.id = entity.ID;
+        Data.infos = new List<ComponentInfo>();
 
         foreach (var c in entity.m_compDict)
         {
@@ -224,7 +251,7 @@ public class ServiceSyncSystem : ServiceSystem
                 ComponentInfo info = new ComponentInfo();
                 info.m_compName = type.Name;
                 info.content = Serializer.Serialize(c.Value);
-                msg.infos.Add(info);
+                Data.infos.Add(info);
             }
         }
 
@@ -237,18 +264,20 @@ public class ServiceSyncSystem : ServiceSystem
                 ComponentInfo info = new ComponentInfo();
                 info.m_compName = "SelfComponent";
                 info.content = "{}";
-                msg.infos.Add(info);
+                Data.infos.Add(info);
             }
             else
             {
                 ComponentInfo info = new ComponentInfo();
                 info.m_compName = "TheirComponent";
                 info.content = "{}";
-                msg.infos.Add(info);
+                Data.infos.Add(info);
             }
         }
-        ProtocolAnalysisService.SendMsg(session, msg);
+
+        return Data;
     }
+
 
     public void PushDestroyEntity(SyncComponent connectionComp, EntityBase entity)
     {

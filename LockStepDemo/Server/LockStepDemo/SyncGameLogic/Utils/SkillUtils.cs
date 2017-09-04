@@ -27,11 +27,13 @@ public class SkillUtils
 
     public static void TokenUseSkill(WorldBase world,int createrID, string skillID, Vector3 pos, Vector3 dir)
     {
+
+        Debug.Log("TokenUseSkill pos" + pos + " frame " + world.FrameCount);
+
         if (skillID != null 
             && skillID != "null" 
             && skillID != "Null")
         {
-
 
             SkillStatusComponent ssc = new SkillStatusComponent();
             ssc.m_skillTime = 0;

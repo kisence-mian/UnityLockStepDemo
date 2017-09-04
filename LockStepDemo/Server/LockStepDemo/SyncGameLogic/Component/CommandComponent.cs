@@ -9,6 +9,9 @@ public class CommandComponent : PlayerCommandBase
     public SyncVector3 moveDir = new SyncVector3();
     public SyncVector3 skillDir = new SyncVector3();
 
+    public int element1;
+    public int element2;
+
     public bool isFire = false;
 
     public override PlayerCommandBase DeepCopy()
@@ -21,6 +24,9 @@ public class CommandComponent : PlayerCommandBase
         cc.isFire    = isFire;
         cc.moveDir   = moveDir.DeepCopy();
         cc.skillDir  = skillDir.DeepCopy();
+
+        cc.element1 = element1;
+        cc.element2 = element2;
 
         return cc;
     }

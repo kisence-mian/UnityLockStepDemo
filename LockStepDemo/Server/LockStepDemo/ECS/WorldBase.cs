@@ -82,7 +82,7 @@ public class WorldBase
         }
     }
 
-    public List<SystemBase> m_systemList = new List<SystemBase>();                 //世界里所有的System集合
+    public List<SystemBase> m_systemList = new List<SystemBase>();                 //世界里所有的System列表
 
     public Dictionary<int, EntityBase> m_entityDict = new Dictionary<int, EntityBase>(); //世界里所有的entity集合
     public List<EntityBase> m_entityList = new List<EntityBase>();                       //世界里所有的entity列表
@@ -104,6 +104,11 @@ public class WorldBase
 
     #region 重载方法
     public virtual Type[] GetSystemTypes()
+    {
+        return new Type[0];
+    }
+
+    public virtual Type[] GetRecordTypes()
     {
         return new Type[0];
     }
@@ -132,9 +137,8 @@ public class WorldBase
                 tmp.Init();
             }
 
-            //初始化RecordSystemBase
-
-            types = GetRecordSystemTypes();
+            //初始化RecordComponent
+            types = GetRecordTypes();
             for (int i = 0; i < types.Length; i++)
             {
                 Type type = typeof(RecordSystem<>);
@@ -143,6 +147,16 @@ public class WorldBase
                 RecordSystemBase tmp = (RecordSystemBase)Activator.CreateInstance(type); ;
                 m_recordList.Add(tmp);
                 m_recordDict.Add(types[i].Name, tmp);
+                tmp.m_world = this;
+                tmp.Init();
+            }
+
+            //初始化RecordSystem
+            types = GetRecordSystemTypes();
+            for (int i = 0; i < types.Length; i++)
+            {
+                RecordSystemBase tmp = (RecordSystemBase)types[i].Assembly.CreateInstance(types[i].FullName);
+                m_recordList.Add(tmp);
                 tmp.m_world = this;
                 tmp.Init();
             }
@@ -175,8 +189,6 @@ public class WorldBase
     {
         if (IsStart)
         {
-            LazyExecuteEntityOperation();
-
             Record(FrameCount);
 
             FrameCount++;
@@ -195,6 +207,10 @@ public class WorldBase
 
             NoRecalcLateFixedUpdate(deltaTime);
 
+            LazyExecuteEntityOperation();
+
+            EndFrame(deltaTime);
+
             if (SyncDebugSystem.isDebug)
             {
                 string content = "End FixedLoop " + FrameCount + "------------\n";
@@ -209,11 +225,11 @@ public class WorldBase
     /// <param name="deltaTime"></param>
     public void Recalc(int deltaTime)
     {
-        LazyExecuteEntityOperation();
-
         BeforeFixedUpdate(deltaTime);
         FixedUpdate(deltaTime);
         LateFixedUpdate(deltaTime);
+
+        LazyExecuteEntityOperation();
     }
 
     void BeforeUpdate(int deltaTime)
@@ -280,6 +296,15 @@ public class WorldBase
             m_systemList[i].NoRecalcLateFixedUpdate(deltaTime);
         }
     }
+
+    void EndFrame(int deltaTime)
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].EndFrame(deltaTime);
+        }
+    }
+
     #endregion
 
     #region 回滚相关 
@@ -349,6 +374,8 @@ public class WorldBase
         destroyCache.Clear();
     }
 
+    #region 创建
+
     public void CreateEntity(params ComponentBase[] comps)
     {
         //状态同步本地不创建实体
@@ -400,7 +427,6 @@ public class WorldBase
         }
 
         createCache.Add(entity);
-
         return entity;
     }
 
@@ -419,20 +445,9 @@ public class WorldBase
         }
     }
 
-    public bool GetEntityIsExist(int ID)
-    {
-        return m_entityDict.ContainsKey(ID);
-    }
+    #endregion
 
-    public EntityBase GetEntity(int ID)
-    {
-        if (!m_entityDict.ContainsKey(ID))
-        {
-            throw new Exception("GetEntity Exception: Entity ID has not exist ! ->" + ID + "<-");
-        }
-
-        return m_entityDict[ID];
-    }
+    #region 摧毁
 
     public void ClientDestroyEntity(int ID)
     {
@@ -480,6 +495,25 @@ public class WorldBase
         }
     }
 
+    #endregion
+
+    #region 获取对象
+
+    public bool GetEntityIsExist(int ID)
+    {
+        return m_entityDict.ContainsKey(ID);
+    }
+
+    public EntityBase GetEntity(int ID)
+    {
+        if (!m_entityDict.ContainsKey(ID))
+        {
+            throw new Exception("GetEntity Exception: Entity ID has not exist ! ->" + ID + "<-");
+        }
+
+        return m_entityDict[ID];
+    }
+
     public List<EntityBase> GetEntiyList(string[] compNames)
     {
         List<EntityBase> tupleList = new List<EntityBase>();
@@ -505,6 +539,66 @@ public class WorldBase
         }
         return true;
     }
+
+    #endregion
+
+    #region 回滚相关
+
+    /// <summary>
+    /// 创建一个实体，不派发事件
+    /// </summary>
+    /// <param name="ID"></param>
+    /// <param name="compList"></param>
+    /// <returns></returns>
+    public EntityBase CreateEntityNoDispatch(int ID, params ComponentBase[] compList)
+    {
+        if (m_entityDict.ContainsKey(ID))
+        {
+            throw new Exception("CreateEntity Exception: Entity ID has exist ! ->" + ID + "<-");
+        }
+
+        EntityBase entity = new EntityBase();
+        entity.ID = ID;
+
+        entity.World = this;
+
+        if (compList != null)
+        {
+            for (int i = 0; i < compList.Length; i++)
+            {
+                entity.AddComp(compList[i].GetType().Name, compList[i]);
+            }
+        }
+
+        m_entityList.Add(entity);
+        m_entityDict.Add(entity.ID, entity);
+
+        entity.OnComponentAdded += OnEntityComponentAdded;
+        entity.OnComponentRemoved += OnEntityComponentRemoved;
+        entity.OnComponentReplaced += OnEntityComponentChange;
+
+        return entity;
+    }
+
+    public void DestroyEntityNoDispatch(int ID)
+    {
+        if (!m_entityDict.ContainsKey(ID))
+        {
+            throw new Exception("DestroyEntity Exception: Entity ID has not exist ! ->" + ID + "<-");
+        }
+
+        EntityBase entity = m_entityDict[ID];
+
+        m_entityList.Remove(entity);
+        m_entityDict.Remove(entity.ID);
+
+        entity.OnComponentAdded -= OnEntityComponentAdded;
+        entity.OnComponentRemoved -= OnEntityComponentRemoved;
+        entity.OnComponentReplaced -= OnEntityComponentChange;
+
+    }
+
+    #endregion
 
     #endregion
 

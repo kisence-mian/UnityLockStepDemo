@@ -109,14 +109,23 @@ public static class ProtocolAnalysisService
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		data.Add("frame", msg.frame);
-		data.Add("id", msg.id);
 		{
 			List<object> list2 = new List<object>();
 			for(int i2 = 0;i2 <msg.infos.Count ; i2++)
 			{
 				Dictionary<string, object> data2 = new Dictionary<string, object>();
-				data2.Add("m_compname", msg.infos[i2].m_compName);
-				data2.Add("content", msg.infos[i2].content);
+				data2.Add("id", msg.infos[i2].id);
+				{
+					List<object> list4 = new List<object>();
+					for(int i4 = 0;i4 <msg.infos[i2].infos.Count ; i4++)
+					{
+						Dictionary<string, object> data4 = new Dictionary<string, object>();
+						data4.Add("m_compname", msg.infos[i2].infos[i4].m_compName);
+						data4.Add("content", msg.infos[i2].infos[i4].content);
+						list4.Add( data4);
+					}
+					data2.Add("infos",list4);
+				}
 				list2.Add( data2);
 			}
 			data.Add("infos",list2);
@@ -140,6 +149,8 @@ public static class ProtocolAnalysisService
 				data2.Add("z", msg.skillDir.z);
 				data.Add("skilldir",data2);
 			}
+		data.Add("element1", msg.element1);
+		data.Add("element2", msg.element2);
 		data.Add("isfire", msg.isFire);
 		data.Add("id", msg.id);
 		data.Add("frame", msg.frame);
@@ -255,15 +266,25 @@ public static class ProtocolAnalysisService
 	{
 		Protocol.SyncEntityMsg msg = new Protocol.SyncEntityMsg();
 		msg.frame = (int)e.m_data["frame"];
-		msg.id = (int)e.m_data["id"];
 		{
 			List<Dictionary<string, object>> data2 = (List<Dictionary<string, object>>)e.m_data["infos"];
-			List<Protocol.ComponentInfo> list2 = new List<Protocol.ComponentInfo>();
+			List<Protocol.EntityInfo> list2 = new List<Protocol.EntityInfo>();
 			for (int i2 = 0; i2 < data2.Count; i2++)
 			{
-				Protocol.ComponentInfo tmp2 = new Protocol.ComponentInfo();
-				tmp2.m_compName = data2[i2]["m_compname"].ToString();
-				tmp2.content = data2[i2]["content"].ToString();
+				Protocol.EntityInfo tmp2 = new Protocol.EntityInfo();
+				tmp2.id = (int)data2[i2]["id"];
+				{
+					List<Dictionary<string, object>> data4 = (List<Dictionary<string, object>>)data2[i2]["infos"];
+					List<Protocol.ComponentInfo> list4 = new List<Protocol.ComponentInfo>();
+					for (int i4 = 0; i4 < data4.Count; i4++)
+					{
+						Protocol.ComponentInfo tmp4 = new Protocol.ComponentInfo();
+						tmp4.m_compName = data4[i4]["m_compname"].ToString();
+						tmp4.content = data4[i4]["content"].ToString();
+						list4.Add(tmp4);
+					}
+					tmp2.infos =  list4;
+				}
 				list2.Add(tmp2);
 			}
 			msg.infos =  list2;
@@ -290,6 +311,8 @@ public static class ProtocolAnalysisService
 			tmp2.z = (int)data2["z"];
 			msg.skillDir = tmp2;
 		}
+		msg.element1 = (int)e.m_data["element1"];
+		msg.element2 = (int)e.m_data["element2"];
 		msg.isFire = (bool)e.m_data["isfire"];
 		msg.id = (int)e.m_data["id"];
 		msg.frame = (int)e.m_data["frame"];

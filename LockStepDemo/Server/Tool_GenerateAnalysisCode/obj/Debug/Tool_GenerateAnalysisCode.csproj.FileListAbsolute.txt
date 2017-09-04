@@ -36,3 +36,4 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateAnalysis
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateAnalysisCode\bin\Debug\Data\SkillStatusData.txt
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateAnalysisCode\bin\Debug\Map\mapData.txt
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateAnalysisCode\bin\Debug\Data\ShiftData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateAnalysisCode\bin\Debug\Data\CombineData.txt

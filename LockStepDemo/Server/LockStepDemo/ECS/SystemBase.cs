@@ -92,6 +92,11 @@ public class SystemBase
     /// </summary>
     public virtual void NoRecalcLateFixedUpdate(int deltaTime) { }
 
+    /// <summary>
+    /// 帧的最后执行
+    /// </summary>
+    /// <param name="deltaTime"></param>
+    public virtual void EndFrame(int deltaTime) { }
     #endregion
 
     #region 事件回调

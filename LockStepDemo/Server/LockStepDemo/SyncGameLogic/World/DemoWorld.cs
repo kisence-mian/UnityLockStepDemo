@@ -32,7 +32,7 @@ class DemoWorld : WorldBase
         };
     }
 
-    public override Type[] GetRecordSystemTypes()
+    public override Type[] GetRecordTypes()
     {
         return new Type[] {
 
@@ -43,6 +43,12 @@ class DemoWorld : WorldBase
             typeof(LifeComponent),
             typeof(SkillStatusComponent),
             typeof(BlowFlyComponent),
+        };
+    }
+
+    public override Type[] GetRecordSystemTypes()
+    {
+        return new Type[] {
         };
     }
 }

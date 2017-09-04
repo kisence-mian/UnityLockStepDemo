@@ -31,8 +31,7 @@ namespace Protocol
     public class SyncEntityMsg : SyncModule
     {
         public int frame;
-        public int id;
-        public List<ComponentInfo> infos;
+        public List<EntityInfo> infos;
     }
 
     public class DestroyEntityMsg : SyncModule
