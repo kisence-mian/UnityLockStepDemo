@@ -106,6 +106,17 @@ message m_commandcomponent_c
 	required int32 frame = 7;
 }
 
+message m_playerloginmsg_c
+{
+	required int32 code0 = 1;
+	required string content = 2;
+}
+
+message m_playerloginmsg_s
+{
+	required string playerid = 1;
+}
+
 message syncvector3
 {
 	required int32 x = 1;

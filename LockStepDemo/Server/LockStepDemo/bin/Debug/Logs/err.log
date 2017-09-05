@@ -1,118 +1,100 @@
-﻿2017-09-04 17:28:50,935 [19632] ERROR SyncService-54267293 - methodIndex:301 Ex:System.Exception: AnalysisData Excepiton Data is ->commandcomponent<-
-FieldName:->id<-
-FieldType:->TYPE_int32<-
-RepeatType:->RT_equired<-
-CustomType:->syncvector3<-
-System.ArgumentOutOfRangeException: 索引超出范围。必须为非负值并小于集合大小。
-参数名: index
-   在 System.ThrowHelper.ThrowArgumentOutOfRangeException()
-   在 System.Collections.Generic.List`1.get_Item(Int32 index)
-   在 Protocol.ByteArray.ReadInt32() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ByteArray.cs:行号 110
-   在 Protocol.ProtocolReceiveFilter.ReadInt32(ByteArray ba) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 477
-   在 Protocol.ProtocolReceiveFilter.AnalysisData(String MessageType, Byte[] bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 380
-   在 Protocol.ProtocolReceiveFilter.AnalysisData(String MessageType, Byte[] bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 431
-   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 299
-2017-09-04 21:12:42,274 [32952] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
-   在 ServiceSyncSystem.CreateEntityInfo(EntityBase entity, SyncSession session) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 250
-   在 ServiceSyncSystem.PushSyncEnity(ConnectionComponent connect, EntityBase entity) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 229
-   在 ServiceSyncSystem.PushAllData() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 195
-   在 ServiceSyncSystem.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 34
-   在 WorldBase.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 304
-   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 212
-   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
-2017-09-04 21:12:42,427 [32952] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
-   在 ServiceSyncSystem.CreateEntityInfo(EntityBase entity, SyncSession session) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 250
-   在 ServiceSyncSystem.PushSyncEnity(ConnectionComponent connect, EntityBase entity) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 229
-   在 ServiceSyncSystem.PushAllData() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 195
-   在 ServiceSyncSystem.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 34
-   在 WorldBase.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 304
-   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 212
-   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
-2017-09-04 21:12:42,581 [32952] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
-   在 ServiceSyncSystem.CreateEntityInfo(EntityBase entity, SyncSession session) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 250
-   在 ServiceSyncSystem.PushSyncEnity(ConnectionComponent connect, EntityBase entity) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 229
-   在 ServiceSyncSystem.PushAllData() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 195
-   在 ServiceSyncSystem.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 34
-   在 WorldBase.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 304
-   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 212
-   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
-2017-09-04 21:12:42,786 [32952] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
-   在 ServiceSyncSystem.CreateEntityInfo(EntityBase entity, SyncSession session) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 250
-   在 ServiceSyncSystem.PushSyncEnity(ConnectionComponent connect, EntityBase entity) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 229
-   在 ServiceSyncSystem.PushAllData() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 195
-   在 ServiceSyncSystem.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 34
-   在 WorldBase.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 304
-   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 212
-   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
-2017-09-04 21:12:42,985 [32952] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
-   在 ServiceSyncSystem.CreateEntityInfo(EntityBase entity, SyncSession session) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 250
-   在 ServiceSyncSystem.PushSyncEnity(ConnectionComponent connect, EntityBase entity) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 229
-   在 ServiceSyncSystem.PushAllData() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 195
-   在 ServiceSyncSystem.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 34
-   在 WorldBase.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 304
-   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 212
-   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
-2017-09-04 21:12:43,179 [32952] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
-   在 ServiceSyncSystem.CreateEntityInfo(EntityBase entity, SyncSession session) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 250
-   在 ServiceSyncSystem.PushSyncEnity(ConnectionComponent connect, EntityBase entity) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 229
-   在 ServiceSyncSystem.PushAllData() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 195
-   在 ServiceSyncSystem.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 34
-   在 WorldBase.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 304
-   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 212
-   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
-2017-09-04 21:12:43,385 [32952] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
-   在 ServiceSyncSystem.CreateEntityInfo(EntityBase entity, SyncSession session) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 250
-   在 ServiceSyncSystem.PushSyncEnity(ConnectionComponent connect, EntityBase entity) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 229
-   在 ServiceSyncSystem.PushAllData() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 195
-   在 ServiceSyncSystem.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 34
-   在 WorldBase.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 304
-   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 212
-   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
-2017-09-04 21:12:43,582 [32952] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
-   在 ServiceSyncSystem.CreateEntityInfo(EntityBase entity, SyncSession session) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 250
-   在 ServiceSyncSystem.PushSyncEnity(ConnectionComponent connect, EntityBase entity) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 229
-   在 ServiceSyncSystem.PushAllData() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 195
-   在 ServiceSyncSystem.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 34
-   在 WorldBase.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 304
-   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 212
-   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
-2017-09-04 21:12:43,781 [32952] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
-   在 ServiceSyncSystem.CreateEntityInfo(EntityBase entity, SyncSession session) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 250
-   在 ServiceSyncSystem.PushSyncEnity(ConnectionComponent connect, EntityBase entity) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 229
-   在 ServiceSyncSystem.PushAllData() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 195
-   在 ServiceSyncSystem.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 34
-   在 WorldBase.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 304
-   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 212
-   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
-2017-09-04 21:12:43,983 [32952] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
-   在 ServiceSyncSystem.CreateEntityInfo(EntityBase entity, SyncSession session) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 250
-   在 ServiceSyncSystem.PushSyncEnity(ConnectionComponent connect, EntityBase entity) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 229
-   在 ServiceSyncSystem.PushAllData() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 195
-   在 ServiceSyncSystem.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 34
-   在 WorldBase.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 304
-   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 212
-   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
-2017-09-04 21:12:44,180 [32952] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
-   在 ServiceSyncSystem.CreateEntityInfo(EntityBase entity, SyncSession session) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 250
-   在 ServiceSyncSystem.PushSyncEnity(ConnectionComponent connect, EntityBase entity) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 229
-   在 ServiceSyncSystem.PushAllData() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 195
-   在 ServiceSyncSystem.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 34
-   在 WorldBase.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 304
-   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 212
-   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
-2017-09-04 21:12:44,387 [32952] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
-   在 ServiceSyncSystem.CreateEntityInfo(EntityBase entity, SyncSession session) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 250
-   在 ServiceSyncSystem.PushSyncEnity(ConnectionComponent connect, EntityBase entity) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 229
-   在 ServiceSyncSystem.PushAllData() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 195
-   在 ServiceSyncSystem.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 34
-   在 WorldBase.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 304
-   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 212
-   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
-2017-09-04 21:12:44,580 [32952] ERROR SyncService-54267293 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
-   在 ServiceSyncSystem.CreateEntityInfo(EntityBase entity, SyncSession session) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 250
-   在 ServiceSyncSystem.PushSyncEnity(ConnectionComponent connect, EntityBase entity) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 229
-   在 ServiceSyncSystem.PushAllData() 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 195
-   在 ServiceSyncSystem.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\ServiceSyncSystem.cs:行号 34
-   在 WorldBase.EndFrame(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 304
-   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 212
-   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+﻿2017-09-05 11:43:47,214 [23168] ERROR SyncService-46104728 - Listener (0.0.0.0:2012) error: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+System.Net.Sockets.SocketException (0x80004005): 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   在 System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   在 SuperSocket.SocketEngine.TcpAsyncSocketListener.Start(IServerConfig config)
+2017-09-05 11:47:50,692 [25776] ERROR SyncService-46104728 - Listener (0.0.0.0:2012) error: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+System.Net.Sockets.SocketException (0x80004005): 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   在 System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   在 SuperSocket.SocketEngine.TcpAsyncSocketListener.Start(IServerConfig config)
+2017-09-05 11:48:03,315 [21960] ERROR SyncService-46104728 - Listener (0.0.0.0:2012) error: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+System.Net.Sockets.SocketException (0x80004005): 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   在 System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   在 SuperSocket.SocketEngine.TcpAsyncSocketListener.Start(IServerConfig config)
+2017-09-05 11:50:06,344 [25616] ERROR SyncService-46104728 - Listener (0.0.0.0:2012) error: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+System.Net.Sockets.SocketException (0x80004005): 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   在 System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   在 SuperSocket.SocketEngine.TcpAsyncSocketListener.Start(IServerConfig config)
+2017-09-05 11:50:37,751 [25204] ERROR SyncService-54267293 - Listener (0.0.0.0:2012) error: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+System.Net.Sockets.SocketException: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   在 System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   在 SuperSocket.SocketEngine.TcpAsyncSocketListener.Start(IServerConfig config)
+2017-09-05 11:50:56,509 [18480] ERROR SyncService-54267293 - Listener (0.0.0.0:2012) error: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+System.Net.Sockets.SocketException: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   在 System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   在 SuperSocket.SocketEngine.TcpAsyncSocketListener.Start(IServerConfig config)
+2017-09-05 11:51:43,390 [25932] ERROR SyncService-54267293 - Listener (0.0.0.0:2012) error: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+System.Net.Sockets.SocketException: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   在 System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   在 SuperSocket.SocketEngine.TcpAsyncSocketListener.Start(IServerConfig config)
+2017-09-05 11:52:58,591 [27028] ERROR SyncService-54267293 - Listener (0.0.0.0:2012) error: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+System.Net.Sockets.SocketException: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   在 System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   在 SuperSocket.SocketEngine.TcpAsyncSocketListener.Start(IServerConfig config)
+2017-09-05 11:55:18,814 [27232] ERROR SyncService-54267293 - Listener (0.0.0.0:2012) error: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+System.Net.Sockets.SocketException: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   在 System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   在 SuperSocket.SocketEngine.TcpAsyncSocketListener.Start(IServerConfig config)
+2017-09-05 11:59:13,062 [28548] ERROR SyncService-54267293 - Listener (0.0.0.0:2012) error: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+System.Net.Sockets.SocketException: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   在 System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   在 SuperSocket.SocketEngine.TcpAsyncSocketListener.Start(IServerConfig config)
+2017-09-05 11:59:46,403 [21464] ERROR SyncService-54267293 - Listener (0.0.0.0:2012) error: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+System.Net.Sockets.SocketException: 通常每个套接字地址(协议/网络地址/端口)只允许使用一次。
+   在 System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   在 SuperSocket.SocketEngine.TcpAsyncSocketListener.Start(IServerConfig config)
+2017-09-05 15:38:52,415 [24640] ERROR SyncService-42119052 - methodIndex:1001 Ex:System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.ThrowHelper.ThrowKeyNotFoundException()
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 297
+2017-09-05 15:38:52,430 [24640] ERROR SyncService-42119052 - SyncSession
+System.ArgumentNullException: 值不能为 null。
+参数名: key
+   在 System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   在 System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   在 System.Collections.Generic.Dictionary`2.TryGetValue(TKey key, TValue& value)
+   在 SuperSocket.SocketBase.AppServerBase`2.GetCommandByName(String commandName)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(IAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)
+2017-09-05 16:13:13,061 [30348] ERROR SyncService-42119052 - methodIndex:1001 Ex:System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.ThrowHelper.ThrowKeyNotFoundException()
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 297
+2017-09-05 16:13:13,067 [30348] ERROR SyncService-42119052 - SyncSession
+System.ArgumentNullException: 值不能为 null。
+参数名: key
+   在 System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   在 System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   在 System.Collections.Generic.Dictionary`2.TryGetValue(TKey key, TValue& value)
+   在 SuperSocket.SocketBase.AppServerBase`2.GetCommandByName(String commandName)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(IAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)
+2017-09-05 16:13:13,079 [30348] ERROR SyncService-42119052 - Session: cbd93c55-7e4c-4e41-b748-b90e83df18ad/192.168.89.146:10224
+Protocol error
+System.Exception: DestroyEntity Exception: Entity ID has not exist ! ->5<-
+   在 WorldBase.DestroyEntity(Int32 ID) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 473
+   在 LockStepDemo.Service.SyncService.OnSessionClosed(SyncSession session, CloseReason reason) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\SyncService.cs:行号 61
+   在 SuperSocket.SocketBase.AppServerBase`2.OnSocketSessionClosed(ISocketSession session, CloseReason reason)
+   在 System.Action`2.Invoke(T1 arg1, T2 arg2)
+   在 SuperSocket.SocketEngine.SocketSession.OnClosed(CloseReason reason)
+   在 SuperSocket.SocketEngine.AsyncSocketSession.OnClosed(CloseReason reason)
+   在 SuperSocket.SocketEngine.SocketSession.InternalClose(Socket client, CloseReason reason, Boolean setCloseReason)
+   在 SuperSocket.SocketEngine.SocketSession.Close(CloseReason reason)
+   在 SuperSocket.SocketBase.AppSession`2.Close(CloseReason reason)
+   在 SuperSocket.SocketBase.AppSession`2.HandleException(Exception e)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)
+   在 SuperSocket.SocketEngine.AsyncSocketSession.ProcessReceive(SocketAsyncEventArgs e)
+2017-09-05 16:21:48,810 [18076] ERROR SyncService-42119052 - SendCommand Exception : 不支持的消息类型!playerloginmsg_c
+2017-09-05 16:25:56,965 [33072] ERROR SyncService-42119052 - SendCommand Exception : 不支持的消息类型!playerloginmsg_c

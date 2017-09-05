@@ -8,6 +8,8 @@ using System.Text;
 
 public class ConnectionComponent : ServiceComponent
 {
+    public string playerID;
+
     public bool m_isWaitPushStart = false;
     public SyncSession m_session;
     public List<PlayerCommandBase> m_commandList = new List<PlayerCommandBase>();

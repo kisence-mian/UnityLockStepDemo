@@ -10,8 +10,17 @@ namespace LockStepDemo.Service
         int updateInterval = 200; //世界更新间隔ms
         WorldBase m_world;
 
+        LoginService loginService = new LoginService();
+        MatchService matchService = new MatchService();
+        ReConnectService reConnectService = new ReConnectService();
+
         public SyncService() : base(new ProtocolReceiveFilterFactory())
         {
+            DataBaseService.Init();
+
+            matchService.Init();
+            loginService.Init();
+            reConnectService.Init();
         }
 
         protected override bool Setup(IRootConfig rootConfig, IServerConfig config)
@@ -29,9 +38,9 @@ namespace LockStepDemo.Service
 
             GameMessageService<CommandComponent>.Init();
 
-            m_world = WorldManager.CreateWorld<DemoWorld>();
-            m_world.IsStart = true;
-            m_world.SyncRule = SyncRule.Status;
+            //m_world = WorldManager.CreateWorld<DemoWorld>();
+            //m_world.IsStart = true;
+            //m_world.SyncRule = SyncRule.Status;
 
             UpdateEngine.Init(updateInterval);
 
@@ -51,9 +60,11 @@ namespace LockStepDemo.Service
 
             base.OnSessionClosed(session, reason);
 
-            if(session.m_connect != null)
+            //掉线玩家维护一个id与world的映射，用以重连
+            if (session.m_connect != null)
             {
-                m_world.DestroyEntity(session.m_connect.Entity.ID);
+                reConnectService.AddRecord(session.m_connect);
+                //m_world.DestroyEntity(session.m_connect.Entity.ID);
             }
         }
 
@@ -63,12 +74,12 @@ namespace LockStepDemo.Service
 
             base.OnNewSessionConnected(session);
 
-            ConnectionComponent conn = new ConnectionComponent();
-            conn.m_session = session;
+            //ConnectionComponent conn = new ConnectionComponent();
+            //conn.m_session = session;
 
-            m_world.CreateEntity(conn);
+            //m_world.CreateEntity(conn);
 
-            session.m_connect = conn;
+            //session.m_connect = conn;
         }
     }
 }

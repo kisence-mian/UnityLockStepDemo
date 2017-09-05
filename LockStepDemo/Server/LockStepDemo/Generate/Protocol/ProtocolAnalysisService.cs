@@ -1,5 +1,4 @@
 #pragma warning disable
-using LockStepDemo.Event;
 using LockStepDemo;
 using LockStepDemo.Service;
 using Protocol;
@@ -24,6 +23,7 @@ public static class ProtocolAnalysisService
 			case  "startsyncmsg":SendStartSyncMsg(session , (Protocol.StartSyncMsg)msg);break;
 			case  "syncentitymsg":SendSyncEntityMsg(session , (Protocol.SyncEntityMsg)msg);break;
 			case  "commandcomponent":SendCommandComponent(session , (CommandComponent)msg);break;
+			case  "playerloginmsg_c":SendPlayerLoginMsg_c(session , (PlayerLoginMsg_c)msg);break;
 			default:
 			Debug.LogError("SendCommand Exception : 不支持的消息类型!" + key);
 				break;
@@ -156,6 +156,13 @@ public static class ProtocolAnalysisService
 		data.Add("frame", msg.frame);
 		session.SendMsg("commandcomponent",data);
 	}
+	static void SendPlayerLoginMsg_c(SyncSession session,PlayerLoginMsg_c msg)
+	{
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("code0", msg.code0);
+		data.Add("content", msg.content);
+		session.SendMsg("playerloginmsg",data);
+	}
 	#endregion
 
 	#region 事件接收
@@ -171,6 +178,7 @@ public static class ProtocolAnalysisService
 			case  "startsyncmsg":ReceviceStartSyncMsg(session , cmd);break;
 			case  "syncentitymsg":ReceviceSyncEntityMsg(session , cmd);break;
 			case  "commandcomponent":ReceviceCommandComponent(session , cmd);break;
+			case  "playerloginmsg":RecevicePlayerLoginMsg_s(session , cmd);break;
 			default:
 			Debug.LogError("Recevice Exception : 不支持的消息类型!" + cmd.Key);
 				break;
@@ -316,6 +324,13 @@ public static class ProtocolAnalysisService
 		msg.isFire = (bool)e.m_data["isfire"];
 		msg.id = (int)e.m_data["id"];
 		msg.frame = (int)e.m_data["frame"];
+		
+		EventService.DispatchTypeEvent(session,msg);
+	}
+	static void RecevicePlayerLoginMsg_s(SyncSession session ,ProtocolRequestBase e)
+	{
+		PlayerLoginMsg_s msg = new PlayerLoginMsg_s();
+		msg.playerID = e.m_data["playerid"].ToString();
 		
 		EventService.DispatchTypeEvent(session,msg);
 	}

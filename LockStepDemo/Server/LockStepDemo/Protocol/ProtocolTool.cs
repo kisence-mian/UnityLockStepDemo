@@ -683,7 +683,7 @@ namespace LockStepDemo.Protocol
             string csharpContent = "";
 
             csharpContent += "#pragma warning disable\n";
-            csharpContent += "using LockStepDemo.Event;\n";
+            //csharpContent += "using LockStepDemo.Event;\n";
             csharpContent += "using LockStepDemo;\n";
             csharpContent += "using LockStepDemo.Service;\n";
             csharpContent += "using Protocol;\n";
@@ -965,7 +965,7 @@ namespace LockStepDemo.Protocol
         static string GenerateSendIfContent(Type type, bool isElseIf)
         {
             string content = "";
-            content += GetTab(3) + "case  \"" + GenerateProtocolName(type) + "\":";
+            content += GetTab(3) + "case  \"" + type.Name.ToLower() + "\":";
 
             content += GenerateSendFunctionName(type) + "(session , (" + type.FullName + ")msg);";
 

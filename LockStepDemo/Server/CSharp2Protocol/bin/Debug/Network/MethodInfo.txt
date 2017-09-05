@@ -1,3 +1,4 @@
+0,playerloginmsg
 1,GameSync
 
 2,SyncModule

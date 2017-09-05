@@ -8,10 +8,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>LockStepDemo</RootNamespace>
     <AssemblyName>LockStepDemo</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -37,6 +38,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,17 +48,23 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>LockStepDemo.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Tool-CSharp2Protocol|AnyCPU'">
     <OutputPath>bin\Tool-CSharp2Protocol\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Tool-Protocol2CSharp|AnyCPU'">
     <OutputPath>bin\Tool-Protocol2CSharp\</OutputPath>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net40\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="SuperSocket.Common, Version=1.6.6.0, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\SuperSocket.Common.dll</HintPath>
@@ -71,14 +79,12 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Threading">
       <HintPath>lib\System.Threading.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
       <HintPath>lib\UnityEngine.dll</HintPath>
@@ -113,7 +119,23 @@
     <Compile Include="Generate\Data\SkillDataGenerate.cs" />
     <Compile Include="Generate\Data\SkillStatusDataGenerate.cs" />
     <Compile Include="Service\Calc\Calc.cs" />
+    <Compile Include="Service\DataBase\Common\Database.cs" />
+    <Compile Include="Service\DataBase\Common\Error.cs" />
+    <Compile Include="Service\DataBase\Common\Function.cs" />
+    <Compile Include="Service\DataBase\Cursor\MySqlCursor.cs" />
+    <Compile Include="Service\DataBase\DatabaseException.cs" />
+    <Compile Include="Service\DataBase\DatabaseFactory.cs" />
+    <Compile Include="Service\DataBase\DataBaseService.cs" />
+    <Compile Include="Service\DataBase\Database\MySqlDatabase.cs" />
+    <Compile Include="Service\DataBase\DbConfig.cs" />
+    <Compile Include="Service\DataBase\Exception\MySqlException.cs" />
+    <Compile Include="Service\DataBase\ICursor.cs" />
+    <Compile Include="Service\DataBase\IDatabase.cs" />
+    <Compile Include="Service\DataBase\IException.cs" />
     <Compile Include="Service\Event\ECSEvent.cs" />
+    <Compile Include="Service\Message\ProtocolMessage.cs" />
+    <Compile Include="Service\Module\Player.cs" />
+    <Compile Include="Service\Service\Login\LoginService.cs" />
     <Compile Include="Service\ServiceLogic\Component\SyncComponent.cs" />
     <Compile Include="Service\ServiceLogic\System\ServiceSystem.cs" />
     <Compile Include="Service\ServiceLogic\System\SyncDebugSystem.cs" />
@@ -199,6 +221,7 @@
     <Content Include="Data\SkillStatusData.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="lib\MySql.Data.dll" />
     <Content Include="Map\mapData.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -213,6 +236,7 @@
     </EmbeddedResource>
     <None Include="App.config" />
     <Content Include="Config\log4net.config" />
+    <None Include="packages.config" />
     <None Include="SyncGameLogic\Component.meta" />
     <None Include="SyncGameLogic\Component\AssetComponent.cs.meta" />
     <None Include="SyncGameLogic\Component\BlockComponent.cs.meta" />
@@ -255,6 +279,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Service\Sync\Struct\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

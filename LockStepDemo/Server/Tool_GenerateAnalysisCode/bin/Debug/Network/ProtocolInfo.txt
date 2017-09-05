@@ -77,14 +77,12 @@ message m_startsyncmsg_c
 message m_syncentitymsg_s
 {
 	required int32 frame = 1;
-	required int32 id = 2;
-	repeated componentinfo infos = 3;
+	repeated entityinfo infos = 2;
 }
 message m_syncentitymsg_c
 {
 	required int32 frame = 1;
-	required int32 id = 2;
-	repeated componentinfo infos = 3;
+	repeated entityinfo infos = 2;
 }
 
 message m_commandcomponent_s
@@ -106,6 +104,17 @@ message m_commandcomponent_c
 	required bool isfire = 5;
 	required int32 id = 6;
 	required int32 frame = 7;
+}
+
+message m_playerloginmsg_c
+{
+	required int32 code0 = 1;
+	required string content = 2;
+}
+
+message m_playerloginmsg_s
+{
+	required string playerid = 1;
 }
 
 message syncvector3

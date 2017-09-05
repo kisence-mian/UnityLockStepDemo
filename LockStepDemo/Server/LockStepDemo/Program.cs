@@ -15,9 +15,8 @@ namespace LockStepDemo
                 var appServer = new SyncService();
 
                 //Setup the appServer
-                if (!appServer.Setup(2012)) //Setup with listening port
+                if (!appServer.Setup(7500)) //Setup with listening port
                 {
-
                     Console.WriteLine("Failed to setup!");
                     Console.ReadKey();
                     return;
