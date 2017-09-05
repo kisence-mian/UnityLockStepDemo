@@ -9,9 +9,11 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 {
     public override void Init()
     {
+        Debug.Log("SyncSystem init ");
+
         GlobalEvent.AddTypeEvent<SyncEntityMsg>(ReceviceSyncEntity);
         GlobalEvent.AddTypeEvent<PursueMsg>(RecevicePursueMsg);
-        GlobalEvent.AddTypeEvent<DestroyEntityMsg>(ReceviceDestroyEntityMsg);
+        //GlobalEvent.AddTypeEvent<DestroyEntityMsg>(ReceviceDestroyEntityMsg);
         GlobalEvent.AddTypeEvent<ChangeSingletonComponentMsg>(ReceviceChangeSingletonCompMsg);
         GlobalEvent.AddTypeEvent<StartSyncMsg>(ReceviceStartSyncMsg);
         GlobalEvent.AddTypeEvent<T>(ReceviceCommandMsg);
@@ -21,7 +23,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     {
         GlobalEvent.RemoveTypeEvent<SyncEntityMsg>(ReceviceSyncEntity);
         GlobalEvent.RemoveTypeEvent<PursueMsg>(RecevicePursueMsg);
-        GlobalEvent.RemoveTypeEvent<DestroyEntityMsg>(ReceviceDestroyEntityMsg);
+        //GlobalEvent.RemoveTypeEvent<DestroyEntityMsg>(ReceviceDestroyEntityMsg);
         GlobalEvent.RemoveTypeEvent<ChangeSingletonComponentMsg>(ReceviceChangeSingletonCompMsg);
         GlobalEvent.RemoveTypeEvent<StartSyncMsg>(ReceviceStartSyncMsg);
         GlobalEvent.RemoveTypeEvent<T>(ReceviceCommandMsg);
@@ -58,7 +60,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     void ReceviceSyncEntity(SyncEntityMsg msg, params object[] objs)
     {
-        Debug.Log("ReceviceSyncEntity");
+        SyncDebugSystem.LogAndDebug("ReceviceSyncEntity frame " + msg.frame);
 
         if(m_world.IsStart)
         {
@@ -79,25 +81,27 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         }
     }
 
-    void ReceviceDestroyEntityMsg(DestroyEntityMsg msg, params object[] objs)
-    {
-        Debug.Log("ReceviceDestroyEntityMsg");
+    //void ReceviceDestroyEntityMsg(DestroyEntityMsg msg, params object[] objs)
+    //{
+    //    SyncDebugSystem.LogAndDebug("ReceviceDestroyEntityMsg id --> " + msg.id + " frame " + msg.frame,null);
 
-        ServerCacheComponent rc = m_world.GetSingletonComp<ServerCacheComponent>();
+    //    Debug.Log("ReceviceDestroyEntityMsg id --> " + msg.id + " frame " + msg.frame);
 
-        ServiceMessageInfo info = new ServiceMessageInfo();
-        info.m_frame = msg.frame;
-        info.m_type = MessageType.DestroyEntity;
-        info.m_msg = msg;
+    //    ServerCacheComponent rc = m_world.GetSingletonComp<ServerCacheComponent>();
 
-        rc.m_messageList.Add(info);
+    //    ServiceMessageInfo info = new ServiceMessageInfo();
+    //    info.m_frame = msg.frame;
+    //    info.m_type = MessageType.DestroyEntity;
+    //    info.m_msg = msg;
 
-        Recalc(msg.frame);
-    }
+    //    rc.m_messageList.Add(info);
+
+    //    Recalc(msg.frame);
+    //}
 
     void ReceviceChangeSingletonCompMsg(ChangeSingletonComponentMsg msg,params object[] objs)
     {
-        Debug.Log("ChangeSingletonCompMsg");
+        SyncDebugSystem.LogAndDebug("ChangeSingletonCompMsg");
 
         if (m_world.IsStart)
         {
@@ -150,7 +154,8 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
                 else
                 {
                     //清除以前的记录
-                    m_world.ClearBefore(cmd.frame - 1);
+                    m_world.ClearBefore(cmd.frame - 2);
+                    clearFrame = cmd.frame - 2;
                 }
             }
             //存入缓存
@@ -175,6 +180,8 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     #region 同步重新演算
 
+    int clearFrame = 0;
+
     /// <summary>
     /// 从目标帧开始重新演算
     /// </summary>
@@ -183,7 +190,15 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     {
         if (SyncDebugSystem.isDebug)
         {
-            Debug.Log("重计算 Recalc " + frameCount + " current " + m_world.FrameCount);
+            string content = "重计算 Recalc " + frameCount + " current " + m_world.FrameCount + "\n";
+            SyncDebugSystem.syncLog += content;
+        }
+
+        if(frameCount - 1 < clearFrame)
+        {
+            string content = "回滚到了确定帧！！clearFrame " + clearFrame + " aimFrame " + (frameCount - 1) + "\n";
+            SyncDebugSystem.syncLog += content;
+            Debug.LogError(content);
         }
 
         //回退到目标帧的上一帧，重新计算该帧
@@ -208,7 +223,9 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         }
 
         //重计算的结果认定为最终结果，清除历史记录
-        m_world.ClearBefore(frameCount - 1);
+        m_world.ClearBefore(frameCount - 2);
+
+        clearFrame = frameCount - 2;
     }
 
     /// <summary>
@@ -217,6 +234,12 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     /// <param name="frameCount"></param>
     public void AdvanceCalc(int frameCount)
     {
+        if (SyncDebugSystem.isDebug)
+        {
+            string content = "提前计算  " + frameCount + " current " + m_world.FrameCount + "\n";
+            SyncDebugSystem.syncLog += content;
+        }
+
         //第一帧重新计算
         m_world.RevertToFrame(m_world.FrameCount - 1);
 
@@ -254,7 +277,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
             }
             else
             {
-                Debug.Log("LoadPlayerInput faild frameCount:" + frameCount);
+                //Debug.Log("LoadPlayerInput faild frameCount:" + frameCount);
             }
         }
     }
@@ -313,30 +336,49 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     void ExecuteSyncEntity(SyncEntityMsg msg)
     {
-        EntityBase entity;
-        if (!m_world.GetEntityIsExist(msg.id))
+        for (int i = 0; i < msg.infos.Count; i++)
         {
-            entity = m_world.CreateEntity(msg.id);
+            SyncEntity(msg.frame,msg.infos[i]);
+        }
+
+        for (int i = 0; i < msg.destroyList.Count; i++)
+        {
+            Debug.Log("DestroyEntity " + msg.destroyList[i]);
+            m_world.DestroyEntity(msg.destroyList[i]);
+        }
+    }
+
+    void SyncEntity(int frame,EntityInfo info)
+    {
+        EntityBase entity;
+        if (!m_world.GetEntityIsExist(info.id))
+        {
+            entity = m_world.CreateEntity(info.id);
         }
         else
         {
-            entity = m_world.GetEntity(msg.id);
+            entity = m_world.GetEntity(info.id);
         }
 
-        for (int i = 0; i < msg.infos.Count; i++)
+        for (int i = 0; i < info.infos.Count; i++)
         {
-            ComponentBase comp = (ComponentBase)deserializer.Deserialize(msg.infos[i].m_compName, msg.infos[i].content);
+            ComponentBase comp = (ComponentBase)deserializer.Deserialize(info.infos[i].m_compName, info.infos[i].content);
 
-            if (entity.GetExistComp(msg.infos[i].m_compName))
+            if (entity.GetExistComp(info.infos[i].m_compName))
             {
-                entity.ChangeComp(msg.infos[i].m_compName, comp);
+                entity.ChangeComp(info.infos[i].m_compName, comp);
             }
             else
             {
-                entity.AddComp(msg.infos[i].m_compName, comp);
+                entity.AddComp(info.infos[i].m_compName, comp);
             }
 
-            Debug.Log("frame: "+ msg.frame + " id: "+msg.id + " comp: " + msg.infos[i].m_compName + " content: " + msg.infos[i].content);
+            if (SyncDebugSystem.isDebug && SyncDebugSystem.IsFilter(info.infos[i].m_compName))
+            {
+                string content = "frame: " + frame + " id: " + info.id + " comp: " + info.infos[i].m_compName + " content: " + info.infos[i].content;
+                //Debug.Log(content);
+                SyncDebugSystem.syncLog += content + "\n";
+            }
         }
     }
 

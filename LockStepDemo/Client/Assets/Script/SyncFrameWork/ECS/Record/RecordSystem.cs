@@ -1,5 +1,4 @@
-﻿using FrameWork;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,20 +25,12 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
 
             rc.m_record.Add(record);
 
-            if (SyncDebugSystem.isDebug)
-            {
-                Debug.Log("数据记录 ID：" + list[i].ID + " frame:" + frame + " conent:" + Serializer.Serialize(record));
-            }
+            //Debug.Log("数据记录 ID：" + list[i].ID + " frame:" + frame + " conent:" + Serializer.Serialize(record));
         }
     }
 
     public override void RevertToFrame(int frame)
     {
-        if (SyncDebugSystem.isDebug)
-        {
-            Debug.Log("数据回滚  ----------->> frame：" + frame);
-        }
-
         RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
 
         List<T> list = rc.GetRecordList(frame);
@@ -49,10 +40,7 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
             EntityBase entity = m_world.GetEntity(list[i].ID);
             entity.ChangeComp((T)list[i].DeepCopy());
 
-            if (SyncDebugSystem.isDebug)
-            {
-                Debug.Log("数据回滚 ID：" + list[i].ID + " frame:" + list[i].Frame + " conent:" + Serializer.Serialize(list[i]));
-            }
+            //Debug.Log("数据回滚 ID：" + list[i].ID + " frame:"+ list[i].Frame +" conent:"+  Serializer.Serialize(list[i]));
         }
     }
 
@@ -66,11 +54,6 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
     {
         RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
         rc.ClearBefore(frame);
-
-        if (SyncDebugSystem.isDebug)
-        {
-            Debug.Log("ClearBefore frame：" + frame);
-        }
     }
 
     public override MomentComponentBase GetRecord(int id, int frame)
@@ -100,5 +83,10 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
             }
         }
         Debug.LogWarning("PrintRecord:" + content);
+    }
+
+    public override void Record(int frame, EntityBase entity)
+    {
+        throw new NotImplementedException();
     }
 }

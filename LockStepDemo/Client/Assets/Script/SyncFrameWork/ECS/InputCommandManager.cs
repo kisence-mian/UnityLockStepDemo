@@ -2,27 +2,27 @@
 using System.Collections.Generic;
 public class InputCommandManager
 {
-    static SyncStatus s_syncStatus;
+    //static SyncStatus s_syncStatus;
 
-    //输入缓冲
-    //消息缓冲
+ //   //输入缓冲
+ //   //消息缓冲
 
-	// Use this for initialization
-	void Start ()
-    {
+	//// Use this for initialization
+	//void Start ()
+ //   {
 		
-	}
+	//}
 	
-	// Update is called once per frame
-	void Update ()
-    {
+	//// Update is called once per frame
+	//void Update ()
+ //   {
 		
-	}
+	//}
 
-    public enum SyncStatus
-    {
-        Client,
-        Service,
-        Local,
-    }
+ //   public enum SyncStatus
+ //   {
+ //       Client,
+ //       Service,
+ //       Local,
+ //   }
 }

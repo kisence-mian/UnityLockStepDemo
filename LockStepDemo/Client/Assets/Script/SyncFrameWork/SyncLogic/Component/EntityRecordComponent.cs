@@ -11,9 +11,28 @@ public class EntityRecordComponent :SingletonComponent
 
 public class EntityRecordInfo
 {
-    public EntityChangeType changeType;
+    public int frame;
     public int id;
-    public List<CompRecordInfo> compList = new List<CompRecordInfo>();
+    public EntityChangeType changeType;
+    
+    public List<ComponentBase> compList = new List<ComponentBase>();
+
+    public void SaveComp(EntityBase entity)
+    {
+        foreach(var item in entity.m_compDict)
+        {
+            if(item.Value is MomentComponentBase)
+            {
+                MomentComponentBase mc = (MomentComponentBase)item.Value;
+                compList.Add(mc.DeepCopy());
+            }
+            else
+            {
+                compList.Add(item.Value);
+            }
+
+        }
+    }
 }
 
 public struct CompRecordInfo

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 public class PlayerCommandRecordComponent : ComponentBase
 {
@@ -57,7 +58,7 @@ public class PlayerCommandRecordComponent : ComponentBase
             content += "id " + m_inputCache[i].id + " frame " + m_inputCache[i].frame + "\n";
         }
 
-        throw new Exception("ReplaceCommand faild ! id:->" + cmd.id + " frame:-> " + cmd.frame + " Count " + m_inputCache.Count + "\n" + content);
+        Debug.LogError("ReplaceCommand faild ! id:->" + cmd.id + " frame:-> " + cmd.frame + " Count " + m_inputCache.Count + "\n" + content);
     }
 
     public void ClearCache(int frame)

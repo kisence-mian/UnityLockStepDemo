@@ -1,13 +1,10 @@
-﻿using FrameWork;
-using Protocol;
+﻿using Protocol;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public abstract class ComponentBase
 {
     private EntityBase entity;
-
 
     public EntityBase Entity
     {

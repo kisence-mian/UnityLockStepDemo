@@ -1,0 +1,43 @@
+﻿using Protocol;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+
+public class PlayerComponent : MomentComponentBase
+{
+    public SyncVector3 faceDir = new SyncVector3();
+
+    public List<ElementData> elementData = new List<ElementData>();
+
+    public override MomentComponentBase DeepCopy()
+    {
+        PlayerComponent pc = new PlayerComponent();
+
+        pc.faceDir = faceDir.DeepCopy();
+        pc.elementData.Clear();
+
+        for (int i = 0; i < elementData.Count; i++)
+        {
+            pc.elementData.Add(elementData[i].DeepCopy());
+        }
+
+        return pc;
+    }
+}
+
+public struct ElementData
+{
+    public int id;
+    public int num;
+
+    public ElementData DeepCopy()
+    {
+        ElementData ed = new ElementData();
+
+        ed.id = id;
+        ed.num = num;
+
+        return ed;
+    }
+}

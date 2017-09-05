@@ -64,8 +64,26 @@ public class WorldBase
         }
     }
 
-    public List<SystemBase> m_systemList       = new List<SystemBase>();                 //世界里所有的System集合
-    
+    /// <summary>
+    /// 客户端实体ID都为负数
+    /// </summary>
+    int m_clientEntityIndex = -1;
+
+    public int ClientEntityIndex
+    {
+        get
+        {
+            return m_clientEntityIndex;
+        }
+
+        set
+        {
+            m_clientEntityIndex = value;
+        }
+    }
+
+    public List<SystemBase> m_systemList = new List<SystemBase>();                 //世界里所有的System列表
+
     public Dictionary<int, EntityBase> m_entityDict = new Dictionary<int, EntityBase>(); //世界里所有的entity集合
     public List<EntityBase> m_entityList = new List<EntityBase>();                       //世界里所有的entity列表
 
@@ -84,8 +102,15 @@ public class WorldBase
     public event EntityComponentChangedCallBack OnEntityComponentRemoved;
     public event EntityComponentReplaceCallBack OnEntityComponentChange;
 
+    public ECSEvent eventSystem = new ECSEvent();
+
     #region 重载方法
     public virtual Type[] GetSystemTypes()
+    {
+        return new Type[0];
+    }
+
+    public virtual Type[] GetRecordTypes()
     {
         return new Type[0];
     }
@@ -114,9 +139,8 @@ public class WorldBase
                 tmp.Init();
             }
 
-            //初始化RecordSystemBase
-
-            types = GetRecordSystemTypes();
+            //初始化RecordComponent
+            types = GetRecordTypes();
             for (int i = 0; i < types.Length; i++)
             {
                 Type type = typeof(RecordSystem<>);
@@ -125,6 +149,16 @@ public class WorldBase
                 RecordSystemBase tmp = (RecordSystemBase)Activator.CreateInstance(type); ;
                 m_recordList.Add(tmp);
                 m_recordDict.Add(types[i].Name, tmp);
+                tmp.m_world = this;
+                tmp.Init();
+            }
+
+            //初始化RecordSystem
+            types = GetRecordSystemTypes();
+            for (int i = 0; i < types.Length; i++)
+            {
+                RecordSystemBase tmp = (RecordSystemBase)types[i].Assembly.CreateInstance(types[i].FullName);
+                m_recordList.Add(tmp);
                 tmp.m_world = this;
                 tmp.Init();
             }
@@ -149,7 +183,7 @@ public class WorldBase
         {
             BeforeUpdate(deltaTime);
             Update(deltaTime);
-            LateUpdate(deltaTime);
+            //LateUpdate(deltaTime);
         }
     }
 
@@ -161,7 +195,11 @@ public class WorldBase
 
             FrameCount++;
 
-            Debug.Log("Begin FixedLoop " + FrameCount + "------------");
+            if (SyncDebugSystem.isDebug)
+            {
+                string content = "Begin FixedLoop " + FrameCount + "------------\n";
+                SyncDebugSystem.syncLog += content;
+            }
 
             NoRecalcBeforeFixedUpdate(deltaTime);
 
@@ -171,7 +209,15 @@ public class WorldBase
 
             NoRecalcLateFixedUpdate(deltaTime);
 
-            Debug.Log("End FixedLoop " + FrameCount + "------------");
+            LazyExecuteEntityOperation();
+
+            EndFrame(deltaTime);
+
+            if (SyncDebugSystem.isDebug)
+            {
+                string content = "End FixedLoop " + FrameCount + "------------\n";
+                SyncDebugSystem.syncLog += content;
+            }
         }
     }
 
@@ -184,6 +230,8 @@ public class WorldBase
         BeforeFixedUpdate(deltaTime);
         FixedUpdate(deltaTime);
         LateFixedUpdate(deltaTime);
+
+        LazyExecuteEntityOperation();
     }
 
     void BeforeUpdate(int deltaTime)
@@ -219,7 +267,7 @@ public class WorldBase
         }
     }
 
-    void LateUpdate(int deltaTime)
+    public void LateUpdate(int deltaTime)
     {
         for (int i = 0; i < m_systemList.Count; i++)
         {
@@ -250,6 +298,15 @@ public class WorldBase
             m_systemList[i].NoRecalcLateFixedUpdate(deltaTime);
         }
     }
+
+    void EndFrame(int deltaTime)
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].EndFrame(deltaTime);
+        }
+    }
+
     #endregion
 
     #region 回滚相关 
@@ -288,6 +345,11 @@ public class WorldBase
 
     public RecordSystemBase GetRecordSystemBase(string name)
     {
+        if (!m_recordDict.ContainsKey(name))
+        {
+            throw new Exception("GetRecordSystemBase error not find " + name);
+        }
+
         return m_recordDict[name];
     }
 
@@ -295,15 +357,50 @@ public class WorldBase
 
     #region 实体相关
 
+    List<EntityBase> createCache = new List<EntityBase>();
+    List<EntityBase> destroyCache = new List<EntityBase>();
+
+    //集中执行实体的创建删除操作
+    void LazyExecuteEntityOperation()
+    {
+        for (int i = 0; i < createCache.Count; i++)
+        {
+            AddEntity(createCache[i]);
+        }
+        createCache.Clear();
+
+        for (int i = 0; i < destroyCache.Count; i++)
+        {
+            RemoveEntity(destroyCache[i]);
+        }
+        destroyCache.Clear();
+    }
+
+    #region 创建
+
     public void CreateEntity(params ComponentBase[] comps)
     {
         //状态同步本地不创建实体
-        if(m_isView && m_syncRule == SyncRule.Status)
+        if (m_isView && m_syncRule == SyncRule.Status)
         {
             return;
         }
 
         CreateEntity(EntityIndex++, comps);
+    }
+    /// <summary>
+    /// 客户端创建的实体,不影响同步
+    /// </summary>
+    /// <param name="comps"></param>
+    public void CreateClientEntity(params ComponentBase[] comps)
+    {
+        //状态同步本地不创建实体
+        if (m_isView && m_syncRule == SyncRule.Status)
+        {
+            return;
+        }
+
+        CreateEntity(ClientEntityIndex--, comps);
     }
 
     /// <summary>
@@ -323,16 +420,54 @@ public class WorldBase
 
         entity.World = this;
 
-        m_entityList.Add(entity);
-        m_entityDict.Add(ID, entity);
-
-        if(compList != null)
+        if (compList != null)
         {
             for (int i = 0; i < compList.Length; i++)
             {
                 entity.AddComp(compList[i].GetType().Name, compList[i]);
             }
         }
+
+        createCache.Add(entity);
+        return entity;
+    }
+
+    /// <summary>
+    /// 立即创建一个实体，不要在游戏逻辑中使用
+    /// </summary>
+    public void CreateEntityImmediately(params ComponentBase[] compList)
+    {
+        CreateEntityImmediately(EntityIndex++,compList);
+    }
+
+    /// <summary>
+    /// 立即创建一个实体，不要在游戏逻辑中使用
+    /// </summary>
+    /// <param name="ID"></param>
+    /// <param name="compList"></param>
+    /// <returns></returns>
+    public EntityBase CreateEntityImmediately(int ID, params ComponentBase[] compList)
+    {
+        if (m_entityDict.ContainsKey(ID))
+        {
+            throw new Exception("CreateEntity Exception: Entity ID has exist ! ->" + ID + "<-");
+        }
+
+        EntityBase entity = new EntityBase();
+        entity.ID = ID;
+
+        entity.World = this;
+
+        if (compList != null)
+        {
+            for (int i = 0; i < compList.Length; i++)
+            {
+                entity.AddComp(compList[i].GetType().Name, compList[i]);
+            }
+        }
+
+        m_entityList.Add(entity);
+        m_entityDict.Add(entity.ID, entity);
 
         entity.OnComponentAdded += OnEntityComponentAdded;
         entity.OnComponentRemoved += OnEntityComponentRemoved;
@@ -342,9 +477,77 @@ public class WorldBase
         {
             OnEntityCreated(entity);
         }
-
         return entity;
     }
+
+    void AddEntity(EntityBase entity)
+    {
+        m_entityList.Add(entity);
+        m_entityDict.Add(entity.ID, entity);
+
+        entity.OnComponentAdded += OnEntityComponentAdded;
+        entity.OnComponentRemoved += OnEntityComponentRemoved;
+        entity.OnComponentReplaced += OnEntityComponentChange;
+
+        if (OnEntityCreated != null)
+        {
+            OnEntityCreated(entity);
+        }
+    }
+
+    #endregion
+
+    #region 摧毁
+
+    public void ClientDestroyEntity(int ID)
+    {
+        if (m_isView && m_syncRule == SyncRule.Status)
+        {
+            //状态同步下本地创建的对象才立即销毁
+            if (ID > 0)
+            {
+                return;
+            }
+        }
+
+        DestroyEntity(ID);
+    }
+
+    public void DestroyEntity(int ID)
+    {
+        if (!m_entityDict.ContainsKey(ID))
+        {
+            throw new Exception("DestroyEntity Exception: Entity ID has not exist ! ->" + ID + "<-");
+        }
+
+        EntityBase entity = m_entityDict[ID];
+
+        destroyCache.Add(entity);
+    }
+
+    void RemoveEntity(EntityBase entity)
+    {
+        if (OnEntityWillBeDestroyed != null)
+        {
+            OnEntityWillBeDestroyed(entity);
+        }
+
+        m_entityList.Remove(entity);
+        m_entityDict.Remove(entity.ID);
+
+        entity.OnComponentAdded -= OnEntityComponentAdded;
+        entity.OnComponentRemoved -= OnEntityComponentRemoved;
+        entity.OnComponentReplaced -= OnEntityComponentChange;
+
+        if (OnEntityDestroyed != null)
+        {
+            OnEntityDestroyed(entity);
+        }
+    }
+
+    #endregion
+
+    #region 获取对象
 
     public bool GetEntityIsExist(int ID)
     {
@@ -359,33 +562,6 @@ public class WorldBase
         }
 
         return m_entityDict[ID];
-    }
-
-    public void DestroyEntity(int ID)
-    {
-        if (!m_entityDict.ContainsKey(ID))
-        {
-            throw new Exception("DestroyEntity Exception: Entity ID has not exist ! ->" + ID + "<-");
-        }
-
-        EntityBase entity = m_entityDict[ID];
-
-        if (OnEntityWillBeDestroyed != null)
-        {
-            OnEntityWillBeDestroyed(entity);
-        }
-
-        m_entityList.Remove(entity);
-        m_entityDict.Remove(ID);
-
-        entity.OnComponentAdded -= OnEntityComponentAdded;
-        entity.OnComponentRemoved -= OnEntityComponentRemoved;
-        entity.OnComponentReplaced -= OnEntityComponentChange;
-
-        if (OnEntityDestroyed != null)
-        {
-            OnEntityDestroyed(entity);
-        }
     }
 
     public List<EntityBase> GetEntiyList(string[] compNames)
@@ -416,6 +592,66 @@ public class WorldBase
 
     #endregion
 
+    #region 回滚相关
+
+    /// <summary>
+    /// 创建一个实体，不派发事件
+    /// </summary>
+    /// <param name="ID"></param>
+    /// <param name="compList"></param>
+    /// <returns></returns>
+    public EntityBase CreateEntityNoDispatch(int ID, params ComponentBase[] compList)
+    {
+        if (m_entityDict.ContainsKey(ID))
+        {
+            throw new Exception("CreateEntity Exception: Entity ID has exist ! ->" + ID + "<-");
+        }
+
+        EntityBase entity = new EntityBase();
+        entity.ID = ID;
+
+        entity.World = this;
+
+        if (compList != null)
+        {
+            for (int i = 0; i < compList.Length; i++)
+            {
+                entity.AddComp(compList[i].GetType().Name, compList[i]);
+            }
+        }
+
+        m_entityList.Add(entity);
+        m_entityDict.Add(entity.ID, entity);
+
+        entity.OnComponentAdded += OnEntityComponentAdded;
+        entity.OnComponentRemoved += OnEntityComponentRemoved;
+        entity.OnComponentReplaced += OnEntityComponentChange;
+
+        return entity;
+    }
+
+    public void DestroyEntityNoDispatch(int ID)
+    {
+        if (!m_entityDict.ContainsKey(ID))
+        {
+            throw new Exception("DestroyEntity Exception: Entity ID has not exist ! ->" + ID + "<-");
+        }
+
+        EntityBase entity = m_entityDict[ID];
+
+        m_entityList.Remove(entity);
+        m_entityDict.Remove(entity.ID);
+
+        entity.OnComponentAdded -= OnEntityComponentAdded;
+        entity.OnComponentRemoved -= OnEntityComponentRemoved;
+        entity.OnComponentReplaced -= OnEntityComponentChange;
+
+    }
+
+    #endregion
+
+    #endregion
+
     #region 单例组件
 
     public T GetSingletonComp<T>() where T : SingletonComponent, new()
@@ -438,6 +674,7 @@ public class WorldBase
         else
         {
             comp = new T();
+            comp.Init();
             m_singleCompDict.Add(key, comp);
         }
 

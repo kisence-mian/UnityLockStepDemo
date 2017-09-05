@@ -217,8 +217,9 @@ public class ResourceIOTool :MonoBehaviour
 
         while (!www.isDone)
         {
+                     
             loadState.UpdateProgress(www);
-            callback(loadState, null);
+            callback(loadState, www);
 
             yield return 0;
         }

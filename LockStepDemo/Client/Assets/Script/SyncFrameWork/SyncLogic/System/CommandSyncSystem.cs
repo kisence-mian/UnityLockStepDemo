@@ -1,5 +1,4 @@
 ﻿using FrameWork;
-using LockStepDemo.GameLogic.Component;
 using Protocol;
 using System;
 using System.Collections;

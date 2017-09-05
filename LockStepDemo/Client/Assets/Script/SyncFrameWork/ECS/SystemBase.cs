@@ -67,7 +67,7 @@ public class SystemBase
     /// 服务器不执行
     /// </summary>
     /// <param name="deltaTime"></param>
-    public virtual void Update(int deltaTime){}
+    public virtual void Update(int deltaTime) { }
 
     /// <summary>
     /// 服务器不执行
@@ -92,6 +92,11 @@ public class SystemBase
     /// </summary>
     public virtual void NoRecalcLateFixedUpdate(int deltaTime) { }
 
+    /// <summary>
+    /// 帧的最后执行
+    /// </summary>
+    /// <param name="deltaTime"></param>
+    public virtual void EndFrame(int deltaTime) { }
     #endregion
 
     #region 事件回调
@@ -194,7 +199,7 @@ public class SystemBase
 
     void ReceviceEntityCreate(EntityBase entity)
     {
-        if (GetAllExistComp(Filter, entity))
+        //if (GetAllExistComp(Filter, entity))
         {
             OnEntityCreate(entity);
         }
@@ -202,7 +207,7 @@ public class SystemBase
 
     void ReceviceEntityDestroy(EntityBase entity)
     {
-        if (GetAllExistComp(Filter, entity))
+        //if (GetAllExistComp(Filter, entity))
         {
             OnEntityDestroy(entity);
         }

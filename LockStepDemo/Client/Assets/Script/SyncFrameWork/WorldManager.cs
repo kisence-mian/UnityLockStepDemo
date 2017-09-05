@@ -38,11 +38,13 @@ public class WorldManager
     {
         s_intervalTime = intervalTime;
         ApplicationManager.s_OnApplicationUpdate += Update;
+        ApplicationManager.s_OnApplicationLateUpdate += LateUpdate;
     }
 
     public static void Dispose()
     {
         ApplicationManager.s_OnApplicationUpdate -= Update;
+        ApplicationManager.s_OnApplicationLateUpdate -= LateUpdate;
     }
 
     public static void CreateWorld<T>() where T : WorldBase, new()
@@ -71,6 +73,21 @@ public class WorldManager
             FixedUpdateWorld(IntervalTime);
 
             s_UpdateTimer -= IntervalTime;
+        }
+    }
+
+    static void LateUpdate()
+    {
+        for (int i = 0; i < s_worldList.Count; i++)
+        {
+            try
+            {
+                s_worldList[i].LateUpdate((int)Time.deltaTime * 1000);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("UpdateWorld Exception：" + e.ToString());
+            }
         }
     }
 

@@ -699,6 +699,19 @@ public class UIBase : MonoBehaviour
         throw new Exception(UIName + " GetItem Exception Dont find Item: " + itemName);
     }
 
+    public UIBase GetItemByKey(string uiEvenyKey)
+    {
+        for (int i = 0; i < m_ChildList.Count; i++)
+        {
+            if (m_ChildList[i].UIEventKey == uiEvenyKey)
+            {
+                return m_ChildList[i];
+            }
+        }
+
+        throw new Exception(UIName + " GetItemByKey Exception Dont find Item: " + uiEvenyKey);
+    }
+
     public bool GetItemIsExist(string itemName)
     {
         for (int i = 0; i < m_ChildList.Count; i++)

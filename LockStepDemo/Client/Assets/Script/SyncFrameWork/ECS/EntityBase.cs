@@ -40,7 +40,7 @@ public class EntityBase
 
     public Dictionary<string, ComponentBase> m_compDict = new Dictionary<string, ComponentBase>();
 
-    public bool GetExistComp<T>() where T : ComponentBase, new()
+    public bool GetExistComp<T>()where T : ComponentBase, new()
     {
         return GetExistComp(typeof(T).Name);
     }
@@ -50,7 +50,7 @@ public class EntityBase
         return m_compDict.ContainsKey(compName);
     }
 
-    public T AddComp<T>() where T : ComponentBase, new()
+    public T AddComp<T>() where T:ComponentBase,new()
     {
         T comp = new T();
         comp.Init();
@@ -59,7 +59,7 @@ public class EntityBase
 
         string key = typeof(T).Name;
 
-        if (m_compDict.ContainsKey(key))
+        if(m_compDict.ContainsKey(key))
         {
             throw new System.Exception("AddComp exist comp !" + key);
         }
@@ -75,12 +75,24 @@ public class EntityBase
         return comp;
     }
 
-
     public EntityBase AddComp<T>(T comp) where T : ComponentBase, new()
     {
         string key = typeof(T).Name;
 
-        AddComp(key,comp);
+        comp.Entity = this;
+
+        if (m_compDict.ContainsKey(key))
+        {
+            throw new System.Exception("AddComp exist comp !" + key);
+        }
+        else
+        {
+            m_compDict.Add(key, comp);
+            if (OnComponentAdded != null)
+            {
+                OnComponentAdded(this, key, comp);
+            }
+        }
 
         return this;
     }
@@ -104,7 +116,6 @@ public class EntityBase
 
         return this;
     }
-
 
     public void RemoveComp<T>() where T : ComponentBase, new()
     {
@@ -137,17 +148,17 @@ public class EntityBase
 
     public ComponentBase GetComp(string compName)
     {
-        if (m_compDict.ContainsKey(compName))
+        if(m_compDict.ContainsKey(compName))
         {
             return m_compDict[compName];
         }
         else
         {
-            throw new System.Exception("GetComp not exist comp !->" + compName);
+            throw new System.Exception("GetComp not exist comp !" + compName);
         }
     }
 
-    public void ChangeComp(string compName, ComponentBase comp)
+    public void ChangeComp(string compName,ComponentBase comp)
     {
         if (m_compDict.ContainsKey(compName))
         {
@@ -168,7 +179,7 @@ public class EntityBase
         }
     }
 
-    public void ChangeComp<T>(T comp) where T : ComponentBase
+    public void ChangeComp<T>(T comp) where T:ComponentBase
     {
         string key = typeof(T).Name;
         ChangeComp(key, comp);

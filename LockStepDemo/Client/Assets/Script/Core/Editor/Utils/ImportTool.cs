@@ -28,11 +28,78 @@ public class ImportTool : AssetPostprocessor
 
     void OnPostprocessModel(GameObject g)
     {
-        //ModelImporter mi = import
+        ModelImporter model = (ModelImporter)assetImporter;
+        if (model != null)
+        {
+           
+            if (isLoopAnimation(g.name))
+            {
+                //由于我们采用动画分离的导出策略，每个fbx只有一个动画
+                if (model.defaultClipAnimations.Length > 0)
+                {
+                    List<ModelImporterClipAnimation> actions = new List<ModelImporterClipAnimation>();
+                    ModelImporterClipAnimation anim = model.defaultClipAnimations[0];
+                    if (!anim.loopTime)
+                    {
+                        anim.loopTime = true;
+                        anim.loopPose = true;
+                        actions.Add(anim);
+                        model.clipAnimations = actions.ToArray();
+                      //  model.SaveAndReimport();
+                    }
+                }
+              
+            }
+
+            if (model.isReadable)
+            {
+                model.isReadable = false;
+                model.SaveAndReimport();
+            }
+        }
+        Debug.Log("OnPostprocessModel : " + g.name);
+    }
+    bool isLoopAnimation(string objectName)
+    {
+        bool res = false;
+        if (objectName.Contains("wait"))
+        {
+            res = true;
+        }
+        else if (objectName.Contains("walk"))
+        {
+            res = true;
+        }
+        else if (objectName.Contains("run"))
+        {
+            res = true;
+        }
+        else if (objectName.Contains("air"))
+        {
+            res = true;
+        }
+        else if (objectName.Contains("move"))
+        {
+            res = true;
+        }
+        return res;
+    }
+
+    static string ModelPathDre = "Assets/_Res/Models/Charactors/Player/male";
+    [MenuItem("Tools/模型动画转换AnimatorController")]
+    static void ReCreateFBXAnimations()
+    {
+        List<string> paths = FileTool.GetAllFileNamesByPath(ModelPathDre,new string[] { "fbx","FBX"});
+        foreach (var item in paths)
+        {
+           // Debug.Log(item);
+            OnImportFBX(item);
+        }
     }
 
     static void OnImportFBX(string assetPath)
     {
+        AnimatorController ac =null;
         try
         {
             string fileName = FileTool.GetFileNameByPath(assetPath);
@@ -48,7 +115,8 @@ public class ImportTool : AssetPostprocessor
                     //建立文件夹
                     string animPath = "Assets/_Res/Anim/";
                     string modelName = fileSplitTmp[1];
-                    string animName = modelName + "_" + FileTool.RemoveExpandName(fileSplitTmp[2]);
+                    //string animName = modelName + "_" + FileTool.RemoveExpandName(fileSplitTmp[2]);
+                    string animName = FileTool.RemoveExpandName(fileSplitTmp[2]);
                     int animLayer = 0;
 
                     if (fileSplitTmp.Length > 3)
@@ -70,7 +138,7 @@ public class ImportTool : AssetPostprocessor
                     }
 
                     animPath += "CTR_" + modelName + ".controller";
-                    AnimatorController ac;
+                    
 
                     //创建AnimControl文件
                     if (!File.Exists(animPath))
@@ -86,6 +154,9 @@ public class ImportTool : AssetPostprocessor
                     while (ac.layers.Length <= animLayer)
                     {
                         ac.AddLayer("Layer " + ac.layers.Length);
+                        //AnimatorControllerLayer layer = ac.layers[animLayer];
+                        
+                        //AddStateTransition("Empty", "", ac.layers[ac.layers.Length]);
                     }
 
                     //自动绑定动画
@@ -108,7 +179,28 @@ public class ImportTool : AssetPostprocessor
         {
             Debug.LogError("FBXImportTool 导入资源出错 ->" + assetPath + "<- " + e.ToString());
         }
+        if(ac!=null)
+            for (int i = 0; i < ac.layers.Length; i++)
+            {
+                if (i == 0)
+                    continue;
+                
+                AnimatorControllerLayer item= ac.layers[i];
+                string emptyName = "empty";
+                AnimatorState state= GetState(item.stateMachine, emptyName);
+                if (state == null)
+                {
+                   state = item.stateMachine.AddState(emptyName);
+                    item.stateMachine.defaultState = state;
+                }
+            }
+       
     }
+
+    const int xSpace = 250;
+    const int ySpace = 50;
+
+    const int colCount = 7;
 
     private static void AddStateTransition(string animName, string path, AnimatorControllerLayer layer)
     {
@@ -119,7 +211,13 @@ public class ImportTool : AssetPostprocessor
 
         if(state == null)
         {
-            state = sm.AddState(animName);
+            Vector3 pos = new Vector3(((sm.states.Length / colCount)+ 1) * xSpace , ((sm.states.Length % colCount) + 4) * ySpace);
+            state = sm.AddState(animName, pos);
+            if (animName.Contains("wait"))
+            {
+                sm.defaultState = state;
+            }
+           // Debug.Log("Add :" + animName);
         }
 
         //取出动画名子 添加到state里面

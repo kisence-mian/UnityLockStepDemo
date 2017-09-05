@@ -52,17 +52,17 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Analytics">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.PlaymodeTestsRunner">
-      <HintPath>Library\UnityAssemblies\UnityEngine.PlaymodeTestsRunner.dll</HintPath>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    <Reference Include="UnityEngine.PlaymodeTestsRunner">
+      <HintPath>Library\UnityAssemblies\UnityEngine.PlaymodeTestsRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
@@ -206,6 +206,7 @@
     <Compile Include="Assets\Script\Core\UI\Utils\UITools.cs" />
     <Compile Include="Assets\Script\Core\Utils\ByteTool.cs" />
     <Compile Include="Assets\Script\Core\Utils\CameraTool.cs" />
+    <Compile Include="Assets\Script\Core\Utils\DeJson.cs" />
     <Compile Include="Assets\Script\Core\Utils\EditorTool.cs" />
     <Compile Include="Assets\Script\Core\Utils\ExpandMethod.cs" />
     <Compile Include="Assets\Script\Core\Utils\FileTool.cs" />
@@ -219,35 +220,41 @@
     <Compile Include="Assets\Script\Core\Utils\ResourceIOTool.cs" />
     <Compile Include="Assets\Script\Core\Utils\SystemInfoTool.cs" />
     <Compile Include="Assets\Script\Core\Utils\UGUITool.cs" />
-    <Compile Include="Assets\Script\GameLogic\Component\AssetComponent.cs" />
-    <Compile Include="Assets\Script\GameLogic\Component\CDComponent.cs" />
-    <Compile Include="Assets\Script\GameLogic\Component\CommandComponent.cs" />
-    <Compile Include="Assets\Script\GameLogic\Component\InputComponent.cs" />
-    <Compile Include="Assets\Script\GameLogic\Component\MoveComponent.cs" />
-    <Compile Include="Assets\Script\GameLogic\Component\PlayerComponent.cs" />
-    <Compile Include="Assets\Script\GameLogic\Component\SyncComponent.cs" />
-    <Compile Include="Assets\Script\GameLogic\Component\ViewComponent.cs" />
-    <Compile Include="Assets\Script\GameLogic\Component\WaitSyncComponent.cs" />
-    <Compile Include="Assets\Script\GameLogic\Module\GameSyncModule.cs" />
-    <Compile Include="Assets\Script\GameLogic\System\FireSystem.cs" />
-    <Compile Include="Assets\Script\GameLogic\System\InitSystem.cs" />
-    <Compile Include="Assets\Script\GameLogic\System\MoveSystem.cs" />
-    <Compile Include="Assets\Script\GameLogic\System\OperationSystem.cs" />
-    <Compile Include="Assets\Script\GameLogic\World\DemoWorld.cs" />
+    <Compile Include="Assets\Script\DataClassGenerate\AreaDataGenerate.cs" />
+    <Compile Include="Assets\Script\DataClassGenerate\CombineDataGenerate.cs" />
+    <Compile Include="Assets\Script\DataClassGenerate\FlyDataGenerate.cs" />
+    <Compile Include="Assets\Script\DataClassGenerate\ShiftDataGenerate.cs" />
+    <Compile Include="Assets\Script\DataClassGenerate\SkillDataGenerate.cs" />
+    <Compile Include="Assets\Script\DataClassGenerate\SkillStatusDataGenerate.cs" />
     <Compile Include="Assets\Script\ProtocolGenerate\ProtocolAnalysisService.cs" />
     <Compile Include="Assets\Script\ProtocolGenerate\ProtocolMessageClass.cs" />
-    <Compile Include="Assets\Script\SyncFrameWork\ClientLogic\Component\PerfabComponent.cs" />
-    <Compile Include="Assets\Script\SyncFrameWork\ClientLogic\System\CreatePerfabSystem.cs" />
-    <Compile Include="Assets\Script\SyncFrameWork\ClientLogic\System\InputSystem.cs" />
-    <Compile Include="Assets\Script\SyncFrameWork\ClientLogic\System\MovePerfabSystem.cs" />
-    <Compile Include="Assets\Script\SyncFrameWork\DeJson.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\Component\AnimComponent.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\Component\HealthBarComponent.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\Component\MonoComp\HardPointComponent.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\Component\MonoComp\MapComponent.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\Component\OperationWindowComponent.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\Component\PerfabComponent.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\Component\PlayerCameraComponent.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\System\CameraSystem.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\System\ClientOperationSystem.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\System\CreatePerfabSystem.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\System\DestroyEffectSystem.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\System\InputSystem.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\System\MovePerfabSystem.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\System\PlayerAnimSystem.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\System\SkillBehaviorSystem.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\System\healthbarSystem.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Calc\Calc.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\ComponentBase.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ECS\ECSEvent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\EntityBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\InputCommandManager.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\MomentComponentBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\Record\RecordComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\Record\RecordSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\Record\RecordSystemBase.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ECS\SingletonComponent.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ECS\SyncComponentBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\SystemBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\TupleBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\ViewSystemBase.cs" />
@@ -259,16 +266,52 @@
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\PlayerCommandRecordComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\SelfComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\ServerCacheComponent.cs" />
-    <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\SingletonComponent.cs" />
-    <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\SyncComponentBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\TheirComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\CommandSyncSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\EntityRecordSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\SyncDebugSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\SyncSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\WorldManager.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\AssetComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\BlockComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\BlowFlyComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\CDComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\CampComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\CollisionComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\CommandComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\FlyObjectComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\InputComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\LifeComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\LifeSpanComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\MoveComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\PlayerComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\SkillStatusComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\ViewComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\BlowFlySystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\CollisionDamageSystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\CollisionSystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\FireSystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\FlyObjectCollisionSystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\InitSystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\LifeSpanSystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\MoveSystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\OperationSystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\SkillStatusSystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\SkillSystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Utils\Calculate.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Utils\GameUtils.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Utils\SkillData.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Utils\SkillUtils.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Utils\statement.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\World\DemoWorld.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Resources\Data\AreaData.txt" />
+    <None Include="Assets\Resources\Data\CombineData.txt" />
+    <None Include="Assets\Resources\Data\FlyData.txt" />
+    <None Include="Assets\Resources\Data\ShiftData.txt" />
+    <None Include="Assets\Resources\Data\SkillData.txt" />
+    <None Include="Assets\Resources\Data\SkillStatusData.txt" />
     <None Include="Assets\Resources\Network\MethodInfo.txt" />
     <None Include="Assets\Resources\Network\ProtocolInfo.txt" />
     <None Include="Assets\Script\Core\Editor\res\EditorWindow\FindTexture获取.txt" />
