@@ -24,6 +24,7 @@ public static class ProtocolAnalysisService
 			case  "syncentitymsg":SendSyncEntityMsg(session , (Protocol.SyncEntityMsg)msg);break;
 			case  "commandcomponent":SendCommandComponent(session , (CommandComponent)msg);break;
 			case  "playerloginmsg_c":SendPlayerLoginMsg_c(session , (PlayerLoginMsg_c)msg);break;
+			case  "playermatchmsg_c":SendPlayerMatchMsg_c(session , (PlayerMatchMsg_c)msg);break;
 			default:
 			Debug.LogError("SendCommand Exception : 不支持的消息类型!" + key);
 				break;
@@ -130,6 +131,14 @@ public static class ProtocolAnalysisService
 			}
 			data.Add("infos",list2);
 		}
+		{
+			List<object> list = new List<object>();
+			for(int i = 0;i <msg.destroyList.Count ; i++)
+			{
+				list.Add( msg.destroyList[i]);
+			}
+			data.Add("destroylist",list);
+		}
 		session.SendMsg("syncentitymsg",data);
 	}
 	static void SendCommandComponent(SyncSession session,CommandComponent msg)
@@ -163,6 +172,13 @@ public static class ProtocolAnalysisService
 		data.Add("content", msg.content);
 		session.SendMsg("playerloginmsg",data);
 	}
+	static void SendPlayerMatchMsg_c(SyncSession session,PlayerMatchMsg_c msg)
+	{
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("predicttime", msg.predictTime);
+		data.Add("ismatched", msg.isMatched);
+		session.SendMsg("playermatchmsg",data);
+	}
 	#endregion
 
 	#region 事件接收
@@ -179,6 +195,7 @@ public static class ProtocolAnalysisService
 			case  "syncentitymsg":ReceviceSyncEntityMsg(session , cmd);break;
 			case  "commandcomponent":ReceviceCommandComponent(session , cmd);break;
 			case  "playerloginmsg":RecevicePlayerLoginMsg_s(session , cmd);break;
+			case  "playermatchmsg":RecevicePlayerMatchMsg_s(session , cmd);break;
 			default:
 			Debug.LogError("Recevice Exception : 不支持的消息类型!" + cmd.Key);
 				break;
@@ -297,6 +314,7 @@ public static class ProtocolAnalysisService
 			}
 			msg.infos =  list2;
 		}
+		msg.destroyList = (List<Int32>)e.m_data["destroylist"];
 		
 		EventService.DispatchTypeEvent(session,msg);
 	}
@@ -331,6 +349,13 @@ public static class ProtocolAnalysisService
 	{
 		PlayerLoginMsg_s msg = new PlayerLoginMsg_s();
 		msg.playerID = e.m_data["playerid"].ToString();
+		
+		EventService.DispatchTypeEvent(session,msg);
+	}
+	static void RecevicePlayerMatchMsg_s(SyncSession session ,ProtocolRequestBase e)
+	{
+		PlayerMatchMsg_s msg = new PlayerMatchMsg_s();
+		msg.isCancel = (bool)e.m_data["iscancel"];
 		
 		EventService.DispatchTypeEvent(session,msg);
 	}

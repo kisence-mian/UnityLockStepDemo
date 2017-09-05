@@ -117,6 +117,17 @@ message m_playerloginmsg_s
 	required string playerid = 1;
 }
 
+message m_playermatchmsg_c
+{
+	required int32 predicttime = 1;
+	required bool ismatched = 2;
+}
+
+message m_playermatchmsg_s
+{
+	required bool iscancel = 1;
+}
+
 message syncvector3
 {
 	required int32 x = 1;

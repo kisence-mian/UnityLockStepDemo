@@ -32,6 +32,8 @@ namespace Protocol
     {
         public int frame;
         public List<EntityInfo> infos;
+
+        public List<int> destroyList;
     }
 
     public class DestroyEntityMsg : SyncModule

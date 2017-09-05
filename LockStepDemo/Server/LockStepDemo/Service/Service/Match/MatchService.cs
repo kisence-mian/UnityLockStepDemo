@@ -16,6 +16,8 @@ public class MatchService
 
     void ReceviceMatchMsg(SyncSession session, PlayerMatchMsg_s msg)
     {
+        Debug.Log("ReceviceMatchMsg");
+
         if (session.player == null)
         {
             Debug.Log("玩家未登录 " + session.SessionID);
@@ -53,7 +55,7 @@ public class MatchService
             ProtocolAnalysisService.SendMsg(player.session,msg);
 
             //TODO 潜在的线程不安全隐患 ---> 公共的matchList
-            if (matchList.Count > roomPeopleNum)
+            if (matchList.Count >= roomPeopleNum)
             {
                 //构造玩家列表
                 Player[] tmp = new Player[roomPeopleNum];
@@ -89,12 +91,15 @@ public class MatchService
             ConnectionComponent conn = new ConnectionComponent();
             conn.m_session = players[i].session;
 
-            world.CreateEntity(conn);
+            SyncComponent sc = new SyncComponent();
+
+            world.CreateEntityImmediately(conn, sc);
 
             players[i].session.m_connect = conn;
 
-            world.CreateEntity();
+            world.eventSystem.DispatchEvent(ServiceEventDefine.c_playerJoin, conn.Entity);
 
+            //派发游戏开始消息
             PlayerMatchMsg_c msg = new PlayerMatchMsg_c();
             msg.predictTime = 0;
             msg.isMatched = true;

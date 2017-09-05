@@ -14,3 +14,4 @@
 
 10,ProtocolMessage
 1001,playerloginmsg
+1002,playermatchmsg

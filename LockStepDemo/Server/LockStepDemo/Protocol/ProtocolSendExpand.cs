@@ -32,6 +32,12 @@ namespace LockStepDemo
 
         public static void SendMsg(this SyncSession session,string key ,Dictionary<string, object> data)
         {
+            if(session == null)
+            {
+                //Debug.LogError("Session 已经断开连接！");
+                return;
+            }
+
             ByteArray ba = new ByteArray();
 
             List<byte> message = GetSendByte(key, data);
@@ -53,6 +59,7 @@ namespace LockStepDemo
             }
 
             byte[] buffer = ba.Buffer;
+
             session.Send(buffer, 0, buffer.Length);
         }
 

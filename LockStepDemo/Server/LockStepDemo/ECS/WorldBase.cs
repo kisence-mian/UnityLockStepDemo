@@ -102,6 +102,8 @@ public class WorldBase
     public event EntityComponentChangedCallBack OnEntityComponentRemoved;
     public event EntityComponentReplaceCallBack OnEntityComponentChange;
 
+    public ECSEvent eventSystem = new ECSEvent();
+
     #region 重载方法
     public virtual Type[] GetSystemTypes()
     {
@@ -427,6 +429,54 @@ public class WorldBase
         }
 
         createCache.Add(entity);
+        return entity;
+    }
+
+    /// <summary>
+    /// 立即创建一个实体，不要在游戏逻辑中使用
+    /// </summary>
+    public void CreateEntityImmediately(params ComponentBase[] compList)
+    {
+        CreateEntityImmediately(EntityIndex++,compList);
+    }
+
+    /// <summary>
+    /// 立即创建一个实体，不要在游戏逻辑中使用
+    /// </summary>
+    /// <param name="ID"></param>
+    /// <param name="compList"></param>
+    /// <returns></returns>
+    public EntityBase CreateEntityImmediately(int ID, params ComponentBase[] compList)
+    {
+        if (m_entityDict.ContainsKey(ID))
+        {
+            throw new Exception("CreateEntity Exception: Entity ID has exist ! ->" + ID + "<-");
+        }
+
+        EntityBase entity = new EntityBase();
+        entity.ID = ID;
+
+        entity.World = this;
+
+        if (compList != null)
+        {
+            for (int i = 0; i < compList.Length; i++)
+            {
+                entity.AddComp(compList[i].GetType().Name, compList[i]);
+            }
+        }
+
+        m_entityList.Add(entity);
+        m_entityDict.Add(entity.ID, entity);
+
+        entity.OnComponentAdded += OnEntityComponentAdded;
+        entity.OnComponentRemoved += OnEntityComponentRemoved;
+        entity.OnComponentReplaced += OnEntityComponentChange;
+
+        if (OnEntityCreated != null)
+        {
+            OnEntityCreated(entity);
+        }
         return entity;
     }
 

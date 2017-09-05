@@ -16,7 +16,9 @@ public class ConnectionComponent : ServiceComponent
     public List<PlayerCommandBase> m_forecastList = new List<PlayerCommandBase>(); //预测操作列表
 
     public PlayerCommandBase m_lastInputCache = null; //玩家的最后一次输入
+
     public List<EntityBase> m_waitSyncEntity = new List<EntityBase>(); //等待同步的实体
+    public List<int> m_waitDestroyEntity = new List<int>();            //等待同步删除的实体
 
     public PlayerCommandBase GetCommand(int frame)
     {

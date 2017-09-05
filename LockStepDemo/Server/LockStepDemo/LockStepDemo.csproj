@@ -132,13 +132,16 @@
     <Compile Include="Service\DataBase\ICursor.cs" />
     <Compile Include="Service\DataBase\IDatabase.cs" />
     <Compile Include="Service\DataBase\IException.cs" />
-    <Compile Include="Service\Event\ECSEvent.cs" />
+    <Compile Include="ECS\ECSEvent.cs" />
     <Compile Include="Service\Message\ProtocolMessage.cs" />
     <Compile Include="Service\Module\Player.cs" />
+    <Compile Include="Service\Service\Define\ServiceEventDefine.cs" />
     <Compile Include="Service\Service\Login\LoginService.cs" />
     <Compile Include="Service\ServiceLogic\Component\SyncComponent.cs" />
     <Compile Include="Service\ServiceLogic\System\ServiceSystem.cs" />
     <Compile Include="Service\ServiceLogic\System\SyncDebugSystem.cs" />
+    <Compile Include="Service\Service\Match\MatchService.cs" />
+    <Compile Include="Service\Service\Reconnect\ReConnectService.cs" />
     <Compile Include="Service\Sync\Component\TheirComponent.cs" />
     <Compile Include="Service\Sync\Component\WaitSyncComponent.cs" />
     <Compile Include="Generate\Protocol\ProtocolAnalysisService.cs" />
@@ -277,9 +280,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Service\Sync\Struct\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>

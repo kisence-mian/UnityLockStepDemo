@@ -16,11 +16,7 @@ namespace LockStepDemo.Service
 
         public SyncService() : base(new ProtocolReceiveFilterFactory())
         {
-            DataBaseService.Init();
 
-            matchService.Init();
-            loginService.Init();
-            reConnectService.Init();
         }
 
         protected override bool Setup(IRootConfig rootConfig, IServerConfig config)
@@ -28,6 +24,12 @@ namespace LockStepDemo.Service
             //TODO 读取配置设置isDebug
             Debug.SetLogger(Logger,true);
             Debug.Log("SyncService Setup");
+
+            DataBaseService.Init();
+
+            matchService.Init();
+            loginService.Init();
+            reConnectService.Init();
 
             return base.Setup(rootConfig, config);
         }

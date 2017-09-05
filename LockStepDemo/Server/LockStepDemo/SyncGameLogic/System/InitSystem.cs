@@ -165,7 +165,7 @@ public class InitSystem : SystemBase
 
             BlockComponent bc = new BlockComponent();
 
-            m_world.CreateEntity(cc, sc, bc);
+            m_world.CreateEntityImmediately(cc, sc, bc);
 
             Debug.Log("Create map");
         }

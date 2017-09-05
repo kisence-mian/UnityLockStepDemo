@@ -266,7 +266,7 @@ public class SkillSystem : SystemBase
         LifeComponent lc = hurter.GetComp<LifeComponent>();
         lc.life -= damageNumber;
 
-        ECSEvent.DispatchEvent(GameUtils.GetEventKey(hurter.ID, CharacterEventType.Damage), hurter);
+        m_world.eventSystem.DispatchEvent(GameUtils.GetEventKey(hurter.ID, CharacterEventType.Damage), hurter);
     }
 
     void Absorb(int damageNumber, EntityBase character, SkillDataGenerate skillData)

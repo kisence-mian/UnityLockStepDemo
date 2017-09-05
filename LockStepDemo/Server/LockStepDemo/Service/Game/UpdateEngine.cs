@@ -7,8 +7,8 @@ using System.Threading;
 
 public static class UpdateEngine
 {
-    const int Tick2ms = 10000;
-    static long s_intervalTime = Tick2ms * 200; //单位毫微秒
+    public const int Tick2ms = 10000;
+    public static long s_intervalTime = Tick2ms * 200; //单位毫微秒
 
     /// <summary>
     ///         给外部使用的间隔时间，单位毫秒

@@ -1,16 +1,5 @@
 package all;
 
-message m_playerloginmsg_c
-{
-	required int32 code0 = 1;
-	required string content = 2;
-}
-
-message m_playerloginmsg_s
-{
-	required string playerid = 1;
-}
-
 message m_changecomponentmsg_s
 {
 	required int32 frame = 1;
@@ -115,6 +104,28 @@ message m_commandcomponent_c
 	required bool isfire = 5;
 	required int32 id = 6;
 	required int32 frame = 7;
+}
+
+message m_playerloginmsg_c
+{
+	required int32 code0 = 1;
+	required string content = 2;
+}
+
+message m_playerloginmsg_s
+{
+	required string playerid = 1;
+}
+
+message m_playermatchmsg_c
+{
+	required int32 predicttime = 1;
+	required bool ismatched = 2;
+}
+
+message m_playermatchmsg_s
+{
+	required bool iscancel = 1;
 }
 
 message syncvector3

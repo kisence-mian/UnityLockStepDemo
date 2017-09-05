@@ -10,14 +10,24 @@ public class DataBaseService
     public static IDatabase database;
     public static void Init()
     {
-        DbConfig config = new DbConfig();
+        Debug.Log("开始连接数据库~~~");
+        long time = DateTime.Now.Ticks;
 
+        DbConfig config = new DbConfig();
+        config.Database = "ElementCraft";
+        config.Server = "54.191.174.49";
+        config.User = "root";
+        config.Password = "83dd961d3ce758ce";
 
         database = DatabaseFactory.CreateDatabase(config, DbConfig.DbType.MYSQL);
 
         try
         {
             database.Open();
+
+            time = DateTime.Now.Ticks - time;
+
+            Debug.Log("数据库连接成功 用时" + time/ UpdateEngine.Tick2ms +"ms");
         }
         catch (DatabaseException e)
         {

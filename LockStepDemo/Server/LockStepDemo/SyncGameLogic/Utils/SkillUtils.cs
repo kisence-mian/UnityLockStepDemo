@@ -17,7 +17,7 @@ public class SkillUtils
 
         lc.life -= fc.damage;
         //派发事件
-        ECSEvent.DispatchEvent(GameUtils.GetEventKey(entity.ID, CharacterEventType.Damage), entity);
+        world.eventSystem.DispatchEvent(GameUtils.GetEventKey(entity.ID, CharacterEventType.Damage), entity);
 
         //释放触发技能
         TokenUseSkill(world,campComp.creater,fc.FlyData.m_TriggerSkill, mc.pos.ToVector(),mc.dir.ToVector());
@@ -27,7 +27,6 @@ public class SkillUtils
 
     public static void TokenUseSkill(WorldBase world,int createrID, string skillID, Vector3 pos, Vector3 dir)
     {
-
         Debug.Log("TokenUseSkill pos" + pos + " frame " + world.FrameCount);
 
         if (skillID != null 

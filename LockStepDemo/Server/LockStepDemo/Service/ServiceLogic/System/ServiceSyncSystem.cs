@@ -17,8 +17,11 @@ public class ServiceSyncSystem : ServiceSystem
         AddEntityCreaterLisnter();
         AddEntityDestroyLisnter();
 
-        AddEntityCompAddLisenter();
-        AddEntityCompRemoveLisenter();
+        //AddEntityCompAddLisenter();
+        //AddEntityCompRemoveLisenter();
+
+        m_world.eventSystem.AddListener(ServiceEventDefine.c_playerJoin, OnPlayerJoin);
+        m_world.eventSystem.AddListener(ServiceEventDefine.c_playerExit, OnPlayerExit);
     }
 
     public override Type[] GetFilter()
@@ -37,26 +40,26 @@ public class ServiceSyncSystem : ServiceSystem
         PushStartSyncMsg();
     }
 
-    public override void OnEntityCompAdd(EntityBase entity, string compName, ComponentBase component)
-    {
-        Debug.Log("OnEntityCompAdd " + compName);
+    //public override void OnEntityCompAdd(EntityBase entity, string compName, ComponentBase component)
+    //{
+    //    Debug.Log("OnEntityCompAdd " + compName);
 
-        //有新玩家加入
-        if (entity.GetExistComp<ConnectionComponent>()
-            && entity.GetExistComp<SyncComponent>())
-        {
-            OnPlayerJoin(entity);
-        }
-    }
+    //    //有新玩家加入
+    //    if (entity.GetExistComp<ConnectionComponent>()
+    //        && entity.GetExistComp<SyncComponent>())
+    //    {
+    //        OnPlayerJoin(entity);
+    //    }
+    //}
 
-    public override void OnEntityCompRemove(EntityBase entity, string compName, ComponentBase component)
-    {
-        if (entity.GetExistComp<ConnectionComponent>()
-            && entity.GetExistComp<SyncComponent>())
-        {
-            OnPlayerExit(entity);
-        }
-    }
+    //public override void OnEntityCompRemove(EntityBase entity, string compName, ComponentBase component)
+    //{
+    //    if (entity.GetExistComp<ConnectionComponent>()
+    //        && entity.GetExistComp<SyncComponent>())
+    //    {
+    //        OnPlayerExit(entity);
+    //    }
+    //}
 
     public override void OnEntityCreate(EntityBase entity)
     {
@@ -141,7 +144,7 @@ public class ServiceSyncSystem : ServiceSystem
         SetAllSync(sc);
 
         //TODO 将来改成推送移除连接组件
-        PushDestroyEntity(sc, entity);
+        //PushDestroyEntity(sc, entity);
     }
 
     #endregion
@@ -204,31 +207,41 @@ public class ServiceSyncSystem : ServiceSystem
     {
         for (int i = 0; i < connectionComp.m_waitSyncList.Count; i++)
         {
-            Debug.Log("Push " + connectionComp.m_waitSyncList[i].m_session.SessionID + " entity " + entity.ID);
-            //PushSyncEnity(connectionComp.m_waitSyncList[i].m_session, entity);
+            //Debug.Log("Push " + connectionComp.m_waitSyncList[i].m_session.SessionID + " entity " + entity.ID);
 
-            connectionComp.m_waitSyncList[i].m_waitSyncEntity.Add(entity);
+            if(connectionComp.m_waitSyncList[i].m_session != null)
+            {
+                connectionComp.m_waitSyncList[i].m_waitSyncEntity.Add(entity);
+            }
         }
         connectionComp.m_waitSyncList.Clear();
     }
 
     public void PushSyncEnity(ConnectionComponent connect, EntityBase entity)
     {
-        if (!connect.m_session.Connected)
+        if (connect.m_session != null 
+            && !connect.m_session.Connected)
         {
             return;
         }
 
         SyncEntityMsg msg = new SyncEntityMsg();
         msg.frame = m_world.FrameCount;
-        //msg.id = entity.ID;
+
         msg.infos = new List<EntityInfo>();
+        msg.destroyList = new List<int>();
 
         for (int i = 0; i < connect.m_waitSyncEntity.Count; i++)
         {
             msg.infos.Add(CreateEntityInfo(connect.m_waitSyncEntity[i], connect.m_session));
         }
 
+        for (int i = 0; i < connect.m_waitDestroyEntity.Count; i++)
+        {
+            msg.destroyList.Add(connect.m_waitDestroyEntity[i]);
+        }
+
+        connect.m_waitDestroyEntity.Clear();
         connect.m_waitSyncEntity.Clear();
         if(msg.infos.Count > 0)
         {
@@ -283,21 +296,21 @@ public class ServiceSyncSystem : ServiceSystem
     {
         for (int i = 0; i < connectionComp.m_waitSyncList.Count; i++)
         {
-            PushDestroyEntity(connectionComp.m_waitSyncList[i].m_session, entity.ID);
+            connectionComp.m_waitSyncList[i].m_waitDestroyEntity.Add(entity.ID);
         }
         connectionComp.m_waitSyncList.Clear();
     }
 
-    void PushDestroyEntity(SyncSession session, int entityID)
-    {
-        DestroyEntityMsg msg = new DestroyEntityMsg();
-        msg.id = entityID;
-        msg.frame = m_world.FrameCount;
+    //void PushDestroyEntity(SyncSession session, int entityID)
+    //{
+    //    DestroyEntityMsg msg = new DestroyEntityMsg();
+    //    msg.id = entityID;
+    //    msg.frame = m_world.FrameCount;
 
-        ProtocolAnalysisService.SendMsg(session, msg);
+    //    ProtocolAnalysisService.SendMsg(session, msg);
 
-        Debug.Log("PushDestroyEntity 3");
-    }
+    //    Debug.Log("PushDestroyEntity 3");
+    //}
 
     #endregion
 
