@@ -34,7 +34,7 @@ public class SkillStatusSystem : SystemBase
         if (sc.m_skillStstus != SkillStatusEnum.Finish
             && sc.m_skillStstus != SkillStatusEnum.None)
         {
-            Debug.Log("ID: " + entity.ID + " m_skillStstus " + sc.m_skillStstus + " frame " + m_world.FrameCount +" skillTime "+ sc.m_skillTime +" LaterTime " + sc.m_currentSkillData.LaterTime);
+            //Debug.Log("ID: " + entity.ID + " m_skillStstus " + sc.m_skillStstus + " frame " + m_world.FrameCount +" skillTime "+ sc.m_skillTime +" LaterTime " + sc.m_currentSkillData.LaterTime);
 
             sc.m_skillTime += deltaTime;
 

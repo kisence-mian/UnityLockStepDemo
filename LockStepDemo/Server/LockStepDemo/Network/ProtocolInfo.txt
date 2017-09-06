@@ -130,6 +130,14 @@ message m_playermatchmsg_s
 	required bool iscancel = 1;
 }
 
+message m_playerresurgence_c
+{
+}
+
+message m_playerresurgence_s
+{
+}
+
 message syncvector3
 {
 	required int32 x = 1;

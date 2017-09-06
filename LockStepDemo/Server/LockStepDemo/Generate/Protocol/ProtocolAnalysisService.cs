@@ -25,6 +25,7 @@ public static class ProtocolAnalysisService
 			case  "commandcomponent":SendCommandComponent(session , (CommandComponent)msg);break;
 			case  "playerloginmsg_c":SendPlayerLoginMsg_c(session , (PlayerLoginMsg_c)msg);break;
 			case  "playermatchmsg_c":SendPlayerMatchMsg_c(session , (PlayerMatchMsg_c)msg);break;
+			case  "playerresurgence_c":SendPlayerResurgence_c(session , (PlayerResurgence_c)msg);break;
 			default:
 			Debug.LogError("SendCommand Exception : 不支持的消息类型!" + key);
 				break;
@@ -179,6 +180,11 @@ public static class ProtocolAnalysisService
 		data.Add("ismatched", msg.isMatched);
 		session.SendMsg("playermatchmsg",data);
 	}
+	static void SendPlayerResurgence_c(SyncSession session,PlayerResurgence_c msg)
+	{
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		session.SendMsg("playerresurgence",data);
+	}
 	#endregion
 
 	#region 事件接收
@@ -196,6 +202,7 @@ public static class ProtocolAnalysisService
 			case  "commandcomponent":ReceviceCommandComponent(session , cmd);break;
 			case  "playerloginmsg":RecevicePlayerLoginMsg_s(session , cmd);break;
 			case  "playermatchmsg":RecevicePlayerMatchMsg_s(session , cmd);break;
+			case  "playerresurgence":RecevicePlayerResurgence_s(session , cmd);break;
 			default:
 			Debug.LogError("Recevice Exception : 不支持的消息类型!" + cmd.Key);
 				break;
@@ -356,6 +363,12 @@ public static class ProtocolAnalysisService
 	{
 		PlayerMatchMsg_s msg = new PlayerMatchMsg_s();
 		msg.isCancel = (bool)e.m_data["iscancel"];
+		
+		EventService.DispatchTypeEvent(session,msg);
+	}
+	static void RecevicePlayerResurgence_s(SyncSession session ,ProtocolRequestBase e)
+	{
+		PlayerResurgence_s msg = new PlayerResurgence_s();
 		
 		EventService.DispatchTypeEvent(session,msg);
 	}

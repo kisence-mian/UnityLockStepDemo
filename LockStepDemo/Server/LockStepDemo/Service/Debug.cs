@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using UnityEngine;
 
 class Debug
 {
@@ -64,5 +64,10 @@ class Debug
             Console.WriteLine("------------------------------ WARN END ----------------------------");
         }
         s_logger.Warn(content);
+    }
+
+    public static void DrawRay(Vector3 pos, Vector3 dir,Color col,float time)
+    {
+
     }
 }

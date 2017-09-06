@@ -13,14 +13,18 @@ class DemoWorld : WorldBase
             typeof(OperationSystem),
             typeof(BlowFlySystem),
             typeof(MoveSystem),
+
+            typeof(CollisionSystem),
             typeof(FireSystem),
             typeof(SkillStatusSystem),
             typeof(SkillSystem),
             typeof(LifeSpanSystem),
-            typeof(CollisionSystem),
+  
             typeof(CollisionDamageSystem),
             typeof(FlyObjectCollisionSystem),
             typeof(InitSystem),
+            typeof(GameSystem),
+            typeof(ResurgenceSystem),
             
             //服务器系统
             typeof(ConnectSystem),
@@ -35,14 +39,6 @@ class DemoWorld : WorldBase
     public override Type[] GetRecordTypes()
     {
         return new Type[] {
-
-            typeof(CDComponent),
-            typeof(LifeSpanComponent),
-            typeof(MoveComponent),
-            typeof(PlayerComponent),
-            typeof(LifeComponent),
-            typeof(SkillStatusComponent),
-            typeof(BlowFlyComponent),
         };
     }
 

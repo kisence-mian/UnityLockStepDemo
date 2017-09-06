@@ -29,6 +29,13 @@ public class CollisionSystem : SystemBase
         {
             CollisionComponent acc = list[i].GetComp<CollisionComponent>();
 
+            BlockComponent abc = null;
+
+            if(list[i].GetExistComp<BlockComponent>())
+            {
+               abc = list[i].GetComp<BlockComponent>();
+            }
+
             if(list[i].GetExistComp<MoveComponent>())
             {
                 MoveComponent amc = list[i].GetComp<MoveComponent>();
@@ -39,8 +46,13 @@ public class CollisionSystem : SystemBase
 
             for (int j = i + 1; j < list.Count; j++)
             {
-
                 CollisionComponent bcc = list[j].GetComp<CollisionComponent>();
+
+                //两个阻挡组件之间不计算阻挡
+                if (abc != null && list[j].GetExistComp<BlockComponent>())
+                {
+                    continue;
+                }
 
                 if (list[j].GetExistComp<MoveComponent>())
                 {
@@ -57,8 +69,6 @@ public class CollisionSystem : SystemBase
 
                     //content += "" + acc.Entity.ID + " " + bcc.Entity.ID + " AreaCollideSucceed\n";
                 }
-
-                
             }
 
             //Debug.Log("---------------- END " + list[i].ID + "-------------------");

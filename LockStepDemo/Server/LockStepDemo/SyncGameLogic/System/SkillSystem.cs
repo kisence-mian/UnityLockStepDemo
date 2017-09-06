@@ -29,6 +29,7 @@ public class SkillSystem : SystemBase
     {
         SkillStatusComponent ssc = entity.GetComp<SkillStatusComponent>();
         MoveComponent mc = entity.GetComp<MoveComponent>();
+        CampComponent cc = entity.GetComp<CampComponent>();
 
         if (ssc.m_isHit)
         {
@@ -42,6 +43,8 @@ public class SkillSystem : SystemBase
 
             //创建飞行物
             CreateFlyObject(skillData, entity);
+
+            //Debug.Log("SkillLogic hit " + entity.ID + " createrid " + cc.creater + " damageList.Count " + damageList.Count);
 
             for (int i = 0; i < damageList.Count; i++)
             {
@@ -65,7 +68,7 @@ public class SkillSystem : SystemBase
     {
         CampComponent campComp = skiller.GetComp<CampComponent>();
 
-        Debug.Log("CreateFlyObject " + skiller.ID + "  " + campComp.creater);
+        //Debug.Log("CreateFlyObject " + skiller.ID + "  " + campComp.creater);
 
         if (skillData.m_FlyObjectName.Length != 0)
         {
@@ -218,11 +221,11 @@ public class SkillSystem : SystemBase
 
         string blowFlyID = skillData.m_BlowFlyID;
 
-        Debug.Log("BlowFly --> skill id " + skillData.m_key + "  blowfly id " + blowFlyID + " skilltoken pos " + amc.pos.ToVector() + " ");
+        //Debug.Log("BlowFly --> skill id " + skillData.m_key + "  blowfly id " + blowFlyID + " skilltoken pos " + amc.pos.ToVector() + " ");
 
         if (blowFlyID != "null")
         {
-            Debug.Log("BlowFly " + hurter.ID + " skillID " + skillData.m_key);
+            //Debug.Log("BlowFly " + hurter.ID + " skillID " + skillData.m_key);
 
             //击飞处理
             if (hurter.GetExistComp<BlowFlyComponent>())
@@ -264,9 +267,7 @@ public class SkillSystem : SystemBase
 
         //伤害处理
         LifeComponent lc = hurter.GetComp<LifeComponent>();
-        lc.life -= damageNumber;
-
-        m_world.eventSystem.DispatchEvent(GameUtils.GetEventKey(hurter.ID, CharacterEventType.Damage), hurter);
+        lc.Life -= damageNumber;
     }
 
     void Absorb(int damageNumber, EntityBase character, SkillDataGenerate skillData)
@@ -371,7 +372,6 @@ public class SkillSystem : SystemBase
                 case DirectionEnum.Leave: l_dir = amc.pos.ToVector() - smc.pos.ToVector(); break;
                 case DirectionEnum.Close: l_dir = smc.pos.ToVector() - amc.pos.ToVector(); break;
             }
-
         }
         return l_dir;
     }
@@ -390,13 +390,19 @@ public class SkillSystem : SystemBase
 
         UpdateArea(skillAreaCache, skillData.m_EffectArea, entity);
 
+        Debug.DrawRay(skillAreaCache.position, skillAreaCache.direction,Color.red,10);
+
         for (int i = 0; i < list.Count; i++)
         {
             CollisionComponent bcc = list[i].GetComp<CollisionComponent>();
-            CampComponent bcampc = list[i].GetComp<CampComponent>();
+            CampComponent bcampc   = list[i].GetComp<CampComponent>();
+            LifeComponent lc       = list[i].GetComp<LifeComponent>();
 
-            if (skillAreaCache.AreaCollideSucceed(bcc.area)
-                && acc.creater != bcampc.creater)
+            //Debug.Log("bcampc.creater " + bcampc.creater + " AreaCollideSucceed -->" + skillAreaCache.AreaCollideSucceed(bcc.area));
+
+            if (acc.creater != bcampc.creater 
+                && skillAreaCache.AreaCollideSucceed(bcc.area)
+                && lc.Life > 0)
             {
                 result.Add(list[i]);
             }

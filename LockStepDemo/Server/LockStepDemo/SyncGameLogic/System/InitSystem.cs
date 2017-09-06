@@ -138,6 +138,9 @@ public class InitSystem : SystemBase
             ConnectionComponent cc = entity.GetComp<ConnectionComponent>();
             cc.m_lastInputCache = new CommandComponent();
         }
+
+        GameTimeComponent gtc = m_world.GetSingletonComp<GameTimeComponent>();
+        gtc.GameTime = 100000 * 1000;
     }
 
     Deserializer deserializer = new Deserializer();

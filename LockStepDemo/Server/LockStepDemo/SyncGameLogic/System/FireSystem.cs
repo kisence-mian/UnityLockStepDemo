@@ -41,7 +41,7 @@ public class FireSystem : ViewSystemBase
                 
                 string skillID = GetSkillName(cc);
 
-                Debug.Log("FIRE!!! --> " + skillID);
+                //Debug.Log("FIRE!!! --> " + skillID);
 
                 ssc.m_skillTime = 0;
                 ssc.m_skillStstus = SkillStatusEnum.Before;

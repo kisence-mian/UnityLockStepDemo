@@ -6,6 +6,8 @@ using System.Text;
 
 public abstract class RecordSystemBase :SystemBase
 {
+    public abstract void Record(int frame,EntityBase entity);
+
     public abstract void Record(int frame);
 
     public abstract void RevertToFrame(int frame);

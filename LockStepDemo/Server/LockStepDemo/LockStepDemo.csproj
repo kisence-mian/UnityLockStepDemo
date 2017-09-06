@@ -133,6 +133,7 @@
     <Compile Include="Service\DataBase\IDatabase.cs" />
     <Compile Include="Service\DataBase\IException.cs" />
     <Compile Include="ECS\ECSEvent.cs" />
+    <Compile Include="Service\Game\GameMessageService.cs" />
     <Compile Include="Service\Message\ProtocolMessage.cs" />
     <Compile Include="Service\Module\Player.cs" />
     <Compile Include="Service\Service\Define\ServiceEventDefine.cs" />
@@ -148,7 +149,7 @@
     <Compile Include="Generate\Protocol\ProtocolMessageClass.cs" />
     <Compile Include="Reflect\DeJson.cs" />
     <Compile Include="Reflect\MiniJSON.cs" />
-    <Compile Include="Service\Game\GameMessageService.cs" />
+    <Compile Include="Service\Game\CommandMessageService.cs" />
     <Compile Include="Service\ServiceLogic\System\PlayerInputSystem.cs" />
     <Compile Include="Service\Sync\Component\PlayerCommandBase.cs" />
     <Compile Include="Service\Sync\Component\SelfComponent.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="SyncGameLogic\Component\CollisionComponent.cs" />
     <Compile Include="SyncGameLogic\Component\CommandComponent.cs" />
     <Compile Include="SyncGameLogic\Component\FlyObjectComponent.cs" />
+    <Compile Include="SyncGameLogic\Component\GameTimeComponent.cs" />
     <Compile Include="SyncGameLogic\Component\InputComponent.cs" />
     <Compile Include="SyncGameLogic\Component\LifeComponent.cs" />
     <Compile Include="SyncGameLogic\Component\LifeSpanComponent.cs" />
@@ -192,10 +194,12 @@
     <Compile Include="SyncGameLogic\System\CollisionSystem.cs" />
     <Compile Include="SyncGameLogic\System\FireSystem.cs" />
     <Compile Include="SyncGameLogic\System\FlyObjectCollisionSystem.cs" />
+    <Compile Include="SyncGameLogic\System\GameSystem.cs" />
     <Compile Include="SyncGameLogic\System\InitSystem.cs" />
     <Compile Include="SyncGameLogic\System\LifeSpanSystem.cs" />
     <Compile Include="SyncGameLogic\System\MoveSystem.cs" />
     <Compile Include="SyncGameLogic\System\OperationSystem.cs" />
+    <Compile Include="SyncGameLogic\System\ResurgenceSystem.cs" />
     <Compile Include="SyncGameLogic\System\SkillStatusSystem.cs" />
     <Compile Include="SyncGameLogic\System\SkillSystem.cs" />
     <Compile Include="SyncGameLogic\Utils\Calculate.cs" />

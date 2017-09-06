@@ -4,7 +4,7 @@ note	技能名	技能描述	技能图标	特效id	攻击范围	伤害值	命中�
 default	测试技能	测试技能的说明	2005	EFX_atk_02	normal01	1	0	null	TRUE	null	null	1	TRUE	0	TRUE	FALSE	NoOffSet	1	null	0	99	none	102	150	301	10	NoTimeDefaultSkillStatus	defaultSkillStatus	defaultSkillStatus	0.05	0	position	null	1	0	0	normalLeft	1	chest	FALSE	FALSE	null	null	null	null	FALSE	FALSE	null
 1999				EFX_atk_02	NoOffSet	1	0	null	FALSE	null	null	1	TRUE	0	TRUE	FALSE	NoOffSet	120	att1999Fly									1999																				
 2000				EFX_fire_01_3	NoOffSet	1	0	null	FALSE	null	null	1.1	TRUE	0	TRUE	FALSE		135	att2000Fly									2000			0.15																	
-2001				EFX_water_01_3	NoOffSet	1	0	null	FALSE	null	null	0.9	TRUE	0	TRUE	FALSE		120	att2001Fly									2001																				2001_trigger
+2001				EFX_water_01_3	NoOffSet	1	0	null	FALSE	null	null	0.9	TRUE	0	TRUE	FALSE		120	att2001Fly									2001																				
 2002				EFX_bolt_01_3	Rectangle4.5x0.15	45	0	null	FALSE	null	null	0.35	TRUE	0	TRUE	TRUE		0										2002																				
 2003				EFX_soil_01_3	NoOffSet	1	0	null	FALSE	null	null	2.5	FALSE	0.5	TRUE	TRUE		60	att2003Fly																													
 2100				EFX_soil_01_3	normalLarge	65	0	null	FALSE	null	null	0.5	TRUE	0	TRUE	FALSE											2100																					
@@ -15,4 +15,4 @@ default	测试技能	测试技能的说明	2005	EFX_atk_02	normal01	1	0	null	TRU
 2105				EFX_soil_01_3	Rectangle4.5x0.15	133	0	null	FALSE	null	null	1.1	TRUE	0	TRUE	TRUE		0									2105																					
 3101				EFX_soil_01_3	Circle_24	140	0	null	FALSE	null	null	0	TRUE	0	TRUE	TRUE		0									3101																					
 3102				EFX_soil_01_3	Circle_24	136	0	null	FALSE	null	null	0	TRUE	1	TRUE	TRUE		0									3102																					
-2001_trigger										shift02																																						
+2001_trigger					Circle_1					shift02																																						

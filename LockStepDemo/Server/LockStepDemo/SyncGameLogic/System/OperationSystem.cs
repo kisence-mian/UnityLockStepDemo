@@ -29,7 +29,7 @@ public class OperationSystem : SystemBase
             LifeComponent lc = list[i].GetComp<LifeComponent>();
             BlowFlyComponent blc = list[i].GetComp<BlowFlyComponent>();
 
-            if(lc.life > 0 
+            if(lc.Life > 0 
                 && !blc.isBlow)
             {
                 pc.faceDir = com.skillDir.DeepCopy();
@@ -45,7 +45,7 @@ public class OperationSystem : SystemBase
                 }
             }
 
-            if(lc.life < 0)
+            if(lc.Life < 0)
             {
                 move.dir.FromVector(Vector3.zero);
             }

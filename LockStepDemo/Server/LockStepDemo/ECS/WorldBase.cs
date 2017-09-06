@@ -104,6 +104,9 @@ public class WorldBase
 
     public ECSEvent eventSystem = new ECSEvent();
 
+    //游戏结束
+    public bool isFinish = false;
+
     #region 重载方法
     public virtual Type[] GetSystemTypes()
     {
@@ -437,7 +440,7 @@ public class WorldBase
     /// </summary>
     public void CreateEntityImmediately(params ComponentBase[] compList)
     {
-        CreateEntityImmediately(EntityIndex++,compList);
+        CreateEntityImmediately(EntityIndex++, compList);
     }
 
     /// <summary>

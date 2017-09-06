@@ -45,7 +45,7 @@ public class BlowFlySystem : SystemBase
                 bfc.isBlow = false;
             }
 
-            Debug.Log("BlowFlyLogic " + entity.ID + " blow dir : " + bfc.blowDir.ToVector() + " mc.m_velocity " + mc.m_velocity + "  bfc.blowTime " + bfc.blowTime);
+            //Debug.Log("BlowFlyLogic " + entity.ID + " blow dir : " + bfc.blowDir.ToVector() + " mc.m_velocity " + mc.m_velocity + "  bfc.blowTime " + bfc.blowTime);
         }
     }
 }

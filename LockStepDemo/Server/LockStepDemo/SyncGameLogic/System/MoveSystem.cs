@@ -28,11 +28,11 @@ public class MoveSystem : SystemBase
 
         SyncVector3 newPos = mc.pos.DeepCopy();
 
-        newPos.x += mc.dir.x * deltaTime * mc.m_velocity / (1000 * 1000);
-        newPos.y += mc.dir.y * deltaTime * mc.m_velocity / (1000 * 1000);
-        newPos.z += mc.dir.z * deltaTime * mc.m_velocity / (1000 * 1000);
+        newPos.x += (mc.dir.x * deltaTime /1000) * mc.m_velocity / 1000;
+        newPos.y += (mc.dir.y * deltaTime / 1000) * mc.m_velocity / 1000;
+        newPos.z += (mc.dir.z * deltaTime / 1000) * mc.m_velocity / 1000;
 
-        if(!entity.GetExistComp<FlyObjectComponent>() 
+        if (!entity.GetExistComp<FlyObjectComponent>() 
             && entity.GetExistComp<CollisionComponent>())
         {
             CollisionComponent cc = entity.GetComp<CollisionComponent>();

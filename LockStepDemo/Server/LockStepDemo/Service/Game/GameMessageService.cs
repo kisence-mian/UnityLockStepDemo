@@ -1,72 +1,30 @@
-﻿using DeJson;
-using Protocol;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LockStepDemo.Service.Game
+
+public class GameMessageService
 {
-    class GameMessageService<T> where T : PlayerCommandBase, new()
+    public static void Init()
     {
-        public static void Init()
+        EventService.AddTypeEvent<PlayerResurgence_s>(OnPlayerResurgence);
+    }
+
+    public static void OnPlayerResurgence(SyncSession session, PlayerResurgence_s msg)
+    {
+        if(session.m_connect == null)
         {
-            EventService.AddTypeEvent<T>(ReceviceSyncMsg);
+            Debug.LogError("玩家不在游戏中！");
         }
 
-        public static void Dispose()
-        {
-            EventService.RemoveTypeEvent<T>(ReceviceSyncMsg);
-        }
+        EntityBase entity = session.m_connect.Entity;
 
-        static Deserializer deserializer = new Deserializer();
-        static void ReceviceSyncMsg(SyncSession session, T msg)
-        {
-            ConnectionComponent commandComp = session.m_connect;
-            WorldBase world = session.m_connect.Entity.World;
-            if (commandComp != null)
-            {
-                PlayerCommandBase comp = msg;
-                comp.frame = msg.frame;
+        LifeComponent lc = entity.GetComp<LifeComponent>();
+        lc.life = lc.maxLife;
 
-                if (msg.frame > world.FrameCount)
-                {
-                    commandComp.m_commandList.Add(comp);
-                    //TODO 与预测一致不广播节约带宽
-                    List<EntityBase> list = world.GetEntiyList(new string[] { "ConnectionComponent" });
+        entity.World.eventSystem.DispatchEvent(ServiceEventDefine.c_ComponentChange, entity);
 
-                    for (int i = 0; i < list.Count; i++)
-                    {
-                        ConnectionComponent cp = list[i].GetComp<ConnectionComponent>();
-                        if(cp != commandComp)
-                        {
-                            ProtocolAnalysisService.SendMsg(cp.m_session, msg);
-                        } 
-                    }
-                }
-                else
-                {
-                    //潜在的不同步威胁
-                    
-                    Debug.Log("帧数落后 丢弃玩家操作 world.FrameCount: " + world.FrameCount + " msg frame:" + msg.frame);
-
-                    //发送给玩家自己 服务器给他预测的操作，
-                    for (int i = 0; i < commandComp.m_forecastList.Count; i++)
-                    {
-                        ProtocolAnalysisService.SendMsg(session, commandComp.m_forecastList[i]);
-                    }
-                    commandComp.m_forecastList.Clear();
-
-                    //并且让这个玩家提前
-                    commandComp.m_lastInputCache = comp;
-
-                    PursueMsg pmsg = new PursueMsg();
-                    pmsg.frame = world.FrameCount;
-                    pmsg.advanceCount = 1;
-
-                    ProtocolAnalysisService.SendMsg(session, pmsg);
-                }
-            }
-        }
+        Debug.Log(" OnPlayerResurgence");
     }
 }

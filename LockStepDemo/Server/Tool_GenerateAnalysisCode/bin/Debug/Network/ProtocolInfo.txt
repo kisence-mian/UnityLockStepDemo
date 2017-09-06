@@ -78,11 +78,13 @@ message m_syncentitymsg_s
 {
 	required int32 frame = 1;
 	repeated entityinfo infos = 2;
+	repeated int32 destroylist = 3;
 }
 message m_syncentitymsg_c
 {
 	required int32 frame = 1;
 	repeated entityinfo infos = 2;
+	repeated int32 destroylist = 3;
 }
 
 message m_commandcomponent_s

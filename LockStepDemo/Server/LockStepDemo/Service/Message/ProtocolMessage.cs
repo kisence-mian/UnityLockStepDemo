@@ -36,3 +36,14 @@ public class PlayerMatchMsg_c : ProtocolMessage
     public bool isMatched = false;   //当匹配成功后会再返回这个消息，并将这个字段置为true
 }
 
+[MessageMode(SendMode.ToServer)]
+public class PlayerResurgence_s : ProtocolMessage  //玩家复活消息
+{
+
+}
+
+[MessageMode(SendMode.ToClient)]
+public class PlayerResurgence_c : ProtocolMessage
+{
+}
+

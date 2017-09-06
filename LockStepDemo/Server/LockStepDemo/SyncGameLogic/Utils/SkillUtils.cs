@@ -13,21 +13,21 @@ public class SkillUtils
         CampComponent campComp = fly.GetComp<CampComponent>();
         MoveComponent mc = fly.GetComp<MoveComponent>();
 
-        Debug.Log("FlyDamageLogic " + entity.ID + " ===> " + fc.damage);
+        //Debug.Log("FlyDamageLogic " + entity.ID + " ===> " + fc.damage);
+        lc.Life -= fc.damage;
 
-        lc.life -= fc.damage;
-        //派发事件
-        world.eventSystem.DispatchEvent(GameUtils.GetEventKey(entity.ID, CharacterEventType.Damage), entity);
+
+        //飞行物击飞
 
         //释放触发技能
-        TokenUseSkill(world,campComp.creater,fc.FlyData.m_TriggerSkill, mc.pos.ToVector(),mc.dir.ToVector());
+        //TokenUseSkill(world,campComp.creater,fc.FlyData.m_TriggerSkill, mc.pos.ToVector(),mc.dir.ToVector());
     }
 
     #region 技能代处理
 
     public static void TokenUseSkill(WorldBase world,int createrID, string skillID, Vector3 pos, Vector3 dir)
     {
-        Debug.Log("TokenUseSkill pos" + pos + " frame " + world.FrameCount);
+        //Debug.Log("TokenUseSkill pos" + pos + " frame " + world.FrameCount + " skillID" + skillID);
 
         if (skillID != null 
             && skillID != "null" 
@@ -38,6 +38,7 @@ public class SkillUtils
             ssc.m_skillTime = 0;
             ssc.m_skillStstus = SkillStatusEnum.Before;
             ssc.m_isTriggerSkill = false;
+            ssc.m_isHit = false;
             ssc.m_skillList.Add(new SkillData(skillID));
             ssc.m_currentSkillData = ssc.GetSkillData(skillID);
             ssc.m_currentSkillData.UpdateInfo();
@@ -52,6 +53,9 @@ public class SkillUtils
             MoveComponent mc = new MoveComponent();
             mc.pos.FromVector(pos);
             mc.dir.FromVector(dir);
+
+            //打印
+            Debug.DrawRay(mc.pos.ToVector(), -mc.dir.ToVector(),Color.green,10);
 
             CampComponent cc = new CampComponent();
             cc.creater = createrID;

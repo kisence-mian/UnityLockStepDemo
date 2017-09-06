@@ -22,6 +22,8 @@ public class ServiceSyncSystem : ServiceSystem
 
         m_world.eventSystem.AddListener(ServiceEventDefine.c_playerJoin, OnPlayerJoin);
         m_world.eventSystem.AddListener(ServiceEventDefine.c_playerExit, OnPlayerExit);
+
+        m_world.eventSystem.AddListener(ServiceEventDefine.c_ComponentChange, OnCompChange);
     }
 
     public override Type[] GetFilter()
@@ -109,7 +111,7 @@ public class ServiceSyncSystem : ServiceSystem
         }
     }
 
-    #region 玩家相关
+    #region 事件接收
 
     void OnPlayerJoin(EntityBase entity)
     {
@@ -147,7 +149,15 @@ public class ServiceSyncSystem : ServiceSystem
         //PushDestroyEntity(sc, entity);
     }
 
+    void OnCompChange(EntityBase entity)
+    {
+        SyncComponent syc = entity.GetComp<SyncComponent>();
+        SetAllSync(syc);
+    }
+
     #endregion
+
+
 
     #region 推送数据
 
@@ -163,6 +173,14 @@ public class ServiceSyncSystem : ServiceSystem
             if (comp.m_isWaitPushStart == true)
             {
                 comp.m_isWaitPushStart = false;
+
+
+                //同步单例组件
+                foreach (var item in m_world.m_singleCompDict)
+                {
+                    PushSingletonComp(comp.m_session, item.Key);
+                }
+
                 PushStartSyncMsg(comp.m_session);
             }
         }
@@ -324,8 +342,12 @@ public class ServiceSyncSystem : ServiceSystem
 
     public void PushSingletonComp(SyncSession session, string compName)
     {
+        Debug.Log("PushSingletonComp " + compName);
+
         SingletonComponent comp = m_world.GetSingletonComp(compName);
         ChangeSingletonComponentMsg msg = new ChangeSingletonComponentMsg();
+
+        msg.info = new ComponentInfo();
         msg.info.m_compName = compName;
         msg.info.content = Serializer.Serialize(comp);
         msg.frame = m_world.FrameCount;

@@ -64,6 +64,12 @@ public static class UpdateEngine
             try
             {
                 WorldManager.WorldList[i].FixedLoop(deltaTime);
+
+                if (WorldManager.WorldList[i].isFinish)
+                {
+                    WorldManager.WorldList.RemoveAt(i);
+                    i--;
+                }
             }
             catch (Exception e)
             {

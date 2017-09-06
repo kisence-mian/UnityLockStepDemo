@@ -85,4 +85,9 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
         }
         Debug.LogWarning("PrintRecord:" + content);
     }
+
+    public override void Record(int frame, EntityBase entity)
+    {
+        throw new NotImplementedException();
+    }
 }
