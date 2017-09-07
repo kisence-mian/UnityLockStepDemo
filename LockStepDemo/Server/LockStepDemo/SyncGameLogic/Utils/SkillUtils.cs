@@ -16,8 +16,13 @@ public class SkillUtils
         //Debug.Log("FlyDamageLogic " + entity.ID + " ===> " + fc.damage);
         lc.Life -= fc.damage;
 
+        if(fc.FlyData.m_TriggerSkill != "null" && fc.FlyData.m_TriggerSkill != "Null")
+        {
+            SkillDataGenerate blowSkill = DataGenerateManager<SkillDataGenerate>.GetData(fc.FlyData.m_TriggerSkill);
 
-        //飞行物击飞
+            //飞行物击飞
+            BlowFly(world, fly, entity, blowSkill);
+        }
 
         //释放触发技能
         //TokenUseSkill(world,campComp.creater,fc.FlyData.m_TriggerSkill, mc.pos.ToVector(),mc.dir.ToVector());
@@ -64,6 +69,45 @@ public class SkillUtils
             lsc.lifeTime = (int)(ssc.m_currentSkillData.LaterTime * 1000);
 
             world.CreateEntity(mc, ssc, cc, lsc);
+        }
+    }
+
+    #endregion
+
+    #region 击飞处理
+
+    public static void BlowFly(WorldBase world,EntityBase skiller, EntityBase hurter, SkillDataGenerate skillData)
+    {
+        MoveComponent amc = skiller.GetComp<MoveComponent>();
+        MoveComponent bmc = hurter.GetComp<MoveComponent>();
+
+        Vector3 dir = amc.dir.ToVector();
+        if(skiller.GetExistComp<SkillStatusComponent>())
+        {
+            SkillStatusComponent assc = skiller.GetComp<SkillStatusComponent>();
+            dir = assc.skillDir.ToVector();
+        }
+
+        string blowFlyID = skillData.m_BlowFlyID;
+
+        //Debug.Log("BlowFly --> skill id " + skillData.m_key + "  blowfly id " + blowFlyID + " skilltoken pos " + amc.pos.ToVector() + " ");
+
+        if (blowFlyID != "null")
+        {
+            //Debug.Log("BlowFly " + hurter.ID + " skillID " + skillData.m_key);
+
+            //击飞处理
+            if (hurter.GetExistComp<BlowFlyComponent>())
+            {
+                BlowFlyComponent bfc = hurter.GetComp<BlowFlyComponent>();
+                if (!bfc.isBlow)
+                {
+                    bfc.isBlow = true;
+                    bfc.blowFlyID = blowFlyID;
+                    bfc.blowTime = (int)(bfc.BlowData.m_Time * 1000);
+                    bfc.SetBlowFly(amc.pos.ToVector(), bmc.pos.ToVector(), dir);
+                }
+            }
         }
     }
 

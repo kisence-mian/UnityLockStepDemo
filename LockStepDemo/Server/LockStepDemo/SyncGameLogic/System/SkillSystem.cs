@@ -260,7 +260,7 @@ public class SkillSystem : SystemBase
         CampComponent acc = skiller.GetComp<CampComponent>();
         CampComponent bcc = hurter.GetComp<CampComponent>();
 
-        Debug.Log("Damage == " + damageNumber + " hurter  " + hurter.ID + " acc " + acc.creater + " bcc " + bcc.creater);
+        //Debug.Log("Damage == " + damageNumber + " hurter  " + hurter.ID + " acc " + acc.creater + " bcc " + bcc.creater);
 
         //TODO 吸血
         Absorb(damageNumber, skiller, skillData);

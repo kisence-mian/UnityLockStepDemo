@@ -1,0 +1,42 @@
+﻿2017-09-06 17:25:36,190 [28764] ERROR SyncService-46104728 - methodIndex:4324 Ex:System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.ThrowHelper.ThrowKeyNotFoundException()
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 297
+2017-09-06 17:25:36,202 [28764] ERROR SyncService-46104728 - SyncSession
+System.ArgumentNullException: 值不能为 null。
+参数名: key
+   在 System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   在 System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   在 System.Collections.Generic.Dictionary`2.TryGetValue(TKey key, TValue& value)
+   在 SuperSocket.SocketBase.AppServerBase`2.GetCommandByName(String commandName)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(IAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)
+2017-09-06 18:13:18,686 [33844] ERROR SyncService-46104728 - methodIndex:1003 Ex:System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.ThrowHelper.ThrowKeyNotFoundException()
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 297
+2017-09-06 18:13:18,688 [33844] ERROR SyncService-46104728 - SyncSession
+System.ArgumentNullException: 值不能为 null。
+参数名: key
+   在 System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   在 System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   在 System.Collections.Generic.Dictionary`2.TryGetValue(TKey key, TValue& value)
+   在 SuperSocket.SocketBase.AppServerBase`2.GetCommandByName(String commandName)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(IAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)
+2017-09-06 18:18:38,264 [34624] ERROR SyncService-46104728 - methodIndex:4326 Ex:System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.ThrowHelper.ThrowKeyNotFoundException()
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 297
+2017-09-06 18:18:38,266 [34624] ERROR SyncService-46104728 - SyncSession
+System.ArgumentNullException: 值不能为 null。
+参数名: key
+   在 System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   在 System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   在 System.Collections.Generic.Dictionary`2.TryGetValue(TKey key, TValue& value)
+   在 SuperSocket.SocketBase.AppServerBase`2.GetCommandByName(String commandName)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(IAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)

@@ -44,6 +44,8 @@ public class CollisionDamageSystem : SystemBase
                     //不能穿人销毁飞行物
                     if (!fc.FlyData.m_AcrossEnemy)
                         m_world.ClientDestroyEntity(entity.ID);
+
+                    Debug.Log("fc.FlyData.m_AcrossEnemy " + fc.FlyData.m_AcrossEnemy);
                 }
 
                 if (cc.CollisionList[i].GetExistComp<BlockComponent>())

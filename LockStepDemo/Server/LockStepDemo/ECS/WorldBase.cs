@@ -125,7 +125,7 @@ public class WorldBase
 
     #endregion
 
-    #region 初始化
+    #region 生命周期
 
     public void Init(bool isView)
     {
@@ -171,6 +171,30 @@ public class WorldBase
             Debug.LogError("WorldBase Init Exception:" + e.ToString());
         }
 
+    }
+
+    public void Dispose()
+    {
+        for (int i = 0; i < m_entityList.Count; i++)
+        {
+            if (OnEntityDestroyed != null)
+            {
+                OnEntityDestroyed(m_entityList[i]);
+            }
+        }
+
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].Dispose();
+        }
+
+        m_entityList.Clear();
+        m_entityDict.Clear();
+
+        m_systemList.Clear();
+
+        m_recordList.Clear();
+        m_recordDict.Clear();
     }
 
     #endregion
@@ -648,7 +672,6 @@ public class WorldBase
         entity.OnComponentAdded -= OnEntityComponentAdded;
         entity.OnComponentRemoved -= OnEntityComponentRemoved;
         entity.OnComponentReplaced -= OnEntityComponentChange;
-
     }
 
     #endregion

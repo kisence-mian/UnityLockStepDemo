@@ -140,7 +140,7 @@ public class InitSystem : SystemBase
         }
 
         GameTimeComponent gtc = m_world.GetSingletonComp<GameTimeComponent>();
-        gtc.GameTime = 100000 * 1000;
+        gtc.GameTime = 10 * 1000;
     }
 
     Deserializer deserializer = new Deserializer();
@@ -172,5 +172,18 @@ public class InitSystem : SystemBase
 
             Debug.Log("Create map");
         }
+
+        //创建一个可以捡的道具
+        ItemComponent ic = new ItemComponent();
+
+        AssetComponent assert = new AssetComponent();
+        assert.m_assetName = "EFX_res_bolt";
+
+        CollisionComponent colc = new CollisionComponent();
+        colc.area.position = new Vector3(10, 0.5f, 0);
+        colc.area.areaType = AreaType.Circle;
+        colc.area.radius = 0.5f;
+
+        m_world.CreateEntity(colc, ic, assert);
     }
 }

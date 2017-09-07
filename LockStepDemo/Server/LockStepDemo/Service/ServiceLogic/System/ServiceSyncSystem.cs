@@ -261,7 +261,7 @@ public class ServiceSyncSystem : ServiceSystem
 
         connect.m_waitDestroyEntity.Clear();
         connect.m_waitSyncEntity.Clear();
-        if(msg.infos.Count > 0)
+        if(msg.infos.Count > 0 || msg.destroyList.Count > 0)
         {
             ProtocolAnalysisService.SendMsg(connect.m_session, msg);
         }

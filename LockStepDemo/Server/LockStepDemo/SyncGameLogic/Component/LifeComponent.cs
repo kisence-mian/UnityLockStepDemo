@@ -46,18 +46,6 @@ public class LifeComponent : MomentComponentBase
 
     void DispatchEvent(int oldValue,int newValue)
     {
-        if (newValue > 0 && isAlive == false)
-        {
-            isAlive = true;
-            Entity.World.eventSystem.DispatchEvent(GameUtils.GetEventKey(Entity.ID, CharacterEventType.Recover), Entity);
-        }
-
-        if(newValue < 0 && isAlive == true)
-        {
-            isAlive = false;
-            Entity.World.eventSystem.DispatchEvent(GameUtils.GetEventKey(Entity.ID, CharacterEventType.Die), Entity);
-            ResurgenceTimer = 0;
-        }
 
         if(newValue > oldValue)
         {
