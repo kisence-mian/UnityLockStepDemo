@@ -38,3 +38,5 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\CSharp2Protocol\obj\D
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\CSharp2Protocol\obj\Debug\CSharp2Protocol.exe
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\CSharp2Protocol\obj\Debug\CSharp2Protocol.pdb
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\CSharp2Protocol\bin\Debug\MySql.Data.dll
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\CSharp2Protocol\bin\Debug\Map\elementCreatePointData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\CSharp2Protocol\bin\Debug\Data\PlayerData.txt

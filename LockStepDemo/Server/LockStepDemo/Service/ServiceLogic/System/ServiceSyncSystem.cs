@@ -14,6 +14,8 @@ public class ServiceSyncSystem : ServiceSystem
 {
     public override void Init()
     {
+        Debug.Log("ServiceSyncSystem init");
+
         AddEntityCreaterLisnter();
         AddEntityDestroyLisnter();
 

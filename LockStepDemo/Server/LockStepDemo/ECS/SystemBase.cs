@@ -227,7 +227,7 @@ public class SystemBase
 
     void ReceviceEntityCreate(EntityBase entity)
     {
-        if (GetAllExistComp(Filter, entity))
+        //if (GetAllExistComp(Filter, entity))
         {
             OnEntityCreate(entity);
         }
@@ -235,7 +235,7 @@ public class SystemBase
 
     void ReceviceEntityDestroy(EntityBase entity)
     {
-        if (GetAllExistComp(Filter, entity))
+        //if (GetAllExistComp(Filter, entity))
         {
             OnEntityDestroy(entity);
         }

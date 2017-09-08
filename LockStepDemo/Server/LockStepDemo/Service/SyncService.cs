@@ -7,9 +7,15 @@ public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
 {
     int updateInterval = 200; //世界更新间隔ms
 
+    public SessionCreateHandle OnSessionCreate;
+    public SessionCloseHandle OnSessionClose;
+    public PlayerHandle OnPlayerLogin;
+    public PlayerHandle OnPlayerLogout;
+
     LoginService loginService = new LoginService();
     MatchService matchService = new MatchService();
     ReConnectService reConnectService = new ReConnectService();
+    SelectCharcterService selectCharacterService = new SelectCharcterService();
 
     public SyncService() : base(new ProtocolReceiveFilterFactory())
     {
@@ -24,9 +30,15 @@ public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
 
         DataBaseService.Init();
 
-        matchService.Init();
-        loginService.Init();
-        reConnectService.Init();
+        matchService.Init(this);
+        loginService.Init(this);
+        reConnectService.Init(this);
+        selectCharacterService.Init(this);
+
+        CommandMessageService<CommandComponent>.Init();
+        GameMessageService.Init();
+
+        UpdateEngine.Init(updateInterval);
 
         return base.Setup(rootConfig, config);
     }
@@ -34,16 +46,6 @@ public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
     protected override void OnStarted()
     {
         Debug.Log("SyncService OnStarted");
-
-        CommandMessageService<CommandComponent>.Init();
-        GameMessageService.Init();
-
-        //m_world = WorldManager.CreateWorld<DemoWorld>();
-        //m_world.IsStart = true;
-        //m_world.SyncRule = SyncRule.Status;
-
-        UpdateEngine.Init(updateInterval);
-
         base.OnStarted();
     }
 
@@ -60,26 +62,20 @@ public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
 
         base.OnSessionClosed(session, reason);
 
-        //掉线玩家维护一个id与world的映射，用以重连
-        if (session.m_connect != null)
-        {
-            reConnectService.AddRecord(session.m_connect);
-            //m_world.DestroyEntity(session.m_connect.Entity.ID);
-        }
+        OnSessionClose?.Invoke(session, reason);
     }
 
     protected override void OnNewSessionConnected(SyncSession session)
     {
         Debug.Log("SyncService OnNewSessionConnected " + session.SessionID);
 
+        OnSessionCreate?.Invoke(session);
+
         base.OnNewSessionConnected(session);
-
-        //ConnectionComponent conn = new ConnectionComponent();
-        //conn.m_session = session;
-
-        //m_world.CreateEntity(conn);
-
-        //session.m_connect = conn;
     }
 }
+
+public delegate void SessionCreateHandle(SyncSession session);
+public delegate void SessionCloseHandle(SyncSession session, CloseReason reason);
+public delegate void PlayerHandle(Player player);
 

@@ -13,6 +13,8 @@ public class InitSystem : SystemBase
         AddEntityDestroyLisnter();
 
         InitMap();
+
+        InitElementCreatePoint();
     }
 
     public override void OnEntityCreate(EntityBase entity)
@@ -26,6 +28,44 @@ public class InitSystem : SystemBase
 
     public void PlayerJoin(EntityBase entity)
     {
+        ConnectionComponent connectComp = entity.GetComp<ConnectionComponent>();
+        PlayerComponent playerComp = null;
+
+        if (!entity.GetExistComp<PlayerComponent>())
+        {
+            playerComp = new PlayerComponent();
+            entity.AddComp(playerComp);
+        }
+        else
+        {
+            playerComp = entity.GetComp<PlayerComponent>();
+        }
+
+        //将角色ID传入游戏
+        playerComp.characterID = connectComp.m_session.player.characterID;
+
+        ElementData e1 = new ElementData();
+        e1.id = 100;
+        e1.num = 10;
+        playerComp.elementData.Add(e1);
+
+        ElementData e2 = new ElementData();
+        e2.id = 101;
+        e2.num = 10;
+        playerComp.elementData.Add(e2);
+
+        ElementData e3 = new ElementData();
+        e3.id = 102;
+        e3.num = 10;
+        playerComp.elementData.Add(e3);
+
+        ElementData e4 = new ElementData();
+        e4.id = 103;
+        e4.num = 00;
+        playerComp.elementData.Add(e4);
+
+
+
         if (!entity.GetExistComp<CommandComponent>())
         {
             CommandComponent c = new CommandComponent();
@@ -41,42 +81,18 @@ public class InitSystem : SystemBase
         if (!entity.GetExistComp<AssetComponent>())
         {
             AssetComponent c = new AssetComponent();
-            c.m_assetName = "famale_01";
+            c.m_assetName = playerComp.CharacterData.m_ModelID;
             entity.AddComp(c);
         }
 
         if (!entity.GetExistComp<MoveComponent>())
         {
             MoveComponent c = new MoveComponent();
-            entity.AddComp(c);
-        }
-
-        if (!entity.GetExistComp<PlayerComponent>())
-        {
-            PlayerComponent c = new PlayerComponent();
-
-            ElementData e1 = new ElementData();
-            e1.id = 100;
-            e1.num = 10;
-            c.elementData.Add(e1);
-
-            ElementData e2 = new ElementData();
-            e2.id = 101;
-            e2.num = 10;
-            c.elementData.Add(e2);
-
-            ElementData e3 = new ElementData();
-            e3.id = 102;
-            e3.num = 10;
-            c.elementData.Add(e3);
-
-            ElementData e4 = new ElementData();
-            e4.id = 103;
-            e4.num = 00;
-            c.elementData.Add(e4);
+            c.pos.FromVector(new Vector3(15, 0, 0));
 
             entity.AddComp(c);
         }
+
 
         if (!entity.GetExistComp<SkillStatusComponent>())
         {
@@ -140,7 +156,7 @@ public class InitSystem : SystemBase
         }
 
         GameTimeComponent gtc = m_world.GetSingletonComp<GameTimeComponent>();
-        gtc.GameTime = 10 * 1000;
+        gtc.GameTime = 100 * 1000;
     }
 
     Deserializer deserializer = new Deserializer();
@@ -172,18 +188,25 @@ public class InitSystem : SystemBase
 
             Debug.Log("Create map");
         }
+    }
 
-        //创建一个可以捡的道具
-        ItemComponent ic = new ItemComponent();
+    void InitElementCreatePoint()
+    {
+        string content = FileTool.ReadStringByFile(Environment.CurrentDirectory + "/Map/elementCreatePointData.txt");
+        string[] contentArray = content.Split('\n');
 
-        AssetComponent assert = new AssetComponent();
-        assert.m_assetName = "EFX_res_bolt";
+        for (int i = 0; i < contentArray.Length; i++)
+        {
+            if (contentArray[i] != "")
+            {
+                ItemCreatePointComponent tmp = deserializer.Deserialize<ItemCreatePointComponent>(contentArray[i]);
+                CollisionComponent cc = new CollisionComponent();
+                cc.area.position = tmp.pos.ToVector();
+                cc.area.areaType = AreaType.Circle;
+                cc.area.radius = 1;
 
-        CollisionComponent colc = new CollisionComponent();
-        colc.area.position = new Vector3(10, 0.5f, 0);
-        colc.area.areaType = AreaType.Circle;
-        colc.area.radius = 0.5f;
-
-        m_world.CreateEntity(colc, ic, assert);
+                m_world.CreateEntity(tmp,cc);
+            }
+        }
     }
 }

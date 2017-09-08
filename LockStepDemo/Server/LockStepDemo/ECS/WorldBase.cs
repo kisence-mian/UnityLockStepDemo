@@ -407,6 +407,7 @@ public class WorldBase
 
     public void CreateEntity(params ComponentBase[] comps)
     {
+        Debug.Log(m_isView.ToString());
         //状态同步本地不创建实体
         if (m_isView && m_syncRule == SyncRule.Status)
         {
@@ -496,9 +497,9 @@ public class WorldBase
         m_entityList.Add(entity);
         m_entityDict.Add(entity.ID, entity);
 
-        entity.OnComponentAdded += OnEntityComponentAdded;
-        entity.OnComponentRemoved += OnEntityComponentRemoved;
-        entity.OnComponentReplaced += OnEntityComponentChange;
+        entity.OnComponentAdded += DispatchEntityComponentAdded;
+        entity.OnComponentRemoved += DispatchEntityComponentRemoved;
+        entity.OnComponentReplaced += DispatchEntityComponentChange;
 
         if (OnEntityCreated != null)
         {
@@ -512,12 +513,14 @@ public class WorldBase
         m_entityList.Add(entity);
         m_entityDict.Add(entity.ID, entity);
 
-        entity.OnComponentAdded += OnEntityComponentAdded;
-        entity.OnComponentRemoved += OnEntityComponentRemoved;
-        entity.OnComponentReplaced += OnEntityComponentChange;
+        entity.OnComponentAdded += DispatchEntityComponentAdded;
+        entity.OnComponentRemoved += DispatchEntityComponentRemoved;
+        entity.OnComponentReplaced += DispatchEntityComponentChange;
 
+        Debug.Log("Create Entity");
         if (OnEntityCreated != null)
         {
+            Debug.Log("Dispatch Entity");
             OnEntityCreated(entity);
         }
     }
@@ -562,9 +565,9 @@ public class WorldBase
         m_entityList.Remove(entity);
         m_entityDict.Remove(entity.ID);
 
-        entity.OnComponentAdded -= OnEntityComponentAdded;
-        entity.OnComponentRemoved -= OnEntityComponentRemoved;
-        entity.OnComponentReplaced -= OnEntityComponentChange;
+        entity.OnComponentAdded -= DispatchEntityComponentAdded;
+        entity.OnComponentRemoved -= DispatchEntityComponentRemoved;
+        entity.OnComponentReplaced -= DispatchEntityComponentChange;
 
         if (OnEntityDestroyed != null)
         {
@@ -650,9 +653,9 @@ public class WorldBase
         m_entityList.Add(entity);
         m_entityDict.Add(entity.ID, entity);
 
-        entity.OnComponentAdded += OnEntityComponentAdded;
-        entity.OnComponentRemoved += OnEntityComponentRemoved;
-        entity.OnComponentReplaced += OnEntityComponentChange;
+        entity.OnComponentAdded += DispatchEntityComponentAdded;
+        entity.OnComponentRemoved += DispatchEntityComponentRemoved;
+        entity.OnComponentReplaced += DispatchEntityComponentChange;
 
         return entity;
     }
@@ -669,9 +672,9 @@ public class WorldBase
         m_entityList.Remove(entity);
         m_entityDict.Remove(entity.ID);
 
-        entity.OnComponentAdded -= OnEntityComponentAdded;
-        entity.OnComponentRemoved -= OnEntityComponentRemoved;
-        entity.OnComponentReplaced -= OnEntityComponentChange;
+        entity.OnComponentAdded -= DispatchEntityComponentAdded;
+        entity.OnComponentRemoved -= DispatchEntityComponentRemoved;
+        entity.OnComponentReplaced -= DispatchEntityComponentChange;
     }
 
     #endregion
@@ -748,7 +751,58 @@ public class WorldBase
 
     #region 事件派发
 
+    //void DispatchEntityCreate(EntityBase entity)
+    //{
+    //    if (OnEntityCreated != null)
+    //    {
+    //        OnEntityCreated(entity);
+    //    }
+    //}
+
+    //void DispatchEntityDestroy(EntityBase entity)
+    //{
+    //    if (OnEntityDestroyed != null)
+    //    {
+    //        OnEntityDestroyed(entity);
+    //    }
+    //}
+
+    //void DispatchEntityWillBeDestroyed(EntityBase entity)
+    //{
+    //    if (OnEntityWillBeDestroyed != null)
+    //    {
+    //        OnEntityWillBeDestroyed(entity);
+    //    }
+    //}
+
+    void DispatchEntityComponentAdded(EntityBase entity, string compName, ComponentBase component)
+    {
+        if (OnEntityComponentAdded != null)
+        {
+            OnEntityComponentAdded(entity, compName, component);
+        }
+    }
+
+    void DispatchEntityComponentRemoved(EntityBase entity, string compName, ComponentBase component)
+    {
+        if (OnEntityComponentRemoved != null)
+        {
+            OnEntityComponentRemoved(entity, compName, component);
+        }
+    }
+
+    void DispatchEntityComponentChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
+    {
+        if (OnEntityComponentChange != null)
+        {
+            OnEntityComponentChange(entity, compName, previousComponent, newComponent);
+        }
+    }
+
+
     public delegate void EntityChangedCallBack(EntityBase entity);
+
+
 
     #endregion
 }

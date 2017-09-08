@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SuperSocket.SocketBase;
 
-
-public class ReConnectService
+public class ReConnectService : ServiceBase
 {
     //掉线的玩家列表
     public Dictionary<string, ConnectionComponent> m_disConnectDict = new Dictionary<string, ConnectionComponent>();
 
-    public void Init()
+    public override  void OnInit()
     {
-        EventService.AddTypeEvent<Player>(OnPlayerLogin);
     }
 
-    public void OnPlayerLogin(SyncSession session,Player player)
+    public override void OnPlayerLogin(Player player)
     {
         if(m_disConnectDict.ContainsKey(player.ID))
         {
@@ -24,11 +23,21 @@ public class ReConnectService
             msg.predictTime = 0;
 
             ConnectionComponent conn = m_disConnectDict[player.ID];
-            conn.m_session = session;
+            conn.m_session = player.session;
 
             conn.Entity.World.eventSystem.DispatchEvent(ServiceEventDefine.c_playerJoin, conn.Entity);
 
-            ProtocolAnalysisService.SendMsg(session,msg);
+            ProtocolAnalysisService.SendMsg(player.session,msg);
+        }
+    }
+
+    public override void OnSessionClose(SyncSession session, CloseReason reason)
+    {
+        //掉线玩家维护一个id与world的映射，用以重连
+        if (session.m_connect != null)
+        {
+            AddRecord(session.m_connect);
+            //m_world.DestroyEntity(session.m_connect.Entity.ID);
         }
     }
 

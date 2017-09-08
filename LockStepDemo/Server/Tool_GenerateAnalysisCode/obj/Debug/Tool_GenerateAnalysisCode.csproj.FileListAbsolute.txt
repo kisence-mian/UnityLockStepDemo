@@ -38,3 +38,5 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateAnalysis
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateAnalysisCode\obj\Debug\Tool_GenerateAnalysisCode.exe
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateAnalysisCode\obj\Debug\Tool_GenerateAnalysisCode.pdb
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateAnalysisCode\bin\Debug\MySql.Data.dll
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateAnalysisCode\bin\Debug\Map\elementCreatePointData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateAnalysisCode\bin\Debug\Data\PlayerData.txt

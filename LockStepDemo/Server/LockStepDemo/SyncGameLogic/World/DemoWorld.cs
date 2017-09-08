@@ -25,6 +25,8 @@ class DemoWorld : WorldBase
             typeof(InitSystem),
             typeof(GameSystem),
             typeof(ResurgenceSystem),
+            typeof(CreateItemSystem),
+            typeof(ItemSystem),
             
             //服务器系统
             typeof(ConnectSystem),

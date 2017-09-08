@@ -7,4 +7,8 @@ public class Player
 {
     public SyncSession session;
     public string ID;
+    public string nickName = "";
+
+    public string characterID = "male_01";
+    public string OwnCharacter = "";
 }

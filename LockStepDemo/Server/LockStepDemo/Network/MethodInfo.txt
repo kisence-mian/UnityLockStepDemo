@@ -16,3 +16,4 @@
 1001,playerloginmsg
 1002,playermatchmsg
 1003,playerresurgence
+1004,playerselectcharacter

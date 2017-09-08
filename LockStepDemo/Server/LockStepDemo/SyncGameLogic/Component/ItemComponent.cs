@@ -6,5 +6,5 @@ using System.Text;
 
 public class ItemComponent : ComponentBase
 {
-    public string ItemID;
+    public int ItemID;
 }

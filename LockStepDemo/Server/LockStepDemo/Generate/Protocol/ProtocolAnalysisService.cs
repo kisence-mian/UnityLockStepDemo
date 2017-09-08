@@ -26,6 +26,7 @@ public static class ProtocolAnalysisService
 			case  "playerloginmsg_c":SendPlayerLoginMsg_c(session , (PlayerLoginMsg_c)msg);break;
 			case  "playermatchmsg_c":SendPlayerMatchMsg_c(session , (PlayerMatchMsg_c)msg);break;
 			case  "playerresurgence_c":SendPlayerResurgence_c(session , (PlayerResurgence_c)msg);break;
+			case  "playerselectcharacter_c":SendPlayerSelectCharacter_c(session , (PlayerSelectCharacter_c)msg);break;
 			default:
 			Debug.LogError("SendCommand Exception : 不支持的消息类型!" + key);
 				break;
@@ -171,6 +172,7 @@ public static class ProtocolAnalysisService
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		data.Add("code0", msg.code0);
 		data.Add("content", msg.content);
+		data.Add("characterid", msg.characterID);
 		session.SendMsg("playerloginmsg",data);
 	}
 	static void SendPlayerMatchMsg_c(SyncSession session,PlayerMatchMsg_c msg)
@@ -184,6 +186,12 @@ public static class ProtocolAnalysisService
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
 		session.SendMsg("playerresurgence",data);
+	}
+	static void SendPlayerSelectCharacter_c(SyncSession session,PlayerSelectCharacter_c msg)
+	{
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("content", msg.content);
+		session.SendMsg("playerselectcharacter",data);
 	}
 	#endregion
 
@@ -203,6 +211,7 @@ public static class ProtocolAnalysisService
 			case  "playerloginmsg":RecevicePlayerLoginMsg_s(session , cmd);break;
 			case  "playermatchmsg":RecevicePlayerMatchMsg_s(session , cmd);break;
 			case  "playerresurgence":RecevicePlayerResurgence_s(session , cmd);break;
+			case  "playerselectcharacter":RecevicePlayerSelectCharacter_s(session , cmd);break;
 			default:
 			Debug.LogError("Recevice Exception : 不支持的消息类型!" + cmd.Key);
 				break;
@@ -369,6 +378,13 @@ public static class ProtocolAnalysisService
 	static void RecevicePlayerResurgence_s(SyncSession session ,ProtocolRequestBase e)
 	{
 		PlayerResurgence_s msg = new PlayerResurgence_s();
+		
+		EventService.DispatchTypeEvent(session,msg);
+	}
+	static void RecevicePlayerSelectCharacter_s(SyncSession session ,ProtocolRequestBase e)
+	{
+		PlayerSelectCharacter_s msg = new PlayerSelectCharacter_s();
+		msg.characterID = e.m_data["characterid"].ToString();
 		
 		EventService.DispatchTypeEvent(session,msg);
 	}

@@ -10,12 +10,28 @@ public class PlayerComponent : MomentComponentBase
 
     public List<ElementData> elementData = new List<ElementData>();
 
+    public string characterID;
+
+    private PlayerDataGenerate characterData;
+
+    public PlayerDataGenerate CharacterData
+    {
+        get {
+            if(characterData == null)
+            {
+                characterData = DataGenerateManager<PlayerDataGenerate>.GetData(characterID);
+            }
+            return characterData;
+        }
+    }
+
     public override MomentComponentBase DeepCopy()
     {
         PlayerComponent pc = new PlayerComponent();
 
         pc.faceDir = faceDir.DeepCopy();
         pc.elementData.Clear();
+        pc.characterID = characterID;
 
         for (int i = 0; i < elementData.Count; i++)
         {
@@ -24,9 +40,20 @@ public class PlayerComponent : MomentComponentBase
 
         return pc;
     }
+
+    public void AddElement(int elementID)
+    {
+        for (int i = 0; i < elementData.Count; i++)
+        {
+            if(elementData[i].id == elementID)
+            {
+                elementData[i].num++;
+            }
+        }
+    }
 }
 
-public struct ElementData
+public class ElementData
 {
     public int id;
     public int num;

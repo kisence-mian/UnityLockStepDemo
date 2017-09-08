@@ -21,3 +21,6 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClas
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\obj\Debug\Tool_GenerateDataClass.csprojResolveAssemblyReference.cache
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\obj\Debug\Tool_GenerateDataClass.exe
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\obj\Debug\Tool_GenerateDataClass.pdb
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\bin\Debug\Map\elementCreatePointData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\bin\Debug\MySql.Data.dll
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\bin\Debug\Data\PlayerData.txt

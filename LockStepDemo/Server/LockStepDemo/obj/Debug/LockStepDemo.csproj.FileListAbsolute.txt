@@ -43,5 +43,7 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debu
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\log4net.dll
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\obj\Debug\LockStepDemo.exe
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\obj\Debug\LockStepDemo.pdb
-F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\obj\Debug\LockStepDemo.csprojResolveAssemblyReference.cache
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\MySql.Data.dll
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Map\elementCreatePointData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\obj\Debug\LockStepDemo.csprojResolveAssemblyReference.cache
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Data\PlayerData.txt

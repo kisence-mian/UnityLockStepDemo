@@ -184,6 +184,7 @@
     <Compile Include="SyncGameLogic\Component\GameTimeComponent.cs" />
     <Compile Include="SyncGameLogic\Component\InputComponent.cs" />
     <Compile Include="SyncGameLogic\Component\ItemComponent.cs" />
+    <Compile Include="SyncGameLogic\Component\ItemCreatePointComponent.cs" />
     <Compile Include="SyncGameLogic\Component\LifeComponent.cs" />
     <Compile Include="SyncGameLogic\Component\LifeSpanComponent.cs" />
     <Compile Include="SyncGameLogic\Component\MoveComponent.cs" />
@@ -193,10 +194,12 @@
     <Compile Include="SyncGameLogic\System\BlowFlySystem.cs" />
     <Compile Include="SyncGameLogic\System\CollisionDamageSystem.cs" />
     <Compile Include="SyncGameLogic\System\CollisionSystem.cs" />
+    <Compile Include="SyncGameLogic\System\CreateItemSystem.cs" />
     <Compile Include="SyncGameLogic\System\FireSystem.cs" />
     <Compile Include="SyncGameLogic\System\FlyObjectCollisionSystem.cs" />
     <Compile Include="SyncGameLogic\System\GameSystem.cs" />
     <Compile Include="SyncGameLogic\System\InitSystem.cs" />
+    <Compile Include="SyncGameLogic\System\ItemSystem.cs" />
     <Compile Include="SyncGameLogic\System\LifeSpanSystem.cs" />
     <Compile Include="SyncGameLogic\System\MoveSystem.cs" />
     <Compile Include="SyncGameLogic\System\OperationSystem.cs" />
@@ -220,6 +223,9 @@
     <Content Include="Data\FlyData.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Data\PlayerData.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Data\ShiftData.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -230,6 +236,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="lib\MySql.Data.dll" />
+    <Content Include="Map\elementCreatePointData.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Map\mapData.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -245,23 +254,6 @@
     <None Include="App.config" />
     <Content Include="Config\log4net.config" />
     <None Include="packages.config" />
-    <None Include="SyncGameLogic\Component.meta" />
-    <None Include="SyncGameLogic\System.meta" />
-    <None Include="SyncGameLogic\System\BlowFlySystem.cs.meta" />
-    <None Include="SyncGameLogic\System\CollisionDamageSystem.cs.meta" />
-    <None Include="SyncGameLogic\System\CollisionSystem.cs.meta" />
-    <None Include="SyncGameLogic\System\FireSystem.cs.meta" />
-    <None Include="SyncGameLogic\System\FlyObjectCollisionSystem.cs.meta" />
-    <None Include="SyncGameLogic\System\InitSystem.cs.meta" />
-    <None Include="SyncGameLogic\System\LifeSpanSystem.cs.meta" />
-    <None Include="SyncGameLogic\System\MoveSystem.cs.meta" />
-    <None Include="SyncGameLogic\System\OperationSystem.cs.meta" />
-    <None Include="SyncGameLogic\System\SkillStatusSystem.cs.meta" />
-    <None Include="SyncGameLogic\System\SkillSystem.cs.meta" />
-    <None Include="SyncGameLogic\Utils.meta" />
-    <None Include="SyncGameLogic\Utils\GameUtils.cs.meta" />
-    <None Include="SyncGameLogic\World.meta" />
-    <None Include="SyncGameLogic\World\DemoWorld.cs.meta" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

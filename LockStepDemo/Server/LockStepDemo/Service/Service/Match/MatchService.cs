@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 
 
-public class MatchService
+public class MatchService : ServiceBase
 {
     const int roomPeopleNum = 2;
     List<Player> matchList = new List<Player>(); //匹配列表
 
-    public void Init()
+    public override void OnInit()
     {
         EventService.AddTypeEvent<PlayerMatchMsg_s>(ReceviceMatchMsg);
     }

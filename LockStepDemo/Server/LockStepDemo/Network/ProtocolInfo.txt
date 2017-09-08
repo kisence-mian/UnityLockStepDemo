@@ -112,6 +112,7 @@ message m_playerloginmsg_c
 {
 	required int32 code0 = 1;
 	required string content = 2;
+	required string characterid = 3;
 }
 
 message m_playerloginmsg_s
@@ -136,6 +137,16 @@ message m_playerresurgence_c
 
 message m_playerresurgence_s
 {
+}
+
+message m_playerselectcharacter_c
+{
+	required string content = 1;
+}
+
+message m_playerselectcharacter_s
+{
+	required string characterid = 1;
 }
 
 message syncvector3

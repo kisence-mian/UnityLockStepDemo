@@ -21,6 +21,8 @@ public class PlayerLoginMsg_c : ProtocolMessage
 {
     public int code0;
     public string content;
+
+    public string characterID; //玩家选择的角色
 }
 
 [MessageMode(SendMode.ToServer)]
@@ -46,4 +48,17 @@ public class PlayerResurgence_s : ProtocolMessage  //玩家复活消息
 public class PlayerResurgence_c : ProtocolMessage
 {
 }
+
+[MessageMode(SendMode.ToServer)]
+public class PlayerSelectCharacter_s : ProtocolMessage  //玩家选择角色消息
+{
+    public string characterID;
+}
+
+[MessageMode(SendMode.ToClient)]
+public class PlayerSelectCharacter_c : ProtocolMessage
+{
+    public string content;
+}
+
 
