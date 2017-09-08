@@ -11,7 +11,7 @@ public class LoginService : ServiceBase
 
     public override void OnInit()
     {
-        EventService.AddTypeEvent<PlayerLoginMsg_s>(OnPlayerLogin);
+        EventService.AddTypeEvent<PlayerLoginMsg_s>(RecevicePlayerLogin);
     }
 
     public override void OnSessionClose(SyncSession session, CloseReason reason)
@@ -28,11 +28,13 @@ public class LoginService : ServiceBase
         m_service.OnPlayerLogout(session.player);
     }
 
-    public void OnPlayerLogin(SyncSession session, PlayerLoginMsg_s e)
+    public void RecevicePlayerLogin(SyncSession session, PlayerLoginMsg_s e)
     {
+        Debug.Log("RecevicePlayerLogin");
+
         if(session.player != null)
         {
-            Debug.Log(""+ session.player.ID +" 已经登录，不需要重复登录！ ");
+            Debug.Log(""+ session.player.playerID +" 已经登录，不需要重复登录！ ");
         }
 
         string clauseContent = "ID ='" + e.playerID + "'";
@@ -58,7 +60,7 @@ public class LoginService : ServiceBase
             DataBaseService.database.Insert(c_playerTableName, null, value);
         }
 
-        session.player.ID = e.playerID;
+        session.player.playerID = e.playerID;
         session.player.session = session;
 
         PlayerLoginMsg_c msg = new PlayerLoginMsg_c();
@@ -92,10 +94,10 @@ public class LoginService : ServiceBase
 
     void SavePlayerData(Player player)
     {
-        string clauseContent = "ID ='" + player.ID + "'";
+        string clauseContent = "ID ='" + player.playerID + "'";
 
         Dictionary<string, string> value = new Dictionary<string, string>();
-        value.Add("ID", player.ID);
+        value.Add("ID", player.playerID);
         value.Add("NickName", player.nickName);
         value.Add("CharacterID", player.characterID);
         value.Add("OwnCharacter", player.OwnCharacter);

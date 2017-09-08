@@ -266,8 +266,7 @@ public class SkillSystem : SystemBase
         Absorb(damageNumber, skiller, skillData);
 
         //伤害处理
-        LifeComponent lc = hurter.GetComp<LifeComponent>();
-        lc.Life -= damageNumber;
+        SkillUtils.Damage(m_world, skiller, hurter, damageNumber);
     }
 
     void Absorb(int damageNumber, EntityBase character, SkillDataGenerate skillData)

@@ -6,13 +6,16 @@ using System;
 
 public class PlayerComponent : MomentComponentBase
 {
+    public string nickName;
+    public string characterID;
+
+    public int score = 0;
+
+    private PlayerDataGenerate characterData;
+
     public SyncVector3 faceDir = new SyncVector3();
 
     public List<ElementData> elementData = new List<ElementData>();
-
-    public string characterID;
-
-    private PlayerDataGenerate characterData;
 
     public PlayerDataGenerate CharacterData
     {
@@ -32,6 +35,8 @@ public class PlayerComponent : MomentComponentBase
         pc.faceDir = faceDir.DeepCopy();
         pc.elementData.Clear();
         pc.characterID = characterID;
+        pc.nickName = nickName;
+        pc.score = score;
 
         for (int i = 0; i < elementData.Count; i++)
         {

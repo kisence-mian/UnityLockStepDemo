@@ -14,9 +14,9 @@ public class SkillUtils
         MoveComponent mc = fly.GetComp<MoveComponent>();
 
         //Debug.Log("FlyDamageLogic " + entity.ID + " ===> " + fc.damage);
-        lc.Life -= fc.damage;
+        Damage(world, world.GetEntity(campComp.creater), entity, fc.damage);
 
-        if(fc.FlyData.m_TriggerSkill != "null" && fc.FlyData.m_TriggerSkill != "Null")
+        if (fc.FlyData.m_TriggerSkill != "null" && fc.FlyData.m_TriggerSkill != "Null")
         {
             SkillDataGenerate blowSkill = DataGenerateManager<SkillDataGenerate>.GetData(fc.FlyData.m_TriggerSkill);
 
@@ -107,6 +107,30 @@ public class SkillUtils
                     bfc.blowTime = (int)(bfc.BlowData.m_Time * 1000);
                     bfc.SetBlowFly(amc.pos.ToVector(), bmc.pos.ToVector(), dir);
                 }
+            }
+        }
+    }
+
+    #endregion
+
+    #region 伤害处理
+
+    public static void Damage(WorldBase world, EntityBase attacker, EntityBase hurter,int damageNumber)
+    {
+        LifeComponent lc = hurter.GetComp<LifeComponent>();
+
+        lc.Life -= damageNumber;
+
+        if(lc.Life < 0)
+        {
+            if(attacker.GetExistComp<PlayerComponent>()
+                && hurter.GetExistComp<PlayerComponent>()
+                )
+            {
+                PlayerComponent pc = attacker.GetComp<PlayerComponent>();
+                pc.score++;
+
+                world.eventSystem.DispatchEvent(GameUtils.c_scoreChange, null);
             }
         }
     }

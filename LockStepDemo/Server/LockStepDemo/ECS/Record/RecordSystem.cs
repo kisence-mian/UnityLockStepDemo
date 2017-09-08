@@ -38,8 +38,15 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
 
         for (int i = 0; i < list.Count; i++)
         {
-            EntityBase entity = m_world.GetEntity(list[i].ID);
-            entity.ChangeComp((T)list[i].DeepCopy());
+            if(m_world.GetEntityIsExist(list[i].ID))
+            {
+                EntityBase entity = m_world.GetEntity(list[i].ID);
+                entity.ChangeComp((T)list[i].DeepCopy());
+            }
+            else
+            {
+
+            }
 
             //Debug.Log("数据回滚 ID：" + list[i].ID + " frame:"+ list[i].Frame +" conent:"+  Serializer.Serialize(list[i]));
         }

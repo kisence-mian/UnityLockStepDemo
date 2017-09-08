@@ -10,7 +10,7 @@ normalLong	Forward	0	Sector	0	0	50	2.5
 thinLong1	Forward	0	Sector	0	0	40	5
 thinLong2	Forward	0	Sector	0	0	20	8
 Rectangle1x1			Rectangle	1	1		
-Rectangle4.5x0.15			Rectangle	4.5	0.15		
+Rectangle4.5x0.15		2.25	Rectangle	4.5	0.15		
 Rectangle1x3			Rectangle	1	3		
 Circle_10			Circle				10
 NoOffSet			Circle				0

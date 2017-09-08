@@ -15,14 +15,14 @@ public class ReConnectService : ServiceBase
 
     public override void OnPlayerLogin(Player player)
     {
-        if(m_disConnectDict.ContainsKey(player.ID))
+        if(m_disConnectDict.ContainsKey(player.playerID))
         {
             //重连吧少年
             PlayerMatchMsg_c msg = new PlayerMatchMsg_c();
             msg.isMatched = true;
             msg.predictTime = 0;
 
-            ConnectionComponent conn = m_disConnectDict[player.ID];
+            ConnectionComponent conn = m_disConnectDict[player.playerID];
             conn.m_session = player.session;
 
             conn.Entity.World.eventSystem.DispatchEvent(ServiceEventDefine.c_playerJoin, conn.Entity);
@@ -43,7 +43,7 @@ public class ReConnectService : ServiceBase
 
     public void AddRecord(ConnectionComponent connect)
     {
-        m_disConnectDict.Add(connect.m_session.player.ID, connect);
+        m_disConnectDict.Add(connect.m_session.player.playerID, connect);
 
         connect.m_session = null;
 
@@ -52,6 +52,6 @@ public class ReConnectService : ServiceBase
 
     public void RemoveRecord(ConnectionComponent connect)
     {
-        m_disConnectDict.Remove(connect.m_session.player.ID);
+        m_disConnectDict.Remove(connect.m_session.player.playerID);
     }
 }

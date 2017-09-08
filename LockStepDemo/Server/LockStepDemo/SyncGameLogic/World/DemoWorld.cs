@@ -13,28 +13,28 @@ class DemoWorld : WorldBase
             typeof(OperationSystem),
             typeof(BlowFlySystem),
             typeof(MoveSystem),
-
-            typeof(CollisionSystem),
             typeof(FireSystem),
             typeof(SkillStatusSystem),
             typeof(SkillSystem),
             typeof(LifeSpanSystem),
-  
             typeof(CollisionDamageSystem),
             typeof(FlyObjectCollisionSystem),
-            typeof(InitSystem),
             typeof(GameSystem),
             typeof(ResurgenceSystem),
             typeof(CreateItemSystem),
             typeof(ItemSystem),
+            typeof(RankSystem),
+
+            //初始化
+            typeof(InitSystem),
             
             //服务器系统
             typeof(ConnectSystem),
-            typeof(ServiceSyncSystem),
             typeof(PlayerInputSystem<CommandComponent>),
-            typeof(SyncDebugSystem),
+            typeof(ServiceSyncSystem),
 
-            typeof(SyncDebugSystem)
+            //Debug
+            typeof(SyncDebugSystem),
         };
     }
 

@@ -407,7 +407,6 @@ public class WorldBase
 
     public void CreateEntity(params ComponentBase[] comps)
     {
-        Debug.Log(m_isView.ToString());
         //状态同步本地不创建实体
         if (m_isView && m_syncRule == SyncRule.Status)
         {
@@ -457,6 +456,7 @@ public class WorldBase
         }
 
         createCache.Add(entity);
+
         return entity;
     }
 
@@ -517,10 +517,8 @@ public class WorldBase
         entity.OnComponentRemoved += DispatchEntityComponentRemoved;
         entity.OnComponentReplaced += DispatchEntityComponentChange;
 
-        Debug.Log("Create Entity");
         if (OnEntityCreated != null)
         {
-            Debug.Log("Dispatch Entity");
             OnEntityCreated(entity);
         }
     }
@@ -552,11 +550,14 @@ public class WorldBase
 
         EntityBase entity = m_entityDict[ID];
 
-        destroyCache.Add(entity);
+        if(!destroyCache.Contains(entity))
+            destroyCache.Add(entity);
     }
 
     void RemoveEntity(EntityBase entity)
     {
+        //Debug.Log("RemoveEntity " + entity.ID);
+
         if (OnEntityWillBeDestroyed != null)
         {
             OnEntityWillBeDestroyed(entity);

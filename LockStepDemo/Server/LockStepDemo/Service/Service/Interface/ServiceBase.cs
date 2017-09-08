@@ -17,6 +17,8 @@ public abstract class ServiceBase
         m_service.OnSessionClose += OnSessionClose;
         m_service.OnPlayerLogin += OnPlayerLogin;
         m_service.OnPlayerLogout += OnPlayerLogout;
+
+        OnInit();
     }
 
     public virtual void OnInit()

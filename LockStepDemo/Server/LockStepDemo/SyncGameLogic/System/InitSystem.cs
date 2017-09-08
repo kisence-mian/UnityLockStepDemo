@@ -43,6 +43,7 @@ public class InitSystem : SystemBase
 
         //将角色ID传入游戏
         playerComp.characterID = connectComp.m_session.player.characterID;
+        playerComp.nickName = connectComp.m_session.player.playerID;
 
         ElementData e1 = new ElementData();
         e1.id = 100;

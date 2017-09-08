@@ -6,9 +6,9 @@ using System.Text;
 public class Player
 {
     public SyncSession session;
-    public string ID;
+    public string playerID;
     public string nickName = "";
 
-    public string characterID = "male_01";
+    public string characterID = "1";
     public string OwnCharacter = "";
 }

@@ -35,14 +35,7 @@ public class OperationSystem : SystemBase
                 pc.faceDir = com.skillDir.DeepCopy();
                 move.dir = com.moveDir.DeepCopy();
 
-                if (com.moveDir.ToVector() != Vector3.zero)
-                {
-                    move.m_velocity = 5 * 1000;
-                }
-                else
-                {
-                    move.m_velocity = 5 * 1000;
-                }
+                move.m_velocity = (int)(pc.CharacterData.m_movespeed * 1000);
             }
 
             if(lc.Life < 0)

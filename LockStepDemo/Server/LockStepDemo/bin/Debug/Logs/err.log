@@ -2334,3 +2334,12 @@
    在 WorldBase.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 309
    在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 234
    在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-09-08 17:26:30,629 [30052] ERROR SyncService-46104728 - UpdateWorld Exception：System.Exception: SkillDataGenerate LoadData Exception Not Fond key ->3000<-
+   在 SkillDataGenerate.LoadData(String key) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Generate\Data\SkillDataGenerate.cs:行号 67
+   在 DataGenerateManager`1.GetData(String key) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\FrameWork\Data\DataGenerateManager.cs:行号 24
+   在 SkillUtils.FlyDamageLogic(WorldBase world, EntityBase fly, EntityBase entity) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\SyncGameLogic\Utils\SkillUtils.cs:行号 21
+   在 CollisionDamageSystem.DamageLogic(EntityBase entity) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\SyncGameLogic\System\CollisionDamageSystem.cs:行号 42
+   在 CollisionDamageSystem.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\SyncGameLogic\System\CollisionDamageSystem.cs:行号 24
+   在 WorldBase.FixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 309
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 234
+   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66

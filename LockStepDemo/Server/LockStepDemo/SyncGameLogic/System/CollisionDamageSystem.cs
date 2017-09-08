@@ -45,7 +45,7 @@ public class CollisionDamageSystem : SystemBase
                     if (!fc.FlyData.m_AcrossEnemy)
                         m_world.ClientDestroyEntity(entity.ID);
 
-                    Debug.Log("fc.FlyData.m_AcrossEnemy " + fc.FlyData.m_AcrossEnemy);
+                    //Debug.Log("fc.FlyData.m_AcrossEnemy " + fc.FlyData.m_AcrossEnemy);
                 }
 
                 if (cc.CollisionList[i].GetExistComp<BlockComponent>())
