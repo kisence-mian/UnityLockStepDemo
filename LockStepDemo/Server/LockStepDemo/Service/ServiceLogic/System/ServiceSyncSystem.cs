@@ -44,26 +44,22 @@ public class ServiceSyncSystem : ServiceSystem
         PushStartSyncMsg();
     }
 
-    //public override void OnEntityCompAdd(EntityBase entity, string compName, ComponentBase component)
-    //{
-    //    Debug.Log("OnEntityCompAdd " + compName);
 
-    //    //有新玩家加入
-    //    if (entity.GetExistComp<ConnectionComponent>()
-    //        && entity.GetExistComp<SyncComponent>())
-    //    {
-    //        OnPlayerJoin(entity);
-    //    }
-    //}
+    public void SetAllSync(SyncComponent connectionComp)
+    {
+        List<EntityBase> list = GetEntityList(new string[] { "ConnectionComponent" });
 
-    //public override void OnEntityCompRemove(EntityBase entity, string compName, ComponentBase component)
-    //{
-    //    if (entity.GetExistComp<ConnectionComponent>()
-    //        && entity.GetExistComp<SyncComponent>())
-    //    {
-    //        OnPlayerExit(entity);
-    //    }
-    //}
+        for (int i = 0; i < list.Count; i++)
+        {
+            ConnectionComponent comp = list[i].GetComp<ConnectionComponent>();
+            if (!connectionComp.m_waitSyncList.Contains(comp))
+            {
+                connectionComp.m_waitSyncList.Add(comp);
+            }
+        }
+    }
+
+    #region 事件接收
 
     public override void OnEntityCreate(EntityBase entity)
     {
@@ -99,21 +95,6 @@ public class ServiceSyncSystem : ServiceSystem
         }
     }
 
-    public void SetAllSync(SyncComponent connectionComp)
-    {
-        List<EntityBase> list = GetEntityList(new string[] { "ConnectionComponent" });
-
-        for (int i = 0; i < list.Count; i++)
-        {
-            ConnectionComponent comp = list[i].GetComp<ConnectionComponent>();
-            if (!connectionComp.m_waitSyncList.Contains(comp))
-            {
-                connectionComp.m_waitSyncList.Add(comp);
-            }
-        }
-    }
-
-    #region 事件接收
 
     void OnPlayerJoin(EntityBase entity)
     {
@@ -158,8 +139,6 @@ public class ServiceSyncSystem : ServiceSystem
     }
 
     #endregion
-
-
 
     #region 推送数据
 

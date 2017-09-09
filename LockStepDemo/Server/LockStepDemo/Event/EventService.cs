@@ -7,7 +7,6 @@ using System.Text;
 
 
 public delegate void EventHandle(params object[] args);
-public delegate void MessageHandle(SyncSession session, ChangeComponentMsg e);
 public delegate void MessageHandle<T>(SyncSession session, T e);
 class EventService
 {

@@ -65,8 +65,6 @@ public class InitSystem : SystemBase
         e4.num = 00;
         playerComp.elementData.Add(e4);
 
-
-
         if (!entity.GetExistComp<CommandComponent>())
         {
             CommandComponent c = new CommandComponent();
@@ -154,6 +152,7 @@ public class InitSystem : SystemBase
         {
             ConnectionComponent cc = entity.GetComp<ConnectionComponent>();
             cc.m_lastInputCache = new CommandComponent();
+            cc.m_defaultInput   = new CommandComponent();
         }
 
         GameTimeComponent gtc = m_world.GetSingletonComp<GameTimeComponent>();

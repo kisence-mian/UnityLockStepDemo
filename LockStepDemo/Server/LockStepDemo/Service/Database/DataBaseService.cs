@@ -11,7 +11,7 @@ public class DataBaseService
     public static void Init()
     {
         Debug.Log("开始连接数据库~~~");
-        long time = DateTime.Now.Ticks;
+        long time = ServiceTime.GetServiceTime();
 
         DbConfig config = new DbConfig();
         config.Database = "ElementCraft";
@@ -25,9 +25,9 @@ public class DataBaseService
         {
             database.Open();
 
-            time = DateTime.Now.Ticks - time;
+            time = ServiceTime.GetServiceTime() - time;
 
-            Debug.Log("数据库连接成功 用时" + time/ UpdateEngine.Tick2ms +"ms");
+            Debug.Log("数据库连接成功 用时" + time +"ms");
         }
         catch (DatabaseException e)
         {

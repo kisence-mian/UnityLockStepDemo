@@ -15,6 +15,7 @@ public static class ProtocolAnalysisService
 		string key = msg.GetType().Name.ToLower();
 		switch (key)
 		{
+			case  "affirmmsg":SendAffirmMsg(session , (Protocol.AffirmMsg)msg);break;
 			case  "changecomponentmsg":SendChangeComponentMsg(session , (Protocol.ChangeComponentMsg)msg);break;
 			case  "changesingletoncomponentmsg":SendChangeSingletonComponentMsg(session , (Protocol.ChangeSingletonComponentMsg)msg);break;
 			case  "debugmsg":SendDebugMsg(session , (Protocol.DebugMsg)msg);break;
@@ -31,6 +32,13 @@ public static class ProtocolAnalysisService
 			Debug.LogError("SendCommand Exception : 不支持的消息类型!" + key);
 				break;
 		}
+	}
+	static void SendAffirmMsg(SyncSession session,Protocol.AffirmMsg msg)
+	{
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("frame", msg.frame);
+		data.Add("time", msg.time);
+		session.SendMsg("affirmmsg",data);
 	}
 	static void SendChangeComponentMsg(SyncSession session,Protocol.ChangeComponentMsg msg)
 	{
@@ -94,8 +102,19 @@ public static class ProtocolAnalysisService
 	static void SendPursueMsg(SyncSession session,Protocol.PursueMsg msg)
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("id", msg.id);
+		data.Add("recalcframe", msg.recalcFrame);
 		data.Add("frame", msg.frame);
 		data.Add("advancecount", msg.advanceCount);
+		data.Add("servertime", msg.serverTime);
+		{
+			List<object> list = new List<object>();
+			for(int i = 0;i <msg.m_commandList.Count ; i++)
+			{
+				list.Add( msg.m_commandList[i]);
+			}
+			data.Add("m_commandlist",list);
+		}
 		session.SendMsg("pursuemsg",data);
 	}
 	static void SendStartSyncMsg(SyncSession session,Protocol.StartSyncMsg msg)
@@ -165,6 +184,7 @@ public static class ProtocolAnalysisService
 		data.Add("isfire", msg.isFire);
 		data.Add("id", msg.id);
 		data.Add("frame", msg.frame);
+		data.Add("time", msg.time);
 		session.SendMsg("commandcomponent",data);
 	}
 	static void SendPlayerLoginMsg_c(SyncSession session,PlayerLoginMsg_c msg)
@@ -200,6 +220,7 @@ public static class ProtocolAnalysisService
 	{
 		switch (cmd.Key)
 		{
+			case  "affirmmsg":ReceviceAffirmMsg(session , cmd);break;
 			case  "changecomponentmsg":ReceviceChangeComponentMsg(session , cmd);break;
 			case  "changesingletoncomponentmsg":ReceviceChangeSingletonComponentMsg(session , cmd);break;
 			case  "debugmsg":ReceviceDebugMsg(session , cmd);break;
@@ -216,6 +237,14 @@ public static class ProtocolAnalysisService
 			Debug.LogError("Recevice Exception : 不支持的消息类型!" + cmd.Key);
 				break;
 		}
+	}
+	static void ReceviceAffirmMsg(SyncSession session ,ProtocolRequestBase e)
+	{
+		Protocol.AffirmMsg msg = new Protocol.AffirmMsg();
+		msg.frame = (int)e.m_data["frame"];
+		msg.time = (int)e.m_data["time"];
+		
+		EventService.DispatchTypeEvent(session,msg);
 	}
 	static void ReceviceChangeComponentMsg(SyncSession session ,ProtocolRequestBase e)
 	{
@@ -287,8 +316,12 @@ public static class ProtocolAnalysisService
 	static void RecevicePursueMsg(SyncSession session ,ProtocolRequestBase e)
 	{
 		Protocol.PursueMsg msg = new Protocol.PursueMsg();
+		msg.id = (int)e.m_data["id"];
+		msg.recalcFrame = (int)e.m_data["recalcframe"];
 		msg.frame = (int)e.m_data["frame"];
 		msg.advanceCount = (int)e.m_data["advancecount"];
+		msg.serverTime = (int)e.m_data["servertime"];
+		msg.m_commandList = (List<String>)e.m_data["m_commandlist"];
 		
 		EventService.DispatchTypeEvent(session,msg);
 	}
@@ -358,6 +391,7 @@ public static class ProtocolAnalysisService
 		msg.isFire = (bool)e.m_data["isfire"];
 		msg.id = (int)e.m_data["id"];
 		msg.frame = (int)e.m_data["frame"];
+		msg.time = (int)e.m_data["time"];
 		
 		EventService.DispatchTypeEvent(session,msg);
 	}

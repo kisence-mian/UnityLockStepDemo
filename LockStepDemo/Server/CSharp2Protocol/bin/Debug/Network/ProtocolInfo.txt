@@ -1,5 +1,16 @@
 package all;
 
+message m_affirmmsg_s
+{
+	required int32 frame = 1;
+	required int32 time = 2;
+}
+message m_affirmmsg_c
+{
+	required int32 frame = 1;
+	required int32 time = 2;
+}
+
 message m_changecomponentmsg_s
 {
 	required int32 frame = 1;
@@ -48,13 +59,21 @@ message m_destroyentitymsg_c
 
 message m_pursuemsg_s
 {
-	required int32 frame = 1;
-	required int32 advancecount = 2;
+	required int32 id = 1;
+	required int32 recalcframe = 2;
+	required int32 frame = 3;
+	required int32 advancecount = 4;
+	required int32 servertime = 5;
+	repeated string m_commandlist = 6;
 }
 message m_pursuemsg_c
 {
-	required int32 frame = 1;
-	required int32 advancecount = 2;
+	required int32 id = 1;
+	required int32 recalcframe = 2;
+	required int32 frame = 3;
+	required int32 advancecount = 4;
+	required int32 servertime = 5;
+	repeated string m_commandlist = 6;
 }
 
 message m_startsyncmsg_s
@@ -96,6 +115,7 @@ message m_commandcomponent_s
 	required bool isfire = 5;
 	required int32 id = 6;
 	required int32 frame = 7;
+	required int32 time = 8;
 }
 message m_commandcomponent_c
 {
@@ -106,6 +126,7 @@ message m_commandcomponent_c
 	required bool isfire = 5;
 	required int32 id = 6;
 	required int32 frame = 7;
+	required int32 time = 8;
 }
 
 message m_playerloginmsg_c

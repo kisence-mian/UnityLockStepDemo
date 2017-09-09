@@ -7,8 +7,8 @@ using System.Threading;
 
 public static class UpdateEngine
 {
-    public const int Tick2ms = 10000;
-    public static long s_intervalTime = Tick2ms * 200; //单位毫微秒
+
+    public static int s_intervalTime =  200; //单位毫微秒
 
     /// <summary>
     ///         给外部使用的间隔时间，单位毫秒
@@ -18,18 +18,18 @@ public static class UpdateEngine
     {
         get
         {
-            return (int)(s_intervalTime / Tick2ms);
+            return s_intervalTime;
         }
 
         set
         {
-            s_intervalTime = (long)value * Tick2ms;
+            s_intervalTime = value ;
         }
     }
 
     public static void Init(int intervalTime) //单位ms
     {
-        s_intervalTime = Tick2ms * intervalTime; //毫秒 转化为100毫微秒
+        s_intervalTime = intervalTime; //毫秒 转化为100毫微秒
 
         Thread t = new Thread(UpdateLogic);
         t.Start();
@@ -37,18 +37,18 @@ public static class UpdateEngine
 
     static void UpdateLogic()
     {
-        long time = DateTime.Now.Ticks;
-        long lastTime = DateTime.Now.Ticks;
+        int time = ServiceTime.GetServiceTime();
+        int lastTime = ServiceTime.GetServiceTime();
 
         while (true)
         {
-            lastTime = DateTime.Now.Ticks;
+            lastTime = ServiceTime.GetServiceTime();
 
-            UpdateWorld((int)(s_intervalTime / Tick2ms));
+            UpdateWorld(s_intervalTime);
 
-            time = DateTime.Now.Ticks;
+            time = ServiceTime.GetServiceTime();
 
-            int sleepTime = (int)((s_intervalTime - (time - lastTime)) / Tick2ms);
+            int sleepTime = s_intervalTime - (time - lastTime);
 
             if (sleepTime > 0)
             {

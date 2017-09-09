@@ -20,14 +20,11 @@ public class PlayerInputSystem<T> : ServiceSystem where T : PlayerCommandBase, n
         {
             ConnectionComponent comp = list[i].GetComp<ConnectionComponent>();
 
-            if (comp.m_commandList.Count > 0)
-            {
-                T cmd = (T)comp.GetCommand(m_world.FrameCount);
-                cmd.id = list[i].ID;
-                cmd.frame = m_world.FrameCount;
+            T cmd = (T)comp.GetCommand(m_world.FrameCount);
+            cmd.id = list[i].ID;
+            cmd.frame = m_world.FrameCount;
 
-                list[i].ChangeComp(cmd);
-            }
+            list[i].ChangeComp(cmd);
         }
     }
 }

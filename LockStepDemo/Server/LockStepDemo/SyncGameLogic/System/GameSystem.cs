@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class GameSystem : SystemBase
 {
-    public override void FixedUpdate(int deltaTime)
+    public override void NoRecalcBeforeFixedUpdate(int deltaTime)
     {
         GameTimeComponent gtc = m_world.GetSingletonComp<GameTimeComponent>();
 
         gtc.GameTime -= deltaTime;
 
-        float sec = (gtc.GameTime / 1000);
-        if (sec < 0)
+        //Debug.Log("gtc.GameTime " + gtc.GameTime);
+
+        if (gtc.GameTime <0)
         {
             m_world.isFinish = true;
             m_world.IsStart = false;

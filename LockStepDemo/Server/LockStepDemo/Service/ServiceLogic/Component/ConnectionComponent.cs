@@ -12,9 +12,12 @@ public class ConnectionComponent : ServiceComponent
 
     public bool m_isWaitPushStart = false;
     public SyncSession m_session;
+
+    public int rtt; //网络时延 单位ms
+
     public List<PlayerCommandBase> m_commandList = new List<PlayerCommandBase>();
     public List<PlayerCommandBase> m_forecastList = new List<PlayerCommandBase>(); //预测操作列表
-
+    public PlayerCommandBase m_defaultInput = null;   //默认输入
     public PlayerCommandBase m_lastInputCache = null; //玩家的最后一次输入
 
     public List<EntityBase> m_waitSyncEntity = new List<EntityBase>(); //等待同步的实体
@@ -36,15 +39,18 @@ public class ConnectionComponent : ServiceComponent
             {
                 if (m_commandList[i].frame == frame)
                 {
-                    m_lastInputCache = m_commandList[0];
+                    m_lastInputCache = m_commandList[i];
 
-                    m_commandList.RemoveAt(0);
+                    m_commandList.RemoveAt(i);
 
                     return m_lastInputCache;
                 }
             }
 
-            return GetForecast(frame);
+            PlayerCommandBase pb = GetForecast(frame);
+            m_forecastList.Add(pb);
+
+            return pb;
         }
     }
 
@@ -54,6 +60,36 @@ public class ConnectionComponent : ServiceComponent
 
         PlayerCommandBase cmd = m_lastInputCache.DeepCopy();
         cmd.frame = frame;
+        cmd.id = Entity.ID;
         return cmd;
     }
+
+    public PlayerCommandBase GetHistoryForecast(int frame)
+    {
+        for (int i = 0; i < m_forecastList.Count; i++)
+        {
+            if (m_forecastList[i].frame == frame)
+            {
+
+                return m_forecastList[i];
+            }
+        }
+
+        m_defaultInput.id = Entity.ID;
+        m_defaultInput.frame = frame;
+        return m_defaultInput;
+    }
+
+    public void ClearForecast(int frame)
+    {
+        for (int i = 0; i < m_forecastList.Count; i++)
+        {
+            if (m_forecastList[i].frame <= frame)
+            {
+                m_forecastList.RemoveAt(i);
+                i--;
+            }
+        }
+    }
+
 }

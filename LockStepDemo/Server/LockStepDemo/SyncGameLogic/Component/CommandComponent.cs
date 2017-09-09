@@ -49,6 +49,12 @@ public class CommandComponent : PlayerCommandBase
         if (isFire != cc.isFire)
             return false;
 
+        if (element1 != cc.element1)
+            return false;
+
+        if (element2 != cc.element2)
+            return false;
+
         if (!moveDir.Equals(cc.moveDir))
             return false;
 
