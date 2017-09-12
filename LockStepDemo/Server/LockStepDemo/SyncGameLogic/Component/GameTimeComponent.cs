@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class GameTimeComponent : SingletonComponent
 {
-    public int GameTime = 100;
+    public int GameTime = 10000 * 1000;
 }

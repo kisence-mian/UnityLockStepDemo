@@ -35,6 +35,19 @@ message m_changesingletoncomponentmsg_c
 	required componentinfo info = 2;
 }
 
+message m_commandmsg_s
+{
+	required int32 frame = 1;
+	required int32 servertime = 2;
+	repeated commandinfo msg = 3;
+}
+message m_commandmsg_c
+{
+	required int32 frame = 1;
+	required int32 servertime = 2;
+	repeated commandinfo msg = 3;
+}
+
 message m_debugmsg_s
 {
 	required int32 frame = 1;
@@ -64,7 +77,6 @@ message m_pursuemsg_s
 	required int32 frame = 3;
 	required int32 advancecount = 4;
 	required int32 servertime = 5;
-	repeated string m_commandlist = 6;
 }
 message m_pursuemsg_c
 {
@@ -73,7 +85,6 @@ message m_pursuemsg_c
 	required int32 frame = 3;
 	required int32 advancecount = 4;
 	required int32 servertime = 5;
-	repeated string m_commandlist = 6;
 }
 
 message m_startsyncmsg_s
@@ -185,4 +196,8 @@ message componentinfo
 {
 	required string m_compname = 1;
 	required string content = 2;
+}
+message commandinfo
+{
+	required commandcomponent msg = 1;
 }

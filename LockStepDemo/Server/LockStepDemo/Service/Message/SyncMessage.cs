@@ -31,7 +31,7 @@ namespace Protocol
         public int advanceCount; //客户端提前量
         public int serverTime;   //服务器时间
 
-        public List<string> m_commandList;
+        //public List<string> m_commandList;
     }
 
     public class SyncEntityMsg : SyncModule
@@ -85,6 +85,58 @@ namespace Protocol
     {
         public string m_compName;
         public string content;
+    }
+
+    //转发玩家消息
+    public class CommandMsg : SyncModule
+    {
+        public int frame;
+        public int serverTime;   //服务器时间
+        public List<CommandInfo> msg;
+    }
+
+    public class CommandInfo : IProtocolStructInterface
+    {
+        public int frame;
+        public int id;
+
+        public SyncVector3 moveDir = new SyncVector3();
+        public SyncVector3 skillDir = new SyncVector3();
+
+        public int element1;
+        public int element2;
+
+        public bool isFire = false;
+
+        public void FromCommand(CommandComponent comp)
+        {
+            moveDir = comp.moveDir.DeepCopy();
+            skillDir = comp.skillDir.DeepCopy();
+
+            element1 = comp.element1;
+            element2 = comp.element2;
+            isFire   = comp.isFire;
+
+            frame = comp.frame;
+            id = comp.id;
+        }
+
+        public CommandComponent ToCommand()
+        {
+            CommandComponent cmd = new CommandComponent();
+
+            cmd.moveDir = moveDir.DeepCopy();
+            cmd.skillDir = skillDir.DeepCopy();
+            cmd.element1 = element1;
+            cmd.element2 = element2;
+
+            cmd.isFire = isFire;
+
+            cmd.frame = frame;
+            cmd.id = id;
+
+            return cmd;
+        }
     }
 
     public enum ChangeStatus

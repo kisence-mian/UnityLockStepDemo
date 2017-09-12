@@ -119,6 +119,55 @@
     <Compile Include="Generate\Data\ShiftDataGenerate.cs" />
     <Compile Include="Generate\Data\SkillDataGenerate.cs" />
     <Compile Include="Generate\Data\SkillStatusDataGenerate.cs" />
+    <Compile Include="Service\Game\Box2D\Box2DXDebug.cs" />
+    <Compile Include="Service\Game\Box2D\Collision\BroadPhase.cs" />
+    <Compile Include="Service\Game\Box2D\Collision\Collision.CollideCircle.cs" />
+    <Compile Include="Service\Game\Box2D\Collision\Collision.CollideEdge.cs" />
+    <Compile Include="Service\Game\Box2D\Collision\Collision.CollidePoly.cs" />
+    <Compile Include="Service\Game\Box2D\Collision\Collision.cs" />
+    <Compile Include="Service\Game\Box2D\Collision\Collision.Distance.cs" />
+    <Compile Include="Service\Game\Box2D\Collision\Collision.TimeOfImpact.cs" />
+    <Compile Include="Service\Game\Box2D\Collision\PairManager.cs" />
+    <Compile Include="Service\Game\Box2D\Collision\Shapes\CircleShape.cs" />
+    <Compile Include="Service\Game\Box2D\Collision\Shapes\EdgeShape.cs" />
+    <Compile Include="Service\Game\Box2D\Collision\Shapes\PolygonShape.cs" />
+    <Compile Include="Service\Game\Box2D\Collision\Shapes\Shape.cs" />
+    <Compile Include="Service\Game\Box2D\Common\Mat22.cs" />
+    <Compile Include="Service\Game\Box2D\Common\Mat33.cs" />
+    <Compile Include="Service\Game\Box2D\Common\Math.cs" />
+    <Compile Include="Service\Game\Box2D\Common\Settings.cs" />
+    <Compile Include="Service\Game\Box2D\Common\Sweep.cs" />
+    <Compile Include="Service\Game\Box2D\Common\Vec2.cs" />
+    <Compile Include="Service\Game\Box2D\Common\Vec3.cs" />
+    <Compile Include="Service\Game\Box2D\Common\XForm.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Body.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\ContactManager.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Contacts\CircleContact.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Contacts\Contact.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Contacts\ContactSolver.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Contacts\EdgeAndCircleContact.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Contacts\NullContact.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Contacts\PolyAndCircleContact.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Contacts\PolyAndEdgeContact.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Contacts\PolyContact.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Controllers\BuoyancyController.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Controllers\ConstantAccelController.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Controllers\ConstantForceController.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Controllers\Controller.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Controllers\GravityController.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Controllers\TensorDampingController.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Fixture.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Island.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Joints\DistanceJoint.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Joints\GearJoint.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Joints\Joint.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Joints\LineJoint.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Joints\MouseJoint.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Joints\PrismaticJoint.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Joints\PulleyJoint.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\Joints\RevoluteJoint.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\World.cs" />
+    <Compile Include="Service\Game\Box2D\Dynamics\WorldCallbacks.cs" />
     <Compile Include="Service\Game\Calc\Calc.cs" />
     <Compile Include="Service\DataBase\Common\Database.cs" />
     <Compile Include="Service\DataBase\Common\Error.cs" />
@@ -208,6 +257,7 @@
     <Compile Include="SyncGameLogic\System\LifeSpanSystem.cs" />
     <Compile Include="SyncGameLogic\System\MoveSystem.cs" />
     <Compile Include="SyncGameLogic\System\OperationSystem.cs" />
+    <Compile Include="SyncGameLogic\System\PhysicsSystem.cs" />
     <Compile Include="SyncGameLogic\System\RankSystem.cs" />
     <Compile Include="SyncGameLogic\System\ResurgenceSystem.cs" />
     <Compile Include="SyncGameLogic\System\SkillStatusSystem.cs" />
@@ -254,6 +304,7 @@
     <Content Include="Network\ProtocolInfo.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Service\Game\Box2D\Collision\TODO.txt" />
     <EmbeddedResource Include="Config\superSocket.config">
       <SubType>Designer</SubType>
     </EmbeddedResource>

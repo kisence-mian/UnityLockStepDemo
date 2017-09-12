@@ -56,9 +56,10 @@ public class ConnectionComponent : ServiceComponent
 
     public PlayerCommandBase GetForecast(int frame)
     {
-        Debug.Log("预测操作 id:" + Entity.ID + " frame " + frame);
+        //Debug.Log("预测操作 id:" + Entity.ID + " frame " + frame);
 
         PlayerCommandBase cmd = m_lastInputCache.DeepCopy();
+        //PlayerCommandBase cmd = new CommandComponent();
         cmd.frame = frame;
         cmd.id = Entity.ID;
         return cmd;
@@ -91,5 +92,4 @@ public class ConnectionComponent : ServiceComponent
             }
         }
     }
-
 }

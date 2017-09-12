@@ -99,7 +99,7 @@ public class SkillSystem : SystemBase
 
                 FlyObjectComponent fc = new FlyObjectComponent();
                 fc.createrID = skiller.ID;
-                fc.damage = skillData.m_DamageValue;
+                fc.damage = skillData.m_FlyDamageValue;
                 fc.flyObjectID = skillData.m_FlyObjectName[i];
 
                 m_world.CreateEntity(mc, ac, cp, lsc, cc, fc);

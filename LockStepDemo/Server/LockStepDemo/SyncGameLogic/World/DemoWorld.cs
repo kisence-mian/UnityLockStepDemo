@@ -30,7 +30,7 @@ class DemoWorld : WorldBase
             
             //服务器系统
             typeof(ConnectSystem),
-            typeof(PlayerInputSystem<CommandComponent>),
+            typeof(PlayerInputSystem),
             typeof(ServiceSyncSystem),
 
             //Debug

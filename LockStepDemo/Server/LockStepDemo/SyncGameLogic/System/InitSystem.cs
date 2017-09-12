@@ -135,8 +135,8 @@ public class InitSystem : SystemBase
         if (!entity.GetExistComp<LifeComponent>())
         {
             LifeComponent c = new LifeComponent();
-            c.maxLife = 100;
-            c.life = 100;
+            c.maxLife = playerComp.CharacterData.m_hp;
+            c.life = playerComp.CharacterData.m_hp;
             entity.AddComp(c);
         }
 

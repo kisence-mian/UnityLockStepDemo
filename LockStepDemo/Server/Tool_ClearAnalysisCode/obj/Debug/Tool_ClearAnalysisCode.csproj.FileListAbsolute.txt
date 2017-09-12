@@ -23,3 +23,4 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCod
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\obj\Debug\Tool_ClearAnalysisCode.pdb
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\bin\Debug\MySql.Data.dll
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\bin\Debug\Map\elementCreatePointData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\bin\Debug\Data\PlayerData.txt

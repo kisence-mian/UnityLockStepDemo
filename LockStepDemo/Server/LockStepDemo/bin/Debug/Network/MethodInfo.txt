@@ -4,11 +4,12 @@
 201,affirmmsg
 202,changecomponentmsg
 203,changesingletoncomponentmsg
-204,debugmsg
-205,destroyentitymsg
-206,pursuemsg
-207,startsyncmsg
-208,syncentitymsg
+204,commandmsg
+205,debugmsg
+206,destroyentitymsg
+207,pursuemsg
+208,startsyncmsg
+209,syncentitymsg
 
 3,Command
 301,commandcomponent

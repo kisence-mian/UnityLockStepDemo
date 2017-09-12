@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-
 public class ServiceSyncSystem : ServiceSystem
 {
     public override void Init()
@@ -154,7 +153,6 @@ public class ServiceSyncSystem : ServiceSystem
             if (comp.m_isWaitPushStart == true)
             {
                 comp.m_isWaitPushStart = false;
-
 
                 //同步单例组件
                 foreach (var item in m_world.m_singleCompDict)

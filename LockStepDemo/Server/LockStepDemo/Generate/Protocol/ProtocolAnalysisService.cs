@@ -18,6 +18,7 @@ public static class ProtocolAnalysisService
 			case  "affirmmsg":SendAffirmMsg(session , (Protocol.AffirmMsg)msg);break;
 			case  "changecomponentmsg":SendChangeComponentMsg(session , (Protocol.ChangeComponentMsg)msg);break;
 			case  "changesingletoncomponentmsg":SendChangeSingletonComponentMsg(session , (Protocol.ChangeSingletonComponentMsg)msg);break;
+			case  "commandmsg":SendCommandMsg(session , (Protocol.CommandMsg)msg);break;
 			case  "debugmsg":SendDebugMsg(session , (Protocol.DebugMsg)msg);break;
 			case  "destroyentitymsg":SendDestroyEntityMsg(session , (Protocol.DestroyEntityMsg)msg);break;
 			case  "pursuemsg":SendPursueMsg(session , (Protocol.PursueMsg)msg);break;
@@ -65,6 +66,41 @@ public static class ProtocolAnalysisService
 			}
 		session.SendMsg("changesingletoncomponentmsg",data);
 	}
+	static void SendCommandMsg(SyncSession session,Protocol.CommandMsg msg)
+	{
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("frame", msg.frame);
+		data.Add("servertime", msg.serverTime);
+		{
+			List<object> list2 = new List<object>();
+			for(int i2 = 0;i2 <msg.msg.Count ; i2++)
+			{
+				Dictionary<string, object> data2 = new Dictionary<string, object>();
+				data2.Add("frame", msg.msg[i2].frame);
+				data2.Add("id", msg.msg[i2].id);
+					{
+						Dictionary<string, object> data4 = new Dictionary<string, object>();
+						data4.Add("x", msg.msg[i2].moveDir.x);
+						data4.Add("y", msg.msg[i2].moveDir.y);
+						data4.Add("z", msg.msg[i2].moveDir.z);
+						data2.Add("movedir",data4);
+					}
+					{
+						Dictionary<string, object> data4 = new Dictionary<string, object>();
+						data4.Add("x", msg.msg[i2].skillDir.x);
+						data4.Add("y", msg.msg[i2].skillDir.y);
+						data4.Add("z", msg.msg[i2].skillDir.z);
+						data2.Add("skilldir",data4);
+					}
+				data2.Add("element1", msg.msg[i2].element1);
+				data2.Add("element2", msg.msg[i2].element2);
+				data2.Add("isfire", msg.msg[i2].isFire);
+				list2.Add( data2);
+			}
+			data.Add("msg",list2);
+		}
+		session.SendMsg("commandmsg",data);
+	}
 	static void SendDebugMsg(SyncSession session,Protocol.DebugMsg msg)
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
@@ -107,14 +143,6 @@ public static class ProtocolAnalysisService
 		data.Add("frame", msg.frame);
 		data.Add("advancecount", msg.advanceCount);
 		data.Add("servertime", msg.serverTime);
-		{
-			List<object> list = new List<object>();
-			for(int i = 0;i <msg.m_commandList.Count ; i++)
-			{
-				list.Add( msg.m_commandList[i]);
-			}
-			data.Add("m_commandlist",list);
-		}
 		session.SendMsg("pursuemsg",data);
 	}
 	static void SendStartSyncMsg(SyncSession session,Protocol.StartSyncMsg msg)
@@ -223,6 +251,7 @@ public static class ProtocolAnalysisService
 			case  "affirmmsg":ReceviceAffirmMsg(session , cmd);break;
 			case  "changecomponentmsg":ReceviceChangeComponentMsg(session , cmd);break;
 			case  "changesingletoncomponentmsg":ReceviceChangeSingletonComponentMsg(session , cmd);break;
+			case  "commandmsg":ReceviceCommandMsg(session , cmd);break;
 			case  "debugmsg":ReceviceDebugMsg(session , cmd);break;
 			case  "destroyentitymsg":ReceviceDestroyEntityMsg(session , cmd);break;
 			case  "pursuemsg":RecevicePursueMsg(session , cmd);break;
@@ -275,6 +304,45 @@ public static class ProtocolAnalysisService
 		
 		EventService.DispatchTypeEvent(session,msg);
 	}
+	static void ReceviceCommandMsg(SyncSession session ,ProtocolRequestBase e)
+	{
+		Protocol.CommandMsg msg = new Protocol.CommandMsg();
+		msg.frame = (int)e.m_data["frame"];
+		msg.serverTime = (int)e.m_data["servertime"];
+		{
+			List<Dictionary<string, object>> data2 = (List<Dictionary<string, object>>)e.m_data["msg"];
+			List<Protocol.CommandInfo> list2 = new List<Protocol.CommandInfo>();
+			for (int i2 = 0; i2 < data2.Count; i2++)
+			{
+				Protocol.CommandInfo tmp2 = new Protocol.CommandInfo();
+				tmp2.frame = (int)data2[i2]["frame"];
+				tmp2.id = (int)data2[i2]["id"];
+				{
+					Dictionary<string, object> data4 = (Dictionary<string, object>)data2[i2]["movedir"];
+					SyncVector3 tmp4 = new SyncVector3();
+					tmp4.x = (int)data4["x"];
+					tmp4.y = (int)data4["y"];
+					tmp4.z = (int)data4["z"];
+					tmp2.moveDir = tmp4;
+				}
+				{
+					Dictionary<string, object> data4 = (Dictionary<string, object>)data2[i2]["skilldir"];
+					SyncVector3 tmp4 = new SyncVector3();
+					tmp4.x = (int)data4["x"];
+					tmp4.y = (int)data4["y"];
+					tmp4.z = (int)data4["z"];
+					tmp2.skillDir = tmp4;
+				}
+				tmp2.element1 = (int)data2[i2]["element1"];
+				tmp2.element2 = (int)data2[i2]["element2"];
+				tmp2.isFire = (bool)data2[i2]["isfire"];
+				list2.Add(tmp2);
+			}
+			msg.msg =  list2;
+		}
+		
+		EventService.DispatchTypeEvent(session,msg);
+	}
 	static void ReceviceDebugMsg(SyncSession session ,ProtocolRequestBase e)
 	{
 		Protocol.DebugMsg msg = new Protocol.DebugMsg();
@@ -321,7 +389,6 @@ public static class ProtocolAnalysisService
 		msg.frame = (int)e.m_data["frame"];
 		msg.advanceCount = (int)e.m_data["advancecount"];
 		msg.serverTime = (int)e.m_data["servertime"];
-		msg.m_commandList = (List<String>)e.m_data["m_commandlist"];
 		
 		EventService.DispatchTypeEvent(session,msg);
 	}
