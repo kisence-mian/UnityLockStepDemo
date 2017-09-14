@@ -22,6 +22,7 @@ public class WorldBase
 
     bool m_isStart = false;
     bool m_isView = false; //是否是在客户端运行
+    public bool m_isLocal = false;
 
     public bool IsStart
     {
@@ -252,8 +253,10 @@ public class WorldBase
     /// 重演算接口
     /// </summary>
     /// <param name="deltaTime"></param>
-    public void Recalc(int deltaTime)
+    public void Recalc(int frame,int deltaTime)
     {
+        OnlyCallByReCalc(frame,deltaTime);
+
         BeforeFixedUpdate(deltaTime);
         FixedUpdate(deltaTime);
         LateFixedUpdate(deltaTime);
@@ -334,6 +337,14 @@ public class WorldBase
         }
     }
 
+    void OnlyCallByReCalc(int frame,int deltaTime)
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].OnlyCallByRecalc(frame,deltaTime);
+        }
+    }
+
     #endregion
 
     #region 回滚相关 
@@ -388,7 +399,7 @@ public class WorldBase
     List<EntityBase> destroyCache = new List<EntityBase>();
 
     //集中执行实体的创建删除操作
-    void LazyExecuteEntityOperation()
+    public void LazyExecuteEntityOperation()
     {
         for (int i = 0; i < createCache.Count; i++)
         {

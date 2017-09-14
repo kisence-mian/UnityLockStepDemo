@@ -16,6 +16,11 @@ class Debug
         s_logger = logger;
     }
 
+    public static void Log(object content)
+    {
+        Log(content.ToString());
+    }
+
     public static void Log(string content)
     {
         if (s_logger == null)

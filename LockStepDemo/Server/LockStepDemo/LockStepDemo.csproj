@@ -39,6 +39,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -113,6 +114,7 @@
     <Compile Include="FrameWork\Utils\ExpandMethod.cs" />
     <Compile Include="FrameWork\Utils\ParseTool.cs" />
     <Compile Include="Generate\Data\AreaDataGenerate.cs" />
+    <Compile Include="Generate\Data\BuffDataGenerate.cs" />
     <Compile Include="Generate\Data\CombineDataGenerate.cs" />
     <Compile Include="Generate\Data\FlyDataGenerate.cs" />
     <Compile Include="Generate\Data\PlayerDataGenerate.cs" />
@@ -225,6 +227,7 @@
     <Compile Include="Service\SyncSession.cs" />
     <Compile Include="Service\Game\UpdateEngine.cs" />
     <Compile Include="Service\Game\WorldManager.cs" />
+    <Compile Include="Service\Utils\MD5Tool.cs" />
     <Compile Include="Service\Utils\ServiceTime.cs" />
     <Compile Include="SyncGameLogic\Component\AssetComponent.cs" />
     <Compile Include="SyncGameLogic\Component\BlockComponent.cs" />
@@ -246,6 +249,7 @@
     <Compile Include="SyncGameLogic\Component\SkillStatusComponent.cs" />
     <Compile Include="SyncGameLogic\Component\ViewComponent.cs" />
     <Compile Include="SyncGameLogic\System\BlowFlySystem.cs" />
+    <Compile Include="SyncGameLogic\System\BuffSystem.cs" />
     <Compile Include="SyncGameLogic\System\CollisionDamageSystem.cs" />
     <Compile Include="SyncGameLogic\System\CollisionSystem.cs" />
     <Compile Include="SyncGameLogic\System\CreateItemSystem.cs" />
@@ -271,6 +275,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\AreaData.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\BuffData.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\CombineData.txt">

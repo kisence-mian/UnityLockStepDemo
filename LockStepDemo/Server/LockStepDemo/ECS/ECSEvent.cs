@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public delegate void ECSEventHandle(EntityBase entity);
+public delegate void ECSEventHandle(EntityBase entity,params object[] objs);
 
 public class ECSEvent
 {
@@ -29,11 +29,11 @@ public class ECSEvent
         }
     }
 
-    public void DispatchEvent(string key, EntityBase entity)
+    public void DispatchEvent(string key, EntityBase entity, params object[] objs)
     {
         if (m_EventDict.ContainsKey(key))
         {
-            m_EventDict[key](entity);
+            m_EventDict[key](entity, objs);
         }
     }
 }

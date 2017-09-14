@@ -76,10 +76,10 @@ public class ServiceSyncSystem : ServiceSystem
             sc = entity.GetComp<SyncComponent>();
         }
 
-        if (m_world.SyncRule == SyncRule.Status)
-        {
-            SetAllSync(sc);
-        }
+        //if (m_world.SyncRule == SyncRule.Status)
+        //{
+        //    SetAllSync(sc);
+        //}
     }
 
     public override void OnEntityDestroy(EntityBase entity)
@@ -88,14 +88,14 @@ public class ServiceSyncSystem : ServiceSystem
 
         if (entity.GetExistComp<SyncComponent>())
         {
-            SyncComponent sc = entity.GetComp<SyncComponent>();
-            SetAllSync(sc);
-            PushDestroyEntity(sc, entity);
+            //SyncComponent sc = entity.GetComp<SyncComponent>();
+            //SetAllSync(sc);
+            //PushDestroyEntity(sc, entity);
         }
     }
 
 
-    void OnPlayerJoin(EntityBase entity)
+    void OnPlayerJoin(EntityBase entity,params object[] objs)
     {
         Debug.Log("ServiceSyncSystem OnPlayerJoin ");
 
@@ -119,7 +119,7 @@ public class ServiceSyncSystem : ServiceSystem
         SetAllSync(syc);
     }
 
-    void OnPlayerExit(EntityBase entity)
+    void OnPlayerExit(EntityBase entity, params object[] objs)
     {
         ConnectionComponent comp = entity.GetComp<ConnectionComponent>();
         comp.m_isWaitPushStart = false;
@@ -131,7 +131,7 @@ public class ServiceSyncSystem : ServiceSystem
         //PushDestroyEntity(sc, entity);
     }
 
-    void OnCompChange(EntityBase entity)
+    void OnCompChange(EntityBase entity, params object[] objs)
     {
         SyncComponent syc = entity.GetComp<SyncComponent>();
         SetAllSync(syc);

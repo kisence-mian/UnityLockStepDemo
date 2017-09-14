@@ -10,6 +10,11 @@ public class PhysicsSystem :SystemBase
 {
     World boxWorld = null;
 
+    public override Type[] GetFilter()
+    {
+        return base.GetFilter();
+    }
+
     public override void Init()
     {
         AABB worldAABB = new AABB();

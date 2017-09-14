@@ -21,7 +21,7 @@ public class RankSystem : SystemBase
     }
 
     //计算排行榜不重计算
-    public void ReCalcRank(EntityBase entity)
+    public void ReCalcRank(EntityBase entity, params object[] pbjs)
     {
         RankComponent rank = m_world.GetSingletonComp<RankComponent>();
         List<EntityBase> list = GetEntityList();

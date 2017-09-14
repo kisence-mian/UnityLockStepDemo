@@ -41,6 +41,8 @@ public class SkillSystem : SystemBase
             //获取伤害列表
             List<EntityBase> damageList = GetSkillDamageList(entity, skillData);
 
+            //Debug.Log("damageList " + damageList.Count);
+
             //创建飞行物
             CreateFlyObject(skillData, entity);
 
@@ -128,7 +130,7 @@ public class SkillSystem : SystemBase
         Vector3 pos = Vector3.zero;
 
         //获取散射区域
-        Area skillArea = UpdatSkillArea(areaCache, skillData, skiller, null);
+        Area skillArea = SkillUtils.UpdatSkillArea(areaCache, skillData, skiller, null);
 
         //TODO 寻敌方法
         //CharacterBase enemy = GetRecentlyEnemy(skillArea, skiller.m_camp, false);
@@ -287,92 +289,7 @@ public class SkillSystem : SystemBase
 
     void DamageBuff(EntityBase skiller, EntityBase hurter, SkillDataGenerate skillData)
     {
-        if (skillData.m_HurtBuff.Length > 0)
-        {
-            for (int i = 0; i < skillData.m_HurtBuff.Length; i++)
-            {
-                //TODO 添加BUFF
-
-                //AddBuffCmd acmd = HeapObjectPool<AddBuffCmd>.GetObject();
-                //acmd.SetData(time + SyncService.SyncAheadTime, hurter.m_characterID, skiller.m_characterID, data.m_HurtBuff[i], skillID);
-
-                //CommandRouteService.SendSyncCommand(acmd);
-            }
-        }
-    }
-
-    #endregion
-
-    #region 范围拓展方法
-
-    public static Area UpdatSkillArea(Area area, SkillDataGenerate skillData, EntityBase skiller, EntityBase aim = null)
-    {
-        string effectArea = skillData.m_EffectArea;
-        UpdateArea(area, effectArea, skiller, aim);
-        return area;
-    }
-
-    public static void UpdateArea(Area area, string areaID, EntityBase skiller, EntityBase aim = null)
-    {
-        MoveComponent smc = skiller.GetComp<MoveComponent>();
-
-        AreaDataGenerate areaData = DataGenerateManager<AreaDataGenerate>.GetData(areaID);
-        Vector3 dir = GetAreaDir(area, areaData, skiller, aim);
-
-        area.areaType = areaData.m_Shape;
-        area.length = areaData.m_Length;
-        area.Width = areaData.m_Width;
-        area.angle = areaData.m_Angle;
-        area.radius = areaData.m_Radius;
-
-        area.direction = dir.normalized;
-        area.position = smc.pos.ToVector() + area.direction * areaData.m_SkewDistance;
-
-        //Debug.Log( "skiller forward"+skiller.transform.forward);
-    }
-
-    public static Vector3 GetAreaDir(Area area, AreaDataGenerate areaData, EntityBase skiller, EntityBase aim = null)
-    {
-        MoveComponent smc = skiller.GetComp<MoveComponent>();
-        SkillStatusComponent ssc = skiller.GetComp<SkillStatusComponent>();
-
-        Vector3 l_dir = Vector3.zero;
-        if (aim == null)
-        {
-            switch (areaData.m_SkewDirection)
-            {
-                case DirectionEnum.Forward:
-                    l_dir = ssc.skillDir.ToVector();
-                    break;
-                case DirectionEnum.Backward:
-                    l_dir = ssc.skillDir.ToVector() * -1;
-                    break;
-                case DirectionEnum.Close:
-                    Debug.LogError("没有aim，不能使用" + areaData.m_SkewDirection + "方向,修正为forward");
-                    l_dir = ssc.skillDir.ToVector();
-                    break;
-                case DirectionEnum.Leave:
-                    Debug.LogError("没有aim，不能使用" + areaData.m_SkewDirection + "方向,修正为Backward");
-                    l_dir = ssc.skillDir.ToVector() * -1; break;
-                default:
-                    Debug.LogError("没有aim，不能使用" + areaData.m_SkewDirection + "方向");
-                    break;
-            }
-        }
-
-        if (aim != null)
-        {
-            MoveComponent amc = aim.GetComp<MoveComponent>();
-
-            switch (areaData.m_SkewDirection)
-            {
-                case DirectionEnum.Forward: l_dir = ssc.skillDir.ToVector(); break;
-                case DirectionEnum.Backward: l_dir = ssc.skillDir.ToVector() * -1; break;
-                case DirectionEnum.Leave: l_dir = amc.pos.ToVector() - smc.pos.ToVector(); break;
-                case DirectionEnum.Close: l_dir = smc.pos.ToVector() - amc.pos.ToVector(); break;
-            }
-        }
-        return l_dir;
+        SkillUtils.AddBuff(m_world, skiller, hurter, skillData.m_HurtBuff);
     }
 
     #endregion
@@ -387,7 +304,7 @@ public class SkillSystem : SystemBase
         List<EntityBase> result = new List<EntityBase>();
         List<EntityBase> list = GetEntityList(new string[] { "CollisionComponent", "LifeComponent", "CampComponent" });
 
-        UpdateArea(skillAreaCache, skillData.m_EffectArea, entity);
+        SkillUtils.UpdateArea(skillAreaCache, skillData.m_EffectArea, entity);
 
         Debug.DrawRay(skillAreaCache.position, skillAreaCache.direction,Color.red,10);
 

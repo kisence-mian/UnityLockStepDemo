@@ -33,6 +33,8 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
                 amsg.frame = msg.frame;
                 amsg.time = msg.time;
 
+                BroadcastCommand(world, connectComp, msg,false);
+
                 ProtocolAnalysisService.SendMsg(session, amsg);
 
                 connectComp.m_commandList.Add(msg);
@@ -75,18 +77,18 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
         return frame;
     }
 
-    //static void BroadcastCommand(WorldBase world,ConnectionComponent connectComp, T cmd,bool includeSelf)
-    //{
-    //    //TODO 与预测一致不广播节约带宽
-    //    List<EntityBase> list = world.GetEntiyList(new string[] { "ConnectionComponent" });
+    static void BroadcastCommand(WorldBase world, ConnectionComponent connectComp, T cmd, bool includeSelf)
+    {
+        //TODO 与预测一致不广播节约带宽
+        List<EntityBase> list = world.GetEntiyList(new string[] { "ConnectionComponent" });
 
-    //    for (int i = 0; i < list.Count; i++)
-    //    {
-    //        ConnectionComponent cp = list[i].GetComp<ConnectionComponent>();
-    //        if (!(includeSelf && cp != connectComp))
-    //        {
-    //            ProtocolAnalysisService.SendMsg(cp.m_session, cmd);
-    //        }
-    //    }
-    //}
+        for (int i = 0; i < list.Count; i++)
+        {
+            ConnectionComponent cp = list[i].GetComp<ConnectionComponent>();
+            if (!(includeSelf && cp != connectComp))
+            {
+                ProtocolAnalysisService.SendMsg(cp.m_session, cmd);
+            }
+        }
+    }
 }

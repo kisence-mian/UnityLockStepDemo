@@ -156,7 +156,7 @@ public class InitSystem : SystemBase
         }
 
         GameTimeComponent gtc = m_world.GetSingletonComp<GameTimeComponent>();
-        gtc.GameTime = 100 * 1000;
+        gtc.GameTime = 10000 * 1000;
     }
 
     Deserializer deserializer = new Deserializer();

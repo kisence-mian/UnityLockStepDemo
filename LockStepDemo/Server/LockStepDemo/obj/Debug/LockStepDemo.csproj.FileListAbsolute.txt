@@ -47,3 +47,4 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debu
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Map\elementCreatePointData.txt
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\obj\Debug\LockStepDemo.csprojResolveAssemblyReference.cache
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Data\PlayerData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\bin\Debug\Data\BuffData.txt

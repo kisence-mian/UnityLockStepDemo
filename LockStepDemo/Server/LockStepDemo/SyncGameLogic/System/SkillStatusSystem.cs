@@ -44,6 +44,7 @@ public class SkillStatusSystem : SystemBase
                 {
                     sc.m_isEnter = true;
                     sc.m_skillStstus = SkillStatusEnum.Current;
+                    m_world.eventSystem.DispatchEvent(GameUtils.c_SkillStatusEnter,entity);
                 }
                 else
                 {
@@ -59,6 +60,7 @@ public class SkillStatusSystem : SystemBase
                     {
                         sc.m_isTriggerSkill = true;
                         sc.m_isHit = true;
+                        m_world.eventSystem.DispatchEvent(GameUtils.c_SkillHit, entity);
                     }
                     else
                     {
@@ -73,6 +75,7 @@ public class SkillStatusSystem : SystemBase
                         sc.m_skillTriggerTimeSpace =(int) (sc.m_currentSkillData.SkillInfo.m_TriggerSpaceTime) * 1000;
                         //加个伤害间隔
                         sc.m_isHit = true;
+                        m_world.eventSystem.DispatchEvent(GameUtils.c_SkillHit, entity);
                     }
                     else
                     {
@@ -89,6 +92,7 @@ public class SkillStatusSystem : SystemBase
                 {
                     sc.m_isEnter = true;
                     sc.m_skillStstus = SkillStatusEnum.Later;
+                    m_world.eventSystem.DispatchEvent(GameUtils.c_SkillStatusEnter, entity);
                 }
                 else
                 {
@@ -102,6 +106,7 @@ public class SkillStatusSystem : SystemBase
                 {
                     sc.m_isEnter = true;
                     sc.m_skillStstus = SkillStatusEnum.Finish;
+                    m_world.eventSystem.DispatchEvent(GameUtils.c_SkillStatusEnter, entity);
                 }
                 else
                 {

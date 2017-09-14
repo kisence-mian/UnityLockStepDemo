@@ -58,6 +58,12 @@ public class SystemBase
     #region Update
 
     /// <summary>
+    /// 只在回滚时调用
+    /// </summary>
+    /// <param name="deltaTime"></param>
+    public virtual void OnlyCallByRecalc(int frame,int deltaTime) { }
+   
+    /// <summary>
     /// 服务器不执行
     /// </summary>
     /// <param name="deltaTime"></param>

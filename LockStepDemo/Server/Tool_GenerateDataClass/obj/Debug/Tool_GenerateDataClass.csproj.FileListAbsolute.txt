@@ -24,3 +24,4 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClas
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\bin\Debug\Map\elementCreatePointData.txt
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\bin\Debug\MySql.Data.dll
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\bin\Debug\Data\PlayerData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_GenerateDataClass\bin\Debug\Data\BuffData.txt

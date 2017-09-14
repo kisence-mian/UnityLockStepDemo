@@ -30,12 +30,13 @@ public class OperationSystem : SystemBase
             BlowFlyComponent blc = list[i].GetComp<BlowFlyComponent>();
 
             if(lc.Life > 0 
-                && !blc.isBlow)
+                && !blc.isBlow
+                && !pc.GetIsDizziness())
             {
                 pc.faceDir = com.skillDir.DeepCopy();
                 move.dir = com.moveDir.DeepCopy();
 
-                move.m_velocity = (int)(pc.CharacterData.m_movespeed * 1000);
+                move.m_velocity = pc.GetSpeed();
             }
 
             if(lc.Life < 0)

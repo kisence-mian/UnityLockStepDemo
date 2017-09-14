@@ -24,6 +24,7 @@ class DemoWorld : WorldBase
             typeof(CreateItemSystem),
             typeof(ItemSystem),
             typeof(RankSystem),
+            typeof(BuffSystem),
 
             //初始化
             typeof(InitSystem),

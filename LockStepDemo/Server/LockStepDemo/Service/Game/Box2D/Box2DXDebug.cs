@@ -35,7 +35,7 @@ namespace Box2DX
 			{
 				condition = condition;
 			}
-			Debug.Assert(condition);
+			//Debug.Assert(condition);
 		}
 
 		[Conditional("DEBUG")]
@@ -45,7 +45,7 @@ namespace Box2DX
 			{
 				condition = condition;
 			}
-			Debug.Assert(condition, message);
+			//Debug.Assert(condition, message);
 		}
 
 		[Conditional("DEBUG")]
@@ -55,7 +55,7 @@ namespace Box2DX
 			{
 				condition = condition;
 			}
-			Debug.Assert(condition, message, detailMessage);
+			//Debug.Assert(condition, message, detailMessage);
 		}
 
 		public static void ThrowBox2DXException(String message)

@@ -5,7 +5,7 @@ using Protocol;
 
 public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
 {
-    int updateInterval = 200; //世界更新间隔ms TODO 读取配置
+    int updateInterval = 100; //世界更新间隔ms TODO 读取配置
 
     public SessionCreateHandle OnSessionCreate;
     public SessionCloseHandle OnSessionClose;
@@ -27,6 +27,8 @@ public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
         //TODO 读取配置设置isDebug
         Debug.SetLogger(Logger, true);
         Debug.Log("SyncService Setup");
+
+        Debug.Log(MD5Tool.GetStringToHash("123456PlayerHaHa").ToString());
 
         DataBaseService.Init();
 
