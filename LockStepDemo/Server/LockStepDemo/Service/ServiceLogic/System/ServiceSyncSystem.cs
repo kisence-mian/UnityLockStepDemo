@@ -167,7 +167,7 @@ public class ServiceSyncSystem : ServiceSystem
 
     void PushStartSyncMsg(SyncSession session)
     {
-        Debug.Log("PushStartSyncMsg ");
+        Debug.Log("PushStartSyncMsg " + m_world.FrameCount);
 
         StartSyncMsg msg = new StartSyncMsg();
         msg.frame = m_world.FrameCount;

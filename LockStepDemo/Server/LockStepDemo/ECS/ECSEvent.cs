@@ -7,33 +7,80 @@ public delegate void ECSEventHandle(EntityBase entity,params object[] objs);
 
 public class ECSEvent
 {
+    WorldBase m_world;
+
     private Dictionary<string, ECSEventHandle> m_EventDict = new Dictionary<string, ECSEventHandle>();
 
-    public  void AddListener(string key, ECSEventHandle handle)
+    //只在重计算和本地计算调用
+    private Dictionary<string, ECSEventHandle> m_certaintyEventDict = new Dictionary<string, ECSEventHandle>();
+
+    public ECSEvent(WorldBase world)
     {
-        if (m_EventDict.ContainsKey(key))
+        m_world = world;
+    }
+
+    public  void AddListener(string key, ECSEventHandle handle,bool certainty = false)
+    {
+        if (!certainty)
         {
-            m_EventDict[key] += handle;
+            if (m_EventDict.ContainsKey(key))
+            {
+
+                m_EventDict[key] += handle;
+            }
+            else
+            {
+                m_EventDict.Add(key, handle);
+            }
         }
         else
         {
-            m_EventDict.Add(key, handle);
+            if (m_certaintyEventDict.ContainsKey(key))
+            {
+
+                m_certaintyEventDict[key] += handle;
+            }
+            else
+            {
+                m_certaintyEventDict.Add(key, handle);
+            }
         }
+
     }
 
-    public void RemoveListener(string key, ECSEventHandle handle)
+    public void RemoveListener(string key, ECSEventHandle handle, bool certainty = false)
     {
-        if (m_EventDict.ContainsKey(key))
+        if (!certainty)
         {
-            m_EventDict[key] -= handle;
+            if (m_EventDict.ContainsKey(key))
+            {
+                m_EventDict[key] -= handle;
+            }
+        }
+        else
+        {
+            if (m_certaintyEventDict.ContainsKey(key))
+            {
+                m_certaintyEventDict[key] -= handle;
+            }
         }
     }
 
     public void DispatchEvent(string key, EntityBase entity, params object[] objs)
     {
-        if (m_EventDict.ContainsKey(key))
+        if(!m_world.m_isCertainty)
         {
-            m_EventDict[key](entity, objs);
+            if (m_EventDict.ContainsKey(key))
+            {
+                m_EventDict[key](entity, objs);
+            }
+        }
+        else
+        {
+            if (m_certaintyEventDict.ContainsKey(key))
+            {
+                m_certaintyEventDict[key](entity, objs);
+            }
         }
     }
 }

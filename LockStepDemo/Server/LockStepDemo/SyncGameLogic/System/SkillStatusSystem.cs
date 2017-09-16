@@ -37,6 +37,9 @@ public class SkillStatusSystem : SystemBase
             //Debug.Log("ID: " + entity.ID + " m_skillStstus " + sc.m_skillStstus + " frame " + m_world.FrameCount +" skillTime "+ sc.m_skillTime +" LaterTime " + sc.m_currentSkillData.LaterTime);
 
             sc.m_skillTime += deltaTime;
+            sc.FXTimer += deltaTime;
+
+
 
             if (sc.m_skillTime > sc.m_currentSkillData.BeforeTime * 1000)
             {

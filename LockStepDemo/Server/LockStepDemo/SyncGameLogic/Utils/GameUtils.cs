@@ -15,6 +15,7 @@ public class GameUtils
 
     public const string c_SkillHit = "SkillHit";
     public const string c_SkillStatusEnter = "SkillStatusEnter";
+    public const string c_SkillFXTrigger = "SkillStatusEnter";
 
     public const int c_element_default = 0;
 

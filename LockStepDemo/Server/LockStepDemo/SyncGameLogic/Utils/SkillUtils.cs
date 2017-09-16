@@ -53,12 +53,12 @@ public class SkillUtils
                 return;
             }
 
-            MoveComponent mc = new MoveComponent();
-            mc.pos.FromVector(pos);
-            mc.dir.FromVector(dir);
+            TransfromComponent tc = new TransfromComponent();
+            tc.pos.FromVector(pos);
+            tc.dir.FromVector(dir);
 
             //打印
-            Debug.DrawRay(mc.pos.ToVector(), -mc.dir.ToVector(),Color.green,10);
+            Debug.DrawRay(tc.pos.ToVector(), -tc.dir.ToVector(),Color.green,10);
 
             CampComponent cc = new CampComponent();
             cc.creater = createrID;
@@ -66,7 +66,7 @@ public class SkillUtils
             LifeSpanComponent lsc = new LifeSpanComponent();
             lsc.lifeTime = (int)(ssc.m_currentSkillData.LaterTime * 1000);
 
-            world.CreateEntity(mc, ssc, cc, lsc);
+            world.CreateEntity(createrID + "SkillToken",tc, ssc, cc, lsc);
         }
     }
 

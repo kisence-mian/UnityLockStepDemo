@@ -14,6 +14,7 @@ public class ConnectionComponent : ServiceComponent
     public SyncSession m_session;
 
     public int rtt; //网络时延 单位ms
+    public int lastInputFrame = -1; //玩家的最后一次输入帧
 
     public List<PlayerCommandBase> m_commandList = new List<PlayerCommandBase>();
     public List<PlayerCommandBase> m_forecastList = new List<PlayerCommandBase>(); //预测操作列表

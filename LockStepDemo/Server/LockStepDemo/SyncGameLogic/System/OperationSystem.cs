@@ -38,8 +38,7 @@ public class OperationSystem : SystemBase
 
                 move.m_velocity = pc.GetSpeed();
             }
-
-            if(lc.Life < 0)
+            else
             {
                 move.dir.FromVector(Vector3.zero);
             }

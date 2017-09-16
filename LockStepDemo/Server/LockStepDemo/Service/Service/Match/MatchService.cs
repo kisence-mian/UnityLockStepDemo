@@ -93,7 +93,7 @@ public class MatchService : ServiceBase
 
             SyncComponent sc = new SyncComponent();
 
-            world.CreateEntityImmediately(conn, sc);
+            world.CreateEntityImmediately("Player"+ players[i].playerID, conn, sc);
 
             players[i].session.m_connect = conn;
 

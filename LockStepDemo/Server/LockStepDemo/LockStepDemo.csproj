@@ -232,6 +232,7 @@
     <Compile Include="SyncGameLogic\Component\AssetComponent.cs" />
     <Compile Include="SyncGameLogic\Component\BlockComponent.cs" />
     <Compile Include="SyncGameLogic\Component\BlowFlyComponent.cs" />
+    <Compile Include="SyncGameLogic\Component\BuffComponent.cs" />
     <Compile Include="SyncGameLogic\Component\CampComponent.cs" />
     <Compile Include="SyncGameLogic\Component\CDComponent.cs" />
     <Compile Include="SyncGameLogic\Component\CollisionComponent.cs" />
@@ -247,6 +248,7 @@
     <Compile Include="SyncGameLogic\Component\PlayerComponent.cs" />
     <Compile Include="SyncGameLogic\Component\RankComponent.cs" />
     <Compile Include="SyncGameLogic\Component\SkillStatusComponent.cs" />
+    <Compile Include="SyncGameLogic\Component\TransfromComponent.cs" />
     <Compile Include="SyncGameLogic\Component\ViewComponent.cs" />
     <Compile Include="SyncGameLogic\System\BlowFlySystem.cs" />
     <Compile Include="SyncGameLogic\System\BuffSystem.cs" />

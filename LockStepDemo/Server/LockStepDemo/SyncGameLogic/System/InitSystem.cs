@@ -71,9 +71,9 @@ public class InitSystem : SystemBase
             entity.AddComp(c);
         }
 
-        if (!entity.GetExistComp<ViewComponent>())
+        if (!entity.GetExistComp<TransfromComponent>())
         {
-            ViewComponent c = new ViewComponent();
+            TransfromComponent c = new TransfromComponent();
             entity.AddComp(c);
         }
 
@@ -184,7 +184,7 @@ public class InitSystem : SystemBase
 
             BlockComponent bc = new BlockComponent();
 
-            m_world.CreateEntityImmediately(cc, sc, bc);
+            m_world.CreateEntityImmediately("Block" + i,cc, sc, bc);
 
             Debug.Log("Create map");
         }
@@ -205,7 +205,7 @@ public class InitSystem : SystemBase
                 cc.area.areaType = AreaType.Circle;
                 cc.area.radius = 1;
 
-                m_world.CreateEntity(tmp,cc);
+                m_world.CreateEntityImmediately("ElementCreatePoint" + i,tmp, cc);
             }
         }
     }

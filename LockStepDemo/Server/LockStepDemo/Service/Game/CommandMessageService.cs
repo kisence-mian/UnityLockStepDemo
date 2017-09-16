@@ -38,6 +38,7 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
                 ProtocolAnalysisService.SendMsg(session, amsg);
 
                 connectComp.m_commandList.Add(msg);
+                connectComp.lastInputFrame = msg.frame;
             }
             else
             {
@@ -45,6 +46,7 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
                 Debug.Log("帧数落后  world.FrameCount: " + world.FrameCount + " msg frame:" + msg.frame + " 预测列表计数 " + connectComp.m_forecastList.Count);
                 //Debug.Log("接收玩家数据 " + Serializer.Serialize(msg));
                 connectComp.m_lastInputCache = msg;
+                connectComp.lastInputFrame = world.FrameCount;
 
                 //并且让这个玩家提前
                 PursueMsg pmsg = new PursueMsg();

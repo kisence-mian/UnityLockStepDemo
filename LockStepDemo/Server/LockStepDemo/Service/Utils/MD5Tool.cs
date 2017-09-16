@@ -2,7 +2,7 @@
 using System;
 using System.Security.Cryptography;
 
-public class MD5Tool
+public static class MD5Tool
 {
     public static string GetFileMD5(string filePath)
     {
@@ -75,5 +75,10 @@ public class MD5Tool
         //hashCode = Convert.ToInt32(result);
 
         return hashCode;
+    }
+
+    public static int ToHash(this string content)
+    {
+        return GetStringToHash(content);
     }
 }

@@ -60,6 +60,7 @@ public class CommandComponent : PlayerCommandBase
 
         if (!skillDir.Equals(cc.skillDir))
             return false;
+
         return true;
     }
 }

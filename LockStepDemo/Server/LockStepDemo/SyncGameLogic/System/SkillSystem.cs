@@ -80,6 +80,10 @@ public class SkillSystem : SystemBase
             {
                 FlyDataGenerate flyData = DataGenerateManager<FlyDataGenerate>.GetData(skillData.m_FlyObjectName[i]);
 
+                TransfromComponent tc = new TransfromComponent();
+                tc.pos.FromVector(poss[i].m_pos);
+                tc.dir.FromVector(poss[i].m_dir);
+
                 MoveComponent mc = new MoveComponent();
                 mc.pos.FromVector(poss[i].m_pos);
                 mc.dir.FromVector(poss[i].m_dir);
@@ -104,7 +108,8 @@ public class SkillSystem : SystemBase
                 fc.damage = skillData.m_FlyDamageValue;
                 fc.flyObjectID = skillData.m_FlyObjectName[i];
 
-                m_world.CreateEntity(mc, ac, cp, lsc, cc, fc);
+                string identify = skiller.ID + "FlyObject" + i + poss[i].m_pos;
+                m_world.CreateEntity(identify, tc,mc, ac, cp, lsc, cc, fc);
             }
         }
     }

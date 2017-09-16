@@ -1,0 +1,147 @@
+﻿2017-09-15 10:12:18,671 [16140] ERROR SyncService-46104728 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 61
+   在 ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 31
+   在 PlayerInputSystem.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 292
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 235
+   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-09-15 11:32:12,574 [14180] ERROR SyncService-46104728 - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 61
+   在 ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 31
+   在 PlayerInputSystem.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 28
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 292
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 235
+   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-09-15 15:59:04,193 [21408] ERROR SyncService-46104728 - methodIndex:4326 Ex:System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.ThrowHelper.ThrowKeyNotFoundException()
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 297
+2017-09-15 15:59:04,196 [21408] ERROR SyncService-46104728 - SyncSession
+System.ArgumentNullException: 值不能为 null。
+参数名: key
+   在 System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   在 System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   在 System.Collections.Generic.Dictionary`2.TryGetValue(TKey key, TValue& value)
+   在 SuperSocket.SocketBase.AppServerBase`2.GetCommandByName(String commandName)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(IAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)
+2017-09-15 16:00:17,408 [21408] ERROR SyncService-46104728 - methodIndex:4326 Ex:System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.ThrowHelper.ThrowKeyNotFoundException()
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 297
+2017-09-15 16:00:17,411 [21408] ERROR SyncService-46104728 - SyncSession
+System.ArgumentNullException: 值不能为 null。
+参数名: key
+   在 System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   在 System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   在 System.Collections.Generic.Dictionary`2.TryGetValue(TKey key, TValue& value)
+   在 SuperSocket.SocketBase.AppServerBase`2.GetCommandByName(String commandName)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(IAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)
+2017-09-15 16:03:08,629 [24016] ERROR SyncService-46104728 - methodIndex:4326 Ex:System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.ThrowHelper.ThrowKeyNotFoundException()
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 297
+2017-09-15 16:03:08,630 [24016] ERROR SyncService-46104728 - SyncSession
+System.ArgumentNullException: 值不能为 null。
+参数名: key
+   在 System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   在 System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   在 System.Collections.Generic.Dictionary`2.TryGetValue(TKey key, TValue& value)
+   在 SuperSocket.SocketBase.AppServerBase`2.GetCommandByName(String commandName)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(IAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)
+2017-09-15 16:03:22,786 [38592] ERROR SyncService-46104728 - methodIndex:4326 Ex:System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.ThrowHelper.ThrowKeyNotFoundException()
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 297
+2017-09-15 16:03:22,787 [38592] ERROR SyncService-46104728 - SyncSession
+System.ArgumentNullException: 值不能为 null。
+参数名: key
+   在 System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   在 System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   在 System.Collections.Generic.Dictionary`2.TryGetValue(TKey key, TValue& value)
+   在 SuperSocket.SocketBase.AppServerBase`2.GetCommandByName(String commandName)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(IAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)
+2017-09-15 16:08:04,020 [21408] ERROR SyncService-46104728 - methodIndex:4326 Ex:System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.ThrowHelper.ThrowKeyNotFoundException()
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 297
+2017-09-15 16:08:04,021 [21408] ERROR SyncService-46104728 - SyncSession
+System.ArgumentNullException: 值不能为 null。
+参数名: key
+   在 System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   在 System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   在 System.Collections.Generic.Dictionary`2.TryGetValue(TKey key, TValue& value)
+   在 SuperSocket.SocketBase.AppServerBase`2.GetCommandByName(String commandName)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(IAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)
+2017-09-15 16:20:26,716 [38592] ERROR SyncService-46104728 - methodIndex:4326 Ex:System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.ThrowHelper.ThrowKeyNotFoundException()
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 297
+2017-09-15 16:20:26,718 [38592] ERROR SyncService-46104728 - SyncSession
+System.ArgumentNullException: 值不能为 null。
+参数名: key
+   在 System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   在 System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   在 System.Collections.Generic.Dictionary`2.TryGetValue(TKey key, TValue& value)
+   在 SuperSocket.SocketBase.AppServerBase`2.GetCommandByName(String commandName)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(IAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)
+2017-09-15 16:24:30,299 [21408] ERROR SyncService-46104728 - methodIndex:4326 Ex:System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.ThrowHelper.ThrowKeyNotFoundException()
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 297
+2017-09-15 16:24:30,301 [21408] ERROR SyncService-46104728 - SyncSession
+System.ArgumentNullException: 值不能为 null。
+参数名: key
+   在 System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   在 System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   在 System.Collections.Generic.Dictionary`2.TryGetValue(TKey key, TValue& value)
+   在 SuperSocket.SocketBase.AppServerBase`2.GetCommandByName(String commandName)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(IAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)
+2017-09-15 20:02:26,268 [78668] ERROR SyncService-46104728 - MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered during command execution. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Fatal error encountered attempting to read the resultset. ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Reading from the stream has failed. ---> System.IO.IOException: 无法从传输连接中读取数据: 远程主机强迫关闭了一个现有的连接。。 ---> System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   在 System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   在 System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 MySql.Data.Common.MyNetworkStream.HandleOrRethrowException(Exception e)
+   在 MySql.Data.Common.MyNetworkStream.Read(Byte[] buffer, Int32 offset, Int32 count)
+   在 MySql.Data.MySqlClient.TimedStream.Read(Byte[] buffer, Int32 offset, Int32 count)
+   在 System.IO.BufferedStream.Read(Byte[] array, Int32 offset, Int32 count)
+   在 MySql.Data.MySqlClient.MySqlStream.ReadFully(Stream stream, Byte[] buffer, Int32 offset, Int32 count)
+   在 MySql.Data.MySqlClient.MySqlStream.LoadPacket()
+   在 MySql.Data.MySqlClient.MySqlStream.LoadPacket()
+   在 MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   在 MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   在 CDatabase.MySqlDatabase.Update(String table, Dictionary`2 values, String whereClause, String[] whereArgs) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\DataBase\Database\MySqlDatabase.cs:行号 216
+   在 LoginService.SavePlayerData(Player player) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Service\Login\LoginService.cs:行号 105
+   在 LoginService.OnSessionClose(SyncSession session, CloseReason reason) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Service\Login\LoginService.cs:行号 25
+   在 SessionCloseHandle.Invoke(SyncSession session, CloseReason reason)
+   在 SyncService.OnSessionClosed(SyncSession session, CloseReason reason) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\SyncService.cs:行号 66
+   在 SuperSocket.SocketBase.AppServerBase`2.OnSocketSessionClosed(ISocketSession session, CloseReason reason)
+   在 System.Action`2.Invoke(T1 arg1, T2 arg2)
+   在 SuperSocket.SocketEngine.SocketSession.OnClosed(CloseReason reason)
+   在 SuperSocket.SocketEngine.AsyncSocketSession.OnClosed(CloseReason reason)
+   在 SuperSocket.SocketEngine.SocketSession.InternalClose(Socket client, CloseReason reason, Boolean setCloseReason)
+   在 SuperSocket.SocketEngine.SocketSession.Close(CloseReason reason)
+   在 SuperSocket.SocketEngine.SocketSession.ValidateClosed(CloseReason closeReason)
+   在 SuperSocket.SocketEngine.SocketSession.OnReceiveTerminated(CloseReason closeReason)
+   在 SuperSocket.SocketEngine.AsyncSocketSession.ProcessReceive(SocketAsyncEventArgs e)
+   在 SuperSocket.SocketEngine.AsyncSocket.SocketAsyncEventArgsProxy.<>c__DisplayClass2.<SocketEventArgs_Completed>b__0()
+   在 System.Threading.Tasks.Task.Execute()

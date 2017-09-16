@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using UnityEngine;
 
 public class LifeSpanSystem : SystemBase
 {
@@ -23,7 +23,9 @@ public class LifeSpanSystem : SystemBase
             LifeSpanComponent lsc = list[i].GetComp<LifeSpanComponent>();
             lsc.lifeTime -= deltaTime;
 
-            if(lsc.lifeTime < 0)
+            Debug.Log("lsc.lifeTime  " + lsc.lifeTime + " frame " + m_world.FrameCount);
+
+            if (lsc.lifeTime < 0)
             {
                 m_world.ClientDestroyEntity(list[i].ID);
             }
