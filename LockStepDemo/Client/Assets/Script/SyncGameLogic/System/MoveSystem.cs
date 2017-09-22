@@ -24,18 +24,18 @@ public class MoveSystem : SystemBase
 
     void UpdateMove(EntityBase entity,int deltaTime)
     {
-        MoveComponent mc = entity.GetComp<MoveComponent>();
+        MoveComponent mc = (MoveComponent)entity.GetComp("MoveComponent");
 
         SyncVector3 newPos = mc.pos.DeepCopy();
 
-        newPos.x += mc.dir.x * deltaTime * mc.m_velocity / (1000 * 1000);
-        newPos.y += mc.dir.y * deltaTime * mc.m_velocity / (1000 * 1000);
-        newPos.z += mc.dir.z * deltaTime * mc.m_velocity / (1000 * 1000);
+        newPos.x += (mc.dir.x * deltaTime /1000) * mc.m_velocity / 1000;
+        newPos.y += (mc.dir.y * deltaTime / 1000) * mc.m_velocity / 1000;
+        newPos.z += (mc.dir.z * deltaTime / 1000) * mc.m_velocity / 1000;
 
-        if(!entity.GetExistComp<FlyObjectComponent>() 
-            && entity.GetExistComp<CollisionComponent>())
+        if (!entity.GetExistComp("FlyObjectComponent") 
+            && entity.GetExistComp("CollisionComponent"))
         {
-            CollisionComponent cc = entity.GetComp<CollisionComponent>();
+            CollisionComponent cc = (CollisionComponent)entity.GetComp("CollisionComponent");
             cc.area.position = newPos.ToVector();
 
             if (!IsCollisionBlock(cc.area))
@@ -55,31 +55,6 @@ public class MoveSystem : SystemBase
 
             SyncDebugSystem.syncLog += content + "\n";
         }
-    }
-
-
-    List<MoveTuple> m_moveTupleList = new List<MoveTuple>();
-    List<MoveTuple> GetMoveTuple()
-    {
-        m_moveTupleList.Clear();
-
-        for (int i = 0; i < m_world.m_entityList.Count; i++)
-        {
-            if(m_world.m_entityList[i].GetExistComp("MoveComponent"))
-            {
-                MoveTuple tuple = new MoveTuple();
-                tuple.m_moveComp = (MoveComponent)m_world.m_entityList[i].GetComp("MoveComponent");
-
-                m_moveTupleList.Add(tuple);
-            }
-        }
-
-        return m_moveTupleList;
-    }
-
-    struct MoveTuple
-    {
-        public MoveComponent m_moveComp;
     }
 
     public bool IsCollisionBlock(Area area)

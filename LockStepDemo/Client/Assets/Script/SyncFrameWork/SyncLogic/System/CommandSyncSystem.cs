@@ -12,6 +12,11 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         AddEntityCompAddLisenter();
     }
 
+    public override void Dispose()
+    {
+        RemoveEntityCompAddLisenter();
+    }
+
     public override Type[] GetFilter()
     {
         return new Type[] {
@@ -19,15 +24,41 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         };
     }
 
-    public override void OnEntityCompAdd(EntityBase entity, string compName, ComponentBase component)
+    public void AddComp(EntityBase entity)
     {
-        if(entity.GetExistComp<T>())
+        if (!entity.GetExistComp<PlayerCommandRecordComponent>())
         {
-            if(!entity.GetExistComp<PlayerCommandRecordComponent>())
+            //Debug.Log("OnEntityCompAdd PlayerCommandRecordComponent");
+
+            PlayerCommandRecordComponent rc = new PlayerCommandRecordComponent();
+            rc.m_defaultInput = new T();
+
+            //自动添加记录组件
+            entity.AddComp(rc);
+        }
+    }
+
+    /// <summary>
+    /// 重演算的时候读取输入缓存
+    /// </summary>
+    /// <param name="frame"></param>
+    /// <param name="deltaTime"></param>
+    public override void OnlyCallByRecalc(int frame,int deltaTime)
+    {
+        List<EntityBase> list = GetEntityList();
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            PlayerCommandRecordComponent rc = list[i].GetComp<PlayerCommandRecordComponent>();
+            T cmd = (T)rc.GetInputCahae(frame);
+
+            if(cmd == null)
             {
-                //自动添加记录组件
-                entity.AddComp<PlayerCommandRecordComponent>();
+                Debug.LogError("重演算没有读取到输入记录！ frame:" + frame + " ID: " + list[i].ID);
+                return; //TODO
             }
+
+            list[i].ChangeComp(cmd);
         }
     }
 
@@ -68,46 +99,34 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         BuildCommand(comp);
         entity.ChangeComp(comp);
 
+        AddComp(entity);
+
         //缓存起来
         PlayerCommandRecordComponent rc = entity.GetComp<PlayerCommandRecordComponent>();
-        rc.m_lastInput = comp;
-        rc.m_inputCache.Add(comp);
+        rc.RecordCommand(comp);
 
-        ProtocolAnalysisService.SendCommand(comp);
+        if(!m_world.m_isLocal)
+        {
+            comp.time = ClientTime.GetTime();
+            ProtocolAnalysisService.SendCommand(comp);
+        }
     }
 
     void OtherCommandLogic(EntityBase entity)
     {
+        AddComp(entity);
+
         PlayerCommandRecordComponent rc = entity.GetComp<PlayerCommandRecordComponent>();
         //先取服务器缓存
-        T cmd = (T)rc.GetServerCache(m_world.FrameCount);
+        T cmd = (T)rc.GetInputCahae(m_world.FrameCount);
 
         //没有的话预测一份
         if (cmd == null)
         {
-            //Debug.Log("预测输入 id: " + entity.ID + " m_world.FrameCount " + m_world.FrameCount);
-            //取最后一次输入缓存，没有的话New一个新的
-            if(rc.m_lastInput == null)
-            {
-                cmd = new T();
-            }
-            else
-            {
-                cmd = (T)rc.m_lastInput.DeepCopy();
-            }
-
-            cmd.id = entity.ID;
-            cmd.frame = m_world.FrameCount;
-
-            rc.m_forecastInput = cmd;
-        }
-        else
-        {
-            //Debug.Log("读取缓存 ");
+            cmd = (T)rc.GetForecastInput(m_world.FrameCount);
         }
 
-        rc.m_lastInput = cmd;
-        rc.m_inputCache.Add(cmd);
+        rc.RecordCommand(cmd);
 
         entity.ChangeComp(cmd);
     }

@@ -11,7 +11,7 @@ public class SyncDebugSystem : SystemBase
 {
     public static bool isDebug = false;
 
-    public static string[] DebugFilter = new string[] {"MoveComponent"};
+    public static string[] DebugFilter = new string[] { "BuffEffectComponent" };
 
     public static string syncLog = "";
 

@@ -51,7 +51,7 @@ public class PlayerAnimSystem : SystemBase
         PlayerComponent pc = entity.GetComp<PlayerComponent>();
         PerfabComponent pbc = entity.GetComp<PerfabComponent>();
 
-        if (lc.life <= 0)
+        if (lc.Life <= 0)
         {
             ac.anim.Play("empty", 1);
             ac.anim.Play("die");
@@ -77,10 +77,16 @@ public class PlayerAnimSystem : SystemBase
         }
         else
         {
+            Vector3 Dir = pc.faceDir.ToVector();
+            if (entity.GetExistComp<SelfComponent>())
+            {
+                Dir = InputSystem.skillDirCache;
+            }
+
             ac.anim.Play("wait");
             if(pc.faceDir.ToVector() != Vector3.zero)
             {
-                ac.perfab.transform.forward = pc.faceDir.ToVector();
+                ac.perfab.transform.forward = Dir;
             }
         }
 
@@ -97,14 +103,22 @@ public class PlayerAnimSystem : SystemBase
 
         Vector3 aimWaistDir = pc.faceDir.ToVector();
 
+        if (entity.GetExistComp<SelfComponent>())
+        {
+            aimWaistDir = InputSystem.skillDirCache;
+        }
+
         float euler = Mathf.Atan2(aimWaistDir.x, aimWaistDir.z) * Mathf.Rad2Deg;
         if (aimWaistDir.z == 0)
         {
             euler = 0;
         }
 
-        rot.x = 0;
-        rot.y = euler - 105;
+        float amend = 0;
+
+        rot.x = ac.waistNode.transform.eulerAngles.x;
+        rot.y = euler - 90 + amend;
+        rot.z = ac.waistNode.transform.eulerAngles.z;
 
         ac.waistNode.transform.eulerAngles = rot;
     }

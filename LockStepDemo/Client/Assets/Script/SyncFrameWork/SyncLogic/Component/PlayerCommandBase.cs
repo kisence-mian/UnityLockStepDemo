@@ -8,6 +8,7 @@ public abstract class PlayerCommandBase : ComponentBase, CsharpProtocolInterface
 {
     public int id;
     public int frame;
+    public int time;
 
     public abstract PlayerCommandBase DeepCopy();
 

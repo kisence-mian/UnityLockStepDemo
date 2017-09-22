@@ -10,9 +10,19 @@ public class SkillBehaviorSystem : SystemBase
     {
         return new Type[] {
             typeof(SkillStatusComponent),
-            typeof(PerfabComponent),
-            typeof(PlayerComponent),
         };
+    }
+
+    public override void Init()
+    {
+        m_world.eventSystem.AddListener(GameUtils.c_SkillHit, ReceviceSkillHit);
+        m_world.eventSystem.AddListener(GameUtils.c_SkillStatusEnter, ReceviceSkillEnter);
+    }
+
+    public override void Dispose()
+    {
+        m_world.eventSystem.RemoveListener(GameUtils.c_SkillHit, ReceviceSkillHit);
+        m_world.eventSystem.RemoveListener(GameUtils.c_SkillStatusEnter, ReceviceSkillEnter);
     }
 
     public override void FixedUpdate(int deltaTime)
@@ -21,33 +31,55 @@ public class SkillBehaviorSystem : SystemBase
 
         for (int i = 0; i < list.Count; i++)
         {
-            SkillStatusLogic(list[i], deltaTime);
+            AddComp(list[i]);
+            SkillBehaviorLogic(list[i], deltaTime);
         }
     }
 
-    /// <summary>
-    /// 这里创建特效和音效
-    /// </summary>
-    /// <param name="entity"></param>
-    /// <param name="deltaTime"></param>
-    public void SkillStatusLogic(EntityBase entity, int deltaTime)
+    void AddComp(EntityBase entity)
+    {
+        if(!entity.GetExistComp<SkillBehaviorCompoent>())
+        {
+            entity.AddComp<SkillBehaviorCompoent>();
+        }
+    }
+
+    void SkillBehaviorLogic(EntityBase entity,int deltaTime)
+    {
+        SkillBehaviorCompoent sbc = entity.GetComp<SkillBehaviorCompoent>();
+        SkillStatusComponent ssc = entity.GetComp<SkillStatusComponent>();
+
+        if(ssc.m_skillStstus == SkillStatusEnum.Before ||
+            ssc.m_skillStstus == SkillStatusEnum.Current ||
+            ssc.m_skillStstus == SkillStatusEnum.Later)
+        {
+            sbc.FXTimer += deltaTime;
+
+            if (!sbc.isTriggerFX && sbc.FXTimer > GetDelayTime(ssc))
+            {
+                sbc.isTriggerFX = true;
+                CreatSkillEffect(entity, ssc);
+            }
+        }
+    }
+
+    void ReceviceSkillHit(EntityBase entity,params object[] objs)
     {
         SkillStatusComponent sc = entity.GetComp<SkillStatusComponent>();
-
-        if (sc.m_isHit)
-        {
-            //TODO 技能触发！
-        }
-
-        if((sc.m_skillStstus == SkillStatusEnum.Before
-            || sc.m_skillStstus == SkillStatusEnum.Current
-            || sc.m_skillStstus == SkillStatusEnum.Later
-            )
-            && sc.m_isEnter)
-        {
-            CreatSkillEffect(entity,sc);
-        }
+        CreateSkillAreaTip(entity, sc);
     }
+
+    void ReceviceSkillEnter(EntityBase entity, params object[] objs)
+    {
+        AddComp(entity);
+        SkillBehaviorCompoent sbc = entity.GetComp<SkillBehaviorCompoent>();
+
+        sbc.FXTimer = 0;
+        sbc.isTriggerFX = false;
+    }
+
+    CreatMesh RangeTip;
+
 
     public void CreatSkillEffect(EntityBase entity,SkillStatusComponent skillComp)
     {
@@ -67,9 +99,11 @@ public class SkillBehaviorSystem : SystemBase
 
         string FXName = skillStatusData.m_FXName;
         float FXLifeTime = skillStatusData.m_FXLifeTime;
+        float offset = skillStatusData.m_FXOffSet;
         HardPointEnum FXCreatPoint = skillStatusData.m_FXCreatPoint;
 
         string followFXName = skillStatusData.m_FollowFXName;
+        float FLoffset = skillStatusData.m_FollowFXOffSet;
         HardPointEnum followFXCreatPoint = skillStatusData.m_FollowFXCreatPoint;
         float followFXLifeTime = skillStatusData.m_FollowFXLifeTime;
 
@@ -80,7 +114,7 @@ public class SkillBehaviorSystem : SystemBase
         if (FXName != "null")
         {
             //恢复不follow
-            CreateEffect(entity,FXName, FXCreatPoint, FXLifeTime);
+            CreateEffect(entity,FXName, FXCreatPoint, FXLifeTime, offset);
         }
 
         if (followFXName != "null")
@@ -89,15 +123,38 @@ public class SkillBehaviorSystem : SystemBase
         }
     }
 
-    public void CreateEffect(EntityBase entity, string effectName, HardPointEnum hardPoint, float time)
+    int GetDelayTime(SkillStatusComponent skillComp)
+    {
+        SkillStatusDataGenerate skillStatusData = null;
+        switch (skillComp.m_skillStstus)
+        {
+            case SkillStatusEnum.Before:
+                skillStatusData = skillComp.m_currentSkillData.BeforeInfo;
+                break;
+            case SkillStatusEnum.Current:
+                skillStatusData = skillComp.m_currentSkillData.CurrentInfo;
+                break;
+            case SkillStatusEnum.Later:
+                skillStatusData = skillComp.m_currentSkillData.LaterInfo;
+                break;
+        }
+        float delayTime = skillStatusData.m_FXDelay;
+
+        return (int)(delayTime * 1000);
+    }
+
+    public void CreateEffect(EntityBase entity, string effectName, HardPointEnum hardPoint, float time,float offset)
     {
         PerfabComponent pc = entity.GetComp<PerfabComponent>();
-        PlayerComponent plc = entity.GetComp<PlayerComponent>();
+        SkillStatusComponent ssc = entity.GetComp<SkillStatusComponent>();
+        MoveComponent mc = entity.GetComp<MoveComponent>();
 
-        //Transform creatPoint = pc.hardPoint.hardPoint.GetHardPoint(hardPoint);
+        //挂载点完全放弃了
+        Transform creatPoint = pc.hardPoint.hardPoint.GetHardPoint(hardPoint);
 
+        Vector3 createPos = mc.pos.ToVector() + ssc.skillDir.ToVector() * offset;
         Vector3 charactorEugle = Vector3.zero;
-        Vector3 m_aimWaistDir = plc.faceDir.ToVector();
+        Vector3 m_aimWaistDir = ssc.skillDir.ToVector();
         float euler = Mathf.Atan2(m_aimWaistDir.x, m_aimWaistDir.z) * Mathf.Rad2Deg;
 
         if (m_aimWaistDir.z == 0)
@@ -105,30 +162,19 @@ public class SkillBehaviorSystem : SystemBase
             euler = 0;
         }
 
-        charactorEugle.y = euler + 20;
+        charactorEugle.y = euler;
 
-        //特效 短暂存在
-        if (time != -1)
-        {
-            //EffectManager.ShowEffect(
-            //    effectName,
-            //    creatPoint.position,
-            //    charactorEugle,
-            //    time);
-        }
-        //特效持续存在
-        else
-        {
-            //PoolObject effectP = GameObjectManager.GetPoolObject(
-            //    effectName,
-            //    creatPoint.gameObject);
-            //GameObject effect = effectP.gameObject;
+        TransfromComponent etc = new TransfromComponent();
+        etc.pos.FromVector(createPos);
+        etc.dir.FromVector(m_aimWaistDir);
 
-            //effect.transform.localPosition = Vector3.zero;
-            //effect.transform.localEulerAngles = Vector3.zero;
+        AssetComponent eac = new AssetComponent();
+        eac.m_assetName = effectName;
 
-            //pc.followEffect.Add(effectP);
-        }
+        LifeSpanComponent elc = new LifeSpanComponent();
+        elc.lifeTime = (int)(time * 1000);
+
+        m_world.CreateEntity("Effect"+ effectName + entity.ID + createPos, etc, eac, elc);
     }
 
     public void CreateFollowSkillEffect(EntityBase entity, string effectName, HardPointEnum hardPoint, float time)
@@ -136,17 +182,28 @@ public class SkillBehaviorSystem : SystemBase
         PerfabComponent pc = entity.GetComp<PerfabComponent>();
 
         EffectData data = new EffectData();
-        //PoolObject effectP = GameObjectManager.GetPoolObject(effectName, pc.hardPoint.hardPoint.GetHardPoint(hardPoint).gameObject);
+        PoolObject effectP = GameObjectManager.GetPoolObject(effectName, pc.hardPoint.hardPoint.GetHardPoint(hardPoint).gameObject);
 
-        //effectP.transform.localPosition = Vector3.zero;
-        //effectP.transform.localEulerAngles = Vector3.zero;
+        effectP.transform.localPosition = Vector3.zero;
+        effectP.transform.localEulerAngles = Vector3.zero;
 
-        //data.m_effect = effectP;
-        //data.m_timer = time;
+        data.m_effect = effectP;
+        data.m_timer = time;
 
         //m_SkillEffectList.Add(data);
 
         //Debug.Log("CreateSkillEffect " + effectName + " time " + time + " " + " hard " +  m_character.m_hardPoint.GetHardPoint(hardPoint).gameObject, effectP );
+    }
+
+    public void CreateSkillAreaTip(EntityBase entity, SkillStatusComponent status)
+    {
+        if (RangeTip == null)
+        {
+            GameObject tip = GameObjectManager.CreateGameObjectByPool("AreaTips");
+            RangeTip = tip.GetComponent<CreatMesh>();
+        }
+        RangeTip.gameObject.SetActive(true);
+        RangeTip.SetMesh(entity, status.m_currentSkillData.SkillInfo.m_EffectArea, true, status.m_currentSkillData.SkillInfo.m_AreaTexture);
     }
 
     class EffectData

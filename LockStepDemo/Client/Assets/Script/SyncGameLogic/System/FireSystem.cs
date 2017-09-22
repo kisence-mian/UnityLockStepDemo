@@ -31,6 +31,8 @@ public class FireSystem : ViewSystemBase
 
             cdc.CD -= deltaTime;
 
+            //Debug.Log(cc.element1 + " --> " + cc.element2 + " CanFire " + (cdc.CD <= 0));
+
             if (cc.skillDir.ToVector() != Vector3.zero
                 && cc.isFire
                 && cdc.CD <= 0)

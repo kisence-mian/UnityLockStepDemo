@@ -16,7 +16,7 @@
     <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
-    <UnityVersion>5.5.0f3</UnityVersion>
+    <UnityVersion>5.5.4f1</UnityVersion>
     <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
@@ -27,7 +27,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_0;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VIDEO;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_4;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VIDEO;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE</DefineConstants>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -37,7 +37,7 @@
     <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_0;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VIDEO;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE</DefineConstants>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_4;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VIDEO;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU;UNITY_PRO_LICENSE</DefineConstants>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
@@ -72,6 +72,12 @@
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
     <Reference Include="Debugger">
       <HintPath>Assets\Script\Core\Lua\ToLua\Plugins\Debugger.dll</HintPath>
@@ -203,6 +209,8 @@
     <Compile Include="Assets\Script\Core\UI\Model\UIWindowBase.cs" />
     <Compile Include="Assets\Script\Core\UI\Style\LanguageManager.cs" />
     <Compile Include="Assets\Script\Core\UI\Utils\LayerSort.cs" />
+    <Compile Include="Assets\Script\Core\UI\Utils\ModelRotate.cs" />
+    <Compile Include="Assets\Script\Core\UI\Utils\UIModelShowTool.cs" />
     <Compile Include="Assets\Script\Core\UI\Utils\UITools.cs" />
     <Compile Include="Assets\Script\Core\Utils\ByteTool.cs" />
     <Compile Include="Assets\Script\Core\Utils\CameraTool.cs" />
@@ -221,20 +229,32 @@
     <Compile Include="Assets\Script\Core\Utils\SystemInfoTool.cs" />
     <Compile Include="Assets\Script\Core\Utils\UGUITool.cs" />
     <Compile Include="Assets\Script\DataClassGenerate\AreaDataGenerate.cs" />
+    <Compile Include="Assets\Script\DataClassGenerate\BuffDataGenerate.cs" />
     <Compile Include="Assets\Script\DataClassGenerate\CombineDataGenerate.cs" />
     <Compile Include="Assets\Script\DataClassGenerate\FlyDataGenerate.cs" />
+    <Compile Include="Assets\Script\DataClassGenerate\PlayerDataGenerate.cs" />
     <Compile Include="Assets\Script\DataClassGenerate\ShiftDataGenerate.cs" />
     <Compile Include="Assets\Script\DataClassGenerate\SkillDataGenerate.cs" />
     <Compile Include="Assets\Script\DataClassGenerate\SkillStatusDataGenerate.cs" />
+    <Compile Include="Assets\Script\Game\CameraService.cs" />
+    <Compile Include="Assets\Script\Game\CreatMesh.cs" />
+    <Compile Include="Assets\Script\Game\Define.cs" />
+    <Compile Include="Assets\Script\Game\EffectManager.cs" />
+    <Compile Include="Assets\Script\Game\MoveCommand.cs" />
+    <Compile Include="Assets\Script\Game\RotationCommand.cs" />
     <Compile Include="Assets\Script\ProtocolGenerate\ProtocolAnalysisService.cs" />
     <Compile Include="Assets\Script\ProtocolGenerate\ProtocolMessageClass.cs" />
     <Compile Include="Assets\Script\SyncClientLogic\Component\AnimComponent.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\Component\BuffEffectComponent.cs" />
     <Compile Include="Assets\Script\SyncClientLogic\Component\HealthBarComponent.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\Component\MonoComp\ElementCreatePoint.cs" />
     <Compile Include="Assets\Script\SyncClientLogic\Component\MonoComp\HardPointComponent.cs" />
     <Compile Include="Assets\Script\SyncClientLogic\Component\MonoComp\MapComponent.cs" />
     <Compile Include="Assets\Script\SyncClientLogic\Component\OperationWindowComponent.cs" />
     <Compile Include="Assets\Script\SyncClientLogic\Component\PerfabComponent.cs" />
     <Compile Include="Assets\Script\SyncClientLogic\Component\PlayerCameraComponent.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\Component\SkillBehaviorCompoent.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\System\BuffBehaviorSystem.cs" />
     <Compile Include="Assets\Script\SyncClientLogic\System\CameraSystem.cs" />
     <Compile Include="Assets\Script\SyncClientLogic\System\ClientOperationSystem.cs" />
     <Compile Include="Assets\Script\SyncClientLogic\System\CreatePerfabSystem.cs" />
@@ -242,9 +262,12 @@
     <Compile Include="Assets\Script\SyncClientLogic\System\InputSystem.cs" />
     <Compile Include="Assets\Script\SyncClientLogic\System\MovePerfabSystem.cs" />
     <Compile Include="Assets\Script\SyncClientLogic\System\PlayerAnimSystem.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\System\ResurgenceUISystem.cs" />
+    <Compile Include="Assets\Script\SyncClientLogic\System\SettlementUISystem.cs" />
     <Compile Include="Assets\Script\SyncClientLogic\System\SkillBehaviorSystem.cs" />
     <Compile Include="Assets\Script\SyncClientLogic\System\healthbarSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\Calc\Calc.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ClientTime.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\ComponentBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\ECSEvent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\EntityBase.cs" />
@@ -260,6 +283,7 @@
     <Compile Include="Assets\Script\SyncFrameWork\ECS\ViewSystemBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\WorldBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\Message\SyncMessage.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\ConnectStatusComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\EntityRecordComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\GameDataCacheComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\PlayerCommandBase.cs" />
@@ -275,27 +299,39 @@
     <Compile Include="Assets\Script\SyncGameLogic\Component\AssetComponent.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\Component\BlockComponent.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\Component\BlowFlyComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\BuffComponent.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\Component\CDComponent.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\Component\CampComponent.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\Component\CollisionComponent.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\Component\CommandComponent.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\Component\FlyObjectComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\GameTimeComponent.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\Component\InputComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\ItemComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\ItemCreatePointComponent.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\Component\LifeComponent.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\Component\LifeSpanComponent.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\Component\MoveComponent.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\Component\PlayerComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\RankComponent.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\Component\SkillStatusComponent.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\Component\TransfromComponent.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\Component\ViewComponent.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\System\BlowFlySystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\BuffSystem.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\System\CollisionDamageSystem.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\System\CollisionSystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\CreateItemSystem.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\System\FireSystem.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\System\FlyObjectCollisionSystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\GameSystem.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\System\InitSystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\ItemSystem.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\System\LifeSpanSystem.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\System\MoveSystem.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\System\OperationSystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\RankSystem.cs" />
+    <Compile Include="Assets\Script\SyncGameLogic\System\ResurgenceSystem.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\System\SkillStatusSystem.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\System\SkillSystem.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\Utils\Calculate.cs" />
@@ -304,6 +340,11 @@
     <Compile Include="Assets\Script\SyncGameLogic\Utils\SkillUtils.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\Utils\statement.cs" />
     <Compile Include="Assets\Script\SyncGameLogic\World\DemoWorld.cs" />
+    <Compile Include="Assets\Script\UI\DisplayText.cs" />
+    <Compile Include="Assets\Script\UI\FightBehaveWindow.cs" />
+    <Compile Include="Assets\Script\UI\OperationWindow.cs" />
+    <Compile Include="Assets\Script\UI\ResurgenceWindow.cs" />
+    <Compile Include="Assets\Script\UI\SettlementWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Data\AreaData.txt" />

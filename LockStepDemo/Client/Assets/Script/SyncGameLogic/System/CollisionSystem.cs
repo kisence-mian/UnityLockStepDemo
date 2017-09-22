@@ -13,32 +13,38 @@ public class CollisionSystem : SystemBase
         };
     }
 
+    List<CollisionComponent> clist = new List<CollisionComponent>();
+
     public override void FixedUpdate(int deltaTime)
     {
+        clist.Clear();
+
         List<EntityBase> list = GetEntityList();
 
         for (int i = 0; i < list.Count; i++)
         {
-            CollisionComponent acc = list[i].GetComp<CollisionComponent>();
+            CollisionComponent acc = (CollisionComponent)list[i].GetComp("CollisionComponent");
             acc.CollisionList.Clear();
+
+            clist.Add(acc);
         }
 
         //string content = "";
 
-        for (int i = 0; i < list.Count; i++)
+        for (int i = 0; i < clist.Count; i++)
         {
-            CollisionComponent acc = list[i].GetComp<CollisionComponent>();
+            CollisionComponent acc = clist[i];
 
             BlockComponent abc = null;
 
-            if(list[i].GetExistComp<BlockComponent>())
+            if(list[i].GetExistComp("BlockComponent"))
             {
-               abc = list[i].GetComp<BlockComponent>();
+               abc = (BlockComponent)list[i].GetComp("BlockComponent");
             }
 
-            if(list[i].GetExistComp<MoveComponent>())
+            if(list[i].GetExistComp("MoveComponent"))
             {
-                MoveComponent amc = list[i].GetComp<MoveComponent>();
+                MoveComponent amc = (MoveComponent)list[i].GetComp("MoveComponent");
 
                 acc.area.position = amc.pos.ToVector();
                 acc.area.direction = amc.dir.ToVector();
@@ -46,17 +52,17 @@ public class CollisionSystem : SystemBase
 
             for (int j = i + 1; j < list.Count; j++)
             {
-                CollisionComponent bcc = list[j].GetComp<CollisionComponent>();
+                CollisionComponent bcc = clist[j];
 
                 //两个阻挡组件之间不计算阻挡
-                if (abc != null && list[j].GetExistComp<BlockComponent>())
+                if (abc != null && list[j].GetExistComp("BlockComponent"))
                 {
                     continue;
                 }
 
-                if (list[j].GetExistComp<MoveComponent>())
+                if (list[j].GetExistComp("MoveComponent"))
                 {
-                    MoveComponent bmc = list[j].GetComp<MoveComponent>();
+                    MoveComponent bmc = (MoveComponent)list[j].GetComp("MoveComponent");
 
                     bcc.area.position = bmc.pos.ToVector();
                     bcc.area.direction = bmc.dir.ToVector();
@@ -66,15 +72,9 @@ public class CollisionSystem : SystemBase
                 {
                     acc.CollisionList.Add(bcc.Entity);
                     bcc.CollisionList.Add(acc.Entity);
-
-                    //content += "" + acc.Entity.ID + " " + bcc.Entity.ID + " AreaCollideSucceed\n";
                 }
             }
-
-            //Debug.Log("---------------- END " + list[i].ID + "-------------------");
         }
-        //Debug.Log(content);
-        //Debug.Log("---------------- END " + count + "---- count2 "+ count2 + "---------------");
     }
 
 

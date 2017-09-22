@@ -22,26 +22,40 @@ public class MovePerfabSystem : ViewSystemBase
             MoveComponent move = list[i].GetComp<MoveComponent>();
             GameObject perfab  = list[i].GetComp<PerfabComponent>().perfab;
 
-            float distance = Vector3.Distance(perfab.transform.position, move.pos.ToVector());
-            float moveSpeed = (float)move.m_velocity / 1000 ;
-
-            float moveOffset = moveSpeed * ((float)deltaTime / 1100);
-
-            if(moveOffset > distance)
+            if(perfab != null)
             {
-                moveOffset = distance;
-            }
+                float distance = Vector3.Distance(perfab.transform.position, move.pos.ToVector());
+                float moveSpeed = (float)move.m_velocity / 1000;
 
-            Vector3 dir = (move.pos.ToVector() - perfab.transform.position).normalized;
-            Vector3 pos = perfab.transform.position;
+                float moveOffset = moveSpeed * ((float)deltaTime / 1100);
 
-            pos += dir * moveOffset;
+                if (moveOffset > distance)
+                {
+                    moveOffset = distance;
+                }
 
-            perfab.transform.position = pos;
+                Vector3 dir = (move.pos.ToVector() - perfab.transform.position).normalized;
+                Vector3 pos = perfab.transform.position;
 
-            if(move.dir.ToVector() != Vector3.zero)
-            {
-                perfab.transform.forward = move.dir.ToVector();
+                pos += dir * moveOffset;
+
+                perfab.transform.position = pos;
+
+                if (move.dir.ToVector() != Vector3.zero)
+                {
+                    if (list[i].GetExistComp<SelfComponent>())
+                    {
+                        if (InputSystem.moveDirCache != Vector3.zero)
+                        {
+                            perfab.transform.forward = InputSystem.moveDirCache;
+                        }
+                    }
+                    else
+                    {
+                        perfab.transform.forward = move.dir.ToVector();
+                    }
+
+                }
             }
         }
     }

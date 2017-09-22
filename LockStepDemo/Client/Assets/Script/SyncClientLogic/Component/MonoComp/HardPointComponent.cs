@@ -5,5 +5,5 @@ using UnityEngine;
 public class HardPointComponent : MonoBehaviour
 {
     public GameObject waistNode;
-    //public CharacterHardPoint hardPoint;
+    public CharacterHardPoint hardPoint;
 }

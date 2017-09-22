@@ -8,10 +8,15 @@ public class DestroyEffectSystem : SystemBase
 {
     public override void Init()
     {
-        AddEntityDestroyLisnter();
+        AddEntityWillBeDestroyLisnter();
     }
 
-    public override void OnEntityDestroy(EntityBase entity)
+    public override void Dispose()
+    {
+        RemoveEntityWillBeDestroyLisnter();
+    }
+
+    public override void OnEntityWillBeDestroy(EntityBase entity)
     {
         if(entity.GetExistComp<FlyObjectComponent>()
             && entity.GetExistComp<PerfabComponent>())
@@ -25,6 +30,6 @@ public class DestroyEffectSystem : SystemBase
         FlyObjectComponent fc = entity.GetComp<FlyObjectComponent>();
         PerfabComponent pc = entity.GetComp<PerfabComponent>();
 
-        //EffectManager.ShowEffect(fc.FlyData.m_HitEffect, pc.perfab.transform.position + pc.perfab.transform.forward * 0.3f, 1);
+        EffectManager.ShowEffect(fc.FlyData.m_HitEffect, pc.perfab.transform.position + pc.perfab.transform.forward * 0.3f, 1);
     }
 }

@@ -14,6 +14,14 @@ public class ClientOperationSystem : SystemBase
         };
     }
 
+    public override void Dispose()
+    {
+        if(UIManager.GetUI<OperationWindow>() != null)
+        {
+            UIManager.CloseUIWindow<OperationWindow>();
+        }
+    }
+
     public override void Update(int deltaTime)
     {
         List<EntityBase> list = GetEntityList();
@@ -22,15 +30,15 @@ public class ClientOperationSystem : SystemBase
         {
             if(!list[i].GetExistComp<OperationWindowComponent>())
             {
-                PlayerComponent pc = list[i].GetComp<PlayerComponent>();
-                //OperationWindow ui = UIManager.OpenUIWindow<OperationWindow>();
-                //ui.m_playerComp = pc;
-                //ui.ElementInit();
+                OperationWindow ui = UIManager.OpenUIWindow<OperationWindow>();
+                ui.m_entity = list[i];
+                ui.ElementInit(); //初始化元素显示
+                ui.InitRank();    //初始化排行榜显示
 
-                //OperationWindowComponent oc = new OperationWindowComponent();
-                //oc.ui = ui;
+                OperationWindowComponent oc = new OperationWindowComponent();
+                oc.ui = ui;
 
-                //list[i].AddComp(oc);
+                list[i].AddComp(oc);
             }
         }
     }

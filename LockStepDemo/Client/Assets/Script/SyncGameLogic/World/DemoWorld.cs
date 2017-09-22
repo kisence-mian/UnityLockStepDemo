@@ -17,9 +17,16 @@ class DemoWorld : WorldBase
             typeof(SkillStatusSystem),
             typeof(SkillSystem),
             typeof(LifeSpanSystem),
-            typeof(CollisionSystem),
             typeof(CollisionDamageSystem),
             typeof(FlyObjectCollisionSystem),
+            typeof(GameSystem),
+            typeof(ResurgenceSystem),
+            typeof(CreateItemSystem),
+            typeof(ItemSystem),
+            typeof(RankSystem),
+            typeof(BuffSystem),
+
+            //初始化
             typeof(InitSystem),
             
             //表现层
@@ -33,6 +40,10 @@ class DemoWorld : WorldBase
             typeof(SkillBehaviorSystem),
             typeof(DestroyEffectSystem),
             typeof(ClientOperationSystem),
+            typeof(SettlementUISystem),
+            typeof(ResurgenceUISystem),
+            typeof(BuffBehaviorSystem),
+            typeof(SkillBehaviorSystem),
 
             typeof(SyncDebugSystem)
         };
@@ -49,6 +60,8 @@ class DemoWorld : WorldBase
             typeof(LifeComponent),
             typeof(SkillStatusComponent),
             typeof(BlowFlyComponent),
+            typeof(SkillBehaviorCompoent),
+            typeof(BuffEffectComponent),
         };
     }
 

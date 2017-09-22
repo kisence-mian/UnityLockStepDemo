@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class PlayerCommandRecordComponent : ComponentBase
 {
-    public PlayerCommandBase m_forecastInput; //当前帧预测输入
-    public PlayerCommandBase m_lastInput;     //最后一次输入
+    public PlayerCommandBase m_defaultInput;
+    public List<PlayerCommandBase> m_inputCache = new List<PlayerCommandBase>();  //输入缓存
 
-    public List<PlayerCommandBase> m_inputCache = new List<PlayerCommandBase>();  //历史输入
-    public List<PlayerCommandBase> m_serverCache = new List<PlayerCommandBase>(); //服务器缓存
+    public bool m_isConflict = false;
+    public int lastInputFrame = -1;
 
     public PlayerCommandBase GetInputCahae(int frame)
     {
@@ -25,40 +25,39 @@ public class PlayerCommandRecordComponent : ComponentBase
         return null;
     }
 
-    public PlayerCommandBase GetServerCache(int frame)
+    public PlayerCommandBase GetForecastInput(int frame)
     {
-        for (int i = 0; i < m_serverCache.Count; i++)
+        //取出上一帧的缓存赋值给下一帧做预测用
+        PlayerCommandBase record = GetInputCahae(frame - 1);
+
+        //没有则取默认值
+        if(record == null)
         {
-            if (m_serverCache[i].frame == frame)
-            {
-                return m_serverCache[i];
-            }
+            record = m_defaultInput;
         }
 
-        return null;
+        PlayerCommandBase cmd = record.DeepCopy();
+
+        cmd.frame = frame;
+        cmd.id = Entity.ID;
+
+        return cmd;
     }
 
-    public void ReplaceCommand(PlayerCommandBase cmd)
+    public void RecordCommand(PlayerCommandBase cmd)
     {
+        //Debug.Log("记录操作 id:" + cmd.id + " frame " + cmd.frame);
+
         for (int i = 0; i < m_inputCache.Count; i++)
         {
             if(m_inputCache[i].frame == cmd.frame)
             {
                 m_inputCache[i] = cmd;
-                //TODO 这里可能产生不同步
-                m_lastInput = cmd;        //最后的输入也改变了
                 return;
             }
         }
 
-        string content = "";
-
-        for (int i = 0; i < m_inputCache.Count; i++)
-        {
-            content += "id " + m_inputCache[i].id + " frame " + m_inputCache[i].frame + "\n";
-        }
-
-        Debug.LogError("ReplaceCommand faild ! id:->" + cmd.id + " frame:-> " + cmd.frame + " Count " + m_inputCache.Count + "\n" + content);
+        m_inputCache.Add(cmd); //本地没有记录，直接存入记录
     }
 
     public void ClearCache(int frame)
@@ -68,15 +67,6 @@ public class PlayerCommandRecordComponent : ComponentBase
             if (m_inputCache[i].frame < frame)
             {
                 m_inputCache.RemoveAt(i);
-                i--;
-            }
-        }
-
-        for (int i = 0; i < m_serverCache.Count; i++)
-        {
-            if (m_serverCache[i].frame < frame)
-            {
-                m_serverCache.RemoveAt(i);
                 i--;
             }
         }

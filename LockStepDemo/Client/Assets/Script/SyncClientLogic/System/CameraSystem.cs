@@ -12,7 +12,7 @@ public class CameraSystem  : SystemBase
         for (int i = 0; i < list.Count; i++)
         {
             PerfabComponent pc = list[i].GetComp<PerfabComponent>();
-            //m_world.GetSingletonComp<PlayerCameraComponent>().cam.m_target = pc.perfab;
+            m_world.GetSingletonComp<PlayerCameraComponent>().cam.m_target = pc.perfab;
         }
     }
 

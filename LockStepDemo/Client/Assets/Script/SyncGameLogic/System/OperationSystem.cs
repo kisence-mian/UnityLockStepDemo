@@ -29,23 +29,16 @@ public class OperationSystem : SystemBase
             LifeComponent lc = list[i].GetComp<LifeComponent>();
             BlowFlyComponent blc = list[i].GetComp<BlowFlyComponent>();
 
-            if(lc.life > 0 
-                && !blc.isBlow)
+            if(lc.Life > 0 
+                && !blc.isBlow
+                && !pc.GetIsDizziness())
             {
                 pc.faceDir = com.skillDir.DeepCopy();
                 move.dir = com.moveDir.DeepCopy();
 
-                if (com.moveDir.ToVector() != Vector3.zero)
-                {
-                    move.m_velocity = 5 * 1000;
-                }
-                else
-                {
-                    move.m_velocity = 5 * 1000;
-                }
+                move.m_velocity = pc.GetSpeed();
             }
-
-            if(lc.life < 0)
+            else
             {
                 move.dir.FromVector(Vector3.zero);
             }

@@ -6,5 +6,5 @@ using System.Text;
 
 public class OperationWindowComponent : ComponentBase
 {
-    //public OperationWindow ui;
+    public OperationWindow ui;
 }

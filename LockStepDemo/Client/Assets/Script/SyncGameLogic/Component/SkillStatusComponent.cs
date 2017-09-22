@@ -20,6 +20,10 @@ public class SkillStatusComponent : MomentComponentBase
     public SkillData m_currentSkillData;
     public List<SkillData> m_skillList = new List<SkillData>();
 
+    //表现用
+    public int FXTimer = 0;
+    public bool isTriggerFX;
+
     public override MomentComponentBase DeepCopy()
     {
         SkillStatusComponent sc = new SkillStatusComponent();

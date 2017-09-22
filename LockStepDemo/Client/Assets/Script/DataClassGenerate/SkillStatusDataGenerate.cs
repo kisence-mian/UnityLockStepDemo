@@ -18,6 +18,8 @@ public class SkillStatusDataGenerate : DataGenerateBase
 	public float m_FollowFXLifeTime; //特效时间
 	public string m_FollowFXName; //特效名
 	public string m_CameraMove; //镜头特写
+	public float m_FollowFXOffSet; //跟随特效偏移
+	public float m_FXOffSet; //特效偏移
 
 	public override void LoadData(string key) 
 	{
@@ -43,5 +45,7 @@ public class SkillStatusDataGenerate : DataGenerateBase
 		m_FollowFXLifeTime = data.GetFloat("FollowFXLifeTime");
 		m_FollowFXName = data.GetString("FollowFXName");
 		m_CameraMove = data.GetString("CameraMove");
+		m_FollowFXOffSet = data.GetFloat("FollowFXOffSet");
+		m_FXOffSet = data.GetFloat("FXOffSet");
 	}
 }

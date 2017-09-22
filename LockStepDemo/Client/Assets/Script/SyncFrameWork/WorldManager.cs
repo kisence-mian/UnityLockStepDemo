@@ -45,20 +45,30 @@ public class WorldManager
     {
         ApplicationManager.s_OnApplicationUpdate -= Update;
         ApplicationManager.s_OnApplicationLateUpdate -= LateUpdate;
+
+        for (int i = 0; i < s_worldList.Count; i++)
+        {
+            s_worldList[i].Dispose();
+        }
+
+        s_worldList.Clear();
     }
 
-    public static void CreateWorld<T>() where T : WorldBase, new()
+    public static WorldBase CreateWorld<T>() where T : WorldBase, new()
     {
         T world = new T();
         world.Init(true);
 
         s_worldList.Add(world);
 
-        GameDataMonitor.PushData("world", world);
+        //GameDataMonitor.PushData("world", world);
+
+        return world;
     }
 
     public static void DestroyWorld(WorldBase world)
     {
+        world.Dispose();
         s_worldList.Remove(world);
     }
 

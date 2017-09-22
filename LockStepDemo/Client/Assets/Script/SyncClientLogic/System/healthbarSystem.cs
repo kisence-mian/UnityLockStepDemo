@@ -7,7 +7,12 @@ public class HealthBarSystem :SystemBase
 {
     public override void Init()
     {
-        AddEntityCreaterLisnter();
+        AddEntityDestroyLisnter();
+    }
+
+    public override void Dispose()
+    {
+        RemoveEntityDestroyLisnter();
     }
 
     public override Type[] GetFilter()
@@ -26,11 +31,11 @@ public class HealthBarSystem :SystemBase
         {
             if(!list[i].GetExistComp<HealthBarComponent>())
             {
-                //FightBehaveWindow ui = UIManager.OpenUIWindow<FightBehaveWindow>();
-                //ui.SetEntity(list[i]);
+                FightBehaveWindow ui = UIManager.OpenUIWindow<FightBehaveWindow>();
+                ui.SetEntity(list[i]);
 
                 HealthBarComponent hbc = new HealthBarComponent();
-                //hbc.m_ui = ui;
+                hbc.m_ui = ui;
 
                 list[i].AddComp(hbc);
             }
@@ -42,7 +47,7 @@ public class HealthBarSystem :SystemBase
         if(entity.GetExistComp<HealthBarComponent>())
         {
             HealthBarComponent hc = entity.GetComp<HealthBarComponent>();
-            //UIManager.CloseUIWindow(hc.m_ui);
+            UIManager.CloseUIWindow(hc.m_ui);
         }
     }
 }

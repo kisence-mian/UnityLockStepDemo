@@ -1,5 +1,6 @@
 ﻿using Protocol;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class RecordComponent<T> : SingletonComponent where T : MomentComponentBase, new()
 {
@@ -11,6 +12,11 @@ public class RecordComponent<T> : SingletonComponent where T : MomentComponentBa
         {
             if(m_record[i].Frame < frame)
             {
+                if (SyncDebugSystem.isDebug && SyncDebugSystem.IsFilter(typeof(T).Name))
+                {
+                    //Debug.Log(" ClearBefore Frame:" + m_record[i].Frame + " id: " + m_record[i].ID);
+                }
+
                 m_record.RemoveAt(i);
                 i--;
             }

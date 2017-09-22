@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class InputSystem : CommandSyncSystem<CommandComponent>
 {
-    Vector3 moveDirCache = Vector3.zero;
-    Vector3 skillDirCache = Vector3.zero;
+    public static Vector3 moveDirCache = Vector3.zero;
+    public static Vector3 skillDirCache = Vector3.zero;
     bool isFireCache = false;
 
     int element1Cache = GameUtils.c_element_default;
@@ -17,8 +17,8 @@ public class InputSystem : CommandSyncSystem<CommandComponent>
     {
         base.Init();
 
-        //InputManager.AddListener<InputMoveCommand>(ReceviceMove);
-        //InputManager.AddListener<RotationCommand>(ReceviceRotation);
+        InputManager.AddListener<InputMoveCommand>(ReceviceMove);
+        InputManager.AddListener<RotationCommand>(ReceviceRotation);
     }
 
     public override void Update(int deltaTime)
@@ -86,7 +86,6 @@ public class InputSystem : CommandSyncSystem<CommandComponent>
             isChange = true;
         }
 
-
         if (isChange)
         {
             moveDirCache = keyCache.normalized;
@@ -102,24 +101,24 @@ public class InputSystem : CommandSyncSystem<CommandComponent>
         command.element2 = element2Cache;
     }
 
-    //public void ReceviceMove(InputMoveCommand cmd)
-    //{
-    //    float m_cameraAngle = CameraService.Instance.m_mainCameraGo.transform.eulerAngles.y;
+    public void ReceviceMove(InputMoveCommand cmd)
+    {
+        float m_cameraAngle = CameraService.Instance.m_mainCameraGo.transform.eulerAngles.y;
 
-    //    moveDirCache = cmd.m_dir.Vector3RotateInXZ2(m_cameraAngle).normalized;
-    //}
+        moveDirCache = cmd.m_dir.Vector3RotateInXZ2(m_cameraAngle).normalized;
+    }
 
-    //public void ReceviceRotation(RotationCommand cmd)
-    //{
-    //    float m_cameraAngle = CameraService.Instance.m_mainCameraGo.transform.eulerAngles.y;
-    //    if(cmd.m_dir != Vector3.zero)
-    //    {
-    //        skillDirCache = cmd.m_dir.Vector3RotateInXZ2(m_cameraAngle).normalized;
-    //        isFireCache = true;
-    //    }
-    //    else
-    //    {
-    //        isFireCache = false;
-    //    }
-    //}
+    public void ReceviceRotation(RotationCommand cmd)
+    {
+        float m_cameraAngle = CameraService.Instance.m_mainCameraGo.transform.eulerAngles.y;
+        if(cmd.m_dir != Vector3.zero)
+        {
+            skillDirCache = cmd.m_dir.Vector3RotateInXZ2(m_cameraAngle).normalized;
+            isFireCache = true;
+        }
+        else
+        {
+            isFireCache = false;
+        }
+    }
 }

@@ -58,6 +58,12 @@ public class SystemBase
     #region Update
 
     /// <summary>
+    /// 只在回滚时调用
+    /// </summary>
+    /// <param name="deltaTime"></param>
+    public virtual void OnlyCallByRecalc(int frame,int deltaTime) { }
+   
+    /// <summary>
     /// 服务器不执行
     /// </summary>
     /// <param name="deltaTime"></param>
@@ -95,8 +101,8 @@ public class SystemBase
     /// <summary>
     /// 帧的最后执行
     /// </summary>
-    /// <param name="deltaTime"></param>
     public virtual void EndFrame(int deltaTime) { }
+
     #endregion
 
     #region 事件回调
@@ -107,6 +113,11 @@ public class SystemBase
     }
 
     public virtual void OnEntityDestroy(EntityBase entity)
+    {
+
+    }
+
+    public virtual void OnEntityWillBeDestroy(EntityBase entity)
     {
 
     }
@@ -171,7 +182,7 @@ public class SystemBase
 
         return tupleList;
     }
-
+    #region 事件监听
     protected void AddEntityCreaterLisnter()
     {
         m_world.OnEntityCreated += ReceviceEntityCreate;
@@ -180,6 +191,11 @@ public class SystemBase
     protected void AddEntityDestroyLisnter()
     {
         m_world.OnEntityDestroyed += ReceviceEntityDestroy;
+    }
+
+    protected void AddEntityWillBeDestroyLisnter()
+    {
+        m_world.OnEntityWillBeDestroyed += ReceviceEntityWillBeDestroy;
     }
 
     protected void AddEntityCompAddLisenter()
@@ -197,6 +213,39 @@ public class SystemBase
         m_world.OnEntityComponentChange += OnEntityCompChange;
     }
 
+    protected void RemoveEntityCreaterLisnter()
+    {
+        m_world.OnEntityCreated -= ReceviceEntityCreate;
+    }
+
+    protected void RemoveEntityDestroyLisnter()
+    {
+        m_world.OnEntityDestroyed -= ReceviceEntityDestroy;
+    }
+
+    protected void RemoveEntityWillBeDestroyLisnter()
+    {
+        m_world.OnEntityWillBeDestroyed += ReceviceEntityWillBeDestroy;
+    }
+
+    protected void RemoveEntityCompAddLisenter()
+    {
+        m_world.OnEntityComponentAdded -= OnEntityCompAdd;
+    }
+
+    protected void RemoveEntityCompRemoveLisenter()
+    {
+        m_world.OnEntityComponentRemoved -= OnEntityCompRemove;
+    }
+
+    protected void RemoveEntityCompChangeLisenter()
+    {
+        m_world.OnEntityComponentChange -= OnEntityCompChange;
+    }
+
+
+    #endregion
+
     void ReceviceEntityCreate(EntityBase entity)
     {
         //if (GetAllExistComp(Filter, entity))
@@ -210,6 +259,14 @@ public class SystemBase
         //if (GetAllExistComp(Filter, entity))
         {
             OnEntityDestroy(entity);
+        }
+    }
+
+    void ReceviceEntityWillBeDestroy(EntityBase entity)
+    {
+        //if (GetAllExistComp(Filter, entity))
+        {
+            OnEntityWillBeDestroy(entity);
         }
     }
 
