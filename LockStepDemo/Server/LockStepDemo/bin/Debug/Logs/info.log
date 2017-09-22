@@ -1,9 +1,0 @@
-﻿2017-09-21 16:42:36,341 [39880] INFO  SyncService-46104728 - The server instance SyncService-46104728 has been started!
-2017-09-21 16:43:07,492 [39132] INFO  SyncService-46104728 - Session: ea851528-3705-4b41-b325-b547912b2b4d/192.168.89.146:39375
-A new session connected!
-2017-09-21 16:43:22,792 [39132] INFO  SyncService-46104728 - Session: 6265ffc5-477d-47d7-93f1-905fd9b3dd34/192.168.89.146:39420
-A new session connected!
-2017-09-21 16:46:48,166 [38692] INFO  SyncService-46104728 - Session: ea851528-3705-4b41-b325-b547912b2b4d/192.168.89.146:39375
-This session was closed for ClientClosing!
-2017-09-21 16:46:49,178 [39332] INFO  SyncService-46104728 - Session: 6265ffc5-477d-47d7-93f1-905fd9b3dd34/192.168.89.146:39420
-This session was closed for ClientClosing!
