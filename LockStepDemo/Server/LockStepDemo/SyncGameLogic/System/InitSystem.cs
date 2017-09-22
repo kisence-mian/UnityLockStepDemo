@@ -74,6 +74,7 @@ public class InitSystem : SystemBase
         if (!entity.GetExistComp<TransfromComponent>())
         {
             TransfromComponent c = new TransfromComponent();
+            c.pos.FromVector(new Vector3(15, 0, 0));
             entity.AddComp(c);
         }
 
@@ -175,6 +176,8 @@ public class InitSystem : SystemBase
             }
         }
 
+        Debug.Log("Create map list " + list.Count);
+
         for (int i = 0; i < list.Count; i++)
         {
             CollisionComponent cc = new CollisionComponent();
@@ -199,13 +202,15 @@ public class InitSystem : SystemBase
         {
             if (contentArray[i] != "")
             {
+                SyncComponent sc = new SyncComponent();
+
                 ItemCreatePointComponent tmp = deserializer.Deserialize<ItemCreatePointComponent>(contentArray[i]);
                 CollisionComponent cc = new CollisionComponent();
                 cc.area.position = tmp.pos.ToVector();
                 cc.area.areaType = AreaType.Circle;
                 cc.area.radius = 1;
 
-                m_world.CreateEntityImmediately("ElementCreatePoint" + i,tmp, cc);
+                m_world.CreateEntityImmediately("ElementCreatePoint" + i,tmp, sc,cc);
             }
         }
     }

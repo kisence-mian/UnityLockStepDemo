@@ -5,7 +5,7 @@ using Protocol;
 
 public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
 {
-    int updateInterval = 100; //世界更新间隔ms TODO 读取配置
+    int updateInterval = 200; //世界更新间隔ms TODO 读取配置
 
     public SessionCreateHandle OnSessionCreate;
     public SessionCloseHandle OnSessionClose;

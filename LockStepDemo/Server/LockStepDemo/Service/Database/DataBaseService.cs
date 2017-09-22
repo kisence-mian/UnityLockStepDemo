@@ -14,10 +14,7 @@ public class DataBaseService
         long time = ServiceTime.GetServiceTime();
 
         DbConfig config = new DbConfig();
-        config.Database = "ElementCraft";
-        config.Server = "54.191.174.49";
-        config.User = "root";
-        config.Password = "83dd961d3ce758ce";
+
 
         database = DatabaseFactory.CreateDatabase(config, DbConfig.DbType.MYSQL);
 

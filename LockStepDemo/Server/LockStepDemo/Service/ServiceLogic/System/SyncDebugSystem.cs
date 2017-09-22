@@ -8,9 +8,9 @@ using System.Text;
 
 class SyncDebugSystem : SystemBase
 {
-    public static bool isDebug = false;
+    public static bool isDebug = true;
 
-    public static string[] DebugFilter = new string[] { "SkillStatusComponent" };
+    public static string[] DebugFilter = new string[] { "LifeComponent" };
 
     public static string syncLog = "";
 
@@ -42,23 +42,22 @@ class SyncDebugSystem : SystemBase
 
             foreach (var item in eb.m_compDict)
             {
-                if(item.Value.GetType().IsSubclassOf(typeof(MomentComponentBase)))
+                if(item.Value.GetType().IsSubclassOf(typeof(MomentComponentBase))
+                    && IsFilter(item.Value.GetType().Name)
+                    )
                 {
                     ComponentInfo info = new ComponentInfo();
                     info.m_compName = item.Value.GetType().Name;
                     info.content = Serializer.Serialize(item.Value);
 
                     einfo.infos.Add(info);
-
-                    if(info.m_compName == "MoveComponent" 
-                        || info.m_compName == "CommandComponent")
-                    {
-                        //Debug.Log(".id " + einfo.id + " m_compName "+ info.m_compName + " content : " + info.content);
-                    }
                 }
             }
 
-            msg.infos.Add(einfo);
+            if(einfo.infos.Count >0)
+            {
+                msg.infos.Add(einfo);
+            }
         }
 
         List<EntityBase> list = GetEntityList();
