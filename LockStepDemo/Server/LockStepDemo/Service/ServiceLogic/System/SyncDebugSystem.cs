@@ -10,7 +10,7 @@ class SyncDebugSystem : SystemBase
 {
     public static bool isDebug = true;
 
-    public static string[] DebugFilter = new string[] { "LifeComponent" };
+    public static string[] DebugFilter = new string[] { "LifeComponent" , "MoveComponent" };
 
     public static string syncLog = "";
 

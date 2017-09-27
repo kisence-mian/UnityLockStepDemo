@@ -1,0 +1,380 @@
+﻿2017-09-22 18:46:58,658 [44128] DEBUG SyncService-46104728 - SyncService Setup
+2017-09-22 18:46:58,671 [44128] DEBUG SyncService-46104728 - -30965836
+2017-09-22 18:46:58,671 [44128] DEBUG SyncService-46104728 - 1039388785
+2017-09-22 18:46:58,671 [44128] DEBUG SyncService-46104728 - -395395666
+2017-09-22 18:46:58,672 [44128] DEBUG SyncService-46104728 - -570535280
+2017-09-22 18:46:58,672 [44128] DEBUG SyncService-46104728 - 开始连接数据库~~~
+2017-09-22 18:46:58,674 [44128] DEBUG SyncService-46104728 - 数据库连接成功 用时2ms
+2017-09-22 18:46:58,747 [44128] DEBUG SyncService-46104728 - Listener (0.0.0.0:7500) was started
+2017-09-22 18:46:58,750 [44128] DEBUG SyncService-46104728 - SyncService OnStarted
+2017-09-22 18:47:22,084 [44764] DEBUG SyncService-46104728 - SyncService RegisterSession
+2017-09-22 18:47:22,107 [44764] DEBUG SyncService-46104728 - SyncService OnNewSessionConnected 2c5a77ee-476e-43c9-a65a-6be781840861
+2017-09-22 18:47:22,136 [44376] DEBUG SyncService-46104728 - OnSessionStarted 
+2017-09-22 18:47:22,152 [44580] DEBUG SyncService-46104728 - RecevicePlayerLogin
+2017-09-22 18:47:43,709 [44764] DEBUG SyncService-46104728 - SyncService RegisterSession
+2017-09-22 18:47:43,710 [44764] DEBUG SyncService-46104728 - SyncService OnNewSessionConnected 47209be9-f4a4-4e76-ac26-828603f0d79e
+2017-09-22 18:47:43,711 [44376] DEBUG SyncService-46104728 - OnSessionStarted 
+2017-09-22 18:47:43,739 [44376] DEBUG SyncService-46104728 - RecevicePlayerLogin
+2017-09-22 18:50:23,859 [7952] DEBUG SyncService-46104728 - SyncService Setup
+2017-09-22 18:50:23,878 [7952] DEBUG SyncService-46104728 - -30965836
+2017-09-22 18:50:23,881 [7952] DEBUG SyncService-46104728 - 1039388785
+2017-09-22 18:50:23,881 [7952] DEBUG SyncService-46104728 - -395395666
+2017-09-22 18:50:23,882 [7952] DEBUG SyncService-46104728 - -570535280
+2017-09-22 18:50:23,887 [7952] DEBUG SyncService-46104728 - 开始连接数据库~~~
+2017-09-22 18:50:23,889 [7952] DEBUG SyncService-46104728 - 数据库连接成功 用时2ms
+2017-09-22 18:50:23,985 [7952] DEBUG SyncService-46104728 - Listener (0.0.0.0:7500) was started
+2017-09-22 18:50:24,000 [7952] DEBUG SyncService-46104728 - SyncService OnStarted
+2017-09-22 18:50:33,998 [45628] DEBUG SyncService-46104728 - SyncService RegisterSession
+2017-09-22 18:50:34,002 [45628] DEBUG SyncService-46104728 - SyncService OnNewSessionConnected be2950b0-737c-48d6-8c50-88c45608f823
+2017-09-22 18:50:34,022 [44964] DEBUG SyncService-46104728 - OnSessionStarted 
+2017-09-22 18:50:34,039 [44972] DEBUG SyncService-46104728 - RecevicePlayerLogin
+2017-09-22 18:50:34,060 [44972] DEBUG SyncService-46104728 - 创建连接 useCount 0
+2017-09-22 18:50:38,229 [44972] DEBUG SyncService-46104728 - 创建连接 useCount 0
+2017-09-22 18:50:42,257 [44972] DEBUG SyncService-46104728 - 创建连接 useCount 0
+2017-09-22 18:53:06,474 [37796] DEBUG SyncService-46104728 - SyncService Setup
+2017-09-22 18:53:06,487 [37796] DEBUG SyncService-46104728 - -30965836
+2017-09-22 18:53:06,488 [37796] DEBUG SyncService-46104728 - 1039388785
+2017-09-22 18:53:06,488 [37796] DEBUG SyncService-46104728 - -395395666
+2017-09-22 18:53:06,488 [37796] DEBUG SyncService-46104728 - -570535280
+2017-09-22 18:53:06,488 [37796] DEBUG SyncService-46104728 - 开始连接数据库~~~
+2017-09-22 18:53:06,490 [37796] DEBUG SyncService-46104728 - 数据库连接成功 用时2ms
+2017-09-22 18:53:06,539 [37796] DEBUG SyncService-46104728 - Listener (0.0.0.0:7500) was started
+2017-09-22 18:53:06,548 [37796] DEBUG SyncService-46104728 - SyncService OnStarted
+2017-09-22 18:53:13,149 [45592] DEBUG SyncService-46104728 - SyncService RegisterSession
+2017-09-22 18:53:13,153 [45592] DEBUG SyncService-46104728 - SyncService OnNewSessionConnected ab109de5-2b64-4f81-854d-d77b5ff7b285
+2017-09-22 18:53:13,175 [45248] DEBUG SyncService-46104728 - OnSessionStarted 
+2017-09-22 18:53:13,192 [45392] DEBUG SyncService-46104728 - RecevicePlayerLogin
+2017-09-22 18:53:13,211 [45392] DEBUG SyncService-46104728 - 创建连接 useCount 0
+2017-09-22 18:53:17,463 [45392] DEBUG SyncService-46104728 - 创建连接 useCount 0
+2017-09-22 18:53:21,507 [45392] DEBUG SyncService-46104728 - 创建连接 useCount 0
+2017-09-22 18:53:25,532 [45392] DEBUG SyncService-46104728 - 创建连接 useCount 0
+2017-09-22 18:53:29,562 [45392] DEBUG SyncService-46104728 - 创建连接 useCount 0
+2017-09-22 18:54:06,059 [44936] DEBUG SyncService-46104728 - SyncService Setup
+2017-09-22 18:54:06,072 [44936] DEBUG SyncService-46104728 - -30965836
+2017-09-22 18:54:06,072 [44936] DEBUG SyncService-46104728 - 1039388785
+2017-09-22 18:54:06,072 [44936] DEBUG SyncService-46104728 - -395395666
+2017-09-22 18:54:06,072 [44936] DEBUG SyncService-46104728 - -570535280
+2017-09-22 18:54:06,073 [44936] DEBUG SyncService-46104728 - 开始连接数据库~~~
+2017-09-22 18:54:06,075 [44936] DEBUG SyncService-46104728 - 数据库连接成功 用时2ms
+2017-09-22 18:54:06,126 [44936] DEBUG SyncService-46104728 - Listener (0.0.0.0:7500) was started
+2017-09-22 18:54:06,130 [44936] DEBUG SyncService-46104728 - SyncService OnStarted
+2017-09-22 18:54:07,819 [45900] DEBUG SyncService-46104728 - SyncService RegisterSession
+2017-09-22 18:54:07,821 [45900] DEBUG SyncService-46104728 - SyncService OnNewSessionConnected 63c3d84b-49cd-49c5-bbdb-a6f8a77475a3
+2017-09-22 18:54:07,837 [46208] DEBUG SyncService-46104728 - OnSessionStarted 
+2017-09-22 18:54:07,853 [46212] DEBUG SyncService-46104728 - RecevicePlayerLogin
+2017-09-22 18:54:07,874 [46212] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=;port=3306;user=;password=
+2017-09-22 18:54:12,024 [46212] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=;port=3306;user=;password=
+2017-09-22 18:56:55,948 [46200] DEBUG SyncService-46104728 - SyncService Setup
+2017-09-22 18:56:55,962 [46200] DEBUG SyncService-46104728 - -30965836
+2017-09-22 18:56:55,962 [46200] DEBUG SyncService-46104728 - 1039388785
+2017-09-22 18:56:55,962 [46200] DEBUG SyncService-46104728 - -395395666
+2017-09-22 18:56:55,962 [46200] DEBUG SyncService-46104728 - -570535280
+2017-09-22 18:56:55,962 [46200] DEBUG SyncService-46104728 - 开始连接数据库~~~
+2017-09-22 18:56:55,965 [46200] DEBUG SyncService-46104728 - 数据库连接成功 用时2ms
+2017-09-22 18:56:55,995 [46200] DEBUG SyncService-46104728 - Listener (0.0.0.0:7500) was started
+2017-09-22 18:56:55,998 [46200] DEBUG SyncService-46104728 - SyncService OnStarted
+2017-09-22 18:57:00,697 [46652] DEBUG SyncService-46104728 - SyncService RegisterSession
+2017-09-22 18:57:00,700 [46652] DEBUG SyncService-46104728 - SyncService OnNewSessionConnected bca53661-ef5e-4582-bff7-67524bb8f57d
+2017-09-22 18:57:00,722 [46072] DEBUG SyncService-46104728 - OnSessionStarted 
+2017-09-22 18:57:00,740 [45548] DEBUG SyncService-46104728 - RecevicePlayerLogin
+2017-09-22 18:57:00,762 [45548] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 18:57:02,704 [45548] DEBUG SyncService-46104728 - 创建连接 useCount 1 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:00:35,183 [45980] DEBUG SyncService-46104728 - SyncService Setup
+2017-09-22 19:00:35,196 [45980] DEBUG SyncService-46104728 - -30965836
+2017-09-22 19:00:35,196 [45980] DEBUG SyncService-46104728 - 1039388785
+2017-09-22 19:00:35,196 [45980] DEBUG SyncService-46104728 - -395395666
+2017-09-22 19:00:35,196 [45980] DEBUG SyncService-46104728 - -570535280
+2017-09-22 19:00:35,197 [45980] DEBUG SyncService-46104728 - 开始连接数据库~~~
+2017-09-22 19:00:35,199 [45980] DEBUG SyncService-46104728 - 数据库连接成功 用时2ms
+2017-09-22 19:00:35,412 [45980] DEBUG SyncService-46104728 - Listener (0.0.0.0:7500) was started
+2017-09-22 19:00:35,429 [45980] DEBUG SyncService-46104728 - SyncService OnStarted
+2017-09-22 19:00:43,750 [36980] DEBUG SyncService-46104728 - SyncService RegisterSession
+2017-09-22 19:00:43,753 [36980] DEBUG SyncService-46104728 - SyncService OnNewSessionConnected 304b56ba-968d-4b06-a305-2c02d243f8b3
+2017-09-22 19:00:43,775 [46168] DEBUG SyncService-46104728 - OnSessionStarted 
+2017-09-22 19:00:43,790 [47108] DEBUG SyncService-46104728 - RecevicePlayerLogin
+2017-09-22 19:00:43,812 [47108] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:00:45,770 [47108] DEBUG SyncService-46104728 - 创建连接 useCount 1 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:12:55,118 [47400] DEBUG SyncService-46104728 - SyncService Setup
+2017-09-22 19:12:55,132 [47400] DEBUG SyncService-46104728 - -30965836
+2017-09-22 19:12:55,132 [47400] DEBUG SyncService-46104728 - 1039388785
+2017-09-22 19:12:55,132 [47400] DEBUG SyncService-46104728 - -395395666
+2017-09-22 19:12:55,132 [47400] DEBUG SyncService-46104728 - -570535280
+2017-09-22 19:12:55,133 [47400] DEBUG SyncService-46104728 - 开始连接数据库~~~
+2017-09-22 19:12:55,135 [47400] DEBUG SyncService-46104728 - 数据库连接成功 用时2ms
+2017-09-22 19:12:55,184 [47400] DEBUG SyncService-46104728 - Listener (0.0.0.0:7500) was started
+2017-09-22 19:12:55,188 [47400] DEBUG SyncService-46104728 - SyncService OnStarted
+2017-09-22 19:13:00,637 [41204] DEBUG SyncService-46104728 - SyncService RegisterSession
+2017-09-22 19:13:00,642 [41204] DEBUG SyncService-46104728 - SyncService OnNewSessionConnected 5006a803-8b8b-4f8e-b0ba-10a36655dc3d
+2017-09-22 19:13:00,660 [45788] DEBUG SyncService-46104728 - OnSessionStarted 
+2017-09-22 19:13:00,676 [46564] DEBUG SyncService-46104728 - RecevicePlayerLogin
+2017-09-22 19:13:00,695 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:00,791 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:00,806 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:00,820 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:00,840 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:00,859 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:00,873 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:00,889 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:00,904 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:00,920 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:00,938 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:00,954 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:00,971 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:00,989 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,007 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,024 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,043 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,065 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,084 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,103 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,121 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,141 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,160 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,180 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,200 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,220 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,240 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,261 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,285 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,306 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,331 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,352 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,374 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,399 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,423 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,445 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,469 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,493 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,517 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,540 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,565 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,591 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,618 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,644 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,669 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,698 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,725 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,750 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,776 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,802 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,832 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,863 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,895 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,925 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,955 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:01,985 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,015 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,045 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,075 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,106 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,138 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,168 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,198 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,228 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,259 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,292 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,325 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,359 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,392 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,425 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,459 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,494 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,528 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,560 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,596 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,631 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,675 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,712 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,751 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,789 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,822 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,856 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,893 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,930 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:02,968 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,004 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,040 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,081 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,119 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,157 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,195 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,232 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,272 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,312 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,352 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,392 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,433 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,473 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,513 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,555 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,596 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,635 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,676 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,718 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,760 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,802 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,846 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,893 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,934 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:03,980 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:04,023 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:04,065 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:04,109 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:04,152 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:04,196 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:04,239 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:04,285 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:04,333 [46564] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:37,337 [45008] DEBUG SyncService-46104728 - SyncService Setup
+2017-09-22 19:13:37,350 [45008] DEBUG SyncService-46104728 - -30965836
+2017-09-22 19:13:37,350 [45008] DEBUG SyncService-46104728 - 1039388785
+2017-09-22 19:13:37,351 [45008] DEBUG SyncService-46104728 - -395395666
+2017-09-22 19:13:37,351 [45008] DEBUG SyncService-46104728 - -570535280
+2017-09-22 19:13:37,351 [45008] DEBUG SyncService-46104728 - 开始连接数据库~~~
+2017-09-22 19:13:37,354 [45008] DEBUG SyncService-46104728 - 数据库连接成功 用时2ms
+2017-09-22 19:13:37,384 [45008] DEBUG SyncService-46104728 - Listener (0.0.0.0:7500) was started
+2017-09-22 19:13:37,388 [45008] DEBUG SyncService-46104728 - SyncService OnStarted
+2017-09-22 19:13:42,135 [47532] DEBUG SyncService-46104728 - SyncService RegisterSession
+2017-09-22 19:13:42,139 [47532] DEBUG SyncService-46104728 - SyncService OnNewSessionConnected bf414901-0279-40fa-b64d-c2d3ae3cdc31
+2017-09-22 19:13:42,159 [37424] DEBUG SyncService-46104728 - OnSessionStarted 
+2017-09-22 19:13:42,175 [42824] DEBUG SyncService-46104728 - RecevicePlayerLogin
+2017-09-22 19:13:42,194 [42824] DEBUG SyncService-46104728 - 创建连接 useCount 0 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:44,573 [42824] DEBUG SyncService-46104728 - 创建连接 useCount 1 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:47,043 [42824] DEBUG SyncService-46104728 - 未查询到记录！
+2017-09-22 19:13:47,044 [42824] DEBUG SyncService-46104728 - 创建连接 useCount 2 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:49,173 [37424] DEBUG SyncService-46104728 - ReceviceMatchMsg
+2017-09-22 19:13:58,516 [47532] DEBUG SyncService-46104728 - SyncService RegisterSession
+2017-09-22 19:13:58,517 [47532] DEBUG SyncService-46104728 - SyncService OnNewSessionConnected f8de7174-21c6-4156-b3fb-0868c8080a8f
+2017-09-22 19:13:58,517 [42824] DEBUG SyncService-46104728 - OnSessionStarted 
+2017-09-22 19:13:58,542 [37424] DEBUG SyncService-46104728 - RecevicePlayerLogin
+2017-09-22 19:13:58,542 [37424] DEBUG SyncService-46104728 - 创建连接 useCount 3 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:13:59,400 [37424] DEBUG SyncService-46104728 - 未查询到记录！
+2017-09-22 19:13:59,400 [37424] DEBUG SyncService-46104728 - 创建连接 useCount 4 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:14:08,708 [37424] DEBUG SyncService-46104728 - ReceviceMatchMsg
+2017-09-22 19:14:08,772 [37424] DEBUG SyncService-46104728 - Create map list 28
+2017-09-22 19:14:08,808 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,809 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,810 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,812 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,812 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,812 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,812 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,813 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,814 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,814 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,814 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,814 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,815 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,815 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,815 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,815 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,816 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,816 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,816 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,816 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,817 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,818 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,818 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,818 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,818 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,819 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,819 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,819 [37424] DEBUG SyncService-46104728 - Create map
+2017-09-22 19:14:08,844 [37424] DEBUG SyncService-46104728 - ServiceSyncSystem init
+2017-09-22 19:14:08,902 [37424] DEBUG SyncService-46104728 - OnEntityCreate ID: 347059661 frame 0
+2017-09-22 19:14:08,904 [37424] DEBUG SyncService-46104728 - ServiceSyncSystem OnPlayerJoin 
+2017-09-22 19:14:08,907 [37424] DEBUG SyncService-46104728 - OnEntityCreate ID: -760333256 frame 0
+2017-09-22 19:14:08,908 [37424] DEBUG SyncService-46104728 - ServiceSyncSystem OnPlayerJoin 
+2017-09-22 19:14:09,033 [47400] DEBUG SyncService-46104728 - identifier 1-135917116Item(-14.8, 0.8, 3.3)
+2017-09-22 19:14:09,034 [47400] DEBUG SyncService-46104728 - identifier 1-2077322732Item(12.5, 0.8, 1.0)
+2017-09-22 19:14:09,035 [47400] DEBUG SyncService-46104728 - identifier 1-322314979Item(33.6, 0.8, 3.2)
+2017-09-22 19:14:09,035 [47400] DEBUG SyncService-46104728 - identifier 12016366136Item(32.6, 0.8, -18.0)
+2017-09-22 19:14:09,035 [47400] DEBUG SyncService-46104728 - identifier 1238143008Item(17.7, 0.8, -19.1)
+2017-09-22 19:14:09,035 [47400] DEBUG SyncService-46104728 - identifier 1-280613886Item(6.2, 0.8, -16.4)
+2017-09-22 19:14:09,035 [47400] DEBUG SyncService-46104728 - identifier 1-58048461Item(-17.4, 0.8, -18.9)
+2017-09-22 19:14:09,068 [47400] DEBUG SyncService-46104728 - OnEntityCreate ID: -667798973 frame 1
+2017-09-22 19:14:09,069 [47400] DEBUG SyncService-46104728 - 自动创建Sync组件 
+2017-09-22 19:14:09,069 [47400] DEBUG SyncService-46104728 - OnEntityCreate ID: 435878109 frame 1
+2017-09-22 19:14:09,069 [47400] DEBUG SyncService-46104728 - 自动创建Sync组件 
+2017-09-22 19:14:09,070 [47400] DEBUG SyncService-46104728 - OnEntityCreate ID: 1333042203 frame 1
+2017-09-22 19:14:09,070 [47400] DEBUG SyncService-46104728 - 自动创建Sync组件 
+2017-09-22 19:14:09,070 [47400] DEBUG SyncService-46104728 - OnEntityCreate ID: -554230773 frame 1
+2017-09-22 19:14:09,071 [47400] DEBUG SyncService-46104728 - 自动创建Sync组件 
+2017-09-22 19:14:09,071 [47400] DEBUG SyncService-46104728 - OnEntityCreate ID: -59185092 frame 1
+2017-09-22 19:14:09,072 [47400] DEBUG SyncService-46104728 - 自动创建Sync组件 
+2017-09-22 19:14:09,072 [47400] DEBUG SyncService-46104728 - OnEntityCreate ID: -2129126756 frame 1
+2017-09-22 19:14:09,072 [47400] DEBUG SyncService-46104728 - 自动创建Sync组件 
+2017-09-22 19:14:09,073 [47400] DEBUG SyncService-46104728 - OnEntityCreate ID: 263225089 frame 1
+2017-09-22 19:14:09,073 [47400] DEBUG SyncService-46104728 - 自动创建Sync组件 
+2017-09-22 19:14:09,102 [47400] DEBUG SyncService-46104728 - PushSingletonComp RankComponent
+2017-09-22 19:14:09,104 [47400] DEBUG SyncService-46104728 - PushSingletonComp GameTimeComponent
+2017-09-22 19:14:09,104 [47400] DEBUG SyncService-46104728 - PushStartSyncMsg 1
+2017-09-22 19:14:09,105 [47400] DEBUG SyncService-46104728 - PushSingletonComp RankComponent
+2017-09-22 19:14:09,109 [47400] DEBUG SyncService-46104728 - PushSingletonComp GameTimeComponent
+2017-09-22 19:14:09,109 [47400] DEBUG SyncService-46104728 - PushStartSyncMsg 1
+2017-09-22 19:14:09,583 [37424] DEBUG SyncService-46104728 - 帧数落后  world.FrameCount: 3 msg frame:2 预测列表计数 3
+2017-09-22 19:14:09,584 [38556] DEBUG SyncService-46104728 - 帧数落后  world.FrameCount: 3 msg frame:2 预测列表计数 3
+2017-09-22 19:14:09,614 [38556] DEBUG SyncService-46104728 - 帧数落后  world.FrameCount: 3 msg frame:3 预测列表计数 0
+2017-09-22 19:14:09,617 [38556] DEBUG SyncService-46104728 - 帧数落后  world.FrameCount: 3 msg frame:3 预测列表计数 0
+2017-09-22 19:14:13,587 [38556] DEBUG SyncService-46104728 - SyncService OnSessionClosed f8de7174-21c6-4156-b3fb-0868c8080a8f
+2017-09-22 19:14:13,588 [38556] DEBUG SyncService-46104728 - 创建连接 useCount 5 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:14:14,679 [37424] DEBUG SyncService-46104728 - SyncService OnSessionClosed bf414901-0279-40fa-b64d-c2d3ae3cdc31
+2017-09-22 19:14:14,680 [37424] DEBUG SyncService-46104728 - 创建连接 useCount 6 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:14:22,860 [47532] DEBUG SyncService-46104728 - SyncService RegisterSession
+2017-09-22 19:14:22,861 [47532] DEBUG SyncService-46104728 - SyncService OnNewSessionConnected 2a788908-ee73-4e2c-b2bf-630a54ab8fce
+2017-09-22 19:14:22,861 [42824] DEBUG SyncService-46104728 - OnSessionStarted 
+2017-09-22 19:14:22,884 [47148] DEBUG SyncService-46104728 - RecevicePlayerLogin
+2017-09-22 19:14:22,884 [47148] DEBUG SyncService-46104728 - 创建连接 useCount 7 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:14:23,717 [47148] DEBUG SyncService-46104728 - 未查询到记录！
+2017-09-22 19:14:23,718 [47148] DEBUG SyncService-46104728 - 创建连接 useCount 8 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:14:26,779 [37424] DEBUG SyncService-46104728 - SyncService OnSessionClosed 2a788908-ee73-4e2c-b2bf-630a54ab8fce
+2017-09-22 19:14:26,781 [37424] DEBUG SyncService-46104728 - 创建连接 useCount 9 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:14:31,255 [47532] DEBUG SyncService-46104728 - SyncService RegisterSession
+2017-09-22 19:14:31,256 [47532] DEBUG SyncService-46104728 - SyncService OnNewSessionConnected 14da2771-038c-43bc-85ad-282530644ff4
+2017-09-22 19:14:31,256 [38556] DEBUG SyncService-46104728 - OnSessionStarted 
+2017-09-22 19:14:31,297 [37424] DEBUG SyncService-46104728 - RecevicePlayerLogin
+2017-09-22 19:14:31,298 [37424] DEBUG SyncService-46104728 - 创建连接 useCount 10 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:14:31,929 [37424] DEBUG SyncService-46104728 - 未查询到记录！
+2017-09-22 19:14:31,930 [37424] DEBUG SyncService-46104728 - 创建连接 useCount 11 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:14:33,231 [47148] DEBUG SyncService-46104728 - SyncService OnSessionClosed 14da2771-038c-43bc-85ad-282530644ff4
+2017-09-22 19:14:33,232 [47148] DEBUG SyncService-46104728 - 创建连接 useCount 12 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:14:37,385 [47532] DEBUG SyncService-46104728 - SyncService RegisterSession
+2017-09-22 19:14:37,386 [47532] DEBUG SyncService-46104728 - SyncService OnNewSessionConnected 17bd7247-bd35-4d3f-a741-db21fc5d0607
+2017-09-22 19:14:37,386 [37424] DEBUG SyncService-46104728 - OnSessionStarted 
+2017-09-22 19:14:37,409 [47148] DEBUG SyncService-46104728 - RecevicePlayerLogin
+2017-09-22 19:14:37,410 [47148] DEBUG SyncService-46104728 - 创建连接 useCount 13 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:14:39,529 [47148] DEBUG SyncService-46104728 - 未查询到记录！
+2017-09-22 19:14:39,530 [47148] DEBUG SyncService-46104728 - 创建连接 useCount 14 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:14:40,288 [47148] DEBUG SyncService-46104728 - SyncService OnSessionClosed 17bd7247-bd35-4d3f-a741-db21fc5d0607
+2017-09-22 19:14:40,288 [47148] DEBUG SyncService-46104728 - 创建连接 useCount 15 ConnectionStr server=54.191.174.49;port=3306;user=root;password=83dd961d3ce758ce
+2017-09-22 19:16:59,605 [41960] DEBUG SyncService-46104728 - SyncService Setup
+2017-09-22 19:16:59,619 [41960] DEBUG SyncService-46104728 - -30965836
+2017-09-22 19:16:59,619 [41960] DEBUG SyncService-46104728 - 1039388785
+2017-09-22 19:16:59,619 [41960] DEBUG SyncService-46104728 - -395395666
+2017-09-22 19:16:59,619 [41960] DEBUG SyncService-46104728 - -570535280
+2017-09-22 19:16:59,620 [41960] DEBUG SyncService-46104728 - 开始连接数据库~~~
+2017-09-22 19:16:59,622 [41960] DEBUG SyncService-46104728 - 数据库连接成功 用时2ms
+2017-09-22 19:16:59,673 [41960] DEBUG SyncService-46104728 - Listener (0.0.0.0:7500) was started
+2017-09-22 19:16:59,677 [41960] DEBUG SyncService-46104728 - SyncService OnStarted
+2017-09-22 19:17:05,954 [48360] DEBUG SyncService-46104728 - SyncService RegisterSession
+2017-09-22 19:17:05,958 [48360] DEBUG SyncService-46104728 - SyncService OnNewSessionConnected ce05c8b6-d182-4f42-aae7-a40e64b2ef47
+2017-09-22 19:17:05,976 [48688] DEBUG SyncService-46104728 - OnSessionStarted 
+2017-09-22 19:17:05,991 [48716] DEBUG SyncService-46104728 - RecevicePlayerLogin
+2017-09-22 19:17:06,012 [48716] DEBUG SyncService-46104728 - 创建连接 
+2017-09-22 19:17:08,155 [48716] DEBUG SyncService-46104728 - 连接成功 useCount 1 size 5
+2017-09-22 19:17:08,155 [48716] DEBUG SyncService-46104728 - 创建连接 
+2017-09-22 19:17:11,464 [48716] DEBUG SyncService-46104728 - 连接成功 useCount 2 size 5
+2017-09-22 19:17:11,567 [48360] DEBUG SyncService-46104728 - SyncService RegisterSession
+2017-09-22 19:17:11,567 [48360] DEBUG SyncService-46104728 - SyncService OnNewSessionConnected 1cf9920b-8dbe-47a7-9908-f4ffb8167d4d
+2017-09-22 19:17:11,567 [48688] DEBUG SyncService-46104728 - OnSessionStarted 
+2017-09-22 19:17:11,585 [48724] DEBUG SyncService-46104728 - RecevicePlayerLogin
+2017-09-22 19:17:11,585 [48724] DEBUG SyncService-46104728 - 创建连接 
+2017-09-22 19:17:12,030 [48724] DEBUG SyncService-46104728 - 连接成功 useCount 3 size 5
+2017-09-22 19:17:12,055 [48716] DEBUG SyncService-46104728 - 未查询到记录！
+2017-09-22 19:17:12,056 [48716] DEBUG SyncService-46104728 - 创建连接 
+2017-09-22 19:17:14,976 [48716] DEBUG SyncService-46104728 - 连接成功 useCount 4 size 5
+2017-09-22 19:17:14,977 [48716] DEBUG SyncService-46104728 - 创建连接 
+2017-09-22 19:17:18,009 [48716] DEBUG SyncService-46104728 - 连接成功 useCount 5 size 5
+2017-09-22 19:17:18,381 [48360] DEBUG SyncService-46104728 - SyncService OnSessionClosed ce05c8b6-d182-4f42-aae7-a40e64b2ef47
+2017-09-22 19:17:18,382 [48360] DEBUG SyncService-46104728 - 创建连接 
+2017-09-22 19:17:20,577 [48360] DEBUG SyncService-46104728 - 连接成功 useCount 6 size 5

@@ -22,6 +22,8 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
     static Deserializer deserializer = new Deserializer();
     static void ReceviceSyncMsg(SyncSession session, T msg)
     {
+        //Debug.Log("ReceviceSyncMsg " + msg.id);
+
         ConnectionComponent connectComp = session.m_connect;
         WorldBase world = session.m_connect.Entity.World;
         if (connectComp != null)
@@ -74,6 +76,8 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
 
     static int CalcAdvanceFrame(ConnectionComponent connect)
     {
+        return 2;
+
         int frame = connect.rtt / UpdateEngine.IntervalTime + 1;
 
         return frame;

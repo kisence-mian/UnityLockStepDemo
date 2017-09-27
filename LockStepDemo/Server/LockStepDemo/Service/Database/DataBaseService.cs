@@ -14,7 +14,10 @@ public class DataBaseService
         long time = ServiceTime.GetServiceTime();
 
         DbConfig config = new DbConfig();
-
+        config.Server = "54.191.174.49";
+        config.User = "root";
+        config.Password = "83dd961d3ce758ce";
+        config.Database = "ElementCraft";
 
         database = DatabaseFactory.CreateDatabase(config, DbConfig.DbType.MYSQL);
 
@@ -31,6 +34,4 @@ public class DataBaseService
             Debug.LogError("错误代码：" + e.GetErrorCode() + "，错误信息：" + e.GetErrorMsg());
         }
     }
-
-
 }

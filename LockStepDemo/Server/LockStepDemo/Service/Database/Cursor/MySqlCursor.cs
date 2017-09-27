@@ -11,10 +11,12 @@ namespace CDatabase.Cursor
     class MySqlCursor : ICursor
     {
         private MySqlDataReader reader = null;
+        MySqlConnection connect;
 
-        public MySqlCursor(MySqlDataReader reader)
+        public MySqlCursor(MySqlDataReader reader, MySqlConnection connect)
         {
             this.reader = reader;
+            this.connect = connect;
         }
 
         public void Close()
@@ -24,6 +26,7 @@ namespace CDatabase.Cursor
                 reader.Close();
             }
             reader.Dispose();
+            ConnectionPool.getPool().closeConnection(connect);
         }
 
         public int FieldCount()

@@ -60,7 +60,20 @@ namespace LockStepDemo
 
             byte[] buffer = ba.Buffer;
 
-            session.Send(buffer, 0, buffer.Length);
+            try
+            {
+                int time = ServiceTime.GetServiceTime();
+                session.Send(buffer, 0, buffer.Length);
+
+                if(ServiceTime.GetServiceTime()- time > 10)
+                {
+                    Debug.Log("发送时间 " + (ServiceTime.GetServiceTime() - time));
+                }
+            }
+            catch(Exception e)
+            {
+                Debug.LogError("Send Messge Exception " + e.ToString());
+            }
         }
 
 

@@ -21,8 +21,14 @@ class Debug
         Log(content.ToString());
     }
 
-    public static void Log(string content)
+    public static void Log(string content,bool isStackTrace = false)
     {
+        if(isStackTrace)
+        {
+            System.Diagnostics.StackTrace st = new System.Diagnostics.StackTrace();
+            content +="\n"+ st.ToString();
+        }
+
         if (s_logger == null)
         {
             Console.WriteLine("Debug not is init! Log:" + content);
@@ -54,8 +60,14 @@ class Debug
         s_logger.Error(content);
     }
 
-    public static void LogWarning(string content)
+    public static void LogWarning(string content, bool isStackTrace = false)
     {
+        if (isStackTrace)
+        {
+            System.Diagnostics.StackTrace st = new System.Diagnostics.StackTrace();
+            content += "\n" + st.ToString();
+        }
+
         if (s_logger == null)
         {
             Console.WriteLine("Debug not is init! Warning:" + content);

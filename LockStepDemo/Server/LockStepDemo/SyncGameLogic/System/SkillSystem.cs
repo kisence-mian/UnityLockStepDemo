@@ -81,12 +81,12 @@ public class SkillSystem : SystemBase
                 FlyDataGenerate flyData = DataGenerateManager<FlyDataGenerate>.GetData(skillData.m_FlyObjectName[i]);
 
                 TransfromComponent tc = new TransfromComponent();
-                tc.pos.FromVector(poss[i].m_pos);
-                tc.dir.FromVector(poss[i].m_dir);
+                tc.pos = poss[i].m_pos;
+                tc.dir = poss[i].m_dir;
 
                 MoveComponent mc = new MoveComponent();
-                mc.pos.FromVector(poss[i].m_pos);
-                mc.dir.FromVector(poss[i].m_dir);
+                mc.pos = poss[i].m_pos;
+                mc.dir = poss[i].m_dir;
                 mc.m_velocity = (int)(flyData.m_Speed * 1000);
 
                 LifeSpanComponent lsc = new LifeSpanComponent();
@@ -207,8 +207,8 @@ public class SkillSystem : SystemBase
 
 
             CreatPostionInfo cpi = new CreatPostionInfo();
-            cpi.m_pos = pos;
-            cpi.m_dir = dir;
+            cpi.m_pos = mc.pos.DeepCopy();
+            cpi.m_dir = ssc.skillDir.DeepCopy();
 
             result.Add(cpi);
         }
@@ -347,7 +347,7 @@ public class SkillSystem : SystemBase
 
     struct CreatPostionInfo
     {
-        public Vector3 m_pos;
-        public Vector3 m_dir;
+        public SyncVector3 m_pos;
+        public SyncVector3 m_dir;
     }
 }

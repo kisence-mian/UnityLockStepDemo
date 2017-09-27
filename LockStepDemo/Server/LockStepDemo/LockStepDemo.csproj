@@ -121,6 +121,7 @@
     <Compile Include="Generate\Data\ShiftDataGenerate.cs" />
     <Compile Include="Generate\Data\SkillDataGenerate.cs" />
     <Compile Include="Generate\Data\SkillStatusDataGenerate.cs" />
+    <Compile Include="Service\DataBase\ConnectionPool.cs" />
     <Compile Include="Service\Game\Box2D\Box2DXDebug.cs" />
     <Compile Include="Service\Game\Box2D\Collision\BroadPhase.cs" />
     <Compile Include="Service\Game\Box2D\Collision\Collision.CollideCircle.cs" />
@@ -314,9 +315,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Service\Game\Box2D\Collision\TODO.txt" />
-    <EmbeddedResource Include="Config\superSocket.config">
+    <SplashScreen Include="Config\superSocket.config">
       <SubType>Designer</SubType>
-    </EmbeddedResource>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </SplashScreen>
     <None Include="App.config" />
     <Content Include="Config\log4net.config" />
     <None Include="packages.config" />

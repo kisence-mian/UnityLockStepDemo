@@ -178,6 +178,7 @@ public class BuffInfo
         bi.creater = creater;
         bi.buffTime = buffTime;
         bi.buffCount = buffCount;
+        bi.hitTime = hitTime;
 
         return bi;
     }

@@ -46,15 +46,9 @@ public class LifeComponent : MomentComponentBase
 
     void DispatchEvent(int oldValue,int newValue)
     {
-
         if(newValue > oldValue)
         {
             Entity.World.eventSystem.DispatchEvent(GameUtils.GetEventKey(Entity.ID, CharacterEventType.Recover), Entity);
-        }
-
-        if (newValue < oldValue)
-        {
-            Entity.World.eventSystem.DispatchEvent(GameUtils.GetEventKey(Entity.ID, CharacterEventType.Damage), Entity);
         }
     }
 }

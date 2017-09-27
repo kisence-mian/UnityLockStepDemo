@@ -26,12 +26,7 @@ public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
     {
         //TODO 读取配置设置isDebug
         Debug.SetLogger(Logger, true);
-        Debug.Log("SyncService Setup");
-
-        Debug.Log(MD5Tool.GetStringToHash("123456PlayerHaHa"));
-        Debug.Log(MD5Tool.GetStringToHash("1000Fly3000"));
-        Debug.Log(MD5Tool.GetStringToHash("assdf"));
-        Debug.Log(MD5Tool.GetStringToHash("200PlayerHeiHei"));
+        Debug.Log("SyncService Setup Mode: " + config.Mode);
 
         DataBaseService.Init();
 

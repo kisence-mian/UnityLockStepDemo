@@ -16,7 +16,8 @@ namespace CDatabase
         private static MySqlDatabase instance = null;
         private DbConfig config = null;
 
-        private MySqlConnection connection = null;
+        private ConnectionPool connectPool;
+        //private MySqlConnection connection = null;
 
         private MySqlDatabase(DbConfig config)
         {
@@ -30,7 +31,16 @@ namespace CDatabase
             string connectionStr = String.Format(
                 "server={0};port={1};user={2};password={3}",
                 server, port, user, password);
-            connection = new MySqlConnection(connectionStr);
+
+            ConnectionPool.Init(connectionStr, config.Database);
+
+            connectPool = ConnectionPool.getPool();
+
+            MySqlConnection  conn = connectPool.getConnection();
+
+            connectPool.closeConnection(conn);
+
+            //connection = new MySqlConnection(connectionStr);
         }
 
         public static MySqlDatabase GetInstance(DbConfig config)
@@ -45,13 +55,13 @@ namespace CDatabase
 
         public void ChangeDatabase(string database)
         {
-            ConnectionState state = connection.State;
+            ConnectionState state = connectPool.getConnection().State;
 
             if(state.HasFlag(ConnectionState.Open))
             {
                 try
                 {
-                    connection.ChangeDatabase(database);
+                    connectPool.getConnection().ChangeDatabase(database);
                     config.Database = database;
                 }
                 catch (MySqlException e)
@@ -63,49 +73,42 @@ namespace CDatabase
 
         public bool IsOpen()
         {
-            ConnectionState state = connection.State;
-
-            if (state.HasFlag(ConnectionState.Open))
-            {
-                return true;
-            }
-
-            return false;
+            return true;
         }
 
         public void Open()
         {
-            ConnectionState state = connection.State;
+            //ConnectionState state = connectPool.getConnection().State;
 
-            if (!state.HasFlag(ConnectionState.Open))
-            {
-                try
-                {
-                    connection.Open();
-                    connection.ChangeDatabase(config.Database);
-                }
-                catch (MySqlException e)
-                {
-                    throw new DatabaseException(DbConfig.DbType.MYSQL, e.Number);
-                }
-            }
+            //if (!state.HasFlag(ConnectionState.Open))
+            //{
+            //    try
+            //    {
+            //        connectPool.getConnection().Open();
+            //        connectPool.getConnection().ChangeDatabase(config.Database);
+            //    }
+            //    catch (MySqlException e)
+            //    {
+            //        throw new DatabaseException(DbConfig.DbType.MYSQL, e.Number);
+            //    }
+            //}
         }
 
         public void Close()
         {
-            ConnectionState state = connection.State;
+            //ConnectionState state = connection.State;
 
-            if (!state.HasFlag(ConnectionState.Closed))
-            {
-                try
-                {
-                    connection.Close();
-                }
-                catch (MySqlException e)
-                {
-                    throw new DatabaseException(DbConfig.DbType.MYSQL, e.Number);
-                }
-            }
+            //if (!state.HasFlag(ConnectionState.Closed))
+            //{
+            //    try
+            //    {
+            //        connection.Close();
+            //    }
+            //    catch (MySqlException e)
+            //    {
+            //        throw new DatabaseException(DbConfig.DbType.MYSQL, e.Number);
+            //    }
+            //}
         }
 
         public int ExecSQL(string sql, string[] bindArgs)
@@ -122,10 +125,12 @@ namespace CDatabase
                 sql = Function.CompleteArgsToSql(sql, bindArgs);
             }
 
-            MySqlCommand command = new MySqlCommand(sql, connection);
+            MySqlConnection connect = connectPool.getConnection();
+
+            MySqlCommand command = new MySqlCommand(sql, connect);
             effect = command.ExecuteNonQuery();
             command.Dispose();
-
+            connectPool.closeConnection(connect);
             return effect;
         }
 
@@ -159,15 +164,17 @@ namespace CDatabase
             fieldParams = fieldParams.Substring(0, fieldParams.Length - 1);
             valueParams = valueParams.Substring(0, valueParams.Length - 1);
 
+            MySqlConnection connect = connectPool.getConnection();
+
             string cmd = String.Format("INSERT INTO {0} ({1}) VALUES ({2})", table, fieldParams, valueParams);
-            MySqlCommand command = new MySqlCommand(cmd, connection);
+            MySqlCommand command = new MySqlCommand(cmd, connect);
 
             if (command.ExecuteNonQuery() > 0)
             {
                 insertedId = command.LastInsertedId;
             }
             command.Dispose();
-
+            connectPool.closeConnection(connect);
             return insertedId;
         }
 
@@ -183,10 +190,14 @@ namespace CDatabase
                 whereClause = Function.CompleteArgsToSql(whereClause, whereArgs);
             }
 
+            MySqlConnection connect = connectPool.getConnection();
+
             string cmd = String.Format("DELETE FROM {0} WHERE {1}", table, whereClause);
-            MySqlCommand command = new MySqlCommand(cmd, connection);
+            MySqlCommand command = new MySqlCommand(cmd, connect);
             int effect = command.ExecuteNonQuery();
             command.Dispose();
+
+            connectPool.closeConnection(connect);
 
             return effect;
         }
@@ -209,12 +220,15 @@ namespace CDatabase
             {
                 whereClause = Function.CompleteArgsToSql(whereClause, whereArgs);
             }
+            MySqlConnection connect = connectPool.getConnection();
 
             string cmd = String.Format("UPDATE {0} SET {1} WHERE {2}", table, valueParams, whereClause);
-            MySqlCommand command = new MySqlCommand(cmd, connection);
+            MySqlCommand command = new MySqlCommand(cmd, connect);
 
             int effect = command.ExecuteNonQuery();
             command.Dispose();
+
+            connectPool.closeConnection(connect);
 
             return effect;
         }
@@ -294,11 +308,12 @@ namespace CDatabase
                 Open();
             }
 
-            MySqlCommand command = new MySqlCommand(cmd, connection);
-            MySqlDataReader reader = command.ExecuteReader();
-            command.Dispose();
+            MySqlConnection connect = connectPool.getConnection();
 
-            return new MySqlCursor(reader);
+            MySqlCommand command = new MySqlCommand(cmd, connect);
+            MySqlDataReader reader = command.ExecuteReader();
+
+            return new MySqlCursor(reader, connect);
         }
     }
 }

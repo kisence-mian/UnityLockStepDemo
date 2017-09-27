@@ -66,8 +66,6 @@ namespace Protocol
 
         public ProtocolReceiveFilter()
         {
-
-
             m_protocolInfo = ReadProtocolInfo(FileTool.ReadStringByFile(Environment.CurrentDirectory + "/Network/" + c_ProtocolFileName + ".txt"));
             ReadMethodNameInfo(
                 out m_methodNameInfo,

@@ -144,8 +144,9 @@ public class SkillUtils
         }
 
         lc.Life -= damageNumber;
+        world.eventSystem.DispatchEvent(GameUtils.GetEventKey(hurter.ID, CharacterEventType.Damage), hurter);
 
-        if(lc.Life < 0)
+        if (lc.Life < 0)
         {
             if(attacker.GetExistComp<PlayerComponent>()
                 && hurter.GetExistComp<PlayerComponent>()

@@ -23,7 +23,7 @@ public class LifeSpanSystem : SystemBase
             LifeSpanComponent lsc = list[i].GetComp<LifeSpanComponent>();
             lsc.lifeTime -= deltaTime;
 
-            Debug.Log("lsc.lifeTime  " + lsc.lifeTime + " frame " + m_world.FrameCount);
+            //Debug.Log("lsc.lifeTime  " + lsc.lifeTime + " frame " + m_world.FrameCount);
 
             if (lsc.lifeTime < 0)
             {
