@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class FireSystem : ViewSystemBase
 {
-    const int Element_NoChoice = -1;
+
 
     public override Type[] GetFilter()
     {
@@ -33,15 +33,17 @@ public class FireSystem : ViewSystemBase
 
             //Debug.Log(cc.element1 + " --> " + cc.element2 + " CanFire " + (cdc.CD <= 0));
 
-            if (cc.skillDir.ToVector() != Vector3.zero
+            if (ssc.skillDirCache.ToVector() != Vector3.zero
                 && cc.isFire
-                && cdc.CD <= 0)
+                && cdc.CD <= 0
+                && !pc.GetIsDizziness()
+                
+                && cc.skillDir.ToVector() == Vector3.zero
+                )
             {
                 cdc.CD = 2 * 1000;
 
-                //FIRE!!! 2000 2002技能可用
-                
-                string skillID = GetSkillName(cc);
+                string skillID = SkillUtils.GetSkillName(cc);
 
                 //Debug.Log("FIRE!!! --> " + skillID);
 
@@ -50,51 +52,14 @@ public class FireSystem : ViewSystemBase
                 ssc.m_isTriggerSkill = false;
                 ssc.m_currentSkillData = ssc.GetSkillData(skillID);
                 ssc.m_currentSkillData.UpdateInfo();
-                ssc.skillDir = cc.skillDir.DeepCopy();
+
+                ssc.skillDir = ssc.skillDirCache.DeepCopy();
             }
+
+            ssc.skillDirCache = cc.skillDir.DeepCopy();
         }
     }
 
 
-    DataTable m_comboData;
-    string GetSkillName(CommandComponent cmd)
-    {
-        if (m_comboData == null)
-        {
-            m_comboData = DataManager.GetData("CombineData");
-        }
 
-        if (cmd.element1 == Element_NoChoice && cmd.element2 == Element_NoChoice)
-        {
-            return DataGenerateManager<CombineDataGenerate>.GetData(m_comboData.TableIDs[0]).m_key;
-        }
-
-        for (int i = 0; i < m_comboData.TableIDs.Count; i++)
-        {
-            CombineDataGenerate data = DataGenerateManager<CombineDataGenerate>.GetData(m_comboData.TableIDs[i]);
-            if (data.m_ele_1 != Element_NoChoice &&
-                data.m_ele_2 != Element_NoChoice
-                )
-            {
-                if ((data.m_ele_1 == cmd.element1 && data.m_ele_2 == cmd.element2)
-                    || (data.m_ele_2 ==cmd.element1 && data.m_ele_1 == cmd.element2)
-                    )
-                {
-                    return data.m_key;
-                }
-            }
-            else
-            {
-                if ((data.m_ele_1 == cmd.element1 && data.m_ele_2 == 0)
-                    || (data.m_ele_2 == cmd.element2 && data.m_ele_1 == 0)
-                    )
-                {
-                    return data.m_key;
-                }
-            }
-        }
-
-        //Error!
-        throw new System.Exception("Not Find SkillName!");
-    }
 }

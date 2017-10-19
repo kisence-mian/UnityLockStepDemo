@@ -6,6 +6,55 @@ using UnityEngine;
 
 public class SkillUtils
 {
+    const int Element_NoChoice = -1;
+
+    #region 技能查找
+
+    static DataTable s_comboData;
+    public static string GetSkillName(CommandComponent cmd)
+    {
+        if (s_comboData == null)
+        {
+            s_comboData = DataManager.GetData("CombineData");
+        }
+
+        if (cmd.element1 == Element_NoChoice && cmd.element2 == Element_NoChoice)
+        {
+            return DataGenerateManager<CombineDataGenerate>.GetData(s_comboData.TableIDs[0]).m_key;
+        }
+
+        for (int i = 0; i < s_comboData.TableIDs.Count; i++)
+        {
+            CombineDataGenerate data = DataGenerateManager<CombineDataGenerate>.GetData(s_comboData.TableIDs[i]);
+            if (data.m_ele_1 != Element_NoChoice &&
+                data.m_ele_2 != Element_NoChoice
+                )
+            {
+                if ((data.m_ele_1 == cmd.element1 && data.m_ele_2 == cmd.element2)
+                    || (data.m_ele_2 == cmd.element1 && data.m_ele_1 == cmd.element2)
+                    )
+                {
+                    return data.m_key;
+                }
+            }
+            else
+            {
+                if ((data.m_ele_1 == cmd.element1 && data.m_ele_2 == 0)
+                    || (data.m_ele_2 == cmd.element2 && data.m_ele_1 == 0)
+                    )
+                {
+                    return data.m_key;
+                }
+            }
+        }
+
+        //Error!
+        throw new System.Exception("Not Find SkillName!");
+    }
+
+    #endregion
+
+    #region 飞行物
     public static void FlyDamageLogic(WorldBase world, EntityBase fly, EntityBase entity)
     {
         FlyObjectComponent fc = fly.GetComp<FlyObjectComponent>();
@@ -25,6 +74,8 @@ public class SkillUtils
         //释放触发技能
         //TokenUseSkill(world,campComp.creater,fc.FlyData.m_TriggerSkill, mc.pos.ToVector(),mc.dir.ToVector());
     }
+
+    #endregion
 
     #region 技能代处理
 
@@ -164,19 +215,19 @@ public class SkillUtils
 
     #region 范围拓展方法
 
-    public static Area UpdatSkillArea(Area area, SkillDataGenerate skillData, EntityBase skiller, EntityBase aim = null)
+    public static Area UpdatSkillArea(Area area, Vector3 dir, SkillDataGenerate skillData, EntityBase skiller, EntityBase aim = null)
     {
         string effectArea = skillData.m_EffectArea;
-        UpdateArea(area, effectArea, skiller, aim);
+        UpdateArea(area, effectArea, dir, skiller, aim);
         return area;
     }
 
-    public static void UpdateArea(Area area, string areaID, EntityBase skiller, EntityBase aim = null)
+    public static void UpdateArea(Area area, string areaID,Vector3 dir, EntityBase skiller, EntityBase aim = null)
     {
         MoveComponent smc = skiller.GetComp<MoveComponent>();
 
         AreaDataGenerate areaData = DataGenerateManager<AreaDataGenerate>.GetData(areaID);
-        Vector3 dir = GetAreaDir(area, areaData, skiller, aim);
+        Vector3 dirTmp = GetAreaDir(area, areaData, dir,skiller, aim);
 
         area.areaType = areaData.m_Shape;
         area.length = areaData.m_Length;
@@ -184,16 +235,16 @@ public class SkillUtils
         area.angle = areaData.m_Angle;
         area.radius = areaData.m_Radius;
 
-        area.direction = dir.normalized;
+        area.direction = dirTmp.normalized;
         area.position = smc.pos.ToVector() + area.direction * areaData.m_SkewDistance;
 
         //Debug.Log( "skiller forward"+skiller.transform.forward);
     }
 
-    public static Vector3 GetAreaDir(Area area, AreaDataGenerate areaData, EntityBase skiller, EntityBase aim = null)
+    public static Vector3 GetAreaDir(Area area, AreaDataGenerate areaData,Vector3 dir ,EntityBase skiller, EntityBase aim = null)
     {
         MoveComponent smc = skiller.GetComp<MoveComponent>();
-        SkillStatusComponent ssc = skiller.GetComp<SkillStatusComponent>();
+        //SkillStatusComponent ssc = skiller.GetComp<SkillStatusComponent>();
 
         Vector3 l_dir = Vector3.zero;
         if (aim == null)
@@ -201,18 +252,18 @@ public class SkillUtils
             switch (areaData.m_SkewDirection)
             {
                 case DirectionEnum.Forward:
-                    l_dir = ssc.skillDir.ToVector();
+                    l_dir = dir;
                     break;
                 case DirectionEnum.Backward:
-                    l_dir = ssc.skillDir.ToVector() * -1;
+                    l_dir = dir * -1;
                     break;
                 case DirectionEnum.Close:
                     Debug.LogError("没有aim，不能使用" + areaData.m_SkewDirection + "方向,修正为forward");
-                    l_dir = ssc.skillDir.ToVector();
+                    l_dir = dir;
                     break;
                 case DirectionEnum.Leave:
                     Debug.LogError("没有aim，不能使用" + areaData.m_SkewDirection + "方向,修正为Backward");
-                    l_dir = ssc.skillDir.ToVector() * -1; break;
+                    l_dir = dir * -1; break;
                 default:
                     Debug.LogError("没有aim，不能使用" + areaData.m_SkewDirection + "方向");
                     break;
@@ -225,8 +276,8 @@ public class SkillUtils
 
             switch (areaData.m_SkewDirection)
             {
-                case DirectionEnum.Forward: l_dir = ssc.skillDir.ToVector(); break;
-                case DirectionEnum.Backward: l_dir = ssc.skillDir.ToVector() * -1; break;
+                case DirectionEnum.Forward: l_dir = dir; break;
+                case DirectionEnum.Backward: l_dir = dir * -1; break;
                 case DirectionEnum.Leave: l_dir = amc.pos.ToVector() - smc.pos.ToVector(); break;
                 case DirectionEnum.Close: l_dir = smc.pos.ToVector() - amc.pos.ToVector(); break;
             }

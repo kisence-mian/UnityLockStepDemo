@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using UnityEngine;
 
 public class CreateItemSystem : SystemBase
 {
@@ -14,7 +14,7 @@ public class CreateItemSystem : SystemBase
         };
     }
 
-    public override void NoRecalcBeforeFixedUpdate(int deltaTime)
+    public override void FixedUpdate(int deltaTime)
     {
         List<EntityBase> list = GetEntityList();
 
@@ -25,14 +25,17 @@ public class CreateItemSystem : SystemBase
 
             icpc.CreateTimer -= deltaTime;
 
-            if (icpc.CreateTimer <= 0)
+            //Debug.Log("CreateTimer " + icpc.CreateTimer + " frame " + m_world.FrameCount);
+
+            if (CanCreate(cc))
             {
-                if(CanCreate(cc))
+                if (icpc.CreateTimer <= 0)
                 {
                     CreateRandomItem(icpc);
                 }
-               
-
+            }
+            else
+            {
                 icpc.CreateTimer = 10 * 1000;
             }
         }
@@ -42,6 +45,7 @@ public class CreateItemSystem : SystemBase
     {
         //创建一个可以捡的道具
         CollisionComponent colc = new CollisionComponent();
+        colc.area.direction = new Vector3(1, 0, 0);
         colc.area.position = comp.pos.ToVector();
         colc.area.areaType = AreaType.Circle;
         colc.area.radius = 0.5f;
@@ -52,8 +56,10 @@ public class CreateItemSystem : SystemBase
 
         tc.pos = comp.pos;
 
-        Random random = new Random();
-        int r =  random.Next() % comp.randomList.Count;
+        int r =  m_world.GetRandom() % comp.randomList.Count;
+
+        //Debug.Log("r " + r + " comp.randomList.Count " + comp.randomList.Count);
+
         assert.m_assetName = comp.randomList[r];
 
         string identify = comp.Entity.ID + "Item" + comp.pos.ToVector(); //通过标识符保证唯一ID
@@ -64,7 +70,7 @@ public class CreateItemSystem : SystemBase
     {
         for (int i = 0; i < comp.CollisionList.Count; i++)
         {
-            if(comp.CollisionList[i].GetExistComp<ItemComponent>())
+            if (comp.CollisionList[i].GetExistComp<ItemComponent>())
             {
                 return false;
             }

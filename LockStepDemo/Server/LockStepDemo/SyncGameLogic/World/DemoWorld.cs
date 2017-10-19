@@ -42,6 +42,7 @@ class DemoWorld : WorldBase
     public override Type[] GetRecordTypes()
     {
         return new Type[] {
+            //typeof(ItemCreatePointComponent),
         };
     }
 

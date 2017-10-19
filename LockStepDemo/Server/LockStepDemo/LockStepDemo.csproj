@@ -187,6 +187,7 @@
     <Compile Include="Service\DataBase\IException.cs" />
     <Compile Include="ECS\ECSEvent.cs" />
     <Compile Include="Service\Game\GameMessageService.cs" />
+    <Compile Include="Service\KCP\KCP.cs" />
     <Compile Include="Service\Message\ProtocolMessage.cs" />
     <Compile Include="Service\Module\Player.cs" />
     <Compile Include="Service\Service\Define\ServiceEventDefine.cs" />
@@ -204,7 +205,7 @@
     <Compile Include="Generate\Protocol\ProtocolMessageClass.cs" />
     <Compile Include="Reflect\DeJson.cs" />
     <Compile Include="Reflect\MiniJSON.cs" />
-    <Compile Include="Service\Game\CommandMessageService.cs" />
+    <Compile Include="Service\ServiceLogic\CommandMessageService.cs" />
     <Compile Include="Service\ServiceLogic\System\PlayerInputSystem.cs" />
     <Compile Include="Service\ServiceLogic\Component\PlayerCommandBase.cs" />
     <Compile Include="Service\ServiceLogic\Component\SelfComponent.cs" />
@@ -226,8 +227,8 @@
     <Compile Include="Reflect\ReflectTool.cs" />
     <Compile Include="Service\SyncService.cs" />
     <Compile Include="Service\SyncSession.cs" />
-    <Compile Include="Service\Game\UpdateEngine.cs" />
-    <Compile Include="Service\Game\WorldManager.cs" />
+    <Compile Include="Service\ServiceLogic\UpdateEngine.cs" />
+    <Compile Include="Service\ServiceLogic\WorldManager.cs" />
     <Compile Include="Service\Utils\MD5Tool.cs" />
     <Compile Include="Service\Utils\ServiceTime.cs" />
     <Compile Include="SyncGameLogic\Component\AssetComponent.cs" />

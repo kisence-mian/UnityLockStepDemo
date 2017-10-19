@@ -27,6 +27,7 @@ public static class ProtocolAnalysisService
 			case  "commandcomponent":SendCommandComponent(session , (CommandComponent)msg);break;
 			case  "playerloginmsg_c":SendPlayerLoginMsg_c(session , (PlayerLoginMsg_c)msg);break;
 			case  "playermatchmsg_c":SendPlayerMatchMsg_c(session , (PlayerMatchMsg_c)msg);break;
+			case  "playerrename_c":SendPlayerRename_c(session , (PlayerRename_c)msg);break;
 			case  "playerresurgence_c":SendPlayerResurgence_c(session , (PlayerResurgence_c)msg);break;
 			case  "playerselectcharacter_c":SendPlayerSelectCharacter_c(session , (PlayerSelectCharacter_c)msg);break;
 			default:
@@ -37,7 +38,7 @@ public static class ProtocolAnalysisService
 	static void SendAffirmMsg(SyncSession session,Protocol.AffirmMsg msg)
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
-		data.Add("frame", msg.frame);
+		data.Add("index", msg.index);
 		data.Add("time", msg.time);
 		session.SendMsg("affirmmsg",data);
 	}
@@ -69,7 +70,7 @@ public static class ProtocolAnalysisService
 	static void SendCommandMsg(SyncSession session,Protocol.CommandMsg msg)
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
-		data.Add("frame", msg.frame);
+		data.Add("index", msg.index);
 		data.Add("servertime", msg.serverTime);
 		{
 			List<object> list2 = new List<object>();
@@ -143,6 +144,7 @@ public static class ProtocolAnalysisService
 		data.Add("frame", msg.frame);
 		data.Add("advancecount", msg.advanceCount);
 		data.Add("servertime", msg.serverTime);
+		data.Add("updatespeed", msg.updateSpeed);
 		session.SendMsg("pursuemsg",data);
 	}
 	static void SendStartSyncMsg(SyncSession session,Protocol.StartSyncMsg msg)
@@ -152,6 +154,7 @@ public static class ProtocolAnalysisService
 		data.Add("advancecount", msg.advanceCount);
 		data.Add("intervaltime", msg.intervalTime);
 		data.Add("createentityindex", msg.createEntityIndex);
+		data.Add("randomseed", msg.randomSeed);
 		data.Add("syncrule", (int)msg.SyncRule);
 		session.SendMsg("startsyncmsg",data);
 	}
@@ -230,6 +233,13 @@ public static class ProtocolAnalysisService
 		data.Add("ismatched", msg.isMatched);
 		session.SendMsg("playermatchmsg",data);
 	}
+	static void SendPlayerRename_c(SyncSession session,PlayerRename_c msg)
+	{
+		Dictionary<string, object> data = new Dictionary<string, object>();
+		data.Add("code", msg.code);
+		data.Add("newname", msg.newName);
+		session.SendMsg("playerrename",data);
+	}
 	static void SendPlayerResurgence_c(SyncSession session,PlayerResurgence_c msg)
 	{
 		Dictionary<string, object> data = new Dictionary<string, object>();
@@ -260,6 +270,7 @@ public static class ProtocolAnalysisService
 			case  "commandcomponent":ReceviceCommandComponent(session , cmd);break;
 			case  "playerloginmsg":RecevicePlayerLoginMsg_s(session , cmd);break;
 			case  "playermatchmsg":RecevicePlayerMatchMsg_s(session , cmd);break;
+			case  "playerrename":RecevicePlayerRename_s(session , cmd);break;
 			case  "playerresurgence":RecevicePlayerResurgence_s(session , cmd);break;
 			case  "playerselectcharacter":RecevicePlayerSelectCharacter_s(session , cmd);break;
 			default:
@@ -270,7 +281,7 @@ public static class ProtocolAnalysisService
 	static void ReceviceAffirmMsg(SyncSession session ,ProtocolRequestBase e)
 	{
 		Protocol.AffirmMsg msg = new Protocol.AffirmMsg();
-		msg.frame = (int)e.m_data["frame"];
+		msg.index = (int)e.m_data["index"];
 		msg.time = (int)e.m_data["time"];
 		
 		EventService.DispatchTypeEvent(session,msg);
@@ -307,7 +318,7 @@ public static class ProtocolAnalysisService
 	static void ReceviceCommandMsg(SyncSession session ,ProtocolRequestBase e)
 	{
 		Protocol.CommandMsg msg = new Protocol.CommandMsg();
-		msg.frame = (int)e.m_data["frame"];
+		msg.index = (int)e.m_data["index"];
 		msg.serverTime = (int)e.m_data["servertime"];
 		{
 			List<Dictionary<string, object>> data2 = (List<Dictionary<string, object>>)e.m_data["msg"];
@@ -389,6 +400,7 @@ public static class ProtocolAnalysisService
 		msg.frame = (int)e.m_data["frame"];
 		msg.advanceCount = (int)e.m_data["advancecount"];
 		msg.serverTime = (int)e.m_data["servertime"];
+		msg.updateSpeed = (float)(double)e.m_data["updatespeed"];
 		
 		EventService.DispatchTypeEvent(session,msg);
 	}
@@ -399,6 +411,7 @@ public static class ProtocolAnalysisService
 		msg.advanceCount = (int)e.m_data["advancecount"];
 		msg.intervalTime = (int)e.m_data["intervaltime"];
 		msg.createEntityIndex = (int)e.m_data["createentityindex"];
+		msg.randomSeed = (int)e.m_data["randomseed"];
 		msg.SyncRule = (SyncRule)e.m_data["syncrule"];
 		
 		EventService.DispatchTypeEvent(session,msg);
@@ -473,6 +486,13 @@ public static class ProtocolAnalysisService
 	{
 		PlayerMatchMsg_s msg = new PlayerMatchMsg_s();
 		msg.isCancel = (bool)e.m_data["iscancel"];
+		
+		EventService.DispatchTypeEvent(session,msg);
+	}
+	static void RecevicePlayerRename_s(SyncSession session ,ProtocolRequestBase e)
+	{
+		PlayerRename_s msg = new PlayerRename_s();
+		msg.newName = e.m_data["newname"].ToString();
 		
 		EventService.DispatchTypeEvent(session,msg);
 	}

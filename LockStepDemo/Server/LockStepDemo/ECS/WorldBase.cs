@@ -23,7 +23,6 @@ public class WorldBase
     bool m_isStart = false;
     bool m_isView = false; //是否是在客户端运行
     public bool m_isCertainty = false;
-    public bool m_isRecalc = false;
     public bool m_isLocal = false;
 
     public bool IsStart
@@ -147,6 +146,16 @@ public class WorldBase
                 tmp.Init();
             }
 
+            //初始化RecordSystem
+            types = GetRecordSystemTypes();
+            for (int i = 0; i < types.Length; i++)
+            {
+                RecordSystemBase tmp = (RecordSystemBase)types[i].Assembly.CreateInstance(types[i].FullName);
+                m_recordList.Add(tmp);
+                tmp.m_world = this;
+                tmp.Init();
+            }
+
             //初始化RecordComponent
             types = GetRecordTypes();
             for (int i = 0; i < types.Length; i++)
@@ -157,16 +166,6 @@ public class WorldBase
                 RecordSystemBase tmp = (RecordSystemBase)Activator.CreateInstance(type); ;
                 m_recordList.Add(tmp);
                 m_recordDict.Add(types[i].Name, tmp);
-                tmp.m_world = this;
-                tmp.Init();
-            }
-
-            //初始化RecordSystem
-            types = GetRecordSystemTypes();
-            for (int i = 0; i < types.Length; i++)
-            {
-                RecordSystemBase tmp = (RecordSystemBase)types[i].Assembly.CreateInstance(types[i].FullName);
-                m_recordList.Add(tmp);
                 tmp.m_world = this;
                 tmp.Init();
             }
@@ -227,12 +226,6 @@ public class WorldBase
 
             FrameCount++;
 
-            if (SyncDebugSystem.isDebug)
-            {
-                string content = "Begin FixedLoop " + FrameCount + "------------\n";
-                SyncDebugSystem.syncLog += content;
-            }
-
             NoRecalcBeforeFixedUpdate(deltaTime);
 
             BeforeFixedUpdate(deltaTime);
@@ -244,12 +237,6 @@ public class WorldBase
             LazyExecuteEntityOperation();
 
             EndFrame(deltaTime);
-
-            if (SyncDebugSystem.isDebug)
-            {
-                string content = "End FixedLoop " + FrameCount + "------------\n";
-                SyncDebugSystem.syncLog += content;
-            }
         }
     }
 
@@ -259,7 +246,7 @@ public class WorldBase
     /// <param name="deltaTime"></param>
     public void Recalc(int frame,int deltaTime)
     {
-        FrameCount++;
+        FrameCount = frame;
 
         OnlyCallByReCalc(frame,deltaTime);
 
@@ -357,6 +344,8 @@ public class WorldBase
 
     public void Record(int frame)
     {
+        RandomRecord(frame);
+
         for (int i = 0; i < m_recordList.Count; i++)
         {
             m_recordList[i].Record(frame);
@@ -365,6 +354,8 @@ public class WorldBase
 
     public void RevertToFrame(int frame)
     {
+        RandomRevertToFrame(frame); //随机数回滚
+
         for (int i = 0; i < m_recordList.Count; i++)
         {
             m_recordList[i].RevertToFrame(frame);
@@ -458,23 +449,14 @@ public class WorldBase
         //    return;
         //}
 
+        //if (!m_isCertainty)
+        //    return;
+
         identifier = FrameCount + identifier;
 
-        Debug.Log("identifier " + identifier);
+        //Debug.Log("identifier " + identifier + " hash: " + identifier.ToHash());
 
         CreateEntity(identifier.ToHash(), comps);
-    }
-
-    /// <summary>
-    /// 客户端创建的实体,不影响同步
-    /// </summary>
-    /// <param name="comps"></param>
-    public void CreateEntityImmediately(string conetnt,params ComponentBase[] comps)
-    {
-        //状态同步本地不创建实体
-        EntityBase entity = NewEntity(conetnt.ToHash(), comps);
-
-        CreateEntityAndDispatch(entity);
     }
 
     /// <summary>
@@ -492,6 +474,34 @@ public class WorldBase
         EntityBase entity = NewEntity(ID, compList);
 
         createCache.Add(entity);
+
+        return entity;
+    }
+
+    /// <summary>
+    /// 立即创建一个实体，不要在游戏逻辑中使用
+    /// </summary>
+    public void CreateEntityImmediately(string identifier, params ComponentBase[] compList)
+    {
+        identifier = FrameCount + identifier;
+        CreateEntityImmediately(identifier.ToHash(), compList);
+    }
+
+    /// <summary>
+    /// 立即创建一个实体，不要在游戏逻辑中使用
+    /// </summary>
+    /// <param name="ID"></param>
+    /// <param name="compList"></param>
+    /// <returns></returns>
+    public EntityBase CreateEntityImmediately(int ID, params ComponentBase[] compList)
+    {
+        if (m_entityDict.ContainsKey(ID))
+        {
+            throw new Exception("CreateEntity Exception: Entity ID has exist ! ->" + ID + "<-");
+        }
+
+        EntityBase entity = NewEntity(ID, compList);
+        CreateEntityAndDispatch(entity);
 
         return entity;
     }
@@ -516,38 +526,42 @@ public class WorldBase
 
     void AddEntity(EntityBase entity)
     {
-        if(m_isRecalc)
+        if(m_isCertainty)
         {
             RecalcCreateEntity(entity);
         }
         else
         {
+            //Debug.Log("预测创建 " + entity.ID + " frame " + FrameCount);
             CreateEntityAndDispatch(entity);
         }
     }
 
     void CreateEntityAndDispatch(EntityBase entity)
     {
-        if (m_entityDict.ContainsKey(entity.ID))
+        CreateEntityNoDispatch(entity);
+        DispatchCreate(entity);
+    }
+
+    void DispatchCreate(EntityBase entity)
+    {
+        try
         {
-            Debug.LogError("创建实体 id 冲突！ " + entity.ID);
+            if (OnEntityCreated != null)
+            {
+                OnEntityCreated(entity);
+            }
         }
-
-        m_entityList.Add(entity);
-        m_entityDict.Add(entity.ID, entity);
-
-        entity.OnComponentAdded += DispatchEntityComponentAdded;
-        entity.OnComponentRemoved += DispatchEntityComponentRemoved;
-        entity.OnComponentReplaced += DispatchEntityComponentChange;
-
-        if (OnEntityCreated != null)
+        catch(Exception e)
         {
-            OnEntityCreated(entity);
+            Debug.LogError("DispatchCreate " + e.ToString());
         }
     }
 
     void CreateEntityNoDispatch(EntityBase entity)
     {
+        //Debug.Log("从实体列表中添加 " + entity.ID + " frame " + FrameCount);
+
         if (m_entityDict.ContainsKey(entity.ID))
         {
             Debug.LogError("CreateEntityNoDispatch 创建实体 id 冲突！ " + entity.ID);
@@ -576,6 +590,11 @@ public class WorldBase
         //    }
         //}
 
+        //if (!m_isCertainty)
+        //    return;
+
+        //Debug.Log("ClientDestroyEntity ID " + ID + " frame " + FrameCount);
+
         DestroyEntity(ID);
     }
 
@@ -583,53 +602,68 @@ public class WorldBase
     {
         if (!m_entityDict.ContainsKey(ID))
         {
-            throw new Exception("DestroyEntity Exception: Entity ID has not exist ! ->" + ID + "<-");
+            //throw new Exception("DestroyEntity Exception: Entity ID has not exist ! ->" + ID + "<-");
         }
 
         EntityBase entity = m_entityDict[ID];
 
         if(!destroyCache.Contains(entity))
             destroyCache.Add(entity);
+        else
+        {
+            //Debug.Log("已经在删除队列 不重复添加");
+        }
     }
 
     void RemoveEntity(EntityBase entity)
     {
-        if(m_isRecalc)
+        if(m_isCertainty)
         {
             RecalcDestroyEntity(entity);
         }
         else
         {
+            //Debug.Log("预测摧毁 " + entity.ID + " frame " + FrameCount);
             DestroyEntityAndDispatch(entity);
         }
     }
 
     void DestroyEntityAndDispatch(EntityBase entity)
     {
-        if (OnEntityWillBeDestroyed != null)
+        DestroyEntityNoDispatch(entity);
+        DispatchDestroy(entity);
+    }
+
+    void DispatchDestroy(EntityBase entity)
+    {
+        try
         {
-            OnEntityWillBeDestroyed(entity);
+            if (OnEntityWillBeDestroyed != null)
+            {
+                OnEntityWillBeDestroyed(entity);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("DispatchDestroy OnEntityWillBeDestroyed: " + e.ToString());
         }
 
-        m_entityList.Remove(entity);
-        m_entityDict.Remove(entity.ID);
-
-        entity.OnComponentAdded -= DispatchEntityComponentAdded;
-        entity.OnComponentRemoved -= DispatchEntityComponentRemoved;
-        entity.OnComponentReplaced -= DispatchEntityComponentChange;
-
-        if (OnEntityDestroyed != null)
+        try
         {
-            OnEntityDestroyed(entity);
+            if (OnEntityDestroyed != null)
+            {
+                OnEntityDestroyed(entity);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("DispatchDestroy OnEntityDestroyed: " + e.ToString());
         }
     }
 
     void DestroyEntityNoDispatch(EntityBase entity)
     {
-        if (OnEntityWillBeDestroyed != null)
-        {
-            OnEntityWillBeDestroyed(entity);
-        }
+        //Debug.Log("从实体列表中移除 " + entity.ID + " frame " + FrameCount);
 
         m_entityList.Remove(entity);
         m_entityDict.Remove(entity.ID);
@@ -727,24 +761,30 @@ public class WorldBase
     //重计算结束，延迟派发事件
     public void EndRecalc()
     {
+        //Debug.Log("重计算结束 延迟派发事件");
+
         for (int i = 0; i < rollbackCreateCache.Count; i++)
         {
-            DestroyEntityAndDispatch(rollbackCreateCache[i]);
+            //Debug.Log("派发摧毁 " + rollbackCreateCache[i].ID + " frame " + FrameCount);
+            DispatchDestroy(rollbackCreateCache[i]);
         }
         rollbackCreateCache.Clear();
 
         for (int i = 0; i < rollbackDestroyCache.Count; i++)
         {
-            CreateEntityAndDispatch(rollbackDestroyCache[i]);
+            //Debug.Log("派发创建 " + rollbackDestroyCache[i].ID + " frame " + FrameCount);
+            DispatchCreate(rollbackDestroyCache[i]);
         }
         rollbackDestroyCache.Clear();
     }
 
     void RecalcCreateEntity(EntityBase entity)
     {
-        Debug.Log("重计算 创建 " + entity.ID);
+        //Debug.Log("重计算 创建 " + entity.ID + " frame " + FrameCount);
         if (GetIsExistCreateRollbackCache(entity.ID))
         {
+            //Debug.Log("摧毁 不派发 " + entity.ID + " frame " + FrameCount);
+
             EntityBase cache = GetCreateRollbackCache(entity.ID);
             CopyValue(entity, cache);
             CreateEntityNoDispatch(cache);
@@ -752,7 +792,7 @@ public class WorldBase
         }
         else
         {
-            Debug.Log("创建并派发 " + entity.ID);
+            //Debug.Log("创建并派发 " + entity.ID);
             //否则，创建并派发，因为这是一个新对象
             CreateEntityAndDispatch(entity);
         }
@@ -760,9 +800,11 @@ public class WorldBase
 
     void RecalcDestroyEntity(EntityBase entity)
     {
-        Debug.Log("重计算 摧毁 " + entity.ID);
+        //Debug.Log("重计算 摧毁 " + entity.ID + " frame " + FrameCount);
         if(GetIsExistDestroyRollbackCache(entity.ID))
         {
+            //Debug.Log("摧毁 不派发 " + entity.ID + " frame " + FrameCount);
+
             EntityBase cache = GetDestroyRollbackCache(entity.ID);
             //CopyValue(entity, cache);
             DestroyEntityNoDispatch(cache);
@@ -770,7 +812,7 @@ public class WorldBase
         }
         else
         {
-            Debug.Log("摧毁并派发 " + entity.ID);
+            //Debug.Log("摧毁并派发 " + entity.ID + " frame " + FrameCount);
             //否则，摧毁并派发，因为这是在重计算中需要被摧毁的新对象
             DestroyEntityAndDispatch(entity);
         }
@@ -786,6 +828,8 @@ public class WorldBase
 
                 MomentComponentBase copy = mc.DeepCopy();
                 to.ChangeComp(item.Key, copy);
+
+                //Debug.Log("数据拷贝 " + Serializer.Serialize(copy));
             }
         }
     }
@@ -932,13 +976,13 @@ public class WorldBase
     //    }
     //}
 
-    //void DispatchEntityWillBeDestroyed(EntityBase entity)
-    //{
-    //    if (OnEntityWillBeDestroyed != null)
-    //    {
-    //        OnEntityWillBeDestroyed(entity);
-    //    }
-    //}
+    void DispatchEntityWillBeDestroyed(EntityBase entity)
+    {
+        if (OnEntityWillBeDestroyed != null)
+        {
+            OnEntityWillBeDestroyed(entity);
+        }
+    }
 
     void DispatchEntityComponentAdded(EntityBase entity, string compName, ComponentBase component)
     {
@@ -968,6 +1012,50 @@ public class WorldBase
     public delegate void EntityChangedCallBack(EntityBase entity);
 
 
+
+    #endregion
+
+    #region 随机数
+
+    public int m_RandomSeed = 0;
+
+    int m_randomA = 9301;
+    int m_randomB = 49297;
+    int m_randomC = 233280;
+
+    public int GetRandom()
+    {
+        m_RandomSeed = Math.Abs((m_RandomSeed * m_randomA + m_randomB) % m_randomC);
+
+        return m_RandomSeed;
+    }
+
+    //TODO 随机数回滚
+
+    Dictionary<int, int> m_randomDict = new Dictionary<int, int>();
+    void RandomRevertToFrame(int frame)
+    {
+        if (m_randomDict.ContainsKey(frame))
+        {
+            m_RandomSeed = m_randomDict[frame];
+        }
+        else
+        {
+            Debug.LogError("随机数回滚失败  " + frame);
+        }
+    }
+
+    void RandomRecord(int frame)
+    {
+        if(m_randomDict.ContainsKey(frame))
+        {
+            m_randomDict[frame] = m_RandomSeed;
+        }
+        else
+        {
+            m_randomDict.Add(frame, m_RandomSeed);
+        }
+    }
 
     #endregion
 }

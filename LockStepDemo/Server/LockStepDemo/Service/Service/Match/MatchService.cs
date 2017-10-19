@@ -86,6 +86,8 @@ public class MatchService : ServiceBase
         world.IsStart = true;
         world.SyncRule = SyncRule.Status;
 
+        world.m_RandomSeed = new Random().Next(); //随机一个种子
+
         for (int i = 0; i < players.Length; i++)
         {
             ConnectionComponent conn = new ConnectionComponent();

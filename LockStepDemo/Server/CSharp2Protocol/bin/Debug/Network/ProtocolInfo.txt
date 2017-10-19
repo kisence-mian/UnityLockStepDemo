@@ -2,12 +2,12 @@ package all;
 
 message m_affirmmsg_s
 {
-	required int32 frame = 1;
+	required int32 index = 1;
 	required int32 time = 2;
 }
 message m_affirmmsg_c
 {
-	required int32 frame = 1;
+	required int32 index = 1;
 	required int32 time = 2;
 }
 
@@ -37,13 +37,13 @@ message m_changesingletoncomponentmsg_c
 
 message m_commandmsg_s
 {
-	required int32 frame = 1;
+	required int32 index = 1;
 	required int32 servertime = 2;
 	repeated commandinfo msg = 3;
 }
 message m_commandmsg_c
 {
-	required int32 frame = 1;
+	required int32 index = 1;
 	required int32 servertime = 2;
 	repeated commandinfo msg = 3;
 }
@@ -77,6 +77,7 @@ message m_pursuemsg_s
 	required int32 frame = 3;
 	required int32 advancecount = 4;
 	required int32 servertime = 5;
+	required double updatespeed = 6;
 }
 message m_pursuemsg_c
 {
@@ -85,6 +86,7 @@ message m_pursuemsg_c
 	required int32 frame = 3;
 	required int32 advancecount = 4;
 	required int32 servertime = 5;
+	required double updatespeed = 6;
 }
 
 message m_startsyncmsg_s
@@ -163,6 +165,17 @@ message m_playermatchmsg_s
 	required bool iscancel = 1;
 }
 
+message m_playerrename_c
+{
+	required int32 code = 1;
+	required string newname = 2;
+}
+
+message m_playerrename_s
+{
+	required string newname = 1;
+}
+
 message m_playerresurgence_c
 {
 }
@@ -199,5 +212,11 @@ message componentinfo
 }
 message commandinfo
 {
-	required commandcomponent msg = 1;
+	required int32 frame = 1;
+	required int32 id = 2;
+	required syncvector3 movedir = 3;
+	required syncvector3 skilldir = 4;
+	required int32 element1 = 5;
+	required int32 element2 = 6;
+	required bool isfire = 7;
 }

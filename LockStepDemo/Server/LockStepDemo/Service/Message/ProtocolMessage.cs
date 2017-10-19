@@ -47,6 +47,7 @@ public class PlayerResurgence_s : ProtocolMessage  //玩家复活消息
 [MessageMode(SendMode.ToClient)]
 public class PlayerResurgence_c : ProtocolMessage
 {
+
 }
 
 [MessageMode(SendMode.ToServer)]
@@ -60,5 +61,18 @@ public class PlayerSelectCharacter_c : ProtocolMessage
 {
     public string content;
 }
+
+[MessageMode(SendMode.ToClient)]
+public class PlayerRename_c : ProtocolMessage
+{
+    public int code;
+    public string newName;
+}
+[MessageMode(SendMode.ToServer)]
+public class PlayerRename_s : ProtocolMessage
+{
+    public string newName;
+}
+
 
 

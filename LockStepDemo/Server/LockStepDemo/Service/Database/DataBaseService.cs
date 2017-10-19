@@ -15,9 +15,9 @@ public class DataBaseService
 
         DbConfig config = new DbConfig();
         config.Server = "54.191.174.49";
-        config.User = "root";
-        config.Password = "83dd961d3ce758ce";
-        config.Database = "ElementCraft";
+        config.User = "xxxx";
+        config.Password = "xxxxx";
+        config.Database = "xxxxx";
 
         database = DatabaseFactory.CreateDatabase(config, DbConfig.DbType.MYSQL);
 

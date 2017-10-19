@@ -117,6 +117,11 @@ public class SystemBase
 
     }
 
+    public virtual void OnEntityWillBeDestroy(EntityBase entity)
+    {
+
+    }
+
     public virtual void OnEntityCompAdd(EntityBase entity, string compName, ComponentBase component)
     {
 
@@ -188,6 +193,11 @@ public class SystemBase
         m_world.OnEntityDestroyed += ReceviceEntityDestroy;
     }
 
+    protected void AddEntityWillBeDestroyLisnter()
+    {
+        m_world.OnEntityWillBeDestroyed += ReceviceEntityWillBeDestroy;
+    }
+
     protected void AddEntityCompAddLisenter()
     {
         m_world.OnEntityComponentAdded += OnEntityCompAdd;
@@ -211,6 +221,11 @@ public class SystemBase
     protected void RemoveEntityDestroyLisnter()
     {
         m_world.OnEntityDestroyed -= ReceviceEntityDestroy;
+    }
+
+    protected void RemoveEntityWillBeDestroyLisnter()
+    {
+        m_world.OnEntityWillBeDestroyed += ReceviceEntityWillBeDestroy;
     }
 
     protected void RemoveEntityCompAddLisenter()
@@ -244,6 +259,14 @@ public class SystemBase
         //if (GetAllExistComp(Filter, entity))
         {
             OnEntityDestroy(entity);
+        }
+    }
+
+    void ReceviceEntityWillBeDestroy(EntityBase entity)
+    {
+        //if (GetAllExistComp(Filter, entity))
+        {
+            OnEntityWillBeDestroy(entity);
         }
     }
 

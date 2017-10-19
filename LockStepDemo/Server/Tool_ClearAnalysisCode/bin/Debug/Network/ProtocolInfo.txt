@@ -199,5 +199,11 @@ message componentinfo
 }
 message commandinfo
 {
-	required commandcomponent msg = 1;
+	required int32 frame = 1;
+	required int32 id = 2;
+	required syncvector3 movedir = 3;
+	required syncvector3 skilldir = 4;
+	required int32 element1 = 5;
+	required int32 element2 = 6;
+	required bool isfire = 7;
 }

@@ -17,5 +17,6 @@
 10,ProtocolMessage
 1001,playerloginmsg
 1002,playermatchmsg
-1003,playerresurgence
-1004,playerselectcharacter
+1003,playerrename
+1004,playerresurgence
+1005,playerselectcharacter

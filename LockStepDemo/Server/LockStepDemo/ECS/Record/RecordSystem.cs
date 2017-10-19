@@ -24,10 +24,10 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
             record.ID    = list[i].ID;
 
             rc.m_record.Add(record);
-            if (SyncDebugSystem.IsFilter(typeof(T).Name))
-            {
-                Debug.Log("数据记录 ID：" + list[i].ID + " frame:" + frame + " conent:" + Serializer.Serialize(record));
-            }
+            //if (SyncDebugSystem.IsFilter(typeof(T).Name))
+            //{
+            //    Debug.Log("数据记录 ID：" + list[i].ID + " frame:" + frame + " conent:" + Serializer.Serialize(record));
+            //}
         }
     }
 
@@ -37,42 +37,53 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
 
         List<T> list = rc.GetRecordList(frame);
 
-        if (SyncDebugSystem.IsFilter(typeof(T).Name))
-        {
-            Debug.Log("数据回滚  frame:" + frame + " Count:" + list.Count);
-        }
+        //if (SyncDebugSystem.IsFilter(typeof(T).Name))
+        //{
+        //    Debug.Log("数据回滚  frame:" + frame + " Count:" + list.Count);
+        //}
 
         for (int i = 0; i < list.Count; i++)
         {
             if(m_world.GetEntityIsExist(list[i].ID))
             {
+                //if (SyncDebugSystem.IsFilter(typeof(T).Name))
+                //{
+                //    Debug.Log("在游戏中 " + list[i].ID);
+                //}
+
                 EntityBase entity = m_world.GetEntity(list[i].ID);
                 entity.ChangeComp((T)list[i].DeepCopy());
             }
             else if(m_world.GetIsExistCreateRollbackCache(list[i].ID))
             {
-                
-                Debug.Log("GetIsExistCreateRollbackCache " + list[i].ID);
-
+                //if (SyncDebugSystem.IsFilter(typeof(T).Name))
+                //{
+                //    Debug.Log("在回滚创建列表 " + list[i].ID);
+                //}
                 EntityBase entity = m_world.GetCreateRollbackCache(list[i].ID);
                 entity.ChangeComp((T)list[i].DeepCopy());
             }
             else if(m_world.GetIsExistDestroyRollbackCache(list[i].ID))
             {
-                Debug.Log("GetIsExistDestroyRollbackCache " + list[i].ID);
-
+                //if (SyncDebugSystem.IsFilter(typeof(T).Name))
+                //{
+                //    Debug.Log("在回滚删除列表 " + list[i].ID);
+                //}
                 EntityBase entity = m_world.GetDestroyRollbackCache(list[i].ID);
                 entity.ChangeComp((T)list[i].DeepCopy());
             }
             else
             {
-                Debug.Log("没有找到回滚对象 " + list[i].ID + " frame " + frame);
+                if (SyncDebugSystem.IsFilter(typeof(T).Name))
+                {
+                    Debug.Log("没有找到回滚对象 " + list[i].ID + " frame " + frame);
+                }
             }
 
-            if(SyncDebugSystem.IsFilter(typeof(T).Name))
-            {
-                Debug.Log("数据回滚 ID：" + list[i].ID + " frame:" + list[i].Frame + " conent:" + Serializer.Serialize(list[i]));
-            }
+            //if (SyncDebugSystem.IsFilter(typeof(T).Name))
+            //{
+            //    Debug.Log("数据回滚 ID：" + list[i].ID + " frame:" + list[i].Frame + " conent:" + Serializer.Serialize(list[i]));
+            //}
 
         }
     }

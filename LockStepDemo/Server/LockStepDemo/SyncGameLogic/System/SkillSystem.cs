@@ -121,89 +121,89 @@ public class SkillSystem : SystemBase
         SkillStatusComponent ssc = skiller.GetComp<SkillStatusComponent>();
 
         List<CreatPostionInfo> result = new List<CreatPostionInfo>();
-        result.Clear();
+        //result.Clear();
 
-        if (Length == 0)
-        {
-            return result;
-        }
+        //if (Length == 0)
+        //{
+        //    return result;
+        //}
 
-        HardPointEnum l_FXCreatPoint = skillData.m_FlyCreatPoint;
+        //HardPointEnum l_FXCreatPoint = skillData.m_FlyCreatPoint;
 
-        Vector3 forward = ssc.skillDir.ToVector();
-        Vector3 dir = forward;
-        Vector3 pos = Vector3.zero;
+        //Vector3 forward = ssc.skillDir.ToVector();
+        //Vector3 dir = forward;
+        //Vector3 pos = Vector3.zero;
 
-        //获取散射区域
-        Area skillArea = SkillUtils.UpdatSkillArea(areaCache, skillData, skiller, null);
+        ////获取散射区域
+        //Area skillArea = SkillUtils.UpdatSkillArea(areaCache, skillData, skiller, null);
 
-        //TODO 寻敌方法
-        //CharacterBase enemy = GetRecentlyEnemy(skillArea, skiller.m_camp, false);
-        //CharacterBase enemy = null;
-        MoveComponent emc = null;
+        ////TODO 寻敌方法
+        ////CharacterBase enemy = GetRecentlyEnemy(skillArea, skiller.m_camp, false);
+        ////CharacterBase enemy = null;
+        //MoveComponent emc = null;
 
-        if (l_FXCreatPoint != HardPointEnum.enemy)
-        {
-            pos = mc.pos.ToVector();
-        }
-        else
-        {
-            if (emc == null)
-            {
-                return result;
-            }
-            else
-            {
-                pos = emc.pos.ToVector();
-            }
-        }
+        //if (l_FXCreatPoint != HardPointEnum.enemy)
+        //{
+        //    pos = mc.pos.ToVector();
+        //}
+        //else
+        //{
+        //    if (emc == null)
+        //    {
+        //        return result;
+        //    }
+        //    else
+        //    {
+        //        pos = emc.pos.ToVector();
+        //    }
+        //}
 
-        Vector3 leftBorder = Vector3.zero;
-        Vector3 leftDir = Vector3.zero;
-        Vector3 leftPos = Vector3.zero;
-        float sectorStep = 0;
-        float rectangleStep = 0;
+        //Vector3 leftBorder = Vector3.zero;
+        //Vector3 leftDir = Vector3.zero;
+        //Vector3 leftPos = Vector3.zero;
+        //float sectorStep = 0;
+        //float rectangleStep = 0;
 
-        AreaDataGenerate area = DataGenerateManager<AreaDataGenerate>.GetData(skillData.m_FlyObjectArea);
+        //AreaDataGenerate area = DataGenerateManager<AreaDataGenerate>.GetData(skillData.m_FlyObjectArea);
 
-        switch (area.m_SkewDirection)
-        {
-            case DirectionEnum.Forward: break;
-            case DirectionEnum.Backward: forward *= -1; break;
-            case DirectionEnum.Close: forward = (emc.pos.ToVector() - mc.pos.ToVector()).normalized; break;
-            case DirectionEnum.Leave: forward = (mc.pos.ToVector() - emc.pos.ToVector()).normalized; break;
-        }
+        //switch (area.m_SkewDirection)
+        //{
+        //    case DirectionEnum.Forward: break;
+        //    case DirectionEnum.Backward: forward *= -1; break;
+        //    case DirectionEnum.Close: forward = (emc.pos.ToVector() - mc.pos.ToVector()).normalized; break;
+        //    case DirectionEnum.Leave: forward = (mc.pos.ToVector() - emc.pos.ToVector()).normalized; break;
+        //}
 
-        switch (area.m_Shape)
-        {
-            case AreaType.Circle:
-                leftBorder = forward.Vector3RotateInXZ(360 * 0.5f);
-                sectorStep = 360 / (Length + 1);
-                break;
-            case AreaType.Sector:
-                leftBorder = forward.Vector3RotateInXZ(area.m_Angle * 0.5f);
-                sectorStep = area.m_Angle / (Length + 1);
-                break;
-            case AreaType.Rectangle:
-                leftDir = forward.Vector3RotateInXZ(90);
-                leftPos = pos + leftDir * area.m_Width * 0.5f;
-                rectangleStep = area.m_Width / (Length + 1);
-                break;
-        }
+        //switch (area.m_Shape)
+        //{
+        //    case AreaType.Circle:
+        //        leftBorder = forward.Vector3RotateInXZ(360 * 0.5f);
+        //        sectorStep = 360 / (Length + 1);
+        //        break;
+        //    case AreaType.Sector:
+        //        leftBorder = forward.Vector3RotateInXZ(area.m_Angle * 0.5f);
+        //        sectorStep = area.m_Angle / (Length + 1);
+        //        break;
+        //    case AreaType.Rectangle:
+        //        leftDir = forward.Vector3RotateInXZ(90);
+        //        leftPos = pos + leftDir * area.m_Width * 0.5f;
+        //        rectangleStep = area.m_Width / (Length + 1);
+        //        break;
+        //}
 
         for (int i = 0; i < Length; i++)
         {
-            switch (area.m_Shape)
-            {
-                case AreaType.Circle:
-                case AreaType.Sector:
-                    dir = leftBorder.Vector3RotateInXZ2((i + 1) * sectorStep);
-                    pos = pos + forward * area.m_SkewDistance;
-                    break;
-                case AreaType.Rectangle:
-                    pos = leftPos - leftDir * rectangleStep * (i + 1);
-                    break;
-            }
+            //switch (area.m_Shape)
+            //{
+            //    case AreaType.Circle:
+            //    case AreaType.Sector:
+            //        dir = leftBorder.Vector3RotateInXZ2((i + 1) * sectorStep);
+            //        pos = pos + forward * area.m_SkewDistance;
+            //        break;
+            //    case AreaType.Rectangle:
+            //        pos = leftPos - leftDir * rectangleStep * (i + 1);
+            //        break;
+            //}
 
 
             CreatPostionInfo cpi = new CreatPostionInfo();
@@ -305,11 +305,12 @@ public class SkillSystem : SystemBase
     List<EntityBase> GetSkillDamageList(EntityBase entity, SkillDataGenerate skillData)
     {
         CampComponent acc = entity.GetComp<CampComponent>();
+        SkillStatusComponent ssc = entity.GetComp<SkillStatusComponent>();
 
         List<EntityBase> result = new List<EntityBase>();
         List<EntityBase> list = GetEntityList(new string[] { "CollisionComponent", "LifeComponent", "CampComponent" });
 
-        SkillUtils.UpdateArea(skillAreaCache, skillData.m_EffectArea, entity);
+        SkillUtils.UpdateArea(skillAreaCache, skillData.m_EffectArea, ssc.skillDir.ToVector(), entity);
 
         Debug.DrawRay(skillAreaCache.position, skillAreaCache.direction,Color.red,10);
 

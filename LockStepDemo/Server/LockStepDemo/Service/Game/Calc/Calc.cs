@@ -7,7 +7,7 @@ public class Calc  {
 
 }
 
-public class SyncVector3 :IProtocolStructInterface
+public struct SyncVector3 :IProtocolStructInterface
 {
     public int x;
     public int y;

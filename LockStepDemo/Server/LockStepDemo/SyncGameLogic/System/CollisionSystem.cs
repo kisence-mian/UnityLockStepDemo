@@ -17,6 +17,7 @@ public class CollisionSystem : SystemBase
 
     public override void FixedUpdate(int deltaTime)
     {
+        //Debug.Log(" ---------------CollisionComponent---------------");
         clist.Clear();
 
         List<EntityBase> list = GetEntityList();
@@ -50,6 +51,11 @@ public class CollisionSystem : SystemBase
                 acc.area.direction = amc.dir.ToVector();
             }
 
+            //if (list[i].GetExistComp("ItemComponent"))
+            //{
+            //    Debug.Log("a  is ItemComponent a id:" + list[i].ID + " " + acc.area.position.ToString());
+            //}
+
             for (int j = i + 1; j < list.Count; j++)
             {
                 CollisionComponent bcc = clist[j];
@@ -72,6 +78,18 @@ public class CollisionSystem : SystemBase
                 {
                     acc.CollisionList.Add(bcc.Entity);
                     bcc.CollisionList.Add(acc.Entity);
+
+                    //if ((list[i].GetExistComp("ItemCreatePointComponent")
+                    //    &&
+                    //    list[j].GetExistComp("ItemComponent"))
+                    //    ||
+                    //    (list[j].GetExistComp("ItemCreatePointComponent")
+                    //    &&
+                    //    list[i].GetExistComp("ItemComponent"))
+                    //    )
+                    //{
+                    //    Debug.Log("a b CollideSucceed a id:" + list[i].ID + " b id: " + list[j].ID);
+                    //}
                 }
             }
         }

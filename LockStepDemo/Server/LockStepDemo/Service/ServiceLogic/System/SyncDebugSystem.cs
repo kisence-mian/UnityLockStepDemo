@@ -10,7 +10,7 @@ class SyncDebugSystem : SystemBase
 {
     public static bool isDebug = true;
 
-    public static string[] DebugFilter = new string[] { "LifeComponent" , "MoveComponent" };
+    public static string[] DebugFilter = new string[] {"CommandComponent" , "MoveComponent" };
 
     public static string syncLog = "";
 
@@ -42,9 +42,17 @@ class SyncDebugSystem : SystemBase
 
             foreach (var item in eb.m_compDict)
             {
-                if(item.Value.GetType().IsSubclassOf(typeof(MomentComponentBase))
-                    && IsFilter(item.Value.GetType().Name)
-                    )
+                if (item.Value.GetType().IsSubclassOf(typeof(PlayerCommandBase)))
+                {
+                    CommandComponent cc = (CommandComponent)item.Value;
+                    ComponentInfo info = new ComponentInfo();
+                    cc.time = 0;
+                    info.m_compName = item.Value.GetType().Name;
+                    info.content = Serializer.Serialize(item.Value);
+
+                    einfo.infos.Add(info);
+                }
+                else if(IsFilter(item.Value.GetType().Name))
                 {
                     ComponentInfo info = new ComponentInfo();
                     info.m_compName = item.Value.GetType().Name;

@@ -24,3 +24,5 @@ F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCod
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\bin\Debug\MySql.Data.dll
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\bin\Debug\Map\elementCreatePointData.txt
 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\bin\Debug\Data\PlayerData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\bin\Debug\Data\BuffData.txt
+F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\Tool_ClearAnalysisCode\bin\Debug\SuperSocket.SocketEngine.dll

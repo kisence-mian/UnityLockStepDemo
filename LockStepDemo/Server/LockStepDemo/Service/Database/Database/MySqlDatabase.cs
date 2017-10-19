@@ -225,6 +225,7 @@ namespace CDatabase
             string cmd = String.Format("UPDATE {0} SET {1} WHERE {2}", table, valueParams, whereClause);
             MySqlCommand command = new MySqlCommand(cmd, connect);
 
+            //TODO 未捕捉的异常
             int effect = command.ExecuteNonQuery();
             command.Dispose();
 

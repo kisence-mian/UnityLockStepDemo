@@ -24,13 +24,13 @@ namespace Protocol
         public const string c_ProtocolFileName = "ProtocolInfo";
         public const string c_methodNameInfoFileName = "MethodInfo";
 
-        Dictionary<string, List<Dictionary<string, object>>> m_protocolInfo;
+        static Dictionary<string, List<Dictionary<string, object>>> s_protocolInfo;
 
-        Dictionary<int, string> m_methodNameInfo;
-        Dictionary<string, int> m_methodIndexInfo;
+        static Dictionary<int, string> s_methodNameInfo;
+        static Dictionary<string, int> s_methodIndexInfo;
 
         int m_LeftBufferSize = 0;
-        IReceiveFilter<ProtocolRequestBase> m_nextReceiveFilter;
+        static IReceiveFilter<ProtocolRequestBase> s_nextReceiveFilter;
         /// <summary>
         /// Gets the size of the left buffer.
         /// </summary>
@@ -50,12 +50,12 @@ namespace Protocol
         public IReceiveFilter<ProtocolRequestBase> NextReceiveFilter {
             get {
 
-                if(m_nextReceiveFilter == null)
+                if(s_nextReceiveFilter == null)
                 {
-                    m_nextReceiveFilter = new ProtocolReceiveFilter();
+                    s_nextReceiveFilter = new ProtocolReceiveFilter();
                 }
 
-                return m_nextReceiveFilter;
+                return s_nextReceiveFilter;
             } }
 
 
@@ -66,11 +66,14 @@ namespace Protocol
 
         public ProtocolReceiveFilter()
         {
-            m_protocolInfo = ReadProtocolInfo(FileTool.ReadStringByFile(Environment.CurrentDirectory + "/Network/" + c_ProtocolFileName + ".txt"));
-            ReadMethodNameInfo(
-                out m_methodNameInfo,
-                out m_methodIndexInfo,
-                FileTool.ReadStringByFile(Environment.CurrentDirectory + "/Network/" + c_methodNameInfoFileName + ".txt"));
+            if(s_protocolInfo == null)
+            {
+                s_protocolInfo = ReadProtocolInfo(FileTool.ReadStringByFile(Environment.CurrentDirectory + "/Network/" + c_ProtocolFileName + ".txt"));
+                ReadMethodNameInfo(
+                    out s_methodNameInfo,
+                    out s_methodIndexInfo,
+                    FileTool.ReadStringByFile(Environment.CurrentDirectory + "/Network/" + c_methodNameInfoFileName + ".txt"));
+            }
         }
 
         /// <summary>
@@ -269,7 +272,7 @@ namespace Protocol
         {
             try
             {
-                return m_methodIndexInfo[messageType];
+                return s_methodIndexInfo[messageType];
             }
             catch
             {
@@ -292,7 +295,7 @@ namespace Protocol
 
             try
             {
-                msg.Key = m_methodNameInfo[methodIndex];
+                msg.Key = s_methodNameInfo[methodIndex];
                 int re_len = bytes.Length - 5;
                 msg.m_data = AnalysisData(msg.Key, bytes.ReadBytes(re_len));
             }
@@ -321,12 +324,12 @@ namespace Protocol
                 ba.Add(bytes);
 
                 string messageTypeTemp = "m_" + MessageType + "_s";
-                if (!m_protocolInfo.ContainsKey(messageTypeTemp))
+                if (!s_protocolInfo.ContainsKey(messageTypeTemp))
                 {
                     throw new Exception("ProtocolInfo NOT Exist ->" + messageTypeTemp + "<-");
                 }
 
-                List<Dictionary<string, object>> tableInfo = m_protocolInfo["m_" + MessageType + "_s"];
+                List<Dictionary<string, object>> tableInfo = s_protocolInfo["m_" + MessageType + "_s"];
 
                 for (int i = 0; i < tableInfo.Count; i++)
                 {
@@ -568,7 +571,7 @@ namespace Protocol
                     return tbl;
                 }
 
-                List<Dictionary<string, object>> tableInfo = m_protocolInfo[dictName];
+                List<Dictionary<string, object>> tableInfo = s_protocolInfo[dictName];
 
                 for (int i = 0; i < tableInfo.Count; i++)
                 {
@@ -693,7 +696,7 @@ namespace Protocol
             try
             {
                 string messageTypeTemp = "m_" + messageType + "_s";
-                if (!m_protocolInfo.ContainsKey(messageTypeTemp))
+                if (!s_protocolInfo.ContainsKey(messageTypeTemp))
                 {
                     throw new Exception("ProtocolInfo NOT Exist ->" + messageTypeTemp + "<-");
                 }
@@ -745,12 +748,12 @@ namespace Protocol
                 //ByteArray Bytes = new ByteArray();
                 Bytes.clear();
 
-                if (!m_protocolInfo.ContainsKey(customType))
+                if (!s_protocolInfo.ContainsKey(customType))
                 {
                     throw new Exception("ProtocolInfo NOT Exist ->" + customType + "<-");
                 }
 
-                List<Dictionary<string, object>> tableInfo = m_protocolInfo[customType];
+                List<Dictionary<string, object>> tableInfo = s_protocolInfo[customType];
 
                 for (int i = 0; i < tableInfo.Count; i++)
                 {

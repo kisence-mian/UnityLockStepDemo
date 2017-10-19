@@ -17,6 +17,8 @@ public class SkillStatusComponent : MomentComponentBase
 
     public SyncVector3 skillDir = new SyncVector3();
 
+    public SyncVector3 skillDirCache = new SyncVector3();
+
     public SkillData m_currentSkillData;
     public List<SkillData> m_skillList = new List<SkillData>();
 
@@ -37,6 +39,8 @@ public class SkillStatusComponent : MomentComponentBase
         sc.m_isTriggerSkill = m_isTriggerSkill;
 
         sc.skillDir = skillDir.DeepCopy();
+        sc.skillDirCache = skillDirCache.DeepCopy();
+
         if (m_currentSkillData != null)
         {
             sc.m_currentSkillData = m_currentSkillData.DeepCopy();
