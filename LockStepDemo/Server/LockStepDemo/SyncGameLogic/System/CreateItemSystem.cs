@@ -49,6 +49,7 @@ public class CreateItemSystem : SystemBase
         colc.area.position = comp.pos.ToVector();
         colc.area.areaType = AreaType.Circle;
         colc.area.radius = 0.5f;
+        //colc.isStatic = true;
 
         ItemComponent ic = new ItemComponent();
         AssetComponent assert = new AssetComponent();
@@ -60,7 +61,13 @@ public class CreateItemSystem : SystemBase
 
         //Debug.Log("r " + r + " comp.randomList.Count " + comp.randomList.Count);
 
-        assert.m_assetName = comp.randomList[r];
+        string itemID = comp.randomList[r];
+
+        ic.ItemData =  DataGenerateManager<ItemsDataGenerate>.GetData(itemID);
+
+        assert.m_assetName = ic.ItemData.m_modelid;
+
+        ic.ItemID = int.Parse(itemID);
 
         string identify = comp.Entity.ID + "Item" + comp.pos.ToVector(); //通过标识符保证唯一ID
         m_world.CreateEntity(identify, colc, ic, assert, tc);

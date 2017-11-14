@@ -27,7 +27,7 @@ public class SkillStatusSystem : SystemBase
         }
     }
 
-    public void SkillStatusLogic(EntityBase entity,int deltaTime)
+    public void SkillStatusLogic(EntityBase entity, int deltaTime)
     {
         SkillStatusComponent sc = entity.GetComp<SkillStatusComponent>();
 
@@ -39,24 +39,21 @@ public class SkillStatusSystem : SystemBase
             sc.m_skillTime += deltaTime;
             sc.FXTimer += deltaTime;
 
-
-
-            if (sc.m_skillTime > sc.m_currentSkillData.BeforeTime * 1000)
+            if (sc.m_skillTime > sc.m_currentSkillData.BeforeTime)
             {
-                if(sc.m_skillStstus != SkillStatusEnum.Current)
+                if (sc.m_skillStstus != SkillStatusEnum.Current)
                 {
                     sc.m_isEnter = true;
                     sc.m_skillStstus = SkillStatusEnum.Current;
-                    m_world.eventSystem.DispatchEvent(GameUtils.c_SkillStatusEnter,entity);
+                    m_world.eventSystem.DispatchEvent(GameUtils.c_SkillStatusEnter, entity);
                 }
                 else
                 {
                     sc.m_isEnter = false;
                 }
-                
             }
-            if (sc.m_skillTime > sc.m_currentSkillData.HitTime * 1000)
-            { 
+            if (sc.m_skillTime > sc.m_currentSkillData.HitTime)
+            {
                 if (sc.m_currentSkillData.SkillInfo.m_Moment)
                 {
                     if (sc.m_isTriggerSkill == false)
@@ -73,9 +70,11 @@ public class SkillStatusSystem : SystemBase
                 else
                 {
                     sc.m_skillTriggerTimeSpace -= deltaTime;
+                    //Debug.Log("m_skillTriggerTimeSpace " + sc.m_skillTriggerTimeSpace);
+
                     if (sc.m_skillTriggerTimeSpace < 0)
                     {
-                        sc.m_skillTriggerTimeSpace =(int) (sc.m_currentSkillData.SkillInfo.m_TriggerSpaceTime) * 1000;
+                        sc.m_skillTriggerTimeSpace = sc.m_currentSkillData.SkillInfo.m_TriggerSpaceTime;
                         //加个伤害间隔
                         sc.m_isHit = true;
                         m_world.eventSystem.DispatchEvent(GameUtils.c_SkillHit, entity);
@@ -87,7 +86,7 @@ public class SkillStatusSystem : SystemBase
                 }
             }
 
-            if (sc.m_skillTime > sc.m_currentSkillData.CurrentTime * 1000)
+            if (sc.m_skillTime > sc.m_currentSkillData.CurrentTime)
             {
                 sc.m_isHit = false;
 
@@ -103,7 +102,7 @@ public class SkillStatusSystem : SystemBase
                 }
             }
 
-            if (sc.m_skillTime > sc.m_currentSkillData.LaterTime * 1000)
+            if (sc.m_skillTime > sc.m_currentSkillData.LaterTime)
             {
                 if (sc.m_skillStstus != SkillStatusEnum.Finish)
                 {

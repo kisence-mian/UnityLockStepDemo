@@ -16,11 +16,13 @@ public class SkillStatusComponent : MomentComponentBase
     public bool m_isTriggerSkill = false; //是否计算过伤害
 
     public SyncVector3 skillDir = new SyncVector3();
+    public SyncVector3 skillPos = new SyncVector3();
 
     public SyncVector3 skillDirCache = new SyncVector3();
 
     public SkillData m_currentSkillData;
     public List<SkillData> m_skillList = new List<SkillData>();
+    public List<int> m_CDList = new List<int>();
 
     //表现用
     public int FXTimer = 0;
@@ -37,19 +39,19 @@ public class SkillStatusComponent : MomentComponentBase
         sc.m_isHit = m_isHit;
         sc.m_isEnter = m_isEnter;
         sc.m_isTriggerSkill = m_isTriggerSkill;
+        sc.skillPos = skillPos.DeepCopy();
 
         sc.skillDir = skillDir.DeepCopy();
         sc.skillDirCache = skillDirCache.DeepCopy();
 
-        if (m_currentSkillData != null)
+        sc.m_currentSkillData = m_currentSkillData.DeepCopy();
+
+        for (int i = 0; i < m_CDList.Count; i++)
         {
-            sc.m_currentSkillData = m_currentSkillData.DeepCopy();
+            sc.m_CDList.Add(m_CDList[i]);
         }
 
-        for (int i = 0; i < m_skillList.Count; i++)
-        {
-            sc.m_skillList.Add(m_skillList[i].DeepCopy());
-        }
+        sc.m_skillList = m_skillList;
 
         return sc;
     }
@@ -64,8 +66,53 @@ public class SkillStatusComponent : MomentComponentBase
             }
         }
 
-        throw new Exception("DONT FIND SkillInfo skillID:" + ID + " by id: " + Entity.ID);
+        throw new Exception("DONT FIND SkillInfo skillID:->" + ID + "<- by id: " + Entity.ID);
     }
+
+    public bool GetSkillCDFinsih(string skillID)
+    {
+        for (int i = 0; i < m_skillList.Count; i++)
+        {
+            if (m_skillList[i].m_skillID == skillID)
+            {
+                return m_CDList[i] <= 0;
+            }
+        }
+
+        throw new Exception("DONT FIND CD skillID:->" + ID + "<- by id: " + Entity.ID);
+    }
+
+    public int GetSkillCD(string skillID)
+    {
+        for (int i = 0; i < m_skillList.Count; i++)
+        {
+            if (m_skillList[i].m_skillID == skillID)
+            {
+                return m_CDList[i];
+            }
+        }
+
+        throw new Exception("DONT FIND CD skillID:->" + ID + "<- by id: " + Entity.ID);
+    }
+
+    public void SetSkillCD(string skillID, int CD)
+    {
+        for (int i = 0; i < m_skillList.Count; i++)
+        {
+            if (m_skillList[i].m_skillID == skillID)
+            {
+                m_CDList[i] = CD;
+                return;
+            }
+        }
+
+        throw new Exception("DONT FIND CD skillID:->" + skillID + "<- by id: " + Entity.ID);
+    }
+
+    //public override int ToHash()
+    //{
+    //    //return Serializer.Serialize(this).ToHash();
+    //}
 }
 
 public enum SkillStatusEnum

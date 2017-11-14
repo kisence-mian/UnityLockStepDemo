@@ -19,6 +19,9 @@ public class PlayerComponent : MomentComponentBase
 
     public List<BuffInfo> buffList = new List<BuffInfo>();
 
+    public bool isCloak = false;
+    public int grassID = -1;
+
     public override MomentComponentBase DeepCopy()
     {
         PlayerComponent pc = new PlayerComponent();
@@ -28,6 +31,9 @@ public class PlayerComponent : MomentComponentBase
         pc.characterID = characterID;
         pc.nickName = nickName;
         pc.score = score;
+
+        pc.isCloak = isCloak;
+        pc.grassID = grassID;
 
         for (int i = 0; i < elementData.Count; i++)
         {
@@ -97,6 +103,8 @@ public class PlayerComponent : MomentComponentBase
     {
         float speed = CharacterData.m_movespeed;
 
+        speed *= 1000;
+
         if (buffList.Count != 0)
         {
             float changeNumber = 0;
@@ -104,7 +112,7 @@ public class PlayerComponent : MomentComponentBase
 
             for (int i = 0; i < buffList.Count; i++)
             {
-                changeNumber += buffList[i].BuffData.m_SpeedChange;
+                changeNumber += buffList[i].BuffData.m_SpeedChange * 1000;
                 changePercantage *= buffList[i].BuffData.m_SpeedChangePercentage;
             }
 
@@ -112,7 +120,7 @@ public class PlayerComponent : MomentComponentBase
             speed += changeNumber;
         }
 
-        return (int)(speed * 1000);
+        return (int)(speed);
     }
 
     public bool GetIsDizziness()

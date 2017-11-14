@@ -7,7 +7,7 @@ public class SkillStatusDataGenerate : DataGenerateBase
 {
 	public string m_key;
 	public string m_AnimName; //动作名字
-	public float m_Time; //状态持续时间
+	public int m_Time; //状态持续时间
 	public float m_SFXDelay; //音效延迟
 	public string m_SFXName; //音效文件
 	public HardPointEnum m_FXCreatPoint; //特效创建点
@@ -18,6 +18,8 @@ public class SkillStatusDataGenerate : DataGenerateBase
 	public float m_FollowFXLifeTime; //特效时间
 	public string m_FollowFXName; //特效名
 	public string m_CameraMove; //镜头特写
+	public float m_FollowFXOffSet; //跟随特效偏移
+	public float m_FXOffSet; //特效偏移
 
 	public override void LoadData(string key) 
 	{
@@ -32,7 +34,7 @@ public class SkillStatusDataGenerate : DataGenerateBase
 
 		m_key = key;
 		m_AnimName = data.GetString("AnimName");
-		m_Time = data.GetFloat("Time");
+		m_Time = data.GetInt("Time");
 		m_SFXDelay = data.GetFloat("SFXDelay");
 		m_SFXName = data.GetString("SFXName");
 		m_FXCreatPoint = data.GetEnum<HardPointEnum>("FXCreatPoint");
@@ -43,5 +45,7 @@ public class SkillStatusDataGenerate : DataGenerateBase
 		m_FollowFXLifeTime = data.GetFloat("FollowFXLifeTime");
 		m_FollowFXName = data.GetString("FollowFXName");
 		m_CameraMove = data.GetString("CameraMove");
+		m_FollowFXOffSet = data.GetFloat("FollowFXOffSet");
+		m_FXOffSet = data.GetFloat("FXOffSet");
 	}
 }

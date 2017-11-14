@@ -31,6 +31,22 @@ public class WorldManager
         }
     }
 
+    public static float UpdateSpped
+    {
+        get
+        {
+            return s_updateSpped;
+        }
+
+        set
+        {
+            s_updateSpped = value;
+            Time.timeScale = s_updateSpped;
+        }
+    }
+
+    private static float s_updateSpped = 1;
+
     static int s_intervalTime = 200;
     static float s_UpdateTimer = 0; //ms
 
@@ -61,8 +77,9 @@ public class WorldManager
 
         s_worldList.Add(world);
 
+        Debug.Log("CreateWorld");
         //GameDataMonitor.PushData("world", world);
-
+      
         return world;
     }
 
@@ -78,8 +95,16 @@ public class WorldManager
 
         UpdateWorld((int)(Time.deltaTime * 1000));
 
-        while (s_UpdateTimer > IntervalTime)
+        bool isRecalc = false;
+
+        while (s_UpdateTimer > IntervalTime )
         {
+            if(!isRecalc)
+            {
+                isRecalc = true;
+                Recalc();
+            }
+
             FixedUpdateWorld(IntervalTime);
 
             s_UpdateTimer -= IntervalTime;
@@ -123,6 +148,21 @@ public class WorldManager
             try
             {
                 s_worldList[i].Loop(deltaTime);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("UpdateWorld Exception：" + e.ToString());
+            }
+        }
+    }
+
+    static void Recalc()
+    {
+        for (int i = 0; i < s_worldList.Count; i++)
+        {
+            try
+            {
+                s_worldList[i].CallRecalc();
             }
             catch (Exception e)
             {

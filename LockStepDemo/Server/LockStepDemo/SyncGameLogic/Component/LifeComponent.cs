@@ -29,7 +29,7 @@ public class LifeComponent : MomentComponentBase
     {
         get
         {
-            DispatchEvent(life,life);
+            DispatchEvent(life, life);
 
             return life;
         }
@@ -40,13 +40,18 @@ public class LifeComponent : MomentComponentBase
 
             life = value;
 
-            DispatchEvent(oldValue, value);
+            if (life > maxLife)
+            {
+                life = maxLife;
+            }
+
+            DispatchEvent(oldValue, life);
         }
     }
 
-    void DispatchEvent(int oldValue,int newValue)
+    void DispatchEvent(int oldValue, int newValue)
     {
-        if(newValue > oldValue)
+        if (newValue > oldValue)
         {
             Entity.World.eventSystem.DispatchEvent(GameUtils.GetEventKey(Entity.ID, CharacterEventType.Recover), Entity);
         }

@@ -1,18 +1,25 @@
 1,GameSync
 
 2,SyncModule
-201,changecomponentmsg
-202,changesingletoncomponentmsg
-203,debugmsg
-204,destroyentitymsg
-205,pursuemsg
-206,startsyncmsg
-207,syncentitymsg
+201,affirmmsg
+202,changecomponentmsg
+203,changesingletoncomponentmsg
+204,commandmsg
+205,debugmsg
+206,destroyentitymsg
+207,pursuemsg
+208,querycommand
+209,startsyncmsg
+210,syncentitymsg
 
 3,Command
 301,commandcomponent
 
 10,ProtocolMessage
-1001,playerloginmsg
-1002,playermatchmsg
-1003,playerresurgence
+1001,playerbuycharacter
+1002,playerloginmsg
+1003,playermatchmsg
+1004,playerrename
+1005,playerresurgence
+1006,playerselectcharacter
+1007,playersettlement

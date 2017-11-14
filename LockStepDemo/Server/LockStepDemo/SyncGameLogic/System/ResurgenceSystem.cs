@@ -31,15 +31,21 @@ public class ResurgenceSystem :SystemBase
         {
             LifeComponent lc = list[i].GetComp<LifeComponent>();
 
-            if(lc.Life < 0)
+            //Debug.Log("复活 " + list[i].ID + " ResurgenceTimer " + lc.ResurgenceTimer + " lc.Life " + lc.Life);
+
+            if (lc.Life <= 0)
             {
                 lc.ResurgenceTimer += deltaTime;
 
-                if(lc.ResurgenceTimer > 10 * 1000)
+                if(lc.ResurgenceTimer > 5 * 1000)
                 {
                     lc.Life = lc.maxLife;
                     //m_world.eventSystem.DispatchEvent(GameUtils.GetEventKey(list[i].ID, CharacterEventType.Recover), list[i]);
                 }
+            }
+            else
+            {
+                lc.ResurgenceTimer = 0;
             }
         }
     }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
 public class MatchService : ServiceBase
 {
     const int roomPeopleNum = 2;
@@ -32,6 +31,11 @@ public class MatchService : ServiceBase
         {
             Match(session.player);
         }
+    }
+
+    public override void OnPlayerLogout(Player player)
+    {
+        CancelMatch(player);
     }
 
     void CancelMatch(Player player)
@@ -83,7 +87,8 @@ public class MatchService : ServiceBase
     void StartGame(Player[] players)
     {
         WorldBase world = WorldManager.CreateWorld<DemoWorld>();
-        world.IsStart = true;
+
+        //TODO 模式选择没用了
         world.SyncRule = SyncRule.Status;
 
         world.m_RandomSeed = new Random().Next(); //随机一个种子
@@ -92,6 +97,7 @@ public class MatchService : ServiceBase
         {
             ConnectionComponent conn = new ConnectionComponent();
             conn.m_session = players[i].session;
+            conn.m_playerID = players[i].playerID;
 
             SyncComponent sc = new SyncComponent();
 
@@ -101,6 +107,7 @@ public class MatchService : ServiceBase
 
             world.eventSystem.DispatchEvent(ServiceEventDefine.c_playerJoin, conn.Entity);
 
+            Debug.Log("Send Game Start");
             //派发游戏开始消息
             PlayerMatchMsg_c msg = new PlayerMatchMsg_c();
             msg.predictTime = 0;
@@ -108,5 +115,7 @@ public class MatchService : ServiceBase
 
             ProtocolAnalysisService.SendMsg(players[i].session, msg);
         }
+
+        world.IsStart = true;
     }
 }

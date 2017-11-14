@@ -48,6 +48,8 @@ public class SkillUtils
             }
         }
 
+        return null;
+
         //Error!
         throw new System.Exception("Not Find SkillName!");
     }
@@ -79,12 +81,12 @@ public class SkillUtils
 
     #region 技能代处理
 
-    public static void TokenUseSkill(WorldBase world,int createrID, string skillID, Vector3 pos, Vector3 dir)
+    public static void TokenUseSkill(WorldBase world, int createrID, string skillID, Vector3 pos, Vector3 dir)
     {
         //Debug.Log("TokenUseSkill pos" + pos + " frame " + world.FrameCount + " skillID" + skillID);
 
-        if (skillID != null 
-            && skillID != "null" 
+        if (skillID != null
+            && skillID != "null"
             && skillID != "Null")
         {
 
@@ -98,7 +100,7 @@ public class SkillUtils
             ssc.m_currentSkillData.UpdateInfo();
             ssc.skillDir.FromVector(dir);
 
-            if(ssc.m_currentSkillData.LaterTime == 0)
+            if (ssc.m_currentSkillData.LaterTime == 0)
             {
                 Debug.LogError("技能代 " + skillID + "的持续时间不能为 0 !");
                 return;
@@ -109,7 +111,7 @@ public class SkillUtils
             tc.dir.FromVector(dir);
 
             //打印
-            Debug.DrawRay(tc.pos.ToVector(), -tc.dir.ToVector(),Color.green,10);
+            Debug.DrawRay(tc.pos.ToVector(), -tc.dir.ToVector(), Color.green, 10);
 
             CampComponent cc = new CampComponent();
             cc.creater = createrID;
@@ -117,7 +119,7 @@ public class SkillUtils
             LifeSpanComponent lsc = new LifeSpanComponent();
             lsc.lifeTime = (int)(ssc.m_currentSkillData.LaterTime * 1000);
 
-            world.CreateEntity(createrID + "SkillToken",tc, ssc, cc, lsc);
+            world.CreateEntity(createrID + "SkillToken", tc, ssc, cc, lsc);
         }
     }
 
@@ -125,13 +127,13 @@ public class SkillUtils
 
     #region 击飞处理
 
-    public static void BlowFly(WorldBase world,EntityBase skiller, EntityBase hurter, string blowFlyID)
+    public static void BlowFly(WorldBase world, EntityBase skiller, EntityBase hurter, string blowFlyID)
     {
         MoveComponent amc = skiller.GetComp<MoveComponent>();
         MoveComponent bmc = hurter.GetComp<MoveComponent>();
 
         Vector3 dir = amc.dir.ToVector();
-        if(skiller.GetExistComp<SkillStatusComponent>())
+        if (skiller.GetExistComp<SkillStatusComponent>())
         {
             SkillStatusComponent assc = skiller.GetComp<SkillStatusComponent>();
             dir = assc.skillDir.ToVector();
@@ -175,7 +177,7 @@ public class SkillUtils
         {
             //Debug.Log(" AddBuff " + skiller.ID);
 
-            BuffInfo bi =  pc.AddBuff(hurtBuff[i], skiller.ID);
+            BuffInfo bi = pc.AddBuff(hurtBuff[i], skiller.ID);
             world.eventSystem.DispatchEvent(GameUtils.c_addBuff, hurter, bi);
         }
     }
@@ -184,22 +186,23 @@ public class SkillUtils
 
     #region 伤害处理
 
-    public static void Damage(WorldBase world, EntityBase attacker, EntityBase hurter,int damageNumber)
+    public static void Damage(WorldBase world, EntityBase attacker, EntityBase hurter, int damageNumber)
     {
         LifeComponent lc = hurter.GetComp<LifeComponent>();
 
         //已经死亡不造成伤害
-        if(lc.life < 0)
+        if (lc.life < 0)
         {
             return;
         }
 
         lc.Life -= damageNumber;
+        //Debug.Log("派发伤害 frame " + world.FrameCount);
         world.eventSystem.DispatchEvent(GameUtils.GetEventKey(hurter.ID, CharacterEventType.Damage), hurter);
 
-        if (lc.Life < 0)
+        if (lc.Life <= 0)
         {
-            if(attacker.GetExistComp<PlayerComponent>()
+            if (attacker.GetExistComp<PlayerComponent>()
                 && hurter.GetExistComp<PlayerComponent>()
                 )
             {
@@ -213,6 +216,38 @@ public class SkillUtils
 
     #endregion
 
+    #region
+
+    public static void Recover(WorldBase world, EntityBase attacker, EntityBase recover, int recoverNumber)
+    {
+        LifeComponent lc = recover.GetComp<LifeComponent>();
+
+        //已经死亡不造成伤害
+        if (lc.life < 0)
+        {
+            return;
+        }
+
+        lc.Life += recoverNumber;
+        //Debug.Log("派发伤害 frame " + world.FrameCount);
+        world.eventSystem.DispatchEvent(GameUtils.GetEventKey(recover.ID, CharacterEventType.Recover), recover);
+
+        //if (lc.Life <= 0)
+        //{
+        //    if (attacker.GetExistComp<PlayerComponent>()
+        //        && hurter.GetExistComp<PlayerComponent>()
+        //        )
+        //    {
+        //        PlayerComponent pc = attacker.GetComp<PlayerComponent>();
+        //        pc.score++;
+
+        //        world.eventSystem.DispatchEvent(GameUtils.c_scoreChange, null);
+        //    }
+        //}
+    }
+
+    #endregion
+
     #region 范围拓展方法
 
     public static Area UpdatSkillArea(Area area, Vector3 dir, SkillDataGenerate skillData, EntityBase skiller, EntityBase aim = null)
@@ -222,12 +257,13 @@ public class SkillUtils
         return area;
     }
 
-    public static void UpdateArea(Area area, string areaID,Vector3 dir, EntityBase skiller, EntityBase aim = null)
+    public static void UpdateArea(Area area, string areaID, Vector3 dir, EntityBase skiller, EntityBase aim = null)
     {
-        MoveComponent smc = skiller.GetComp<MoveComponent>();
+        //MoveComponent smc = skiller.GetComp<MoveComponent>();
+        SkillStatusComponent ssc = skiller.GetComp<SkillStatusComponent>();
 
         AreaDataGenerate areaData = DataGenerateManager<AreaDataGenerate>.GetData(areaID);
-        Vector3 dirTmp = GetAreaDir(area, areaData, dir,skiller, aim);
+        Vector3 dirTmp = GetAreaDir(area, areaData, dir, skiller, aim);
 
         area.areaType = areaData.m_Shape;
         area.length = areaData.m_Length;
@@ -236,12 +272,14 @@ public class SkillUtils
         area.radius = areaData.m_Radius;
 
         area.direction = dirTmp.normalized;
-        area.position = smc.pos.ToVector() + area.direction * areaData.m_SkewDistance;
+        //area.position = smc.pos.ToVector() + area.direction * areaData.m_SkewDistance;
+
+        area.position = ssc.skillPos.ToVector() + areaData.m_SkewDistance * ssc.skillDir.ToVector().normalized;
 
         //Debug.Log( "skiller forward"+skiller.transform.forward);
     }
 
-    public static Vector3 GetAreaDir(Area area, AreaDataGenerate areaData,Vector3 dir ,EntityBase skiller, EntityBase aim = null)
+    public static Vector3 GetAreaDir(Area area, AreaDataGenerate areaData, Vector3 dir, EntityBase skiller, EntityBase aim = null)
     {
         MoveComponent smc = skiller.GetComp<MoveComponent>();
         //SkillStatusComponent ssc = skiller.GetComp<SkillStatusComponent>();

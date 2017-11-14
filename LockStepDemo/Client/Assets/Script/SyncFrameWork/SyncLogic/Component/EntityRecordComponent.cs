@@ -34,7 +34,7 @@ public class EntityRecordInfo
 
     public void SaveComp(EntityBase entity)
     {
-        foreach(var item in entity.m_compDict)
+        foreach(var item in entity.CompDict)
         {
             if(item.Value is MomentComponentBase)
             {

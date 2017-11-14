@@ -14,15 +14,21 @@ public abstract class ProtocolMessage : CsharpProtocolInterface
 public class PlayerLoginMsg_s : ProtocolMessage
 {
     public string playerID;
+    public string nickName;
+
 }
 
 [MessageMode(SendMode.ToClient)]
 public class PlayerLoginMsg_c : ProtocolMessage
 {
-    public int code0;
-    public string content;
+    public int code;
 
     public string characterID; //玩家选择的角色
+
+    public List<string> ownCharacter;
+
+    public int coin;
+    public int diamond;
 }
 
 [MessageMode(SendMode.ToServer)]
@@ -59,7 +65,7 @@ public class PlayerSelectCharacter_s : ProtocolMessage  //玩家选择角色消�
 [MessageMode(SendMode.ToClient)]
 public class PlayerSelectCharacter_c : ProtocolMessage
 {
-    public string content;
+    public int code;
 }
 
 [MessageMode(SendMode.ToClient)]
@@ -74,5 +80,24 @@ public class PlayerRename_s : ProtocolMessage
     public string newName;
 }
 
+[MessageMode(SendMode.ToClient)]
+public class PlayerSettlement_c : ProtocolMessage
+{
+    public int rank;
+    public int score;
+    public int historicalHighest;
+    public int diamond;
+}
+
+[MessageMode(SendMode.ToClient)]
+public class PlayerBuyCharacter_c : ProtocolMessage
+{
+    public int code;
+}
+[MessageMode(SendMode.ToServer)]
+public class PlayerBuyCharacter_s : ProtocolMessage
+{
+    public string characterID;
+}
 
 

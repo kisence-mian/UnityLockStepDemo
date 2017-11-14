@@ -11,10 +11,11 @@ public class FireSystem : ViewSystemBase
     public override Type[] GetFilter()
     {
         return new Type[] {
-                typeof(CDComponent),
                 typeof(CommandComponent),
                 typeof(SkillStatusComponent),
                 typeof(PlayerComponent),
+                typeof(MoveComponent),
+                typeof(LifeComponent),
             };
     }
 
@@ -24,36 +25,58 @@ public class FireSystem : ViewSystemBase
 
         for (int i = 0; i < list.Count; i++)
         {
-            CommandComponent cc = list[i].GetComp<CommandComponent>();
-            CDComponent cdc = list[i].GetComp<CDComponent>();
-            SkillStatusComponent ssc = list[i].GetComp<SkillStatusComponent>();
-            PlayerComponent pc = list[i].GetComp<PlayerComponent>();
+            CommandComponent cc = (CommandComponent)list[i].GetComp("CommandComponent");
+            SkillStatusComponent ssc = (SkillStatusComponent)list[i].GetComp("SkillStatusComponent");
+            PlayerComponent pc = (PlayerComponent)list[i].GetComp("PlayerComponent");
+            MoveComponent mc = (MoveComponent)list[i].GetComp("MoveComponent");
+            LifeComponent lc = (LifeComponent)list[i].GetComp("LifeComponent");
 
-            cdc.CD -= deltaTime;
-
-            //Debug.Log(cc.element1 + " --> " + cc.element2 + " CanFire " + (cdc.CD <= 0));
+            //CD
+            for (int j = 0; j < ssc.m_skillList.Count; j++)
+            {
+                ssc.m_CDList[j] -= deltaTime;
+            }
 
             if (ssc.skillDirCache.ToVector() != Vector3.zero
                 && cc.isFire
-                && cdc.CD <= 0
                 && !pc.GetIsDizziness()
-                
+                && lc.Life > 0
                 && cc.skillDir.ToVector() == Vector3.zero
                 )
             {
-                cdc.CD = 2 * 1000;
-
                 string skillID = SkillUtils.GetSkillName(cc);
+                SkillData data = ssc.GetSkillData(skillID);
 
-                //Debug.Log("FIRE!!! --> " + skillID);
+                if (ssc.GetSkillCDFinsih(skillID))
+                {
+                    //Debug.Log("FIRE!!! --> " + skillID);
+                    ssc.m_skillTime = 0;
+                    ssc.m_skillStstus = SkillStatusEnum.Before;
+                    ssc.m_isTriggerSkill = false;
+                    ssc.m_currentSkillData = data;
+                    ssc.m_currentSkillData.UpdateInfo();
 
-                ssc.m_skillTime = 0;
-                ssc.m_skillStstus = SkillStatusEnum.Before;
-                ssc.m_isTriggerSkill = false;
-                ssc.m_currentSkillData = ssc.GetSkillData(skillID);
-                ssc.m_currentSkillData.UpdateInfo();
+                    ssc.SetSkillCD(skillID, data.CDSpace);
 
-                ssc.skillDir = ssc.skillDirCache.DeepCopy();
+                    ssc.skillDir = ssc.skillDirCache.DeepCopy();
+                    AreaDataGenerate areaData = DataGenerateManager<AreaDataGenerate>.GetData(ssc.m_currentSkillData.SkillInfo.m_EffectArea);
+
+                    float distance = ssc.skillDir.ToVector().magnitude;
+                    distance = areaData.m_SkewDistance + Mathf.Clamp(distance, 0, areaData.m_distance);
+
+                    Vector3 aimPos = mc.pos.ToVector() + ssc.skillDir.ToVector().normalized * distance;
+                    if (areaData.m_Shape != AreaType.Rectangle)
+                    {
+                        ssc.skillPos.FromVector(aimPos);
+                    }
+                    else
+                    {
+                        ssc.skillPos.FromVector(mc.pos.ToVector() + ssc.skillDir.ToVector().normalized * (areaData.m_SkewDistance - areaData.m_Length / 2));
+                    }
+                }
+
+
+
             }
 
             ssc.skillDirCache = cc.skillDir.DeepCopy();

@@ -52,13 +52,16 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
             PlayerCommandRecordComponent rc = list[i].GetComp<PlayerCommandRecordComponent>();
             T cmd = (T)rc.GetInputCahae(frame);
 
+            //Debug.Log("recalc cmd " + list[i].ID + " content " + Serializer.Serialize(cmd) + " " + m_world.FrameCount);
+
             if(cmd == null)
             {
                 Debug.LogError("重演算没有读取到输入记录！ frame:" + frame + " ID: " + list[i].ID);
-                return; //TODO
             }
-
-            list[i].ChangeComp(cmd);
+            else
+            {
+                list[i].ChangeComp(cmd);
+            }
         }
     }
 
@@ -91,29 +94,50 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
 
     void SelfCommandLogic(EntityBase entity)
     {
-        T comp = new T();
+        //Debug.Log("SelfCommandLogic " + m_world.FrameCount);
 
-        comp.frame = m_world.FrameCount;
-        comp.id = entity.ID;
-
-        BuildCommand(comp);
-        entity.ChangeComp(comp);
-
+        //先取服务器缓存
         AddComp(entity);
-
-        //缓存起来
         PlayerCommandRecordComponent rc = entity.GetComp<PlayerCommandRecordComponent>();
-        rc.RecordCommand(comp);
 
-        if(!m_world.m_isLocal)
+        T cmd = (T)rc.GetInputCahae(m_world.FrameCount);
+
+        //没有的话构建一份
+        if (cmd == null)
         {
-            comp.time = ClientTime.GetTime();
-            ProtocolAnalysisService.SendCommand(comp);
+            cmd = new T();
+
+            cmd.frame = m_world.FrameCount;
+            cmd.id = entity.ID;
+
+            BuildCommand(cmd);
+
+            rc.RecordCommand(cmd);
+
+            //Debug.Log("Self cmd " + entity.ID + " content " + Serializer.Serialize(cmd) + " " + m_world.FrameCount);
         }
+        else
+        {
+            //Debug.Log("读取 服务器缓存 输入");
+        }
+
+        if (!m_world.m_isLocal)
+        {
+            //ConnectStatusComponent csc = m_world.GetSingletonComp<ConnectStatusComponent>();
+            //csc.unConfirmFrame.Add(cmd.frame);
+
+            cmd.time = ClientTime.GetTime();
+            ProtocolAnalysisService.SendCommand(cmd);
+        }
+
+
+        entity.ChangeComp(cmd);
     }
 
     void OtherCommandLogic(EntityBase entity)
     {
+        //Debug.Log("OtherCommandLogic " + m_world.FrameCount);
+
         AddComp(entity);
 
         PlayerCommandRecordComponent rc = entity.GetComp<PlayerCommandRecordComponent>();
@@ -123,12 +147,15 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         //没有的话预测一份
         if (cmd == null)
         {
+            //Debug.Log("预测本地操作 " + m_world.FrameCount + " id " + entity.ID);
             cmd = (T)rc.GetForecastInput(m_world.FrameCount);
         }
 
         rc.RecordCommand(cmd);
 
         entity.ChangeComp(cmd);
+
+        //Debug.Log("Other cmd " + entity.ID + " content " + Serializer.Serialize(cmd) + " " + m_world.FrameCount);
     }
 
     public virtual void BuildCommand(T command)

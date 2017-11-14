@@ -20,7 +20,7 @@ public class BuffSystem : SystemBase
         for (int i = 0; i < list.Count; i++)
         {
             PlayerComponent pc = list[i].GetComp<PlayerComponent>();
-            BuffLogic(deltaTime,pc);
+            BuffLogic(deltaTime, pc);
         }
     }
 
@@ -31,26 +31,36 @@ public class BuffSystem : SystemBase
             BuffInfo bi = playerComp.buffList[i];
             bi.buffTime += deltaTime;
 
-            if(bi.BuffData.m_DamageNumber > 0)
+            if (bi.BuffData.m_DamageNumber > 0
+               || bi.BuffData.m_RecoverNumber > 0
+                )
             {
                 bi.hitTime -= deltaTime;
 
-                if(bi.hitTime < 0)
+                if (bi.hitTime < 0)
                 {
-                    bi.hitTime = (int)(bi.BuffData.m_BuffEffectSpace * 1000);
-
-                    //伤害
+                    bi.hitTime = bi.BuffData.m_BuffEffectSpace;
                     if (playerComp.Entity.GetExistComp<LifeComponent>())
                     {
+                        //伤害
                         LifeComponent lc = playerComp.Entity.GetComp<LifeComponent>();
-                        SkillUtils.Damage(m_world, m_world.GetEntity(bi.creater), playerComp.Entity, bi.BuffData.m_DamageNumber);
+                        if (bi.BuffData.m_DamageNumber > 0)
+                        {
+                            SkillUtils.Damage(m_world, m_world.GetEntity(bi.creater), playerComp.Entity, bi.BuffData.m_DamageNumber);
+                        }
+
+                        if (bi.BuffData.m_RecoverNumber > 0)
+                        {
+                            //恢复
+                            SkillUtils.Recover(m_world, m_world.GetEntity(bi.creater), playerComp.Entity, bi.BuffData.m_RecoverNumber);
+                        }
 
                         m_world.eventSystem.DispatchEvent(GameUtils.c_HitBuff, playerComp.Entity, bi);
                     }
                 }
             }
-            
-            if(bi.buffTime > bi.BuffData.m_BuffTime * 1000)
+
+            if (bi.buffTime > bi.BuffData.m_BuffTime)
             {
                 m_world.eventSystem.DispatchEvent(GameUtils.c_removeBuff, playerComp.Entity, bi);
 

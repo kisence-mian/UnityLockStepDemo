@@ -17,15 +17,15 @@ public class SkillDataGenerate : DataGenerateBase
 	public bool m_CanBreak; //这个技能可打断别人
 	public string m_BlowFlyID; //造成目标击飞ID
 	public string[] m_HurtBuff; //给别人buff
-	public float m_CD; //冷却时间
+	public int m_CD; //冷却时间
 	public bool m_Moment; //是否瞬间伤害（非瞬发的意思）
-	public float m_TriggerSpaceTime; //周期伤害的伤害间隔
+	public int m_TriggerSpaceTime; //周期伤害的伤害间隔
 	public bool m_allowMove; //放这个技能期间是否可以移动
 	public bool m_noclip; //穿墙
 	public string m_FlyObjectArea; //飞行物释放范围
 	public int m_FlyDamageValue; //飞行物伤害
 	public string[] m_FlyObjectName; //飞行物模组名
-	public float m_flydistance; //陨石掉落身前距离
+	public int m_flydistance; //陨石掉落身前距离
 	public int m_uplv; //升级等级
 	public string m_nextskill; //下级技能
 	public int m_moneytype; //金币或者钻石
@@ -36,14 +36,14 @@ public class SkillDataGenerate : DataGenerateBase
 	public string m_CurrentStatus; //中段
 	public string m_LaterStatus; //后段
 	public float m_RaiseTime; //不要配这个字段
-	public float m_HitTime; //中段命中时间
+	public int m_HitTime; //中段命中时间
 	public HardPointEnum m_HitFXCreatPoint; //命中特效挂载点
 	public string m_AreaTexture; //范围花纹
-	public float m_DamagePer; //技能增幅
-	public float m_RecoverValue; //恢复值
-	public float m_ReValuep; //恢复比例
+	public int m_DamagePer; //技能增幅
+	public int m_RecoverValue; //恢复值
+	public int m_ReValuep; //恢复比例
 	public string m_HurtCameraShoke; //震屏效果类型
-	public float m_flydamageper; //飞行物伤害增幅
+	public int m_flydamageper; //飞行物伤害增幅
 	public HardPointEnum m_FlyCreatPoint; //飞行物出现点
 	public bool m_CanBeBreakInC; //在C段中能否被打断
 	public bool m_CanBeBreak; //在B段能否被打断
@@ -78,15 +78,15 @@ public class SkillDataGenerate : DataGenerateBase
 		m_CanBreak = data.GetBool("CanBreak");
 		m_BlowFlyID = data.GetString("BlowFlyID");
 		m_HurtBuff = data.GetStringArray("HurtBuff");
-		m_CD = data.GetFloat("CD");
+		m_CD = data.GetInt("CD");
 		m_Moment = data.GetBool("Moment");
-		m_TriggerSpaceTime = data.GetFloat("TriggerSpaceTime");
+		m_TriggerSpaceTime = data.GetInt("TriggerSpaceTime");
 		m_allowMove = data.GetBool("allowMove");
 		m_noclip = data.GetBool("noclip");
 		m_FlyObjectArea = data.GetString("FlyObjectArea");
 		m_FlyDamageValue = data.GetInt("FlyDamageValue");
 		m_FlyObjectName = data.GetStringArray("FlyObjectName");
-		m_flydistance = data.GetFloat("flydistance");
+		m_flydistance = data.GetInt("flydistance");
 		m_uplv = data.GetInt("uplv");
 		m_nextskill = data.GetString("nextskill");
 		m_moneytype = data.GetInt("moneytype");
@@ -97,14 +97,14 @@ public class SkillDataGenerate : DataGenerateBase
 		m_CurrentStatus = data.GetString("CurrentStatus");
 		m_LaterStatus = data.GetString("LaterStatus");
 		m_RaiseTime = data.GetFloat("RaiseTime");
-		m_HitTime = data.GetFloat("HitTime");
+		m_HitTime = data.GetInt("HitTime");
 		m_HitFXCreatPoint = data.GetEnum<HardPointEnum>("HitFXCreatPoint");
 		m_AreaTexture = data.GetString("AreaTexture");
-		m_DamagePer = data.GetFloat("DamagePer");
-		m_RecoverValue = data.GetFloat("RecoverValue");
-		m_ReValuep = data.GetFloat("ReValuep");
+		m_DamagePer = data.GetInt("DamagePer");
+		m_RecoverValue = data.GetInt("RecoverValue");
+		m_ReValuep = data.GetInt("ReValuep");
 		m_HurtCameraShoke = data.GetString("HurtCameraShoke");
-		m_flydamageper = data.GetFloat("flydamageper");
+		m_flydamageper = data.GetInt("flydamageper");
 		m_FlyCreatPoint = data.GetEnum<HardPointEnum>("FlyCreatPoint");
 		m_CanBeBreakInC = data.GetBool("CanBeBreakInC");
 		m_CanBeBreak = data.GetBool("CanBeBreak");

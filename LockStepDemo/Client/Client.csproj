@@ -270,6 +270,8 @@
     <Compile Include="Assets\Script\SyncFrameWork\ClientTime.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\ComponentBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\ECSEvent.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ECS\ECSGroup.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ECS\ECSGroupManager.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\EntityBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\InputCommandManager.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\MomentComponentBase.cs" />

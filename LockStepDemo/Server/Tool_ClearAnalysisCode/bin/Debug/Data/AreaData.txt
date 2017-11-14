@@ -1,41 +1,19 @@
-﻿AreaID	SkewDirection	SkewDistance	Shape	Length	Width	Angle	Radius
-type	Enum|DirectionEnum	Float	Enum|AreaType	Float	Float	Float	Float
-note	方向	偏移距离	形状	矩形长	矩形宽	扇形角度	半径
-default	Forward	0	Sector	0	0	100	2.5
-normal01	Forward	0	Sector	0	0	100	2.5
-normal02	Forward	0	Sector	0	0	85	4.5
-normalLarge	Forward	0	Sector	0	0	120	2.5
-normalWide	Forward	0	Sector	0	0	120	3.5
-normalLong	Forward	0	Sector	0	0	50	2.5
-thinLong1	Forward	0	Sector	0	0	40	5
-thinLong2	Forward	0	Sector	0	0	20	8
-Rectangle1x1			Rectangle	1	1		
-Rectangle6x0.25		2.25	Rectangle	6	0.25		
-Rectangle1x3			Rectangle	1	3		
-Circle_10			Circle				10
-NoOffSet			Circle				0
-Circle_5			Circle				5
-gongjianshou	Forward	0	Sector	0	0	50	2.5
-zhaohuan	Forward	2					
-qinlong							2.5
-chongzhuang	Forward	1	Rectangle	2	3		
-Circle_24			Circle				2.5
-Sector_20_1	Forward	0	Sector	0	0	20	1
-Sector_20_2.5	Forward	0	Sector	0	0	20	2.5
-Circle_3			Circle				3
-Circle_05			Circle				0.5
-feiDan	Forward	4	Circle				1
-Circle_1			Circle				1
-baoLie	Forward	2.5	Circle				2
-Rectangle5x2.5			Rectangle	5	2.5		
-Circle_4_F1.5	Forward	4	Circle				1.5
-Circle_5_F1	Forward	5	Circle				0.8
-Circle_5_F5	Forward	5	Circle				5
-Rectangle4x1.5		2	Rectangle	4	1.5		
-Rectangle10x2.5OffSet		5	Rectangle	10	2.5		
-Circle_8	Close		Sector			200	8
-Rectangle5x2.5_F		2.5	Rectangle	5	2.5		
-Sector_30_10	Forward		Sector			30	10
-LongWide	Forward	0	Sector	0	0	120	5
-Circle_1.5			Circle				1.5
-Circle_6			Circle				6
+AreaID	SkewDirection	SkewDistance	distance	Shape	Length	Width	Angle	Radius
+type	Enum|DirectionEnum	Float	Float	Enum|AreaType	Float	Float	Float	Float
+note	方向	偏移距离	操作偏移最大距离	形状	矩形长	矩形宽	扇形角度	半径
+default	Forward	0	0	Sector	0	0	100	2.5
+Sector2100	Forward	1		Sector	0	0	100	2.5
+Rectangle2002		3		Rectangle	6	0.45		
+Circle_24				Circle				2.5
+Circle_1				Circle				1
+Circle2102	Forward	0	5.5	Circle				1.25
+Circle2103	Forward	0	5	Circle				0.85
+Rectangle5x1_F		2.5		Rectangle	5	1		
+Rectangle1999		3.3		Rectangle	6.6	1		
+Rectangle2000		3.3		Rectangle	6.6	1		
+Rectangle2001		3.25		Rectangle	6.5	1		
+Rectangle2003		3.9		Rectangle	7.8	1		
+Rectangle2101		3.6		Rectangle	7.2	1		
+Rectangle2105		3.2		Rectangle	6.4	1		
+Circle2104	Forward	0	4.5	Circle				1.05
+NoOffSet				Circle				0

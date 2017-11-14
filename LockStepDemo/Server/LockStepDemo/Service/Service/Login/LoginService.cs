@@ -9,6 +9,8 @@ public class LoginService : ServiceBase
 {
     const string c_playerTableName = "PlayerTable";
 
+    Dictionary<string, Player> m_onLinePlayer = new Dictionary<string, Player>();
+
     public override void OnInit()
     {
         EventService.AddTypeEvent<PlayerLoginMsg_s>(RecevicePlayerLogin);
@@ -28,8 +30,38 @@ public class LoginService : ServiceBase
         m_service.OnPlayerLogout(session.player);
     }
 
+    public override void OnPlayerLogout(Player player)
+    {
+        if(m_onLinePlayer.ContainsKey(player.playerID))
+        {
+            m_onLinePlayer.Remove(player.playerID);
+        }
+        else
+        {
+            Debug.LogError("玩家退出 该玩家不在在线玩家中");
+        }
+    }
+
+    public override void OnPlayerLogin(Player player)
+    {
+        if (!m_onLinePlayer.ContainsKey(player.playerID))
+        {
+            m_onLinePlayer.Add(player.playerID,player);
+        }
+        else
+        {
+            Debug.LogError("玩家登录 该玩家已经在 在线玩家中");
+        }
+    }
+
     public void RecevicePlayerLogin(SyncSession session, PlayerLoginMsg_s e)
     {
+        //玩家已登录
+        if (m_onLinePlayer.ContainsKey(e.playerID))
+        {
+            return;
+        }
+
         Debug.Log("RecevicePlayerLogin");
 
         if(session.player != null)
@@ -61,9 +93,16 @@ public class LoginService : ServiceBase
         }
 
         session.player.playerID = e.playerID;
+        session.player.nickName = e.nickName;
         session.player.session = session;
 
         PlayerLoginMsg_c msg = new PlayerLoginMsg_c();
+
+        msg.code = ServiceErrorCode.c_Success;
+        msg.characterID  = session.player.characterID;
+        msg.ownCharacter = session.player.OwnCharacter;
+        msg.diamond      = session.player.Diamond;
+        msg.coin         = session.player.Coin;
         ProtocolAnalysisService.SendMsg(session,msg);
 
         //派发玩家登陆事件
@@ -74,9 +113,14 @@ public class LoginService : ServiceBase
     {
         Player player = new Player();
 
-        player.characterID = data.GetString("CharacterID");
-        player.OwnCharacter = data.GetString("OwnCharacter");
-        player.nickName = data.GetString("NickName");
+        player.characterID  = data.GetString("CharacterID");
+        player.OwnCharacter = StringToList(data.GetString("OwnCharacter"));
+        player.nickName     = data.GetString("NickName");
+
+        player.OwnCharacter = new List<string>() { "1" };
+
+        player.Coin    = data.GetInt("Coin");
+        player.Diamond = data.GetInt("Diamond");
 
         return player;
     }
@@ -85,9 +129,8 @@ public class LoginService : ServiceBase
     {
         Player player = new Player();
 
-        //player.characterID = data.GetString("CharacterID");
-        //player.OwnCharacter = data.GetString("OwnCharacter");
-        //player.nickName = data.GetString("NickName");
+        player.OwnCharacter = new List<string>() { "1"};
+        player.Diamond = 100000;
 
         return player;
     }
@@ -100,8 +143,46 @@ public class LoginService : ServiceBase
         value.Add("ID", player.playerID);
         value.Add("NickName", player.nickName);
         value.Add("CharacterID", player.characterID);
-        value.Add("OwnCharacter", player.OwnCharacter);
+        value.Add("OwnCharacter", ToSaveString(player.OwnCharacter));
+
+        value.Add("Coin", player.Coin.ToString());
+        value.Add("Diamond", player.Diamond.ToString());
 
         DataBaseService.database.Update(c_playerTableName, value, clauseContent, null);
+    }
+
+    public string ToSaveString(List<string> content)
+    {
+        string result = "";
+
+        for (int i = 0; i < content.Count; i++)
+        {
+            result += content[i];
+
+            if(i != content.Count -1)
+            {
+                result += "|";
+            }
+        }
+
+        return result;
+    }
+
+    public List<string> StringToList(string content)
+    {
+        List<string> list = new List<string>();
+
+        if(content != null)
+        {
+            string[] tmp = content.Split('|');
+
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                list.Add(tmp[i]);
+            }
+        }
+
+
+        return list;
     }
 }

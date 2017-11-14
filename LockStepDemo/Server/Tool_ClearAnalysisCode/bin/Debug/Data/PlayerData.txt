@@ -1,8 +1,8 @@
 id	type	pic	playername	playerint	att	def	hp	critdamage	crit	movespeed	specialid	ModelID	walkAnimName	BackWalkAnim	LeftWalkAnim	RightWalkAnim	cloakAnimName	IdleAnimName	HurtAnimName	HurtAnimTime	DieAnimName	ShowAniName	Radius	IsOnlyDamageValue	BloodHight	FootstepSFX	gold	diamond	lv	exp	expneed	phy	renown	power	hprecover	ignoredef	hpabsorb	tough
 type	Int	String	String	String	Int	Int	Int	Int	Int	Float	Int	String	String	String	String	String	String	String	String	Float	String	String	Float	Bool	Float	String	Int	Float	Int	Int	Int	Int	Int	Int	Int	Int	Int	Int
-note	ÀàĞÍ	½ÇÉ«Í¼Æ¬	Íæ¼ÒÃû	Íæ¼Ò½éÉÜ	¹¥»÷Á¦	·ÀÓùÁ¦	ÉúÃüÖµ	±©»÷ÉËº¦	±©»÷ÂÊ	ÒÆ¶¯ËÙ¶È	ÌØĞÔ	Ä£ĞÍID	Ç°½ø¶¯»­	ºóÍË¶¯»­	×ó×ß¶¯»­	ÓÒ×ß¶¯»­							°ë¾¶		Y	½Å²½Éù	½ğ±Ò	×êÊ¯	µÈ¼¶	¾­ÑéÖµ	Éı¼¶¾­Ñé	ÌåÁ¦Öµ	ÉùÍû	Õ½¶·Á¦	ÉúÃü»Ö¸´	ÆÆ·À	ÎüÑª	ÈÍĞÔ
-default	0	yingxiong_01	ÔªËØ´ó×÷Õ½	for fight	0	0	0	1	0	0	0	male_01	hero_famel_move	hero_famel_move	hero_famel_move	hero_famel_move	ass_female_qianru	hero_male_idle	shoushang	0.2	ass_female_siwang	war_female_chaofeng	1	FALSE	-0.1	null	0	0	0	0	0	0	0	0	0	0	0	0
-1	0	yingxiong_02	Demo	Demo is the most hansome boy	150	50	1500		0	3.5	0	male_01																										
-2	0	yingxiong_01	Oscar	Oscar the best enchanter	150	50	1500		0	3.5	0	male_01																										
-3	0	yingxiong_03	Oliver	Oliver could move more fast,but Lower blood volume	150	50	1350		0	3.5	0	male_01																										
-4	0		Alice	Alice stronger,but power in attack 	135	55	1500		0	3.5	0	male_01																										
+note	ç±»å‹	è§’è‰²å›¾ç‰‡	ç©å®¶å	ç©å®¶ä»‹ç»	æ”»å‡»åŠ›	é˜²å¾¡åŠ›	ç”Ÿå‘½å€¼	æš´å‡»ä¼¤å®³	æš´å‡»ç‡	ç§»åŠ¨é€Ÿåº¦	ç‰¹æ€§	æ¨¡å‹ID	å‰è¿›åŠ¨ç”»	åé€€åŠ¨ç”»	å·¦èµ°åŠ¨ç”»	å³èµ°åŠ¨ç”»		å¾…æœºåŠ¨ä½œ	å—å‡»åŠ¨ä½œ	å—å‡»åŠ¨ä½œæ—¶é—´	æ­»äº¡åŠ¨ä½œ		åŠå¾„		Y	è„šæ­¥å£°	é‡‘å¸	é’»çŸ³	ç­‰çº§	ç»éªŒå€¼	å‡çº§ç»éªŒ	ä½“åŠ›å€¼	å£°æœ›	æˆ˜æ–—åŠ›	ç”Ÿå‘½æ¢å¤	ç ´é˜²	å¸è¡€	éŸ§æ€§
+default	0	yingxiong_01	å…ƒç´ å¤§ä½œæˆ˜	for fight	0	0	0	1	0	0	0	hero_01	move	move_back	move_left	move_right	ass_female_qianru	wait	hit	0.2	die	wait	1	FALSE	-0.1	null	0	0	0	0	0	0	0	0	0	0	0	0
+1	0	UI_hero_001	Demo	Demo is the most handsome boy	150	50	980		0	4	0	male_01						wait	hit	0.1	die																	
+2	0	UI_hero_002	Oscar	Oscar the best enchanter	150	50	980		0	4	0	famale_01						wait	hit	0.1	die																	
+3	0	UI_hero_005	Oliver	Oliver could move more fast,but Lower blood volume	150	50	900		0	4.2	0	male_02						wait	hit	0.1	die																	
+4	0	UI_hero_004	Alice	Alice stronger,but poor in attack 	135	55	980		0	4	0	famale_02						wait	hit	0.1	die																	

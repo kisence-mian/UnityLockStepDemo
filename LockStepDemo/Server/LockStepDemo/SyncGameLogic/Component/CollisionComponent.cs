@@ -7,6 +7,7 @@ using System.Text;
 public class CollisionComponent : ComponentBase
 {
     public bool isCanAcross = false;
+    public bool isStatic = false;
     public Area area = new Area();
 
     public bool isEnterCollision = false;

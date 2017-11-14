@@ -6,6 +6,10 @@ public class EntityBase
     private WorldBase world;
 
     private int id = 0;
+
+    public int m_CreateFrame = 0;
+    public int m_DestroyFrame = 0;
+
     public int ID
     {
         get
@@ -31,6 +35,14 @@ public class EntityBase
         }
     }
 
+    public Dictionary<string, ComponentBase> CompDict
+    {
+        get
+        {
+            return m_compDict;
+        }
+    }
+
     public event EntityComponentChangedCallBack OnComponentAdded;
     public event EntityComponentChangedCallBack OnComponentRemoved;
     public event EntityComponentReplaceCallBack OnComponentReplaced;
@@ -38,7 +50,7 @@ public class EntityBase
 
     #region 组件相关
 
-    public Dictionary<string, ComponentBase> m_compDict = new Dictionary<string, ComponentBase>();
+    private Dictionary<string, ComponentBase> m_compDict = new Dictionary<string, ComponentBase>();
 
     public bool GetExistComp<T>()where T : ComponentBase, new()
     {
@@ -191,6 +203,21 @@ public class EntityBase
 
 
     #endregion
+
+    #region Hash
+
+    public virtual int ToHash()
+    {
+        int hash = id;
+
+        foreach (var item in m_compDict)
+        {
+            hash += item.Value.ToHash();
+        }
+
+        return hash;
+    }
+#endregion
 }
 
 public delegate void EntityComponentChangedCallBack(EntityBase entity, string compName, ComponentBase component);

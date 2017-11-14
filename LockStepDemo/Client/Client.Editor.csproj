@@ -201,6 +201,7 @@
     <Compile Include="Assets\Script\Core\Lua\ToLua\Editor\ToLuaExport.cs" />
     <Compile Include="Assets\Script\Core\Lua\ToLua\Editor\ToLuaMenu.cs" />
     <Compile Include="Assets\Script\Core\Lua\ToLua\Editor\ToLuaTree.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Editor\SyncDebugEditorWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Data\AreaData.txt" />

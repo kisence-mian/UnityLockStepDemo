@@ -1,7 +1,0 @@
-{"pos":{"x":-14810,"y":769,"z":3299},"randomList":["EFX_res_fire","EFX_water_01_1","EFX_soil_01_1","EFX_res_earth"],"CreateTimer":0,"CreateItemID":0}
-{"pos":{"x":12460,"y":769,"z":1039},"randomList":["EFX_res_fire","EFX_water_01_1","EFX_soil_01_1","EFX_res_earth"],"CreateTimer":0,"CreateItemID":0}
-{"pos":{"x":33639,"y":769,"z":3220},"randomList":["EFX_res_fire","EFX_water_01_1","EFX_soil_01_1","EFX_res_earth"],"CreateTimer":0,"CreateItemID":0}
-{"pos":{"x":32599,"y":769,"z":-18040},"randomList":["EFX_res_fire","EFX_water_01_1","EFX_soil_01_1","EFX_res_earth"],"CreateTimer":0,"CreateItemID":0}
-{"pos":{"x":17719,"y":769,"z":-19090},"randomList":["EFX_res_fire","EFX_water_01_1","EFX_soil_01_1","EFX_res_earth"],"CreateTimer":0,"CreateItemID":0}
-{"pos":{"x":6190,"y":769,"z":-16420},"randomList":["EFX_res_fire","EFX_water_01_1","EFX_soil_01_1","EFX_res_earth"],"CreateTimer":0,"CreateItemID":0}
-{"pos":{"x":-17389,"y":769,"z":-18879},"randomList":["EFX_res_fire","EFX_water_01_1","EFX_soil_01_1","EFX_res_earth"],"CreateTimer":0,"CreateItemID":0}

@@ -1,8 +1,8 @@
 id	type	pic	playername	playerint	att	def	hp	critdamage	crit	movespeed	specialid	ModelID	walkAnimName	BackWalkAnim	LeftWalkAnim	RightWalkAnim	cloakAnimName	IdleAnimName	HurtAnimName	HurtAnimTime	DieAnimName	ShowAniName	Radius	IsOnlyDamageValue	BloodHight	FootstepSFX	gold	diamond	lv	exp	expneed	phy	renown	power	hprecover	ignoredef	hpabsorb	tough
 type	Int	String	String	String	Int	Int	Int	Int	Int	Float	Int	String	String	String	String	String	String	String	String	Float	String	String	Float	Bool	Float	String	Int	Float	Int	Int	Int	Int	Int	Int	Int	Int	Int	Int
-note	类型	角色图片	玩家名	玩家介绍	攻击力	防御力	生命值	暴击伤害	暴击率	移动速度	特性	模型ID	前进动画	后退动画	左走动画	右走动画							半径		Y	脚步声	金币	钻石	等级	经验值	升级经验	体力值	声望	战斗力	生命恢复	破防	吸血	韧性
-default	0	yingxiong_01	元素大作战	for fight	0	0	0	1	0	0	0	male_01	hero_famel_move	hero_famel_move	hero_famel_move	hero_famel_move	ass_female_qianru	hero_male_idle	shoushang	0.2	ass_female_siwang	war_female_chaofeng	1	FALSE	-0.1	null	0	0	0	0	0	0	0	0	0	0	0	0
-1	0	yingxiong_02	Demo	Demo is the most hansome boy	150	50	1500		0	4	0	male_01																										
-2	0	yingxiong_01	Oscar	Oscar the best enchanter	150	50	1500		0	4	0	male_01																										
-3	0	yingxiong_03	Oliver	Oliver could move more fast,but Lower blood volume	150	50	1350		0	4.2	0	male_01																										
-4	0		Alice	Alice stronger,but poor in attack 	135	55	1500		0	4	0	male_01																										
+note	类型	角色图片	玩家名	玩家介绍	攻击力	防御力	生命值	暴击伤害	暴击率	移动速度	特性	模型ID	前进动画	后退动画	左走动画	右走动画		待机动作	受击动作	受击动作时间	死亡动作		半径		Y	脚步声	金币	钻石	等级	经验值	升级经验	体力值	声望	战斗力	生命恢复	破防	吸血	韧性
+default	0	yingxiong_01	元素大作战	for fight	0	0	0	1	0	0	0	hero_01	move	move_back	move_left	move_right	ass_female_qianru	wait	hit	0.2	die	wait	1	FALSE	-0.1	null	0	0	0	0	0	0	0	0	0	0	0	0
+1	0	UI_hero_001	Demo	Demo is the most handsome boy	150	50	980		0	4	0	male_01						wait	hit	0.1	die																	
+2	0	UI_hero_002	Oscar	Oscar the best enchanter	150	50	980		0	4	0	famale_01						wait	hit	0.1	die																	
+3	0	UI_hero_005	Oliver	Oliver could move more fast,but Lower blood volume	150	50	900		0	4.2	0	male_02						wait	hit	0.1	die																	
+4	0	UI_hero_004	Alice	Alice stronger,but poor in attack 	135	55	980		0	4	0	famale_02						wait	hit	0.1	die																	

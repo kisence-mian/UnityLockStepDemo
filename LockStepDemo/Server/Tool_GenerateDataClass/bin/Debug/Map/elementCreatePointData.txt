@@ -1,5 +1,0 @@
-{"pos":{"x":14755,"y":1558,"z":1116},"randomList":["EFX_res_bolt","EFX_res_earth","EFX_res_earth_b","EFX_res_fire","EFX_res_fire_b"],"CreateTimer":0,"CreateItemID":0}
-{"pos":{"x":-33664,"y":1558,"z":16426},"randomList":["EFX_res_bolt","EFX_res_earth","EFX_res_earth_b","EFX_res_fire","EFX_res_fire_b"],"CreateTimer":0,"CreateItemID":0}
-{"pos":{"x":35835,"y":1558,"z":15826},"randomList":["EFX_res_bolt","EFX_res_earth","EFX_res_earth_b","EFX_res_fire","EFX_res_fire_b"],"CreateTimer":0,"CreateItemID":0}
-{"pos":{"x":34735,"y":1558,"z":-16573},"randomList":["EFX_res_bolt","EFX_res_earth","EFX_res_earth_b","EFX_res_fire","EFX_res_fire_b"],"CreateTimer":0,"CreateItemID":0}
-{"pos":{"x":-32814,"y":1558,"z":-5973},"randomList":["EFX_res_bolt","EFX_res_earth","EFX_res_earth_b","EFX_res_fire","EFX_res_fire_b"],"CreateTimer":0,"CreateItemID":0}

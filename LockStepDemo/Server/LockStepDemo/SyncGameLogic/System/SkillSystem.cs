@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DeJson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +36,7 @@ public class SkillSystem : SystemBase
         {
             SkillDataGenerate skillData = ssc.m_currentSkillData.SkillInfo;
 
-            //TODO 技能代处理
+            //技能代处理
             SkillUtils.TokenUseSkill(m_world, entity.ID, skillData.m_SkillAgency, mc.pos.ToVector(), ssc.skillDir.ToVector());
 
             //获取伤害列表
@@ -45,6 +46,9 @@ public class SkillSystem : SystemBase
 
             //创建飞行物
             CreateFlyObject(skillData, entity);
+
+            //自身buff
+            SkillUtils.AddBuff(m_world, entity, entity, skillData.m_SelfBuff);
 
             //Debug.Log("SkillLogic hit " + entity.ID + " createrid " + cc.creater + " damageList.Count " + damageList.Count);
 
@@ -61,6 +65,7 @@ public class SkillSystem : SystemBase
             }
 
             //TODO 恢复
+            Recover(entity, entity, skillData);
         }
     }
 
@@ -87,10 +92,10 @@ public class SkillSystem : SystemBase
                 MoveComponent mc = new MoveComponent();
                 mc.pos = poss[i].m_pos;
                 mc.dir = poss[i].m_dir;
-                mc.m_velocity = (int)(flyData.m_Speed * 1000);
+                mc.m_velocity = flyData.m_Speed;
 
                 LifeSpanComponent lsc = new LifeSpanComponent();
-                lsc.lifeTime = (int)(flyData.m_LiveTime * 1000);
+                lsc.lifeTime = flyData.m_LiveTime;
 
                 AssetComponent ac = new AssetComponent();
                 ac.m_assetName = flyData.m_ModelName;
@@ -101,7 +106,7 @@ public class SkillSystem : SystemBase
 
                 CollisionComponent cc = new CollisionComponent();
                 cc.area.areaType = AreaType.Circle;
-                cc.area.radius = flyData.m_Radius;
+                cc.area.radius = flyData.m_Radius / 1000;
 
                 FlyObjectComponent fc = new FlyObjectComponent();
                 fc.createrID = skiller.ID;
@@ -109,7 +114,7 @@ public class SkillSystem : SystemBase
                 fc.flyObjectID = skillData.m_FlyObjectName[i];
 
                 string identify = skiller.ID + "FlyObject" + i + poss[i].m_pos;
-                m_world.CreateEntity(identify, tc,mc, ac, cp, lsc, cc, fc);
+                m_world.CreateEntity(identify, tc, mc, ac, cp, lsc, cc, fc);
             }
         }
     }
@@ -123,94 +128,77 @@ public class SkillSystem : SystemBase
         List<CreatPostionInfo> result = new List<CreatPostionInfo>();
         //result.Clear();
 
-        //if (Length == 0)
-        //{
-        //    return result;
-        //}
+        if (Length == 0)
+        {
+            return result;
+        }
 
-        //HardPointEnum l_FXCreatPoint = skillData.m_FlyCreatPoint;
+        HardPointEnum l_FXCreatPoint = skillData.m_FlyCreatPoint;
 
-        //Vector3 forward = ssc.skillDir.ToVector();
-        //Vector3 dir = forward;
-        //Vector3 pos = Vector3.zero;
+        SyncVector3 forward = new SyncVector3().FromVector(ssc.skillDir.ToVector().normalized);
+        SyncVector3 dir = forward;
+        SyncVector3 pos = mc.pos;
 
-        ////获取散射区域
-        //Area skillArea = SkillUtils.UpdatSkillArea(areaCache, skillData, skiller, null);
+        SyncVector3 leftBorder = new SyncVector3();
+        SyncVector3 leftDir = new SyncVector3();
+        SyncVector3 leftPos = new SyncVector3();
+        float sectorStep = 0;
+        float rectangleStep = 0;
 
-        ////TODO 寻敌方法
-        ////CharacterBase enemy = GetRecentlyEnemy(skillArea, skiller.m_camp, false);
-        ////CharacterBase enemy = null;
-        //MoveComponent emc = null;
+        AreaDataGenerate area = DataGenerateManager<AreaDataGenerate>.GetData(skillData.m_FlyObjectArea);
 
-        //if (l_FXCreatPoint != HardPointEnum.enemy)
-        //{
-        //    pos = mc.pos.ToVector();
-        //}
-        //else
-        //{
-        //    if (emc == null)
-        //    {
-        //        return result;
-        //    }
-        //    else
-        //    {
-        //        pos = emc.pos.ToVector();
-        //    }
-        //}
+        switch (area.m_SkewDirection)
+        {
+            case DirectionEnum.Forward: break;
+            case DirectionEnum.Backward: forward *= -1; break;
+                //case DirectionEnum.Close: forward = (emc.pos - mc.pos); break;
+                //case DirectionEnum.Leave: forward = (mc.pos - emc.pos); break;
+        }
 
-        //Vector3 leftBorder = Vector3.zero;
-        //Vector3 leftDir = Vector3.zero;
-        //Vector3 leftPos = Vector3.zero;
-        //float sectorStep = 0;
-        //float rectangleStep = 0;
+        switch (area.m_Shape)
+        {
+            case AreaType.Circle:
+                leftBorder = forward.RotateInXZ(360 * 0.5f);
+                sectorStep = 360 / (Length + 1);
+                break;
+            case AreaType.Sector:
+                leftBorder = forward.RotateInXZ(area.m_Angle * 0.5f);
+                sectorStep = area.m_Angle / (Length + 1);
+                pos = pos + forward * area.m_SkewDistance;
+                break;
+            case AreaType.Rectangle:
+                leftDir = forward.RotateInXZ(90);
+                leftPos = pos + leftDir * area.m_Width * 0.5f;
+                rectangleStep = area.m_Width / (Length + 1);
 
-        //AreaDataGenerate area = DataGenerateManager<AreaDataGenerate>.GetData(skillData.m_FlyObjectArea);
-
-        //switch (area.m_SkewDirection)
-        //{
-        //    case DirectionEnum.Forward: break;
-        //    case DirectionEnum.Backward: forward *= -1; break;
-        //    case DirectionEnum.Close: forward = (emc.pos.ToVector() - mc.pos.ToVector()).normalized; break;
-        //    case DirectionEnum.Leave: forward = (mc.pos.ToVector() - emc.pos.ToVector()).normalized; break;
-        //}
-
-        //switch (area.m_Shape)
-        //{
-        //    case AreaType.Circle:
-        //        leftBorder = forward.Vector3RotateInXZ(360 * 0.5f);
-        //        sectorStep = 360 / (Length + 1);
-        //        break;
-        //    case AreaType.Sector:
-        //        leftBorder = forward.Vector3RotateInXZ(area.m_Angle * 0.5f);
-        //        sectorStep = area.m_Angle / (Length + 1);
-        //        break;
-        //    case AreaType.Rectangle:
-        //        leftDir = forward.Vector3RotateInXZ(90);
-        //        leftPos = pos + leftDir * area.m_Width * 0.5f;
-        //        rectangleStep = area.m_Width / (Length + 1);
-        //        break;
-        //}
-
+                break;
+        }
         for (int i = 0; i < Length; i++)
         {
-            //switch (area.m_Shape)
-            //{
-            //    case AreaType.Circle:
-            //    case AreaType.Sector:
-            //        dir = leftBorder.Vector3RotateInXZ2((i + 1) * sectorStep);
-            //        pos = pos + forward * area.m_SkewDistance;
-            //        break;
-            //    case AreaType.Rectangle:
-            //        pos = leftPos - leftDir * rectangleStep * (i + 1);
-            //        break;
-            //}
+            switch (area.m_Shape)
+            {
+                case AreaType.Circle:
+                case AreaType.Sector:
+                    dir = leftBorder.RotateInXZ2((i + 1) * sectorStep);
 
-
+                    break;
+                case AreaType.Rectangle:
+                    pos = leftPos - leftDir * rectangleStep * (i + 1);
+                    break;
+            }
             CreatPostionInfo cpi = new CreatPostionInfo();
-            cpi.m_pos = mc.pos.DeepCopy();
-            cpi.m_dir = ssc.skillDir.DeepCopy();
+            pos.y = 0;
+            dir.y = 0;
 
+            cpi.m_pos = pos;
+            cpi.m_dir = dir;
             result.Add(cpi);
+
+            //CreatPostionInfo cpi = new CreatPostionInfo();
+            //cpi.m_pos = mc.pos.DeepCopy();
+            //cpi.m_dir.FromVector( ssc.skillDir.DeepCopy().ToVector().normalized);
+
+            //result.Add(cpi);
         }
 
         return result;
@@ -236,9 +224,9 @@ public class SkillSystem : SystemBase
 
             //击飞处理
             if (hurter.GetExistComp<BlowFlyComponent>())
-            { 
+            {
                 BlowFlyComponent bfc = hurter.GetComp<BlowFlyComponent>();
-                if(!bfc.isBlow)
+                if (!bfc.isBlow)
                 {
                     bfc.isBlow = true;
                     bfc.blowFlyID = blowFlyID;
@@ -267,7 +255,7 @@ public class SkillSystem : SystemBase
         CampComponent acc = skiller.GetComp<CampComponent>();
         CampComponent bcc = hurter.GetComp<CampComponent>();
 
-        //Debug.Log("Damage == " + damageNumber + " hurter  " + hurter.ID + " acc " + acc.creater + " bcc " + bcc.creater);
+        //Debug.Log("Damage == " + damageNumber + " hurter  " + hurter.ID + " acc " + acc.creater + " bcc " + bcc.creater + " frame " + m_world.FrameCount);
 
         //TODO 吸血
         Absorb(damageNumber, skiller, skillData);
@@ -286,6 +274,21 @@ public class SkillSystem : SystemBase
         //    rcmd.SetData(time + SyncService.SyncAheadTime, character.m_characterID, character.m_characterID, skillID, null, AbsorbNumber, false);
         //    CommandRouteService.SendSyncCommand(rcmd);
         //}
+    }
+
+    #endregion
+
+    #region 技能恢复
+
+    void Recover(EntityBase skiller, EntityBase recover, SkillDataGenerate skillData)
+    {
+        int revoverNumber = RecoverValueFormula(skillData, skiller, recover);
+        if (revoverNumber == 0)
+        {
+            return;
+        }
+
+        SkillUtils.Recover(m_world, skiller, recover, revoverNumber);
     }
 
     #endregion
@@ -312,17 +315,17 @@ public class SkillSystem : SystemBase
 
         SkillUtils.UpdateArea(skillAreaCache, skillData.m_EffectArea, ssc.skillDir.ToVector(), entity);
 
-        Debug.DrawRay(skillAreaCache.position, skillAreaCache.direction,Color.red,10);
+        Debug.DrawRay(skillAreaCache.position, skillAreaCache.direction, Color.red, 10);
 
         for (int i = 0; i < list.Count; i++)
         {
             CollisionComponent bcc = list[i].GetComp<CollisionComponent>();
-            CampComponent bcampc   = list[i].GetComp<CampComponent>();
-            LifeComponent lc       = list[i].GetComp<LifeComponent>();
+            CampComponent bcampc = list[i].GetComp<CampComponent>();
+            LifeComponent lc = list[i].GetComp<LifeComponent>();
 
             //Debug.Log("bcampc.creater " + bcampc.creater + " AreaCollideSucceed -->" + skillAreaCache.AreaCollideSucceed(bcc.area));
 
-            if (acc.creater != bcampc.creater 
+            if (acc.creater != bcampc.creater
                 && skillAreaCache.AreaCollideSucceed(bcc.area)
                 && lc.Life > 0)
             {
@@ -342,6 +345,18 @@ public class SkillSystem : SystemBase
         isCrit = false;
         isDisrupting = false;
         return skillData.m_DamageValue;
+    }
+
+    static int RecoverValueFormula(SkillDataGenerate skillData, EntityBase skiller, EntityBase recover)
+    {
+        if (skillData.m_ReValuep >= 0)
+        {
+            return (int)(skillData.m_RecoverValue);
+        }
+        else
+        {
+            return (int)(skillData.m_RecoverValue);
+        }
     }
 
     #endregion

@@ -10,12 +10,12 @@ public class BuffDataGenerate : DataGenerateBase
 	public string m_BuffExitFX; //buff结束
 	public string m_BuffFX; //buff特效id
 	public HardPointEnum m_BuffFollowPos; //buff跟随点
-	public float m_BuffTime; //持续时间
+	public int m_BuffTime; //持续时间
 	public int m_AttackChange; //攻击改变
 	public float m_AttackChangePercantage; //攻击百分比
 	public int m_SpeedChange; //速度改变
 	public float m_SpeedChangePercentage; //速度百分比
-	public float m_BuffEffectSpace; //生效间隔
+	public int m_BuffEffectSpace; //生效间隔
 	public bool m_Invincible; //无敌
 	public string m_BuffCreateSFX; //Buff创建音效
 	public string m_BuffExitSFX; //buff消失音效
@@ -63,12 +63,12 @@ public class BuffDataGenerate : DataGenerateBase
 		m_BuffExitFX = data.GetString("BuffExitFX");
 		m_BuffFX = data.GetString("BuffFX");
 		m_BuffFollowPos = data.GetEnum<HardPointEnum>("BuffFollowPos");
-		m_BuffTime = data.GetFloat("BuffTime");
+		m_BuffTime = data.GetInt("BuffTime");
 		m_AttackChange = data.GetInt("AttackChange");
 		m_AttackChangePercantage = data.GetFloat("AttackChangePercantage");
 		m_SpeedChange = data.GetInt("SpeedChange");
 		m_SpeedChangePercentage = data.GetFloat("SpeedChangePercentage");
-		m_BuffEffectSpace = data.GetFloat("BuffEffectSpace");
+		m_BuffEffectSpace = data.GetInt("BuffEffectSpace");
 		m_Invincible = data.GetBool("Invincible");
 		m_BuffCreateSFX = data.GetString("BuffCreateSFX");
 		m_BuffExitSFX = data.GetString("BuffExitSFX");

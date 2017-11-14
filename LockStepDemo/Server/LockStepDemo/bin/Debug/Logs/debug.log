@@ -1,0 +1,12 @@
+﻿2017-11-14 16:08:18,175 [35596] DEBUG DefaultBootstrap - The server instance LockStepDemo has been created!
+2017-11-14 16:08:18,284 [35596] DEBUG LockStepDemo - SyncService Setup Mode: Tcp
+2017-11-14 16:08:18,285 [35596] DEBUG LockStepDemo - 开始连接数据库~~~
+2017-11-14 16:08:18,312 [35596] DEBUG LockStepDemo - 创建连接 
+2017-11-14 16:08:20,896 [35596] DEBUG LockStepDemo - 连接成功 useCount 1 size 5
+2017-11-14 16:08:20,903 [35596] DEBUG LockStepDemo - 数据库连接成功 用时2611ms
+2017-11-14 16:08:20,959 [35596] DEBUG DefaultBootstrap - The server instance LockStepDemo has been initialized!
+2017-11-14 16:08:21,633 [35596] DEBUG DefaultBootstrap - The PerformanceMonitor has been initialized!
+2017-11-14 16:08:21,634 [35596] DEBUG DefaultBootstrap - The Bootstrap has been initialized!
+2017-11-14 16:08:21,660 [35596] DEBUG LockStepDemo - Listener (0.0.0.0:7500) was started
+2017-11-14 16:08:21,660 [35596] DEBUG LockStepDemo - SyncService OnStarted
+2017-11-14 16:08:21,665 [35596] DEBUG DefaultBootstrap - The PerformanceMonitor has been started!

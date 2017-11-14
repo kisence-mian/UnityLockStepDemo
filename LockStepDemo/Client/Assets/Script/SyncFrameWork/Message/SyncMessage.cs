@@ -19,6 +19,7 @@ namespace Protocol
         public int advanceCount; //客户端提前量
         public int intervalTime;
         public int createEntityIndex;
+        public int randomSeed;
         public SyncRule SyncRule;
     }
 
@@ -30,6 +31,8 @@ namespace Protocol
         public int frame;
         public int advanceCount; //客户端提前量
         public int serverTime;   //服务器时间
+
+        public float updateSpeed; //客户端执行速度 1 为正常 2为两倍速
 
         //public List<string> m_commandList;
     }
@@ -65,8 +68,14 @@ namespace Protocol
     //客户端确认消息送达，并用以计算Ping值
     public class AffirmMsg : SyncModule
     {
-        public int frame;
+        public int index;
         public int time;
+    }
+
+    public class QueryCommand : SyncModule
+    {
+        public int frame;
+        public int id;
     }
 
     public class DebugMsg : SyncModule
@@ -90,9 +99,22 @@ namespace Protocol
     //转发玩家消息
     public class CommandMsg : SyncModule
     {
-        public int frame;
+        public int index;        //消息编号
         public int serverTime;   //服务器时间
         public List<CommandInfo> msg;
+
+        public bool GetIsExist(int frame, int id)
+        {
+            for (int i = 0; i < msg.Count; i++)
+            {
+                if (msg[i].id == id && msg[i].frame == frame)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 
     public class CommandInfo : IProtocolStructInterface
@@ -137,6 +159,7 @@ namespace Protocol
 
             return cmd;
         }
+
     }
 
     public enum ChangeStatus

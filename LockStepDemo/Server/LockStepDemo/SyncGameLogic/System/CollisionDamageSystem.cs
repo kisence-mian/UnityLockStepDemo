@@ -39,7 +39,13 @@ public class CollisionDamageSystem : SystemBase
                     && cc.CollisionList[i].GetExistComp<CampComponent>()
                     && acc.creater != cc.CollisionList[i].GetComp<CampComponent>().creater)
                 {
-                    SkillUtils.FlyDamageLogic(m_world, entity, cc.CollisionList[i]);
+                    //Debug.Log("fly DamageLogic frame-> " + m_world.FrameCount + "  id " + cc.CollisionList[i].ID + " Fly ID " + entity.ID);
+                    if (!fc.damageList.Contains(cc.CollisionList[i].ID)) //第一次伤害
+                    {
+                        SkillUtils.FlyDamageLogic(m_world, entity, cc.CollisionList[i]);
+                        fc.damageList.Add(cc.CollisionList[i].ID);
+                    }
+                        
 
                     //不能穿人销毁飞行物
                     if (!fc.FlyData.m_AcrossEnemy)

@@ -7,4 +7,5 @@ using System.Text;
 public class ItemComponent : ComponentBase
 {
     public int ItemID;
+    public ItemsDataGenerate ItemData;
 }
