@@ -1,4 +1,5 @@
 ﻿using SuperSocket.SocketBase;
+using SuperSocket.SocketBase.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ public abstract class ServiceBase
 {
     public SyncService m_service;
 
-    public void Init(SyncService service)
+    public void Init(SyncService service, IServerConfig config)
     {
         m_service = service;
 
@@ -18,10 +19,10 @@ public abstract class ServiceBase
         m_service.OnPlayerLogin += OnPlayerLogin;
         m_service.OnPlayerLogout += OnPlayerLogout;
 
-        OnInit();
+        OnInit(config);
     }
 
-    public virtual void OnInit()
+    public virtual void OnInit(IServerConfig config)
     {
 
     }

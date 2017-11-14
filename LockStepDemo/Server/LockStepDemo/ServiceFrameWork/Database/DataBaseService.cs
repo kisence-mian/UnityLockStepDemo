@@ -1,25 +1,26 @@
 ﻿//using CDatabase;
 using CDatabase;
+using SuperSocket.SocketBase.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class DataBaseService
+public class DataBaseService : ServiceBase
 {
     public static IDatabase database;
-    public static void Init()
+    public override void OnInit(IServerConfig config)
     {
         Debug.Log("开始连接数据库~~~");
         long time = ServiceTime.GetServiceTime();
 
-        DbConfig config = new DbConfig();
-        config.Server = "54.191.174.49";
-        config.User = "root";
-        config.Password = "83dd961d3ce758ce";
-        config.Database = "ElementCraft";
+        DbConfig dConfig = new DbConfig();
+        dConfig.Server = config.Options.Get("DataBaseURL");
+        dConfig.User = config.Options.Get("DataBaseUser");
+        dConfig.Password = config.Options.Get("DataBasePassword");
+        dConfig.Database = config.Options.Get("DataBaseName");
 
-        database = DatabaseFactory.CreateDatabase(config, DbConfig.DbType.MYSQL);
+        database = DatabaseFactory.CreateDatabase(dConfig, DbConfig.DbType.MYSQL);
 
         try
         {
@@ -27,7 +28,7 @@ public class DataBaseService
 
             time = ServiceTime.GetServiceTime() - time;
 
-            Debug.Log("数据库连接成功 用时" + time +"ms");
+            Debug.Log("数据库连接成功 用时" + time + "ms");
         }
         catch (DatabaseException e)
         {

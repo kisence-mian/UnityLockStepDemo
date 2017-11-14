@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SuperSocket.SocketBase;
+using SuperSocket.SocketBase.Config;
 
 public class ReConnectService : ServiceBase
 {
     //掉线的玩家列表
     public Dictionary<string, ConnectionComponent> m_disConnectDict = new Dictionary<string, ConnectionComponent>();
 
-    public override  void OnInit()
+    public override  void OnInit(IServerConfig config)
     {
         EventService.AddEvent(ServiceEventDefine.ServiceEvent.GameFinsih, OnGameFinsih);
     }

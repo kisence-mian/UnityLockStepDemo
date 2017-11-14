@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SuperSocket.SocketBase;
+using SuperSocket.SocketBase.Config;
 
 public class LoginService : ServiceBase
 {
@@ -11,7 +12,7 @@ public class LoginService : ServiceBase
 
     Dictionary<string, Player> m_onLinePlayer = new Dictionary<string, Player>();
 
-    public override void OnInit()
+    public override void OnInit(IServerConfig config)
     {
         EventService.AddTypeEvent<PlayerLoginMsg_s>(RecevicePlayerLogin);
     }

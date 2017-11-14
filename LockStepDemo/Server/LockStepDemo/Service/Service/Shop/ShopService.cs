@@ -1,11 +1,12 @@
-﻿using System;
+﻿using SuperSocket.SocketBase.Config;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 public class ShopService : ServiceBase
 {
-    public override void OnInit()
+    public override void OnInit(IServerConfig config)
     {
         EventService.AddTypeEvent<PlayerSelectCharacter_s>(ReceviceSelectCharacter);
         EventService.AddTypeEvent<PlayerBuyCharacter_s>(RecveviceBuyCharacter);

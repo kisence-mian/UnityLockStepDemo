@@ -6,8 +6,6 @@ using System;
 public class SyncSession : AppSession<SyncSession, ProtocolRequestBase>
 {
     public Player player;
-
-    public WorldBase m_gameWorld;
     public ConnectionComponent m_connect;
     //public KCP m_kcp;
     //public EntityBase m_entity;

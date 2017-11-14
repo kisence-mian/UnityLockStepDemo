@@ -17,6 +17,7 @@ public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
     ReConnectService reConnectService = new ReConnectService();
     ShopService selectCharacterService = new ShopService();
     SettlementService settlementService = new SettlementService();
+    DataBaseService dataBaseService = new DataBaseService();
 
     public SyncService() : base(new ProtocolReceiveFilterFactory())
     {
@@ -27,15 +28,26 @@ public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
     {
         //TODO 读取配置设置isDebug
         Debug.SetLogger(Logger, true);
-        Debug.Log("SyncService Setup Mode: " + config.Mode);
 
-        DataBaseService.Init();
 
-        matchService.Init(this);
-        loginService.Init(this);
-        reConnectService.Init(this);
-        selectCharacterService.Init(this);
-        settlementService.Init(this);
+        try
+        {
+            updateInterval = int.Parse(config.Options.Get("UpdateInterval"));
+            SyncDebugSystem.isDebug = bool.Parse(config.Options.Get("IsDebug"));
+        }
+        catch{ }
+
+        Debug.Log("SyncService Setup Mode: " + config.Mode 
+            + "\nupdateInterval " + updateInterval
+            + "\nisDebug " + SyncDebugSystem.isDebug);
+
+        dataBaseService.Init(this, config);
+
+        matchService.Init(this, config);
+        loginService.Init(this, config);
+        reConnectService.Init(this, config);
+        selectCharacterService.Init(this, config);
+        settlementService.Init(this, config);
 
         CommandMessageService<CommandComponent>.Init();
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperSocket.SocketBase.Config;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Text;
 class SettlementService : ServiceBase
 {
 
-    public override void OnInit()
+    public override void OnInit(IServerConfig config)
     {
         EventService.AddEvent(ServiceEventDefine.ServiceEvent.GameFinsih, OnGameFinsih);
     }

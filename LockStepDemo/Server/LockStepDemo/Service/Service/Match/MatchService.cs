@@ -1,16 +1,26 @@
-﻿using System;
+﻿using SuperSocket.SocketBase.Config;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 public class MatchService : ServiceBase
 {
-    const int roomPeopleNum = 2;
+    int roomPeopleNum = 2;
     List<Player> matchList = new List<Player>(); //匹配列表
 
-    public override void OnInit()
+    public override void OnInit(IServerConfig config)
     {
         EventService.AddTypeEvent<PlayerMatchMsg_s>(ReceviceMatchMsg);
+
+        try
+        {
+            roomPeopleNum = int.Parse(config.Options.Get("RoomPeopleNum"));
+        }
+        catch
+        {
+
+        }
     }
 
     void ReceviceMatchMsg(SyncSession session, PlayerMatchMsg_s msg)
