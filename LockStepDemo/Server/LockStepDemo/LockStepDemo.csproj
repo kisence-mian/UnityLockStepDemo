@@ -166,8 +166,8 @@
     <Compile Include="ServiceFrameWork\Protocol\ProtocolRequestBase.cs" />
     <Compile Include="ServiceFrameWork\Protocol\ProtocolSendExpand.cs" />
     <Compile Include="ServiceFrameWork\Protocol\ProtocolTool.cs" />
-    <Compile Include="ServiceFrameWork\SyncService.cs" />
-    <Compile Include="ServiceFrameWork\SyncSession.cs" />
+    <Compile Include="LockStepFrameWork\SyncService.cs" />
+    <Compile Include="LockStepFrameWork\SyncSession.cs" />
     <Compile Include="ServiceFrameWork\Utils\ExpandMethod.cs" />
     <Compile Include="ServiceFrameWork\Utils\ParseTool.cs" />
     <Compile Include="Service\Game\Box2D\Box2DXDebug.cs" />
