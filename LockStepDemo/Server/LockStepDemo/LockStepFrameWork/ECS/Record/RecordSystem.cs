@@ -1,5 +1,4 @@
-﻿using DeJson;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +16,12 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
         RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>> ();
 
         List<EntityBase> list = GetEntityList();
+
+        //if (SyncDebugSystem.IsFilter(typeof(T).Name))
+        //{
+        //    Debug.Log("Record count " + list.Count);
+        //}
+
         for (int i = 0; i < list.Count; i++)
         {
             T record = (T)list[i].GetComp<T>().DeepCopy();
@@ -74,10 +79,10 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
             }
             else
             {
-                if (SyncDebugSystem.IsFilter(typeof(T).Name))
-                {
-                    Debug.Log("没有找到回滚对象 " + list[i].ID + " frame " + frame);
-                }
+                //if (SyncDebugSystem.IsFilter(typeof(T).Name))
+                //{
+                //    Debug.Log("没有找到回滚对象 " + list[i].ID + " frame " + frame);
+                //}
             }
 
             //if (SyncDebugSystem.IsFilter(typeof(T).Name))
@@ -116,17 +121,17 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
     }
     public override void PrintRecord(int id)
     {
-        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
+        //RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
 
-        string content = "compName : " + typeof(T).Name + "\n";
-        for (int i = 0; i < rc.m_record.Count; i++)
-        {
-            if(id == -1 || rc.m_record[i].ID == id)
-            {
-                content += " ID:" + rc.m_record[i].ID + " Frame:" + rc.m_record[i].Frame + " content:" + Serializer.Serialize(rc.m_record[i]) + "\n";
-            }
-        }
-        Debug.LogWarning("PrintRecord:" + content);
+        //string content = "compName : " + typeof(T).Name + "\n";
+        //for (int i = 0; i < rc.m_record.Count; i++)
+        //{
+        //    if(id == -1 || rc.m_record[i].ID == id)
+        //    {
+        //        content += " ID:" + rc.m_record[i].ID + " Frame:" + rc.m_record[i].Frame + " content:" + Serializer.Serialize(rc.m_record[i]) + "\n";
+        //    }
+        //}
+        //Debug.LogWarning("PrintRecord:" + content);
     }
 
     public override void Record(int frame, EntityBase entity)

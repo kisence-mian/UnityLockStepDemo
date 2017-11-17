@@ -78,6 +78,14 @@ namespace Protocol
         public int id;
     }
 
+    //相同的指令发送这个消息，节约带宽
+    //相同的指令发送这个消息，节约带宽
+    public class SameCommand : SyncModule
+    {
+        public int time;
+        public int frame;
+    }
+
     public class DebugMsg : SyncModule
     {
         public int frame;

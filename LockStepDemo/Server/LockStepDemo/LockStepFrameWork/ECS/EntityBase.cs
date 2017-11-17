@@ -35,6 +35,14 @@ public class EntityBase
         }
     }
 
+    public Dictionary<string, ComponentBase> CompDict
+    {
+        get
+        {
+            return m_compDict;
+        }
+    }
+
     public event EntityComponentChangedCallBack OnComponentAdded;
     public event EntityComponentChangedCallBack OnComponentRemoved;
     public event EntityComponentReplaceCallBack OnComponentReplaced;

@@ -13,6 +13,7 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
         EventService.AddTypeEvent<AffirmMsg>(ReceviceAffirmMsg);
         EventService.AddTypeEvent<QueryCommand>(ReceviceQueryMsg);
         EventService.AddTypeEvent<VerificationMsg>(ReceviceVerificationMsg);
+        EventService.AddTypeEvent<SameCommand>(ReceviceSameCmdMsg);
     }
 
     public static void Dispose()
@@ -20,6 +21,7 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
         EventService.RemoveTypeEvent<T>(ReceviceSyncMsg);
         EventService.RemoveTypeEvent<AffirmMsg>(ReceviceAffirmMsg);
         EventService.RemoveTypeEvent<VerificationMsg>(ReceviceVerificationMsg);
+        EventService.RemoveTypeEvent<SameCommand>(ReceviceSameCmdMsg);
     }
 
     static Deserializer deserializer = new Deserializer();
@@ -52,72 +54,103 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
                 connectComp.m_lastInputCache = msg;
             }
 
-            int aimFrame = world.FrameCount + CalcAdvanceFrame(connectComp);
+            ControlSpeed(connectComp, world, msg.frame);
+        }
+    }
 
-            //Debug.Log("msg.frame " + msg.frame + " aimFrame " + aimFrame);
+    /// <summary>
+    /// 控制前端运行速度
+    /// </summary>
+    /// <param name="connectComp"></param>
+    /// <param name="world"></param>
+    /// <param name="clientFrame"></param>
+    static void ControlSpeed(ConnectionComponent connectComp, WorldBase world, int clientFrame)
+    {
+        int aimFrame = world.FrameCount + CalcAdvanceFrame(connectComp);
 
-            if (msg.frame > aimFrame)
+        if (clientFrame > aimFrame)
+        {
+            //过快
+
+            if (clientFrame - aimFrame > 16)
             {
-                //过快
+                SendPursueMsg(connectComp, 0.5f);
+            }
 
-                if (msg.frame - aimFrame > 16)
-                {
-                    SendPursueMsg(connectComp, 0.5f);
-                }
+            if (clientFrame - aimFrame > 8)
+            {
+                SendPursueMsg(connectComp, 0.65f);
+            }
 
-                if (msg.frame - aimFrame > 8)
-                {
-                    SendPursueMsg(connectComp, 0.65f);
-                }
+            else if (clientFrame - aimFrame > 4)
+            {
+                SendPursueMsg(connectComp, 0.75f);
+            }
 
-                else if (msg.frame - aimFrame > 4)
-                {
-                    SendPursueMsg(connectComp, 0.75f);
-                }
+            else if (clientFrame - aimFrame > 2)
+            {
+                SendPursueMsg(connectComp, 0.85f);
+            }
 
-                else if (msg.frame - aimFrame > 2)
-                {
-                    SendPursueMsg(connectComp, 0.85f);
-                }
+            else if (clientFrame - aimFrame > 0)
+            {
+                SendPursueMsg(connectComp, 0.95f);
+            }
 
-                else if(msg.frame - aimFrame > 0)
-                {
-                    SendPursueMsg(connectComp, 0.95f);
-                }
-
-                //适中
-                else
-                {
-                    SendPursueMsg(connectComp, 1f);
-                }
+            //适中
+            else
+            {
+                SendPursueMsg(connectComp, 1f);
+            }
+        }
+        else
+        {
+            if (aimFrame - clientFrame > 32)
+            {
+                SendPursueMsg(connectComp, 16f);
+            }
+            if (aimFrame - clientFrame > 16)
+            {
+                SendPursueMsg(connectComp, 8f);
+            }
+            else if (aimFrame - clientFrame > 8)
+            {
+                SendPursueMsg(connectComp, 4f);
+            }
+            else if (aimFrame - clientFrame > 4)
+            {
+                SendPursueMsg(connectComp, 1.5f);
+            }
+            else if (aimFrame - clientFrame > 2)
+            {
+                SendPursueMsg(connectComp, 1.25f);
             }
             else
             {
-                if (aimFrame - msg.frame > 32)
-                {
-                    SendPursueMsg(connectComp, 16f);
-                }
-                if (aimFrame - msg.frame > 16)
-                {
-                    SendPursueMsg(connectComp, 8f);
-                }
-                else if(aimFrame - msg.frame > 8)
-                {
-                    SendPursueMsg(connectComp, 4f);
-                }
-                else if (aimFrame - msg.frame > 4)
-                {
-                    SendPursueMsg(connectComp, 1.5f);
-                }
-                else if (aimFrame - msg.frame > 2)
-                {
-                    SendPursueMsg(connectComp, 1.25f);
-                }
-                else
-                {
-                    SendPursueMsg(connectComp, 1.05f);
-                }
+                SendPursueMsg(connectComp, 1.05f);
             }
+        }
+    }
+
+    static void ReceviceSameCmdMsg(SyncSession session, SameCommand msg)
+    {
+        //消息确认
+        AffirmMsg amsg = new AffirmMsg();
+        amsg.index = msg.frame;
+        amsg.time = msg.time;
+        ProtocolAnalysisService.SendMsg(session, amsg);
+
+        ConnectionComponent connectComp = session.m_connect;
+
+        if (connectComp != null)
+        {
+            WorldBase world = connectComp.Entity.World;
+
+            //取上一帧的数据
+            connectComp.m_commandList.Add(connectComp.GetCommand(msg.frame - 1));
+            connectComp.lastInputFrame = msg.frame;
+
+            ControlSpeed(connectComp, world, msg.frame);
         }
     }
 
@@ -169,14 +202,14 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
         {
             WorldBase world = connectComp.Entity.World;
 
-            if(world.GetHash() == msg.hash)
-            {
+            //if(world.GetHash() == msg.hash)
+            //{
 
-            }
-            else
-            {
+            //}
+            //else
+            //{
 
-            }
+            //}
         }
     }
 

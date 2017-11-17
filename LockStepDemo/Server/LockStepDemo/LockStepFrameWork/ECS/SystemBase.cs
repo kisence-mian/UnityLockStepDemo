@@ -10,7 +10,7 @@ public class SystemBase
     #region 私有属性
 
     string[] m_filter;
-    string[] Filter
+  public  string[] Filter
     {
         get
         {
@@ -40,6 +40,11 @@ public class SystemBase
     }
 
     public virtual void Dispose()
+    {
+
+    }
+
+    public virtual void OnGameStart()
     {
 
     }
@@ -159,19 +164,24 @@ public class SystemBase
         return true;
     }
 
-    List<EntityBase> m_tupleList = new List<EntityBase>();
+    //List<EntityBase> m_tupleList = new List<EntityBase>();
+    private string name;
     public List<EntityBase> GetEntityList()
     {
-        m_tupleList.Clear();
-        for (int i = 0; i < m_world.m_entityList.Count; i++)
+        //m_tupleList.Clear();
+        //for (int i = 0; i < m_world.m_entityList.Count; i++)
+        //{
+        //    if (GetAllExistComp(Filter, m_world.m_entityList[i]))
+        //    {
+        //        m_tupleList.Add(m_world.m_entityList[i]);
+        //    }
+        //}
+        if (string.IsNullOrEmpty(name))
         {
-            if (GetAllExistComp(Filter, m_world.m_entityList[i]))
-            {
-                m_tupleList.Add(m_world.m_entityList[i]);
-            }
+            name = GetType().FullName;
         }
-
-        return m_tupleList;
+       return m_world.group.GetEntityByGroupName(name);
+        //return m_tupleList;
     }
 
     public List<EntityBase> GetEntityList(string[] filter)

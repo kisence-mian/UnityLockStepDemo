@@ -21,7 +21,7 @@ public class WorldBase
     }
 
     bool m_isStart = false;
-    bool m_isView = false; //是否是在客户端运行
+    //bool m_isView = false; //是否是在客户端运行
     public bool m_isCertainty = false;
     public bool m_isRecalc = false;
     public bool m_isLocal = false;
@@ -53,38 +53,6 @@ public class WorldBase
         }
     }
 
-    int m_entityIndex = 0;
-    public int EntityIndex
-    {
-        get
-        {
-            return m_entityIndex;
-        }
-
-        set
-        {
-            m_entityIndex = value;
-        }
-    }
-
-    /// <summary>
-    /// 客户端实体ID都为负数
-    /// </summary>
-    int m_clientEntityIndex = -1;
-
-    public int ClientEntityIndex
-    {
-        get
-        {
-            return m_clientEntityIndex;
-        }
-
-        set
-        {
-            m_clientEntityIndex = value;
-        }
-    }
-
     public List<SystemBase> m_systemList = new List<SystemBase>();                 //世界里所有的System列表
 
     public Dictionary<int, EntityBase> m_entityDict = new Dictionary<int, EntityBase>(); //世界里所有的entity集合
@@ -95,7 +63,7 @@ public class WorldBase
 
     public Dictionary<string, SingletonComponent> m_singleCompDict = new Dictionary<string, SingletonComponent>(); //所有的单例组件集合
 
-    Stack<EntityBase> m_entitiesPool = new Stack<EntityBase>();  //TODO: 实体对象池
+    //Stack<EntityBase> m_entitiesPool = new Stack<EntityBase>();  //TODO: 实体对象池
 
     public event EntityChangedCallBack OnEntityCreated;
     public event EntityChangedCallBack OnEntityWillBeDestroyed;
@@ -106,7 +74,7 @@ public class WorldBase
     public event EntityComponentReplaceCallBack OnEntityComponentChange;
 
     public ECSEvent eventSystem = null;
-
+    public ECSGroupManager group = null;
     //游戏结束
     public bool isFinish = false;
 
@@ -133,8 +101,8 @@ public class WorldBase
     public void Init(bool isView)
     {
         eventSystem = new ECSEvent(this);
-
-        m_isView = isView;
+       
+        //m_isView = isView;
         try
         {
             Type[] types = GetSystemTypes();
@@ -170,6 +138,21 @@ public class WorldBase
                 tmp.m_world = this;
                 tmp.Init();
             }
+
+            group = new ECSGroupManager(this);
+            OnEntityComponentAdded += group.OnEntityComponentChange;
+            OnEntityComponentRemoved += group.OnEntityComponentChange;
+            OnEntityComponentChange += ( entity,  compName,  previousComponent,  newComponent) =>
+            {
+                group.OnEntityComponentChange(entity, compName, newComponent);
+            };
+            // OnEntityDestroyed += group.OnEntityDestroy;
+            // OnEntityCreated += group.OnEntityCreate;
+
+            for (int i = 0; i < m_systemList.Count; i++)
+            {
+                m_systemList[i].OnGameStart();
+            }
         }
         catch (Exception e)
         {
@@ -179,16 +162,17 @@ public class WorldBase
 
     public void Dispose()
     {
-        for (int i = 0; i < m_entityList.Count; i++)
+        while(m_entityList.Count > 0)
         {
-            DestroyEntityAndDispatch(m_entityList[i]);
+            DestroyEntityAndDispatch(m_entityList[0]);
         }
 
         createCache.Clear();
 
         for (int i = 0; i < destroyCache.Count; i++)
         {
-            DestroyEntityAndDispatch(destroyCache[i]);
+            DispatchEntityWillBeDestroyed(destroyCache[i]);
+            DispatchDestroy(destroyCache[i]);
         }
         destroyCache.Clear();
 
@@ -605,6 +589,7 @@ public class WorldBase
         return false;
     }
 
+
     #region 创建
 
     public void CreateEntity(string identifier, params ComponentBase[] comps)
@@ -751,6 +736,7 @@ public class WorldBase
 
         m_entityList.Add(entity);
         m_entityDict.Add(entity.ID, entity);
+        group.OnEntityCreate(entity);
 
         entity.OnComponentAdded += DispatchEntityComponentAdded;
         entity.OnComponentRemoved += DispatchEntityComponentRemoved;
@@ -790,9 +776,6 @@ public class WorldBase
 
             if (!destroyCache.Contains(entity))
                 destroyCache.Add(entity);
-            else
-            {
-            }
         }
         else
         {
@@ -805,7 +788,7 @@ public class WorldBase
                     return;
                 }
             }
-
+           
             Debug.LogError("DestroyEntity dont ContainsKey ->" + ID + "<-");
         }
     }
@@ -853,6 +836,7 @@ public class WorldBase
         //Debug.Log("从实体列表中移除 " + entity.ID + " frame " + FrameCount);
         m_entityList.Remove(entity);
         m_entityDict.Remove(entity.ID);
+        group.OnEntityDestroy(entity);
 
         entity.OnComponentAdded -= DispatchEntityComponentAdded;
         entity.OnComponentRemoved -= DispatchEntityComponentRemoved;
@@ -1251,22 +1235,6 @@ public class WorldBase
         {
             m_randomDict.Add(frame, m_RandomSeed);
         }
-    }
-
-    #endregion
-
-    #region Hash
-
-    public int GetHash()
-    {
-        int hash = FrameCount;
-
-        for (int i = 0; i < m_entityList.Count; i++)
-        {
-            hash += m_entityList[i].ToHash();
-        }
-
-        return hash;
     }
 
     #endregion
