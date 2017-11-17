@@ -43,15 +43,15 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
 
             if (msg.frame > world.FrameCount)
             {
-                connectComp.m_commandList.Add(msg);
-                connectComp.lastInputFrame = msg.frame;
-
+                //广播这帧
                 BroadcastCommand(world, connectComp, msg, false);
+                connectComp.AddCommand(msg);
             }
             else
             {
-                //把玩家的这次上报当做最新的操作
-                connectComp.m_lastInputCache = msg;
+                //当成最新的一帧来处理
+                msg.frame = world.FrameCount;
+                connectComp.AddCommand(msg);
             }
 
             ControlSpeed(connectComp, world, msg.frame);
@@ -147,8 +147,20 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
             WorldBase world = connectComp.Entity.World;
 
             //取上一帧的数据
-            connectComp.m_commandList.Add(connectComp.GetCommand(msg.frame - 1));
-            connectComp.lastInputFrame = msg.frame;
+            T scmd = (T)connectComp.GetCommand(msg.frame - 1).DeepCopy();
+
+            if(msg.frame > world.FrameCount)
+            {
+                scmd.frame = msg.frame;
+
+                connectComp.AddCommand(scmd);
+                BroadcastSameCommand(world, connectComp, msg, true);
+            }
+            else
+            {
+                scmd.frame = world.FrameCount;
+                connectComp.AddCommand(scmd);
+            }
 
             ControlSpeed(connectComp, world, msg.frame);
         }
@@ -237,10 +249,20 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
         for (int i = 0; i < list.Count; i++)
         {
             ConnectionComponent cp = list[i].GetComp<ConnectionComponent>();
-            //if (!(includeSelf && cp != connectComp))
-            {
-                ProtocolAnalysisService.SendMsg(cp.m_session, cmd);
-            }
+            ProtocolAnalysisService.SendMsg(cp.m_session, cmd);
+        }
+    }
+
+    static void BroadcastSameCommand(WorldBase world, ConnectionComponent connectComp, SameCommand cmd, bool includeSelf)
+    {
+        cmd.time = ServiceTime.GetServiceTime();
+
+        List<EntityBase> list = world.GetEntiyList(new string[] { "ConnectionComponent" });
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            ConnectionComponent cp = list[i].GetComp<ConnectionComponent>();
+            ProtocolAnalysisService.SendMsg(cp.m_session, cmd);
         }
     }
 }

@@ -195,8 +195,6 @@ public class ServiceSyncSystem : ServiceSystem
     {
         for (int i = 0; i < connectionComp.m_waitSyncList.Count; i++)
         {
-            //Debug.Log("Push " + connectionComp.m_waitSyncList[i].m_session.SessionID + " entity " + entity.ID);
-
             if(connectionComp.m_waitSyncList[i].m_session != null)
             {
                 connectionComp.m_waitSyncList[i].m_waitSyncEntity.Add(entity);

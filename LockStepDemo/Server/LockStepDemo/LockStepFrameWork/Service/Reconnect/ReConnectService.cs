@@ -38,6 +38,8 @@ public class ReConnectService : ServiceBase
 
     public override void OnSessionClose(SyncSession session, CloseReason reason)
     {
+        Debug.Log("ReConnectService OnSessionClose ");
+
         //掉线玩家维护一个id与world的映射，用以重连
         if (session.m_connect != null)
         {

@@ -1,7 +1,7 @@
 ﻿using SuperSocket.SocketBase;
 using SuperSocket.SocketBase.Config;
 using Protocol;
-
+using System;
 
 public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
 {
@@ -71,17 +71,32 @@ public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
     protected override void OnSessionClosed(SyncSession session, CloseReason reason)
     {
         Debug.Log("SyncService OnSessionClosed " + session.SessionID);
-        OnSessionClose?.Invoke(session, reason);
-        base.OnSessionClosed(session, reason);
+        try
+        {
+            base.OnSessionClosed(session, reason);
+            OnSessionClose?.Invoke(session, reason);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("OnSessionClosed Exception " + e.ToString());
+        }
     }
 
     protected override void OnNewSessionConnected(SyncSession session)
     {
         Debug.Log("SyncService OnNewSessionConnected " + session.SessionID);
-        OnSessionCreate?.Invoke(session);
-        base.OnNewSessionConnected(session);
+
+        try
+        {
+            base.OnNewSessionConnected(session);
+            OnSessionCreate?.Invoke(session);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("OnNewSessionConnected Exception " + e.ToString());
+        }
     }
-}
+    }
 
 public delegate void SessionCreateHandle(SyncSession session);
 public delegate void SessionCloseHandle(SyncSession session, CloseReason reason);

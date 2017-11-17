@@ -29,7 +29,7 @@ public class PlayerInputSystem : ServiceSystem /*where T : PlayerCommandBase, ne
             //Debug.Log("USE cmd id "+ list[i].ID + " frame " + cmd.frame + " content " + Serializer.Serialize(cmd));
 
             //到了这一帧还没有发送命令的，给预测一个并广播给所有前端
-            if (comp.lastInputFrame < m_world.FrameCount)
+            if (comp.LastInputFrame < m_world.FrameCount)
             {
                 for (int j = 0; j < list.Count; j++)
                 {

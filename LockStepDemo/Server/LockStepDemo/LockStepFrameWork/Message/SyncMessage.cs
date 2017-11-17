@@ -84,6 +84,7 @@ namespace Protocol
     {
         public int time;
         public int frame;
+        public int id;
     }
 
     public class DebugMsg : SyncModule

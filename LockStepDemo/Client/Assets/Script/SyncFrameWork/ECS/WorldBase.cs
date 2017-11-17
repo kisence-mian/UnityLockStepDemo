@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorldBase
+public abstract class WorldBase
 {
     SyncRule m_syncRule;
 
@@ -21,7 +21,7 @@ public class WorldBase
     }
 
     bool m_isStart = false;
-    //bool m_isView = false; //是否是在客户端运行
+    bool m_isClient = false; //是否是在客户端运行
     public bool m_isCertainty = false;
     public bool m_isRecalc = false;
     public bool m_isLocal = false;
@@ -89,70 +89,26 @@ public class WorldBase
         return new Type[0];
     }
 
-    public virtual Type[] GetRecordSystemTypes()
-    {
-        return new Type[0];
-    }
-
     #endregion
 
     #region 生命周期
 
-    public void Init(bool isView)
+    public void Init(bool isClient)
     {
         eventSystem = new ECSEvent(this);
-       
-        //m_isView = isView;
+
+        m_isClient = isClient;
         try
         {
-            Type[] types = GetSystemTypes();
+            InitSystem();
 
-            for (int i = 0; i < types.Length; i++)
+            if(m_isClient)
             {
-                SystemBase tmp = (SystemBase)types[i].Assembly.CreateInstance(types[i].FullName);
-                m_systemList.Add(tmp);
-                tmp.m_world = this;
-                tmp.Init();
+                InitRecordSystem();
             }
 
-            //初始化RecordSystem
-            types = GetRecordSystemTypes();
-            for (int i = 0; i < types.Length; i++)
-            {
-                RecordSystemBase tmp = (RecordSystemBase)types[i].Assembly.CreateInstance(types[i].FullName);
-                m_recordList.Add(tmp);
-                tmp.m_world = this;
-                tmp.Init();
-            }
-
-            //初始化RecordComponent
-            types = GetRecordTypes();
-            for (int i = 0; i < types.Length; i++)
-            {
-                Type type = typeof(RecordSystem<>);
-                type = type.MakeGenericType(types[i]);
-
-                RecordSystemBase tmp = (RecordSystemBase)Activator.CreateInstance(type); ;
-                m_recordList.Add(tmp);
-                m_recordDict.Add(types[i].Name, tmp);
-                tmp.m_world = this;
-                tmp.Init();
-            }
-
-            group = new ECSGroupManager(this);
-            OnEntityComponentAdded += group.OnEntityComponentChange;
-            OnEntityComponentRemoved += group.OnEntityComponentChange;
-            OnEntityComponentChange += ( entity,  compName,  previousComponent,  newComponent) =>
-            {
-                group.OnEntityComponentChange(entity, compName, newComponent);
-            };
-            // OnEntityDestroyed += group.OnEntityDestroy;
-            // OnEntityCreated += group.OnEntityCreate;
-
-            for (int i = 0; i < m_systemList.Count; i++)
-            {
-                m_systemList[i].OnGameStart();
-            }
+            InitGroup();
+            GameStart();
         }
         catch (Exception e)
         {
@@ -190,6 +146,38 @@ public class WorldBase
         m_recordDict.Clear();
     }
 
+    void InitSystem()
+    {
+        Type[] types = GetSystemTypes();
+
+        for (int i = 0; i < types.Length; i++)
+        {
+            SystemBase tmp = (SystemBase)types[i].Assembly.CreateInstance(types[i].FullName);
+            m_systemList.Add(tmp);
+            tmp.m_world = this;
+            tmp.Init();
+        }
+    }
+
+    void InitGroup()
+    {
+        group = new ECSGroupManager(this);
+        OnEntityComponentAdded += group.OnEntityComponentChange;
+        OnEntityComponentRemoved += group.OnEntityComponentChange;
+        OnEntityComponentChange += (entity, compName, previousComponent, newComponent) =>
+        {
+            group.OnEntityComponentChange(entity, compName, newComponent);
+        };
+    }
+
+    void GameStart()
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].OnGameStart();
+        }
+    }
+
     #endregion
 
     #region Update
@@ -211,7 +199,11 @@ public class WorldBase
     {
         if (IsStart)
         {
-            Record(FrameCount);
+            //只有客户端才记录过去值
+            if(m_isClient)
+            {
+                Record(FrameCount);
+            }
 
             FrameCount++;
 
@@ -349,12 +341,26 @@ public class WorldBase
             m_systemList[i].RunByPause();
         }
     }
-
-
-
     #endregion
 
     #region 回滚相关 
+
+    void InitRecordSystem()
+    {
+        //初始化RecordSystem
+        Type[] types = GetRecordTypes();
+        for (int i = 0; i < types.Length; i++)
+        {
+            Type type = typeof(RecordSystem<>);
+            type = type.MakeGenericType(types[i]);
+
+            RecordSystemBase tmp = (RecordSystemBase)Activator.CreateInstance(type); ;
+            m_recordList.Add(tmp);
+            m_recordDict.Add(types[i].Name, tmp);
+            tmp.m_world = this;
+            tmp.Init();
+        }
+    }
 
     public void Record(int frame)
     {
@@ -417,6 +423,9 @@ public class WorldBase
 
     void RecordEntityCreate(EntityBase entity)
     {
+        if (!m_isClient)
+            return;
+
         //Debug.Log("EntityRecordSystem OnEntityCreate！ " + entity.ID + " m_isCertainty " + m_isCertainty);
 
         //只记录预测时的操作
@@ -450,6 +459,8 @@ public class WorldBase
 
     void RecordEntityDestroy(EntityBase entity)
     {
+        if (!m_isClient)
+            return;
         //Debug.Log("EntityRecordSystem OnEntityDestroy！ " + entity.ID + " m_isCertainty " + m_isCertainty);
 
         //只记录预测时的操作
