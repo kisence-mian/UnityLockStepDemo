@@ -138,4 +138,10 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
     {
         throw new NotImplementedException();
     }
+
+    public override void ClearAll()
+    {
+        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
+        rc.m_record.Clear();
+    }
 }

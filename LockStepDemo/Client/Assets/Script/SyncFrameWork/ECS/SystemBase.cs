@@ -113,6 +113,14 @@ public class SystemBase
     /// </summary>
     public virtual void Recalc() { }
 
+    /// <summary>
+    /// 在游戏暂停时执行
+    /// </summary>
+    public virtual void RunByPause()
+    {
+
+    }
+
     #endregion
 
     #region 事件回调

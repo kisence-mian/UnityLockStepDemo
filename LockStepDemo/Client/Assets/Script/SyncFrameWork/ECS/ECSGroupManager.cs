@@ -6,14 +6,14 @@ using UnityEngine;
 
 public class ECSGroupManager
 {
-    private WorldBase world;
+    //private WorldBase world;
     private Dictionary<string, ECSGroup> allGroupDic = new Dictionary<string, ECSGroup>();
     private Dictionary<ECSGroup, List<EntityBase>> groupToEntityDic = new Dictionary<ECSGroup, List<EntityBase>>();
     private Dictionary<EntityBase, List<ECSGroup>> entityToGroupDic = new Dictionary<EntityBase, List<ECSGroup>>();
 
     public ECSGroupManager(WorldBase world)
     {
-        this.world = world;
+        //this.world = world;
 
         for (int i = 0; i < world.m_systemList.Count; i++)
         {
@@ -92,7 +92,7 @@ public class ECSGroupManager
         for (int i = 0; i < listEntity.Count; i++)
         {
             EntityBase entity = listEntity[i];
-            List<ECSGroup> newGroupList = GetEntitySuportGroup(entity);
+            //List<ECSGroup> newGroupList = GetEntitySuportGroup(entity);
             bool isContains = true;
             for (int j = 0; j < componentFilter.Length; j++)
             {

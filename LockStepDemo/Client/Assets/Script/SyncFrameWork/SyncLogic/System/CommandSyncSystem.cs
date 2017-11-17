@@ -92,6 +92,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         }
     }
 
+    SameCommand sameCmdCache = new SameCommand();
     void SelfCommandLogic(EntityBase entity)
     {
         //Debug.Log("SelfCommandLogic " + m_world.FrameCount);
@@ -123,13 +124,35 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
 
         if (!m_world.m_isLocal)
         {
-            //ConnectStatusComponent csc = m_world.GetSingletonComp<ConnectStatusComponent>();
-            //csc.unConfirmFrame.Add(cmd.frame);
+            T record = (T)rc.GetInputCahae(m_world.FrameCount - 1);
 
-            cmd.time = ClientTime.GetTime();
-            ProtocolAnalysisService.SendCommand(cmd);
+            cmd.frame = m_world.FrameCount - 1;
+
+            if (record.EqualsCmd(cmd))
+            {
+                sameCmdCache.frame = m_world.FrameCount;
+                sameCmdCache.time = ClientTime.GetTime();
+                sameCmdCache.id = entity.ID;
+
+                if(NetworkManager.IsConnect)
+                {
+                    ProtocolAnalysisService.SendCommand(sameCmdCache);
+                }
+
+                //Debug.Log("send same " + m_world.FrameCount + " id " + sameCmdCache.id);
+            }
+            else
+            {
+                //Debug.Log("send cmd " + m_world.FrameCount + " id " + cmd.id);
+
+                cmd.frame = m_world.FrameCount;
+                cmd.time = ClientTime.GetTime();
+                if (NetworkManager.IsConnect)
+                {
+                    ProtocolAnalysisService.SendCommand(cmd);
+                }
+            }
         }
-
 
         entity.ChangeComp(cmd);
     }

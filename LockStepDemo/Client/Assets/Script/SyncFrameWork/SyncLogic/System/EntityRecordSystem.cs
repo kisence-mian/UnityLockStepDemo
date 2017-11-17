@@ -89,12 +89,12 @@ public class EntityRecordSystem :RecordSystemBase
 
     public override void ClearAfter(int frame)
     {
-        EntityRecordComponent erc = m_world.GetSingletonComp<EntityRecordComponent>();
+        //EntityRecordComponent erc = m_world.GetSingletonComp<EntityRecordComponent>();
     }
 
     public override void ClearBefore(int frame)
     {
-        EntityRecordComponent erc = m_world.GetSingletonComp<EntityRecordComponent>();
+        //EntityRecordComponent erc = m_world.GetSingletonComp<EntityRecordComponent>();
     }
 
     public override MomentComponentBase GetRecord(int id, int frame)
@@ -158,6 +158,11 @@ public class EntityRecordSystem :RecordSystemBase
     }
 
     public override void Record(int frame, EntityBase entity)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void ClearAll()
     {
         throw new NotImplementedException();
     }

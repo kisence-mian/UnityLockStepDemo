@@ -21,7 +21,7 @@ public class WorldBase
     }
 
     bool m_isStart = false;
-    bool m_isView = false; //是否是在客户端运行
+    //bool m_isView = false; //是否是在客户端运行
     public bool m_isCertainty = false;
     public bool m_isRecalc = false;
     public bool m_isLocal = false;
@@ -53,38 +53,6 @@ public class WorldBase
         }
     }
 
-    int m_entityIndex = 0;
-    public int EntityIndex
-    {
-        get
-        {
-            return m_entityIndex;
-        }
-
-        set
-        {
-            m_entityIndex = value;
-        }
-    }
-
-    /// <summary>
-    /// 客户端实体ID都为负数
-    /// </summary>
-    int m_clientEntityIndex = -1;
-
-    public int ClientEntityIndex
-    {
-        get
-        {
-            return m_clientEntityIndex;
-        }
-
-        set
-        {
-            m_clientEntityIndex = value;
-        }
-    }
-
     public List<SystemBase> m_systemList = new List<SystemBase>();                 //世界里所有的System列表
 
     public Dictionary<int, EntityBase> m_entityDict = new Dictionary<int, EntityBase>(); //世界里所有的entity集合
@@ -95,7 +63,7 @@ public class WorldBase
 
     public Dictionary<string, SingletonComponent> m_singleCompDict = new Dictionary<string, SingletonComponent>(); //所有的单例组件集合
 
-    Stack<EntityBase> m_entitiesPool = new Stack<EntityBase>();  //TODO: 实体对象池
+    //Stack<EntityBase> m_entitiesPool = new Stack<EntityBase>();  //TODO: 实体对象池
 
     public event EntityChangedCallBack OnEntityCreated;
     public event EntityChangedCallBack OnEntityWillBeDestroyed;
@@ -134,7 +102,7 @@ public class WorldBase
     {
         eventSystem = new ECSEvent(this);
        
-        m_isView = isView;
+        //m_isView = isView;
         try
         {
             Type[] types = GetSystemTypes();
@@ -178,8 +146,13 @@ public class WorldBase
             {
                 group.OnEntityComponentChange(entity, compName, newComponent);
             };
-           // OnEntityDestroyed += group.OnEntityDestroy;
-           // OnEntityCreated += group.OnEntityCreate;
+            // OnEntityDestroyed += group.OnEntityDestroy;
+            // OnEntityCreated += group.OnEntityCreate;
+
+            for (int i = 0; i < m_systemList.Count; i++)
+            {
+                m_systemList[i].OnGameStart();
+            }
         }
         catch (Exception e)
         {
@@ -253,6 +226,10 @@ public class WorldBase
             LazyExecuteEntityOperation();
 
             EndFrame(deltaTime);
+        }
+        else
+        {
+            OnlyCallByPause();
         }
     }
 
@@ -365,6 +342,14 @@ public class WorldBase
         }
     }
 
+    void OnlyCallByPause()
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].RunByPause();
+        }
+    }
+
 
 
     #endregion
@@ -407,6 +392,14 @@ public class WorldBase
         for (int i = 0; i < m_recordList.Count; i++)
         {
             m_recordList[i].ClearAfter(frame);
+        }
+    }
+
+    public void ClearAll()
+    {
+        for (int i = 0; i < m_recordList.Count; i++)
+        {
+            m_recordList[i].ClearAll();
         }
     }
 
@@ -534,7 +527,7 @@ public class WorldBase
         }
     }
 
-    void RollbackCreateEntity(int ID, int frame)
+    public void RollbackCreateEntity(int ID, int frame)
     {
         EntityBase entity = GetEntity(ID);
 
@@ -868,6 +861,12 @@ public class WorldBase
         entity.OnComponentAdded -= DispatchEntityComponentAdded;
         entity.OnComponentRemoved -= DispatchEntityComponentRemoved;
         entity.OnComponentReplaced -= DispatchEntityComponentChange;
+    }
+
+    public void DestroyEntityImmediately(int id)
+    {
+        EntityBase entity = GetEntity(id);
+        DestroyEntityAndDispatch(entity);
     }
 
     #endregion

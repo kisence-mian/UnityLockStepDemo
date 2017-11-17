@@ -135,7 +135,7 @@ public class SyncDebugEditorWindow : EditorWindow
     }
 
     const int ShowCount = 50;
-    int ShowRow  = 3;
+    //int ShowRow  = 3;
     Texture2D showTexture;
     void FrameStreamGUI()
     {

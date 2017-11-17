@@ -9,7 +9,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 {
     public override void Init()
     {
-        ////////Debug.Log("SyncSystem init ");
+        //Debug.Log("SyncSystem init ");
 
         GlobalEvent.AddTypeEvent<SyncEntityMsg>(ReceviceSyncEntity);
         GlobalEvent.AddTypeEvent<PursueMsg>(RecevicePursueMsg);
@@ -17,6 +17,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         GlobalEvent.AddTypeEvent<StartSyncMsg>(ReceviceStartSyncMsg);
         GlobalEvent.AddTypeEvent<AffirmMsg>(ReceviceAffirmMsg);
         GlobalEvent.AddTypeEvent<T>(ReceviceCommandMsg);
+        GlobalEvent.AddTypeEvent<SameCommand>(ReceviceSameCmdMsg);
         GlobalEvent.AddTypeEvent<CommandMsg>(ReceviceCmdMsg);
     }
 
@@ -28,6 +29,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         GlobalEvent.RemoveTypeEvent<StartSyncMsg>(ReceviceStartSyncMsg);
         GlobalEvent.RemoveTypeEvent<AffirmMsg>(ReceviceAffirmMsg);
         GlobalEvent.RemoveTypeEvent<T>(ReceviceCommandMsg);
+        GlobalEvent.RemoveTypeEvent<SameCommand>(ReceviceSameCmdMsg);
         GlobalEvent.RemoveTypeEvent<CommandMsg>(ReceviceCmdMsg);
     }
 
@@ -46,9 +48,11 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         ConnectStatusComponent csc = m_world.GetSingletonComp<ConnectStatusComponent>();
         csc.confirmFrame = msg.frame; //从目标帧之后开始计算
 
+        Debug.Log("ReceviceStartSyncMsg " + csc.confirmFrame);
+
         m_world.FrameCount = msg.frame ;
         m_world.IsStart = true;
-        m_world.EntityIndex = msg.createEntityIndex;
+        //m_world.EntityIndex = msg.createEntityIndex;
         m_world.SyncRule = msg.SyncRule;
 
         WorldManager.IntervalTime = msg.intervalTime;
@@ -59,16 +63,13 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
         m_world.m_RandomSeed = msg.randomSeed;
 
+        m_world.ClearAll();
+
         //执行未处理的命令
         GameDataCacheComponent gdcc = m_world.GetSingletonComp<GameDataCacheComponent>();
         for (int i = 0; i < gdcc.m_noExecuteCommandList.Count; i++)
         {
             ReceviceCommandMsg((T)gdcc.m_noExecuteCommandList[i]);
-
-            //for (int j = 0; j < gdcc.m_noExecuteCommandList[i].msg.Count; j++)
-            //{
-            //    RecordCommand(gdcc.m_noExecuteCommandList[i].msg[j]);
-            //}
         }
 
         Recalc();
@@ -92,7 +93,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     void ReceviceSyncEntity(SyncEntityMsg msg, params object[] objs)
     {
-        ////////Debug.Log("ReceviceSyncEntity frame " + msg.frame);
+        Debug.Log("ReceviceSyncEntity frame " + msg.frame);
         //SyncDebugSystem.LogAndDebug("ReceviceSyncEntity frame " + msg.frame);
 
         if(m_world.IsStart)
@@ -104,13 +105,29 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
             info.m_type = MessageType.SyncEntity;
             info.m_msg = msg;
 
-            //TODO 服务器缓存 未清除
+            //TODO 服务器缓存 未清除,并且这里可能有问题，导致主动复活出错，原因应该是实体同步指令未执行，因为帧数已错过
             rc.m_messageList.Add(info);
 
             Recalc();
         }
         else
         {
+            List<int> idList = new List<int>();
+
+            //删除多余的实体
+            for (int i = 0; i < msg.infos.Count; i++)
+            {
+                idList.Add(msg.infos[i].id);
+            }
+
+            for (int i = 0; i < m_world.m_entityList.Count; i++)
+            {
+                if(!idList.Contains( m_world.m_entityList[i].ID))
+                {
+                    m_world.DestroyEntityImmediately(m_world.m_entityList[i].ID);
+                }
+            }
+
             ExecuteSyncEntity(msg);
         }
     }
@@ -148,14 +165,11 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     void ReceviceCommandMsg(T cmd, params object[] objs)
     {
-        //Debug.Log("RecordCommand " + Serializer.Serialize(cmd));
-
         //立即返回确认消息
         AffirmMsg amsg = new AffirmMsg();
         amsg.index = cmd.frame;
         amsg.time = cmd.time;
         ProtocolAnalysisService.SendCommand(amsg);
-
 
         if (m_world.IsStart)
         {
@@ -164,8 +178,6 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
             PlayerCommandRecordComponent pcrc = entity.GetComp<PlayerCommandRecordComponent>();
             PlayerCommandBase record = pcrc.GetInputCahae(cmd.frame);
-
-            //Debug.Log("Save before " + pcrc.GetAllMessage(cmd.frame) + " frame " + cmd.frame + " id " + cmd.id);
 
             //判断和本地的预测有没有冲突
             if (record == null || !record.EqualsCmd(cmd))
@@ -182,8 +194,6 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
                 pcrc.lastInputFrame = cmd.frame;
             }
 
-            //Debug.Log("Save after " + pcrc.GetAllMessage(cmd.frame) + " frame " + cmd.frame + " id " + cmd.id);
-
             pcrc.RecordCommand(cmd);
 
             //数据完整校验
@@ -198,6 +208,30 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         {
             GameDataCacheComponent gdcc = m_world.GetSingletonComp<GameDataCacheComponent>();
             gdcc.m_noExecuteCommandList.Add(cmd);
+        }
+    }
+
+    void ReceviceSameCmdMsg(SameCommand cmd, params object[] objs)
+    {
+        if(m_world.IsStart)
+        {
+            EntityBase entity = m_world.GetEntity(cmd.id);
+            AddComp(entity); //自动添加记录组件
+
+            PlayerCommandRecordComponent pcrc = entity.GetComp<PlayerCommandRecordComponent>();
+            PlayerCommandBase record = pcrc.GetInputCahae(cmd.frame - 1);
+
+            if (record != null)
+            {
+                PlayerCommandBase sameCmd = record.DeepCopy();
+                sameCmd.frame = cmd.frame;
+                ReceviceCommandMsg((T)sameCmd);
+            }
+            //缓存中没有数据，重新请求
+            else
+            {
+                ReSendMessage(cmd.frame, cmd.id);
+            }
         }
     }
 
@@ -226,7 +260,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         {
             //存入未执行命令列表
             ////////Debug.Log("存入未执行命令列表");
-            GameDataCacheComponent gdcc = m_world.GetSingletonComp<GameDataCacheComponent>();
+            //GameDataCacheComponent gdcc = m_world.GetSingletonComp<GameDataCacheComponent>();
             //gdcc.m_noExecuteCommandList.Add(msg);
         }
     }
@@ -483,6 +517,8 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     void ExecuteServiceMessage(int frameCount)
     {
         List<ServiceMessageInfo> list = LoadMessage(frameCount);
+
+        //Debug.Log("ExecuteServiceMessage count " + list.Count + " frame " + frameCount);
 
         for (int i = 0; i < list.Count; i++)
         {

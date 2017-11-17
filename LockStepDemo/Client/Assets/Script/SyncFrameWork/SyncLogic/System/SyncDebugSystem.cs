@@ -51,7 +51,7 @@ public class SyncDebugSystem : SystemBase
         //Debug.Log(content);
     }
 
-    Deserializer deserializer = new Deserializer();
+    //Deserializer deserializer = new Deserializer();
     public void ReceviceDebugMsg(DebugMsg msg, params object[] objs)
     {
         if (!isDebug)
@@ -180,6 +180,16 @@ public class SyncDebugSystem : SystemBase
                             {
                                 string log = "error: frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entity.ID + " msg.id " + msg.infos[i].id + " comp:" + msg.infos[i].infos[j].m_compName + "\n remote:" + msg.infos[i].infos[j].content + "\n local:" + content + "\n";
                                 Debug.LogWarning(log);
+                                string record = "";
+
+                                for (int k = msg.frame; k > msg.frame - 10; k--)
+                                {
+                                    PlayerCommandBase tmp = pcrc.GetInputCahae(k);
+
+                                    record += "\nframe " + k + " c: " + Serializer.Serialize(tmp);
+                                }
+
+                                Debug.Log(record);
                             }
                             else
                             {
