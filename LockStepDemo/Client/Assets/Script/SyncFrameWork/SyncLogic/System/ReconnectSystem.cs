@@ -19,7 +19,7 @@ public class ReconnectSystem : SystemBase
 
     public override void FixedUpdate(int deltaTime)
     {
-        if(!NetworkManager.IsConnect)
+        if(!m_world.m_isLocal && !NetworkManager.IsConnect)
         {
             //暂停游戏
             m_world.IsStart = false;

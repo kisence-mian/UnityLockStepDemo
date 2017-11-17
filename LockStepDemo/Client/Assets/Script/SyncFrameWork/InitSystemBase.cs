@@ -11,6 +11,11 @@ public class InitSystemBase : SystemBase
         AddEntityCreaterLisnter();
     }
 
+    public override void Dispose()
+    {
+        RemoveEntityCreaterLisnter();
+    }
+
     public override void OnGameStart()
     {
         

@@ -70,6 +70,8 @@ public class PlayerCommandRecordComponent : ComponentBase
 
     public void SetConflict(int frame, bool isConfict)
     {
+        //Debug.Log("SetConflict frame " + frame + " isConfict " + isConfict);
+
         if (m_conflictCache.ContainsKey(frame))
         {
             if(isConfict)

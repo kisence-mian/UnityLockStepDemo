@@ -48,7 +48,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         ConnectStatusComponent csc = m_world.GetSingletonComp<ConnectStatusComponent>();
         csc.confirmFrame = msg.frame; //从目标帧之后开始计算
 
-        Debug.Log("ReceviceStartSyncMsg " + csc.confirmFrame);
+        //Debug.Log("ReceviceStartSyncMsg " + csc.confirmFrame);
 
         m_world.FrameCount = msg.frame ;
         m_world.IsStart = true;
@@ -80,7 +80,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     void RecevicePursueMsg(PursueMsg msg, params object[] objs)
     {
-        //////Debug.Log("RecevicePursueMsg " + msg.frame + " UpdateSpped " + msg.updateSpeed);
+        //Debug.Log("RecevicePursueMsg " + msg.frame + " UpdateSpped " + msg.updateSpeed);
 
         //调整游戏速度
         WorldManager.UpdateSpped = msg.updateSpeed;
@@ -93,7 +93,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     void ReceviceSyncEntity(SyncEntityMsg msg, params object[] objs)
     {
-        Debug.Log("ReceviceSyncEntity frame " + msg.frame);
+        //Debug.Log("ReceviceSyncEntity frame " + msg.frame);
         //SyncDebugSystem.LogAndDebug("ReceviceSyncEntity frame " + msg.frame);
 
         if(m_world.IsStart)
@@ -165,6 +165,8 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     void ReceviceCommandMsg(T cmd, params object[] objs)
     {
+        //Debug.Log("ReceviceCommandMsg frame " + cmd.frame);
+
         //立即返回确认消息
         AffirmMsg amsg = new AffirmMsg();
         amsg.index = cmd.frame;
@@ -237,7 +239,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     void ReceviceCmdMsg(CommandMsg msg, params object[] objs)
     {
-        //////Debug.Log("ReceviceCmdMsg " + msg.index + " currentframe " + m_world.FrameCount);
+        //Debug.Log("ReceviceCmdMsg " + msg.index + " currentframe " + m_world.FrameCount);
 
         //立即返回确认消息
         AffirmMsg amsg = new AffirmMsg();
@@ -250,7 +252,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
             //TODO 如果全部都与本地预测相同则不再重计算
             for (int i = 0; i < msg.msg.Count; i++)
             {
-                ////////Debug.Log("RecordCommand " + Serializer.Serialize(msg.msg[i]));
+                //Debug.Log("RecordCommand " + Serializer.Serialize(msg.msg[i]));
                 RecordCommand(msg.msg[i]);
             }
 
@@ -259,7 +261,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         else
         {
             //存入未执行命令列表
-            ////////Debug.Log("存入未执行命令列表");
+            //Debug.Log("存入未执行命令列表");
             //GameDataCacheComponent gdcc = m_world.GetSingletonComp<GameDataCacheComponent>();
             //gdcc.m_noExecuteCommandList.Add(msg);
         }
@@ -303,8 +305,6 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     {
         if (!entity.GetExistComp<PlayerCommandRecordComponent>())
         {
-            //////Debug.Log("OnEntityCompAdd PlayerCommandRecordComponent");
-
             PlayerCommandRecordComponent rc = new PlayerCommandRecordComponent();
             rc.m_defaultInput = new T();
 
@@ -332,6 +332,8 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     /// <param name="frameCount"></param>
     public override void Recalc()
     {
+        //Debug.Log("Recalc");
+
         ConnectStatusComponent csc = m_world.GetSingletonComp<ConnectStatusComponent>();
 
         // 先判断回退的帧预测的数据和本地数据是否一致，一致则不重计算
@@ -393,7 +395,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         //如果没有新的确定帧出现，则不再重计算
         if (frameCount == allMessageFrame)
         {
-            //////Debug.Log("没有新的确定帧出现，不再重计算");
+            //Debug.Log("没有新的确定帧出现，不再重计算");
             return;
         }
 
@@ -497,7 +499,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
         for (int i = m_world.FrameCount + 1; i <= frameCount; i++)
         {
-            //////Debug.Log("提前计算 BEGIN " + m_world.FrameCount);
+            //Debug.Log("提前计算 BEGIN " + m_world.FrameCount);
 
             //提前计算
             m_world.FixedLoop(WorldManager.IntervalTime);
@@ -505,7 +507,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
             //重新保存历史记录
             m_world.Record(i);
 
-            //////Debug.Log("提前计算 END " + m_world.FrameCount);
+            //Debug.Log("提前计算 END " + m_world.FrameCount);
         }
 
         //m_world.FrameCount = frameCount;
@@ -608,7 +610,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     void ExecuteChangeSingletonCompMsg(ChangeSingletonComponentMsg msg)
     {
-        //////Debug.Log("msg.info.m_compName " + msg.info.m_compName + " " + Type.GetType(msg.info.m_compName));
+        //Debug.Log("msg.info.m_compName " + msg.info.m_compName + " " + Type.GetType(msg.info.m_compName));
 
         SingletonComponent comp = (SingletonComponent)deserializer.Deserialize(msg.info.m_compName, msg.info.content);
         m_world.ChangeSingleComp(msg.info.m_compName, comp);

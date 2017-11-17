@@ -47,6 +47,8 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
     {
         List<EntityBase> list = GetEntityList();
 
+        //Debug.Log("OnlyCallByRecalc count " + list.Count);
+
         for (int i = 0; i < list.Count; i++)
         {
             PlayerCommandRecordComponent rc = list[i].GetComp<PlayerCommandRecordComponent>();
@@ -128,7 +130,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
 
             cmd.frame = m_world.FrameCount - 1;
 
-            if (record.EqualsCmd(cmd))
+            if (record != null && record.EqualsCmd(cmd))
             {
                 sameCmdCache.frame = m_world.FrameCount;
                 sameCmdCache.time = ClientTime.GetTime();

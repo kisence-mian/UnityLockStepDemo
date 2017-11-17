@@ -77,7 +77,7 @@ public class WorldManager
 
         s_worldList.Add(world);
 
-        Debug.Log("CreateWorld");
+        //Debug.Log("CreateWorld");
         //GameDataMonitor.PushData("world", world);
       
         return world;

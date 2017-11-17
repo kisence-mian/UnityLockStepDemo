@@ -623,22 +623,11 @@ public abstract class WorldBase
 
     #region 创建
 
-    public void CreateEntity(string identifier, params ComponentBase[] comps)
+    public EntityBase CreateEntity(string identifier, params ComponentBase[] comps)
     {
-        //状态同步本地不创建实体
-        //if (m_isView && m_syncRule == SyncRule.Status)
-        //{
-        //    return;
-        //}
-
-        //if (!m_isCertainty)
-        //    return;
-
         identifier = FrameCount + identifier;
-
-        //Debug.Log("identifier " + identifier + " hash: " + identifier.ToHash());
-
-        CreateEntity(identifier.ToHash(), comps);
+        int EntityID = identifier.ToHash();
+        return  CreateEntity(EntityID, comps);
     }
 
     /// <summary>
