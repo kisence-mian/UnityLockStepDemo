@@ -227,6 +227,10 @@ public class WorldBase
 
             EndFrame(deltaTime);
         }
+        else
+        {
+            OnlyCallByPause();
+        }
     }
 
     /// <summary>
@@ -338,6 +342,14 @@ public class WorldBase
         }
     }
 
+    void OnlyCallByPause()
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].RunByPause();
+        }
+    }
+
 
 
     #endregion
@@ -380,6 +392,14 @@ public class WorldBase
         for (int i = 0; i < m_recordList.Count; i++)
         {
             m_recordList[i].ClearAfter(frame);
+        }
+    }
+
+    public void ClearAll()
+    {
+        for (int i = 0; i < m_recordList.Count; i++)
+        {
+            m_recordList[i].ClearAll();
         }
     }
 
@@ -507,7 +527,7 @@ public class WorldBase
         }
     }
 
-    void RollbackCreateEntity(int ID, int frame)
+    public void RollbackCreateEntity(int ID, int frame)
     {
         EntityBase entity = GetEntity(ID);
 
@@ -841,6 +861,12 @@ public class WorldBase
         entity.OnComponentAdded -= DispatchEntityComponentAdded;
         entity.OnComponentRemoved -= DispatchEntityComponentRemoved;
         entity.OnComponentReplaced -= DispatchEntityComponentChange;
+    }
+
+    public void DestroyEntityImmediately(int id)
+    {
+        EntityBase entity = GetEntity(id);
+        DestroyEntityAndDispatch(entity);
     }
 
     #endregion

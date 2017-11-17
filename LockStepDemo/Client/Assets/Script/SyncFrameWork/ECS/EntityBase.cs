@@ -50,7 +50,7 @@ public class EntityBase
 
     #region 组件相关
 
-    private Dictionary<string, ComponentBase> m_compDict = new Dictionary<string, ComponentBase>();
+    public Dictionary<string, ComponentBase> m_compDict = new Dictionary<string, ComponentBase>();
 
     public bool GetExistComp<T>()where T : ComponentBase, new()
     {

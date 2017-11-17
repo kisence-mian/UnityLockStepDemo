@@ -31,9 +31,8 @@ public class ECSGroupManager
             allGroupDic.Add(name, group);
             groupToEntityDic.Add(group, new List<EntityBase>());
         }
-        // HDJ.Framework.Event.GlobalEvent.DispatchEvent(HDJ.Framework.Event.EditorGlobalEventEnum.SendInternalData, "systemGroup", groupToEntityDic);
-        HDJ.Framework.Event.GlobalEvent.DispatchEvent(HDJ.Framework.Event.EditorGlobalEventEnum.SendInternalData, "entityGroup", entityToGroupDic);
     }
+
     public List<EntityBase> GetEntityByGroupName<T>() where T : SystemBase
     {
        return GetEntityByGroupName(typeof(T));

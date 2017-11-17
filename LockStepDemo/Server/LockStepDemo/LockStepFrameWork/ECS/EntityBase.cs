@@ -73,7 +73,7 @@ public class EntityBase
 
         if(m_compDict.ContainsKey(key))
         {
-            throw new System.Exception("AddComp exist comp !" + key);
+            throw new System.Exception("AddComp exist comp ! ->" + key + "<-");
         }
         else
         {

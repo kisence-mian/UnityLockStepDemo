@@ -32,6 +32,7 @@ public class ECSGroupManager
             groupToEntityDic.Add(group, new List<EntityBase>());
         }
     }
+
     public List<EntityBase> GetEntityByGroupName<T>() where T : SystemBase
     {
        return GetEntityByGroupName(typeof(T));
