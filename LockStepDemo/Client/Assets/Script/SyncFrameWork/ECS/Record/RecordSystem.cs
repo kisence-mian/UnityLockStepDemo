@@ -121,17 +121,17 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
     }
     public override void PrintRecord(int id)
     {
-        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
+        //RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
 
-        string content = "compName : " + typeof(T).Name + "\n";
-        for (int i = 0; i < rc.m_record.Count; i++)
-        {
-            if(id == -1 || rc.m_record[i].ID == id)
-            {
-                content += " ID:" + rc.m_record[i].ID + " Frame:" + rc.m_record[i].Frame + " content:" + Serializer.Serialize(rc.m_record[i]) + "\n";
-            }
-        }
-        Debug.LogWarning("PrintRecord:" + content);
+        //string content = "compName : " + typeof(T).Name + "\n";
+        //for (int i = 0; i < rc.m_record.Count; i++)
+        //{
+        //    if(id == -1 || rc.m_record[i].ID == id)
+        //    {
+        //        content += " ID:" + rc.m_record[i].ID + " Frame:" + rc.m_record[i].Frame + " content:" + Serializer.Serialize(rc.m_record[i]) + "\n";
+        //    }
+        //}
+        //Debug.LogWarning("PrintRecord:" + content);
     }
 
     public override void Record(int frame, EntityBase entity)
