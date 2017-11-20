@@ -9,7 +9,7 @@ public class SystemBase
 
     #region 私有属性
 
-    string[] m_filter;
+   string[] m_filter;
   public  string[] Filter
     {
         get
@@ -25,6 +25,25 @@ public class SystemBase
             }
 
             return m_filter;
+        }
+    }
+
+    private string name;
+    public string Name
+    {
+        get
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                name = GetType().FullName;
+            }
+
+            return name;
+        }
+
+        set
+        {
+            name = value;
         }
     }
 
@@ -62,12 +81,8 @@ public class SystemBase
 
     #region Update
 
-    /// <summary>
-    /// 只在回滚时调用
-    /// </summary>
-    /// <param name="deltaTime"></param>
-    public virtual void OnlyCallByRecalc(int frame,int deltaTime) { }
-   
+    #region Update 客户端以刷新频率执行
+
     /// <summary>
     /// 服务器不执行
     /// </summary>
@@ -86,11 +101,9 @@ public class SystemBase
     /// <param name="deltaTime"></param>
     public virtual void LateUpdate(int deltaTime) { }
 
-    /// <summary>
-    /// 重新演算时不执行
-    /// </summary>
-    /// <param name="deltaTime"></param>
-    public virtual void NoRecalcBeforeFixedUpdate(int deltaTime) { }
+    #endregion
+
+    #region FixUpdate 前后端以同样频率执行
 
     public virtual void BeforeFixedUpdate(int deltaTime) { }
 
@@ -98,20 +111,14 @@ public class SystemBase
 
     public virtual void LateFixedUpdate(int deltaTime) { }
 
-    /// <summary>
-    /// 重新演算时不执行
-    /// </summary>
-    public virtual void NoRecalcLateFixedUpdate(int deltaTime) { }
+    #endregion
+
+    #region 特殊接口
 
     /// <summary>
     /// 帧的最后执行
     /// </summary>
     public virtual void EndFrame(int deltaTime) { }
-
-    /// <summary>
-    /// 重计算，只在重计算时调用
-    /// </summary>
-    public virtual void Recalc() { }
 
     /// <summary>
     /// 在游戏暂停时执行
@@ -120,6 +127,13 @@ public class SystemBase
     {
 
     }
+
+    /// <summary>
+    /// 重计算，只限给SyncSystem使用
+    /// </summary>
+    public virtual void Recalc() { }
+
+    #endregion
 
     #endregion
 
@@ -172,24 +186,9 @@ public class SystemBase
         return true;
     }
 
-    //List<EntityBase> m_tupleList = new List<EntityBase>();
-    private string name;
     public List<EntityBase> GetEntityList()
     {
-        //m_tupleList.Clear();
-        //for (int i = 0; i < m_world.m_entityList.Count; i++)
-        //{
-        //    if (GetAllExistComp(Filter, m_world.m_entityList[i]))
-        //    {
-        //        m_tupleList.Add(m_world.m_entityList[i]);
-        //    }
-        //}
-        if (string.IsNullOrEmpty(name))
-        {
-            name = GetType().FullName;
-        }
-       return m_world.group.GetEntityByGroupName(name);
-        //return m_tupleList;
+       return m_world.group.GetEntityByGroupName(Name);
     }
 
     public List<EntityBase> GetEntityList(string[] filter)
@@ -205,20 +204,21 @@ public class SystemBase
 
         return tupleList;
     }
+
     #region 事件监听
     protected void AddEntityCreaterLisnter()
     {
-        m_world.OnEntityCreated += ReceviceEntityCreate;
+        m_world.OnEntityCreated += OnEntityCreate;
     }
 
     protected void AddEntityDestroyLisnter()
     {
-        m_world.OnEntityDestroyed += ReceviceEntityDestroy;
+        m_world.OnEntityDestroyed += OnEntityDestroy;
     }
 
     protected void AddEntityWillBeDestroyLisnter()
     {
-        m_world.OnEntityWillBeDestroyed += ReceviceEntityWillBeDestroy;
+        m_world.OnEntityWillBeDestroyed += OnEntityWillBeDestroy;
     }
 
     protected void AddEntityCompAddLisenter()
@@ -238,17 +238,17 @@ public class SystemBase
 
     protected void RemoveEntityCreaterLisnter()
     {
-        m_world.OnEntityCreated -= ReceviceEntityCreate;
+        m_world.OnEntityCreated -= OnEntityCreate;
     }
 
     protected void RemoveEntityDestroyLisnter()
     {
-        m_world.OnEntityDestroyed -= ReceviceEntityDestroy;
+        m_world.OnEntityDestroyed -= OnEntityDestroy;
     }
 
     protected void RemoveEntityWillBeDestroyLisnter()
     {
-        m_world.OnEntityWillBeDestroyed += ReceviceEntityWillBeDestroy;
+        m_world.OnEntityWillBeDestroyed += OnEntityWillBeDestroy;
     }
 
     protected void RemoveEntityCompAddLisenter()
@@ -268,30 +268,6 @@ public class SystemBase
 
 
     #endregion
-
-    void ReceviceEntityCreate(EntityBase entity)
-    {
-        //if (GetAllExistComp(Filter, entity))
-        {
-            OnEntityCreate(entity);
-        }
-    }
-
-    void ReceviceEntityDestroy(EntityBase entity)
-    {
-        //if (GetAllExistComp(Filter, entity))
-        {
-            OnEntityDestroy(entity);
-        }
-    }
-
-    void ReceviceEntityWillBeDestroy(EntityBase entity)
-    {
-        //if (GetAllExistComp(Filter, entity))
-        {
-            OnEntityWillBeDestroy(entity);
-        }
-    }
 
     #endregion
 }

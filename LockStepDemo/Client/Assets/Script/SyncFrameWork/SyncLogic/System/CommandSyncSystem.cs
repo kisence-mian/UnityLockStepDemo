@@ -38,12 +38,24 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         }
     }
 
+    public override void BeforeFixedUpdate(int deltaTime)
+    {
+        if(m_world.m_isRecalc)
+        {
+            OnlyCallByRecalc(m_world.FrameCount, deltaTime);
+        }
+        else
+        {
+            NoRecalcBeforeFixedUpdate(deltaTime);
+        }
+    }
+
     /// <summary>
     /// 重演算的时候读取输入缓存
     /// </summary>
     /// <param name="frame"></param>
     /// <param name="deltaTime"></param>
-    public override void OnlyCallByRecalc(int frame,int deltaTime)
+    public void OnlyCallByRecalc(int frame,int deltaTime)
     {
         List<EntityBase> list = GetEntityList();
 
@@ -51,6 +63,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
 
         for (int i = 0; i < list.Count; i++)
         {
+            AddComp(list[i]);
             PlayerCommandRecordComponent rc = list[i].GetComp<PlayerCommandRecordComponent>();
             T cmd = (T)rc.GetInputCahae(frame);
 
@@ -67,7 +80,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         }
     }
 
-    public override void NoRecalcBeforeFixedUpdate(int deltaTime)
+    public void NoRecalcBeforeFixedUpdate(int deltaTime)
     {
         List<EntityBase> list = GetEntityList();
 

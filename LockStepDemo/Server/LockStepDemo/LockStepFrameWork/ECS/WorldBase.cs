@@ -182,6 +182,8 @@ public abstract class WorldBase
 
     #region Update
 
+    #region 外部接口
+
     /// <summary>
     /// 服务器不执行Loop
     /// </summary>
@@ -200,20 +202,16 @@ public abstract class WorldBase
         if (IsStart)
         {
             //只有客户端才记录过去值
-            if(m_isClient)
+            if (m_isClient)
             {
                 Record(FrameCount);
             }
 
             FrameCount++;
 
-            NoRecalcBeforeFixedUpdate(deltaTime);
-
             BeforeFixedUpdate(deltaTime);
             FixedUpdate(deltaTime);
             LateFixedUpdate(deltaTime);
-
-            NoRecalcLateFixedUpdate(deltaTime);
 
             LazyExecuteEntityOperation();
 
@@ -240,11 +238,9 @@ public abstract class WorldBase
     /// 重演算接口
     /// </summary>
     /// <param name="deltaTime"></param>
-    public void Recalc(int frame,int deltaTime)
+    public void Recalc(int frame, int deltaTime)
     {
         FrameCount = frame;
-
-        OnlyCallByReCalc(frame,deltaTime);
 
         BeforeFixedUpdate(deltaTime);
         FixedUpdate(deltaTime);
@@ -252,28 +248,14 @@ public abstract class WorldBase
 
         LazyExecuteEntityOperation();
     }
+    #endregion
 
+    #region Update 只在客户端执行
     void BeforeUpdate(int deltaTime)
     {
         for (int i = 0; i < m_systemList.Count; i++)
         {
             m_systemList[i].BeforeUpdate(deltaTime);
-        }
-    }
-
-    void BeforeFixedUpdate(int deltaTime)
-    {
-        for (int i = 0; i < m_systemList.Count; i++)
-        {
-            m_systemList[i].BeforeFixedUpdate(deltaTime);
-        }
-    }
-
-    void NoRecalcBeforeFixedUpdate(int deltaTime)
-    {
-        for (int i = 0; i < m_systemList.Count; i++)
-        {
-            m_systemList[i].NoRecalcBeforeFixedUpdate(deltaTime);
         }
     }
 
@@ -294,6 +276,18 @@ public abstract class WorldBase
         }
     }
 
+    #endregion
+
+    #region FixUpdate 前后端以同样频率执行
+
+    void BeforeFixedUpdate(int deltaTime)
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].BeforeFixedUpdate(deltaTime);
+        }
+    }
+
     void FixedUpdate(int deltaTime)
     {
         for (int i = 0; i < m_systemList.Count; i++)
@@ -310,27 +304,15 @@ public abstract class WorldBase
         }
     }
 
-    void NoRecalcLateFixedUpdate(int deltaTime)
-    {
-        for (int i = 0; i < m_systemList.Count; i++)
-        {
-            m_systemList[i].NoRecalcLateFixedUpdate(deltaTime);
-        }
-    }
+    #endregion
+
+    #region 其他时刻
 
     void EndFrame(int deltaTime)
     {
         for (int i = 0; i < m_systemList.Count; i++)
         {
             m_systemList[i].EndFrame(deltaTime);
-        }
-    }
-
-    void OnlyCallByReCalc(int frame,int deltaTime)
-    {
-        for (int i = 0; i < m_systemList.Count; i++)
-        {
-            m_systemList[i].OnlyCallByRecalc(frame,deltaTime);
         }
     }
 
@@ -341,6 +323,9 @@ public abstract class WorldBase
             m_systemList[i].RunByPause();
         }
     }
+
+    #endregion
+
     #endregion
 
     #region 回滚相关 

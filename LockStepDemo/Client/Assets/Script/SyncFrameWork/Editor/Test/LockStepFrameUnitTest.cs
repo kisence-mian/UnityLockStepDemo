@@ -41,14 +41,14 @@ namespace LockStepFrameWork
             world.FixedLoop(1000);
 
             mc = c1.GetComp<MoveComponent>();
-            Debug.Log("mc.pos.x " + mc.pos.x + " frame " + world.FrameCount);
+            //Debug.Log("mc.pos.x " + mc.pos.x + " frame " + world.FrameCount);
 
             for (int i = 0; i < 10; i++)
             {
                 world.CallRecalc();
                 world.FixedLoop(1000);
                 mc = c1.GetComp<MoveComponent>();
-                Debug.Log("mc.pos.x " + mc.pos.x + " frame " + world.FrameCount);
+                //Debug.Log("mc.pos.x " + mc.pos.x + " frame " + world.FrameCount);
             }
 
             Assert.AreEqual(15000, mc.pos.x);
