@@ -82,7 +82,7 @@ public class ECSEvent
             }
         }
 
-        if (m_world.m_isCertainty)
+        if (m_world.IsCertainty || m_world.IsLocal)
         {
             if (m_certaintyEventDict.ContainsKey(key))
             {

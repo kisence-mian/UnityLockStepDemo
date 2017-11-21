@@ -56,10 +56,10 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         m_world.SyncRule = msg.SyncRule;
 
         WorldManager.IntervalTime = msg.intervalTime;
-        m_world.m_isCertainty = true;
+        m_world.IsCertainty = true;
         //立即执行创建操作
         m_world.LazyExecuteEntityOperation();
-        m_world.m_isCertainty = false;
+        m_world.IsCertainty = false;
 
         m_world.m_RandomSeed = msg.randomSeed;
 
@@ -405,7 +405,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         //目标帧之后的历史记录作废
         m_world.ClearAfter(frameCount);
 
-        m_world.m_isRecalc = true;
+        m_world.IsRecalc = true;
         isAllMessage = true;
 
         for (int i = frameCount + 1; i <= aimCount; i++)
@@ -422,15 +422,15 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
                 if (isAllMessage)
                 {
                     csc.confirmFrame = i;
-                    m_world.m_isCertainty = true;
+                    m_world.IsCertainty = true;
                 }
                 else
                 {
-                    m_world.m_isCertainty = false;
+                    m_world.IsCertainty = false;
                 }
             }
 
-            if(m_world.m_isCertainty)
+            if(m_world.IsCertainty)
             {
                 //Debug.Log("确定帧 " + i);
             }
@@ -438,12 +438,6 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
             {
                 //Debug.Log("预测帧 " + i);
             }
-
-            ////确定性没中断的话补一个派发结束
-            //if(isAllMessage)
-            //{
-            //    m_world.EndCertainty();
-            //}
 
             //重新演算
             m_world.Recalc(i, WorldManager.IntervalTime);
@@ -455,7 +449,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
             m_world.Record(i);
 
 
-            if (m_world.m_isCertainty)
+            if (m_world.IsCertainty)
             {
                 //Debug.Log("确定帧结束 " + i);
             }
@@ -471,8 +465,8 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         m_world.ClearBefore(frameCount - 1);
 
         csc.ClearFrame = frameCount - 1;
-        m_world.m_isCertainty = false;
-        m_world.m_isRecalc = false;
+        m_world.IsCertainty = false;
+        m_world.IsRecalc = false;
     }
 
     public void CheckCertaintyFrame(int frame)

@@ -40,7 +40,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
 
     public override void BeforeFixedUpdate(int deltaTime)
     {
-        if(m_world.m_isRecalc)
+        if(m_world.IsRecalc)
         {
             OnlyCallByRecalc(m_world.FrameCount, deltaTime);
         }
@@ -137,7 +137,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
             //Debug.Log("读取 服务器缓存 输入");
         }
 
-        if (!m_world.m_isLocal)
+        if (!m_world.IsClient)
         {
             T record = (T)rc.GetInputCahae(m_world.FrameCount - 1);
 

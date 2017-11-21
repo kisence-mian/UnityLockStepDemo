@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public abstract class GameWorldBase : WorldBase
+public abstract class GameWorldBase<T> : WorldBase where T: PlayerCommandBase,new()
 {
     public override Type[] GetSystemTypes()
     {
@@ -32,7 +32,7 @@ public abstract class GameWorldBase : WorldBase
     {
         return new Type[]
            {
-            typeof(SyncSystem<CommandComponent>),
+            typeof(SyncSystem<T>),
             typeof(ReconnectSystem),
 
             //Debug
