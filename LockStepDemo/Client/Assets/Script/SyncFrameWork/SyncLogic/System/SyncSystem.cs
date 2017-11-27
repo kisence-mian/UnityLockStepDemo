@@ -559,6 +559,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     void ExecuteSyncEntity(SyncEntityMsg msg)
     {
+        m_world.IsCertainty = true;
         for (int i = 0; i < msg.infos.Count; i++)
         {
             SyncEntity(msg.frame,msg.infos[i]);
@@ -568,31 +569,44 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         {
             m_world.DestroyEntity(msg.destroyList[i]);
         }
+        //TODO 有可能出问题
+        m_world.IsCertainty = false;
     }
 
     void SyncEntity(int frame,EntityInfo info)
     {
+        //Debug.Log("SyncEntity ");
+
         EntityBase entity;
         if (!m_world.GetEntityIsExist(info.id))
         {
-            entity = m_world.CreateEntity(info.id);
+            ComponentBase[] comps = new ComponentBase[info.infos.Count];
+
+            for (int i = 0; i < info.infos.Count; i++)
+            {
+                comps[i] = (ComponentBase)deserializer.Deserialize(info.infos[i].m_compName, info.infos[i].content);
+            }
+
+            entity = m_world.CreateEntity(info.id, comps);
         }
         else
         {
             entity = m_world.GetEntity(info.id);
-        }
 
-        for (int i = 0; i < info.infos.Count; i++)
-        {
-            ComponentBase comp = (ComponentBase)deserializer.Deserialize(info.infos[i].m_compName, info.infos[i].content);
+            for (int i = 0; i < info.infos.Count; i++)
+            {
+                ComponentBase comp = (ComponentBase)deserializer.Deserialize(info.infos[i].m_compName, info.infos[i].content);
 
-            if (entity.GetExistComp(info.infos[i].m_compName))
-            {
-                entity.ChangeComp(info.infos[i].m_compName, comp);
-            }
-            else
-            {
-                entity.AddComp(info.infos[i].m_compName, comp);
+                //Debug.Log("comp name " + info.infos[i].m_compName);
+
+                if (entity.GetExistComp(info.infos[i].m_compName))
+                {
+                    entity.ChangeComp(info.infos[i].m_compName, comp);
+                }
+                else
+                {
+                    entity.AddComp(info.infos[i].m_compName, comp);
+                }
             }
         }
     }

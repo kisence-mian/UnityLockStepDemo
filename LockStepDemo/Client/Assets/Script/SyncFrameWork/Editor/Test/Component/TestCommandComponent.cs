@@ -14,7 +14,7 @@ public class TestCommandComponent : PlayerCommandBase
 
     public override PlayerCommandBase DeepCopy()
     {
-        CommandComponent cc = new CommandComponent();
+        TestCommandComponent cc = new TestCommandComponent();
 
         cc.id = id;
         cc.frame = frame;
@@ -31,12 +31,12 @@ public class TestCommandComponent : PlayerCommandBase
 
     public override bool EqualsCmd(PlayerCommandBase cmd)
     {
-        if (!(cmd is CommandComponent))
+        if (!(cmd is TestCommandComponent))
         {
             return false;
         }
 
-        CommandComponent cc = cmd as CommandComponent;
+        TestCommandComponent cc = cmd as TestCommandComponent;
 
         if (id != cc.id)
             return false;

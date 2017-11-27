@@ -57,6 +57,8 @@ public class SyncDebugSystem : SystemBase
         if (!isDebug)
             return;
 
+        //Debug.Log("ReceviceDebugMsg");
+
         ConnectStatusComponent csc = m_world.GetSingletonComp<ConnectStatusComponent>();
 
 

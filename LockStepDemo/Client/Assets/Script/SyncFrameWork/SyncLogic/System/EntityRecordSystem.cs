@@ -25,7 +25,7 @@ public class EntityRecordSystem :RecordSystemBase
         //Debug.Log("EntityRecordSystem OnEntityCreate！ " + entity.ID + " m_isCertainty " + m_world.m_isCertainty);
 
         //只记录预测时的操作
-        if (m_world.m_isCertainty)
+        if (m_world.IsCertainty)
         {
             return;
         }
@@ -35,9 +35,9 @@ public class EntityRecordSystem :RecordSystemBase
         EntityRecordComponent erc = m_world.GetSingletonComp<EntityRecordComponent>();
 
         //如果此帧有这个ID的摧毁记录，把它抵消掉
-        EntityRecordInfo record = erc.GetReord(entity.m_CreateFrame, entity.ID, EntityChangeType.Destroy);
-        if (record != null)
+        if (erc.GetReordIsExist(entity.m_CreateFrame, entity.ID, EntityChangeType.Destroy))
         {
+            EntityRecordInfo record = erc.GetReord(entity.m_CreateFrame, entity.ID, EntityChangeType.Destroy);
             //Debug.Log("抵消掉摧毁记录 " + entity.ID);
             erc.m_list.Remove(record);
         }
@@ -58,7 +58,7 @@ public class EntityRecordSystem :RecordSystemBase
         //Debug.Log("EntityRecordSystem OnEntityDestroy！ " + entity.ID + " m_isCertainty " + m_world.m_isCertainty);
 
         //只记录预测时的操作
-        if (m_world.m_isCertainty)
+        if (m_world.IsCertainty)
         {
             return;
         }
@@ -68,10 +68,9 @@ public class EntityRecordSystem :RecordSystemBase
         EntityRecordComponent erc = m_world.GetSingletonComp<EntityRecordComponent>();
 
         //如果此帧有这个ID的创建记录，把它抵消掉
-        EntityRecordInfo record = erc.GetReord(entity.m_DestroyFrame, entity.ID, EntityChangeType.Create);
-
-        if(record != null)
+        if(erc.GetReordIsExist(entity.m_DestroyFrame, entity.ID, EntityChangeType.Create))
         {
+            EntityRecordInfo record = erc.GetReord(entity.m_DestroyFrame, entity.ID, EntityChangeType.Create);
             ////Debug.Log("抵消掉创建记录 " + entity.ID);
             erc.m_list.Remove(record);
         }

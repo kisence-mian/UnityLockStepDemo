@@ -137,7 +137,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
             //Debug.Log("读取 服务器缓存 输入");
         }
 
-        if (!m_world.IsClient)
+        if (!m_world.IsLocal)
         {
             T record = (T)rc.GetInputCahae(m_world.FrameCount - 1);
 

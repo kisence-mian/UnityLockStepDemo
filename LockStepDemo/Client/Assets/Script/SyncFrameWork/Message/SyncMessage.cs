@@ -146,30 +146,30 @@ namespace Protocol
 
         public void FromCommand(CommandComponent comp)
         {
-            moveDir = comp.moveDir.DeepCopy();
-            skillDir = comp.skillDir.DeepCopy();
+            //moveDir = comp.moveDir.DeepCopy();
+            //skillDir = comp.skillDir.DeepCopy();
 
-            element1 = comp.element1;
-            element2 = comp.element2;
-            isFire = comp.isFire;
+            //element1 = comp.element1;
+            //element2 = comp.element2;
+            //isFire = comp.isFire;
 
-            frame = comp.frame;
-            id = comp.id;
+            //frame = comp.frame;
+            //id = comp.id;
         }
 
         public CommandComponent ToCommand()
         {
             CommandComponent cmd = new CommandComponent();
 
-            cmd.moveDir = moveDir.DeepCopy();
-            cmd.skillDir = skillDir.DeepCopy();
-            cmd.element1 = element1;
-            cmd.element2 = element2;
+            //cmd.moveDir = moveDir.DeepCopy();
+            //cmd.skillDir = skillDir.DeepCopy();
+            //cmd.element1 = element1;
+            //cmd.element2 = element2;
 
-            cmd.isFire = isFire;
+            //cmd.isFire = isFire;
 
-            cmd.frame = frame;
-            cmd.id = id;
+            //cmd.frame = frame;
+            //cmd.id = id;
 
             return cmd;
         }

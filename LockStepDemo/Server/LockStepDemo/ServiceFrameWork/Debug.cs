@@ -43,6 +43,11 @@ class Debug
         s_logger.Debug(content);
     }
 
+
+    public static void LogError(object content)
+    {
+        Log(content.ToString());
+    }
     public static void LogError(string content)
     {
         if (s_logger == null)

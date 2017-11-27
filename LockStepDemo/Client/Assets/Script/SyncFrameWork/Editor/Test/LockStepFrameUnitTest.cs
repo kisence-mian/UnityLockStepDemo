@@ -84,7 +84,7 @@ namespace LockStepFrameWork
             PlayerComponent pc = new PlayerComponent();
             SelfComponent sc = new SelfComponent();
 
-            EntityBase c1 = world.CreateEntityImmediately(1, pc, sc);
+            /*EntityBase c1 =*/ world.CreateEntityImmediately(1, pc, sc);
 
             int createFrame = -1;
             int destroyFrame = -1;
@@ -146,7 +146,7 @@ namespace LockStepFrameWork
             PlayerComponent pc = new PlayerComponent();
             SelfComponent sc = new SelfComponent();
 
-            EntityBase c1 = world.CreateEntityImmediately(1, pc, sc);
+            /*EntityBase c1 =*/ world.CreateEntityImmediately(1, pc, sc);
 
             int createFrame = -1;
             int destroyFrame = -1;
@@ -209,7 +209,7 @@ namespace LockStepFrameWork
             PlayerComponent pc = new PlayerComponent();
             SelfComponent sc = new SelfComponent();
 
-            EntityBase c1 = world.CreateEntityImmediately(1, pc, sc);
+            /*EntityBase c1 =*/ world.CreateEntityImmediately(1, pc, sc);
 
             int createFrame = -1;
             int destroyFrame = -1;
@@ -299,7 +299,7 @@ namespace LockStepFrameWork
             PlayerComponent pc = new PlayerComponent();
             SelfComponent sc = new SelfComponent();
 
-            EntityBase c1 = world.CreateEntityImmediately(1, pc, sc);
+            /*EntityBase c1 = */ world.CreateEntityImmediately(1, pc, sc);
 
             int createFrame = -1;
             int destroyFrame = -1;

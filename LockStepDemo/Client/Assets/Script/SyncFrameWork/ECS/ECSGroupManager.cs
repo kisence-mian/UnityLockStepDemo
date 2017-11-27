@@ -7,54 +7,73 @@ using UnityEngine;
 public class ECSGroupManager
 {
     //private WorldBase world;
-    private Dictionary<string, ECSGroup> allGroupDic = new Dictionary<string, ECSGroup>();
+    private Dictionary<int, ECSGroup> allGroupDic = new Dictionary<int, ECSGroup>();
     private Dictionary<ECSGroup, List<EntityBase>> groupToEntityDic = new Dictionary<ECSGroup, List<EntityBase>>();
     private Dictionary<EntityBase, List<ECSGroup>> entityToGroupDic = new Dictionary<EntityBase, List<ECSGroup>>();
 
     public ECSGroupManager(WorldBase world)
     {
-        //this.world = world;
 
         for (int i = 0; i < world.m_systemList.Count; i++)
         {
             SystemBase system = world.m_systemList[i];
-            string name = system.GetType().FullName;
-            ECSGroup group = new ECSGroup(name, system.Filter);
-            allGroupDic.Add(name, group);
+            int key = StringArrayToInt(system.Filter);
+            if (allGroupDic.ContainsKey(key))
+            {
+                //Debug.Log("System :"+ system.GetType().FullName+ "  Filter :" + string.Join(",", system.Filter) + " Dic :"+string.Join(",",allGroupDic[key].Components));
+                continue;
+            }
+            ECSGroup group = new ECSGroup(key, system.Filter);
+            allGroupDic.Add(key, group);
                 groupToEntityDic.Add(group, new List<EntityBase>());
         }
         for (int i = 0; i < world.m_recordList.Count; i++)
         {
             RecordSystemBase system = world.m_recordList[i];
-            string name = system.GetType().FullName;
-            ECSGroup group = new ECSGroup(name, system.Filter);
-            allGroupDic.Add(name, group);
+          
+            int key = StringArrayToInt(system.Filter);
+            if (allGroupDic.ContainsKey(key))
+            {
+                //Debug.Log("System :" + system.GetType().FullName + "  Filter :" + string.Join(",", system.Filter) + " Dic :" + string.Join(",", allGroupDic[key].Components));
+                continue;
+            }
+
+            ECSGroup group = new ECSGroup(key, system.Filter);
+            allGroupDic.Add(key, group);
             groupToEntityDic.Add(group, new List<EntityBase>());
         }
     }
 
-    public List<EntityBase> GetEntityByGroupName<T>() where T : SystemBase
+    public int StringArrayToInt(string[] arr)
     {
-       return GetEntityByGroupName(typeof(T));
+         Array.Sort(arr);
+        string tempS = string.Join("&", arr);
+        return tempS.ToHash();
     }
-    public List<EntityBase> GetEntityByGroupName(Type type) 
-    {
-        string name = type.Name;
-        return GetEntityByGroupName(name);
-    }
-    public List<EntityBase> GetEntityByGroupName(string name)
+    public List<EntityBase> GetEntityByFilter(int key, string[] filters)
     {
         ECSGroup group;
-        if (allGroupDic.TryGetValue(name, out group))
+        if (allGroupDic.TryGetValue(key, out group))
         {
-            List<EntityBase> list;
-            if (groupToEntityDic.TryGetValue(group, out list))
-            {
-                if (list != null)
-                    return list;
-            }
+
+        }
+        else
+        {
+            AddGroup(key, filters);
+        }
+        List<EntityBase> list;
+        if (groupToEntityDic.TryGetValue(group, out list))
+        {
+            if (list != null)
+                return list;
         }
         return new List<EntityBase>();
+    }
+    public List<EntityBase> GetEntityByFilter(string[] filters)
+    {
+        int key = StringArrayToInt(filters);
+      
+        return GetEntityByFilter(key,filters);
     }
 
     public ECSGroup[] GetGroupByEntity(EntityBase entity)
@@ -69,21 +88,21 @@ public class ECSGroupManager
         return new ECSGroup[0];
     }
 
-    public bool AddGroup(string name,string[] componentFilter)
+    private bool AddGroup(int key,string[] filters)
     {
-        if(string.IsNullOrEmpty(name) || componentFilter==null || componentFilter.Length == 0)
+        if( filters==null || filters.Length == 0)
         {
             Debug.LogError("AddGroup 失败，参数不能为空！");
             return false;
         }
-        if (allGroupDic.ContainsKey(name))
+        if (allGroupDic.ContainsKey(key))
         {
             Debug.LogError("AddGroup 失败，名字重复！");
             return false;
         }
 
-        ECSGroup group = new ECSGroup(name, componentFilter);
-        allGroupDic.Add(name, group);
+        ECSGroup group = new ECSGroup(key, filters);
+        allGroupDic.Add(key, group);
 
         List<EntityBase> newListEntity = new List<EntityBase>();
 
@@ -93,9 +112,9 @@ public class ECSGroupManager
             EntityBase entity = listEntity[i];
             //List<ECSGroup> newGroupList = GetEntitySuportGroup(entity);
             bool isContains = true;
-            for (int j = 0; j < componentFilter.Length; j++)
+            for (int j = 0; j < filters.Length; j++)
             {
-                if (!entity.CompDict.ContainsKey(componentFilter[j]))
+                if (!entity.CompDict.ContainsKey(filters[j]))
                 {
                     isContains = false;
                 }

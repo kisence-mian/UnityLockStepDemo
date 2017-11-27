@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ECSGroup  {
-    private string name;
+    private int key;
 
-    public string Name
+    public int Key
     {
         get
         {
-            return name;
+            return key;
         }
     }
 
@@ -23,9 +23,9 @@ public class ECSGroup  {
 
     private string[] components;
 
-    public ECSGroup(string name, string[] components)
+    public ECSGroup(int key, string[] components)
     {
-        this.name = name;
+        this.key = key;
         this.components = components;
     }
 }

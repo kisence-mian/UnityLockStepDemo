@@ -186,9 +186,17 @@ public class SystemBase
         return true;
     }
 
+    private bool isGetHashCode = false;
+    private int filterNameHashCode;
     public List<EntityBase> GetEntityList()
     {
-       return m_world.group.GetEntityByGroupName(Name);
+        if (!isGetHashCode)
+        {
+            isGetHashCode = true;
+
+            filterNameHashCode = m_world.group.StringArrayToInt(Filter);
+        }
+       return m_world.group.GetEntityByFilter(filterNameHashCode,Filter);
     }
 
     public List<EntityBase> GetEntityList(string[] filter)
