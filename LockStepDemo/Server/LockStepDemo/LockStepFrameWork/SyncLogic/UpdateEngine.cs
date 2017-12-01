@@ -65,7 +65,7 @@ public static class UpdateEngine
             {
                 WorldManager.WorldList[i].FixedLoop(deltaTime);
 
-                if (WorldManager.WorldList[i].isFinish)
+                if (WorldManager.WorldList[i].IsFinish)
                 {
                     //游戏结束
                     EventService.DispatchEvent(ServiceEventDefine.ServiceEvent.GameFinsih, WorldManager.WorldList[i]);

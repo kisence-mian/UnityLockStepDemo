@@ -6,8 +6,6 @@ using System.Text;
 
 public abstract class RecordSystemBase :SystemBase
 {
-    public abstract void Record(int frame,EntityBase entity);
-
     public abstract void Record(int frame);
 
     public abstract void RevertToFrame(int frame);
@@ -18,7 +16,9 @@ public abstract class RecordSystemBase :SystemBase
 
     public abstract void ClearAll();
 
-    public abstract MomentComponentBase GetRecord(int id,int frame);
+    public virtual MomentComponentBase GetRecord(int id, int frame) { throw new NotImplementedException(); }
+
+    public virtual MomentSingletonComponent GetSingletonRecord(int frame) { throw new NotImplementedException(); }
 
     public abstract void PrintRecord(int id);
 }

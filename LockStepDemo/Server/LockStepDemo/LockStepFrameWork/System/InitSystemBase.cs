@@ -19,6 +19,8 @@ public class InitSystemBase : SystemBase
             ConnectionComponent cc = entity.GetComp<ConnectionComponent>();
             PlayerComponent pc = entity.GetComp<PlayerComponent>();
 
+            cc.m_defaultInput = new CommandComponent();
+
             //将角色ID传入游戏
             pc.characterID = cc.m_session.player.characterID;
             pc.nickName = cc.m_session.player.nickName;

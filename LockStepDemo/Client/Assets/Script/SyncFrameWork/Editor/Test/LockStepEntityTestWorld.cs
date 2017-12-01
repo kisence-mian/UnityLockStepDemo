@@ -24,10 +24,18 @@ public class LockStepEntityTestWorld : GameWorldBase<TestCommandComponent>
     public override Type[] GetRecordTypes()
     {
         return new Type[]
-            {
-                typeof(TestLifeSpanComponent),
-                typeof(TestMoveComponent),
-            };
+        {
+            typeof(TestLifeSpanComponent),
+            typeof(TestMoveComponent),
+        };
 
+    }
+
+    public override Type[] GetRecordSingletonTypes()
+    {
+        return new Type[]
+        {
+             typeof(TestSingleComponent),
+        };
     }
 }

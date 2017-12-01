@@ -25,6 +25,9 @@ public class LockStepTestFireSystem : SystemBase
             {
                 //Debug.Log("Fire " + m_world.FrameCount);
 
+                TestSingleComponent tc = m_world.GetSingletonComp<TestSingleComponent>();
+                tc.testValue++;
+
                 TestLifeSpanComponent lsc = new TestLifeSpanComponent();
                 lsc.lifeTime = 500;
 

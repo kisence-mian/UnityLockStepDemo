@@ -50,7 +50,7 @@ public class ReConnectService : ServiceBase
 
     public void AddRecord(ConnectionComponent connect)
     {
-        if (!connect.Entity.World.isFinish)
+        if (!connect.Entity.World.IsFinish)
         {
             m_disConnectDict.Add(connect.m_session.player.playerID, connect);
 

@@ -8,20 +8,23 @@ using System.Text;
 
 class SyncDebugSystem : SystemBase
 {
-    public static bool isDebug = true;
+    public static bool isDebug = false;
 
     public static string[] DebugFilter = new string[] {"MoveComponent"/*, "LifeSpanComponent"*/ , "LifeComponent" };
+
+    public static string[] SingleCompFilter = new string[] { "LogicRuntimeMachineComponent" };
 
     public static string syncLog = "";
 
     public override Type[] GetFilter()
     {
         return new Type[] {
+            
             typeof(ConnectionComponent)
         };
     }
 
-    public override void NoRecalcLateFixedUpdate(int deltaTime)
+    public override void LateFixedUpdate(int deltaTime)
     {
         if(!isDebug)
         {
@@ -31,6 +34,7 @@ class SyncDebugSystem : SystemBase
         DebugMsg msg = new DebugMsg();
         msg.frame = m_world.FrameCount;
         msg.infos = new List<EntityInfo>();
+        msg.singleCompInfo = new List<ComponentInfo>();
 
         for (int i = 0; i < m_world.m_entityList.Count; i++)
         {
@@ -66,6 +70,17 @@ class SyncDebugSystem : SystemBase
             {
                 msg.infos.Add(einfo);
             }
+        }
+
+        for (int i = 0; i < SingleCompFilter.Length; i++)
+        {
+            SingletonComponent sc = m_world.GetSingletonComp(SingleCompFilter[i]);
+            ComponentInfo info = new ComponentInfo();
+
+            info.m_compName = SingleCompFilter[i];
+            info.content = Serializer.Serialize(sc);
+
+            msg.singleCompInfo.Add(info);
         }
 
         List<EntityBase> list = GetEntityList();

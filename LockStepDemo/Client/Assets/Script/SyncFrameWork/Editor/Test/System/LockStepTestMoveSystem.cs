@@ -31,7 +31,7 @@ public class LockStepTestMoveSystem : SystemBase
         mc.dir = cc.moveDir;
         mc.m_velocity = 4000;
 
-        Debug.Log("LockStepTestMoveSystem " + mc.dir);
+        //Debug.Log("LockStepTestMoveSystem " + mc.dir);
 
         SyncVector3 newPos = mc.pos.DeepCopy();
 
@@ -39,7 +39,7 @@ public class LockStepTestMoveSystem : SystemBase
         newPos.y += (mc.dir.y * deltaTime / 1000) * mc.m_velocity / 1000;
         newPos.z += (mc.dir.z * deltaTime / 1000) * mc.m_velocity / 1000;
 
-        Debug.Log("mc.pos "+ mc.pos  + " newPos " + newPos + " mc.dir.x " + mc.dir.x + " mc.m_velocity " + mc.m_velocity);
+        //Debug.Log("mc.pos "+ mc.pos  + " newPos " + newPos + " mc.dir.x " + mc.dir.x + " mc.m_velocity " + mc.m_velocity);
 
         mc.pos = newPos;
 

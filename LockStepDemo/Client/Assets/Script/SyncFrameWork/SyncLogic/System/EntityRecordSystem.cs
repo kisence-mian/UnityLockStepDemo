@@ -156,10 +156,6 @@ public class EntityRecordSystem :RecordSystemBase
         //}
     }
 
-    public override void Record(int frame, EntityBase entity)
-    {
-        throw new NotImplementedException();
-    }
 
     public override void ClearAll()
     {

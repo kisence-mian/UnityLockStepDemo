@@ -18,7 +18,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         GlobalEvent.AddTypeEvent<AffirmMsg>(ReceviceAffirmMsg);
         GlobalEvent.AddTypeEvent<T>(ReceviceCommandMsg);
         GlobalEvent.AddTypeEvent<SameCommand>(ReceviceSameCmdMsg);
-        GlobalEvent.AddTypeEvent<CommandMsg>(ReceviceCmdMsg);
+        //GlobalEvent.AddTypeEvent<CommandMsg>(ReceviceCmdMsg);
     }
 
     public override void Dispose()
@@ -30,7 +30,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         GlobalEvent.RemoveTypeEvent<AffirmMsg>(ReceviceAffirmMsg);
         GlobalEvent.RemoveTypeEvent<T>(ReceviceCommandMsg);
         GlobalEvent.RemoveTypeEvent<SameCommand>(ReceviceSameCmdMsg);
-        GlobalEvent.RemoveTypeEvent<CommandMsg>(ReceviceCmdMsg);
+        //GlobalEvent.RemoveTypeEvent<CommandMsg>(ReceviceCmdMsg);
     }
 
     public override Type[] GetFilter()
@@ -237,69 +237,69 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         }
     }
 
-    void ReceviceCmdMsg(CommandMsg msg, params object[] objs)
-    {
-        //Debug.Log("ReceviceCmdMsg " + msg.index + " currentframe " + m_world.FrameCount);
+    //void ReceviceCmdMsg(CommandMsg msg, params object[] objs)
+    //{
+    //    //Debug.Log("ReceviceCmdMsg " + msg.index + " currentframe " + m_world.FrameCount);
 
-        //立即返回确认消息
-        AffirmMsg amsg = new AffirmMsg();
-        amsg.index = msg.index;
-        amsg.time = msg.serverTime;
-        ProtocolAnalysisService.SendCommand(amsg);
+    //    //立即返回确认消息
+    //    AffirmMsg amsg = new AffirmMsg();
+    //    amsg.index = msg.index;
+    //    amsg.time = msg.serverTime;
+    //    ProtocolAnalysisService.SendCommand(amsg);
 
-        if (m_world.IsStart)
-        {
-            //TODO 如果全部都与本地预测相同则不再重计算
-            for (int i = 0; i < msg.msg.Count; i++)
-            {
-                //Debug.Log("RecordCommand " + Serializer.Serialize(msg.msg[i]));
-                RecordCommand(msg.msg[i]);
-            }
+    //    if (m_world.IsStart)
+    //    {
+    //        //TODO 如果全部都与本地预测相同则不再重计算
+    //        for (int i = 0; i < msg.msg.Count; i++)
+    //        {
+    //            //Debug.Log("RecordCommand " + Serializer.Serialize(msg.msg[i]));
+    //            RecordCommand(msg.msg[i]);
+    //        }
 
-            Recalc();
-        }
-        else
-        {
-            //存入未执行命令列表
-            //Debug.Log("存入未执行命令列表");
-            //GameDataCacheComponent gdcc = m_world.GetSingletonComp<GameDataCacheComponent>();
-            //gdcc.m_noExecuteCommandList.Add(msg);
-        }
-    }
+    //        Recalc();
+    //    }
+    //    else
+    //    {
+    //        //存入未执行命令列表
+    //        //Debug.Log("存入未执行命令列表");
+    //        //GameDataCacheComponent gdcc = m_world.GetSingletonComp<GameDataCacheComponent>();
+    //        //gdcc.m_noExecuteCommandList.Add(msg);
+    //    }
+    //}
 
-    void RecordCommand(CommandInfo cmd)
-    {
-        //EntityBase entity = m_world.GetEntity(cmd.id);
-        //AddComp(entity); //自动添加记录组件
+    //void RecordCommand(CommandInfo cmd)
+    //{
+    //    //EntityBase entity = m_world.GetEntity(cmd.id);
+    //    //AddComp(entity); //自动添加记录组件
 
-        //PlayerCommandRecordComponent pcrc = entity.GetComp<PlayerCommandRecordComponent>();
+    //    //PlayerCommandRecordComponent pcrc = entity.GetComp<PlayerCommandRecordComponent>();
 
-        //PlayerCommandBase remote = cmd.ToCommand();
-        //PlayerCommandBase record = pcrc.GetInputCahae(cmd.frame);
+    //    //PlayerCommandBase remote = cmd.ToCommand();
+    //    //PlayerCommandBase record = pcrc.GetInputCahae(cmd.frame);
 
 
-        //if (entity.GetExistComp<SelfComponent>())
-        //{
-        //    Debug.LogWarning("set is all");
-        //}
+    //    //if (entity.GetExistComp<SelfComponent>())
+    //    //{
+    //    //    Debug.LogWarning("set is all");
+    //    //}
 
-        ////判断和本地的预测有没有冲突
-        //if (record == null || !record.EqualsCmd(remote))
-        //{
-        //    if (entity.GetExistComp<SelfComponent>())
-        //    {
-        //        Debug.LogWarning("覆盖本地指令！ ");
-        //    }
+    //    ////判断和本地的预测有没有冲突
+    //    //if (record == null || !record.EqualsCmd(remote))
+    //    //{
+    //    //    if (entity.GetExistComp<SelfComponent>())
+    //    //    {
+    //    //        Debug.LogWarning("覆盖本地指令！ ");
+    //    //    }
 
-        //    pcrc.SetConflict(cmd.frame, true);
-        //}
-        //else
-        //{
-        //    pcrc.SetConflict(cmd.frame, false);
-        //}
+    //    //    pcrc.SetConflict(cmd.frame, true);
+    //    //}
+    //    //else
+    //    //{
+    //    //    pcrc.SetConflict(cmd.frame, false);
+    //    //}
 
-        //pcrc.RecordCommand(remote);
-    }
+    //    //pcrc.RecordCommand(remote);
+    //}
 
     public void AddComp(EntityBase entity)
     {

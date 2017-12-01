@@ -90,6 +90,7 @@ namespace Protocol
     {
         public int frame;
         public List<EntityInfo> infos;
+        public List<ComponentInfo> singleCompInfo;
     }
 
     public class VerificationMsg : SyncModule
@@ -110,71 +111,71 @@ namespace Protocol
         public string content;
     }
 
-    //转发玩家消息
-    public class CommandMsg : SyncModule
-    {
-        public int index;        //消息编号
-        public int serverTime;   //服务器时间
-        public List<CommandInfo> msg;
+    ////转发玩家消息
+    //public class CommandMsg : SyncModule
+    //{
+    //    public int index;        //消息编号
+    //    public int serverTime;   //服务器时间
+    //    public List<CommandInfo> msg;
 
-        public bool GetIsExist(int frame, int id)
-        {
-            for (int i = 0; i < msg.Count; i++)
-            {
-                if (msg[i].id == id && msg[i].frame == frame)
-                {
-                    return true;
-                }
-            }
+    //    public bool GetIsExist(int frame, int id)
+    //    {
+    //        for (int i = 0; i < msg.Count; i++)
+    //        {
+    //            if (msg[i].id == id && msg[i].frame == frame)
+    //            {
+    //                return true;
+    //            }
+    //        }
 
-            return false;
-        }
-    }
+    //        return false;
+    //    }
+    //}
 
-    public class CommandInfo : IProtocolStructInterface
-    {
-        public int frame;
-        public int id;
+    //public class CommandInfo : IProtocolStructInterface
+    //{
+    //    public int frame;
+    //    public int id;
 
-        public SyncVector3 moveDir = new SyncVector3();
-        public SyncVector3 skillDir = new SyncVector3();
+    //    public SyncVector3 moveDir = new SyncVector3();
+    //    public SyncVector3 skillDir = new SyncVector3();
 
-        public int element1;
-        public int element2;
+    //    public int element1;
+    //    public int element2;
 
-        public bool isFire = false;
+    //    public bool isFire = false;
 
-        public void FromCommand(CommandComponent comp)
-        {
-            //moveDir = comp.moveDir.DeepCopy();
-            //skillDir = comp.skillDir.DeepCopy();
+    //    public void FromCommand(CommandComponent comp)
+    //    {
+    //        //moveDir = comp.moveDir.DeepCopy();
+    //        //skillDir = comp.skillDir.DeepCopy();
 
-            //element1 = comp.element1;
-            //element2 = comp.element2;
-            //isFire = comp.isFire;
+    //        //element1 = comp.element1;
+    //        //element2 = comp.element2;
+    //        //isFire = comp.isFire;
 
-            //frame = comp.frame;
-            //id = comp.id;
-        }
+    //        //frame = comp.frame;
+    //        //id = comp.id;
+    //    }
 
-        public CommandComponent ToCommand()
-        {
-            CommandComponent cmd = new CommandComponent();
+    //    public CommandComponent ToCommand()
+    //    {
+    //        CommandComponent cmd = new CommandComponent();
 
-            //cmd.moveDir = moveDir.DeepCopy();
-            //cmd.skillDir = skillDir.DeepCopy();
-            //cmd.element1 = element1;
-            //cmd.element2 = element2;
+    //        //cmd.moveDir = moveDir.DeepCopy();
+    //        //cmd.skillDir = skillDir.DeepCopy();
+    //        //cmd.element1 = element1;
+    //        //cmd.element2 = element2;
 
-            //cmd.isFire = isFire;
+    //        //cmd.isFire = isFire;
 
-            //cmd.frame = frame;
-            //cmd.id = id;
+    //        //cmd.frame = frame;
+    //        //cmd.id = id;
 
-            return cmd;
-        }
+    //        return cmd;
+    //    }
 
-    }
+    //}
 
     public enum ChangeStatus
     {

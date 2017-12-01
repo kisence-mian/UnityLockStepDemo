@@ -213,28 +213,15 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
         if (connectComp != null)
         {
             WorldBase world = connectComp.Entity.World;
-
-            //if(world.GetHash() == msg.hash)
-            //{
-
-            //}
-            //else
-            //{
-
-            //}
         }
     }
 
     static int CalcAdvanceFrame(ConnectionComponent connect)
     {
-        //return 2;
-
         int frame = connect.rtt / UpdateEngine.IntervalTime + 1;
         frame = Math.Min(7, frame);
 
         frame = Math.Max(2, frame);
-
-        //Debug.Log("RTT " + connect.rtt + " IntervalTime " + UpdateEngine.IntervalTime + " frame " + frame);
 
         return frame;
     }
@@ -243,7 +230,7 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
     {
         cmd.time = ServiceTime.GetServiceTime();
 
-        //TODO 与预测一致不广播节约带宽
+        //TODO 与预测一致不广播节约带宽;
         List<EntityBase> list = world.GetEntiyList(new string[] { "ConnectionComponent" });
 
         for (int i = 0; i < list.Count; i++)

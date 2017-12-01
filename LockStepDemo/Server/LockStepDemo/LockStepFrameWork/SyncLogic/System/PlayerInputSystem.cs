@@ -3,24 +3,24 @@ using Protocol;
 using System;
 using System.Collections.Generic;
 
-public class PlayerInputSystem : ServiceSystem /*where T : PlayerCommandBase, new()*/
+public class PlayerInputSystem<T> : ServiceSystem where T : PlayerCommandBase, new()
 {
     public override Type[] GetFilter()
     {
         return new Type[] {
-                typeof(CommandComponent),
+                typeof(T),
                 typeof(ConnectionComponent),
             };
     }
 
-    public override void NoRecalcBeforeFixedUpdate(int deltaTime)
+    public override void BeforeFixedUpdate(int deltaTime)
     {
         List<EntityBase> list = GetEntityList();
 
         for (int i = 0; i < list.Count; i++)
         {
             ConnectionComponent comp = list[i].GetComp<ConnectionComponent>();
-            CommandComponent cmd = (CommandComponent)comp.GetCommand(m_world.FrameCount);
+            T cmd = (T)comp.GetCommand(m_world.FrameCount);
             cmd.id = list[i].ID;
             cmd.frame = m_world.FrameCount;
 
@@ -34,24 +34,7 @@ public class PlayerInputSystem : ServiceSystem /*where T : PlayerCommandBase, ne
                 for (int j = 0; j < list.Count; j++)
                 {
                     ConnectionComponent conn = list[j].GetComp<ConnectionComponent>();
-
-                    //lock(conn.m_unConfirmFrame)
-                    {
-                        ////补发未确认的帧
-                        //foreach (var item in conn.m_unConfirmFrame)
-                        //{
-                        //    CommandMsg info = item.Value;
-                        //    ProtocolAnalysisService.SendMsg(conn.m_session, info);
-                        //}
-
-                        //cmsg.index = conn.GetSendIndex();
-
-                        //conn.m_unConfirmFrame.Add(cmsg.index, cmd);
-
-                        ProtocolAnalysisService.SendMsg(conn.m_session, cmd);
-
-                        //Debug.Log("消息落后或掉线 预测一个 输入并派发 comp.lastInputFrame " + comp.lastInputFrame  + " m_world.FrameCount " + m_world.FrameCount +" ID " + comp.Entity.ID);
-                    }
+                    ProtocolAnalysisService.SendMsg(conn.m_session, cmd);
                 }
             }
         }

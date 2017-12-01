@@ -49,6 +49,7 @@ public class WorldManager
 
     static int s_intervalTime = 200;
     static float s_UpdateTimer = 0; //ms
+    //static int s_logicFrameCount = 1;
 
     public static void Init(int intervalTime)
     {

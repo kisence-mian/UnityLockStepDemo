@@ -106,7 +106,10 @@ namespace LockStepDemo.Protocol
 
             for (int i = 0; i < fields.Length; i++)
             {
-                content += GetTab(1) + GenerateProtocolMessageField(fields[i], ref index);
+                if (!fields[i].IsStatic)
+                {
+                    content += GetTab(1) + GenerateProtocolMessageField(fields[i], ref index);
+                }
             }
 
             content += "}\n";
@@ -1044,7 +1047,10 @@ namespace LockStepDemo.Protocol
 
             for (int i = 0; i < fields.Length; i++)
             {
-                content += GenerateSerializeFieldContent(tab, fields[i], aimName, sourceName);
+                if (!fields[i].IsStatic)
+                {
+                    content += GenerateSerializeFieldContent(tab, fields[i], aimName, sourceName);
+                }
             }
 
             return content;
@@ -1171,7 +1177,7 @@ namespace LockStepDemo.Protocol
                 }
                 else if (field.FieldType.IsSubclassOf(typeof(Enum)))
                 {
-                    content += GetTab(tab) + aimName + "." + field.Name + " = " + "(" + field.FieldType.FullName + ")" + sourceName + "[\"" + GenerateProtocolFieldName(field) + "\"];\n";
+                    content += GetTab(tab) + aimName + "." + field.Name + " = " + "(" + field.FieldType.FullName.Replace('+','.') + ")" + sourceName + "[\"" + GenerateProtocolFieldName(field) + "\"];\n";
                 }
 
                 else if (field.FieldType == typeof(string))
@@ -1239,7 +1245,10 @@ namespace LockStepDemo.Protocol
 
             for (int i = 0; i < fields.Length; i++)
             {
-                content += GenerateAnalysisContent(tab, fields[i], aimName, sourceName);
+                if (!fields[i].IsStatic)
+                {
+                    content += GenerateAnalysisContent(tab, fields[i], aimName, sourceName);
+                }
             }
 
             return content;

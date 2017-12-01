@@ -10,9 +10,20 @@ public class Calc
 
 public struct SyncVector3 : IProtocolStructInterface
 {
+    public static SyncVector3 Zero = new SyncVector3(0, 0, 0);
+
     public int x;
     public int y;
     public int z;
+
+
+    public SyncVector3(int x, int y, int z)
+    {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
 
     public Vector3 ToVector()
     {
@@ -141,6 +152,46 @@ public struct SyncVector3 : IProtocolStructInterface
         result.z = (int)(a.z / b);
 
         return result;
+    }
+
+    public static bool operator ==(SyncVector3 a, SyncVector3 b)
+    {
+        if (a.x != b.x)
+        {
+            return false;
+        }
+
+        if (a.y != b.y)
+        {
+            return false;
+        }
+
+        if (a.z != b.z)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public static bool operator !=(SyncVector3 a, SyncVector3 b)
+    {
+        return !(a == b);
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj is SyncVector3)
+        {
+            return this == (SyncVector3)obj;
+        }
+
+        return base.Equals(obj);
     }
 
     //逆时针旋转

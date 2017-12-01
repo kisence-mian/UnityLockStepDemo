@@ -17,6 +17,8 @@ public class SyncDebugSystem : SystemBase
 
     public static string[] DebugFilter = new string[] { "PlayerComponent", /*"LifeComponent", "LifeSpanComponent"*/ };
 
+    public static string[] SingleCompFilter = new string[] { "LogicRuntimeMachineComponent" };
+
     public static string syncLog = "";
 
     List<DebugMsg> debugList = new List<DebugMsg>();
@@ -153,6 +155,25 @@ public class SyncDebugSystem : SystemBase
                     syncLog += log;
                 }
             }
+
+            for (int i = 0; i < msg.singleCompInfo.Count; i++)
+            {
+                SingletonComponent sc = m_world.GetSingletonComp(msg.singleCompInfo[i].m_compName);
+
+                string content = Serializer.Serialize(sc);
+
+                if (!content.Equals(msg.singleCompInfo[i].content))
+                {
+                    RecordSystemBase rsb = m_world.GetRecordSystemBase(msg.singleCompInfo[i].m_compName);
+                    string log = "error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount  + " singleComp:" + msg.singleCompInfo[i].m_compName + "\n remote:" + msg.singleCompInfo[i].content + "\n local:" + content + "\n";
+                    Debug.LogWarning(log);
+                    rsb.PrintRecord(0);
+                }
+                else
+                {
+                    Debug.Log("singleComp correct ! frame " + msg.frame + " m_world:" + m_world.FrameCount + "\ncontent " + msg.singleCompInfo[i].content);
+                }
+            }
         }
         else if (msg.frame < m_world.FrameCount)
         {
@@ -171,7 +192,6 @@ public class SyncDebugSystem : SystemBase
 
                             if(compLocal == null)
                             {
-
                                 return;
                             }
 
@@ -242,6 +262,25 @@ public class SyncDebugSystem : SystemBase
                     //Debug.LogWarning(log);
 
                     //syncLog += log;
+                }
+            }
+
+            for (int i = 0; i < msg.singleCompInfo.Count; i++)
+            {
+                RecordSystemBase rsb = m_world.GetRecordSystemBase(msg.singleCompInfo[i].m_compName);
+                SingletonComponent sc = rsb.GetSingletonRecord(msg.frame);
+
+                string content = Serializer.Serialize(sc);
+
+                if (!content.Equals(msg.singleCompInfo[i].content))
+                {
+                    string log = "error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount +" HashCode " + sc.GetHashCode() +  " singleComp:" + msg.singleCompInfo[i].m_compName + "\n remote:" + msg.singleCompInfo[i].content + "\n local:" + content + "\n";
+                    Debug.LogWarning(log);
+                    rsb.PrintRecord(0);
+                }
+                else
+                {
+                    Debug.Log("singleComp correct ! frame " + msg.frame + " m_world:" + m_world.FrameCount + "\ncontent " + msg.singleCompInfo[i].content);
                 }
             }
         }

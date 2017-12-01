@@ -64,6 +64,61 @@ namespace LockStepFrameWork
             Assert.AreEqual(0, mc.pos.x);
         }
 
+        [Test(Description = "单例组件数值回滚测试")]
+        public void SingleComponentValueRollbackTest()
+        {
+            ResourcesConfigManager.Initialize();
+            WorldManager.IntervalTime = 100;
+
+            LockStepEntityTestWorld world = (LockStepEntityTestWorld)WorldManager.CreateWorld<LockStepEntityTestWorld>();
+            world.IsClient = true;
+            world.IsStart = true;
+            world.IsLocal = true;
+
+            ConnectStatusComponent csc = world.GetSingletonComp<ConnectStatusComponent>();
+            csc.confirmFrame = 0; //从目标帧之后开始计算
+
+            SelfComponent sc = new SelfComponent();
+
+            /*EntityBase c1 =*/ world.CreateEntityImmediately(1, sc);
+
+            world.CallRecalc();
+            world.FixedLoop(WorldManager.IntervalTime);
+
+            TestSingleComponent tc = world.GetSingletonComp<TestSingleComponent>();
+            Assert.AreEqual(0, tc.testValue);
+
+            TestCommandComponent cmd = new TestCommandComponent();
+            cmd.frame = 1;
+            cmd.id = 1;
+            cmd.isFire = true;
+            GlobalEvent.DispatchTypeEvent(cmd);
+
+            world.CallRecalc();
+            world.FixedLoop(WorldManager.IntervalTime);
+
+            tc = world.GetSingletonComp<TestSingleComponent>();
+            Assert.AreEqual(1, tc.testValue);
+
+            world.CallRecalc();
+            world.FixedLoop(WorldManager.IntervalTime);
+
+            tc = world.GetSingletonComp<TestSingleComponent>();
+            Assert.AreEqual(1, tc.testValue);
+
+            cmd = new TestCommandComponent();
+            cmd.frame = 2;
+            cmd.id = 1;
+            cmd.isFire = true;
+            GlobalEvent.DispatchTypeEvent(cmd);
+
+            world.CallRecalc();
+            world.FixedLoop(WorldManager.IntervalTime);
+
+            tc = world.GetSingletonComp<TestSingleComponent>();
+            Assert.AreEqual(2, tc.testValue);
+        }
+
         #endregion
 
         #region 实体回滚测试

@@ -1,4 +1,5 @@
 ﻿using DeJson;
+using HDJ.Framework.Utils;
 using LockStepDemo.GameLogic.Component;
 using LockStepDemo.Service;
 using LockStepDemo.Service.ServiceLogic.Component;
@@ -247,10 +248,18 @@ public class ServiceSyncSystem : ServiceSystem
 
             if (!type.IsSubclassOf(typeof(ServiceComponent)))
             {
-                ComponentInfo info = new ComponentInfo();
-                info.m_compName = type.Name;
-                info.content = Serializer.Serialize(c.Value);
-                Data.infos.Add(info);
+                try
+                {
+                    ComponentInfo info = new ComponentInfo();
+                    info.m_compName = type.Name;
+                    info.content = Serializer.Serialize(c.Value);
+
+                    Data.infos.Add(info);
+                }
+                catch(StackOverflowException e)
+                {
+                    Debug.LogError("Serializer error " + type.FullName + " " + e.ToString());
+                }
             }
         }
 

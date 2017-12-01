@@ -29,6 +29,8 @@ public abstract class WorldBase
     bool m_isClient = false; //是否是在客户端运行
     bool m_isLocal = false;  //是否单机运行
 
+    bool m_isInterFrame = false;  //是否是插值帧
+
     int m_frameCount = 0;
     public bool IsClient
     {
@@ -66,6 +68,20 @@ public abstract class WorldBase
             m_isLocal = value;
         }
     }
+
+    public bool IsInterFrame
+    {
+        get
+        {
+            return m_isInterFrame;
+        }
+
+        set
+        {
+            m_isInterFrame = value;
+        }
+    }
+
     public int FrameCount
     {
         get
@@ -123,9 +139,6 @@ public abstract class WorldBase
         set { m_isRecalc = value; }
     }
 
-    //string systemName = "";
-    //RecordEntityTiming recordEntityTiming = RecordEntityTiming.Other;
-
     public List<RecordSystemBase> m_recordList = new List<RecordSystemBase>();           //世界里所有的RecordSystem列表
     public Dictionary<string, RecordSystemBase> m_recordDict = new Dictionary<string, RecordSystemBase>(); //世界里所有的RecordSystem集合
 
@@ -156,6 +169,12 @@ public abstract class WorldBase
     }
 
     public virtual Type[] GetRecordTypes()
+    {
+        return new Type[0];
+    }
+
+    //要回滚的单例组件
+    public virtual Type[] GetRecordSingletonTypes()
     {
         return new Type[0];
     }
@@ -294,6 +313,13 @@ public abstract class WorldBase
         }
     }
 
+    public void InterFixedLoop(int deltaTime)
+    {
+        IsInterFrame = true;
+        FixedLoop(deltaTime);
+        IsInterFrame = false;
+    }
+
     /// <summary>
     /// 调用重演算
     /// </summary>
@@ -407,14 +433,41 @@ public abstract class WorldBase
         Type[] types = GetRecordTypes();
         for (int i = 0; i < types.Length; i++)
         {
-            Type type = typeof(RecordSystem<>);
-            type = type.MakeGenericType(types[i]);
+            if (types[i].IsSubclassOf(typeof(MomentComponentBase)))
+            {
+                Type type = typeof(RecordSystem<>);
+                type = type.MakeGenericType(types[i]);
 
-            RecordSystemBase tmp = (RecordSystemBase)Activator.CreateInstance(type); ;
-            m_recordList.Add(tmp);
-            m_recordDict.Add(types[i].Name, tmp);
-            tmp.m_world = this;
-            tmp.Init();
+                RecordSystemBase tmp = (RecordSystemBase)Activator.CreateInstance(type); ;
+                m_recordList.Add(tmp);
+                m_recordDict.Add(types[i].Name, tmp);
+                tmp.m_world = this;
+                tmp.Init();
+            }
+            else
+            {
+                Debug.LogError(types[i].FullName + " not is MomentComponent!");
+            }
+        }
+
+        types = GetRecordSingletonTypes();
+        for (int i = 0; i < types.Length; i++)
+        {
+            if(types[i].IsSubclassOf(typeof(MomentSingletonComponent)))
+            {
+                Type type = typeof(RecordSingletonSystem<>);
+                type = type.MakeGenericType(types[i]);
+
+                RecordSystemBase tmp2 = (RecordSystemBase)Activator.CreateInstance(type); ;
+                m_recordList.Add(tmp2);
+                m_recordDict.Add(types[i].Name, tmp2);
+                tmp2.m_world = this;
+                tmp2.Init();
+            }
+            else
+            {
+                Debug.LogError(types[i].FullName + " not is MomentSingletonComponent!");
+            }
         }
     }
 
@@ -1308,6 +1361,21 @@ public abstract class WorldBase
         m_RandomSeed = Math.Abs((m_RandomSeed * m_randomA + m_randomB) % m_randomC);
 
         return m_RandomSeed;
+    }
+
+    /// <summary>
+    /// 不包括max
+    /// </summary>
+    /// <param name="min"></param>
+    /// <param name="max"></param>
+    /// <returns></returns>
+    public int GetRandom(int min,int max)
+    {
+        int result = GetRandom();
+
+        result = min + result % max;
+
+        return result;
     }
 
     Dictionary<int, int> m_randomDict = new Dictionary<int, int>();
