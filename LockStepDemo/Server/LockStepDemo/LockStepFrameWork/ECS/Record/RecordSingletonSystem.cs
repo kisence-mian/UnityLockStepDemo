@@ -17,12 +17,12 @@ public class RecordSingletonSystem<T> : RecordSystemBase where T : MomentSinglet
 
         m_recordInfo.Add(record);
 
-        if(typeof(T) == typeof(LogicRuntimeMachineComponent))
-        {
-            LogicRuntimeMachineComponent lrmc = (LogicRuntimeMachineComponent)record;
+        //if(typeof(T) == typeof(LogicRuntimeMachineComponent))
+        //{
+        //    LogicRuntimeMachineComponent lrmc = (LogicRuntimeMachineComponent)record;
 
-            Debug.Log("Record  " + " content: " + Serializer.Serialize(record) +" frame " +m_world.FrameCount);
-        }
+        //    //Debug.Log("Record  " + " content: " + Serializer.Serialize(record) +" frame " +m_world.FrameCount);
+        //}
     }
 
     public override void RevertToFrame(int frame)
