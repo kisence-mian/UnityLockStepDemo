@@ -90,25 +90,31 @@ public class WorldManager
         s_worldList.Remove(world);
     }
 
+    static bool isUpdate = false;
+    static bool isRecalc = false;
     static void Update()
     {
         s_UpdateTimer += Time.deltaTime * 1000; //换算成ms
 
         UpdateWorld((int)(Time.deltaTime * 1000));
 
-        bool isRecalc = false;
-
-        while (s_UpdateTimer > IntervalTime )
+        if(s_UpdateTimer > IntervalTime )
         {
             if(!isRecalc)
             {
                 isRecalc = true;
                 Recalc();
             }
+            else
+            {
+                FixedUpdateWorld(IntervalTime);
 
-            FixedUpdateWorld(IntervalTime);
-
-            s_UpdateTimer -= IntervalTime;
+                s_UpdateTimer -= IntervalTime;
+            }
+        }
+        else
+        {
+            isRecalc = false;
         }
     }
 

@@ -575,7 +575,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     void SyncEntity(int frame,EntityInfo info)
     {
-        //Debug.Log("SyncEntity ");
+        //Debug.Log("SyncEntity " + info.id);
 
         EntityBase entity;
         if (!m_world.GetEntityIsExist(info.id))

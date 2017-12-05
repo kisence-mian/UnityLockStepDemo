@@ -25,7 +25,7 @@ public class ServiceSyncSystem : ServiceSystem
         m_world.eventSystem.AddListener(ServiceEventDefine.c_playerJoin, OnPlayerJoin);
         m_world.eventSystem.AddListener(ServiceEventDefine.c_playerExit, OnPlayerExit);
 
-        m_world.eventSystem.AddListener(ServiceEventDefine.c_ComponentChange, OnCompChange);
+        //m_world.eventSystem.AddListener(ServiceEventDefine.c_ComponentChange, OnCompChange);
     }
 
     public override Type[] GetFilter()
@@ -44,16 +44,37 @@ public class ServiceSyncSystem : ServiceSystem
         PushStartSyncMsg();
     }
 
-    public void SetAllSync(SyncComponent connectionComp)
+    public void SetAllSync(SyncComponent syncComp)
     {
         List<EntityBase> list = GetEntityList(new string[] { "ConnectionComponent" });
 
         for (int i = 0; i < list.Count; i++)
         {
             ConnectionComponent comp = list[i].GetComp<ConnectionComponent>();
-            if (!connectionComp.m_waitSyncList.Contains(comp))
+            if (!syncComp.m_waitSyncList.Contains(comp))
             {
-                connectionComp.m_waitSyncList.Add(comp);
+                syncComp.m_waitSyncList.Add(comp);
+            }
+        }
+    }
+
+    /// <summary>
+    /// 把所有人同步给自己
+    /// </summary>
+    /// <param name="connectionComp"></param>
+    public void SetAllSync(ConnectionComponent connectionComp)
+    {
+        List<EntityBase> list = GetEntityList();
+
+        Debug.Log("OnPlayerJoin " + list.Count);
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            //在所有同步对象的同步队列里加入这个新玩家 (把这个世界的数据告诉新玩家)
+            SyncComponent sycTmp = list[i].GetComp<SyncComponent>();
+            if (!sycTmp.m_waitSyncList.Contains(connectionComp))
+            {
+                sycTmp.m_waitSyncList.Add(connectionComp);
             }
         }
     }
@@ -80,31 +101,22 @@ public class ServiceSyncSystem : ServiceSystem
 
     public override void OnEntityDestroy(EntityBase entity)
     {
+        //Debug.Log("OnEntityDestroy ID: " + entity.ID + " frame " + m_world.FrameCount);
+
     }
 
 
     void OnPlayerJoin(EntityBase entity,params object[] objs)
     {
-        Debug.Log("ServiceSyncSystem OnPlayerJoin ");
+        //Debug.Log("ServiceSyncSystem OnPlayerJoin ");
 
         ConnectionComponent comp = entity.GetComp<ConnectionComponent>();
         SyncComponent syc = entity.GetComp<SyncComponent>();
 
         comp.m_isWaitPushStart = true;
 
-        List<EntityBase> list = GetEntityList();
-        for (int i = 0; i < list.Count; i++)
-        {
-            //在所有同步对象的同步队列里加入这个新玩家 (把这个世界的数据告诉新玩家)
-            SyncComponent sycTmp = list[i].GetComp<SyncComponent>();
-            if (!sycTmp.m_waitSyncList.Contains(comp))
-            {
-                sycTmp.m_waitSyncList.Add(comp);
-            }
-        }
-
-        //把自己广播给所有人
-        SetAllSync(syc);
+        ////把自己广播给所有人
+        //SetAllSync(syc);
     }
 
     void OnPlayerExit(EntityBase entity, params object[] objs)
@@ -119,11 +131,11 @@ public class ServiceSyncSystem : ServiceSystem
         //PushDestroyEntity(sc, entity);
     }
 
-    void OnCompChange(EntityBase entity, params object[] objs)
-    {
-        SyncComponent syc = entity.GetComp<SyncComponent>();
-        SetAllSync(syc);
-    }
+    //void OnCompChange(EntityBase entity, params object[] objs)
+    //{
+    //    SyncComponent syc = entity.GetComp<SyncComponent>();
+    //    SetAllSync(syc);
+    //}
 
     #endregion
 
@@ -174,17 +186,27 @@ public class ServiceSyncSystem : ServiceSystem
     public void PushAllData()
     {
         List<EntityBase> list = GetEntityList();
+        List<EntityBase> playerList = GetEntityList(new string[] { "ConnectionComponent" });
+
+        for (int i = 0; i < playerList.Count; i++)
+        {
+            ConnectionComponent cc = playerList[i].GetComp<ConnectionComponent>();
+            if(cc.m_isWaitPushStart)
+            {
+                SetAllSync(cc);
+            }
+        }
+
         for (int i = 0; i < list.Count; i++)
         {
             SyncComponent sc = list[i].GetComp<SyncComponent>();
             PushSyncEnity(sc, list[i]);
         }
 
-        List<EntityBase> list2 = GetEntityList(new string[] { "ConnectionComponent" });
-        for (int i = 0; i < list2.Count; i++)
+        for (int i = 0; i < playerList.Count; i++)
         {
-            ConnectionComponent cc = list2[i].GetComp<ConnectionComponent>();
-            PushSyncEnity(cc, list2[i]);
+            ConnectionComponent cc = playerList[i].GetComp<ConnectionComponent>();
+            PushSyncEnity(cc, playerList[i]);
         }
     }
 
@@ -192,16 +214,16 @@ public class ServiceSyncSystem : ServiceSystem
 
     #region 实体
 
-    public void PushSyncEnity(SyncComponent connectionComp, EntityBase entity)
+    public void PushSyncEnity(SyncComponent syncComp, EntityBase entity)
     {
-        for (int i = 0; i < connectionComp.m_waitSyncList.Count; i++)
+        for (int i = 0; i < syncComp.m_waitSyncList.Count; i++)
         {
-            if(connectionComp.m_waitSyncList[i].m_session != null)
+            if(syncComp.m_waitSyncList[i].m_session != null)
             {
-                connectionComp.m_waitSyncList[i].m_waitSyncEntity.Add(entity);
+                syncComp.m_waitSyncList[i].m_waitSyncEntity.Add(entity);
             }
         }
-        connectionComp.m_waitSyncList.Clear();
+        syncComp.m_waitSyncList.Clear();
     }
 
     public void PushSyncEnity(ConnectionComponent connect, EntityBase entity)
@@ -232,6 +254,11 @@ public class ServiceSyncSystem : ServiceSystem
         connect.m_waitSyncEntity.Clear();
         if(msg.infos.Count > 0 || msg.destroyList.Count > 0)
         {
+
+            List<EntityBase> list = GetEntityList();
+            Debug.Log(" msg.infos " + msg.infos.Count + " world " + m_world.m_entityList.Count + " list " + list.Count);
+
+
             ProtocolAnalysisService.SendMsg(connect.m_session, msg);
         }
     }

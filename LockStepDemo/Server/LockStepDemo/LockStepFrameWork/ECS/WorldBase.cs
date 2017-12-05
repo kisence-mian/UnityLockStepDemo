@@ -128,7 +128,19 @@ public abstract class WorldBase
     bool m_isCertainty = false;
     public bool IsCertainty
     {
-        get { return m_isCertainty; }
+        get {
+
+            if(IsLocal)
+            {
+                return true;
+            }
+
+            if(!IsClient)
+            {
+                return true;
+            }
+
+            return m_isCertainty; }
         set { m_isCertainty = value; }
     }
 
@@ -254,10 +266,10 @@ public abstract class WorldBase
         group = new ECSGroupManager(this);
         OnEntityComponentAdded += group.OnEntityComponentChange;
         OnEntityComponentRemoved += group.OnEntityComponentChange;
-        OnEntityComponentChange += (entity, compName, previousComponent, newComponent) =>
-        {
-            group.OnEntityComponentChange(entity, compName, newComponent);
-        };
+        //OnEntityComponentChange += (entity, compName, previousComponent, newComponent) =>
+        //{
+        //    group.OnEntityComponentChange(entity, compName, newComponent);
+        //};
     }
 
     void GameStart()
@@ -291,8 +303,8 @@ public abstract class WorldBase
     {
         if (IsStart)
         {
-            //只有客户端才记录过去值
-            if (IsClient)
+            //只有客户端才记录过去值,预测值不必要记录
+            if (IsClient && IsCertainty)
             {
                 Record(FrameCount);
             }

@@ -25,16 +25,16 @@ public class SyncDebugSystem : SystemBase
 
     public override void Init()
     {
-        AddEntityCreaterLisnter();
-        AddEntityDestroyLisnter();
+        //AddEntityCreaterLisnter();
+        //AddEntityDestroyLisnter();
 
         GlobalEvent.AddTypeEvent<DebugMsg>(ReceviceDebugMsg);
     }
 
     public override void Dispose()
     {
-        RemoveEntityCreaterLisnter();
-        RemoveEntityDestroyLisnter();
+        //RemoveEntityCreaterLisnter();
+        //RemoveEntityDestroyLisnter();
 
         GlobalEvent.RemoveTypeEvent<DebugMsg>(ReceviceDebugMsg);
     }
@@ -44,13 +44,13 @@ public class SyncDebugSystem : SystemBase
         if (!isDebug)
             return;
 
-        string content = "EntityCreate: id:" + entity.ID + " FrameCount " + m_world.FrameCount + "\n";
-        foreach (var item in entity.CompDict)
-        {
-            content += "" + item.Key + " " + Serializer.Serialize(item.Value) + "\n";
-        }
+        //string content = "EntityCreate: id:" + entity.ID + " FrameCount " + m_world.FrameCount + "\n";
+        //foreach (var item in entity.CompDict)
+        //{
+        //    content += "" + item.Key + " " + Serializer.Serialize(item.Value) + "\n";
+        //}
 
-        //Debug.Log(content);
+        ////Debug.Log(content);
     }
 
     //Deserializer deserializer = new Deserializer();
