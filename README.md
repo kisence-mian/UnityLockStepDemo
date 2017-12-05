@@ -1,7 +1,7 @@
 # UnityLockStepDemo
 基于Unity做的帧同步Demo  
 底层使用了[我的Unity框架](https://github.com/GaoKaiHaHa/MyUnityFrameWork)和[SupperSocket](http://www.supersocket.net/)  
-ECS架构  
+ECS架构  
 该框架还在开发中
 
 ### 构建目标：  
