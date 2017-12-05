@@ -39,7 +39,7 @@ public class SyncDebugSystem : SystemBase
         GlobalEvent.RemoveTypeEvent<DebugMsg>(ReceviceDebugMsg);
     }
 
-    public override void OnEntityCreate(EntityBase entity)
+    public override void OnEntityOptimizeCreate(EntityBase entity)
     {
         if (!isDebug)
             return;

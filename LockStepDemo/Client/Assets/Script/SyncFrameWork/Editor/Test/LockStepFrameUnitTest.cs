@@ -144,13 +144,13 @@ namespace LockStepFrameWork
             int createFrame = -1;
             int destroyFrame = -1;
 
-            world.OnEntityCreated += (entity) =>
+            world.OnEntityOptimizeCreated += (entity) =>
             {
                 //Debug.Log("OnEntityCreate " + entity.ID + " frame " + world.FrameCount);
                 createFrame = world.FrameCount;
             };
 
-            world.OnEntityDestroyed += (entity) =>
+            world.OnEntityOptimizeDestroyed += (entity) =>
             {
                 //Debug.Log("OnEntityDestroyed " + entity.ID + " frame " + world.FrameCount);
                 destroyFrame = world.FrameCount;
@@ -206,14 +206,14 @@ namespace LockStepFrameWork
             int createFrame = -1;
             int destroyFrame = -1;
 
-            world.OnEntityCreated += (entity) =>
+            world.OnEntityOptimizeCreated += (entity) =>
             {
                 //Debug.Log("OnEntityCreate " + entity.ID + " frame " + world.FrameCount);
 
                 createFrame = world.FrameCount;
             };
 
-            world.OnEntityDestroyed += (entity) =>
+            world.OnEntityOptimizeDestroyed += (entity) =>
             {
                 //Debug.Log("OnEntityDestroyed " + entity.ID + " frame " + world.FrameCount);
                 destroyFrame = world.FrameCount;
@@ -275,7 +275,7 @@ namespace LockStepFrameWork
             string tmp2 = (2 + "FireObject" + 1);
             int id2 = tmp2.ToHash();
 
-            world.OnEntityCreated += (entity) =>
+            world.OnEntityOptimizeCreated += (entity) =>
             {
                 //Debug.Log("OnEntityCreate " + entity.ID + " frame " + world.FrameCount);
 
@@ -286,7 +286,7 @@ namespace LockStepFrameWork
 
             };
 
-            world.OnEntityDestroyed += (entity) =>
+            world.OnEntityOptimizeDestroyed += (entity) =>
             {
                 if (entity.ID == id2)
                 {
@@ -365,7 +365,7 @@ namespace LockStepFrameWork
             string tmp2 = (2 + "FireObject" + 1);
             int id2 = tmp2.ToHash();
 
-            world.OnEntityCreated += (entity) =>
+            world.OnEntityOptimizeCreated += (entity) =>
             {
                 //Debug.Log("OnEntityCreate " + entity.ID + " frame " + world.FrameCount);
 
@@ -376,7 +376,7 @@ namespace LockStepFrameWork
 
             };
 
-            world.OnEntityDestroyed += (entity) =>
+            world.OnEntityOptimizeDestroyed += (entity) =>
             {
                 if (entity.ID == id2)
                 {

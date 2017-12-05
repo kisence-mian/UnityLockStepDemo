@@ -8,15 +8,15 @@ public class DestroyEffectSystem : SystemBase
 {
     public override void Init()
     {
-        AddEntityWillBeDestroyLisnter();
+        AddEntityOptimizeWillBeDestroyLisnter();
     }
 
     public override void Dispose()
     {
-        RemoveEntityWillBeDestroyLisnter();
+        RemoveEntityOptimizeWillBeDestroyLisnter();
     }
 
-    public override void OnEntityWillBeDestroy(EntityBase entity)
+    public override void OnEntityOptimizeWillBeDestroy(EntityBase entity)
     {
         if(entity.GetExistComp<FlyObjectComponent>()
             && entity.GetExistComp<PerfabComponent>())

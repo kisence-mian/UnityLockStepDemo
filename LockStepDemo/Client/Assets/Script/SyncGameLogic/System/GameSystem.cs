@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameSystem : SystemBase
 {
-    public override void NoRecalcBeforeFixedUpdate(int deltaTime)
+    public override void FixedUpdate(int deltaTime)
     {
         GameTimeComponent gtc = m_world.GetSingletonComp<GameTimeComponent>();
 
@@ -14,7 +14,7 @@ public class GameSystem : SystemBase
 
         if (gtc.GameTime <0)
         {
-            m_world.isFinish = true;
+            m_world.IsFinish = true;
             m_world.IsStart = false;
 
             //派发游戏结束

@@ -46,7 +46,7 @@ public class ReconnectSystem : SystemBase
         isConnect = false;
         if (e.m_status == NetworkState.Connected)
         {
-            ApplicationStatusManager.GetStatus<LoginState>().Login(SystemInfo.deviceUniqueIdentifier, UserData.NickName);
+            //ApplicationStatusManager.GetStatus<LoginState>().Login(SystemInfo.deviceUniqueIdentifier, UserData.NickName);
         }
     }
 }

@@ -8,14 +8,14 @@ public class CreatePerfabSystem : ViewSystemBase
 
     public override void Init()
     {
-        AddEntityDestroyLisnter();
-        AddEntityCreaterLisnter();
+        AddEntityOptimizeDestroyLisnter();
+        AddEntityOptimizeCreaterLisnter();
     }
 
     public override void Dispose()
     {
-        RemoveEntityDestroyLisnter();
-        RemoveEntityDestroyLisnter();
+        RemoveEntityOptimizeDestroyLisnter();
+        RemoveEntityOptimizeDestroyLisnter();
     }
 
     //public override Type[] GetFilter()
@@ -26,7 +26,7 @@ public class CreatePerfabSystem : ViewSystemBase
     //    };
     //}
 
-    public override void OnEntityDestroy(EntityBase entity)
+    public override void OnEntityOptimizeDestroy(EntityBase entity)
     {
         if (entity.GetExistComp<PerfabComponent>())
         {
@@ -43,7 +43,7 @@ public class CreatePerfabSystem : ViewSystemBase
         }
     }
 
-    public override void OnEntityCreate(EntityBase entity)
+    public override void OnEntityOptimizeCreate(EntityBase entity)
     {
         if (GetAllExistComp(new string[] { "AssetComponent", "TransfromComponent" },entity))
         {

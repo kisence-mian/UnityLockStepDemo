@@ -202,6 +202,17 @@
     <Compile Include="Assets\Script\Core\Lua\ToLua\Editor\ToLuaMenu.cs" />
     <Compile Include="Assets\Script\Core\Lua\ToLua\Editor\ToLuaTree.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\Editor\SyncDebugEditorWindow.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\Component\TestCommandComponent.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\Component\TestLifeSpanComponent.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\Component\TestMoveComponent.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\Component\TestSingleComponent.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\LockStepEntityTestWorld.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\LockStepFrameUnitTest.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\System\LockStepInputSystem.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\System\LockStepTestFireSystem.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\System\LockStepTestInitSystem.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\System\LockStepTestMoveSystem.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\System\LockSteppTestLifeSpanSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Data\AreaData.txt" />

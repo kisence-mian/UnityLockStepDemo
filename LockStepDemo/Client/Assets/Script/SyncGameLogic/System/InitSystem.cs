@@ -6,8 +6,8 @@ public class InitSystem : SystemBase
 {
     public override void Init()
     {
-        AddEntityCreaterLisnter();
-        AddEntityDestroyLisnter();
+        AddEntityOptimizeCreaterLisnter();
+        AddEntityOptimizeDestroyLisnter();
 
         //InitMap();
 
@@ -16,11 +16,11 @@ public class InitSystem : SystemBase
 
     public override void Dispose()
     {
-        RemoveEntityCreaterLisnter();
-        RemoveEntityDestroyLisnter();
+        RemoveEntityOptimizeCreaterLisnter();
+        RemoveEntityOptimizeDestroyLisnter();
     }
 
-    public override void OnEntityCreate(EntityBase entity)
+    public override void OnEntityOptimizeCreate(EntityBase entity)
     {
         //服务器这里要改成判断connection组件进来
         if(entity.GetExistComp<SelfComponent>() || entity.GetExistComp<TheirComponent>())

@@ -139,6 +139,21 @@ public class SystemBase
 
     #region 事件回调
 
+    public virtual void OnEntityOptimizeCreate(EntityBase entity)
+    {
+
+    }
+
+    public virtual void OnEntityOptimizeDestroy(EntityBase entity)
+    {
+
+    }
+
+    public virtual void OnEntityOptimizeWillBeDestroy(EntityBase entity)
+    {
+
+    }
+
     public virtual void OnEntityCreate(EntityBase entity)
     {
 
@@ -214,6 +229,21 @@ public class SystemBase
     }
 
     #region 事件监听
+    protected void AddEntityOptimizeCreaterLisnter()
+    {
+        m_world.OnEntityOptimizeCreated += OnEntityOptimizeCreate;
+    }
+
+    protected void AddEntityOptimizeDestroyLisnter()
+    {
+        m_world.OnEntityOptimizeDestroyed += OnEntityOptimizeDestroy;
+    }
+
+    protected void AddEntityOptimizeWillBeDestroyLisnter()
+    {
+        m_world.OnEntityOptimizeWillBeDestroyed += OnEntityOptimizeWillBeDestroy;
+    }
+
     protected void AddEntityCreaterLisnter()
     {
         m_world.OnEntityCreated += OnEntityCreate;
@@ -242,6 +272,21 @@ public class SystemBase
     protected void AddEntityCompChangeLisenter()
     {
         m_world.OnEntityComponentChange += OnEntityCompChange;
+    }
+
+    protected void RemoveEntityOptimizeCreaterLisnter()
+    {
+        m_world.OnEntityOptimizeCreated -= OnEntityOptimizeCreate;
+    }
+
+    protected void RemoveEntityOptimizeDestroyLisnter()
+    {
+        m_world.OnEntityOptimizeDestroyed -= OnEntityOptimizeDestroy;
+    }
+
+    protected void RemoveEntityOptimizeWillBeDestroyLisnter()
+    {
+        m_world.OnEntityOptimizeWillBeDestroyed += OnEntityOptimizeWillBeDestroy;
     }
 
     protected void RemoveEntityCreaterLisnter()

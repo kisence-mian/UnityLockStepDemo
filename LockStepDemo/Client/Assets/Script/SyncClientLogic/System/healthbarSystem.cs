@@ -7,12 +7,12 @@ public class HealthBarSystem :SystemBase
 {
     public override void Init()
     {
-        AddEntityDestroyLisnter();
+        AddEntityOptimizeDestroyLisnter();
     }
 
     public override void Dispose()
     {
-        RemoveEntityDestroyLisnter();
+        RemoveEntityOptimizeDestroyLisnter();
     }
 
     public override Type[] GetFilter()
@@ -42,7 +42,7 @@ public class HealthBarSystem :SystemBase
         }
     }
 
-    public override void OnEntityDestroy(EntityBase entity)
+    public override void OnEntityOptimizeDestroy(EntityBase entity)
     {
         if(entity.GetExistComp<HealthBarComponent>())
         {

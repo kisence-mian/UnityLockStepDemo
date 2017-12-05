@@ -10,17 +10,17 @@ public class EntityRecordSystem :RecordSystemBase
     {
         //Debug.Log("EntityRecordSystem Init");
 
-        AddEntityCreaterLisnter();
-        AddEntityDestroyLisnter();
+        AddEntityOptimizeCreaterLisnter();
+        AddEntityOptimizeDestroyLisnter();
     }
 
     public override void Dispose()
     {
-        RemoveEntityCreaterLisnter();
-        RemoveEntityDestroyLisnter();
+        RemoveEntityOptimizeCreaterLisnter();
+        RemoveEntityOptimizeDestroyLisnter();
     }
 
-    public override void OnEntityCreate(EntityBase entity)
+    public override void OnEntityOptimizeCreate(EntityBase entity)
     {
         //Debug.Log("EntityRecordSystem OnEntityCreate！ " + entity.ID + " m_isCertainty " + m_world.m_isCertainty);
 
@@ -53,7 +53,7 @@ public class EntityRecordSystem :RecordSystemBase
         }
     }
 
-    public override void OnEntityDestroy(EntityBase entity)
+    public override void OnEntityOptimizeDestroy(EntityBase entity)
     {
         //Debug.Log("EntityRecordSystem OnEntityDestroy！ " + entity.ID + " m_isCertainty " + m_world.m_isCertainty);
 

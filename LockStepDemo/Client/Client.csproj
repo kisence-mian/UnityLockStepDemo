@@ -275,7 +275,10 @@
     <Compile Include="Assets\Script\SyncFrameWork\ECS\EntityBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\InputCommandManager.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\MomentComponentBase.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ECS\MomentSingletonComponent.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ECS\Record\EntityRecordComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\Record\RecordComponent.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\ECS\Record\RecordSingletonSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\Record\RecordSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\Record\RecordSystemBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\SingletonComponent.cs" />
@@ -284,9 +287,10 @@
     <Compile Include="Assets\Script\SyncFrameWork\ECS\TupleBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\ViewSystemBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\ECS\WorldBase.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\GameWorldBase.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\InitSystemBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\Message\SyncMessage.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\ConnectStatusComponent.cs" />
-    <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\EntityRecordComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\GameDataCacheComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\PlayerCommandBase.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\PlayerCommandRecordComponent.cs" />
@@ -295,6 +299,7 @@
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\Component\TheirComponent.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\CommandSyncSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\EntityRecordSystem.cs" />
+    <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\ReconnectSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\SyncDebugSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\SyncLogic\System\SyncSystem.cs" />
     <Compile Include="Assets\Script\SyncFrameWork\WorldManager.cs" />

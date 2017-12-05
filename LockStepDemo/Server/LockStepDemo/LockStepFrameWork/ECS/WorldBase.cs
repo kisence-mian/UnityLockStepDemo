@@ -160,6 +160,10 @@ public abstract class WorldBase
 
     public ECSEvent eventSystem = null;
 
+    public event EntityChangedCallBack OnEntityOptimizeCreated;
+    public event EntityChangedCallBack OnEntityOptimizeWillBeDestroyed;
+    public event EntityChangedCallBack OnEntityOptimizeDestroyed;
+
     public event EntityChangedCallBack OnEntityCreated;
     public event EntityChangedCallBack OnEntityWillBeDestroyed;
     public event EntityChangedCallBack OnEntityDestroyed;
@@ -230,7 +234,7 @@ public abstract class WorldBase
         for (int i = 0; i < destroyCache.Count; i++)
         {
             DispatchEntityWillBeDestroyed(destroyCache[i]);
-            DispatchDestroy(destroyCache[i]);
+            DispatchOptimizeDestroy(destroyCache[i]);
         }
         destroyCache.Clear();
 
@@ -304,7 +308,7 @@ public abstract class WorldBase
         if (IsStart)
         {
             //只有客户端才记录过去值,预测值不必要记录
-            if (IsClient && IsCertainty)
+            if (IsClient)
             {
                 Record(FrameCount);
             }
@@ -860,13 +864,29 @@ public abstract class WorldBase
     void CreateEntityAndDispatch(EntityBase entity)
     {
         CreateEntityNoDispatch(entity);
-        DispatchCreate(entity);
+        DispatchOptimizeCreate(entity);
+    }
+
+    void DispatchOptimizeCreate(EntityBase entity)
+    {
+        //Debug.Log("派发创建 " + entity.ID);
+
+        try
+        {
+            if (OnEntityOptimizeCreated != null)
+            {
+                OnEntityOptimizeCreated(entity);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("DispatchCreate " + e.ToString());
+        }
     }
 
     void DispatchCreate(EntityBase entity)
     {
         //Debug.Log("派发创建 " + entity.ID);
-
         try
         {
             if (OnEntityCreated != null)
@@ -891,7 +911,9 @@ public abstract class WorldBase
 
         m_entityList.Add(entity);
         m_entityDict.Add(entity.ID, entity);
+
         group.OnEntityCreate(entity);
+        DispatchCreate(entity);
 
         entity.OnComponentAdded += DispatchEntityComponentAdded;
         entity.OnComponentRemoved += DispatchEntityComponentRemoved;
@@ -968,7 +990,24 @@ public abstract class WorldBase
     {
         DispatchEntityWillBeDestroyed(entity);
         DestroyEntityNoDispatch(entity);
-        DispatchDestroy(entity);
+        DispatchOptimizeDestroy(entity);
+    }
+
+    void DispatchOptimizeDestroy(EntityBase entity)
+    {
+        //Debug.Log("派发摧毁 " + entity.ID);
+
+        try
+        {
+            if (OnEntityOptimizeDestroyed != null)
+            {
+                OnEntityOptimizeDestroyed(entity);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("DispatchDestroy OnEntityDestroyed: " + e.ToString());
+        }
     }
 
     void DispatchDestroy(EntityBase entity)
@@ -988,12 +1027,33 @@ public abstract class WorldBase
         }
     }
 
+    void DispatchWillBeDestroy(EntityBase entity)
+    {
+        //Debug.Log("派发摧毁 " + entity.ID);
+
+        try
+        {
+            if (OnEntityWillBeDestroyed != null)
+            {
+                OnEntityWillBeDestroyed(entity);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("DispatchDestroy OnEntityDestroyed: " + e.ToString());
+        }
+    }
+
     void DestroyEntityNoDispatch(EntityBase entity)
     {
+        DispatchWillBeDestroy(entity);
+
         //Debug.Log("从实体列表中移除 " + entity.ID + " frame " + FrameCount);
         m_entityList.Remove(entity);
         m_entityDict.Remove(entity.ID);
         group.OnEntityDestroy(entity);
+
+        DispatchDestroy(entity);
 
         entity.OnComponentAdded -= DispatchEntityComponentAdded;
         entity.OnComponentRemoved -= DispatchEntityComponentRemoved;
@@ -1123,14 +1183,14 @@ public abstract class WorldBase
         {
             //Debug.Log("派发摧毁 " + dispatchDestroyCache[i].ID + " frame " + FrameCount);
             DispatchEntityWillBeDestroyed(dispatchDestroyCache[i]);
-            DispatchDestroy(dispatchDestroyCache[i]);
+            DispatchOptimizeDestroy(dispatchDestroyCache[i]);
         }
         dispatchDestroyCache.Clear();
 
         for (int i = 0; i < dispatchCreateCache.Count; i++)
         {
             //Debug.Log("派发创建 " + dispatchCreateCache[i].ID + " frame " + FrameCount);
-            DispatchCreate(dispatchCreateCache[i]);
+            DispatchOptimizeCreate(dispatchCreateCache[i]);
         }
         dispatchCreateCache.Clear();
     }
@@ -1318,9 +1378,9 @@ public abstract class WorldBase
     {
         try
         {
-            if (OnEntityWillBeDestroyed != null)
+            if (OnEntityOptimizeWillBeDestroyed != null)
             {
-                OnEntityWillBeDestroyed(entity);
+                OnEntityOptimizeWillBeDestroyed(entity);
             }
         }
         catch (Exception e)

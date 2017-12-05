@@ -64,11 +64,4 @@ class DemoWorld : WorldBase
             typeof(BuffEffectComponent),
         };
     }
-
-    public override Type[] GetRecordSystemTypes()
-    {
-        return new Type[] {
-            typeof(EntityRecordSystem),
-        };
-    }
 }
