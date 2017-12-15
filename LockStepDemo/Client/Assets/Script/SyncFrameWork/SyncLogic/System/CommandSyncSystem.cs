@@ -135,6 +135,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         else
         {
             //Debug.Log("读取 服务器缓存 输入");
+            cmd = (T)cmd.DeepCopy();
         }
 
         if (!m_world.IsLocal)
@@ -149,7 +150,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
                 sameCmdCache.time = ClientTime.GetTime();
                 sameCmdCache.id = entity.ID;
 
-                if(NetworkManager.IsConnect)
+                if (NetworkManager.IsConnect)
                 {
                     ProtocolAnalysisService.SendCommand(sameCmdCache);
                 }

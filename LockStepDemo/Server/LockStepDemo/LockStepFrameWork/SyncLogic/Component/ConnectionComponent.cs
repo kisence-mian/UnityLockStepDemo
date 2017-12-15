@@ -1,6 +1,4 @@
 ﻿using DeJson;
-using LockStepDemo.Service;
-using LockStepDemo.Service.ServiceLogic.Component;
 using Protocol;
 using System;
 using System.Collections.Generic;
@@ -11,7 +9,7 @@ public class ConnectionComponent : ServiceComponent
 {
     public string m_playerID;
 
-    public bool m_isWaitPushStart = false;
+    //public bool m_isWaitPushStart = false;
     public SyncSession m_session;
     //public int m_sendIndex = 0;
 

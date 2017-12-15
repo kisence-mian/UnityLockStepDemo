@@ -14,14 +14,14 @@ public abstract class GameWorldBase<T> : WorldBase where T : PlayerCommandBase, 
 
         int index = 0;
 
-        for (int i = 0; i < gameSystems.Length; i++)
-        {
-            types[index++] = gameSystems[i];
-        }
-
         for (int i = 0; i < systemSystem.Length; i++)
         {
             types[index++] = systemSystem[i];
+        }
+
+        for (int i = 0; i < gameSystems.Length; i++)
+        {
+            types[index++] = gameSystems[i];
         }
 
         return types;

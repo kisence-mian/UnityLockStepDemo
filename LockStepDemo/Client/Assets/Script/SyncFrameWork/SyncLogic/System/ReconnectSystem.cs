@@ -33,11 +33,10 @@ public class ReconnectSystem : SystemBase
             timer--;
             if (timer < 0)
             {
-                timer = 50;
+                timer = 5;
                 isConnect = true;
                 NetworkManager.Connect();
             }
-
         }
     }
 
@@ -46,7 +45,11 @@ public class ReconnectSystem : SystemBase
         isConnect = false;
         if (e.m_status == NetworkState.Connected)
         {
-            //ApplicationStatusManager.GetStatus<LoginState>().Login(SystemInfo.deviceUniqueIdentifier, UserData.NickName);
+            isConnect = true;
+
+            Debug.Log("主动重连");
+
+            ApplicationStatusManager.GetStatus<LoginState>().Login(SystemInfo.deviceUniqueIdentifier, UserData.NickName);
         }
     }
 }

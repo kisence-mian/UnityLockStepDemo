@@ -5,6 +5,11 @@ using System.Collections.Generic;
 
 public class PlayerInputSystem<T> : ServiceSystem where T : PlayerCommandBase, new()
 {
+    public override void Init()
+    {
+        Debug.LogError("PlayerInputSystem Init");
+    }
+
     public override Type[] GetFilter()
     {
         return new Type[] {
@@ -15,7 +20,13 @@ public class PlayerInputSystem<T> : ServiceSystem where T : PlayerCommandBase, n
 
     public override void BeforeFixedUpdate(int deltaTime)
     {
+        //Debug.Log("GetEntityList A");
+
         List<EntityBase> list = GetEntityList();
+
+        //Debug.Log("list Res -> " + GetEntityList(new string[] { "CommandComponent", "ConnectionComponent" }).Count);
+
+        //Debug.Log("GetEntityList B " + list.Count);
 
         for (int i = 0; i < list.Count; i++)
         {

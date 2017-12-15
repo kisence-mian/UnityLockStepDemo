@@ -7,6 +7,7 @@ public class EntityBase
 
     private int id = 0;
 
+    public string name;
     public int m_CreateFrame = 0;
     public int m_DestroyFrame = 0;
 
@@ -52,8 +53,12 @@ public class EntityBase
 
     public Dictionary<string, ComponentBase> m_compDict = new Dictionary<string, ComponentBase>();
 
+    ComponentBase[] comps = new ComponentBase[20];
+
     public bool GetExistComp<T>()where T : ComponentBase, new()
     {
+        comps[ComponentBase.MomentComp] = null;
+
         return GetExistComp(typeof(T).Name);
     }
 
@@ -61,6 +66,11 @@ public class EntityBase
     {
         return m_compDict.ContainsKey(compName);
     }
+
+    //public bool GetExistComp(int compIndex)
+    //{
+    //    return m_compDict.ContainsKey(compName);
+    //}
 
     public T AddComp<T>() where T:ComponentBase,new()
     {
@@ -160,13 +170,13 @@ public class EntityBase
 
     public ComponentBase GetComp(string compName)
     {
-        if(m_compDict.ContainsKey(compName))
+        try
         {
             return m_compDict[compName];
         }
-        else
+        catch
         {
-            throw new System.Exception("EntityID "+ ID + " GetComp not exist comp !" + compName);
+            throw new System.Exception("EntityID " + ID + " GetComp not exist comp !" + compName);
         }
     }
 

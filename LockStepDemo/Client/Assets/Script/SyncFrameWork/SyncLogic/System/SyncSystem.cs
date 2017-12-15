@@ -72,6 +72,8 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
             ReceviceCommandMsg((T)gdcc.m_noExecuteCommandList[i]);
         }
 
+        m_world.Record(m_world.FrameCount);
+
         Recalc();
         AdvanceCalc(msg.frame + msg.advanceCount); //提前计算一帧
 
@@ -112,21 +114,21 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
         }
         else
         {
-            List<int> idList = new List<int>();
+            //List<int> idList = new List<int>();
 
-            //删除多余的实体
-            for (int i = 0; i < msg.infos.Count; i++)
-            {
-                idList.Add(msg.infos[i].id);
-            }
+            ////删除多余的实体
+            //for (int i = 0; i < msg.infos.Count; i++)
+            //{
+            //    idList.Add(msg.infos[i].id);
+            //}
 
-            for (int i = 0; i < m_world.m_entityList.Count; i++)
-            {
-                if(!idList.Contains( m_world.m_entityList[i].ID))
-                {
-                    m_world.DestroyEntityImmediately(m_world.m_entityList[i].ID);
-                }
-            }
+            //for (int i = 0; i < m_world.m_entityList.Count; i++)
+            //{
+            //    if(!idList.Contains( m_world.m_entityList[i].ID))
+            //    {
+            //        m_world.DestroyEntityImmediately(m_world.m_entityList[i].ID);
+            //    }
+            //}
 
             ExecuteSyncEntity(msg);
         }
@@ -369,17 +371,22 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
                 {
                     frameCount = i;
                     allMessageFrame = i;
+                    m_world.IsCertainty = true;
                     //派发确定性
                     m_world.eventSystem.DispatchCertainty(i);
+                    m_world.eventSystem.ClearCache(); //之后计算的事件作废
                     csc.confirmFrame = i;
 
-                    CheckCertaintyFrame(i);
+                    m_world.IsCertainty = false;
+
+                    //CheckCertaintyFrame(i);
 
                     //Debug.Log("不用重计算 frame " + i);
                 }
                 else
                 {
                     //Debug.Log("需要重计算 frame " + i);
+                    m_world.eventSystem.ClearCache(); //之前计算的事件作废
                     allMessageFrame = i;
                     break;
                 }
@@ -432,7 +439,8 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
             if(m_world.IsCertainty)
             {
-                //Debug.Log("确定帧 " + i);
+                //Debug.Log("确定帧 " + i);\
+                m_world.eventSystem.ClearCacheAt(i);
             }
             else
             {
@@ -444,6 +452,8 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
             //服务器数据改动,服务器给的是确切数据，所以放在重计算之后
             ExecuteServiceMessage(i);
+
+            m_world.ClearRecordAt(i);
 
             //重新保存历史记录
             m_world.Record(i);
@@ -565,18 +575,16 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
             SyncEntity(msg.frame,msg.infos[i]);
         }
 
-        for (int i = 0; i < msg.destroyList.Count; i++)
-        {
-            m_world.DestroyEntity(msg.destroyList[i]);
-        }
+        //for (int i = 0; i < msg.destroyList.Count; i++)
+        //{
+        //    m_world.DestroyEntity(msg.destroyList[i]);
+        //}
         //TODO 有可能出问题
         m_world.IsCertainty = false;
     }
 
     void SyncEntity(int frame,EntityInfo info)
     {
-        //Debug.Log("SyncEntity " + info.id);
-
         EntityBase entity;
         if (!m_world.GetEntityIsExist(info.id))
         {
@@ -587,7 +595,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
                 comps[i] = (ComponentBase)deserializer.Deserialize(info.infos[i].m_compName, info.infos[i].content);
             }
 
-            entity = m_world.CreateEntity(info.id, comps);
+            entity = m_world.CreateEntity("SyncEntity", info.id, comps);
         }
         else
         {

@@ -15,9 +15,9 @@ public class SyncDebugSystem : SystemBase
     public const string c_MissData     = "MissData";
     public const string c_Recalc       = "Recalc";
 
-    public static string[] DebugFilter = new string[] { "PlayerComponent", /*"LifeComponent", "LifeSpanComponent"*/ };
+    public static string[] DebugFilter = new string[] { "MoveComponent", "GrowUpComponent" /*"LifeComponent", "LifeSpanComponent"*/ };
 
-    public static string[] SingleCompFilter = new string[] { "LogicRuntimeMachineComponent" };
+    public static string[] SingleCompFilter = new string[] { /*"LogicRuntimeMachineComponent"*/ };
 
     public static string syncLog = "";
 
@@ -56,13 +56,12 @@ public class SyncDebugSystem : SystemBase
     //Deserializer deserializer = new Deserializer();
     public void ReceviceDebugMsg(DebugMsg msg, params object[] objs)
     {
+        //Debug.Log("ReceviceDebugMsg " + isDebug);
+
         if (!isDebug)
             return;
 
-        //Debug.Log("ReceviceDebugMsg");
-
         ConnectStatusComponent csc = m_world.GetSingletonComp<ConnectStatusComponent>();
-
 
         if (msg.frame > csc.confirmFrame)
         {
@@ -78,7 +77,7 @@ public class SyncDebugSystem : SystemBase
 
         for (int i = 0; i < debugList.Count; i++)
         {
-            if(debugList[i].frame <= csc.confirmFrame)
+            if (debugList[i].frame <= csc.confirmFrame)
             {
                 DebugLogic(debugList[i]);
                 debugList.RemoveAt(i);
@@ -112,196 +111,256 @@ public class SyncDebugSystem : SystemBase
 
     public void DebugLogic(DebugMsg msg)
     {
+        //Debug.Log("DebugLogic ");
+
         if (msg.frame == m_world.FrameCount)
         {
-
-            for (int i = 0; i < msg.infos.Count; i++)
-            {
-                if (m_world.GetEntityIsExist(msg.infos[i].id))
-                {
-                    EntityBase entity = m_world.GetEntity(msg.infos[i].id);
-
-                    for (int j = 0; j < msg.infos[i].infos.Count; j++)
-                    {
-                        ComponentBase compLocal = entity.GetComp(msg.infos[i].infos[j].m_compName);
-
-                        if (IsFilter(msg.infos[i].infos[j].m_compName))
-                        {
-                            string content = Serializer.Serialize(compLocal);
-
-                            if (!content.Equals(msg.infos[i].infos[j].content))
-                            {
-                                RecordSystemBase rsb = m_world.GetRecordSystemBase(msg.infos[i].infos[j].m_compName);
-
-                                string log = "error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entity.ID + " msg.id " + msg.infos[i].id + " comp:" + msg.infos[i].infos[j].m_compName + "\n remote:" + msg.infos[i].infos[j].content + "\n local:" + content + "\n";
-                                Debug.LogWarning(log);
-                                rsb.PrintRecord(entity.ID);
-                                syncLog += log;
-
-                                //派发冲突
-                                GlobalEvent.DispatchEvent(c_isConflict, msg.frame);
-                            }
-                            else
-                            {
-                                //Debug.Log("ReceviceDebugMsg  correct! frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entity.ID + " msg.id " + msg.infos[i].id + " comp:" + msg.infos[i].infos[j].m_compName + " content :"+ msg.infos[i].infos[j].content);
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    string log = "error not find entity frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + msg.infos[i].id + "\n";
-                    Debug.LogWarning(log);
-                    syncLog += log;
-                }
-            }
-
-            for (int i = 0; i < msg.singleCompInfo.Count; i++)
-            {
-                SingletonComponent sc = m_world.GetSingletonComp(msg.singleCompInfo[i].m_compName);
-
-                string content = Serializer.Serialize(sc);
-
-                if (!content.Equals(msg.singleCompInfo[i].content))
-                {
-                    RecordSystemBase rsb = m_world.GetRecordSystemBase(msg.singleCompInfo[i].m_compName);
-                    string log = "error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount  + " singleComp:" + msg.singleCompInfo[i].m_compName + "\n remote:" + msg.singleCompInfo[i].content + "\n local:" + content + "\n";
-                    Debug.LogWarning(log);
-                    rsb.PrintRecord(0);
-                }
-                else
-                {
-                    Debug.Log("singleComp correct ! frame " + msg.frame + " m_world:" + m_world.FrameCount + "\ncontent " + msg.singleCompInfo[i].content);
-                }
-            }
+            CheckCurrentFrame(msg);
         }
         else if (msg.frame < m_world.FrameCount)
         {
-            for (int i = 0; i < msg.infos.Count; i++)
-            {
-                if (m_world.GetEntityIsExist(msg.infos[i].id))
-                {
-                    EntityBase entity = m_world.GetEntity(msg.infos[i].id);
-
-                    for (int j = 0; j < msg.infos[i].infos.Count; j++)
-                    {
-                        if (msg.infos[i].infos[j].m_compName == "CommandComponent")
-                        {
-                            PlayerCommandRecordComponent pcrc = m_world.GetEntity(msg.infos[i].id).GetComp<PlayerCommandRecordComponent>();
-                            PlayerCommandBase compLocal = pcrc.GetInputCahae(msg.frame);
-
-                            if(compLocal == null)
-                            {
-                                return;
-                            }
-
-                            compLocal.time = 0;
-                            string content = Serializer.Serialize(compLocal);
-
-                            if (!content.Equals(msg.infos[i].infos[j].content))
-                            {
-                                string log = "error: frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entity.ID + " msg.id " + msg.infos[i].id + " comp:" + msg.infos[i].infos[j].m_compName + "\n remote:" + msg.infos[i].infos[j].content + "\n local:" + content + "\n";
-                                Debug.LogWarning(log);
-                                string record = "";
-
-                                for (int k = msg.frame; k > msg.frame - 10; k--)
-                                {
-                                    PlayerCommandBase tmp = pcrc.GetInputCahae(k);
-
-                                    record += "\nframe " + k + " c: " + Serializer.Serialize(tmp);
-                                }
-
-                                Debug.Log(record);
-                            }
-                            else
-                            {
-                                //Debug.Log(" confirm " + msg.infos[i].infos[j].content);
-                            }
-                        }
-                        else
-                        {
-                            RecordSystemBase rsb = m_world.GetRecordSystemBase(msg.infos[i].infos[j].m_compName);
-                            ComponentBase compLocal = rsb.GetRecord(msg.infos[i].id, msg.frame);
-
-                            if (IsFilter(msg.infos[i].infos[j].m_compName))
-                            {
-                                if (compLocal != null)
-                                {
-                                    string content = Serializer.Serialize(compLocal);
-
-                                    if (!content.Equals(msg.infos[i].infos[j].content))
-                                    {
-                                        string log = "error: frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entity.ID + " msg.id " + msg.infos[i].id + " comp:" + msg.infos[i].infos[j].m_compName + "\n remote:" + msg.infos[i].infos[j].content + "\n local:" + content + "\n";
-                                        Debug.LogWarning(log);
-                                        rsb.PrintRecord(entity.ID);
-
-                                        syncLog += log;
-                                    }
-                                    else
-                                    {
-                                        //Debug.Log("ReceviceDebugMsg  correct! frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entity.ID + " msg.id " + msg.infos[i].id + " comp:" + msg.infos[i].infos[j].m_compName + " content :" + msg.infos[i].infos[j].content);
-                                    }
-
-                                    //派发冲突
-                                    GlobalEvent.DispatchEvent(c_isConflict, msg.frame);
-                                }
-                                else
-                                {
-                                    string log = "not find Record ->> frame:" + msg.frame + " id " + msg.infos[i].id + " compName: " + msg.infos[i].infos[j].m_compName + " currentframe: " + m_world.FrameCount + " content " + msg.infos[i].infos[j].content;
-
-                                    //Debug.LogWarning(log);
-                                    syncLog += log;
-                                }
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    //string log = "error not find entity frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + msg.infos[i].id + "\n";
-                    //Debug.LogWarning(log);
-
-                    //syncLog += log;
-                }
-            }
-
-            for (int i = 0; i < msg.singleCompInfo.Count; i++)
-            {
-                RecordSystemBase rsb = m_world.GetRecordSystemBase(msg.singleCompInfo[i].m_compName);
-                SingletonComponent sc = rsb.GetSingletonRecord(msg.frame);
-
-                string content = Serializer.Serialize(sc);
-
-                if (!content.Equals(msg.singleCompInfo[i].content))
-                {
-                    string log = "error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount +" HashCode " + sc.GetHashCode() +  " singleComp:" + msg.singleCompInfo[i].m_compName + "\n remote:" + msg.singleCompInfo[i].content + "\n local:" + content + "\n";
-                    Debug.LogWarning(log);
-                    rsb.PrintRecord(0);
-                }
-                else
-                {
-                    Debug.Log("singleComp correct ! frame " + msg.frame + " m_world:" + m_world.FrameCount + "\ncontent " + msg.singleCompInfo[i].content);
-                }
-            }
+            CheckHistotryFrame(msg);
         }
         else
         {
             string log = "服务器超前 msg:" + msg.frame + " m_world:" + m_world.FrameCount + "\n";
-            //Debug.LogWarning(log);
+            Debug.LogWarning(log);
             syncLog += log;
+        }
+    }
+
+    void CheckCurrentFrame(DebugMsg msg)
+    {
+        //Debug.Log("CheckCurrentFrame");
+        for (int i = 0; i < msg.infos.Count; i++)
+        {
+            if (m_world.GetEntityIsExist(msg.infos[i].id))
+            {
+                EntityBase entity = m_world.GetEntity(msg.infos[i].id);
+
+                for (int j = 0; j < msg.infos[i].infos.Count; j++)
+                {
+                    if (msg.infos[i].infos[j].m_compName == "CommandComponent")
+                    {
+                        CheckCommandLogic(msg, msg.infos[i], msg.infos[i].infos[j]);
+                    }
+                    else
+                    {
+                        CheckCurrentComponentLogic(msg, entity, msg.infos[i], msg.infos[i].infos[j]);
+                    }
+                }
+            }
+            else
+            {
+                string log = "error not find entity frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + msg.infos[i].id + "\n";
+                Debug.LogWarning(log);
+                syncLog += log;
+            }
+        }
+
+        for (int i = 0; i < msg.singleCompInfo.Count; i++)
+        {
+            CheckCurrentSingleComponentLogic(msg, msg.singleCompInfo[i]);
+        }
+    }
+
+    void CheckHistotryFrame(DebugMsg msg)
+    {
+        //Debug.Log("CheckHistotryFrame");
+        for (int i = 0; i < msg.infos.Count; i++)
+        {
+            if (m_world.GetEntityIsExist(msg.infos[i].id))
+            {
+                for (int j = 0; j < msg.infos[i].infos.Count; j++)
+                {
+                    if (msg.infos[i].infos[j].m_compName == "CommandComponent")
+                    {
+                        CheckCommandLogic(msg, msg.infos[i], msg.infos[i].infos[j]);
+                    }
+                    else
+                    {
+                        CheckComponentLogic(msg, msg.infos[i], msg.infos[i].infos[j]);
+                    }
+                }
+            }
+            else
+            {
+                //string log = "error not find entity frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + msg.infos[i].id + "\n";
+                //Debug.LogWarning(log);
+            }
+        }
+
+        for (int i = 0; i < msg.singleCompInfo.Count; i++)
+        {
+            CheckSingleComponentLogic(msg, msg.singleCompInfo[i]);
+        }
+    }
+
+    //void CheckCurrentCommandLogic(DebugMsg msg, EntityBase entity, EntityInfo entityInfo, ComponentInfo compInfo)
+    //{
+
+    //}
+
+    void CheckCurrentComponentLogic(DebugMsg msg, EntityBase entity, EntityInfo entityInfo, ComponentInfo compInfo)
+    {
+        //Debug.Log("CheckCurrentComponentLogic");
+
+        ComponentBase compLocal = entity.GetComp(compInfo.m_compName);
+
+        if (IsFilter(compInfo.m_compName))
+        {
+            string content = Serializer.Serialize(compLocal);
+
+            if (!content.Equals(compInfo.content))
+            {
+                RecordSystemBase rsb = m_world.GetRecordSystemBase(compInfo.m_compName);
+
+                string log = "error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entity.ID + " msg.id " + entityInfo.id + " comp:" + compInfo.m_compName + "\n remote:" + compInfo.content + "\n local:" + content + "\n";
+                Debug.LogWarning(log);
+                rsb.PrintRecord(entity.ID);
+                syncLog += log;
+
+                //派发冲突
+                GlobalEvent.DispatchEvent(c_isConflict, msg.frame);
+            }
+            else
+            {
+                //Debug.Log("ReceviceDebugMsg  correct! frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entity.ID + " msg.id " + entityInfo.id + " comp:" + compInfo.m_compName + " content :" + compInfo.content);
+            }
+        }
+    }
+
+    void CheckCurrentSingleComponentLogic(DebugMsg msg, ComponentInfo info)
+    {
+        SingletonComponent sc = m_world.GetSingletonComp(info.m_compName);
+
+        string content = Serializer.Serialize(sc);
+
+        if (!content.Equals(info.content))
+        {
+            RecordSystemBase rsb = m_world.GetRecordSystemBase(info.m_compName);
+            string log = "error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount + " singleComp:" + info.m_compName + "\n remote:" + info.content + "\n local:" + content + "\n";
+            Debug.LogWarning(log);
+            rsb.PrintRecord(0);
+        }
+        else
+        {
+            Debug.Log("singleComp correct ! frame " + msg.frame + " m_world:" + m_world.FrameCount + "\ncontent " + info.content);
+        }
+    }
+
+    void CheckCommandLogic(DebugMsg msg, EntityInfo entityInfo, ComponentInfo compInfo)
+    {
+        PlayerCommandRecordComponent pcrc = m_world.GetEntity(entityInfo.id).GetComp<PlayerCommandRecordComponent>();
+        PlayerCommandBase compLocal = pcrc.GetInputCahae(msg.frame);
+
+        if (compLocal == null)
+        {
+            return;
+        }
+
+        compLocal.time = 0;
+        string content = Serializer.Serialize(compLocal);
+
+        if (!content.Equals(compInfo.content))
+        {
+            string log = "error: frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + msg + " msg.id " + entityInfo.id + " comp:" + compInfo.m_compName + "\n remote:" + compInfo.content + "\n local:" + content + "\n";
+            Debug.LogWarning(log);
+            string record = "";
+
+            for (int k = msg.frame; k > msg.frame - 10; k--)
+            {
+                PlayerCommandBase tmp = pcrc.GetInputCahae(k);
+
+                record += "\nframe " + k + " c: " + Serializer.Serialize(tmp);
+            }
+
+            Debug.Log(record);
+        }
+        else
+        {
+            //Debug.Log(" confirm " + compInfo.content);
+        }
+    }
+
+    void CheckComponentLogic(DebugMsg msg, EntityInfo entityInfo, ComponentInfo compInfo)
+    {
+        //Debug.Log("CheckComponentLogic");
+
+        RecordSystemBase rsb = m_world.GetRecordSystemBase(compInfo.m_compName);
+        ComponentBase compLocal = rsb.GetRecord(entityInfo.id, msg.frame);
+
+        if (IsFilter(compInfo.m_compName))
+        {
+            if (compLocal != null)
+            {
+                string content = Serializer.Serialize(compLocal);
+
+                if (!content.Equals(compInfo.content))
+                {
+                    string log = "error: frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entityInfo.id + " comp:" + compInfo.m_compName + "\n remote:" + compInfo.content + "\n local:" + content + "\n";
+                    Debug.LogWarning(log);
+                    rsb.PrintRecord(entityInfo.id);
+
+                    syncLog += log;
+                }
+                else
+                {
+                    //Debug.Log("ReceviceDebugMsg  correct! frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entityInfo.id + " comp:" + compInfo.m_compName + " content :" + compInfo.content);
+                }
+
+                //派发冲突
+                GlobalEvent.DispatchEvent(c_isConflict, msg.frame);
+            }
+            else
+            {
+                //string log = "not find Record ->> frame:" + msg.frame + " id " + entityInfo.id + " compName: " + compInfo.m_compName + " currentframe: " + m_world.FrameCount + " content " + compInfo.content;
+
+                //Debug.LogWarning(log);
+                //syncLog += log;
+            }
+        }
+        else
+        {
+            Debug.Log("Not is filter " + compInfo.m_compName);
+        }
+    }
+
+    void CheckSingleComponentLogic(DebugMsg msg, ComponentInfo info)
+    {
+        RecordSystemBase rsb = m_world.GetRecordSystemBase(info.m_compName);
+        SingletonComponent sc = rsb.GetSingletonRecord(msg.frame);
+
+        if (sc == null)
+        {
+            Debug.LogWarning("");
+            return;
+        }
+
+        string content = Serializer.Serialize(sc);
+
+        if (!content.Equals(info.content))
+        {
+            string log = "error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount + " HashCode " + sc.GetHashCode() + " singleComp:" + info.m_compName + "\n remote:" + info.content + "\n local:" + content + "\n";
+            Debug.LogWarning(log);
+            rsb.PrintRecord(0);
+        }
+        else
+        {
+            Debug.Log("singleComp correct ! frame " + msg.frame + " m_world:" + m_world.FrameCount + "\ncontent " + info.content);
         }
     }
 
     public static bool IsFilter(string compName)
     {
-        if(DebugFilter.Length == 0)
+        if (DebugFilter.Length == 0)
         {
             return true;
         }
 
         for (int i = 0; i < DebugFilter.Length; i++)
         {
-            if(DebugFilter[i] == compName)
+            if (DebugFilter[i] == compName)
             {
                 return true;
             }
@@ -310,9 +369,9 @@ public class SyncDebugSystem : SystemBase
         return false;
     }
 
-    public static void LogAndDebug(string content,string tag = null)
+    public static void LogAndDebug(string content, string tag = null)
     {
-        if(isDebug && ( tag == null || IsFilter(tag)))
+        if (isDebug && (tag == null || IsFilter(tag)))
         {
             syncLog += content + "\n";
             Debug.Log(content);

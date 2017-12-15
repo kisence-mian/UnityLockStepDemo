@@ -10,7 +10,7 @@ public class Calc
 
 public struct SyncVector3 : IProtocolStructInterface
 {
-    public static SyncVector3 Zero = new SyncVector3(0, 0, 0);
+    public readonly static SyncVector3 Zero = new SyncVector3(0, 0, 0);
 
     public int x;
     public int y;

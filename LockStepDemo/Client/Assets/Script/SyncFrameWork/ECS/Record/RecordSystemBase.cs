@@ -10,6 +10,8 @@ public abstract class RecordSystemBase :SystemBase
 
     public abstract void RevertToFrame(int frame);
 
+    public abstract void ClearRecordAt(int frame);
+    
     public abstract void ClearAfter(int frame);
 
     public abstract void ClearBefore(int frame);

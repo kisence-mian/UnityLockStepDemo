@@ -20,11 +20,6 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
 
         List<EntityBase> list = GetEntityList();
 
-        //if (SyncDebugSystem.IsFilter(typeof(T).Name))
-        //{
-        //    Debug.Log("Record count " + list.Count);
-        //}
-
         for (int i = 0; i < list.Count; i++)
         {
             T record = (T)list[i].GetComp<T>().DeepCopy();
@@ -32,10 +27,10 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
             record.ID    = list[i].ID;
 
             rc.m_record.Add(record);
-            //if (SyncDebugSystem.IsFilter(typeof(T).Name))
-            //{
-            //    Debug.Log("数据记录 ID：" + list[i].ID + " frame:" + frame + " conent:" + Serializer.Serialize(record));
-            //}
+            if (SyncDebugSystem.IsFilter(typeof(T).Name))
+            {
+                //Debug.Log("数据记录 ID：" + list[i].ID + " frame:" + frame + " conent:" + Serializer.Serialize(record));
+            }
         }
     }
 
@@ -98,12 +93,16 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
 
     public override void ClearAfter(int frame)
     {
+       //return;
+
         RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
         rc.ClearAfter(frame);
     }
 
     public override void ClearBefore(int frame)
     {
+        //return;
+
         RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
         rc.ClearBefore(frame);
     }
@@ -129,9 +128,12 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
         string content = "compName : " + typeof(T).Name + "\n";
         for (int i = 0; i < rc.m_record.Count; i++)
         {
-            if (id == -1 || rc.m_record[i].ID == id)
+            if(rc.m_record[i].Frame > m_world.FrameCount - 10)
             {
-                content += " ID:" + rc.m_record[i].ID + " Frame:" + rc.m_record[i].Frame + " content:" + Serializer.Serialize(rc.m_record[i]) + "\n";
+                if (id == -1 || rc.m_record[i].ID == id)
+                {
+                    content += " ID:" + rc.m_record[i].ID + " Frame:" + rc.m_record[i].Frame + " content:" + Serializer.Serialize(rc.m_record[i]) + "\n";
+                }
             }
         }
         Debug.LogWarning("PrintRecord:" + content);
@@ -139,7 +141,15 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
 
     public override void ClearAll()
     {
+        //return;
+
         RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
         rc.m_record.Clear();
+    }
+
+    public override void ClearRecordAt(int frame)
+    {
+        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
+        rc.ClearRecordAt(frame);
     }
 }

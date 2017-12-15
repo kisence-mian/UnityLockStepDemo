@@ -23,6 +23,8 @@ public class ReConnectService : ServiceBase
             PlayerMatchMsg_c msg = new PlayerMatchMsg_c();
             msg.isMatched = true;
             msg.predictTime = 0;
+            msg.matchInfo = new List<MatchPlayerInfo>();
+            ProtocolAnalysisService.SendMsg(player.session, msg);
 
             ConnectionComponent conn = m_disConnectDict[player.playerID];
             conn.m_session = player.session;
@@ -30,23 +32,30 @@ public class ReConnectService : ServiceBase
 
             m_disConnectDict.Remove(player.playerID);
 
-            conn.Entity.World.eventSystem.DispatchEvent(ServiceEventDefine.c_playerJoin, conn.Entity);
-
-            ProtocolAnalysisService.SendMsg(player.session,msg);
+            conn.Entity.World.eventSystem.DispatchEvent(ServiceEventDefine.c_playerReconnect, conn.Entity);
         }
     }
 
-    public override void OnSessionClose(SyncSession session, CloseReason reason)
+    public override void OnPlayerLogout(Player player)
     {
-        Debug.Log("ReConnectService OnSessionClose ");
-
-        //掉线玩家维护一个id与world的映射，用以重连
-        if (session.m_connect != null)
+        if(player.session.m_connect != null)
         {
-            AddRecord(session.m_connect);
-            //m_world.DestroyEntity(session.m_connect.Entity.ID);
+            AddRecord(player.session.m_connect);
         }
+        //RemoveRecord(player);
     }
+
+    //public override void OnSessionClose(SyncSession session, CloseReason reason)
+    //{
+    //    Debug.Log("ReConnectService OnSessionClose ");
+
+    //    //掉线玩家维护一个id与world的映射，用以重连
+    //    if (session.m_connect != null)
+    //    {
+    //        AddRecord(session.m_connect);
+    //        //m_world.DestroyEntity(session.m_connect.Entity.ID);
+    //    }
+    //}
 
     public void AddRecord(ConnectionComponent connect)
     {
@@ -55,32 +64,31 @@ public class ReConnectService : ServiceBase
             m_disConnectDict.Add(connect.m_session.player.playerID, connect);
 
             connect.m_session = null;
-
             connect.Entity.World.eventSystem.DispatchEvent(ServiceEventDefine.c_playerExit, connect.Entity);
         }
-    }
-
-    public void RemoveRecord(ConnectionComponent connect)
-    {
-        m_disConnectDict.Remove(connect.m_session.player.playerID);
     }
 
     public void OnGameFinsih(params object[] objs)
     {
         WorldBase world = (WorldBase)objs[0];
 
-        world.eventSystem.DispatchEvent(GameUtils.c_scoreChange, null);
-        List<PlayerComponent> rankList = world.GetSingletonComp<RankComponent>().rankList;
-        int diamond = rankList.Count;
+        List<EntityBase> list = world.GetEntiyList(new string[] { "ConnectionComponent" });
 
-        for (int i = 0; i < rankList.Count; i++)
+        //移除所有的重连信息
+        for (int i = 0; i < list.Count; i++)
         {
-            string playerID = rankList[i].Entity.GetComp<ConnectionComponent>().m_playerID;
+            ConnectionComponent cc = list[i].GetComp<ConnectionComponent>();
+            m_disConnectDict.Remove(cc.m_playerID);
 
-            if (playerID != null && m_disConnectDict.ContainsKey(playerID))
-            {
-                m_disConnectDict.Remove(playerID);
-            }
+            RemoveRecord(cc.m_playerID);
+        }
+    }
+
+    public void RemoveRecord(string playerID)
+    {
+        if (m_disConnectDict.ContainsKey(playerID))
+        {
+            m_disConnectDict.Remove(playerID);
         }
     }
 }

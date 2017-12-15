@@ -14,21 +14,30 @@ public class RecordSingletonSystem<T> : RecordSystemBase where T : MomentSinglet
     {
         MomentSingletonComponent record = (MomentSingletonComponent)m_world.GetSingletonComp<T>().DeepCopy();
         record.Frame = frame;
-
         m_recordInfo.Add(record);
 
-        //if(typeof(T) == typeof(LogicRuntimeMachineComponent))
+        //if (typeof(T) == typeof(LogicRuntimeMachineComponent))
         //{
         //    LogicRuntimeMachineComponent lrmc = (LogicRuntimeMachineComponent)record;
 
-        //    //Debug.Log("Record  " + " content: " + Serializer.Serialize(record) +" frame " +m_world.FrameCount);
+        //    Debug.Log("Record  " + " content: " + Serializer.Serialize(record) + " frame " + frame);
         //}
     }
 
     public override void RevertToFrame(int frame)
     {
         T record = (T)GetSingletonRecord(frame);
-        m_world.ChangeSingletonComp<T>(record);
+
+        if(record != null)
+        {
+            m_world.ChangeSingletonComp<T>((T)record.DeepCopy());
+        }
+        else
+        {
+            Debug.LogError("RevertToFrame record == null frame ->" + frame);
+        }
+
+
     }
 
 
@@ -71,7 +80,9 @@ public class RecordSingletonSystem<T> : RecordSystemBase where T : MomentSinglet
             }
         }
 
-        throw new Exception("Not find MomentSingletonComponent　" + typeof(T).FullName + " by frame　" + frame);
+        return null;
+
+        //throw new Exception("Not find MomentSingletonComponent　" + typeof(T).FullName + " by frame　" + frame);
     }
 
 
@@ -85,4 +96,15 @@ public class RecordSingletonSystem<T> : RecordSystemBase where T : MomentSinglet
         Debug.LogWarning("PrintRecord:" + content);
     }
 
+    public override void ClearRecordAt(int frame)
+    {
+        for (int i = 0; i < m_recordInfo.Count; i++)
+        {
+            if (m_recordInfo[i].Frame == frame)
+            {
+                m_recordInfo.RemoveAt(i);
+                i--;
+            }
+        }
+    }
 }

@@ -134,6 +134,27 @@ namespace LockStepDemo.Protocol
                     return "required int32 " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
                 }
             }
+
+            else if (field.FieldType == typeof(long))
+            {
+                if (field.GetCustomAttributes(typeof(Int8Attribute), true).Length > 0)
+                {
+                    return "required int8 " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
+                }
+                else if (field.GetCustomAttributes(typeof(Int16Attribute), true).Length > 0)
+                {
+                    return "required int16 " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
+                }
+                else if (field.GetCustomAttributes(typeof(Int32Attribute), true).Length > 0)
+                {
+                    return "required int32 " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
+                }
+                else
+                {
+                    return "required int64 " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
+                }
+            }
+
             else if (field.FieldType == typeof(bool))
             {
                 return "required bool " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
@@ -193,6 +214,27 @@ namespace LockStepDemo.Protocol
                     return "int32";
                 }
             }
+
+            else if (type == typeof(long))
+            {
+                if (type.GetCustomAttributes(typeof(Int8Attribute), true).Length > 0)
+                {
+                    return "int8";
+                }
+                else if (type.GetCustomAttributes(typeof(Int16Attribute), true).Length > 0)
+                {
+                    return "int16";
+                }
+                else if (type.GetCustomAttributes(typeof(Int32Attribute), true).Length > 0)
+                {
+                    return "int32";
+                }
+                else
+                {
+                    return "int64";
+                }
+            }
+
             else if (type == typeof(bool))
             {
                 return "bool";
@@ -688,7 +730,7 @@ namespace LockStepDemo.Protocol
             csharpContent += "#pragma warning disable\n";
             //csharpContent += "using LockStepDemo.Event;\n";
             csharpContent += "using LockStepDemo;\n";
-            csharpContent += "using LockStepDemo.Service;\n";
+            //csharpContent += "using LockStepDemo.Service;\n";
             csharpContent += "using Protocol;\n";
             csharpContent += "using System;\n";
             csharpContent += "using System.Collections.Generic;\n";
@@ -1167,6 +1209,12 @@ namespace LockStepDemo.Protocol
                 {
                     content += GetTab(tab) + aimName + "." + field.Name + " = " + "(int)" + sourceName + "[\"" + GenerateProtocolFieldName(field) + "\"];\n";
                 }
+                //目前不支持Long类型
+                else if (field.FieldType == typeof(long))
+                {
+                    content += GetTab(tab) + aimName + "." + field.Name + " = " + "(int)" + sourceName + "[\"" + GenerateProtocolFieldName(field) + "\"];\n";
+                }
+
                 else if (field.FieldType == typeof(bool))
                 {
                     content += GetTab(tab) + aimName + "." + field.Name + " = " + "(bool)" + sourceName + "[\"" + GenerateProtocolFieldName(field) + "\"];\n";
@@ -1260,6 +1308,12 @@ namespace LockStepDemo.Protocol
             {
                 return true;
             }
+
+            else if (type == typeof(long))
+            {
+                return true;
+            }
+
             else if (type == typeof(bool))
             {
                 return true;

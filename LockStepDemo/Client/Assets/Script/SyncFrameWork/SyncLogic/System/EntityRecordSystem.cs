@@ -161,4 +161,9 @@ public class EntityRecordSystem :RecordSystemBase
     {
         throw new NotImplementedException();
     }
+
+    public override void ClearRecordAt(int frame)
+    {
+        throw new NotImplementedException();
+    }
 }

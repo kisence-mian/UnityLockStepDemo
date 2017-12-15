@@ -1,5 +1,4 @@
-﻿using LockStepDemo.Service;
-using Protocol;
+﻿using Protocol;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;

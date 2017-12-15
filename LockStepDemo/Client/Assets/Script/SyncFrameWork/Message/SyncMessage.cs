@@ -42,7 +42,7 @@ namespace Protocol
         public int frame;
         public List<EntityInfo> infos;
 
-        public List<int> destroyList;
+        //public List<int> destroyList;
     }
 
     //TODO 废弃

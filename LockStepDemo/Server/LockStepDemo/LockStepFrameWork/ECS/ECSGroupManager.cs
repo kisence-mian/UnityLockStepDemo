@@ -11,6 +11,22 @@ public class ECSGroupManager
     private Dictionary<ECSGroup, List<EntityBase>> groupToEntityDic = new Dictionary<ECSGroup, List<EntityBase>>();
     private Dictionary<EntityBase, List<ECSGroup>> entityToGroupDic = new Dictionary<EntityBase, List<ECSGroup>>();
 
+    public Dictionary<int, ECSGroup> AllGroupDic
+    {
+        get
+        {
+            return allGroupDic;
+        }
+    }
+
+    public Dictionary<ECSGroup, List<EntityBase>> GroupToEntityDic
+    {
+        get
+        {
+            return groupToEntityDic;
+        }
+    }
+
     public ECSGroupManager(WorldBase world)
     {
 

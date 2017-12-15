@@ -6,10 +6,17 @@ public abstract class ComponentBase
 {
     private EntityBase entity;
 
+    public static int hashCode;
+
     public EntityBase Entity
     {
         get
         {
+            if(entity == null)
+            {
+
+            }
+
             return entity;
         }
 
@@ -19,8 +26,11 @@ public abstract class ComponentBase
         }
     }
 
+    public static int MomentComp = 0;
+
     public virtual void Init()
     {
+
 
     }
 
@@ -28,4 +38,6 @@ public abstract class ComponentBase
     {
         return 0;
     }
+
+   
 }

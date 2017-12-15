@@ -27,7 +27,7 @@ namespace LockStepFrameWork
 
             SelfComponent sc   = new SelfComponent();
 
-            EntityBase c1 =  world.CreateEntityImmediately(1, sc);
+            EntityBase c1 =  world.CreateEntityImmediately("1", sc);
 
             LockStepInputSystem.commandCache.moveDir.x = 1000;
 
@@ -80,7 +80,7 @@ namespace LockStepFrameWork
 
             SelfComponent sc = new SelfComponent();
 
-            /*EntityBase c1 =*/ world.CreateEntityImmediately(1, sc);
+            /*EntityBase c1 =*/ world.CreateEntityImmediately("1", sc);
 
             world.CallRecalc();
             world.FixedLoop(WorldManager.IntervalTime);
@@ -139,7 +139,7 @@ namespace LockStepFrameWork
             PlayerComponent pc = new PlayerComponent();
             SelfComponent sc = new SelfComponent();
 
-            /*EntityBase c1 =*/ world.CreateEntityImmediately(1, pc, sc);
+            /*EntityBase c1 =*/ world.CreateEntityImmediately("1", pc, sc);
 
             int createFrame = -1;
             int destroyFrame = -1;
@@ -201,7 +201,7 @@ namespace LockStepFrameWork
             PlayerComponent pc = new PlayerComponent();
             SelfComponent sc = new SelfComponent();
 
-            /*EntityBase c1 =*/ world.CreateEntityImmediately(1, pc, sc);
+            /*EntityBase c1 =*/ world.CreateEntityImmediately("1", pc, sc);
 
             int createFrame = -1;
             int destroyFrame = -1;
@@ -264,7 +264,7 @@ namespace LockStepFrameWork
             PlayerComponent pc = new PlayerComponent();
             SelfComponent sc = new SelfComponent();
 
-            /*EntityBase c1 =*/ world.CreateEntityImmediately(1, pc, sc);
+            /*EntityBase c1 =*/ world.CreateEntityImmediately("1", pc, sc);
 
             int createFrame = -1;
             int destroyFrame = -1;
@@ -354,7 +354,7 @@ namespace LockStepFrameWork
             PlayerComponent pc = new PlayerComponent();
             SelfComponent sc = new SelfComponent();
 
-            /*EntityBase c1 = */ world.CreateEntityImmediately(1, pc, sc);
+            /*EntityBase c1 = */ world.CreateEntityImmediately("1", pc, sc);
 
             int createFrame = -1;
             int destroyFrame = -1;
@@ -446,7 +446,7 @@ namespace LockStepFrameWork
 
             SelfComponent sc = new SelfComponent();
 
-            EntityBase c1 = world.CreateEntityImmediately(1, sc);
+            EntityBase c1 = world.CreateEntityImmediately("1", sc);
 
             LockStepInputSystem.commandCache.moveDir.x = 0;
 

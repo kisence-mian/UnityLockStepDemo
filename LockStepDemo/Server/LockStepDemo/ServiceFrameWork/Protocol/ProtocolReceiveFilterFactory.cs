@@ -12,16 +12,22 @@ namespace Protocol
     }
 
     /// <summary>
+    /// 在Protocol以Int8传输的字段
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field)]
+    public class Int8Attribute : System.Attribute { }
+
+    /// <summary>
     /// 在Protocol以Int16传输的字段
     /// </summary>
     [AttributeUsage(AttributeTargets.Field)]
     public class Int16Attribute : System.Attribute { }
 
     /// <summary>
-    /// 在Protocol以Int8传输的字段
+    /// 在Protocol以Int32传输的字段
     /// </summary>
     [AttributeUsage(AttributeTargets.Field)]
-    public class Int8Attribute : System.Attribute { }
+    public class Int32Attribute : System.Attribute { }
 
     /// <summary>
     /// 模块名与模块消息编码

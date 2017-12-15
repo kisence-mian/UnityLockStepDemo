@@ -98,6 +98,8 @@ public class ECSEvent
         }
         else
         {
+            //Debug.Log("Add event list " + m_world.FrameCount + " key " + key);
+
             EventCache e = new EventCache();
             e.frame = m_world.FrameCount;
             e.eventKey = key;
@@ -127,6 +129,11 @@ public class ECSEvent
         }
     }
 
+    public void ClearCache()
+    {
+        m_eventCache.Clear();
+    }
+
     //推倒重新计算
     public void ClearCacheBefore(int frame)
     {
@@ -147,6 +154,19 @@ public class ECSEvent
         {
             EventCache e = m_eventCache[i];
             if (e.frame > frame)
+            {
+                m_eventCache.RemoveAt(i);
+                i--;
+            }
+        }
+    }
+
+    public void ClearCacheAt(int frame)
+    {
+        for (int i = 0; i < m_eventCache.Count; i++)
+        {
+            EventCache e = m_eventCache[i];
+            if (e.frame == frame)
             {
                 m_eventCache.RemoveAt(i);
                 i--;

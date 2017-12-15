@@ -1,5 +1,4 @@
-﻿using LockStepDemo.Service;
-using Protocol;
+﻿using Protocol;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,13 +67,25 @@ namespace LockStepDemo
 
             try
             {
-
-
                 int time = ServiceTime.GetServiceTime();
                 bool result = session.TrySend(buffer, 0, buffer.Length);
                 if (!result)
                 {
-                    session.Close();
+                    for (int i = 0; i < 3; i++)
+                    {
+                        result = session.TrySend(buffer, 0, buffer.Length);
+                        if(result)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            if(i == 2)
+                            {
+                                session.Close();
+                            }
+                        }
+                    }
                 }
 
                 if (ServiceTime.GetServiceTime()- time > 10)
@@ -87,7 +98,6 @@ namespace LockStepDemo
                 Debug.LogError("Send Messge Exception " + e.ToString());
             }
         }
-
 
     #region 发包
 
@@ -373,5 +383,6 @@ namespace LockStepDemo
         }
 
         #endregion
+
     }
 }

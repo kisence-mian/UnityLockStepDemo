@@ -13,9 +13,13 @@ public class InitSystemBase : SystemBase
 
     public override void OnEntityCreate(EntityBase entity)
     {
+        //Debug.Log("OnEntityCreate A");
+
         //服务器这里要改成判断connection组件进来
         if (entity.GetExistComp<ConnectionComponent>() && entity.GetExistComp<PlayerComponent>())
         {
+            Debug.Log("OnEntityCreate B");
+
             ConnectionComponent cc = entity.GetComp<ConnectionComponent>();
             PlayerComponent pc = entity.GetComp<PlayerComponent>();
 

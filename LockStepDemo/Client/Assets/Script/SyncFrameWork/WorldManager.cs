@@ -74,6 +74,7 @@ public class WorldManager
     public static WorldBase CreateWorld<T>() where T : WorldBase, new()
     {
         T world = new T();
+        world.name = typeof(T).Name;
         world.Init(true);
 
         s_worldList.Add(world);
@@ -90,7 +91,7 @@ public class WorldManager
         s_worldList.Remove(world);
     }
 
-    static bool isUpdate = false;
+    //static bool isUpdate = false;
     static bool isRecalc = false;
     static void Update()
     {
@@ -99,7 +100,7 @@ public class WorldManager
         UpdateWorld((int)(Time.deltaTime * 1000));
 
         if(s_UpdateTimer > IntervalTime )
-        {
+        { 
             if(!isRecalc)
             {
                 isRecalc = true;
@@ -108,7 +109,6 @@ public class WorldManager
             else
             {
                 FixedUpdateWorld(IntervalTime);
-
                 s_UpdateTimer -= IntervalTime;
             }
         }

@@ -9,6 +9,8 @@ public abstract class WorldBase
 
     #region 基础属性
 
+    public string name;
+
     SyncRule m_syncRule;
     public SyncRule SyncRule
     {
@@ -307,7 +309,7 @@ public abstract class WorldBase
     {
         if (IsStart)
         {
-            //只有客户端才记录过去值,预测值不必要记录
+            //只有客户端才记录过去值
             if (IsClient)
             {
                 Record(FrameCount);
@@ -526,6 +528,14 @@ public abstract class WorldBase
         }
     }
 
+    public void ClearRecordAt(int frame)
+    {
+        for (int i = 0; i < m_recordList.Count; i++)
+        {
+            m_recordList[i].ClearRecordAt(frame);
+        }
+    }
+
     public void ClearAll()
     {
         for (int i = 0; i < m_recordList.Count; i++)
@@ -722,7 +732,7 @@ public abstract class WorldBase
     /// <returns></returns>
     EntityBase RollbackDestroyEntity(int ID, int frame, params ComponentBase[] compList)
     {
-        EntityBase entity = NewEntity(ID, compList);
+        EntityBase entity = NewEntity("RollbackDestroyEntity", ID, compList);
 
         entity.m_CreateFrame = frame;
 
@@ -765,7 +775,11 @@ public abstract class WorldBase
     {
         identifier = FrameCount + identifier;
         int EntityID = identifier.ToHash();
-        return  CreateEntity(EntityID, comps);
+        EntityBase entity = CreateEntity(identifier, EntityID, comps);
+
+        //Debug.Log("CreateEntity " + identifier + " id " + EntityID);
+
+        return entity;
     }
 
     /// <summary>
@@ -773,16 +787,14 @@ public abstract class WorldBase
     /// </summary>
     /// <param name="ID"></param>
     /// <returns></returns>
-    public EntityBase CreateEntity(int ID, params ComponentBase[] compList)
+    public EntityBase CreateEntity(string name,int ID, params ComponentBase[] compList)
     {
         if (m_entityDict.ContainsKey(ID))
         {
             throw new Exception("CreateEntity Entity ID has exist ! ->" + ID + "<-");
         }
 
-        EntityBase entity = NewEntity(ID, compList);
-
-        //createCache.Add(entity);
+        EntityBase entity = NewEntity(name,ID, compList);
         AddEntity(entity);
 
         return entity;
@@ -791,32 +803,42 @@ public abstract class WorldBase
     /// <summary>
     /// 立即创建一个实体，不要在游戏逻辑中使用
     /// </summary>
-    public void CreateEntityImmediately(string identifier, params ComponentBase[] compList)
+    public EntityBase CreateEntityImmediately(string identifier, params ComponentBase[] compList)
     {
         identifier = FrameCount + identifier;
-        CreateEntityImmediately(identifier.ToHash(), compList);
-    }
+        int ID = identifier.ToHash();
 
-    /// <summary>
-    /// 立即创建一个实体，不要在游戏逻辑中使用
-    /// </summary>
-    /// <param name="ID"></param>
-    /// <param name="compList"></param>
-    /// <returns></returns>
-    public EntityBase CreateEntityImmediately(int ID, params ComponentBase[] compList)
-    {
         if (m_entityDict.ContainsKey(ID))
         {
             throw new Exception("CreateEntity Exception: Entity ID has exist ! ->" + ID + "<-");
         }
 
-        EntityBase entity = NewEntity(ID, compList);
+        EntityBase entity = NewEntity(identifier, ID, compList);
         CreateEntityAndDispatch(entity);
 
         return entity;
     }
 
-    EntityBase NewEntity(int ID, params ComponentBase[] compList)
+    ///// <summary>
+    ///// 立即创建一个实体，不要在游戏逻辑中使用
+    ///// </summary>
+    ///// <param name="ID"></param>
+    ///// <param name="compList"></param>
+    ///// <returns></returns>
+    //public EntityBase CreateEntityImmediately(int ID, params ComponentBase[] compList)
+    //{
+    //    if (m_entityDict.ContainsKey(ID))
+    //    {
+    //        throw new Exception("CreateEntity Exception: Entity ID has exist ! ->" + ID + "<-");
+    //    }
+
+    //    EntityBase entity = NewEntity(ID, compList);
+    //    CreateEntityAndDispatch(entity);
+
+    //    return entity;
+    //}
+
+    EntityBase NewEntity(string name,int ID, params ComponentBase[] compList)
     {
         EntityBase entity = null;
 
@@ -829,6 +851,7 @@ public abstract class WorldBase
         {
             entity = new EntityBase();
             entity.ID = ID;
+            entity.name = name;
 
             entity.World = this;
             entity.m_CreateFrame = FrameCount;
@@ -837,7 +860,14 @@ public abstract class WorldBase
             {
                 for (int i = 0; i < compList.Length; i++)
                 {
-                    entity.AddComp(compList[i].GetType().Name, compList[i]);
+                    if(compList[i] != null)
+                    {
+                        entity.AddComp(compList[i].GetType().Name, compList[i]);
+                    }
+                    else
+                    {
+                        Debug.LogError("NewEntity component is null ! name " + name + " id " + ID);
+                    }
                 }
             }
         }
@@ -867,38 +897,7 @@ public abstract class WorldBase
         DispatchOptimizeCreate(entity);
     }
 
-    void DispatchOptimizeCreate(EntityBase entity)
-    {
-        //Debug.Log("派发创建 " + entity.ID);
 
-        try
-        {
-            if (OnEntityOptimizeCreated != null)
-            {
-                OnEntityOptimizeCreated(entity);
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("DispatchCreate " + e.ToString());
-        }
-    }
-
-    void DispatchCreate(EntityBase entity)
-    {
-        //Debug.Log("派发创建 " + entity.ID);
-        try
-        {
-            if (OnEntityCreated != null)
-            {
-                OnEntityCreated(entity);
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("DispatchCreate " + e.ToString());
-        }
-    }
 
     void CreateEntityNoDispatch(EntityBase entity)
     {
@@ -912,12 +911,12 @@ public abstract class WorldBase
         m_entityList.Add(entity);
         m_entityDict.Add(entity.ID, entity);
 
-        group.OnEntityCreate(entity);
-        DispatchCreate(entity);
-
         entity.OnComponentAdded += DispatchEntityComponentAdded;
         entity.OnComponentRemoved += DispatchEntityComponentRemoved;
         entity.OnComponentReplaced += DispatchEntityComponentChange;
+
+        group.OnEntityCreate(entity);
+        DispatchCreate(entity);
     }
 
     #endregion
@@ -991,57 +990,6 @@ public abstract class WorldBase
         DispatchEntityWillBeDestroyed(entity);
         DestroyEntityNoDispatch(entity);
         DispatchOptimizeDestroy(entity);
-    }
-
-    void DispatchOptimizeDestroy(EntityBase entity)
-    {
-        //Debug.Log("派发摧毁 " + entity.ID);
-
-        try
-        {
-            if (OnEntityOptimizeDestroyed != null)
-            {
-                OnEntityOptimizeDestroyed(entity);
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("DispatchDestroy OnEntityDestroyed: " + e.ToString());
-        }
-    }
-
-    void DispatchDestroy(EntityBase entity)
-    {
-        //Debug.Log("派发摧毁 " + entity.ID);
-
-        try
-        {
-            if (OnEntityDestroyed != null)
-            {
-                OnEntityDestroyed(entity);
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("DispatchDestroy OnEntityDestroyed: " + e.ToString());
-        }
-    }
-
-    void DispatchWillBeDestroy(EntityBase entity)
-    {
-        //Debug.Log("派发摧毁 " + entity.ID);
-
-        try
-        {
-            if (OnEntityWillBeDestroyed != null)
-            {
-                OnEntityWillBeDestroyed(entity);
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("DispatchDestroy OnEntityDestroyed: " + e.ToString());
-        }
     }
 
     void DestroyEntityNoDispatch(EntityBase entity)
@@ -1358,22 +1306,38 @@ public abstract class WorldBase
 
     #region 事件派发
 
-    //void DispatchEntityCreate(EntityBase entity)
-    //{
-    //    if (OnEntityCreated != null)
-    //    {
-    //        OnEntityCreated(entity);
-    //    }
-    //}
+    void DispatchOptimizeCreate(EntityBase entity)
+    {
+        //Debug.Log("派发创建 " + entity.ID);
 
-    //void DispatchEntityDestroy(EntityBase entity)
-    //{
-    //    if (OnEntityDestroyed != null)
-    //    {
-    //        OnEntityDestroyed(entity);
-    //    }
-    //}
+        try
+        {
+            if (OnEntityOptimizeCreated != null)
+            {
+                OnEntityOptimizeCreated(entity);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("DispatchCreate " + e.ToString());
+        }
+    }
 
+    void DispatchCreate(EntityBase entity)
+    {
+        //Debug.Log("派发创建 " + entity.ID);
+        try
+        {
+            if (OnEntityCreated != null)
+            {
+                OnEntityCreated(entity);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("DispatchCreate " + e.ToString());
+        }
+    }
     void DispatchEntityWillBeDestroyed(EntityBase entity)
     {
         try
@@ -1386,6 +1350,57 @@ public abstract class WorldBase
         catch (Exception e)
         {
             Debug.LogError("DispatchDestroy OnEntityWillBeDestroyed: " + e.ToString());
+        }
+    }
+
+    void DispatchOptimizeDestroy(EntityBase entity)
+    {
+        //Debug.Log("派发摧毁 " + entity.ID);
+
+        try
+        {
+            if (OnEntityOptimizeDestroyed != null)
+            {
+                OnEntityOptimizeDestroyed(entity);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("DispatchDestroy OnEntityDestroyed: " + e.ToString());
+        }
+    }
+
+    void DispatchDestroy(EntityBase entity)
+    {
+        //Debug.Log("派发摧毁 " + entity.ID);
+
+        try
+        {
+            if (OnEntityDestroyed != null)
+            {
+                OnEntityDestroyed(entity);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("DispatchDestroy OnEntityDestroyed: " + e.ToString());
+        }
+    }
+
+    void DispatchWillBeDestroy(EntityBase entity)
+    {
+        //Debug.Log("派发摧毁 " + entity.ID);
+
+        try
+        {
+            if (OnEntityWillBeDestroyed != null)
+            {
+                OnEntityWillBeDestroyed(entity);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("DispatchDestroy OnEntityDestroyed: " + e.ToString());
         }
     }
 

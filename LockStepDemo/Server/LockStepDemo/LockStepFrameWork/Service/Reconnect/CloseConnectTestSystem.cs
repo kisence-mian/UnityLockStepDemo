@@ -21,7 +21,7 @@ public class CloseConnectTestSystem : SystemBase
             List<EntityBase> list = GetEntityList();
             Debug.Log("close connect");
 
-            for (int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list.Count;)
             {
                 ConnectionComponent cc = list[i].GetComp<ConnectionComponent>();
 

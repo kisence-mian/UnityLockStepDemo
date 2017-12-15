@@ -44,7 +44,7 @@ public class PlayerCommandRecordComponent : ComponentBase
 
     public void RecordCommand(PlayerCommandBase cmd)
     {
-        //Debug.Log("记录操作 id:" + cmd.id + " frame " + cmd.frame);
+        //Debug.Log("记录操作 id:" + cmd.id + " frame " + cmd.frame + " " + GetConflict(cmd.frame) + " ContainsKey " + m_inputCache.ContainsKey(cmd.frame));
 
         if(m_inputCache.ContainsKey(cmd.frame))
         {
