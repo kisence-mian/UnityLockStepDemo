@@ -143,7 +143,10 @@ public abstract class WorldBase
             }
 
             return m_isCertainty; }
-        set { m_isCertainty = value; }
+        set
+        {
+            m_isCertainty = value;
+        }
     }
 
     bool m_isRecalc = false;
@@ -554,6 +557,11 @@ public abstract class WorldBase
         return m_recordDict[name];
     }
 
+    public bool GetExistRecordSystem(string name)
+    {
+        return m_recordDict.ContainsKey(name);
+    }
+
     #region 实体回滚
 
     void RecordEntityCreate(EntityBase entity)
@@ -574,9 +582,9 @@ public abstract class WorldBase
         EntityRecordComponent erc = GetSingletonComp<EntityRecordComponent>();
 
         //如果此帧有这个ID的摧毁记录，把它抵消掉
-        if (erc.GetReordIsExist(entity.m_CreateFrame, entity.ID,/* systemName, timing,*/ EntityChangeType.Destroy))
+        if (erc.GetReordIsExist(entity.CreateFrame, entity.ID,/* systemName, timing,*/ EntityChangeType.Destroy))
         {
-            EntityRecordInfo record = erc.GetReord(entity.m_CreateFrame, entity.ID, /*systemName, timing,*/ EntityChangeType.Destroy);
+            EntityRecordInfo record = erc.GetReord(entity.CreateFrame, entity.ID, /*systemName, timing,*/ EntityChangeType.Destroy);
             //Debug.Log("抵消掉摧毁记录 " + entity.ID);
             erc.m_list.Remove(record);
         }
@@ -585,7 +593,7 @@ public abstract class WorldBase
             EntityRecordInfo info = new EntityRecordInfo();
             info.changeType = EntityChangeType.Create;
             info.id = entity.ID;
-            info.frame = entity.m_CreateFrame;
+            info.frame = entity.CreateFrame;
             //info.systemName = systemName;
             //info.timing = timing;
             info.SaveComp(entity);
@@ -611,10 +619,10 @@ public abstract class WorldBase
         EntityRecordComponent erc = GetSingletonComp<EntityRecordComponent>();
 
         //如果此帧有这个ID的创建记录，把它抵消掉
-        if (erc.GetReordIsExist(entity.m_DestroyFrame, entity.ID,  EntityChangeType.Create))
+        if (erc.GetReordIsExist(entity.DestroyFrame, entity.ID,  EntityChangeType.Create))
         {
             //Debug.Log("抵消掉创建记录 " + entity.ID);
-            EntityRecordInfo record = erc.GetReord(entity.m_DestroyFrame, entity.ID,EntityChangeType.Create);
+            EntityRecordInfo record = erc.GetReord(entity.DestroyFrame, entity.ID,EntityChangeType.Create);
             erc.m_list.Remove(record);
         }
         else
@@ -622,7 +630,7 @@ public abstract class WorldBase
             EntityRecordInfo info = new EntityRecordInfo();
             info.changeType = EntityChangeType.Destroy;
             info.id = entity.ID;
-            info.frame = entity.m_DestroyFrame;
+            info.frame = entity.DestroyFrame;
             //info.systemName = systemName;
             //info.timing = timing;
             info.SaveComp(entity);
@@ -717,7 +725,7 @@ public abstract class WorldBase
     {
         EntityBase entity = GetEntity(ID);
 
-        entity.m_DestroyFrame = frame;
+        entity.DestroyFrame = frame;
 
         DestroyEntityNoDispatch(entity);
 
@@ -734,7 +742,7 @@ public abstract class WorldBase
     {
         EntityBase entity = NewEntity("RollbackDestroyEntity", ID, compList);
 
-        entity.m_CreateFrame = frame;
+        entity.CreateFrame = frame;
 
         CreateEntityNoDispatch(entity);
 
@@ -854,7 +862,7 @@ public abstract class WorldBase
             entity.name = name;
 
             entity.World = this;
-            entity.m_CreateFrame = FrameCount;
+            entity.CreateFrame = FrameCount;
 
             if (compList != null)
             {
@@ -950,7 +958,7 @@ public abstract class WorldBase
         {
             EntityBase entity = m_entityDict[ID];
 
-            entity.m_DestroyFrame = FrameCount;
+            entity.DestroyFrame = FrameCount;
 
             if (!destroyCache.Contains(entity))
                 destroyCache.Add(entity);
@@ -1446,6 +1454,11 @@ public abstract class WorldBase
     public int GetRandom()
     {
         m_RandomSeed = Math.Abs((m_RandomSeed * m_randomA + m_randomB) % m_randomC);
+
+        if(SyncDebugSystem.isDebug)
+        {
+            SyncDebugSystem.RecordRandomChange(FrameCount, m_RandomSeed,"");
+        }
 
         return m_RandomSeed;
     }

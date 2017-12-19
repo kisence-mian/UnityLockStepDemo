@@ -28,12 +28,29 @@ public class ServiceSyncSystem : ServiceSystem
             };
     }
 
+    public override void EndFrame(int deltaTime)
+    {
+        List<EntityBase> list = m_world.GetEntiyList(new string[] { "ConnectionComponent" });
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            ConnectionComponent cc = list[i].GetComp<ConnectionComponent>();
+
+            if(cc.m_isWaitPushReconnect)
+            {
+                cc.m_isWaitPushReconnect = false;
+                SendReconnectMsg(cc);
+            }
+        }
+    }
+
     #region 事件接收
     void OnPlayerReconnect(EntityBase entity, params object[] objs)
     {
         ConnectionComponent comp = entity.GetComp<ConnectionComponent>();
+        comp.m_isWaitPushReconnect = true;
 
-        SendReconnectMsg(comp);
+
     }
 
     #endregion
@@ -49,7 +66,7 @@ public class ServiceSyncSystem : ServiceSystem
         Data.id = entity.ID;
         Data.infos = new List<ComponentInfo>();
 
-        foreach (var c in entity.m_compDict)
+        foreach (var c in entity.CompDict)
         {
             Type type = c.Value.GetType();
 
@@ -168,7 +185,7 @@ public class ServiceSyncSystem : ServiceSystem
         Data.id = entity.ID;
         Data.infos = new List<ComponentInfo>();
 
-        foreach (var c in entity.m_compDict)
+        foreach (var c in entity.CompDict)
         {
             Type type = c.Value.GetType();
 

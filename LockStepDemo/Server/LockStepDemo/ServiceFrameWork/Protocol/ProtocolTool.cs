@@ -10,7 +10,7 @@ namespace LockStepDemo.Protocol
 {
     public class ProtocolTool
     {
-        static string ProjectPath
+        public static string ProjectPath
         {
             get
             {

@@ -26,7 +26,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
 
     public void AddComp(EntityBase entity)
     {
-        if (!entity.GetExistComp<PlayerCommandRecordComponent>())
+        if (!entity.GetExistComp(ComponentType.PlayerCommandRecordComponent))
         {
             //Debug.Log("OnEntityCompAdd PlayerCommandRecordComponent");
 
@@ -64,7 +64,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         for (int i = 0; i < list.Count; i++)
         {
             AddComp(list[i]);
-            PlayerCommandRecordComponent rc = list[i].GetComp<PlayerCommandRecordComponent>();
+            PlayerCommandRecordComponent rc = list[i].GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent );
             T cmd = (T)rc.GetInputCahae(frame);
 
             //Debug.Log("recalc cmd " + list[i].ID + " content " + Serializer.Serialize(cmd) + " " + m_world.FrameCount);
@@ -87,7 +87,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
         int selfCount = 0;
         for (int i = 0; i < list.Count; i++)
         {
-            if(list[i].GetExistComp<SelfComponent>())
+            if(list[i].GetExistComp(ComponentType.SelfComponent))
             {
                 selfCount++;
                 if(selfCount > 1)

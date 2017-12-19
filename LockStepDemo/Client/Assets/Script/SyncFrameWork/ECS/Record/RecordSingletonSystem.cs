@@ -16,11 +16,13 @@ public class RecordSingletonSystem<T> : RecordSystemBase where T : MomentSinglet
         record.Frame = frame;
         m_recordInfo.Add(record);
 
-        //if (typeof(T) == typeof(LogicRuntimeMachineComponent))
+        //if (typeof(T) == typeof(MapGridStateComponent))
         //{
-        //    LogicRuntimeMachineComponent lrmc = (LogicRuntimeMachineComponent)record;
+        //    MapGridStateComponent lrmc = (MapGridStateComponent)record;
 
-        //    Debug.Log("Record  " + " content: " + Serializer.Serialize(record) + " frame " + frame);
+        //    SyncDebugSystem.RecordMsg("MapGridStateComponent", frame, Serializer.Serialize(record));
+
+        //    //Debug.Log("Record  " + " content: " +  + " frame " + frame);
         //}
     }
 

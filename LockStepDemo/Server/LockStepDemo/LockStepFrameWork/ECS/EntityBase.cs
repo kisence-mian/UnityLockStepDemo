@@ -5,11 +5,11 @@ public class EntityBase
 {
     private WorldBase world;
 
-    private int id = 0;
-
+    public int id = 0;
     public string name;
-    public int m_CreateFrame = 0;
-    public int m_DestroyFrame = 0;
+
+    private int createFrame = 0;
+    private int destroyFrame = 0;
 
     public int ID
     {
@@ -44,6 +44,32 @@ public class EntityBase
         }
     }
 
+    public int CreateFrame
+    {
+        get
+        {
+            return createFrame;
+        }
+
+        set
+        {
+            createFrame = value;
+        }
+    }
+
+    public int DestroyFrame
+    {
+        get
+        {
+            return destroyFrame;
+        }
+
+        set
+        {
+            destroyFrame = value;
+        }
+    }
+
     public event EntityComponentChangedCallBack OnComponentAdded;
     public event EntityComponentChangedCallBack OnComponentRemoved;
     public event EntityComponentReplaceCallBack OnComponentReplaced;
@@ -51,7 +77,7 @@ public class EntityBase
 
     #region 组件相关
 
-    public Dictionary<string, ComponentBase> m_compDict = new Dictionary<string, ComponentBase>();
+    private Dictionary<string, ComponentBase> m_compDict = new Dictionary<string, ComponentBase>();
 
     ComponentBase[] comps = new ComponentBase[20];
 

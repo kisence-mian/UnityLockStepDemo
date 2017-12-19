@@ -89,6 +89,7 @@ namespace Protocol
     public class DebugMsg : SyncModule
     {
         public int frame;
+        public int seed;
         public List<EntityInfo> infos;
         public List<ComponentInfo> singleCompInfo;
     }

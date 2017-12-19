@@ -130,7 +130,7 @@ public class ECSGroupManager
             bool isContains = true;
             for (int j = 0; j < filters.Length; j++)
             {
-                if (!entity.CompDict.ContainsKey(filters[j]))
+                if (!entity.GetExistComp(filters[j]))
                 {
                     isContains = false;
                 }
@@ -229,7 +229,7 @@ public class ECSGroupManager
             bool isContains = true;
             for (int j = 0; j < filterCom.Length; j++)
             {
-                if (!entity.CompDict.ContainsKey(filterCom[j]))
+                if (!entity.GetExistComp(filterCom[j]))
                 {
                     isContains = false;
                     break;

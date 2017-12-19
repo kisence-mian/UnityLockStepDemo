@@ -111,9 +111,11 @@ public class EntityViewWindow : EditorWindow
                GUILayout.EndVertical();
              
 
-               List<ComponentBase> components = new List<ComponentBase>(entuty.CompDict.Values);
+               List<ComponentBase> components = new List<ComponentBase>(entuty.comps);
                foreach (var item in components)
                {
+                   if (item == null)
+                       continue;
                    DrawComponent(item);
                }
            });

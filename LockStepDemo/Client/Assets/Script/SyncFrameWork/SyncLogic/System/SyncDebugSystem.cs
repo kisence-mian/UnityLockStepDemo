@@ -9,19 +9,22 @@ using UnityEngine;
 public class SyncDebugSystem : SystemBase
 {
     public static bool isDebug = true;
+    public static bool isPlayerOnly = true;
 
     public const string c_isAllMessage = "AllMessage";
     public const string c_isConflict   = "Conflict";
     public const string c_MissData     = "MissData";
     public const string c_Recalc       = "Recalc";
 
-    public static string[] DebugFilter = new string[] { "MoveComponent", "GrowUpComponent" /*"LifeComponent", "LifeSpanComponent"*/ };
+    public static string[] DebugFilter = new string[] { "MoveComponent", "GrowUpComponent" , "CollisionComponent","LifeComponent"/* "LifeSpanComponent" */};
 
-    public static string[] SingleCompFilter = new string[] { /*"LogicRuntimeMachineComponent"*/ };
+    public static string[] SingleCompFilter = new string[] { "LogicRuntimeMachineComponent", /*"MapGridStateComponent"*/ };
 
     public static string syncLog = "";
 
     List<DebugMsg> debugList = new List<DebugMsg>();
+
+    static Dictionary<string, string> debugContent = new Dictionary<string, string>();
 
     public override void Init()
     {
@@ -61,18 +64,16 @@ public class SyncDebugSystem : SystemBase
         if (!isDebug)
             return;
 
-        ConnectStatusComponent csc = m_world.GetSingletonComp<ConnectStatusComponent>();
+        //ConnectStatusComponent csc = m_world.GetSingletonComp<ConnectStatusComponent>();
 
-        if (msg.frame > csc.confirmFrame)
-        {
-            debugList.Add(msg);
-            return;
-        }
-        DebugLogic(msg);
+        debugList.Add(msg);
+        return;
+
     }
 
-    public override void FixedUpdate(int deltaTime)
+    public override void EndFrame(int deltaTime)
     {
+
         ConnectStatusComponent csc = m_world.GetSingletonComp<ConnectStatusComponent>();
 
         for (int i = 0; i < debugList.Count; i++)
@@ -85,6 +86,8 @@ public class SyncDebugSystem : SystemBase
             }
         }
 
+        Record(null);
+
         //for (int i = 0; i < m_world.m_entityList.Count; i++)
         //{
         //    int hash = 0;
@@ -94,6 +97,14 @@ public class SyncDebugSystem : SystemBase
         //sendHash(hash);
 
         //SendHash();
+    }
+
+    public override void Update(int deltaTime)
+    {
+        if(Input.GetKeyDown(KeyCode.F12))
+        {
+            OutPutDebugRecord();
+        }
     }
 
     private void SendHash()
@@ -127,6 +138,190 @@ public class SyncDebugSystem : SystemBase
             Debug.LogWarning(log);
             syncLog += log;
         }
+
+        RecordDebugMsg(msg);
+    }
+
+    public void Record(string msg = "")
+    {
+
+        if (!m_world.IsCertainty)
+        {
+            return;
+        }
+
+        //Debug.Log("Record");
+
+        for (int i = 0; i < m_world.m_entityList.Count; i++)
+        {
+            EntityBase entity = m_world.m_entityList[i];
+
+            if (isPlayerOnly
+                && !(entity.GetExistComp<SelfComponent>() || entity.GetExistComp<TheirComponent>()))
+            {
+                continue;
+            }
+
+            foreach (var item in entity.comps)
+            {
+                if (item == null)
+                    continue;
+                string compName = item.GetType().Name;
+                if (IsFilter(compName))
+                {
+                    string key = "local_" + compName;
+                    string content = "";
+
+                    if (debugContent.ContainsKey(key))
+                    {
+                        content = debugContent[key];
+                    }
+                    else
+                    {
+                        debugContent.Add(key, content);
+                    }
+
+                    //content += "\nframe " + m_world.FrameCount + " id " + entity.ID + " -> " + Serializer.Serialize(item);
+                    debugContent[key] = content;
+                }
+            }
+        }
+
+        foreach (var item in m_world.m_singleCompDict)
+        {
+            string compName = item.Value.GetType().Name;
+            if (IsFilter(compName))
+            {
+                string key = "local_singleComp_" + compName;
+                string content = "";
+
+                if (debugContent.ContainsKey(key))
+                {
+                    content = debugContent[key];
+                }
+                else
+                {
+                    debugContent.Add(key, content);
+                }
+
+                content += "\nframe " + m_world.FrameCount + " -> " + Serializer.Serialize(item.Value);
+                debugContent[key] = content;
+            }
+        }
+
+        RecordMsg("errorMsg", m_world.FrameCount, msg);
+        RecordRandomSeed("local_randomSeed", m_world.FrameCount, m_world.m_RandomSeed);
+
+    }
+
+    void RecordRandomSeed(string key, int frame, int seed)
+    {
+        string content = "";
+
+        if (debugContent.ContainsKey(key))
+        {
+            content = debugContent[key];
+        }
+        else
+        {
+            debugContent.Add(key, content);
+        }
+
+        content += "\nframe " + frame + " -> " + seed;
+        debugContent[key] = content;
+    }
+
+    public static void RecordMsg(string key, int frame, string msg)
+    {
+        if (msg == null)
+            return;
+
+        string content = "";
+
+        if (debugContent.ContainsKey(key))
+        {
+            content = debugContent[key];
+        }
+        else
+        {
+            debugContent.Add(key, content);
+        }
+
+        content += "\nframe " + frame + " -> " + msg;
+        debugContent[key] = content;
+    }
+
+    public static void RecordRandomChange( int frame, int seed,string log)
+    {
+        string key = "local_randomChange";
+        string content = "";
+
+        if (debugContent.ContainsKey(key))
+        {
+            content = debugContent[key];
+        }
+        else
+        {
+            debugContent.Add(key, content);
+        }
+
+        content += "\nframe " + frame + " -> " + seed + " log " + log + "\n" + new System.Diagnostics.StackTrace().ToString();
+        debugContent[key] = content;
+    }
+
+    public void RecordDebugMsg(DebugMsg msg)
+    {
+        for (int i = 0; i < msg.infos.Count; i++)
+        {
+            for (int j = 0; j < msg.infos[i].infos.Count; j++)
+            {
+                string key = "remote_" + msg.infos[i].infos[j].m_compName;
+                string content = "";
+
+                if (debugContent.ContainsKey(key))
+                {
+                    content = debugContent[key];
+                }
+                else
+                {
+                    debugContent.Add(key,content);
+                }
+
+                content += "\nframe " + msg.frame + " id " + msg.infos[i].id + " -> " + msg.infos[i].infos[j].content;
+                debugContent[key] = content;
+            }
+        }
+
+        for (int i = 0; i < msg.singleCompInfo.Count; i++)
+        {
+            string key = "remote_singleComp_" + msg.singleCompInfo[i].m_compName;
+            string content = "";
+
+            if (debugContent.ContainsKey(key))
+            {
+                content = debugContent[key];
+            }
+            else
+            {
+                debugContent.Add(key, content);
+            }
+
+
+            content += "\nframe " + msg.frame + " -> " + msg.singleCompInfo[i].content;
+            debugContent[key] = content;
+        }
+
+        RecordRandomSeed("remote_randomSeed", msg.frame, msg.seed);
+    }
+
+    public void OutPutDebugRecord()
+    {
+        foreach (var item in debugContent)
+        {
+            //Debug.Log(item.Key + "\n" + item.Value);
+
+            ResourceIOTool.WriteStringByFile(Application.dataPath + "/.OutPut/" + item.Key + ".txt", item.Value);
+        }
     }
 
     void CheckCurrentFrame(DebugMsg msg)
@@ -152,9 +347,9 @@ public class SyncDebugSystem : SystemBase
             }
             else
             {
-                string log = "error not find entity frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + msg.infos[i].id + "\n";
-                Debug.LogWarning(log);
-                syncLog += log;
+                //string log = "error not find entity frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + msg.infos[i].id + "\n";
+                //Debug.LogWarning(log);
+                //syncLog += log;
             }
         }
 
@@ -205,6 +400,9 @@ public class SyncDebugSystem : SystemBase
     {
         //Debug.Log("CheckCurrentComponentLogic");
 
+        if (!m_world.GetExistRecordSystem(compInfo.m_compName))
+            return;
+
         ComponentBase compLocal = entity.GetComp(compInfo.m_compName);
 
         if (IsFilter(compInfo.m_compName))
@@ -218,10 +416,13 @@ public class SyncDebugSystem : SystemBase
                 string log = "error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entity.ID + " msg.id " + entityInfo.id + " comp:" + compInfo.m_compName + "\n remote:" + compInfo.content + "\n local:" + content + "\n";
                 Debug.LogWarning(log);
                 rsb.PrintRecord(entity.ID);
-                syncLog += log;
 
                 //派发冲突
                 GlobalEvent.DispatchEvent(c_isConflict, msg.frame);
+
+                Time.timeScale = 0;
+                Record(log);
+                OutPutDebugRecord();
             }
             else
             {
@@ -242,10 +443,14 @@ public class SyncDebugSystem : SystemBase
             string log = "error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount + " singleComp:" + info.m_compName + "\n remote:" + info.content + "\n local:" + content + "\n";
             Debug.LogWarning(log);
             rsb.PrintRecord(0);
+
+            Time.timeScale = 0;
+            Record(log);
+            OutPutDebugRecord();
         }
         else
         {
-            Debug.Log("singleComp correct ! frame " + msg.frame + " m_world:" + m_world.FrameCount + "\ncontent " + info.content);
+            //Debug.Log("singleComp correct ! frame " + msg.frame + " m_world:" + m_world.FrameCount + "\ncontent " + info.content);
         }
     }
 
@@ -276,6 +481,10 @@ public class SyncDebugSystem : SystemBase
             }
 
             Debug.Log(record);
+
+            Time.timeScale = 0;
+            Record(log);
+            OutPutDebugRecord();
         }
         else
         {
@@ -286,6 +495,9 @@ public class SyncDebugSystem : SystemBase
     void CheckComponentLogic(DebugMsg msg, EntityInfo entityInfo, ComponentInfo compInfo)
     {
         //Debug.Log("CheckComponentLogic");
+
+        if (!m_world.GetExistRecordSystem(compInfo.m_compName))
+            return;
 
         RecordSystemBase rsb = m_world.GetRecordSystemBase(compInfo.m_compName);
         ComponentBase compLocal = rsb.GetRecord(entityInfo.id, msg.frame);
@@ -298,11 +510,15 @@ public class SyncDebugSystem : SystemBase
 
                 if (!content.Equals(compInfo.content))
                 {
-                    string log = "error: frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entityInfo.id + " comp:" + compInfo.m_compName + "\n remote:" + compInfo.content + "\n local:" + content + "\n";
+                    string log = "error: frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + entityInfo.id + " comp:" + compInfo.m_compName 
+                        + "\n remote:" + compInfo.content 
+                        + "\n local:" + content + "\n";
                     Debug.LogWarning(log);
                     rsb.PrintRecord(entityInfo.id);
 
-                    syncLog += log;
+                    Time.timeScale = 0;
+                    Record(log);
+                    OutPutDebugRecord();
                 }
                 else
                 {
@@ -333,7 +549,7 @@ public class SyncDebugSystem : SystemBase
 
         if (sc == null)
         {
-            Debug.LogWarning("");
+            //Debug.LogWarning("");
             return;
         }
 
@@ -344,10 +560,14 @@ public class SyncDebugSystem : SystemBase
             string log = "error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount + " HashCode " + sc.GetHashCode() + " singleComp:" + info.m_compName + "\n remote:" + info.content + "\n local:" + content + "\n";
             Debug.LogWarning(log);
             rsb.PrintRecord(0);
+
+            Time.timeScale = 0;
+            Record(log);
+            OutPutDebugRecord();
         }
         else
         {
-            Debug.Log("singleComp correct ! frame " + msg.frame + " m_world:" + m_world.FrameCount + "\ncontent " + info.content);
+            //Debug.Log("singleComp correct ! frame " + msg.frame + " m_world:" + m_world.FrameCount + "\ncontent " + info.content);
         }
     }
 
@@ -361,6 +581,14 @@ public class SyncDebugSystem : SystemBase
         for (int i = 0; i < DebugFilter.Length; i++)
         {
             if (DebugFilter[i] == compName)
+            {
+                return true;
+            }
+        }
+
+        for (int i = 0; i < SingleCompFilter.Length; i++)
+        {
+            if (SingleCompFilter[i] == compName)
             {
                 return true;
             }

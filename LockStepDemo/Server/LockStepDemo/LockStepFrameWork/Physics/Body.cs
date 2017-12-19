@@ -603,7 +603,7 @@ public class Body
     //弹走圆形
     Vector2d Offset_Rectangle_Circle(Body circle)
     {
-        Body rectangle = this;
+        //Body rectangle = this;
         Vector2d newCirclePos = circle.position;
 
         long rot = FixedMath.Create(0);
@@ -615,33 +615,33 @@ public class Body
         }
 
         
-        long cx, cy;
+        //long cx, cy;
 
-        if (newCirclePos.x < rectangle.position.x - rectangle.length.Mul(FixedMath.Half))
-        {
-            cx = rectangle.position.x - rectangle.length.Mul(FixedMath.Half);
-        }
-        else if (newCirclePos.x > rectangle.position.x + rectangle.length.Mul(FixedMath.Half))
-        {
-            cx = rectangle.position.x + rectangle.length.Mul(FixedMath.Half);
-        }
-        else
-        {
-            cx = newCirclePos.x;
-        }
+        //if (newCirclePos.x < rectangle.position.x - rectangle.length.Mul(FixedMath.Half))
+        //{
+        //    cx = rectangle.position.x - rectangle.length.Mul(FixedMath.Half);
+        //}
+        //else if (newCirclePos.x > rectangle.position.x + rectangle.length.Mul(FixedMath.Half))
+        //{
+        //    cx = rectangle.position.x + rectangle.length.Mul(FixedMath.Half);
+        //}
+        //else
+        //{
+        //    cx = newCirclePos.x;
+        //}
 
-        if (newCirclePos.y < rectangle.position.y - rectangle.width.Mul(FixedMath.Half))
-        {
-            cy = rectangle.position.y - rectangle.width.Mul(FixedMath.Half);
-        }
-        else if (newCirclePos.y > rectangle.position.y + rectangle.width.Mul(FixedMath.Half))
-        {
-            cy = rectangle.position.y + rectangle.width.Mul(FixedMath.Half);
-        }
-        else
-        {
-            cy = newCirclePos.y;
-        }
+        //if (newCirclePos.y < rectangle.position.y - rectangle.width.Mul(FixedMath.Half))
+        //{
+        //    cy = rectangle.position.y - rectangle.width.Mul(FixedMath.Half);
+        //}
+        //else if (newCirclePos.y > rectangle.position.y + rectangle.width.Mul(FixedMath.Half))
+        //{
+        //    cy = rectangle.position.y + rectangle.width.Mul(FixedMath.Half);
+        //}
+        //else
+        //{
+        //    cy = newCirclePos.y;
+        //}
 
         Vector2d oc =  newCirclePos - position;
 

@@ -35,9 +35,9 @@ public class EntityRecordSystem :RecordSystemBase
         EntityRecordComponent erc = m_world.GetSingletonComp<EntityRecordComponent>();
 
         //如果此帧有这个ID的摧毁记录，把它抵消掉
-        if (erc.GetReordIsExist(entity.m_CreateFrame, entity.ID, EntityChangeType.Destroy))
+        if (erc.GetReordIsExist(entity.CreateFrame, entity.ID, EntityChangeType.Destroy))
         {
-            EntityRecordInfo record = erc.GetReord(entity.m_CreateFrame, entity.ID, EntityChangeType.Destroy);
+            EntityRecordInfo record = erc.GetReord(entity.CreateFrame, entity.ID, EntityChangeType.Destroy);
             //Debug.Log("抵消掉摧毁记录 " + entity.ID);
             erc.m_list.Remove(record);
         }
@@ -46,7 +46,7 @@ public class EntityRecordSystem :RecordSystemBase
             EntityRecordInfo info = new EntityRecordInfo();
             info.changeType = EntityChangeType.Create;
             info.id = entity.ID;
-            info.frame = entity.m_CreateFrame;
+            info.frame = entity.CreateFrame;
             info.SaveComp(entity);
 
             erc.m_list.Add(info);
@@ -68,9 +68,9 @@ public class EntityRecordSystem :RecordSystemBase
         EntityRecordComponent erc = m_world.GetSingletonComp<EntityRecordComponent>();
 
         //如果此帧有这个ID的创建记录，把它抵消掉
-        if(erc.GetReordIsExist(entity.m_DestroyFrame, entity.ID, EntityChangeType.Create))
+        if(erc.GetReordIsExist(entity.DestroyFrame, entity.ID, EntityChangeType.Create))
         {
-            EntityRecordInfo record = erc.GetReord(entity.m_DestroyFrame, entity.ID, EntityChangeType.Create);
+            EntityRecordInfo record = erc.GetReord(entity.DestroyFrame, entity.ID, EntityChangeType.Create);
             ////Debug.Log("抵消掉创建记录 " + entity.ID);
             erc.m_list.Remove(record);
         }
@@ -79,7 +79,7 @@ public class EntityRecordSystem :RecordSystemBase
             EntityRecordInfo info = new EntityRecordInfo();
             info.changeType = EntityChangeType.Destroy;
             info.id = entity.ID;
-            info.frame = entity.m_DestroyFrame;
+            info.frame = entity.DestroyFrame;
             info.SaveComp(entity);
 
             erc.m_list.Add(info);

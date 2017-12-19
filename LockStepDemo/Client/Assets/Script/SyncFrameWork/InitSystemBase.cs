@@ -28,7 +28,7 @@ public class InitSystemBase : SystemBase
     public override void OnEntityCreate(EntityBase entity)
     {
         //服务器这里要改成判断connection组件进来
-        if (entity.GetExistComp<SelfComponent>() || entity.GetExistComp<TheirComponent>())
+        if (entity.GetExistComp(ComponentType.SelfComponent ) || entity.GetExistComp(ComponentType.TheirComponent ))
         {
             OnPlayerJoin(entity);
         }

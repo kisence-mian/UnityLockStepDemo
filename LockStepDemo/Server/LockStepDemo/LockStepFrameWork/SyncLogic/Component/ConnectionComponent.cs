@@ -11,6 +11,7 @@ public class ConnectionComponent : ServiceComponent
 
     //public bool m_isWaitPushStart = false;
     public SyncSession m_session;
+    public bool m_isWaitPushReconnect = false;
     //public int m_sendIndex = 0;
 
     //public Dictionary<int, CommandMsg> m_unConfirmFrame = new Dictionary<int, CommandMsg>(); //未确认的帧

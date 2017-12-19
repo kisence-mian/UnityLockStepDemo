@@ -8,8 +8,8 @@ public class EntityBase
     private int id = 0;
 
     public string name;
-    public int m_CreateFrame = 0;
-    public int m_DestroyFrame = 0;
+    private int createFrame = 0;
+    private int destroyFrame = 0;
 
     public int ID
     {
@@ -36,13 +36,44 @@ public class EntityBase
         }
     }
 
-    public Dictionary<string, ComponentBase> CompDict
+    public int CreateFrame
     {
         get
         {
-            return m_compDict;
+            return createFrame;
+        }
+
+        set
+        {
+            createFrame = value;
         }
     }
+
+    public int DestroyFrame
+    {
+        get
+        {
+            return destroyFrame;
+        }
+
+        set
+        {
+            destroyFrame = value;
+        }
+    }
+
+    public EntityBase(WorldBase world)
+    {
+        World = world;
+        comps = new ComponentBase[world.componentType.Count()];
+    }
+    //public Dictionary<string, ComponentBase> CompDict
+    //{
+    //    get
+    //    {
+    //        return m_compDict;
+    //    }
+    //}
 
     public event EntityComponentChangedCallBack OnComponentAdded;
     public event EntityComponentChangedCallBack OnComponentRemoved;
@@ -51,85 +82,56 @@ public class EntityBase
 
     #region 组件相关
 
-    public Dictionary<string, ComponentBase> m_compDict = new Dictionary<string, ComponentBase>();
+    //public Dictionary<string, ComponentBase> m_compDict = new Dictionary<string, ComponentBase>();
 
-    ComponentBase[] comps = new ComponentBase[20];
+    public ComponentBase[] comps = null;
 
     public bool GetExistComp<T>()where T : ComponentBase, new()
     {
-        comps[ComponentBase.MomentComp] = null;
 
         return GetExistComp(typeof(T).Name);
     }
 
     public bool GetExistComp(string compName)
     {
-        return m_compDict.ContainsKey(compName);
+      int index= world.componentType.GetComponentIndex(compName);
+      return  comps[index] != null;
+      //  return m_compDict.ContainsKey(compName);
     }
 
-    //public bool GetExistComp(int compIndex)
-    //{
-    //    return m_compDict.ContainsKey(compName);
-    //}
+    public bool GetExistComp(int compIndex)
+    {
+        return comps[compIndex] != null;
+    }
 
     public T AddComp<T>() where T:ComponentBase,new()
     {
         T comp = new T();
         comp.Init();
-
-        comp.Entity = this;
-
-        string key = typeof(T).Name;
-
-        if(m_compDict.ContainsKey(key))
-        {
-            throw new System.Exception("AddComp exist comp ! ->" + key + "<-");
-        }
-        else
-        {
-            m_compDict.Add(key, comp);
-            if (OnComponentAdded != null)
-            {
-                OnComponentAdded(this, key, comp);
-            }
-        }
-
+        AddComp(comp);
         return comp;
     }
 
     public EntityBase AddComp<T>(T comp) where T : ComponentBase, new()
     {
         string key = typeof(T).Name;
-
-        comp.Entity = this;
-
-        if (m_compDict.ContainsKey(key))
-        {
-            throw new System.Exception("AddComp exist comp !" + key);
-        }
-        else
-        {
-            m_compDict.Add(key, comp);
-            if (OnComponentAdded != null)
-            {
-                OnComponentAdded(this, key, comp);
-            }
-        }
-
+        AddComp(key, comp);
         return this;
     }
 
     public EntityBase AddComp(string compName, ComponentBase comp)
     {
         comp.Entity = this;
+        int index = world.componentType.GetComponentIndex(compName);
 
-        if (m_compDict.ContainsKey(compName))
+        if (comps[index] != null)
         {
             throw new System.Exception("AddComp exist comp !" + compName);
         }
         else
         {
-            m_compDict.Add(compName, comp);
+            comps[index] = comp;
+            // m_compDict.Add(key, comp);
             if (OnComponentAdded != null)
             {
                 OnComponentAdded(this, compName, comp);
@@ -146,14 +148,15 @@ public class EntityBase
 
     public void RemoveComp(string compName)
     {
-        if (!m_compDict.ContainsKey(compName))
+        int index = world.componentType.GetComponentIndex(compName);
+        if (comps[index] == null)
         {
             throw new System.Exception("RemoveComp not exist comp !" + compName);
         }
         else
         {
-            ComponentBase comp = m_compDict[compName];
-            m_compDict.Remove(compName);
+            ComponentBase comp = comps[index];
+            comps[index] = null;
             if (OnComponentRemoved != null)
             {
                 OnComponentRemoved(this, compName, comp);
@@ -167,37 +170,43 @@ public class EntityBase
     {
         return (T)GetComp(typeof(T).Name);
     }
+    public T GetComp<T>(int index) where T : ComponentBase, new()
+    {
+        T co = comps[index] as T;
+        if (co == null)
+            throw new System.Exception("EntityID " + ID + " GetComp not exist comp !" + typeof(T).Name);
+        else
+            return co;
+    }
 
     public ComponentBase GetComp(string compName)
     {
-        try
-        {
-            return m_compDict[compName];
-        }
-        catch
-        {
-            throw new System.Exception("EntityID " + ID + " GetComp not exist comp !" + compName);
-        }
+            int index = world.componentType.GetComponentIndex(compName);
+            ComponentBase co = comps[index];
+            if (co == null)
+                throw new System.Exception("EntityID " + ID + " GetComp not exist comp !" + compName);
+            else
+                return co;
+  
     }
 
     public void ChangeComp(string compName,ComponentBase comp)
     {
-        if (m_compDict.ContainsKey(compName))
+        int index = world.componentType.GetComponentIndex(compName);
+        ComponentBase oldComp = comps[index];
+        if (oldComp == null)
+            throw new System.Exception("EntityID " + ID + " GetComp not exist comp !" + compName);
+        else
         {
-            ComponentBase oldComp = m_compDict[compName];
             oldComp.Entity = null;
 
-            m_compDict[compName] = comp;
+            comps[index] = comp;
             comp.Entity = this;
 
             if (OnComponentReplaced != null)
             {
                 OnComponentReplaced(this, compName, oldComp, comp);
             }
-        }
-        else
-        {
-            throw new System.Exception("ChangeComp not exist comp !" + compName);
         }
     }
 
@@ -220,9 +229,9 @@ public class EntityBase
     {
         int hash = id;
 
-        foreach (var item in m_compDict)
+        foreach (var item in comps)
         {
-            hash += item.Value.ToHash();
+            hash += item.ToHash();
         }
 
         return hash;

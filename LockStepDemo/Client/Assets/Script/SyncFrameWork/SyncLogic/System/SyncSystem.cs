@@ -305,7 +305,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     public void AddComp(EntityBase entity)
     {
-        if (!entity.GetExistComp<PlayerCommandRecordComponent>())
+        if (!entity.GetExistComp(ComponentType.PlayerCommandRecordComponent))
         {
             PlayerCommandRecordComponent rc = new PlayerCommandRecordComponent();
             rc.m_defaultInput = new T();

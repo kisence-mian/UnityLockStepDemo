@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 public  class ComponentsNameToConstEditorTool 
 {
-    public const string ClientCodePath = "Assets/Script/Generate/";
+    //public const string ClientCodePath = "Assets/Script/Generate/";
     public const string CommontCodePath = "Assets/Script/Generate/";
 
     [MenuItem("Window/ECS Component Name To Constant Tool", priority = 303)]
-    [RuntimeInitializeOnLoadMethod]
+   // [InitializeOnLoadMethod]
     static void DoIt()
     {
        // int compNum = PlayerPrefs.GetInt("ComponentCount", 0);
@@ -18,7 +18,6 @@ public  class ComponentsNameToConstEditorTool
         Type[] allTypes = ReflectionUtils.GetChildTypes(typeof(ComponentBase));
         //if (compNum == allTypes.Length)
         //    return;
-        Type[] viewTypes = ReflectionUtils.GetChildTypes(typeof(ViewComponent));
 
         List<Type> userTypes = new List<Type>();
 
@@ -34,14 +33,7 @@ public  class ComponentsNameToConstEditorTool
                 continue;
             if (item == typeof(ViewComponent))
                 continue;
-            bool isHave = false;
-            foreach (var tempItem in viewTypes)
-            {
-                if (item == tempItem)
-                    isHave = true;
-            }
 
-            if (!isHave)
                 userTypes.Add(item);
         }
 
@@ -49,33 +41,63 @@ public  class ComponentsNameToConstEditorTool
 
         FileUtils.CreateTextFile(CommontCodePath + "ComponentType.cs", code);
 
-        code = CreateCode(userTypes.Count, viewTypes);
+        //code = CreateCode(userTypes.Count, viewTypes);
 
-        FileUtils.CreateTextFile(ClientCodePath + "ComponentViewType.cs", code);
+        //FileUtils.CreateTextFile(ClientCodePath + "ComponentViewType.cs", code);
 
         AssetDatabase.Refresh();
+
+       
     }
+
 
     private static string CreateCode(int startID ,Type[] componentTypes)
     {
-        string code = "public partial class ComponentType \n {\n";
+        string code = "using UnityEngine;\n\n";
+        code += "//自动生成请勿更改\n\n";
+           code+= "public  partial class ComponentType :ComponentTypeBase\n {\n";
+       
+
+        List<string> tempNames = new List<string>();
         for (int i = 0; i < componentTypes.Length; i++)
         {
             Type t = componentTypes[i];
             string name = t.Name;
             if (t.IsGenericType)
             {
-               name = name.Replace("`","");
+                name = name.Remove(name.Length - 2);
                Type[] tempTypes = t.GetGenericArguments();
                 for (int j = 0; j < tempTypes.Length; j++)
                 {
                     name += "_" + tempTypes[j].Name;
                 }
             }
-            code += "\t public const int "+name+" = "+(startID+i)+";";
-            code += "\n";
+            code += "\t public const int "+name+" = "+(startID+i)+";\n";
+            tempNames.Add(name);
         }
 
+        code += "\tpublic override int Count()\n";
+        code += "\t  {\n";
+        code += "\t\t return " + componentTypes.Length + ";\n";
+        code += "\t   }\n\n";
+
+        code += "\n\n";
+        code += "\t public override int GetComponentIndex(string name) \n";
+        code += "\t {\n";
+        code += "\t\t switch (name) \n";
+        code += "\t\t {\n\n";
+        foreach (var item in tempNames)
+        {
+            code += "\t\t\t case \"" + item + "\" : \n";
+            code += "\t\t\t\t return " + item + " ; \n";
+        }
+
+
+        code += "\t\t }\n";
+        code += "\t  Debug.Log(\"未找到对应的组件 ：\" + name); \n";
+        code += "\t return -1 ; \n";
+        code += " \t }\n";
+       
         code += "}\n";
 
         return code;
