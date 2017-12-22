@@ -26,7 +26,6 @@ public abstract class ComponentBase
         }
     }
 
-    public static int MomentComp = 0;
 
     public virtual void Init()
     {

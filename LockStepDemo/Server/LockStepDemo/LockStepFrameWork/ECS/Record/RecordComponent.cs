@@ -12,11 +12,6 @@ public class RecordComponent<T> : SingletonComponent where T : MomentComponentBa
         {
             if(m_record[i].Frame < frame)
             {
-                if (SyncDebugSystem.isDebug && SyncDebugSystem.IsFilter(typeof(T).Name))
-                {
-                    //Debug.Log(" ClearBefore Frame:" + m_record[i].Frame + " id: " + m_record[i].ID);
-                }
-
                 m_record.RemoveAt(i);
                 i--;
             }
@@ -47,19 +42,19 @@ public class RecordComponent<T> : SingletonComponent where T : MomentComponentBa
         }
     }
 
-    List<T> list = new List<T>();
-    public List<T> GetRecordList(int frame)
-    {
-        list.Clear();
+    //List<T> list = new List<T>();
+    //public List<T> GetRecordList(int frame)
+    //{
+    //    list.Clear();
 
-        for (int i = 0; i < m_record.Count; i++)
-        {
-            if (m_record[i].Frame == frame)
-            {
-                list.Add(m_record[i]);
-            }
-        }
+    //    for (int i = 0; i < m_record.Count; i++)
+    //    {
+    //        if (m_record[i].Frame == frame)
+    //        {
+    //            list.Add(m_record[i]);
+    //        }
+    //    }
 
-        return list;
-    }
+    //    return list;
+    //}
 }

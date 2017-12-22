@@ -5,9 +5,9 @@ public class EntityBase
 {
     private WorldBase world;
 
-    public int id = 0;
-    public string name;
+    private int id = 0;
 
+    public string name;
     private int createFrame = 0;
     private int destroyFrame = 0;
 
@@ -33,14 +33,6 @@ public class EntityBase
         set
         {
             world = value;
-        }
-    }
-
-    public Dictionary<string, ComponentBase> CompDict
-    {
-        get
-        {
-            return m_compDict;
         }
     }
 
@@ -70,95 +62,77 @@ public class EntityBase
         }
     }
 
+    public EntityBase(WorldBase world)
+    {
+        World = world;
+        comps = new ComponentBase[world.componentType.Count()];
+    }
+
     public event EntityComponentChangedCallBack OnComponentAdded;
     public event EntityComponentChangedCallBack OnComponentRemoved;
     public event EntityComponentReplaceCallBack OnComponentReplaced;
-    //event EntityReleased OnEntityReleased;
 
     #region 组件相关
 
-    private Dictionary<string, ComponentBase> m_compDict = new Dictionary<string, ComponentBase>();
+    public ComponentBase[] comps = null;
 
-    ComponentBase[] comps = new ComponentBase[20];
-
-    public bool GetExistComp<T>()where T : ComponentBase, new()
-    {
-        comps[ComponentBase.MomentComp] = null;
-
-        return GetExistComp(typeof(T).Name);
-    }
+    //public bool GetExistComp<T>()where T : ComponentBase, new()
+    //{
+    //    return GetExistComp(typeof(T).Name);
+    //}
 
     public bool GetExistComp(string compName)
     {
-        return m_compDict.ContainsKey(compName);
+      int index= world.componentType.GetComponentIndex(compName);
+      return  comps[index] != null;
+      //  return m_compDict.ContainsKey(compName);
     }
 
-    //public bool GetExistComp(int compIndex)
-    //{
-    //    return m_compDict.ContainsKey(compName);
-    //}
+    public bool GetExistComp(int compIndex)
+    {
+        return comps[compIndex] != null;
+    }
 
     public T AddComp<T>() where T:ComponentBase,new()
     {
         T comp = new T();
         comp.Init();
-
-        comp.Entity = this;
-
-        string key = typeof(T).Name;
-
-        if(m_compDict.ContainsKey(key))
-        {
-            throw new System.Exception("AddComp exist comp ! ->" + key + "<-");
-        }
-        else
-        {
-            m_compDict.Add(key, comp);
-            if (OnComponentAdded != null)
-            {
-                OnComponentAdded(this, key, comp);
-            }
-        }
-
+        AddComp(comp);
         return comp;
     }
 
     public EntityBase AddComp<T>(T comp) where T : ComponentBase, new()
     {
         string key = typeof(T).Name;
-
-        comp.Entity = this;
-
-        if (m_compDict.ContainsKey(key))
-        {
-            throw new System.Exception("AddComp exist comp !" + key);
-        }
-        else
-        {
-            m_compDict.Add(key, comp);
-            if (OnComponentAdded != null)
-            {
-                OnComponentAdded(this, key, comp);
-            }
-        }
-
+        AddComp(key, comp);
         return this;
     }
 
     public EntityBase AddComp(string compName, ComponentBase comp)
     {
         comp.Entity = this;
+        int index = world.componentType.GetComponentIndex(compName);
 
-        if (m_compDict.ContainsKey(compName))
+        AddComp(index, comp);
+
+        return this;
+    }
+
+    public EntityBase AddComp(int index, ComponentBase comp)
+    {
+        comp.Entity = this;
+
+        if (comps[index] != null)
         {
-            throw new System.Exception("AddComp exist comp !" + compName);
+            throw new System.Exception("AddComp exist comp !" + index);
         }
         else
         {
-            m_compDict.Add(compName, comp);
+            comps[index] = comp;
+            // m_compDict.Add(key, comp);
             if (OnComponentAdded != null)
             {
-                OnComponentAdded(this, compName, comp);
+                OnComponentAdded(this, index, comp);
             }
         }
 
@@ -172,17 +146,23 @@ public class EntityBase
 
     public void RemoveComp(string compName)
     {
-        if (!m_compDict.ContainsKey(compName))
+        int index = world.componentType.GetComponentIndex(compName);
+        RemoveComp(index);
+    }
+
+    public void RemoveComp(int index)
+    {
+        if (comps[index] == null)
         {
-            throw new System.Exception("RemoveComp not exist comp !" + compName);
+            throw new System.Exception("RemoveComp not exist comp !" + index);
         }
         else
         {
-            ComponentBase comp = m_compDict[compName];
-            m_compDict.Remove(compName);
+            ComponentBase comp = comps[index];
+            comps[index] = null;
             if (OnComponentRemoved != null)
             {
-                OnComponentRemoved(this, compName, comp);
+                OnComponentRemoved(this, index, comp);
             }
 
             comp.Entity = null;
@@ -193,39 +173,78 @@ public class EntityBase
     {
         return (T)GetComp(typeof(T).Name);
     }
+    public T GetComp<T>(int index) where T : ComponentBase, new()
+    {
+        T co = comps[index] as T;
+        if (co == null)
+            throw new System.Exception("EntityID " + ID + " GetComp not exist comp !" + typeof(T).Name);
+        else
+            return co;
+    }
 
     public ComponentBase GetComp(string compName)
     {
-        try
-        {
-            return m_compDict[compName];
-        }
-        catch
-        {
+        int index = world.componentType.GetComponentIndex(compName);
+        ComponentBase co = comps[index];
+        if (co == null)
             throw new System.Exception("EntityID " + ID + " GetComp not exist comp !" + compName);
-        }
+        else
+            return co;
+    }
+
+    public ComponentBase GetComp(int index)
+    {
+        ComponentBase co = comps[index];
+        if (co == null)
+            throw new System.Exception("EntityID " + ID + " GetComp not exist comp !" + index.ToString());
+        else
+            return co;
     }
 
     public void ChangeComp(string compName,ComponentBase comp)
     {
-        if (m_compDict.ContainsKey(compName))
+        int index = world.componentType.GetComponentIndex(compName);
+        ChangeComp(index, comp);
+    }
+
+    public void ChangeComp(int index, ComponentBase comp)
+    {
+        ComponentBase oldComp = comps[index];
+        if (oldComp == null)
+            throw new System.Exception("EntityID " + ID + " GetComp not exist comp !" + index);
+        else
         {
-            ComponentBase oldComp = m_compDict[compName];
             oldComp.Entity = null;
 
-            m_compDict[compName] = comp;
+            comps[index] = comp;
             comp.Entity = this;
 
             if (OnComponentReplaced != null)
             {
-                OnComponentReplaced(this, compName, oldComp, comp);
+                OnComponentReplaced(this, index, oldComp, comp);
             }
         }
-        else
-        {
-            throw new System.Exception("ChangeComp not exist comp !" + compName);
-        }
     }
+
+    //public void ChangeComp(int compName, ComponentBase comp)
+    //{
+    //    int index = world.componentType.GetComponentIndex(compName);
+    //    ComponentBase oldComp = comps[index];
+    //    if (oldComp == null)
+    //        throw new System.Exception("EntityID " + ID + " GetComp not exist comp !" + compName);
+    //    else
+    //    {
+    //        oldComp.Entity = null;
+
+    //        comps[index] = comp;
+    //        comp.Entity = this;
+
+    //        if (OnComponentReplaced != null)
+    //        {
+    //            OnComponentReplaced(this, compName, oldComp, comp);
+    //        }
+    //    }
+    //}
 
     public void ChangeComp<T>(T comp) where T:ComponentBase
     {
@@ -246,9 +265,9 @@ public class EntityBase
     {
         int hash = id;
 
-        foreach (var item in m_compDict)
+        foreach (var item in comps)
         {
-            hash += item.Value.ToHash();
+            hash += item.ToHash();
         }
 
         return hash;
@@ -256,5 +275,5 @@ public class EntityBase
 #endregion
 }
 
-public delegate void EntityComponentChangedCallBack(EntityBase entity, string compName, ComponentBase component);
-public delegate void EntityComponentReplaceCallBack(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent);
+public delegate void EntityComponentChangedCallBack(EntityBase entity, int index, ComponentBase component);
+public delegate void EntityComponentReplaceCallBack(EntityBase entity, int index, ComponentBase previousComponent, ComponentBase newComponent);

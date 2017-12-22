@@ -62,7 +62,7 @@ public class ECSGroupManager
 
     public int StringArrayToInt(string[] arr)
     {
-         Array.Sort(arr);
+        Array.Sort(arr);
         string tempS = string.Join("&", arr);
         return tempS.ToHash();
     }
@@ -76,6 +76,7 @@ public class ECSGroupManager
         else
         {
             AddGroup(key, filters);
+            allGroupDic.TryGetValue(key, out group);
         }
         List<EntityBase> list;
         if (groupToEntityDic.TryGetValue(group, out list))
@@ -130,7 +131,7 @@ public class ECSGroupManager
             bool isContains = true;
             for (int j = 0; j < filters.Length; j++)
             {
-                if (!entity.CompDict.ContainsKey(filters[j]))
+                if (!entity.GetExistComp(filters[j]))
                 {
                     isContains = false;
                 }
@@ -173,7 +174,7 @@ public class ECSGroupManager
         entityToGroupDic.Remove(entity);
     }
 
-    public void OnEntityComponentChange(EntityBase entity, string compName, ComponentBase component)
+    public void OnEntityComponentChange(EntityBase entity, int compIndex, ComponentBase component)
     {
         //Debug.Log("OnEntityComponentChange");
         List<ECSGroup> oldSystems;
@@ -229,7 +230,7 @@ public class ECSGroupManager
             bool isContains = true;
             for (int j = 0; j < filterCom.Length; j++)
             {
-                if (!entity.CompDict.ContainsKey(filterCom[j]))
+                if (!entity.GetExistComp(filterCom[j]))
                 {
                     isContains = false;
                     break;

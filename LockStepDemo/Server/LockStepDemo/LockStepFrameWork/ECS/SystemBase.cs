@@ -169,17 +169,17 @@ public class SystemBase
 
     }
 
-    public virtual void OnEntityCompAdd(EntityBase entity, string compName, ComponentBase component)
+    public virtual void OnEntityCompAdd(EntityBase entity, int compIndex, ComponentBase component)
     {
 
     }
 
-    public virtual void OnEntityCompRemove(EntityBase entity, string compName, ComponentBase component)
+    public virtual void OnEntityCompRemove(EntityBase entity, int compIndex, ComponentBase component)
     {
 
     }
 
-    public virtual void OnEntityCompChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
+    public virtual void OnEntityCompChange(EntityBase entity, int compIndex, ComponentBase previousComponent, ComponentBase newComponent)
     {
 
     }
@@ -216,16 +216,9 @@ public class SystemBase
 
     public List<EntityBase> GetEntityList(string[] filter)
     {
-        List<EntityBase> tupleList = new List<EntityBase>();
-        for (int i = 0; i < m_world.m_entityList.Count; i++)
-        {
-            if (GetAllExistComp(filter, m_world.m_entityList[i]))
-            {
-                tupleList.Add(m_world.m_entityList[i]);
-            }
-        }
+        int hashCode = m_world.group.StringArrayToInt(filter);
 
-        return tupleList;
+        return m_world.group.GetEntityByFilter(hashCode, filter);
     }
 
     #region 事件监听

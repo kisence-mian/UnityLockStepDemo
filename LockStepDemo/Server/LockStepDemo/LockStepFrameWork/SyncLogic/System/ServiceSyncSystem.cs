@@ -66,9 +66,12 @@ public class ServiceSyncSystem : ServiceSystem
         Data.id = entity.ID;
         Data.infos = new List<ComponentInfo>();
 
-        foreach (var c in entity.CompDict)
+        foreach (var c in entity.comps)
         {
-            Type type = c.Value.GetType();
+            if (c == null)
+                continue;
+
+            Type type = c.GetType();
 
             if (!type.IsSubclassOf(typeof(ServiceComponent))
                 && type != typeof(SyncComponent))
@@ -77,7 +80,7 @@ public class ServiceSyncSystem : ServiceSystem
                 {
                     ComponentInfo info = new ComponentInfo();
                     info.m_compName = type.Name;
-                    info.content = Serializer.Serialize(c.Value);
+                    info.content = Serializer.Serialize(c);
 
                     Data.infos.Add(info);
                 }
@@ -89,7 +92,7 @@ public class ServiceSyncSystem : ServiceSystem
         }
 
         //给有连接组件的增加Self组件
-        if (entity.GetExistComp<ConnectionComponent>())
+        if (entity.GetExistComp(ComponentType.ConnectionComponent))
         {
             ConnectionComponent comp = entity.GetComp<ConnectionComponent>();
             if (comp.m_session == session)
@@ -185,19 +188,23 @@ public class ServiceSyncSystem : ServiceSystem
         Data.id = entity.ID;
         Data.infos = new List<ComponentInfo>();
 
-        foreach (var c in entity.CompDict)
+        foreach (var c in entity.comps)
         {
-            Type type = c.Value.GetType();
+            if (c == null)
+                continue;
 
-            if (type == typeof(PlayerComponent))
+            Type type = c.GetType();
+
+            if (type == typeof(PlayerComponent)
+                || type.IsSubclassOf(typeof(AIComponentBase))
+                || type == typeof(RealPlayerComponent)
+                )
             {
-                Debug.Log("CreatePlayerComponentInfo ");
-
                 try
                 {
                     ComponentInfo info = new ComponentInfo();
                     info.m_compName = type.Name;
-                    info.content = Serializer.Serialize(c.Value);
+                    info.content = Serializer.Serialize(c);
 
                     Data.infos.Add(info);
                 }
@@ -218,7 +225,7 @@ public class ServiceSyncSystem : ServiceSystem
         Data.infos = new List<ComponentInfo>();
 
         //给有连接组件的增加Self组件
-        if (entity.GetExistComp<ConnectionComponent>())
+        if (entity.GetExistComp(ComponentType.ConnectionComponent))
         {
             ConnectionComponent comp = entity.GetComp<ConnectionComponent>();
             if (comp.m_session == session)

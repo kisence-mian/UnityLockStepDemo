@@ -12,12 +12,15 @@ public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
     public PlayerHandle OnPlayerLogin;
     public PlayerHandle OnPlayerLogout;
 
+    TimerService m_timerService = new TimerService();
     LoginService loginService = new LoginService();
     MatchService matchService = new MatchService();
     ReConnectService reConnectService = new ReConnectService();
     ShopService selectCharacterService = new ShopService();
     SettlementService settlementService = new SettlementService();
     DataBaseService dataBaseService = new DataBaseService();
+
+    AIService m_aiService = new AIService();
 
     public SyncService() : base(new ProtocolReceiveFilterFactory())
     {
@@ -28,7 +31,6 @@ public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
     {
         //TODO 读取配置设置isDebug
         Debug.SetLogger(Logger, true);
-
 
         try
         {
@@ -43,11 +45,14 @@ public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
 
         dataBaseService.Init(this, config);
 
+        m_timerService.Init(this, config);
         matchService.Init(this, config);
         loginService.Init(this, config);
         reConnectService.Init(this, config);
         selectCharacterService.Init(this, config);
         settlementService.Init(this, config);
+
+        m_aiService.Init(this,config);
 
         CommandMessageService<CommandComponent>.Init();
 

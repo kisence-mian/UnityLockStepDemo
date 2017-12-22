@@ -44,14 +44,30 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
             if (msg.frame > world.FrameCount)
             {
                 //广播这帧
-                BroadcastCommand(world, connectComp, msg, false);
-                connectComp.AddCommand(msg);
+                if(connectComp.AddCommand(msg))
+                {
+                    BroadcastCommand(world, connectComp, msg, false);
+                }
             }
             else
             {
-                //当成最新的一帧来处理
-                msg.frame = world.FrameCount;
-                connectComp.AddCommand(msg);
+                //直接丢弃掉落后帧
+
+                //Debug.Log("帧相等！ " + msg.frame);
+
+                //if (!connectComp.m_isInframe)
+                //{
+                //    //当成最新的一帧来处理
+                //    msg.frame = world.FrameCount + 1;
+                //    connectComp.AddCommand(msg);
+                //}
+                //else
+                //{
+                //    Debug.Log("在一帧之内插入了数据！ " + msg.frame);
+
+                //    msg.frame = world.FrameCount + 1;
+                //    connectComp.AddCommand(msg);
+                //}
             }
 
             ControlSpeed(connectComp, world, msg.frame);
@@ -153,13 +169,17 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
             {
                 scmd.frame = msg.frame;
 
-                connectComp.AddCommand(scmd);
-                BroadcastSameCommand(world, connectComp, msg, true);
+                if(connectComp.AddCommand(scmd))
+                {
+                    BroadcastSameCommand(world, connectComp, msg, true);
+                }
             }
             else
             {
-                scmd.frame = world.FrameCount;
-                connectComp.AddCommand(scmd);
+                //Debug.Log("Same frame " + world.FrameCount);
+
+                //scmd.frame = world.FrameCount + 1;
+                //connectComp.AddCommand(scmd);
             }
 
             ControlSpeed(connectComp, world, msg.frame);

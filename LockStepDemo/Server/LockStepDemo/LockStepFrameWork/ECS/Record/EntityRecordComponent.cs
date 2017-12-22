@@ -57,16 +57,18 @@ public struct EntityRecordInfo
     {
         compList = new List<ComponentBase>();
 
-        foreach (var item in entity.CompDict)
+        foreach (var item in entity.comps)
         {
-            if(item.Value is MomentComponentBase)
+            if (item == null)
+                continue;
+            if(item is MomentComponentBase)
             {
-                MomentComponentBase mc = (MomentComponentBase)item.Value;
+                MomentComponentBase mc = (MomentComponentBase)item;
                 compList.Add(mc.DeepCopy());
             }
             else
             {
-                compList.Add(item.Value);
+                compList.Add(item);
             }
 
         }

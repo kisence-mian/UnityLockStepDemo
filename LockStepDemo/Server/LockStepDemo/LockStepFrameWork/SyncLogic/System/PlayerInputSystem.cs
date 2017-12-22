@@ -5,32 +5,24 @@ using System.Collections.Generic;
 
 public class PlayerInputSystem<T> : ServiceSystem where T : PlayerCommandBase, new()
 {
-    public override void Init()
-    {
-        Debug.LogError("PlayerInputSystem Init");
-    }
-
     public override Type[] GetFilter()
     {
         return new Type[] {
                 typeof(T),
                 typeof(ConnectionComponent),
+                typeof(RealPlayerComponent),
             };
     }
 
     public override void BeforeFixedUpdate(int deltaTime)
     {
-        //Debug.Log("GetEntityList A");
-
         List<EntityBase> list = GetEntityList();
-
-        //Debug.Log("list Res -> " + GetEntityList(new string[] { "CommandComponent", "ConnectionComponent" }).Count);
-
-        //Debug.Log("GetEntityList B " + list.Count);
 
         for (int i = 0; i < list.Count; i++)
         {
             ConnectionComponent comp = list[i].GetComp<ConnectionComponent>();
+            comp.m_isInframe = true;
+
             T cmd = (T)comp.GetCommand(m_world.FrameCount);
             cmd.id = list[i].ID;
             cmd.frame = m_world.FrameCount;
@@ -48,6 +40,17 @@ public class PlayerInputSystem<T> : ServiceSystem where T : PlayerCommandBase, n
                     ProtocolAnalysisService.SendMsg(conn.m_session, cmd);
                 }
             }
+        }
+    }
+
+    public override void EndFrame(int deltaTime)
+    {
+        List<EntityBase> list = GetEntityList();
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            ConnectionComponent comp = list[i].GetComp<ConnectionComponent>();
+            comp.m_isInframe = false;
         }
     }
 }

@@ -59,7 +59,7 @@ class Debug
         if (s_isDebug)
         {
             Console.WriteLine("------------------------------ERROR BEGIN----------------------------");
-            Console.WriteLine(content);
+            Console.WriteLine(content + "\n" + new System.Diagnostics.StackTrace().ToString());
             Console.WriteLine("------------------------------ ERROR END ----------------------------");
         }
         s_logger.Error(content);

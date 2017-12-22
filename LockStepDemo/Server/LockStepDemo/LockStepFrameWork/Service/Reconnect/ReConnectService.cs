@@ -10,12 +10,12 @@ public class ReConnectService : ServiceBase
     //掉线的玩家列表
     public Dictionary<string, ConnectionComponent> m_disConnectDict = new Dictionary<string, ConnectionComponent>();
 
-    public override  void OnInit(IServerConfig config)
+    protected override  void OnInit(IServerConfig config)
     {
         EventService.AddEvent(ServiceEventDefine.ServiceEvent.GameFinsih, OnGameFinsih);
     }
 
-    public override void OnPlayerLogin(Player player)
+    protected override void OnPlayerLogin(Player player)
     {
         if(m_disConnectDict.ContainsKey(player.playerID))
         {
@@ -36,7 +36,7 @@ public class ReConnectService : ServiceBase
         }
     }
 
-    public override void OnPlayerLogout(Player player)
+    protected override void OnPlayerLogout(Player player)
     {
         if(player.session.m_connect != null)
         {

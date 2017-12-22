@@ -34,7 +34,6 @@ public abstract class GameWorldBase<T> : WorldBase where T : PlayerCommandBase, 
            {
             //typeof(CloseConnectTestSystem),
             
-            typeof(ConnectSystem),
             typeof(PlayerInputSystem<T>),
             typeof(ServiceSyncSystem),
 

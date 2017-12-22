@@ -7,23 +7,20 @@ using System.Text;
 
 public class ConnectionComponent : ServiceComponent
 {
+    public Player m_player;
     public string m_playerID;
 
-    //public bool m_isWaitPushStart = false;
     public SyncSession m_session;
     public bool m_isWaitPushReconnect = false;
-    //public int m_sendIndex = 0;
 
-    //public Dictionary<int, CommandMsg> m_unConfirmFrame = new Dictionary<int, CommandMsg>(); //未确认的帧
+    public bool m_isInframe = false;  //这一帧已经在计算中
 
     public int rtt;                 //网络时延 单位ms
     private int lastInputFrame = -1; //玩家的最后一次输入帧
     public float UpdateSpeed  = 1;  //世界更新速度
 
     public List<PlayerCommandBase> m_commandList = new List<PlayerCommandBase>();
-    //public List<PlayerCommandBase> m_forecastList = new List<PlayerCommandBase>(); //预测操作列表
     public PlayerCommandBase m_defaultInput = null;   //默认输入
-    //public PlayerCommandBase m_lastInputCache = null; //玩家的最后一次输入
 
     public List<EntityBase> m_waitSyncEntity = new List<EntityBase>(); //等待同步的实体
     public List<int> m_waitDestroyEntity = new List<int>();            //等待同步删除的实体
@@ -104,19 +101,20 @@ public class ConnectionComponent : ServiceComponent
         return m_defaultInput;
     }
 
-    public void AddCommand(PlayerCommandBase cmd)
+    public bool AddCommand(PlayerCommandBase cmd)
     {
-        LastInputFrame = cmd.frame;
-
         for (int i = 0; i < m_commandList.Count; i++)
         {
             if (m_commandList[i].frame == cmd.frame)
             {
-                m_commandList[i] = cmd;
-                return;
+                Debug.LogError("重复消息！ " + cmd.frame);
+                return false;
             }
         }
 
+        LastInputFrame = cmd.frame;
         m_commandList.Add(cmd);
+
+        return true;
     }
 }

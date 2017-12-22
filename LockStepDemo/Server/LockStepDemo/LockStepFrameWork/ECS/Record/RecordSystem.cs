@@ -7,11 +7,18 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,new()
+public class RecordSystem<T> : RecordSystemBase where T : MomentComponentBase, new()
 {
+    int hashCode = 0;
+
     public override Type[] GetFilter()
     {
         return new Type[] { typeof(T) };
+    }
+
+    public override void Init()
+    {
+        hashCode = m_world.componentType.GetComponentIndex(typeof(T).Name);
     }
 
     public override void Record(int frame)
@@ -22,15 +29,11 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
 
         for (int i = 0; i < list.Count; i++)
         {
-            T record = (T)list[i].GetComp<T>().DeepCopy();
+            T record = (T)list[i].GetComp<T>(hashCode).DeepCopy();
             record.Frame = frame;
             record.ID    = list[i].ID;
 
             rc.m_record.Add(record);
-            if (SyncDebugSystem.IsFilter(typeof(T).Name))
-            {
-                //Debug.Log("数据记录 ID：" + list[i].ID + " frame:" + frame + " conent:" + Serializer.Serialize(record));
-            }
         }
     }
 
@@ -38,56 +41,28 @@ public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,ne
     {
         RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
 
-        List<T> list = rc.GetRecordList(frame);
-
-        //if (SyncDebugSystem.IsFilter(typeof(T).Name))
-        //{
-        //    Debug.Log("数据回滚  frame:" + frame + " Count:" + list.Count);
-        //}
-
-        for (int i = 0; i < list.Count; i++)
+        for (int i = 0; i < rc.m_record.Count; i++)
         {
-            if(m_world.GetEntityIsExist(list[i].ID))
-            {
-                //if (SyncDebugSystem.IsFilter(typeof(T).Name))
-                //{
-                //    Debug.Log("在游戏中 " + list[i].ID);
-                //}
+            T record = rc.m_record[i];
 
-                EntityBase entity = m_world.GetEntity(list[i].ID);
-                entity.ChangeComp((T)list[i].DeepCopy());
-            }
-            else if(m_world.GetIsExistDispatchDestroyCache(list[i].ID))
+            if (record.Frame == frame)
             {
-                //if (SyncDebugSystem.IsFilter(typeof(T).Name))
-                //{
-                //    Debug.Log("在回滚创建列表 " + list[i].ID);
-                //}
-                EntityBase entity = m_world.GetDispatchDestroyCache(list[i].ID);
-                entity.ChangeComp((T)list[i].DeepCopy());
+                if (m_world.GetEntityIsExist(record.ID))
+                {
+                    EntityBase entity = m_world.GetEntity(record.ID);
+                    entity.ChangeComp(hashCode, record.DeepCopy());
+                }
+                else if (m_world.GetIsExistDispatchDestroyCache(record.ID))
+                {
+                    EntityBase entity = m_world.GetDispatchDestroyCache(record.ID);
+                    entity.ChangeComp(hashCode, record.DeepCopy());
+                }
+                else if (m_world.GetIsExistDispatchCreateCache(record.ID))
+                {
+                    EntityBase entity = m_world.GetDispatchCreateCache(record.ID);
+                    entity.ChangeComp(hashCode, record.DeepCopy());
+                }
             }
-            else if(m_world.GetIsExistDispatchCreateCache(list[i].ID))
-            {
-                //if (SyncDebugSystem.IsFilter(typeof(T).Name))
-                //{
-                //    Debug.Log("在回滚删除列表 " + list[i].ID);
-                //}
-                EntityBase entity = m_world.GetDispatchCreateCache(list[i].ID);
-                entity.ChangeComp((T)list[i].DeepCopy());
-            }
-            else
-            {
-                //if (SyncDebugSystem.IsFilter(typeof(T).Name))
-                //{
-                //    Debug.Log("没有找到回滚对象 " + list[i].ID + " frame " + frame);
-                //}
-            }
-
-            //if (SyncDebugSystem.IsFilter(typeof(T).Name))
-            //{
-            //    Debug.Log("数据回滚 ID：" + list[i].ID + " frame:" + list[i].Frame + " conent:" + Serializer.Serialize(list[i]));
-            //}
-
         }
     }
 

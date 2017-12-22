@@ -12,9 +12,9 @@ class SyncDebugSystem : SystemBase
     public static bool isDebug = true;
     public static bool isPlayerOnly = true;
 
-    public static string[] DebugFilter = new string[] { "MoveComponent", "GrowUpComponent", "CollisionComponent", "LifeComponent" };
+    public static string[] DebugFilter = new string[] { "LifeComponent","CommandComponent","GrowUpComponent", "MoveComponent"/*, "LifeComponent"*//*"CollisionComponent", "LifeComponent"*/ };
 
-    public static string[] SingleCompFilter = new string[] { "MapGridStateComponent" };
+    public static string[] SingleCompFilter = new string[] { "MapGridStateComponent" , "LogicRuntimeMachineComponent" };
 
     public static string syncLog = "";
 
@@ -22,6 +22,8 @@ class SyncDebugSystem : SystemBase
 
     public override Type[] GetFilter()
     {
+        
+
         return new Type[] {
             
             typeof(ConnectionComponent)
@@ -46,7 +48,7 @@ class SyncDebugSystem : SystemBase
             EntityBase eb = m_world.m_entityList[i];
 
             if (isPlayerOnly
-                 && !eb.GetExistComp<ConnectionComponent>())
+                 && !eb.GetExistComp(ComponentType.ConnectionComponent))
             {
                 continue;
             }
@@ -56,25 +58,28 @@ class SyncDebugSystem : SystemBase
 
             einfo.infos = new List<ComponentInfo>();
 
-            foreach (var item in eb.CompDict)
+            foreach (var item in eb.comps)
             {
-                if (item.Value.GetType().IsSubclassOf(typeof(PlayerCommandBase)))
+                if (item == null)
+                    continue;
+
+                if (item.GetType().IsSubclassOf(typeof(PlayerCommandBase)))
                 {
-                    CommandComponent cc = (CommandComponent)item.Value;
+                    CommandComponent cc = (CommandComponent)item;
                     ComponentInfo info = new ComponentInfo();
                     cc.time = 0;
                     cc.id = eb.ID;
                     cc.frame = m_world.FrameCount;
-                    info.m_compName = item.Value.GetType().Name;
-                    info.content = Serializer.Serialize(item.Value);
+                    info.m_compName = item.GetType().Name;
+                    info.content = Serializer.Serialize(item);
 
                     einfo.infos.Add(info);
                 }
-                else if(IsFilter(item.Value.GetType().Name))
+                else if(IsFilter(item.GetType().Name))
                 {
                     ComponentInfo info = new ComponentInfo();
-                    info.m_compName = item.Value.GetType().Name;
-                    info.content = Serializer.Serialize(item.Value);
+                    info.m_compName = item.GetType().Name;
+                    info.content = Serializer.Serialize(item);
 
                     einfo.infos.Add(info);
                 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 public abstract class WorldBase
@@ -109,6 +111,7 @@ public abstract class WorldBase
         }
     }
 
+    public ComponentTypeBase componentType;
     #endregion
 
     #region 对象和系统的集合
@@ -122,6 +125,7 @@ public abstract class WorldBase
     public List<EntityBase> m_entityList = new List<EntityBase>();                       //世界里所有的entity列表
 
     public Dictionary<string, SingletonComponent> m_singleCompDict = new Dictionary<string, SingletonComponent>(); //所有的单例组件集合
+    //public SingletonComponent[] singletonComponents = null;
 
     #endregion
 
@@ -208,7 +212,10 @@ public abstract class WorldBase
     {
         eventSystem = new ECSEvent(this);
 
-        IsClient = isClient;
+        componentType = GetComponentType();
+        //singletonComponents = new SingletonComponent[componentType.Count()];
+        //Debug.Log(" componentType: " + componentType.GetType().FullName);
+       IsClient = isClient;
         try
         {
             InitSystem();
@@ -225,6 +232,22 @@ public abstract class WorldBase
         {
             Debug.LogError("WorldBase Init Exception:" + e.ToString());
         }
+    }
+
+    private ComponentTypeBase GetComponentType()
+    {
+        Type t = typeof(ComponentTypeBase);
+        Assembly assem = Assembly.GetAssembly(t);
+
+        foreach (Type tChild in assem.GetTypes())
+        {
+            if (tChild.BaseType == t)
+            {
+                return (ComponentTypeBase)Activator.CreateInstance(tChild);
+            }
+
+        }
+       return  (ComponentTypeBase)Activator.CreateInstance(t);
     }
 
     public void Dispose()
@@ -304,7 +327,7 @@ public abstract class WorldBase
         {
             BeforeUpdate(deltaTime);
             Update(deltaTime);
-            //LateUpdate(deltaTime);
+            //LateUpdate 另行调用
         }
     }
 
@@ -365,6 +388,8 @@ public abstract class WorldBase
         LateFixedUpdate(deltaTime);
 
         LazyExecuteEntityOperation();
+
+        EndFrame(deltaTime);
     }
     #endregion
 
@@ -754,6 +779,12 @@ public abstract class WorldBase
 
     #endregion
 
+    #region 组件回滚
+
+
+
+    #endregion
+
     #endregion
 
     #region 实体相关
@@ -827,25 +858,6 @@ public abstract class WorldBase
         return entity;
     }
 
-    ///// <summary>
-    ///// 立即创建一个实体，不要在游戏逻辑中使用
-    ///// </summary>
-    ///// <param name="ID"></param>
-    ///// <param name="compList"></param>
-    ///// <returns></returns>
-    //public EntityBase CreateEntityImmediately(int ID, params ComponentBase[] compList)
-    //{
-    //    if (m_entityDict.ContainsKey(ID))
-    //    {
-    //        throw new Exception("CreateEntity Exception: Entity ID has exist ! ->" + ID + "<-");
-    //    }
-
-    //    EntityBase entity = NewEntity(ID, compList);
-    //    CreateEntityAndDispatch(entity);
-
-    //    return entity;
-    //}
-
     EntityBase NewEntity(string name,int ID, params ComponentBase[] compList)
     {
         EntityBase entity = null;
@@ -857,11 +869,9 @@ public abstract class WorldBase
         }
         else
         {
-            entity = new EntityBase();
+            entity = new EntityBase(this);
             entity.ID = ID;
             entity.name = name;
-
-            entity.World = this;
             entity.CreateFrame = FrameCount;
 
             if (compList != null)
@@ -1040,12 +1050,14 @@ public abstract class WorldBase
 
     public EntityBase GetEntity(int ID)
     {
-        if (!m_entityDict.ContainsKey(ID))
+        try
+        {
+            return m_entityDict[ID];
+        }
+        catch
         {
             throw new Exception("GetEntity Exception: Entity ID has not exist ! ->" + ID + "<-");
         }
-
-        return m_entityDict[ID];
     }
 
     public List<EntityBase> GetEntiyList(string[] compNames)
@@ -1275,17 +1287,19 @@ public abstract class WorldBase
 
     public SingletonComponent GetSingletonComp(string compName)
     {
+       
+        //int index = componentType.GetComponentIndex(compName);
         SingletonComponent comp = null;
-
         if (m_singleCompDict.ContainsKey(compName))
         {
-            comp = m_singleCompDict[compName];
+             comp = m_singleCompDict[compName];
         }
         else
         {
             Type compType = Type.GetType(compName);
 
             comp = (SingletonComponent)compType.Assembly.CreateInstance(compType.FullName);
+            //singletonComponents[index] = comp;
             m_singleCompDict.Add(compName, comp);
         }
 
@@ -1412,34 +1426,31 @@ public abstract class WorldBase
         }
     }
 
-    void DispatchEntityComponentAdded(EntityBase entity, string compName, ComponentBase component)
+    void DispatchEntityComponentAdded(EntityBase entity, int compIndex, ComponentBase component)
     {
         if (OnEntityComponentAdded != null)
         {
-            OnEntityComponentAdded(entity, compName, component);
+            OnEntityComponentAdded(entity, compIndex, component);
         }
     }
 
-    void DispatchEntityComponentRemoved(EntityBase entity, string compName, ComponentBase component)
+    void DispatchEntityComponentRemoved(EntityBase entity, int compIndex, ComponentBase component)
     {
         if (OnEntityComponentRemoved != null)
         {
-            OnEntityComponentRemoved(entity, compName, component);
+            OnEntityComponentRemoved(entity, compIndex, component);
         }
     }
 
-    void DispatchEntityComponentChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
+    void DispatchEntityComponentChange(EntityBase entity, int compIndex, ComponentBase previousComponent, ComponentBase newComponent)
     {
         if (OnEntityComponentChange != null)
         {
-            OnEntityComponentChange(entity, compName, previousComponent, newComponent);
+            OnEntityComponentChange(entity, compIndex, previousComponent, newComponent);
         }
     }
 
-
     public delegate void EntityChangedCallBack(EntityBase entity);
-
-
 
     #endregion
 
@@ -1455,9 +1466,9 @@ public abstract class WorldBase
     {
         m_RandomSeed = Math.Abs((m_RandomSeed * m_randomA + m_randomB) % m_randomC);
 
-        if(SyncDebugSystem.isDebug)
+        if (SyncDebugSystem.isDebug)
         {
-            SyncDebugSystem.RecordRandomChange(FrameCount, m_RandomSeed,"");
+            SyncDebugSystem.RecordRandomChange(FrameCount, m_RandomSeed, "");
         }
 
         return m_RandomSeed;
@@ -1473,7 +1484,7 @@ public abstract class WorldBase
     {
         int result = GetRandom();
 
-        result = min + result % max;
+        result = min + result % (max - min);
 
         return result;
     }
