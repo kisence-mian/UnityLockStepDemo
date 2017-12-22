@@ -34,11 +34,11 @@ public class InitSystemBase : SystemBase
         }
     }
 
-    public override void OnEntityCompAdd(EntityBase entity, string compName, ComponentBase component)
+    public override void OnEntityCompAdd(EntityBase entity, int compIndex, ComponentBase component)
     {
         //Debug.Log("OnEntityCompAdd " + compName);
 
-        if (compName == "SelfComponent" || compName == "TheirComponent")
+        if (compIndex == ComponentType.SelfComponent|| compIndex == ComponentType.TheirComponent)
         {
             OnPlayerJoin(entity);
         }

@@ -1,6 +1,7 @@
 ﻿#if Server
 using DeJson;
 #endif
+using FastCollections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using UnityEngine;
 
 public class RecordSystem<T> : RecordSystemBase where T : MomentComponentBase, new()
 {
+    public FastList<T> m_record = new FastList<T>();
     int hashCode = 0;
 
     public override Type[] GetFilter()
@@ -23,27 +25,30 @@ public class RecordSystem<T> : RecordSystemBase where T : MomentComponentBase, n
 
     public override void Record(int frame)
     {
-        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>> ();
-
         List<EntityBase> list = GetEntityList();
 
         for (int i = 0; i < list.Count; i++)
         {
-            T record = (T)list[i].GetComp<T>(hashCode).DeepCopy();
-            record.Frame = frame;
-            record.ID    = list[i].ID;
+            T data = list[i].GetComp<T>(hashCode);
 
-            rc.m_record.Add(record);
+            //if(data.IsChange)
+            {
+                data.IsChange = false;
+
+                T record = (T)data.DeepCopy();
+                record.Frame = frame;
+                record.ID = list[i].ID;
+
+                m_record.Add(record);
+            }
         }
     }
 
     public override void RevertToFrame(int frame)
     {
-        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
-
-        for (int i = 0; i < rc.m_record.Count; i++)
+        for (int i = 0; i < m_record.Count; i++)
         {
-            T record = rc.m_record[i];
+            T record = m_record[i];
 
             if (record.Frame == frame)
             {
@@ -66,31 +71,14 @@ public class RecordSystem<T> : RecordSystemBase where T : MomentComponentBase, n
         }
     }
 
-    public override void ClearAfter(int frame)
-    {
-       //return;
-
-        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
-        rc.ClearAfter(frame);
-    }
-
-    public override void ClearBefore(int frame)
-    {
-        //return;
-
-        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
-        rc.ClearBefore(frame);
-    }
-
     public override MomentComponentBase GetRecord(int id, int frame)
     {
-        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
-        for (int i = 0; i < rc.m_record.Count; i++)
+        for (int i = 0; i < m_record.Count; i++)
         {
-            if(rc.m_record[i].ID == id &&
-                rc.m_record[i].Frame == frame)
+            if(m_record[i].ID == id &&
+                m_record[i].Frame == frame)
             {
-                return rc.m_record[i];
+                return m_record[i];
             }
         }
 
@@ -98,16 +86,14 @@ public class RecordSystem<T> : RecordSystemBase where T : MomentComponentBase, n
     }
     public override void PrintRecord(int id)
     {
-        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
-
         string content = "compName : " + typeof(T).Name + "\n";
-        for (int i = 0; i < rc.m_record.Count; i++)
+        for (int i = 0; i < m_record.Count; i++)
         {
-            if(rc.m_record[i].Frame > m_world.FrameCount - 10)
+            if(m_record[i].Frame > m_world.FrameCount - 10)
             {
-                if (id == -1 || rc.m_record[i].ID == id)
+                if (id == -1 || m_record[i].ID == id)
                 {
-                    content += " ID:" + rc.m_record[i].ID + " Frame:" + rc.m_record[i].Frame + " content:" + Serializer.Serialize(rc.m_record[i]) + "\n";
+                    content += " ID:" + m_record[i].ID + " Frame:" +m_record[i].Frame + " content:" + Serializer.Serialize(m_record[i]) + "\n";
                 }
             }
         }
@@ -116,15 +102,42 @@ public class RecordSystem<T> : RecordSystemBase where T : MomentComponentBase, n
 
     public override void ClearAll()
     {
-        //return;
-
-        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
-        rc.m_record.Clear();
+        m_record.Clear();
     }
 
     public override void ClearRecordAt(int frame)
     {
-        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
-        rc.ClearRecordAt(frame);
+        for (int i = 0; i < m_record.Count; i++)
+        {
+            if (m_record[i].Frame == frame)
+            {
+                m_record.RemoveAt(i);
+                i--;
+            }
+        }
+    }
+
+    public override void ClearAfter(int frame)
+    {
+        for (int i = 0; i < m_record.Count; i++)
+        {
+            if (m_record[i].Frame > frame)
+            {
+                m_record.RemoveAt(i);
+                i--;
+            }
+        }
+    }
+
+    public override void ClearBefore(int frame)
+    {
+        for (int i = 0; i < m_record.Count; i++)
+        {
+            if (m_record[i].Frame < frame)
+            {
+                m_record.RemoveAt(i);
+                i--;
+            }
+        }
     }
 }

@@ -21,6 +21,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
     {
         return new Type[] {
             typeof(T),
+            typeof(RealPlayerComponent),
         };
     }
 
@@ -114,7 +115,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
 
         //先取服务器缓存
         AddComp(entity);
-        PlayerCommandRecordComponent rc = entity.GetComp<PlayerCommandRecordComponent>();
+        PlayerCommandRecordComponent rc = entity.GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
 
         T cmd = (T)rc.GetInputCahae(m_world.FrameCount);
 
@@ -179,7 +180,7 @@ public class CommandSyncSystem<T> : ViewSystemBase where T:PlayerCommandBase,new
 
         AddComp(entity);
 
-        PlayerCommandRecordComponent rc = entity.GetComp<PlayerCommandRecordComponent>();
+        PlayerCommandRecordComponent rc = entity.GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
         //先取服务器缓存
         T cmd = (T)rc.GetInputCahae(m_world.FrameCount);
 

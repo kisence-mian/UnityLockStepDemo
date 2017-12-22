@@ -435,7 +435,7 @@ namespace Lockstep
 
 				theta = theta.Normalized(FixedMath.TwoPi);
 
-				//New strategy... wrap theta around pi/4 for best accuracy. Mirror and flip based on quadrant.
+				//New strategy.. wrap theta around pi/4 for best accuracy. Mirror and flip based on quadrant.
 
 				bool mirror = false;
 				bool flip = false;

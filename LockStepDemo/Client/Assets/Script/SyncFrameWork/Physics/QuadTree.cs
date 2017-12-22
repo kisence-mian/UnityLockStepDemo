@@ -1,4 +1,5 @@
-﻿using Lockstep;
+﻿using FastCollections;
+using Lockstep;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,8 +12,8 @@ public class QuadTree
     const int MAX_DEPTH = 5;   //四叉树最大深度
     const int MAX_CARVE_DEPTH = 3;   //分裂最大深度
 
-    public List<CollisionComponent> m_objectList; //子对象
-    public List<QuadTree> m_childList;   //子节点
+    public FastList<CollisionComponent> m_objectList; //子对象
+    public FastList<QuadTree> m_childList;   //子节点
     public Body m_body; //范围,为性能考虑形状只支持不旋转的矩形(标准矩形)
     public int m_depth;
 
@@ -21,8 +22,8 @@ public class QuadTree
 
     public QuadTree(Body body, int depth)
     {
-        m_objectList = new List<CollisionComponent>();
-        m_childList = new List<QuadTree>();
+        m_objectList = new FastList<CollisionComponent>();
+        m_childList = new FastList<QuadTree>();
         m_depth = depth;
         m_body = body;
     }
@@ -192,13 +193,13 @@ public class QuadTree
         return indexListCache;
     }
 
-    List<CollisionComponent> listCache = new List<CollisionComponent>();
+    FastList<CollisionComponent> listCache = new FastList<CollisionComponent>();
 
     /*
       检索功能：
-        给出一个物体对象，该函数负责将该物体可能发生碰撞的所有物体选取出来。该函数先查找物体所属的象限，该象限下的物体都是有可能发生碰撞的，然后再递归地查找子象限...
+        给出一个物体对象，该函数负责将该物体可能发生碰撞的所有物体选取出来。该函数先查找物体所属的象限，该象限下的物体都是有可能发生碰撞的，然后再递归地查找子象限..
     */
-    public List<CollisionComponent> Retrieve(CollisionComponent coll)
+    public FastList<CollisionComponent> Retrieve(CollisionComponent coll)
     {
         listCache.Clear();
 

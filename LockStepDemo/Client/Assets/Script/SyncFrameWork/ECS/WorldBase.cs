@@ -242,7 +242,6 @@ public abstract class WorldBase
         foreach (Type tChild in assem.GetTypes())
         {
             if (tChild.BaseType == t)
-
             {
                 return (ComponentTypeBase)Activator.CreateInstance(tChild);
             }
@@ -328,7 +327,7 @@ public abstract class WorldBase
         {
             BeforeUpdate(deltaTime);
             Update(deltaTime);
-            //LateUpdate(deltaTime);
+            //LateUpdate 另行调用
         }
     }
 
@@ -389,6 +388,8 @@ public abstract class WorldBase
         LateFixedUpdate(deltaTime);
 
         LazyExecuteEntityOperation();
+
+        EndFrame(deltaTime);
     }
     #endregion
 
@@ -778,6 +779,12 @@ public abstract class WorldBase
 
     #endregion
 
+    #region 组件回滚
+
+
+
+    #endregion
+
     #endregion
 
     #region 实体相关
@@ -850,25 +857,6 @@ public abstract class WorldBase
 
         return entity;
     }
-
-    ///// <summary>
-    ///// 立即创建一个实体，不要在游戏逻辑中使用
-    ///// </summary>
-    ///// <param name="ID"></param>
-    ///// <param name="compList"></param>
-    ///// <returns></returns>
-    //public EntityBase CreateEntityImmediately(int ID, params ComponentBase[] compList)
-    //{
-    //    if (m_entityDict.ContainsKey(ID))
-    //    {
-    //        throw new Exception("CreateEntity Exception: Entity ID has exist ! ->" + ID + "<-");
-    //    }
-
-    //    EntityBase entity = NewEntity(ID, compList);
-    //    CreateEntityAndDispatch(entity);
-
-    //    return entity;
-    //}
 
     EntityBase NewEntity(string name,int ID, params ComponentBase[] compList)
     {
@@ -1062,12 +1050,14 @@ public abstract class WorldBase
 
     public EntityBase GetEntity(int ID)
     {
-        if (!m_entityDict.ContainsKey(ID))
+        try
+        {
+            return m_entityDict[ID];
+        }
+        catch
         {
             throw new Exception("GetEntity Exception: Entity ID has not exist ! ->" + ID + "<-");
         }
-
-        return m_entityDict[ID];
     }
 
     public List<EntityBase> GetEntiyList(string[] compNames)
@@ -1436,34 +1426,31 @@ public abstract class WorldBase
         }
     }
 
-    void DispatchEntityComponentAdded(EntityBase entity, string compName, ComponentBase component)
+    void DispatchEntityComponentAdded(EntityBase entity, int compIndex, ComponentBase component)
     {
         if (OnEntityComponentAdded != null)
         {
-            OnEntityComponentAdded(entity, compName, component);
+            OnEntityComponentAdded(entity, compIndex, component);
         }
     }
 
-    void DispatchEntityComponentRemoved(EntityBase entity, string compName, ComponentBase component)
+    void DispatchEntityComponentRemoved(EntityBase entity, int compIndex, ComponentBase component)
     {
         if (OnEntityComponentRemoved != null)
         {
-            OnEntityComponentRemoved(entity, compName, component);
+            OnEntityComponentRemoved(entity, compIndex, component);
         }
     }
 
-    void DispatchEntityComponentChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
+    void DispatchEntityComponentChange(EntityBase entity, int compIndex, ComponentBase previousComponent, ComponentBase newComponent)
     {
         if (OnEntityComponentChange != null)
         {
-            OnEntityComponentChange(entity, compName, previousComponent, newComponent);
+            OnEntityComponentChange(entity, compIndex, previousComponent, newComponent);
         }
     }
 
-
     public delegate void EntityChangedCallBack(EntityBase entity);
-
-
 
     #endregion
 
@@ -1479,9 +1466,9 @@ public abstract class WorldBase
     {
         m_RandomSeed = Math.Abs((m_RandomSeed * m_randomA + m_randomB) % m_randomC);
 
-        if(SyncDebugSystem.isDebug)
+        if (SyncDebugSystem.isDebug)
         {
-            SyncDebugSystem.RecordRandomChange(FrameCount, m_RandomSeed,"");
+            SyncDebugSystem.RecordRandomChange(FrameCount, m_RandomSeed, "");
         }
 
         return m_RandomSeed;
@@ -1497,7 +1484,7 @@ public abstract class WorldBase
     {
         int result = GetRandom();
 
-        result = min + result % max;
+        result = min + result % (max - min);
 
         return result;
     }

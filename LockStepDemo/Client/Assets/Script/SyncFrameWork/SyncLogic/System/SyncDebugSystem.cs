@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class SyncDebugSystem : SystemBase
 {
-    public static bool isDebug = true;
+    public static bool isDebug = false;
     public static bool isPlayerOnly = true;
 
     public const string c_isAllMessage = "AllMessage";
@@ -16,9 +16,9 @@ public class SyncDebugSystem : SystemBase
     public const string c_MissData     = "MissData";
     public const string c_Recalc       = "Recalc";
 
-    public static string[] DebugFilter = new string[] { "MoveComponent", "GrowUpComponent" , "CollisionComponent","LifeComponent"/* "LifeSpanComponent" */};
+    public static string[] DebugFilter = new string[] { "LifeComponent", "CommandComponent","GrowUpComponent", "MoveComponent"};
 
-    public static string[] SingleCompFilter = new string[] { "LogicRuntimeMachineComponent", /*"MapGridStateComponent"*/ };
+    public static string[] SingleCompFilter = new string[] { "MapGridStateComponent", "LogicRuntimeMachineComponent" };
 
     public static string syncLog = "";
 
@@ -59,20 +59,17 @@ public class SyncDebugSystem : SystemBase
     //Deserializer deserializer = new Deserializer();
     public void ReceviceDebugMsg(DebugMsg msg, params object[] objs)
     {
-        //Debug.Log("ReceviceDebugMsg " + isDebug);
-
-        if (!isDebug)
-            return;
-
-        //ConnectStatusComponent csc = m_world.GetSingletonComp<ConnectStatusComponent>();
+        isDebug = true;
 
         debugList.Add(msg);
         return;
-
     }
 
     public override void EndFrame(int deltaTime)
     {
+        if (!isDebug)
+            return;
+        //Debug.Log("LateFixedUpdate");
 
         ConnectStatusComponent csc = m_world.GetSingletonComp<ConnectStatusComponent>();
 
@@ -101,7 +98,10 @@ public class SyncDebugSystem : SystemBase
 
     public override void Update(int deltaTime)
     {
-        if(Input.GetKeyDown(KeyCode.F12))
+        if (!isDebug)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.F12))
         {
             OutPutDebugRecord();
         }
@@ -142,13 +142,23 @@ public class SyncDebugSystem : SystemBase
         RecordDebugMsg(msg);
     }
 
+    int x = 0;
+    System.Diagnostics.StackTrace st;
+
     public void Record(string msg = "")
     {
-
-        if (!m_world.IsCertainty)
+        if(!m_world.IsCertainty)
         {
             return;
         }
+
+        if(x >= m_world.FrameCount)
+        {
+            Debug.LogError("重复的确定帧！" + st + "\n\n");
+        }
+
+        x = m_world.FrameCount;
+        st = new System.Diagnostics.StackTrace();
 
         //Debug.Log("Record");
 
@@ -157,15 +167,18 @@ public class SyncDebugSystem : SystemBase
             EntityBase entity = m_world.m_entityList[i];
 
             if (isPlayerOnly
-                && !(entity.GetExistComp<SelfComponent>() || entity.GetExistComp<TheirComponent>()))
+                && !(entity.GetExistComp(ComponentType.SelfComponent) || entity.GetExistComp(ComponentType.TheirComponent)))
             {
                 continue;
             }
 
             foreach (var item in entity.comps)
             {
-                if (item == null)
+                if(item == null)
+                {
                     continue;
+                }
+
                 string compName = item.GetType().Name;
                 if (IsFilter(compName))
                 {
@@ -181,7 +194,7 @@ public class SyncDebugSystem : SystemBase
                         debugContent.Add(key, content);
                     }
 
-                    //content += "\nframe " + m_world.FrameCount + " id " + entity.ID + " -> " + Serializer.Serialize(item);
+                    content += "\nframe " + m_world.FrameCount + " id " + entity.ID + " -> " + Serializer.Serialize(item);
                     debugContent[key] = content;
                 }
             }
@@ -212,6 +225,7 @@ public class SyncDebugSystem : SystemBase
         RecordMsg("errorMsg", m_world.FrameCount, msg);
         RecordRandomSeed("local_randomSeed", m_world.FrameCount, m_world.m_RandomSeed);
 
+        //Debug.Log("local_randomSeed " + m_world.FrameCount + " " + m_world.m_RandomSeed);
     }
 
     void RecordRandomSeed(string key, int frame, int seed)
@@ -421,7 +435,6 @@ public class SyncDebugSystem : SystemBase
                 GlobalEvent.DispatchEvent(c_isConflict, msg.frame);
 
                 Time.timeScale = 0;
-                Record(log);
                 OutPutDebugRecord();
             }
             else
@@ -445,7 +458,6 @@ public class SyncDebugSystem : SystemBase
             rsb.PrintRecord(0);
 
             Time.timeScale = 0;
-            Record(log);
             OutPutDebugRecord();
         }
         else
@@ -456,7 +468,12 @@ public class SyncDebugSystem : SystemBase
 
     void CheckCommandLogic(DebugMsg msg, EntityInfo entityInfo, ComponentInfo compInfo)
     {
-        PlayerCommandRecordComponent pcrc = m_world.GetEntity(entityInfo.id).GetComp<PlayerCommandRecordComponent>();
+        if(!m_world.GetEntity(entityInfo.id).GetExistComp(ComponentType.PlayerCommandRecordComponent))
+        {
+            return;
+        }
+
+        PlayerCommandRecordComponent pcrc = m_world.GetEntity(entityInfo.id).GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
         PlayerCommandBase compLocal = pcrc.GetInputCahae(msg.frame);
 
         if (compLocal == null)
@@ -465,11 +482,12 @@ public class SyncDebugSystem : SystemBase
         }
 
         compLocal.time = 0;
+        compLocal.frame = msg.frame;
         string content = Serializer.Serialize(compLocal);
 
         if (!content.Equals(compInfo.content))
         {
-            string log = "error: frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + msg + " msg.id " + entityInfo.id + " comp:" + compInfo.m_compName + "\n remote:" + compInfo.content + "\n local:" + content + "\n";
+            string log = "error: frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " msg.id " + entityInfo.id + " comp:" + compInfo.m_compName + "\n remote:" + compInfo.content + "\n local:" + content + "\n";
             Debug.LogWarning(log);
             string record = "";
 
@@ -483,7 +501,6 @@ public class SyncDebugSystem : SystemBase
             Debug.Log(record);
 
             Time.timeScale = 0;
-            Record(log);
             OutPutDebugRecord();
         }
         else
@@ -517,7 +534,6 @@ public class SyncDebugSystem : SystemBase
                     rsb.PrintRecord(entityInfo.id);
 
                     Time.timeScale = 0;
-                    Record(log);
                     OutPutDebugRecord();
                 }
                 else
@@ -538,7 +554,7 @@ public class SyncDebugSystem : SystemBase
         }
         else
         {
-            Debug.Log("Not is filter " + compInfo.m_compName);
+            //Debug.Log("Not is filter " + compInfo.m_compName);
         }
     }
 
@@ -562,7 +578,6 @@ public class SyncDebugSystem : SystemBase
             rsb.PrintRecord(0);
 
             Time.timeScale = 0;
-            Record(log);
             OutPutDebugRecord();
         }
         else

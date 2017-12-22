@@ -36,6 +36,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     public override Type[] GetFilter()
     {
         return new Type[] {
+            typeof(RealPlayerComponent),
             typeof(T),
         };
     }
@@ -167,7 +168,10 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
 
     void ReceviceCommandMsg(T cmd, params object[] objs)
     {
-        //Debug.Log("ReceviceCommandMsg frame " + cmd.frame);
+        //Debug.Log("ReceviceCommandMsg frame " + cmd.frame + " frame " + Serializer.Serialize(cmd));
+
+        if(SyncDebugSystem.isDebug)
+            SyncDebugSystem.RecordMsg("cmd_commandComponent", cmd.frame, Serializer.Serialize(cmd));
 
         //立即返回确认消息
         AffirmMsg amsg = new AffirmMsg();
@@ -180,7 +184,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
             EntityBase entity = m_world.GetEntity(cmd.id);
             AddComp(entity); //自动添加记录组件
 
-            PlayerCommandRecordComponent pcrc = entity.GetComp<PlayerCommandRecordComponent>();
+            PlayerCommandRecordComponent pcrc = entity.GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
             PlayerCommandBase record = pcrc.GetInputCahae(cmd.frame);
 
             //判断和本地的预测有没有冲突
@@ -222,7 +226,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
             EntityBase entity = m_world.GetEntity(cmd.id);
             AddComp(entity); //自动添加记录组件
 
-            PlayerCommandRecordComponent pcrc = entity.GetComp<PlayerCommandRecordComponent>();
+            PlayerCommandRecordComponent pcrc = entity.GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
             PlayerCommandBase record = pcrc.GetInputCahae(cmd.frame - 1);
 
             if (record != null)
@@ -274,7 +278,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
     //    //EntityBase entity = m_world.GetEntity(cmd.id);
     //    //AddComp(entity); //自动添加记录组件
 
-    //    //PlayerCommandRecordComponent pcrc = entity.GetComp<PlayerCommandRecordComponent>();
+    //    //PlayerCommandRecordComponent pcrc = entity.GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
 
     //    //PlayerCommandBase remote = cmd.ToCommand();
     //    //PlayerCommandBase record = pcrc.GetInputCahae(cmd.frame);
@@ -358,7 +362,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
             for (int j = 0; j < list.Count; j++)
             {
                 AddComp(list[j]);
-                PlayerCommandRecordComponent tmp = list[j].GetComp<PlayerCommandRecordComponent>();
+                PlayerCommandRecordComponent tmp = list[j].GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
                 isAllMessage &= tmp.GetAllMessage(i);
                 isConflict |= tmp.GetConflict(i);
 
@@ -422,7 +426,7 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
             {
                 for (int j = 0; j < list.Count; j++)
                 {
-                    PlayerCommandRecordComponent tmp = list[j].GetComp<PlayerCommandRecordComponent>();
+                    PlayerCommandRecordComponent tmp = list[j].GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
                     isAllMessage &= tmp.GetAllMessage(i);
                 }
 

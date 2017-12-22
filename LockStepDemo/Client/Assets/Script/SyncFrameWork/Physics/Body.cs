@@ -355,7 +355,7 @@ public class Body
     {
         Vector2d newCirclePos = circle.position;
         //标准矩形
-        if (!isStandard)
+        if (!rectangle.isStandard)
         {
             //先进行一次剪枝
             long x1 = circle.position.x - rectangle.position.x;
@@ -799,6 +799,45 @@ public class Body
     public void PrintBound()
     {
         Debug.Log("LeftBound " + LeftBound.ToFloat() + " RightBound " + RightBound.ToFloat() + " UpBound " + UpBound.ToFloat() + " DownBound " + DownBound.ToFloat());
+    }
+
+    #endregion
+
+    #region 表转化
+
+    public void Normal()
+    {
+        if (FixedMath.Abs(direction.GetRotationAngle(new Vector2d(1, 0))) < 1)
+        {
+            direction = new Vector2d(1, 0);
+            isStandard = true;
+        }
+
+        if (FixedMath.Abs(direction.GetRotationAngle(new Vector2d(-1, 0))) < 1)
+        {
+            direction = new Vector2d(1, 0);
+            isStandard = true;
+        }
+
+        if (FixedMath.Abs(direction.GetRotationAngle(new Vector2d(0, 1))) < 1)
+        {
+            direction = new Vector2d(1, 0);
+            isStandard = true;
+
+            long tmp = length;
+            length = width;
+            width = tmp;
+        }
+
+        if (FixedMath.Abs(direction.GetRotationAngle(new Vector2d(0, -1))) < 1)
+        {
+            direction = new Vector2d(1, 0);
+            isStandard = true;
+
+            long tmp = length;
+            length = width;
+            width = tmp;
+        }
     }
 
     #endregion

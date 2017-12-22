@@ -9,22 +9,20 @@ public  class ComponentsNameToConstEditorTool
     //public const string ClientCodePath = "Assets/Script/Generate/";
     public const string CommontCodePath = "Assets/Script/Generate/";
 
-    [MenuItem("Window/ECS Component Name To Constant Tool", priority = 303)]
+    [MenuItem("Tools/ECS/Generate ECS Component Name")]
    // [InitializeOnLoadMethod]
-    static void DoIt()
+    static void Generate()
     {
        // int compNum = PlayerPrefs.GetInt("ComponentCount", 0);
 
         Type[] allTypes = ReflectionUtils.GetChildTypes(typeof(ComponentBase));
-        //if (compNum == allTypes.Length)
-        //    return;
 
         List<Type> userTypes = new List<Type>();
 
         foreach (var item in allTypes)
         {
-            if (item == typeof(RecordComponent<>))
-                continue;
+            //if (item == typeof(RecordComponent<>))
+            //    continue;
             if (item == typeof(SingletonComponent))
                 continue;
             if (item == typeof(MomentComponentBase))
@@ -41,13 +39,7 @@ public  class ComponentsNameToConstEditorTool
 
         FileUtils.CreateTextFile(CommontCodePath + "ComponentType.cs", code);
 
-        //code = CreateCode(userTypes.Count, viewTypes);
-
-        //FileUtils.CreateTextFile(ClientCodePath + "ComponentViewType.cs", code);
-
         AssetDatabase.Refresh();
-
-       
     }
 
 

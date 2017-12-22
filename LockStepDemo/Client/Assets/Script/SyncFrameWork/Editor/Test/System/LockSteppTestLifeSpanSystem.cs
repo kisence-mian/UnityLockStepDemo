@@ -19,7 +19,7 @@ public class LockStepTestLifeSpanSystem : SystemBase
 
         for (int i = 0; i < list.Count; i++)
         {
-            TestLifeSpanComponent lsc = list[i].GetComp<TestLifeSpanComponent>();
+            TestLifeSpanComponent lsc = list[i].GetComp<TestLifeSpanComponent>(ComponentType.TeamAchievementDataComponent);
             lsc.lifeTime -= deltaTime;
 
             //Debug.Log("lsc.lifeTime  " + lsc.lifeTime + " frame " + m_world.FrameCount + " ID " + lsc.Entity.ID);

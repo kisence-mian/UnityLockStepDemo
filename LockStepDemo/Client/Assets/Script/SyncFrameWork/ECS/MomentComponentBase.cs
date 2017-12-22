@@ -8,6 +8,7 @@ public abstract class MomentComponentBase : ComponentBase
 {
     private int id;
     private int frame;
+    private bool isChange;
 
     public int ID
     {
@@ -32,6 +33,19 @@ public abstract class MomentComponentBase : ComponentBase
         set
         {
             frame = value;
+        }
+    }
+
+    public bool IsChange
+    {
+        get
+        {
+            return isChange;
+        }
+
+        set
+        {
+            isChange = value;
         }
     }
 
