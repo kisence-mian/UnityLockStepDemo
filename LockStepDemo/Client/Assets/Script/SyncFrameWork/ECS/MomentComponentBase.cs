@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
 /// 所有需要网络同步的继承这个组件
@@ -45,6 +46,8 @@ public abstract class MomentComponentBase : ComponentBase
 
         set
         {
+            //Debug.Log("ischange " + GetType().Name + " frame " + World.FrameCount);
+
             isChange = value;
         }
     }

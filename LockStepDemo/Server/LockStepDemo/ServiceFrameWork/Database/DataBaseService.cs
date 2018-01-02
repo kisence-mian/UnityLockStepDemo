@@ -11,7 +11,7 @@ public class DataBaseService : ServiceBase
     public static IDatabase database;
     protected override void OnInit(IServerConfig config)
     {
-        Debug.Log("开始连接数据库~~~");
+        
         long time = ServiceTime.GetServiceTime();
 
         DbConfig dConfig = new DbConfig();
@@ -21,6 +21,8 @@ public class DataBaseService : ServiceBase
         dConfig.Database = config.Options.Get("DataBaseName");
 
         database = DatabaseFactory.CreateDatabase(dConfig, DbConfig.DbType.MYSQL);
+
+        Debug.Log("开始连接数据库~~~ " + dConfig.Server);
 
         try
         {

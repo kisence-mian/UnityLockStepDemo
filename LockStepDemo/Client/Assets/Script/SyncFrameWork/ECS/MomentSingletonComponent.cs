@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class MomentSingletonComponent : SingletonComponent
 {
     private int frame;
+    private bool isChange;
 
     public int Frame
     {
@@ -16,6 +17,19 @@ public abstract class MomentSingletonComponent : SingletonComponent
         set
         {
             frame = value;
+        }
+    }
+
+    public bool IsChange
+    {
+        get
+        {
+            return isChange;
+        }
+
+        set
+        {
+            isChange = value;
         }
     }
 

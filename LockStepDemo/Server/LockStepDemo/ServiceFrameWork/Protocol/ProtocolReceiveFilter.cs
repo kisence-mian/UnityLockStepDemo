@@ -52,7 +52,7 @@ namespace Protocol
 
                 if(s_nextReceiveFilter == null)
                 {
-                    s_nextReceiveFilter = new ProtocolReceiveFilter();
+                    s_nextReceiveFilter = this;
                 }
 
                 return s_nextReceiveFilter;
@@ -84,37 +84,52 @@ namespace Protocol
 
         }
 
+
+        byte[] m_messageBuffer = new byte[1024*1024];
+        int m_head = 0;
+        int m_total = 0;
+
         ProtocolRequestBase IReceiveFilter<ProtocolRequestBase>.Filter(byte[] readBuffer, int offset, int length, bool toBeCopied, out int rest)
         {
-            int index = offset;
-            //分割消息
-            int msgLength = (int)readBuffer[index++] << 8;
-            msgLength += (int)readBuffer[index];
+            //Debug.Log("Filter  m_head " + m_head + " m_total " + m_total);
 
-            msgLength += 2;
+            WriteBytes(readBuffer,offset, length);
 
-            if (length < msgLength)
+            //Debug.Log("offset " + offset + " length " + length + " m_total " + m_total + " m_head " + m_head + " msgLength " + ReadLength());
+
+            if (GetBufferLength() != 0 && ReadLength() <= GetBufferLength())
             {
-                rest = length;
-                return null;
+                rest = length - ReadLength();
+
+                ProtocolRequestBase prb = ReceiveDataLoad(ReadByte(ReadLength()));
+
+                m_head = 0;
+                m_total = 0;
+
+                return prb;
             }
             else
             {
-                rest = length - msgLength;
-            }
+                Debug.Log("不完整的消息 m_head " + m_head + " m_total " + m_total);
 
+                rest = 0;
+                return null;
+            }
+        }
+
+        private ProtocolRequestBase ReceiveDataLoad(byte[] bytes)
+        {
             try
             {
                 ByteArray ba = new ByteArray();
 
-                for (int i = offset; i < offset + msgLength; i++)
-                {
-                    ba.Add(readBuffer[i]);
-                }
+                //用于做数据处理,加解密,或者压缩于解压缩    
+                ba.clear();
+                ba.Add(bytes);
 
                 return Analysis(ba);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Debug.LogError(e.ToString());
                 return null;
@@ -124,6 +139,76 @@ namespace Protocol
         void IReceiveFilter<ProtocolRequestBase>.Reset()
         {
             throw new NotImplementedException();
+        }
+
+        void WriteBytes(byte[] bytes,int offset, int length)
+        {
+            for (int i = offset,j =0; i < length + offset; i++,j++)
+            {
+                int pos = m_total + j;
+
+                if (pos >= m_messageBuffer.Length)
+                {
+                    pos -= m_messageBuffer.Length;
+                }
+
+                m_messageBuffer[pos] = bytes[i];
+            }
+
+            m_total += length;
+
+            if (m_total >= m_messageBuffer.Length)
+            {
+                m_total -= m_messageBuffer.Length;
+            }
+        }
+
+        int ReadLength()
+        {
+            int result = (int)m_messageBuffer[m_head] << 8;
+
+            int nextPos = m_head + 1;
+
+            if (nextPos >= m_messageBuffer.Length)
+            {
+                nextPos = 0;
+            }
+
+            result += (int)m_messageBuffer[nextPos];
+            return result + 2;
+        }
+
+        int GetBufferLength()
+        {
+            if (m_total >= m_head)
+            {
+                return m_total - m_head;
+            }
+            else
+            {
+                return m_total + (m_messageBuffer.Length - m_head);
+            }
+        }
+
+        byte[] ReadByte(int length)
+        {
+            byte[] bytes = new byte[length];
+
+            if (m_head + length < m_messageBuffer.Length)
+            {
+                Array.Copy(m_messageBuffer, m_head, bytes, 0, length);
+                m_head += length;
+            }
+            else
+            {
+                int cutLength = m_messageBuffer.Length - m_head;
+
+                Array.Copy(m_messageBuffer, m_head, bytes, 0, cutLength);
+                Array.Copy(m_messageBuffer, 0, bytes, cutLength, length - cutLength);
+
+                m_head = length - cutLength;
+            }
+            return bytes;
         }
 
         #region 读取protocol信息

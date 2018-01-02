@@ -17,7 +17,7 @@ public class PlayerCommandRecordComponent : ComponentBase
     {
         if(m_inputCache.ContainsKey(frame))
         {
-            return m_inputCache[frame];
+            return m_inputCache[frame].DeepCopy();
         }
 
         return null;

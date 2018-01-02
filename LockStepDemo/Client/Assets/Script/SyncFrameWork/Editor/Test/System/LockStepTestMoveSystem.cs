@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lockstep;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,8 @@ public class LockStepTestMoveSystem : SystemBase
     public override Type[] GetFilter()
     {
         return new Type[] {
-            typeof(TestMoveComponent),
-            typeof(TestCommandComponent),
+            typeof(MoveComponent),
+            typeof(CommandComponent),
         };
     }
 
@@ -25,24 +26,18 @@ public class LockStepTestMoveSystem : SystemBase
 
     void UpdateMove(EntityBase entity, int deltaTime)
     {
-        TestMoveComponent mc = (TestMoveComponent)entity.GetComp("TestMoveComponent");
-        TestCommandComponent cc = (TestCommandComponent)entity.GetComp("TestCommandComponent");
+        MoveComponent mc = (MoveComponent)entity.GetComp("MoveComponent");
+        CommandComponent cc = (CommandComponent)entity.GetComp("CommandComponent");
 
         mc.dir = cc.moveDir;
         mc.m_velocity = 4000;
 
-        //Debug.Log("LockStepTestMoveSystem " + mc.dir);
+        Vector2d newPos = mc.pos;
 
-        SyncVector3 newPos = mc.pos.DeepCopy();
-
-        newPos.x += (mc.dir.x * deltaTime / 1000) * mc.m_velocity / 1000;
-        newPos.y += (mc.dir.y * deltaTime / 1000) * mc.m_velocity / 1000;
-        newPos.z += (mc.dir.z * deltaTime / 1000) * mc.m_velocity / 1000;
-
-        //Debug.Log("mc.pos "+ mc.pos  + " newPos " + newPos + " mc.dir.x " + mc.dir.x + " mc.m_velocity " + mc.m_velocity);
+        newPos += mc.dir * FixedMath.Create(deltaTime).Div(FixedMath.Create(1000)).Mul(FixedMath.Create(mc.m_velocity).Div(FixedMath.Create(1000)));
 
         mc.pos = newPos;
 
-        //Debug.DrawRay(newPos.ToVector(), Vector3.up, Color.yellow, 10);
+        //Debug.Log("dir " + mc.dir + " ");
     }
 }

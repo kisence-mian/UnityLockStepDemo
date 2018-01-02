@@ -108,19 +108,24 @@ public class QuadTree
     }
 
     //从四叉树中移除一个对象
-    public void Remove(CollisionComponent coll)
+    public bool Remove(CollisionComponent coll)
     {
         if (m_objectList.Contains(coll))
         {
             m_objectList.Remove(coll);
             m_objectListCount--;
+            return true;
         }
         else
         {
             for (int i = 0; i < m_childListCount; i++)
             {
-                m_childList[i].Remove(coll);
+                bool isRemove =  m_childList[i].Remove(coll);
+                if (isRemove)
+                    return true;
             }
+
+            return false;
         }
     }
 

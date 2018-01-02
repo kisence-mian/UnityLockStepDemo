@@ -112,6 +112,10 @@ public abstract class WorldBase
     }
 
     public ComponentTypeBase componentType;
+    /// <summary>
+    /// 组件实体缓存池
+    /// </summary>
+    public ComponentPool heapComponentPool;
     #endregion
 
     #region 对象和系统的集合
@@ -213,6 +217,7 @@ public abstract class WorldBase
         eventSystem = new ECSEvent(this);
 
         componentType = GetComponentType();
+         heapComponentPool = new ComponentPool(componentType.Count(),this);
         //singletonComponents = new SingletonComponent[componentType.Count()];
         //Debug.Log(" componentType: " + componentType.GetType().FullName);
        IsClient = isClient;
@@ -1279,6 +1284,7 @@ public abstract class WorldBase
         {
             comp = new T();
             comp.Init();
+            comp.World = this;
             m_singleCompDict.Add(key, comp);
         }
 
@@ -1299,6 +1305,8 @@ public abstract class WorldBase
             Type compType = Type.GetType(compName);
 
             comp = (SingletonComponent)compType.Assembly.CreateInstance(compType.FullName);
+            comp.Init();
+            comp.World = this;
             //singletonComponents[index] = comp;
             m_singleCompDict.Add(compName, comp);
         }
@@ -1316,12 +1324,16 @@ public abstract class WorldBase
     {
         if (m_singleCompDict.ContainsKey(compName))
         {
+           int index = componentType.GetComponentIndex(compName);
+            heapComponentPool.PutObject(index, m_singleCompDict[compName]);
             m_singleCompDict[compName] = comp;
         }
         else
         {
             m_singleCompDict.Add(compName, comp);
         }
+
+        comp.World = this;
     }
 
     #endregion

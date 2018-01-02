@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LockStepInputSystem : CommandSyncSystem<TestCommandComponent>
+public class LockStepInputSystem : CommandSyncSystem<CommandComponent>
 {
-    public static TestCommandComponent commandCache = new TestCommandComponent();
+    public static CommandComponent commandCache = new CommandComponent();
 
-    public override void BuildCommand(TestCommandComponent command)
+    public override void BuildCommand(CommandComponent command)
     {
 
         command.isFire = commandCache.isFire;

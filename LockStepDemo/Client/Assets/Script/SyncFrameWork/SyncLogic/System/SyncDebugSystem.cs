@@ -16,15 +16,25 @@ public class SyncDebugSystem : SystemBase
     public const string c_MissData     = "MissData";
     public const string c_Recalc       = "Recalc";
 
-    public static string[] DebugFilter = new string[] { "LifeComponent", "CommandComponent","GrowUpComponent", "MoveComponent"};
+    public static string[] DebugFilter = new string[] {
+        "LifeSpanComponent",
+        "MoveComponent",
+        "PlayerComponent",
+        "LifeComponent",
+        "SkillStatusComponent",
+        "BlowFlyComponent",
+        "FlyObjectComponent",
+        "GrowUpComponent",
+        "AIComponent",
+    };
 
-    public static string[] SingleCompFilter = new string[] { "MapGridStateComponent", "LogicRuntimeMachineComponent" };
+    public static string[] SingleCompFilter = new string[] { /*"MapGridStateComponent", "LogicRuntimeMachineComponent" */};
 
     public static string syncLog = "";
 
     List<DebugMsg> debugList = new List<DebugMsg>();
 
-    static Dictionary<string, string> debugContent = new Dictionary<string, string>();
+    static Dictionary<string, StringBuilder> debugContent = new Dictionary<string, StringBuilder>();
 
     public override void Init()
     {
@@ -147,6 +157,9 @@ public class SyncDebugSystem : SystemBase
 
     public void Record(string msg = "")
     {
+        //return;
+
+#if UNITY_EDITOR
         if(!m_world.IsCertainty)
         {
             return;
@@ -185,17 +198,15 @@ public class SyncDebugSystem : SystemBase
                     string key = "local_" + compName;
                     string content = "";
 
-                    if (debugContent.ContainsKey(key))
+                    if (!debugContent.ContainsKey(key))
                     {
-                        content = debugContent[key];
-                    }
-                    else
-                    {
-                        debugContent.Add(key, content);
+                        debugContent.Add(key, new StringBuilder());
                     }
 
                     content += "\nframe " + m_world.FrameCount + " id " + entity.ID + " -> " + Serializer.Serialize(item);
-                    debugContent[key] = content;
+                    debugContent[key].Append( content);
+
+                    //Debug.Log("frame " + m_world.FrameCount + " id " + entity.ID + "-> " + Serializer.Serialize(item));
                 }
             }
         }
@@ -208,22 +219,20 @@ public class SyncDebugSystem : SystemBase
                 string key = "local_singleComp_" + compName;
                 string content = "";
 
-                if (debugContent.ContainsKey(key))
+                if (!debugContent.ContainsKey(key))
                 {
-                    content = debugContent[key];
-                }
-                else
-                {
-                    debugContent.Add(key, content);
+                    debugContent.Add(key, new StringBuilder());
                 }
 
                 content += "\nframe " + m_world.FrameCount + " -> " + Serializer.Serialize(item.Value);
-                debugContent[key] = content;
+                debugContent[key].Append(content);
             }
         }
 
         RecordMsg("errorMsg", m_world.FrameCount, msg);
         RecordRandomSeed("local_randomSeed", m_world.FrameCount, m_world.m_RandomSeed);
+
+#endif
 
         //Debug.Log("local_randomSeed " + m_world.FrameCount + " " + m_world.m_RandomSeed);
     }
@@ -232,37 +241,32 @@ public class SyncDebugSystem : SystemBase
     {
         string content = "";
 
-        if (debugContent.ContainsKey(key))
+        if (!debugContent.ContainsKey(key))
         {
-            content = debugContent[key];
-        }
-        else
-        {
-            debugContent.Add(key, content);
+            debugContent.Add(key, new StringBuilder());
         }
 
         content += "\nframe " + frame + " -> " + seed;
-        debugContent[key] = content;
+        debugContent[key].Append(content);
     }
 
     public static void RecordMsg(string key, int frame, string msg)
     {
+        if (!isDebug)
+            return;
+
         if (msg == null)
             return;
 
         string content = "";
 
-        if (debugContent.ContainsKey(key))
+        if (!debugContent.ContainsKey(key))
         {
-            content = debugContent[key];
-        }
-        else
-        {
-            debugContent.Add(key, content);
+            debugContent.Add(key, new StringBuilder());
         }
 
         content += "\nframe " + frame + " -> " + msg;
-        debugContent[key] = content;
+        debugContent[key].Append(content);
     }
 
     public static void RecordRandomChange( int frame, int seed,string log)
@@ -270,17 +274,13 @@ public class SyncDebugSystem : SystemBase
         string key = "local_randomChange";
         string content = "";
 
-        if (debugContent.ContainsKey(key))
+        if (!debugContent.ContainsKey(key))
         {
-            content = debugContent[key];
-        }
-        else
-        {
-            debugContent.Add(key, content);
+            debugContent.Add(key, new StringBuilder());
         }
 
         content += "\nframe " + frame + " -> " + seed + " log " + log + "\n" + new System.Diagnostics.StackTrace().ToString();
-        debugContent[key] = content;
+        debugContent[key].Append(content);
     }
 
     public void RecordDebugMsg(DebugMsg msg)
@@ -292,17 +292,13 @@ public class SyncDebugSystem : SystemBase
                 string key = "remote_" + msg.infos[i].infos[j].m_compName;
                 string content = "";
 
-                if (debugContent.ContainsKey(key))
+                if (!debugContent.ContainsKey(key))
                 {
-                    content = debugContent[key];
-                }
-                else
-                {
-                    debugContent.Add(key,content);
+                    debugContent.Add(key, new StringBuilder());
                 }
 
                 content += "\nframe " + msg.frame + " id " + msg.infos[i].id + " -> " + msg.infos[i].infos[j].content;
-                debugContent[key] = content;
+                debugContent[key].Append(content);
             }
         }
 
@@ -311,18 +307,14 @@ public class SyncDebugSystem : SystemBase
             string key = "remote_singleComp_" + msg.singleCompInfo[i].m_compName;
             string content = "";
 
-            if (debugContent.ContainsKey(key))
+            if (!debugContent.ContainsKey(key))
             {
-                content = debugContent[key];
-            }
-            else
-            {
-                debugContent.Add(key, content);
+                debugContent.Add(key, new StringBuilder());
             }
 
 
             content += "\nframe " + msg.frame + " -> " + msg.singleCompInfo[i].content;
-            debugContent[key] = content;
+            debugContent[key].Append(content);
         }
 
         RecordRandomSeed("remote_randomSeed", msg.frame, msg.seed);
@@ -330,12 +322,14 @@ public class SyncDebugSystem : SystemBase
 
     public void OutPutDebugRecord()
     {
+#if UNITY_EDITOR
         foreach (var item in debugContent)
         {
             //Debug.Log(item.Key + "\n" + item.Value);
 
-            ResourceIOTool.WriteStringByFile(Application.dataPath + "/.OutPut/" + item.Key + ".txt", item.Value);
+            ResourceIOTool.WriteStringByFile(Application.dataPath + "/.OutPut/" + item.Key + ".txt", item.Value.ToString());
         }
+#endif
     }
 
     void CheckCurrentFrame(DebugMsg msg)

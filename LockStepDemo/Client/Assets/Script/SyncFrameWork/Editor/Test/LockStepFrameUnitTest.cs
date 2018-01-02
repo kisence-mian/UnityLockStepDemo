@@ -4,6 +4,7 @@ using System.Reflection;
 using System;
 using NUnit.Framework;
 using Protocol;
+using Lockstep;
 
 namespace LockStepFrameWork
 {
@@ -25,43 +26,44 @@ namespace LockStepFrameWork
             ConnectStatusComponent csc = world.GetSingletonComp<ConnectStatusComponent>();
             csc.confirmFrame = 0; //从目标帧之后开始计算
 
+
             SelfComponent sc   = new SelfComponent();
+            RealPlayerComponent rp = new RealPlayerComponent();
+            EntityBase c1 =  world.CreateEntityImmediately("Test", sc, rp);
 
-            EntityBase c1 =  world.CreateEntityImmediately("1", sc);
-
-            LockStepInputSystem.commandCache.moveDir.x = 1000;
+            LockStepInputSystem.commandCache.moveDir.x = FixedMath.Create( 1000);
 
             world.CallRecalc();
             world.FixedLoop(WorldManager.IntervalTime);
 
-            LockStepInputSystem.commandCache.moveDir.x = 0000;
+            LockStepInputSystem.commandCache.moveDir.x = FixedMath.Create(0000);
 
-            TestMoveComponent mc = c1.GetComp<TestMoveComponent>();
+            MoveComponent mc = c1.GetComp<MoveComponent>();
 
             //Debug.Log("mc.pos.x " + mc.pos.x + " frame " + world.FrameCount);
 
-            Assert.AreEqual( 400, mc.pos.x);
+            Assert.AreEqual( 399,  mc.pos.x.ToInt());
 
-            TestCommandComponent cmd = new TestCommandComponent();
+            CommandComponent cmd = new CommandComponent();
             cmd.frame = 1;
-            cmd.id = 1;
+            cmd.id = c1.ID;
             GlobalEvent.DispatchTypeEvent(cmd);
 
             world.CallRecalc();
             world.FixedLoop(WorldManager.IntervalTime);
 
-            mc = c1.GetComp<TestMoveComponent>();
+            mc = c1.GetComp<MoveComponent>();
             //Debug.Log("mc.pos.x " + mc.pos.x + " frame " + world.FrameCount);
 
             for (int i = 0; i < 10; i++)
             {
                 world.CallRecalc();
                 world.FixedLoop(WorldManager.IntervalTime);
-                mc = c1.GetComp<TestMoveComponent>();
+                mc = c1.GetComp<MoveComponent>();
                 //Debug.Log("mc.pos.x " + mc.pos.x + " frame " + world.FrameCount);
             }
 
-            Assert.AreEqual(0, mc.pos.x);
+            Assert.AreEqual(0, mc.pos.x.ToInt());
         }
 
         [Test(Description = "单例组件数值回滚测试")]
@@ -79,8 +81,8 @@ namespace LockStepFrameWork
             csc.confirmFrame = 0; //从目标帧之后开始计算
 
             SelfComponent sc = new SelfComponent();
-
-            /*EntityBase c1 =*/ world.CreateEntityImmediately("1", sc);
+            RealPlayerComponent rp = new RealPlayerComponent();
+            EntityBase c1 = world.CreateEntityImmediately("Test", sc, rp);
 
             world.CallRecalc();
             world.FixedLoop(WorldManager.IntervalTime);
@@ -88,9 +90,9 @@ namespace LockStepFrameWork
             TestSingleComponent tc = world.GetSingletonComp<TestSingleComponent>();
             Assert.AreEqual(0, tc.testValue);
 
-            TestCommandComponent cmd = new TestCommandComponent();
+            CommandComponent cmd = new CommandComponent();
             cmd.frame = 1;
-            cmd.id = 1;
+            cmd.id = c1.ID;
             cmd.isFire = true;
             GlobalEvent.DispatchTypeEvent(cmd);
 
@@ -106,9 +108,9 @@ namespace LockStepFrameWork
             tc = world.GetSingletonComp<TestSingleComponent>();
             Assert.AreEqual(1, tc.testValue);
 
-            cmd = new TestCommandComponent();
+            cmd = new CommandComponent();
             cmd.frame = 2;
-            cmd.id = 1;
+            cmd.id = c1.ID;
             cmd.isFire = true;
             GlobalEvent.DispatchTypeEvent(cmd);
 
@@ -138,44 +140,44 @@ namespace LockStepFrameWork
 
             PlayerComponent pc = new PlayerComponent();
             SelfComponent sc = new SelfComponent();
-
-            /*EntityBase c1 =*/ world.CreateEntityImmediately("1", pc, sc);
+            RealPlayerComponent rp = new RealPlayerComponent();
+            EntityBase c1 = world.CreateEntityImmediately("Test", sc, rp,pc);
 
             int createFrame = -1;
             int destroyFrame = -1;
 
             world.OnEntityOptimizeCreated += (entity) =>
             {
-                //Debug.Log("OnEntityCreate " + entity.ID + " frame " + world.FrameCount);
+                Debug.Log("OnEntityCreate " + entity.ID + " frame " + world.FrameCount);
                 createFrame = world.FrameCount;
             };
 
             world.OnEntityOptimizeDestroyed += (entity) =>
             {
-                //Debug.Log("OnEntityDestroyed " + entity.ID + " frame " + world.FrameCount);
+                Debug.Log("OnEntityDestroyed " + entity.ID + " frame " + world.FrameCount);
                 destroyFrame = world.FrameCount;
             };
 
-            string tmp = (1 + "FireObject" + 1);
+            string tmp = (1 + "FireObject" + c1.ID);
             int id = tmp.ToHash();
 
             LockStepInputSystem.commandCache.isFire = true;
 
             Assert.AreEqual(false, world.GetEntityIsExist(id)); //没执行前不存在这个对象
 
-            world.CallRecalc();
-            world.FixedLoop(100);
+            world.CallRecalc(); //第1帧
+            world.FixedLoop(WorldManager.IntervalTime);
 
             LockStepInputSystem.commandCache.isFire = false;
 
             Assert.AreEqual(true, world.GetEntityIsExist(id)); //执行完存在这个对象
 
-            TestCommandComponent cmd = new TestCommandComponent();
+            CommandComponent cmd = new CommandComponent();
             cmd.frame = 1;
-            cmd.id = 1;
+            cmd.id = c1.ID;
             GlobalEvent.DispatchTypeEvent(cmd);
 
-            world.CallRecalc();
+            world.CallRecalc();//第2帧
             world.FixedLoop(WorldManager.IntervalTime);
 
             Assert.AreEqual(false, world.GetEntityIsExist(id)); //重计算后对象消失
@@ -200,8 +202,8 @@ namespace LockStepFrameWork
 
             PlayerComponent pc = new PlayerComponent();
             SelfComponent sc = new SelfComponent();
-
-            /*EntityBase c1 =*/ world.CreateEntityImmediately("1", pc, sc);
+            RealPlayerComponent rp = new RealPlayerComponent();
+            EntityBase c1 = world.CreateEntityImmediately("Test", sc, rp, pc);
 
             int createFrame = -1;
             int destroyFrame = -1;
@@ -219,7 +221,7 @@ namespace LockStepFrameWork
                 destroyFrame = world.FrameCount;
             };
 
-            string tmp = (1 + "FireObject" + 1);
+            string tmp = (1 + "FireObject" + c1.ID);
             int id = tmp.ToHash();
 
             Assert.AreEqual(false, world.GetEntityIsExist(id)); //没执行前不存在这个对象
@@ -231,9 +233,9 @@ namespace LockStepFrameWork
 
             Assert.AreEqual(false, world.GetEntityIsExist(id)); //执行完也不存在这个对象
 
-            TestCommandComponent cmd = new TestCommandComponent();
+            CommandComponent cmd = new CommandComponent();
             cmd.frame = 1;
-            cmd.id = 1;
+            cmd.id = c1.ID;
             cmd.isFire = true;
             GlobalEvent.DispatchTypeEvent(cmd);
 
@@ -263,8 +265,8 @@ namespace LockStepFrameWork
 
             PlayerComponent pc = new PlayerComponent();
             SelfComponent sc = new SelfComponent();
-
-            /*EntityBase c1 =*/ world.CreateEntityImmediately("1", pc, sc);
+            RealPlayerComponent rp = new RealPlayerComponent();
+            EntityBase c1 = world.CreateEntityImmediately("Test", sc, rp, pc);
 
             int createFrame = -1;
             int destroyFrame = -1;
@@ -314,15 +316,15 @@ namespace LockStepFrameWork
                 world.FixedLoop(WorldManager.IntervalTime);
             }
 
-            TestCommandComponent cmd = new TestCommandComponent();
+            CommandComponent cmd = new CommandComponent();
             cmd.frame = 1;
-            cmd.id = 1;
+            cmd.id = c1.ID;
             cmd.isFire = false;
             GlobalEvent.DispatchTypeEvent(cmd);
 
-            cmd = new TestCommandComponent();
+            cmd = new CommandComponent();
             cmd.frame = 2;
-            cmd.id = 1;
+            cmd.id = c1.ID;
             cmd.isFire = true;
             GlobalEvent.DispatchTypeEvent(cmd);
 
@@ -353,8 +355,8 @@ namespace LockStepFrameWork
 
             PlayerComponent pc = new PlayerComponent();
             SelfComponent sc = new SelfComponent();
-
-            /*EntityBase c1 = */ world.CreateEntityImmediately("1", pc, sc);
+            RealPlayerComponent rp = new RealPlayerComponent();
+            EntityBase c1 = world.CreateEntityImmediately("Test", sc, rp, pc);
 
             int createFrame = -1;
             int destroyFrame = -1;
@@ -404,15 +406,15 @@ namespace LockStepFrameWork
                 world.FixedLoop(WorldManager.IntervalTime);
             }
 
-            TestCommandComponent cmd = new TestCommandComponent();
+            CommandComponent cmd = new CommandComponent();
             cmd.frame = 1;
             cmd.id = 1;
             cmd.isFire = false;
             GlobalEvent.DispatchTypeEvent(cmd);
 
-            cmd = new TestCommandComponent();
+            cmd = new CommandComponent();
             cmd.frame = 2;
-            cmd.id = 1;
+            cmd.id = c1.ID;
             cmd.isFire = true;
             GlobalEvent.DispatchTypeEvent(cmd);
 
@@ -445,8 +447,8 @@ namespace LockStepFrameWork
             csc.confirmFrame = 0; //从目标帧之后开始计算
 
             SelfComponent sc = new SelfComponent();
-
-            EntityBase c1 = world.CreateEntityImmediately("1", sc);
+            RealPlayerComponent rp = new RealPlayerComponent();
+            EntityBase c1 = world.CreateEntityImmediately("Test", sc, rp);
 
             LockStepInputSystem.commandCache.moveDir.x = 0;
 
@@ -468,9 +470,9 @@ namespace LockStepFrameWork
 
             Assert.AreEqual(1000, mc.pos.x);
 
-            TestCommandComponent cmd = new TestCommandComponent();
+            CommandComponent cmd = new CommandComponent();
             cmd.frame = 1;
-            cmd.id = 1;
+            cmd.id = c1.ID;
             cmd.moveDir.x = 1000;
             GlobalEvent.DispatchTypeEvent(cmd);
 
@@ -482,7 +484,7 @@ namespace LockStepFrameWork
             Assert.AreEqual(1000, mc.pos.x);
 
             SameCommand sameMsg = new SameCommand();
-            sameMsg.id = 1;
+            cmd.id = c1.ID;
             sameMsg.frame = 2;
 
             GlobalEvent.DispatchTypeEvent(sameMsg);

@@ -336,8 +336,14 @@ namespace Lockstep
         
 		public static long Normalized(this long f1, long range)
 		{
-			while (f1 < 0)
-				f1 += range;
+            if(f1 < 0)
+            {
+                f1 +=(0 - f1 % range) * range;
+            }
+
+			//while (f1 < 0)
+			//	f1 += range;
+
 			if (f1 >= range)
 				f1 = f1 % range;
 			return f1;

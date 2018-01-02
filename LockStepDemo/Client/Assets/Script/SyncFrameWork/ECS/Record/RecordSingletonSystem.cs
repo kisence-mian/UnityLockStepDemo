@@ -12,17 +12,19 @@ public class RecordSingletonSystem<T> : RecordSystemBase where T : MomentSinglet
 
     public override void Record(int frame)
     {
-        MomentSingletonComponent record = (MomentSingletonComponent)m_world.GetSingletonComp<T>().DeepCopy();
-        record.Frame = frame;
-        m_recordInfo.Add(record);
+        MomentSingletonComponent data = m_world.GetSingletonComp<T>();
+        //if(data.IsChange)
+        {
+            MomentSingletonComponent record = data.DeepCopy();
+            record.Frame = frame;
+            record.World = data.World;
+            m_recordInfo.Add(record);
+        }
 
-        //if (typeof(T) == typeof(MapGridStateComponent))
+        //if (typeof(T) == typeof(LogicRuntimeMachineComponent))
         //{
-        //    MapGridStateComponent lrmc = (MapGridStateComponent)record;
-
-        //    SyncDebugSystem.RecordMsg("MapGridStateComponent", frame, Serializer.Serialize(record));
-
-        //    //Debug.Log("Record  " + " content: " +  + " frame " + frame);
+        //    LogicRuntimeMachineComponent lrmc = (LogicRuntimeMachineComponent)data;
+        //    Debug.Log("Record  " + " content: " + " frame " + frame + " " + Serializer.Serialize(data));
         //}
     }
 
@@ -32,12 +34,20 @@ public class RecordSingletonSystem<T> : RecordSystemBase where T : MomentSinglet
 
         if(record != null)
         {
-            m_world.ChangeSingletonComp<T>((T)record.DeepCopy());
+            T copy = (T)record.DeepCopy();
+            copy.World = record.World;
+            m_world.ChangeSingletonComp(copy);
+
+            //if (typeof(T) == typeof(LogicRuntimeMachineComponent))
+            //{
+            //    T lrmc = record;
+            //    Debug.Log("RevertToFrame  " + " content: " + " frame " + frame + " " + Serializer.Serialize(record));
+            //}
         }
-        else
-        {
-            Debug.LogError("RevertToFrame record == null frame ->" + frame);
-        }
+        //else
+        //{
+        //    Debug.LogError("RevertToFrame record == null frame ->" + frame);
+        //}
 
 
     }
@@ -86,7 +96,6 @@ public class RecordSingletonSystem<T> : RecordSystemBase where T : MomentSinglet
 
         //throw new Exception("Not find MomentSingletonComponent　" + typeof(T).FullName + " by frame　" + frame);
     }
-
 
     public override void PrintRecord(int id)
     {

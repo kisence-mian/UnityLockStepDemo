@@ -29,7 +29,8 @@ public class RecordSystem<T> : RecordSystemBase where T : MomentComponentBase, n
 
         for (int i = 0; i < list.Count; i++)
         {
-            T data = list[i].GetComp<T>(hashCode);
+            EntityBase entity = list[i];
+            T data = entity.GetComp<T>(hashCode);
 
             //if(data.IsChange)
             {
@@ -37,7 +38,8 @@ public class RecordSystem<T> : RecordSystemBase where T : MomentComponentBase, n
 
                 T record = (T)data.DeepCopy();
                 record.Frame = frame;
-                record.ID = list[i].ID;
+                record.ID = entity.ID;
+                record.World = entity.World;
 
                 m_record.Add(record);
             }
@@ -46,27 +48,44 @@ public class RecordSystem<T> : RecordSystemBase where T : MomentComponentBase, n
 
     public override void RevertToFrame(int frame)
     {
+        //Debug.Log("RevertToFrame " + frame + " count " + m_record.Count);
+
         for (int i = 0; i < m_record.Count; i++)
         {
             T record = m_record[i];
+
+            //Debug.Log("record.Frame " + record.Frame);
 
             if (record.Frame == frame)
             {
                 if (m_world.GetEntityIsExist(record.ID))
                 {
                     EntityBase entity = m_world.GetEntity(record.ID);
-                    entity.ChangeComp(hashCode, record.DeepCopy());
+                    entity.ChangeComp(hashCode, (T)record.DeepCopy());
+                    //if (SyncDebugSystem.isDebug && SyncDebugSystem.IsFilter(typeof(T).Name))
+                    //{
+                    //    Debug.Log("RevertToFrame " + frame + " ->> " + Serializer.Serialize((T)record.DeepCopy()));
+                    //}
                 }
                 else if (m_world.GetIsExistDispatchDestroyCache(record.ID))
                 {
                     EntityBase entity = m_world.GetDispatchDestroyCache(record.ID);
-                    entity.ChangeComp(hashCode, record.DeepCopy());
+                    entity.ChangeComp(hashCode, (T)record.DeepCopy());
                 }
                 else if (m_world.GetIsExistDispatchCreateCache(record.ID))
                 {
                     EntityBase entity = m_world.GetDispatchCreateCache(record.ID);
-                    entity.ChangeComp(hashCode, record.DeepCopy());
+                    entity.ChangeComp(hashCode, (T)record.DeepCopy());
                 }
+                else
+                {
+                    Debug.Log("没有找到回滚对象 ！ " + record.ID);
+                }
+
+                m_record.RemoveAt(i);
+                i--;
+
+                m_world.heapComponentPool.PutObject(hashCode, record);
             }
         }
     }
@@ -81,9 +100,9 @@ public class RecordSystem<T> : RecordSystemBase where T : MomentComponentBase, n
                 return m_record[i];
             }
         }
-
         return null;
     }
+
     public override void PrintRecord(int id)
     {
         string content = "compName : " + typeof(T).Name + "\n";
@@ -102,41 +121,63 @@ public class RecordSystem<T> : RecordSystemBase where T : MomentComponentBase, n
 
     public override void ClearAll()
     {
+        //Debug.Log("ClearAll");
+
+        for (int i = 0; i < m_record.Count; i++)
+        {
+            m_world.heapComponentPool.PutObject(hashCode, m_record[i]);
+        }
+
         m_record.Clear();
     }
 
     public override void ClearRecordAt(int frame)
     {
+        //Debug.Log("ClearRecordAt " + frame);
+
         for (int i = 0; i < m_record.Count; i++)
         {
-            if (m_record[i].Frame == frame)
+            T record = m_record[i];
+            if (record.Frame == frame)
             {
                 m_record.RemoveAt(i);
                 i--;
+
+                m_world.heapComponentPool.PutObject(hashCode, record);
             }
         }
     }
 
     public override void ClearAfter(int frame)
     {
+        //Debug.Log("ClearAfter " + frame);
+
         for (int i = 0; i < m_record.Count; i++)
         {
-            if (m_record[i].Frame > frame)
+            T record = m_record[i];
+            if (record.Frame > frame)
             {
                 m_record.RemoveAt(i);
                 i--;
+
+                m_world.heapComponentPool.PutObject(hashCode, record);
             }
         }
     }
 
     public override void ClearBefore(int frame)
     {
+        //Debug.Log("ClearBefore " + frame);
+
         for (int i = 0; i < m_record.Count; i++)
         {
-            if (m_record[i].Frame < frame)
+            T record = m_record[i];
+            if (record.Frame < frame)
             {
                 m_record.RemoveAt(i);
                 i--;
+
+                m_world.heapComponentPool.PutObject(hashCode, record);
             }
         }
     }

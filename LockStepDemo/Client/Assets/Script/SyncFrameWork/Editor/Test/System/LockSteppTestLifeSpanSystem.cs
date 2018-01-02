@@ -9,7 +9,7 @@ public class LockStepTestLifeSpanSystem : SystemBase
     {
         return new Type[] {
 
-            typeof(TestLifeSpanComponent),
+            typeof(LifeSpanComponent),
         };
     }
 
@@ -19,7 +19,7 @@ public class LockStepTestLifeSpanSystem : SystemBase
 
         for (int i = 0; i < list.Count; i++)
         {
-            TestLifeSpanComponent lsc = list[i].GetComp<TestLifeSpanComponent>(ComponentType.TeamAchievementDataComponent);
+            LifeSpanComponent lsc = list[i].GetComp<LifeSpanComponent>(ComponentType.LifeSpanComponent);
             lsc.lifeTime -= deltaTime;
 
             //Debug.Log("lsc.lifeTime  " + lsc.lifeTime + " frame " + m_world.FrameCount + " ID " + lsc.Entity.ID);

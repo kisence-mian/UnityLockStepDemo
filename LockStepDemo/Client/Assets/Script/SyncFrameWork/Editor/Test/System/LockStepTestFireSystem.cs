@@ -9,8 +9,8 @@ public class LockStepTestFireSystem : SystemBase
     {
         return new Type[]
         {
-            typeof(TestCommandComponent),
-            typeof(TestMoveComponent),
+            typeof(CommandComponent),
+            typeof(MoveComponent),
         };
     }
 
@@ -20,15 +20,15 @@ public class LockStepTestFireSystem : SystemBase
 
         for (int i = 0; i < list.Count; i++)
         {
-            TestCommandComponent cc = list[i].GetComp<TestCommandComponent>();
+            CommandComponent cc = list[i].GetComp<CommandComponent>();
             if (cc.isFire)
             {
-                //Debug.Log("Fire " + m_world.FrameCount);
+                Debug.Log("Fire " + m_world.FrameCount);
 
                 TestSingleComponent tc = m_world.GetSingletonComp<TestSingleComponent>();
                 tc.testValue++;
 
-                TestLifeSpanComponent lsc = new TestLifeSpanComponent();
+                LifeSpanComponent lsc = new LifeSpanComponent();
                 lsc.lifeTime = 500;
 
                 m_world.CreateEntity("FireObject" + cc.Entity.ID,lsc);

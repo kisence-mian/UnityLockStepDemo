@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class EntityBase
 {
@@ -112,7 +113,6 @@ public class EntityBase
     {
         comp.Entity = this;
         int index = world.componentType.GetComponentIndex(compName);
-
         AddComp(index, comp);
 
         return this;
@@ -166,6 +166,7 @@ public class EntityBase
             }
 
             comp.Entity = null;
+            comp.World = null;
         }
     }
 
@@ -204,47 +205,36 @@ public class EntityBase
     public void ChangeComp(string compName,ComponentBase comp)
     {
         int index = world.componentType.GetComponentIndex(compName);
-        ChangeComp(index, comp);
+        ChangeCompIndex(index, comp);
     }
 
-    public void ChangeComp(int index, ComponentBase comp)
+    public void ChangeComp<T>(int index, T comp) where T : ComponentBase, new()
     {
+        ChangeCompIndex(index, comp);
+    }
+
+    public void ChangeCompIndex(int index, ComponentBase comp)
+    {
+        //int index = world.componentType.GetComponentIndex(compName);
         ComponentBase oldComp = comps[index];
         if (oldComp == null)
-            throw new System.Exception("EntityID " + ID + " GetComp not exist comp !" + index);
+            throw new System.Exception("EntityID " + ID + " GetComp not exist comp !" + comp.GetType().Name);
         else
         {
             oldComp.Entity = null;
 
             comps[index] = comp;
             comp.Entity = this;
+            comp.World = world;
 
             if (OnComponentReplaced != null)
             {
                 OnComponentReplaced(this, index, oldComp, comp);
             }
+
+            world.heapComponentPool.PutObject(index, oldComp);
         }
     }
-
-    //public void ChangeComp(int compName, ComponentBase comp)
-    //{
-    //    int index = world.componentType.GetComponentIndex(compName);
-    //    ComponentBase oldComp = comps[index];
-    //    if (oldComp == null)
-    //        throw new System.Exception("EntityID " + ID + " GetComp not exist comp !" + compName);
-    //    else
-    //    {
-    //        oldComp.Entity = null;
-
-    //        comps[index] = comp;
-    //        comp.Entity = this;
-
-    //        if (OnComponentReplaced != null)
-    //        {
-    //            OnComponentReplaced(this, compName, oldComp, comp);
-    //        }
-    //    }
-    //}
 
     public void ChangeComp<T>(T comp) where T:ComponentBase
     {

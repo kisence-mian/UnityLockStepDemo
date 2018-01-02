@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LockStepEntityTestWorld : GameWorldBase<TestCommandComponent>
+public class LockStepEntityTestWorld : GameWorldBase<CommandComponent>
 {
     public override Type[] GameSystems()
     {
@@ -25,8 +25,8 @@ public class LockStepEntityTestWorld : GameWorldBase<TestCommandComponent>
     {
         return new Type[]
         {
-            typeof(TestLifeSpanComponent),
-            typeof(TestMoveComponent),
+            typeof(LifeSpanComponent),
+            typeof(MoveComponent),
         };
 
     }
@@ -35,7 +35,7 @@ public class LockStepEntityTestWorld : GameWorldBase<TestCommandComponent>
     {
         return new Type[]
         {
-             typeof(TestSingleComponent),
+             //typeof(TestSingleComponent),
         };
     }
 }

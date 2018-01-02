@@ -6,15 +6,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
 class SyncDebugSystem : SystemBase
 {
     public static bool isDebug = true;
     public static bool isPlayerOnly = true;
 
-    public static string[] DebugFilter = new string[] { "LifeComponent","CommandComponent","GrowUpComponent", "MoveComponent"/*, "LifeComponent"*//*"CollisionComponent", "LifeComponent"*/ };
+    public static string[] DebugFilter = new string[] {
+        "LifeSpanComponent",
+        "MoveComponent",
+        "PlayerComponent",
+        "LifeComponent",
+        "SkillStatusComponent",
+        "BlowFlyComponent",
+        "FlyObjectComponent",
+        "GrowUpComponent",
+        "AIComponent",
+    };
 
-    public static string[] SingleCompFilter = new string[] { "MapGridStateComponent" , "LogicRuntimeMachineComponent" };
+    public static string[] SingleCompFilter = new string[] {/* "MapGridStateComponent", "LogicRuntimeMachineComponent" */};
 
     public static string syncLog = "";
 
@@ -22,11 +31,10 @@ class SyncDebugSystem : SystemBase
 
     public override Type[] GetFilter()
     {
-        
-
         return new Type[] {
             
             typeof(ConnectionComponent)
+            
         };
     }
 
@@ -131,6 +139,9 @@ class SyncDebugSystem : SystemBase
 
     public static void RecordMsg(string key, int frame, string msg)
     {
+        if (!isDebug)
+            return;
+
         if (msg == null)
             return;
 
@@ -153,6 +164,9 @@ class SyncDebugSystem : SystemBase
 
     public static void RecordRandomChange(int frame, int seed,string log = "")
     {
+        if (!isDebug)
+            return;
+
         string key = "local_randomChange";
         string content = "";
 

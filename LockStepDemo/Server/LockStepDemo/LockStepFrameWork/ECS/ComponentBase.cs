@@ -26,6 +26,25 @@ public abstract class ComponentBase
         }
     }
 
+    public WorldBase World
+    {
+        get
+        {
+            if(world==null && entity != null)
+            {
+                world = entity.World;
+            }
+            return world;
+        }
+
+        set
+        {
+            world = value;
+        }
+    }
+
+    private WorldBase world;
+  
 
     public virtual void Init()
     {

@@ -243,7 +243,7 @@ public class Body
         {
             case BodyType.Circle: return Circle(body);
             case BodyType.Rectangle: return Rectangle(body);
-                //case BodyType.Sector: return Sector(area);
+            case BodyType.Sector: return Sector(body);
         }
 
         return true;
@@ -288,7 +288,7 @@ public class Body
         {
             case BodyType.Circle: return Circle_Circle(this, body);
             case BodyType.Rectangle: return Circle_Rectangle(this, body);
-                //case BodyType.Sector: return Circle_Sector(this, area);
+            case BodyType.Sector: return Circle_Sector(this, body);
         }
         return true;
 
@@ -306,6 +306,17 @@ public class Body
                 //case BodyType.Sector: return Sector_Rectangle(area, this);
         }
 
+        return true;
+    }
+
+    private bool Sector(Body body)
+    {
+        switch (body.bodyType)
+        {
+            case BodyType.Circle: return Circle_Sector(body, this);
+            //case BodyType.Rectangle: return Sector_Rectangle(this, body);
+            //case BodyType.Sector: return Sector_Sector(body, this);
+        }
         return true;
     }
 
@@ -411,6 +422,37 @@ public class Body
         }
 
         return false;
+    }
+
+    private bool Circle_Sector(Body circle, Body sector)
+    {
+        Vector2d forword = sector.direction;
+
+        //Debug.Log("distance " + circle.position.FastDistance(sector.position).ToFloat());
+
+        if (circle.position.FastDistance(sector.position) > (circle.radius + sector.radius) * (circle.radius + sector.radius))
+        {
+            return false;
+        }
+
+        Vector2d dir = (circle.position - sector.position);
+        dir.Normalize();
+        sector.direction.Normalize();
+
+        long angle = sector.direction.GetRotationAngle(dir);
+
+        //Debug.Log("angle " + angle.ToFloat() + " sector.angle/2 -> " + sector.angle.Mul(FixedMath.Half).ToFloat() + " (360 - sector.angle / 2) " + (FixedMath.Create(360) - sector.angle.Mul(FixedMath.Half)).ToFloat());
+
+        if (angle < sector.angle.Mul(FixedMath.Half)
+            || angle > FixedMath.Create(360) - sector.angle.Mul(FixedMath.Half)
+            )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private bool Rectangle_Rectangle(Body area1, Body area2)

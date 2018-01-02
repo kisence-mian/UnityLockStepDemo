@@ -9,7 +9,7 @@ public class TestSingleComponent : MomentSingletonComponent
 
     public override MomentSingletonComponent DeepCopy()
     {
-        TestSingleComponent tc = new TestSingleComponent();
+        TestSingleComponent tc = HeapObjectPool<TestSingleComponent>.GetObject();// new TestSingleComponent();
         tc.testValue = testValue;
 
         return tc;

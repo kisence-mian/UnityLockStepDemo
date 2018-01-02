@@ -49,6 +49,7 @@ public class WorldManager
 
     static int s_intervalTime = 200;
     static float s_UpdateTimer = 0; //ms
+    static float s_deltaTime = 0; //ms
     //static int s_logicFrameCount = 1;
 
     public static void Init(int intervalTime)
@@ -96,10 +97,12 @@ public class WorldManager
     static void Update()
     {
         s_UpdateTimer += Time.deltaTime * 1000; //换算成ms
+        s_deltaTime += Time.deltaTime;
 
-        UpdateWorld((int)(Time.deltaTime * 1000));
+        UpdateWorld((int)(s_deltaTime * 1000));
+        s_deltaTime = 0;
 
-        if(s_UpdateTimer > IntervalTime )
+        if (s_UpdateTimer > IntervalTime )
         { 
             if(!isRecalc)
             {
@@ -115,6 +118,8 @@ public class WorldManager
         else
         {
             isRecalc = false;
+
+
         }
     }
 

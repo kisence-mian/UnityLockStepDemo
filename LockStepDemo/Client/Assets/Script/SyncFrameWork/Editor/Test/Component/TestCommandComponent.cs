@@ -16,48 +16,48 @@ public class TestCommandComponent : PlayerCommandBase
     {
         TestCommandComponent cc = new TestCommandComponent();
 
-        cc.id = id;
-        cc.frame = frame;
+        //cc.id = id;
+        //cc.frame = frame;
 
-        cc.isFire = isFire;
-        cc.moveDir = moveDir.DeepCopy();
-        cc.skillDir = skillDir.DeepCopy();
+        //cc.isFire = isFire;
+        //cc.moveDir = moveDir.DeepCopy();
+        //cc.skillDir = skillDir.DeepCopy();
 
-        cc.element1 = element1;
-        cc.element2 = element2;
+        //cc.element1 = element1;
+        //cc.element2 = element2;
 
         return cc;
     }
 
     public override bool EqualsCmd(PlayerCommandBase cmd)
     {
-        if (!(cmd is TestCommandComponent))
-        {
-            return false;
-        }
+        //if (!(cmd is TestCommandComponent))
+        //{
+        //    return false;
+        //}
 
-        TestCommandComponent cc = cmd as TestCommandComponent;
+        //TestCommandComponent cc = cmd as TestCommandComponent;
 
-        if (id != cc.id)
-            return false;
+        //if (id != cc.id)
+        //    return false;
 
-        if (frame != cc.frame)
-            return false;
+        //if (frame != cc.frame)
+        //    return false;
 
-        if (isFire != cc.isFire)
-            return false;
+        //if (isFire != cc.isFire)
+        //    return false;
 
-        if (element1 != cc.element1)
-            return false;
+        //if (element1 != cc.element1)
+        //    return false;
 
-        if (element2 != cc.element2)
-            return false;
+        //if (element2 != cc.element2)
+        //    return false;
 
-        if (!moveDir.Equals(cc.moveDir))
-            return false;
+        //if (!moveDir.Equals(cc.moveDir))
+        //    return false;
 
-        if (!skillDir.Equals(cc.skillDir))
-            return false;
+        //if (!skillDir.Equals(cc.skillDir))
+        //    return false;
 
         return true;
     }
