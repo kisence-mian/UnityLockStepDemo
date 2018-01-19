@@ -26,11 +26,14 @@ namespace LockStepDemo
 
             byte[] buffer = ba.Buffer;
 
-            bool result =  session.TrySend(buffer, 0, buffer.Length);
-            if(!result)
-            {
-                session.Close();
-            }
+            //bool result =  session.TrySend(buffer, 0, buffer.Length);
+            //if(!result)
+            //{
+            //    session.Close();
+            // }
+#if KCP
+            session.mKcp.Send(buffer);
+#endif
         }
 
         public static void SendMsg(this SyncSession session,string key ,Dictionary<string, object> data)
@@ -67,6 +70,9 @@ namespace LockStepDemo
 
             try
             {
+#if KCP
+                session.mKcp.Send(buffer);
+#else
                 int time = ServiceTime.GetServiceTime();
                 bool result = session.TrySend(buffer, 0, buffer.Length);
                 if (!result)
@@ -74,13 +80,13 @@ namespace LockStepDemo
                     for (int i = 0; i < 3; i++)
                     {
                         result = session.TrySend(buffer, 0, buffer.Length);
-                        if(result)
+                        if (result)
                         {
                             break;
                         }
                         else
                         {
-                            if(i == 2)
+                            if (i == 2)
                             {
                                 session.Close();
                             }
@@ -88,18 +94,18 @@ namespace LockStepDemo
                     }
                 }
 
-                if (ServiceTime.GetServiceTime()- time > 10)
+                if (ServiceTime.GetServiceTime() - time > 10)
                 {
                     Debug.Log("发送时间 " + (ServiceTime.GetServiceTime() - time));
                 }
+#endif
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Debug.LogError("Send Messge Exception " + e.ToString());
             }
         }
-
-    #region 发包
+#region 发包
 
     static List<byte> GetSendByte(string messageType, Dictionary<string, object> data)
     {
@@ -382,7 +388,6 @@ namespace LockStepDemo
             }
         }
 
-        #endregion
-
+#endregion
     }
 }

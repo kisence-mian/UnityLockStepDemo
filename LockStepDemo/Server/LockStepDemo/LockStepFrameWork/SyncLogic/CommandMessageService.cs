@@ -41,34 +41,36 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
         {
             WorldBase world = connectComp.Entity.World;
 
-            if (msg.frame > world.FrameCount)
-            {
+            msg.frame = world.FrameCount + 1;
+
                 //广播这帧
                 if(connectComp.AddCommand(msg))
                 {
-                    BroadcastCommand(world, connectComp, msg, false);
+                    //BroadcastCommand(world, connectComp, msg, false);
                 }
-            }
-            else
-            {
-                //直接丢弃掉落后帧
+            //}
+            //else
+            //{
+            //    //Debug.Log("丢弃掉 " + msg.frame);
 
-                //Debug.Log("帧相等！ " + msg.frame);
+            //    //直接丢弃掉落后帧
 
-                //if (!connectComp.m_isInframe)
-                //{
-                //    //当成最新的一帧来处理
-                //    msg.frame = world.FrameCount + 1;
-                //    connectComp.AddCommand(msg);
-                //}
-                //else
-                //{
-                //    Debug.Log("在一帧之内插入了数据！ " + msg.frame);
+            //    //Debug.Log("帧相等！ " + msg.frame);
 
-                //    msg.frame = world.FrameCount + 1;
-                //    connectComp.AddCommand(msg);
-                //}
-            }
+            //    //if (!connectComp.m_isInframe)
+            //    //{
+            //    //    //当成最新的一帧来处理
+            //    //    msg.frame = world.FrameCount + 1;
+            //    //    connectComp.AddCommand(msg);
+            //    //}
+            //    //else
+            //    //{
+            //    //    Debug.Log("在一帧之内插入了数据！ " + msg.frame);
+
+            //    //    msg.frame = world.FrameCount + 1;
+            //    //    connectComp.AddCommand(msg);
+            //    //}
+            //}
 
             ControlSpeed(connectComp, world, msg.frame);
         }
@@ -165,22 +167,22 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
             //取上一帧的数据
             T scmd = (T)connectComp.GetCommand(msg.frame - 1).DeepCopy();
 
-            if(msg.frame > world.FrameCount)
-            {
-                scmd.frame = msg.frame;
+            //msg.frame = world.FrameCount + 1;
+            
+                scmd.frame = world.FrameCount + 1;
 
-                if(connectComp.AddCommand(scmd))
+            if (connectComp.AddCommand(scmd))
                 {
-                    BroadcastSameCommand(world, connectComp, msg, true);
+                    //BroadcastSameCommand(world, connectComp, msg, true);
                 }
-            }
-            else
-            {
-                //Debug.Log("Same frame " + world.FrameCount);
+            //}
+            //else
+            //{
+            //    //Debug.Log("Same frame " + world.FrameCount);
 
-                //scmd.frame = world.FrameCount + 1;
-                //connectComp.AddCommand(scmd);
-            }
+            //    //scmd.frame = world.FrameCount + 1;
+            //    //connectComp.AddCommand(scmd);
+            //}
 
             ControlSpeed(connectComp, world, msg.frame);
         }
@@ -204,10 +206,10 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
     {
         ConnectionComponent commandComp = session.m_connect;
 
-        //Debug.Log(" 收到确认消息 frame: " + msg.index + " id: " + commandComp.Entity.ID);
-
         int nowTime = ServiceTime.GetServiceTime();
         commandComp.rtt = nowTime - msg.time;
+
+        //Debug.Log(" 收到确认消息 frame: " + msg.index + " id: " + commandComp.Entity.ID + " rtt " + commandComp.rtt);
     }
 
     static void ReceviceQueryMsg(SyncSession session, QueryCommand msg)
@@ -223,6 +225,7 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
 
             T cmd = (T)cc.GetCommand(msg.frame);
             ProtocolAnalysisService.SendMsg(connectComp.m_session, cmd);
+            //Debug.Log("ReceviceQueryMsg " + msg.frame);
         }
     }
 
@@ -251,12 +254,16 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
         cmd.time = ServiceTime.GetServiceTime();
 
         //TODO 与预测一致不广播节约带宽;
-        List<EntityBase> list = world.GetEntiyList(new string[] { "ConnectionComponent" });
+        List<EntityBase> list = world.GetEntityList(new string[] { "ConnectionComponent" });
 
         for (int i = 0; i < list.Count; i++)
         {
             ConnectionComponent cp = list[i].GetComp<ConnectionComponent>();
-            ProtocolAnalysisService.SendMsg(cp.m_session, cmd);
+            if(cp.m_session != null)
+            {
+                ProtocolAnalysisService.SendMsg(cp.m_session, cmd);
+                //Debug.Log("BroadcastCommand " + cmd.frame);
+            }
         }
     }
 
@@ -264,12 +271,16 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
     {
         cmd.time = ServiceTime.GetServiceTime();
 
-        List<EntityBase> list = world.GetEntiyList(new string[] { "ConnectionComponent" });
+        List<EntityBase> list = world.GetEntityList(new string[] { "ConnectionComponent" });
 
         for (int i = 0; i < list.Count; i++)
         {
             ConnectionComponent cp = list[i].GetComp<ConnectionComponent>();
-            ProtocolAnalysisService.SendMsg(cp.m_session, cmd);
+            if(cp.m_session != null)
+            {
+                ProtocolAnalysisService.SendMsg(cp.m_session, cmd);
+                //Debug.Log("BroadcastSameCommand " + cmd.frame);
+            }
         }
     }
 }

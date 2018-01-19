@@ -96,4 +96,9 @@ class Debug
     {
 
     }
+
+    public static void DrawLine(Vector3 start, Vector3 end, Color col)
+    {
+
+    }
 }

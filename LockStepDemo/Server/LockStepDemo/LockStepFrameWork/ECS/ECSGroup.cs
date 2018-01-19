@@ -21,11 +21,25 @@ public class ECSGroup  {
         }
     }
 
-    private string[] components;
+    public int[] ComponentHashs
+    {
+        get
+        {
+            return componentHashs;
+        }
+    }
 
-    public ECSGroup(int key, string[] components)
+    private string[] components;
+    private int[] componentHashs;
+
+    public ECSGroup(int key, string[] components,WorldBase world)
     {
         this.key = key;
         this.components = components;
+        componentHashs = new int[components.Length];
+        for (int i = 0; i < componentHashs.Length; i++)
+        {
+            componentHashs[i] = world.componentType.GetComponentIndex(components[i]);
+        }
     }
 }

@@ -92,6 +92,7 @@ namespace Protocol
         public int seed;
         public List<EntityInfo> infos;
         public List<ComponentInfo> singleCompInfo;
+        public string msg;
     }
 
     public class VerificationMsg : SyncModule

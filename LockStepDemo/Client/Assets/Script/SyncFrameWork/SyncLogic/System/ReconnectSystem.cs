@@ -28,7 +28,7 @@ public class ReconnectSystem : SystemBase
 
     public override void RunByPause()
     {
-        if (!isConnect && !m_world.IsLocal)
+        if (!isConnect && !m_world.IsLocal && !m_world.IsFinish)
         {
             timer--;
             if (timer < 0)

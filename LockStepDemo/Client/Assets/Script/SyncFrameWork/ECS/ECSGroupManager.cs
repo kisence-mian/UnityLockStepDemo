@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FastCollections;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,14 @@ using UnityEngine;
 
 public class ECSGroupManager
 {
-    //private WorldBase world;
+    private WorldBase world;
     private Dictionary<int, ECSGroup> allGroupDic = new Dictionary<int, ECSGroup>();
+    private FastList<ECSGroup> allGroupList = new FastList<ECSGroup>();
     private Dictionary<ECSGroup, List<EntityBase>> groupToEntityDic = new Dictionary<ECSGroup, List<EntityBase>>();
     private Dictionary<EntityBase, List<ECSGroup>> entityToGroupDic = new Dictionary<EntityBase, List<ECSGroup>>();
 
+    //优化List<ECSGroup>
+    //private HeapObjectPool<List<ECSGroup>> objectPool = new HeapObjectPool<List<ECSGroup>>();
     public Dictionary<int, ECSGroup> AllGroupDic
     {
         get
@@ -29,24 +33,28 @@ public class ECSGroupManager
 
     public ECSGroupManager(WorldBase world)
     {
-
+        this.world = world;
         for (int i = 0; i < world.m_systemList.Count; i++)
         {
             SystemBase system = world.m_systemList[i];
+            if (system.Filter.Length == 0)
+                continue;
             int key = StringArrayToInt(system.Filter);
             if (allGroupDic.ContainsKey(key))
             {
                 //Debug.Log("System :"+ system.GetType().FullName+ "  Filter :" + string.Join(",", system.Filter) + " Dic :"+string.Join(",",allGroupDic[key].Components));
                 continue;
             }
-            ECSGroup group = new ECSGroup(key, system.Filter);
+            ECSGroup group = new ECSGroup(key, system.Filter, world);
             allGroupDic.Add(key, group);
-                groupToEntityDic.Add(group, new List<EntityBase>());
+            allGroupList.Add(group);
+            groupToEntityDic.Add(group, new List<EntityBase>());
         }
         for (int i = 0; i < world.m_recordList.Count; i++)
         {
             RecordSystemBase system = world.m_recordList[i];
-          
+            if (system.Filter.Length == 0)
+                continue;
             int key = StringArrayToInt(system.Filter);
             if (allGroupDic.ContainsKey(key))
             {
@@ -54,8 +62,9 @@ public class ECSGroupManager
                 continue;
             }
 
-            ECSGroup group = new ECSGroup(key, system.Filter);
+            ECSGroup group = new ECSGroup(key, system.Filter, world);
             allGroupDic.Add(key, group);
+            allGroupList.Add(group);
             groupToEntityDic.Add(group, new List<EntityBase>());
         }
     }
@@ -118,8 +127,9 @@ public class ECSGroupManager
             return false;
         }
 
-        ECSGroup group = new ECSGroup(key, filters);
+        ECSGroup group = new ECSGroup(key, filters, world);
         allGroupDic.Add(key, group);
+        allGroupList.Add(group);
 
         List<EntityBase> newListEntity = new List<EntityBase>();
 
@@ -159,7 +169,7 @@ public class ECSGroupManager
         for (int i = 0; i < newGroupList.Count; i++)
         {
             List<EntityBase> list = groupToEntityDic[newGroupList[i]];
-            if (!list.Contains(entity))
+            //if (!list.Contains(entity))
                 list.Add(entity);
         }
 
@@ -171,7 +181,12 @@ public class ECSGroupManager
         {
             groupToEntityDic[list[i]].Remove(entity);
         }
+       
         entityToGroupDic.Remove(entity);
+        list.Clear();
+#if !Server
+        HeapObjectPool<List<ECSGroup>>.PutObject(list);
+#endif
     }
 
     public void OnEntityComponentChange(EntityBase entity, int compIndex, ComponentBase component)
@@ -221,12 +236,17 @@ public class ECSGroupManager
 
     public List<ECSGroup> GetEntitySuportGroup(EntityBase entity)
     {
+#if !Server
+        List<ECSGroup> groupNames = HeapObjectPool<List<ECSGroup>>.GetObject();
+        groupNames.Clear();
+#else
         List<ECSGroup> groupNames = new List<ECSGroup>();
-        List<ECSGroup> groups = new List<ECSGroup>(allGroupDic.Values);
+#endif
 
-        for (int i = 0; i < groups.Count; i++)
+        for (int i = 0; i < allGroupList.Count; i++)
         {
-            string[] filterCom = groups[i].Components;
+            ECSGroup group = allGroupList[i];
+            int[] filterCom = group.ComponentHashs;
             bool isContains = true;
             for (int j = 0; j < filterCom.Length; j++)
             {
@@ -238,7 +258,7 @@ public class ECSGroupManager
             }
             if (isContains)
             {
-                groupNames.Add(groups[i]);
+                groupNames.Add(group);
             }
         }
 

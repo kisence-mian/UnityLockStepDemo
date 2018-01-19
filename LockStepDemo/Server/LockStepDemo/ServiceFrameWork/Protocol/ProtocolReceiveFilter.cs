@@ -1,4 +1,5 @@
 ﻿using LockStepDemo;
+using SuperSocket.SocketBase;
 using SuperSocket.SocketBase.Protocol;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Text.RegularExpressions;
 
 namespace Protocol
 {
-    public class ProtocolReceiveFilter : IReceiveFilter<ProtocolRequestBase>
+    public class ProtocolReceiveFilter : IReceiveFilter<ProtocolRequestBase>, IOffsetAdapter, IReceiveFilterInitializer
     {
         public const int TYPE_string = 1;
         public const int TYPE_int32 = 2;
@@ -30,6 +31,10 @@ namespace Protocol
         static Dictionary<string, int> s_methodIndexInfo;
 
         int m_LeftBufferSize = 0;
+        private int m_ParsedLength;
+        private int m_OrigOffset;
+        private  SyncSession session;
+
         static IReceiveFilter<ProtocolRequestBase> s_nextReceiveFilter;
         /// <summary>
         /// Gets the size of the left buffer.
@@ -38,31 +43,42 @@ namespace Protocol
         /// The size of the left buffer.
         /// 
         /// </value>
-        public int LeftBufferSize {
-            get {
-                return m_LeftBufferSize;
-            }
+        /// 
+        public void Initialize(IAppServer appServer, IAppSession s)
+        {
+            session = s as SyncSession;
+            m_OrigOffset = s.SocketSession.OrigReceiveOffset;
+        }
+
+        public int LeftBufferSize
+        {
+            get { return m_ParsedLength; }
         }
 
         /// <summary>
         /// Gets the next receive filter.
         /// </summary>
         public IReceiveFilter<ProtocolRequestBase> NextReceiveFilter {
-            get {
-
-                if(s_nextReceiveFilter == null)
-                {
-                    s_nextReceiveFilter = this;
-                }
-
-                return s_nextReceiveFilter;
-            } }
+            get
+            {
+                return null;
+            }
+        }
 
 
         public FilterState State { get {
                 return FilterState.Normal;
             } }
 
+        private int m_OffsetDelta;
+
+        /// <summary>
+        /// Gets the offset delta.
+        /// </summary>
+        int IOffsetAdapter.OffsetDelta
+        {
+            get { return m_OffsetDelta; }
+        }
 
         public ProtocolReceiveFilter()
         {
@@ -84,38 +100,77 @@ namespace Protocol
 
         }
 
-
-        byte[] m_messageBuffer = new byte[1024*1024];
+        byte[] m_messageBuffer = new byte[1024*1024 * 10];
         int m_head = 0;
         int m_total = 0;
 
         ProtocolRequestBase IReceiveFilter<ProtocolRequestBase>.Filter(byte[] readBuffer, int offset, int length, bool toBeCopied, out int rest)
         {
-            //Debug.Log("Filter  m_head " + m_head + " m_total " + m_total);
 
-            WriteBytes(readBuffer,offset, length);
+#if KCP
+            rest = 0;
+            session.pushData(readBuffer);
+            // ProtocolRequestBase msg = new ProtocolRequestBase();
+            return null;
+#else
 
-            //Debug.Log("offset " + offset + " length " + length + " m_total " + m_total + " m_head " + m_head + " msgLength " + ReadLength());
 
-            if (GetBufferLength() != 0 && ReadLength() <= GetBufferLength())
+            int readOffset = offset - m_OffsetDelta;
+            //分割消息
+            int msgLength = (int)readBuffer[readOffset] << 8;
+            msgLength += (int)readBuffer[readOffset+1];
+
+            msgLength += 2;
+
+            rest = length + m_ParsedLength - msgLength;
+
+            if (rest < 0)
             {
-                rest = length - ReadLength();
-
-                ProtocolRequestBase prb = ReceiveDataLoad(ReadByte(ReadLength()));
-
-                m_head = 0;
-                m_total = 0;
-
-                return prb;
-            }
-            else
-            {
-                Debug.Log("不完整的消息 m_head " + m_head + " m_total " + m_total);
+                m_ParsedLength += length;
+                m_OffsetDelta = m_ParsedLength;
 
                 rest = 0;
+                Debug.Log("不完整的消息 " + length + " msgLength " + msgLength);
+
+
+                var expectedOffset = offset + length;
+               var newOffset = m_OrigOffset + m_OffsetDelta;
+
+               if (newOffset < expectedOffset)
+                {
+                    Buffer.BlockCopy(readBuffer, offset - m_ParsedLength + length, readBuffer, m_OrigOffset, m_ParsedLength);
+               }
+
                 return null;
             }
+
+            try
+            {
+             
+                ByteArray ba = new ByteArray();
+                for (int i = readOffset; i < readOffset + msgLength; i++)
+                {
+                    ba.Add(readBuffer[i]);
+                }
+
+                InternalReset();
+
+                return Analysis(ba);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e.ToString());
+                return null;
+            }
+#endif
         }
+
+        private void InternalReset()
+        {
+            m_ParsedLength = 0;
+            m_OffsetDelta = 0;
+        }
+
 
         private ProtocolRequestBase ReceiveDataLoad(byte[] bytes)
         {
@@ -143,7 +198,7 @@ namespace Protocol
 
         void WriteBytes(byte[] bytes,int offset, int length)
         {
-            for (int i = offset,j =0; i < length + offset; i++,j++)
+            for (int i = offset,j = 0; i < length + offset; i++,j++)
             {
                 int pos = m_total + j;
 
@@ -211,7 +266,7 @@ namespace Protocol
             return bytes;
         }
 
-        #region 读取protocol信息
+#region 读取protocol信息
 
         public static Dictionary<string, List<Dictionary<string, object>>> ReadProtocolInfo(string content)
         {
@@ -334,9 +389,9 @@ namespace Protocol
             Message
         }
 
-        #endregion
+#endregion
 
-        #region 读取消息号映射
+#region 读取消息号映射
 
         public static void ReadMethodNameInfo(out Dictionary<int, string> methodNameInfo, out Dictionary<string, int> methodIndexInfo, string content)
         {
@@ -374,9 +429,9 @@ namespace Protocol
             }
         }
 
-        #endregion
+#endregion
 
-        #region 解包
+#region 解包
 
         ProtocolRequestBase Analysis(ByteArray bytes)
         {
@@ -781,9 +836,9 @@ namespace Protocol
             return stbl;
         }
 
-        #endregion
+#endregion
 
-        #region 发包
+#region 发包
 
         List<byte> GetSendByte(string messageType, Dictionary<string, object> data)
         {
@@ -1046,6 +1101,8 @@ namespace Protocol
             }
         }
 
-        #endregion
+
+
+#endregion
     }
 }

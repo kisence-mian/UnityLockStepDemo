@@ -30,7 +30,7 @@ public class ServiceSyncSystem : ServiceSystem
 
     public override void EndFrame(int deltaTime)
     {
-        List<EntityBase> list = m_world.GetEntiyList(new string[] { "ConnectionComponent" });
+        List<EntityBase> list = m_world.GetEntityList(new string[] { "ConnectionComponent" });
 
         for (int i = 0; i < list.Count; i++)
         {
@@ -141,7 +141,7 @@ public class ServiceSyncSystem : ServiceSystem
     public static void SendStartMsg(WorldBase world)
     {
         //获取所有的Player组件,并派发
-        List<EntityBase> list = world.GetEntiyList(s_playerFilter);
+        List<EntityBase> list = world.GetEntityList(s_playerFilter);
 
         StartSyncMsg startMsg = CreateStartMsg(world);
 
@@ -173,7 +173,7 @@ public class ServiceSyncSystem : ServiceSystem
         serviceInfo.frame = world.FrameCount;
         serviceInfo.infos = new List<EntityInfo>();
 
-        List<EntityBase> list = world.GetEntiyList(s_playerFilter);
+        List<EntityBase> list = world.GetEntityList(s_playerFilter);
         for (int i = 0; i < list.Count; i++)
         {
             serviceInfo.infos.Add(CreateServiceComponentInfo(list[i], session));

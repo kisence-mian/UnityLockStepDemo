@@ -493,8 +493,6 @@ namespace Lockstep
                 const long Factorial9 = Factorial7 * 8 * 9;
                 result += n / Factorial9;
 #endif
-
-
 				if (flip)
 				{
 					result *= -1;
@@ -506,7 +504,23 @@ namespace Lockstep
 				long sin = Sin(theta);
 				return FixedMath.Sqrt(FixedMath.One - (sin.Mul(sin)));
 			}
-			public static long SinToCos(long sin)
+
+            public static long Acos(long x)
+            {
+                long two = Create(2);
+                long max = Create(51);
+                long i;
+                long ans = x, t1 = One, t2 = x; x = x.Mul(x);
+                for (i = Create(3); i < max; i = i+ Create(2))
+                {
+                    t1 = t1.Mul((i - two).Div((i - One)));
+                    t2 = x.Mul(t2);
+                    ans = ans + t1.Mul(t2).Div(i);
+                }
+                return ans = Create(1.5708) - ans;
+            }
+
+            public static long SinToCos(long sin)
 			{
 				return Sqrt(FixedMath.One - (sin.Mul(sin)));
 			}

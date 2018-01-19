@@ -103,13 +103,10 @@ public class ConnectionComponent : ServiceComponent
 
     public bool AddCommand(PlayerCommandBase cmd)
     {
-        for (int i = 0; i < m_commandList.Count; i++)
+        if(m_commandList.Count > 0
+            && m_commandList[m_commandList.Count - 1].frame == cmd.frame)
         {
-            if (m_commandList[i].frame == cmd.frame)
-            {
-                Debug.LogError("重复消息！ " + cmd.frame);
-                return false;
-            }
+            cmd.frame++;
         }
 
         LastInputFrame = cmd.frame;

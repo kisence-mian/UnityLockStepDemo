@@ -239,14 +239,16 @@ public class Body
 
     public bool CheckCollide(Body body)
     {
+        bool result = true;
+
         switch (bodyType)
         {
-            case BodyType.Circle: return Circle(body);
-            case BodyType.Rectangle: return Rectangle(body);
-            case BodyType.Sector: return Sector(body);
+            case BodyType.Circle: result = Circle(body);break;
+            case BodyType.Rectangle: result = Rectangle(body);break;
+            case BodyType.Sector: result = Sector(body);break;
         }
 
-        return true;
+        return result;
     }
 
     /// <summary>
@@ -426,7 +428,7 @@ public class Body
 
     private bool Circle_Sector(Body circle, Body sector)
     {
-        Vector2d forword = sector.direction;
+        //Vector2d forword = sector.direction;
 
         //Debug.Log("distance " + circle.position.FastDistance(sector.position).ToFloat());
 
@@ -824,17 +826,31 @@ public class Body
             Debug.DrawLine(d, b, Color.green, 60);
             Debug.DrawLine(b, a, Color.green, 60);
         }
+        else if(bodyType == BodyType.Circle)
+        {
+            Vector3 pos=  new Vector3(position.x.ToFloat(),10,position.y.ToFloat());
+            
+            float r = radius.ToFloat();
+            Vector3 a = new Vector3(pos.x+r,10,pos.z+r);
+            Vector3 b = new Vector3(pos.x - r,10, pos.z+ r);
+            Vector3 c = new Vector3(pos.x - r,10, pos.z - r);
+            Vector3 d = new Vector3(pos.x + r,10, pos.z - r);
+            Debug.DrawLine(a, b, Color.red);
+            Debug.DrawLine(a, d, Color.red);
+            Debug.DrawLine(c, b, Color.red);
+            Debug.DrawLine(c, d, Color.red);
+        }
     }
 
     public override string ToString()
     {
         if(bodyType == BodyType.Rectangle)
         {
-            return "Rectangle -> Pos:" + position + " Dir: " + direction + " Length: " + Length + " Width " + Width;
+            return "Rectangle -> Pos:" + position + " Dir: " + direction + " Length: " + Length + " Width " + Width ;
         }
         else
         {
-            return "Circle -> Pos:" + position + " Dir: " + direction + " Radius: " + radius;
+            return "Circle -> Pos:" + position + " Dir: " + direction + " Radius: " + Radius ;
         }
     }
 
@@ -845,7 +861,7 @@ public class Body
 
     #endregion
 
-    #region 表转化
+    #region 标准化
 
     public void Normal()
     {

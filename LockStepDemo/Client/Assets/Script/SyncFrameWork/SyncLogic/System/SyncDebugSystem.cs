@@ -8,8 +8,9 @@ using UnityEngine;
 
 public class SyncDebugSystem : SystemBase
 {
-    public static bool isDebug = false;
-    public static bool isPlayerOnly = true;
+    public static bool isDebug = true;
+    public static bool isPlayerOnly = false;
+    public static bool isFlyObject = false;
 
     public const string c_isAllMessage = "AllMessage";
     public const string c_isConflict   = "Conflict";
@@ -17,39 +18,56 @@ public class SyncDebugSystem : SystemBase
     public const string c_Recalc       = "Recalc";
 
     public static string[] DebugFilter = new string[] {
-        "LifeSpanComponent",
-        "MoveComponent",
-        "PlayerComponent",
-        "LifeComponent",
-        "SkillStatusComponent",
-        "BlowFlyComponent",
-        "FlyObjectComponent",
-        "GrowUpComponent",
+        //"LifeSpanComponent",
+        //"MoveComponent",
+        //"PlayerComponent",
+        //"LifeComponent",
+        //"SkillStatusComponent",
+        //"BlowFlyComponent",
+        //"FlyObjectComponent",
+        //"GrowUpComponent",
         "AIComponent",
+        "CollisionComponent",
     };
 
-    public static string[] SingleCompFilter = new string[] { /*"MapGridStateComponent", "LogicRuntimeMachineComponent" */};
+    public static string[] SingleCompFilter = new string[] { "MapGridStateComponent", /*"LogicRuntimeMachineComponent" */};
 
-    public static string syncLog = "";
+    //public static string syncLog = "";
 
     List<DebugMsg> debugList = new List<DebugMsg>();
 
     static Dictionary<string, StringBuilder> debugContent = new Dictionary<string, StringBuilder>();
 
+    static List<DebugRecord> msgCacheList = new List<DebugRecord>();
+    public static StringBuilder msgCache = new StringBuilder();
+
+    public static WorldBase s_world;
+
     public override void Init()
     {
+        s_world = m_world;
         //AddEntityCreaterLisnter();
         //AddEntityDestroyLisnter();
 
         GlobalEvent.AddTypeEvent<DebugMsg>(ReceviceDebugMsg);
+        ApplicationManager.s_OnApplicationOnGUI += GUI;
+
     }
 
     public override void Dispose()
     {
         //RemoveEntityCreaterLisnter();
         //RemoveEntityDestroyLisnter();
-
+        ApplicationManager.s_OnApplicationOnGUI -= GUI;
         GlobalEvent.RemoveTypeEvent<DebugMsg>(ReceviceDebugMsg);
+    }
+
+    void GUI()
+    {
+        if(isDebug && GUILayout.Button("Print"))
+        {
+            OutPutDebugRecord();
+        }
     }
 
     public override void OnEntityOptimizeCreate(EntityBase entity)
@@ -69,41 +87,46 @@ public class SyncDebugSystem : SystemBase
     //Deserializer deserializer = new Deserializer();
     public void ReceviceDebugMsg(DebugMsg msg, params object[] objs)
     {
+        //Debug.Log("ReceviceDebugMsg");
         isDebug = true;
 
         debugList.Add(msg);
         return;
     }
 
+    public override void BeforeFixedUpdate(int deltaTime)
+    {
+        msgCache.Remove(0, msgCache.Length);
+    }
+
     public override void EndFrame(int deltaTime)
     {
+        //Debug.Log("EndFrame ");
         if (!isDebug)
             return;
-        //Debug.Log("LateFixedUpdate");
 
         ConnectStatusComponent csc = m_world.GetSingletonComp<ConnectStatusComponent>();
+        //Debug.Log("debugList.Count " + debugList.Count);
 
         for (int i = 0; i < debugList.Count; i++)
         {
-            if (debugList[i].frame <= csc.confirmFrame)
+            if (debugList[i].frame == m_world.FrameCount)
             {
                 DebugLogic(debugList[i]);
+                debugList.RemoveAt(i);
+                i--;
+            }
+            else if(debugList[i].frame < m_world.FrameCount)
+            {
+                //Debug.Log("历史数据 " + debugList[i].frame);
+                RecordDebugMsg(debugList[i]);
+
                 debugList.RemoveAt(i);
                 i--;
             }
         }
 
         Record(null);
-
-        //for (int i = 0; i < m_world.m_entityList.Count; i++)
-        //{
-        //    int hash = 0;
-        //    hash += m_world.m_entityList[i].ToHash();
-        //}
-
-        //sendHash(hash);
-
-        //SendHash();
     }
 
     public override void Update(int deltaTime)
@@ -140,13 +163,25 @@ public class SyncDebugSystem : SystemBase
         }
         else if (msg.frame < m_world.FrameCount)
         {
-            CheckHistotryFrame(msg);
+            Debug.Log("检查了历史数据 msg " + msg.frame + " world" + m_world.FrameCount);
+            //CheckHistotryFrame(msg);
         }
         else
         {
             string log = "服务器超前 msg:" + msg.frame + " m_world:" + m_world.FrameCount + "\n";
             Debug.LogWarning(log);
-            syncLog += log;
+            //syncLog += log;
+        }
+
+        var dr = GetDebugMsg(msg.frame);
+        if(dr!= null && dr.msg != msg.msg)
+        {
+            //Time.timeScale = 0;
+            //Debug.LogWarning("msg error! frame :" + msg.frame + "\nlocal :\n " + dr.msg + "\nremote :\n " + msg.msg);
+        }
+        else
+        {
+            //Debug.Log("msg " + msg.msg);
         }
 
         RecordDebugMsg(msg);
@@ -159,16 +194,33 @@ public class SyncDebugSystem : SystemBase
     {
         //return;
 
-#if UNITY_EDITOR
-        if(!m_world.IsCertainty)
+        //Debug.Log("sync record " + m_world.FrameCount);
+
+        if (!m_world.IsCertainty)
         {
             return;
         }
 
-        if(x >= m_world.FrameCount)
+        if (x >= m_world.FrameCount)
         {
             Debug.LogError("重复的确定帧！" + st + "\n\n");
         }
+
+        DebugRecord dr = new DebugRecord();
+        dr.frame = m_world.FrameCount;
+
+        //把有哪些ID也打印进来
+        //msgCache.Append("\nIDs:\n");
+        //for (int i = 0; i < m_world.m_entityList.Count; i++)
+        //{
+        //    msgCache.Append(m_world.m_entityList[i].ID + "\n");
+        //}
+
+        dr.msg = msgCache.ToString();
+
+        RecordMsg("DebugMsg", m_world.FrameCount, dr.msg);
+
+        msgCacheList.Add(dr);
 
         x = m_world.FrameCount;
         st = new System.Diagnostics.StackTrace();
@@ -179,8 +231,20 @@ public class SyncDebugSystem : SystemBase
         {
             EntityBase entity = m_world.m_entityList[i];
 
+            bool isFilter = false;
             if (isPlayerOnly
-                && !(entity.GetExistComp(ComponentType.SelfComponent) || entity.GetExistComp(ComponentType.TheirComponent)))
+                 && !entity.GetExistComp(ComponentType.PlayerComponent))
+            {
+                isFilter = true;
+            }
+
+            if (isFlyObject
+                 && !entity.GetExistComp(ComponentType.FlyObjectComponent))
+            {
+                isFilter = true;
+            }
+
+            if (isFilter)
             {
                 continue;
             }
@@ -232,8 +296,6 @@ public class SyncDebugSystem : SystemBase
         RecordMsg("errorMsg", m_world.FrameCount, msg);
         RecordRandomSeed("local_randomSeed", m_world.FrameCount, m_world.m_RandomSeed);
 
-#endif
-
         //Debug.Log("local_randomSeed " + m_world.FrameCount + " " + m_world.m_RandomSeed);
     }
 
@@ -269,6 +331,17 @@ public class SyncDebugSystem : SystemBase
         debugContent[key].Append(content);
     }
 
+    public static void AddDebugMsg(string msg)
+    {
+        if (!isDebug)
+            return;
+
+        if (!s_world.IsCertainty)
+            return;
+
+        msgCache.Append(msg + "\n");
+    }
+
     public static void RecordRandomChange( int frame, int seed,string log)
     {
         string key = "local_randomChange";
@@ -280,6 +353,33 @@ public class SyncDebugSystem : SystemBase
         }
 
         content += "\nframe " + frame + " -> " + seed + " log " + log + "\n" + new System.Diagnostics.StackTrace().ToString();
+        debugContent[key].Append(content);
+    }
+
+    public static void RecordGrowUpChange(int frame, string log)
+    {
+        string key = "GrowUpChange";
+        string content = "";
+
+        if (!debugContent.ContainsKey(key))
+        {
+            debugContent.Add(key, new StringBuilder());
+        }
+
+        content += "\nframe " + frame + " -> " + " log " + log + "\n" + new System.Diagnostics.StackTrace().ToString();
+        debugContent[key].Append(content);
+    }
+
+    public static void RecordMsgByStackTrace(string key,int frame, string log)
+    {
+        string content = "";
+
+        if (!debugContent.ContainsKey(key))
+        {
+            debugContent.Add(key, new StringBuilder());
+        }
+
+        content += "\nframe " + frame + " -> " + " log " + log + "\n" + new System.Diagnostics.StackTrace().ToString();
         debugContent[key].Append(content);
     }
 
@@ -322,19 +422,20 @@ public class SyncDebugSystem : SystemBase
 
     public void OutPutDebugRecord()
     {
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         foreach (var item in debugContent)
         {
             //Debug.Log(item.Key + "\n" + item.Value);
+            PersistentFileManager.SaveData(UserData.NickName+"_" + item.Key, item.Value.ToString());
 
-            ResourceIOTool.WriteStringByFile(Application.dataPath + "/.OutPut/" + item.Key + ".txt", item.Value.ToString());
+            //ResourceIOTool.WriteStringByFile(Application.dataPath + "/.OutPut/" + item.Key + ".txt", item.Value.ToString());
         }
-#endif
+//#endif
     }
 
     void CheckCurrentFrame(DebugMsg msg)
     {
-        //Debug.Log("CheckCurrentFrame");
+        //Debug.Log("CheckCurrentFrame " + msg.frame);
         for (int i = 0; i < msg.infos.Count; i++)
         {
             if (m_world.GetEntityIsExist(msg.infos[i].id))
@@ -438,27 +539,90 @@ public class SyncDebugSystem : SystemBase
         }
     }
 
+    Deserializer des = new Deserializer();
+
     void CheckCurrentSingleComponentLogic(DebugMsg msg, ComponentInfo info)
     {
         SingletonComponent sc = m_world.GetSingletonComp(info.m_compName);
 
-        string content = Serializer.Serialize(sc);
-
-        if (!content.Equals(info.content))
+        if(info.m_compName == "MapGridStateComponent")
         {
-            RecordSystemBase rsb = m_world.GetRecordSystemBase(info.m_compName);
-            string log = "error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount + " singleComp:" + info.m_compName + "\n remote:" + info.content + "\n local:" + content + "\n";
-            Debug.LogWarning(log);
-            rsb.PrintRecord(0);
+            MapGridStateComponent lmsc = (MapGridStateComponent)sc;
 
-            Time.timeScale = 0;
-            OutPutDebugRecord();
+            MapGridStateComponent msc = des.Deserialize<MapGridStateComponent>(info.content);
+
+            if(!JudgeDict(msc.globalRandomCellHaveItemList, lmsc.globalRandomCellHaveItemList))
+            {
+                string content = Serializer.Serialize(sc);
+                string log = "error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount + " singleComp:" + info.m_compName + "\n remote:" + info.content + "\n local:" + content + "\n";
+                Debug.LogWarning(log);
+
+                OutPutDebugRecord();
+            }
         }
         else
         {
-            //Debug.Log("singleComp correct ! frame " + msg.frame + " m_world:" + m_world.FrameCount + "\ncontent " + info.content);
+            string content = Serializer.Serialize(sc);
+
+            if (!content.Equals(info.content))
+            {
+                RecordSystemBase rsb = m_world.GetRecordSystemBase(info.m_compName);
+                string log = "error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount + " singleComp:" + info.m_compName + "\n remote:" + info.content + "\n local:" + content + "\n";
+                Debug.LogWarning(log);
+                rsb.PrintRecord(0);
+
+                Time.timeScale = 0;
+                OutPutDebugRecord();
+            }
+            else
+            {
+                //Debug.Log("singleComp correct ! frame " + msg.frame + " m_world:" + m_world.FrameCount + "\ncontent " + info.content);
+            }
         }
+
+
     }
+
+    bool JudgeDict(Dictionary<int,MapCell> a, Dictionary<int, MapCell> b)
+    {
+        foreach (var item in a)
+        {
+            if(b.ContainsKey(item.Key))
+            {
+                if(!b[item.Key].Eq(item.Value))
+                {
+                    Debug.LogWarning("dont Eq " + item.Key);
+                    return false;
+                }
+            }
+            else
+            {
+                Debug.LogWarning("dont ContainsKey " + item.Key);
+
+                return false;
+            }
+        }
+
+        foreach (var item in b)
+        {
+            if (a.ContainsKey(item.Key))
+            {
+                if (!a[item.Key].Eq(item.Value))
+                {
+                    Debug.LogWarning("dont Eq " + item.Key);
+                    return false;
+                }
+            }
+            else
+            {
+                Debug.LogWarning("dont ContainsKey " + item.Key);
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 
     void CheckCommandLogic(DebugMsg msg, EntityInfo entityInfo, ComponentInfo compInfo)
     {
@@ -606,13 +770,32 @@ public class SyncDebugSystem : SystemBase
         return false;
     }
 
-    public static void LogAndDebug(string content, string tag = null)
+    //public static void LogAndDebug(string content, string tag = null)
+    //{
+    //    if (isDebug && (tag == null || IsFilter(tag)))
+    //    {
+    //        syncLog += content + "\n";
+    //        Debug.Log(content);
+    //    }
+    //}
+
+    DebugRecord GetDebugMsg(int frame)
     {
-        if (isDebug && (tag == null || IsFilter(tag)))
+        for (int i = 0; i < msgCacheList.Count; i++)
         {
-            syncLog += content + "\n";
-            Debug.Log(content);
+            if(frame == msgCacheList[i].frame)
+            {
+                return msgCacheList[i];
+            }
         }
+
+        return null;
+    }
+
+    class DebugRecord
+    {
+        public int frame;
+        public string msg;
     }
 }
 

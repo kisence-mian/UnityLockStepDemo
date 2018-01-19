@@ -221,6 +221,16 @@ public class SystemBase
         return m_world.group.GetEntityByFilter(hashCode, filter);
     }
 
+    public int GetGroupHashCode(string[] filter)
+    {
+        return m_world.group.StringArrayToInt(filter);
+    }
+
+    public List<EntityBase> GetEntityListByCahce(int hashCode ,string[] filter)
+    {
+        return m_world.group.GetEntityByFilter(hashCode, filter);
+    }
+
     #region 事件监听
     protected void AddEntityOptimizeCreaterLisnter()
     {

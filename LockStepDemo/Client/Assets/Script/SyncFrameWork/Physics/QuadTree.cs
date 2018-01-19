@@ -241,6 +241,8 @@ public class QuadTree
             root = this;
         }
 
+        //这里会出现死循环
+        //如果根节点没有完全覆盖地图碰撞盒
         for (int i = 0; i < m_objectListCount; i++)
         {
             CollisionComponent cc = m_objectList[i];

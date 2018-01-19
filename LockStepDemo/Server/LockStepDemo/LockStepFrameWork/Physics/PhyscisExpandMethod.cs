@@ -6,6 +6,9 @@ using UnityEngine;
 
 public static class PhyscisExpandMethod
 {
+    public const long Deg2Rad = 1143;
+    public const long PI = 205887;
+
     public static bool IsNotNull(this object obj)
     {
         return obj != null;
@@ -19,7 +22,7 @@ public static class PhyscisExpandMethod
     //向量逆时针旋转
     public static Vector2d Vector2dRotateInXZ(this Vector2d dir, long angle)
     {
-        angle = angle.Mul(FixedMath.Create(Mathf.Deg2Rad));
+        angle = angle.Mul(Deg2Rad);
 
         long cos = FixedMath.Trig.Cos(angle);
         long sin = FixedMath.Trig.Sin(angle);
@@ -34,7 +37,7 @@ public static class PhyscisExpandMethod
     //向量顺时针
     public static Vector2d Vector2dRotateInXZ2(this Vector2d dir, long angle)
     {
-        angle = angle.Mul(FixedMath.Create( Mathf.Deg2Rad));
+        angle = angle.Mul(Deg2Rad);
 
         long cos = FixedMath.Trig.Cos(angle);
         long sin = FixedMath.Trig.Sin(angle);
@@ -50,7 +53,7 @@ public static class PhyscisExpandMethod
     //位置绕点旋转顺时针，逆时针角度乘以-1即可
     public static Vector2d PostionRotateInXZ(this Vector2d pos, Vector2d center, long angle)
     {
-        angle = -angle.Mul(FixedMath.Create(Mathf.Deg2Rad));
+        angle = -angle.Mul(Deg2Rad);
 
         long cos = FixedMath.Trig.Cos(angle);
         long sin = FixedMath.Trig.Sin(angle);
@@ -69,9 +72,11 @@ public static class PhyscisExpandMethod
         //dir = dir.normalized;
         //aimDir = aimDir.normalized;
 
-        long angle = FixedMath.Create( Math.Acos(dir.Dot(aimDir).ToFloat())).Mul(FixedMath.Create(180).Div(FixedMath.Create(Math.PI)));
+        long dot = dir.Dot(aimDir);
 
-        if (angle != FixedMath.Create(180) && FixedMath.Create(angle) != 0)
+        long angle = FixedMath.Trig.Acos(dot).Mul(FixedMath.Create(180).Div(PI));
+
+        if (angle != FixedMath.Create(180) && angle != 0)
         {
             long cross = dir.x.Mul(aimDir.y) - aimDir.x.Mul(dir.y);
             if (cross < FixedMath.Create(0))

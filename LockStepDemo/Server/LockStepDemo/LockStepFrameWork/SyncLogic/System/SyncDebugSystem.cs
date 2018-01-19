@@ -10,24 +10,27 @@ class SyncDebugSystem : SystemBase
 {
     public static bool isDebug = true;
     public static bool isPlayerOnly = true;
+    public static bool isFlyObject = false;
 
     public static string[] DebugFilter = new string[] {
-        "LifeSpanComponent",
-        "MoveComponent",
-        "PlayerComponent",
-        "LifeComponent",
-        "SkillStatusComponent",
-        "BlowFlyComponent",
-        "FlyObjectComponent",
+        //"LifeSpanComponent",
+        //"MoveComponent",
+        //"PlayerComponent",
+        //"LifeComponent",
+        //"SkillStatusComponent",
+        //"BlowFlyComponent",
+        //"FlyObjectComponent",
         "GrowUpComponent",
         "AIComponent",
     };
 
-    public static string[] SingleCompFilter = new string[] {/* "MapGridStateComponent", "LogicRuntimeMachineComponent" */};
+    public static string[] SingleCompFilter = new string[] { "MapGridStateComponent",/* "LogicRuntimeMachineComponent" */};
 
     public static string syncLog = "";
 
     static Dictionary<string, string> debugContent = new Dictionary<string, string>();
+
+    public static StringBuilder msgCache = new StringBuilder();
 
     public override Type[] GetFilter()
     {
@@ -37,6 +40,16 @@ class SyncDebugSystem : SystemBase
             
         };
     }
+
+    public static void AddDebugMsg(string msg)
+    {
+        if (!isDebug)
+            return;
+
+        msgCache.Append(msg + "\n");
+    }
+
+    Deserializer des = new Deserializer();
 
     public override void EndFrame(int deltaTime)
     {
@@ -53,10 +66,31 @@ class SyncDebugSystem : SystemBase
 
         for (int i = 0; i < m_world.m_entityList.Count; i++)
         {
+            msgCache.Append( m_world.m_entityList[i].ID + "\n");
+        }
+
+        msg.msg = msgCache.ToString();
+
+        msgCache.Clear();
+
+        for (int i = 0; i < m_world.m_entityList.Count; i++)
+        {
             EntityBase eb = m_world.m_entityList[i];
 
+            bool isFilter = false;
             if (isPlayerOnly
                  && !eb.GetExistComp(ComponentType.ConnectionComponent))
+            {
+                isFilter = true;
+            }
+
+            if (isFlyObject
+                 && !eb.GetExistComp(ComponentType.FlyObjectComponent))
+            {
+                isFilter = true;
+            }
+
+            if(isFilter)
             {
                 continue;
             }
@@ -106,6 +140,11 @@ class SyncDebugSystem : SystemBase
 
             info.m_compName = SingleCompFilter[i];
             info.content = Serializer.Serialize(sc);
+
+            //if(info.m_compName == "MapGridStateComponent")
+            //{
+            //    MapGridStateComponent msc = des.Deserialize<MapGridStateComponent>(info.content);
+            //}
 
             msg.singleCompInfo.Add(info);
         }
@@ -183,6 +222,41 @@ class SyncDebugSystem : SystemBase
         debugContent[key] = content;
 
         OutPutDebugRecord();
+    }
+
+    public static void RecordGrowUpChange(int frame, string log)
+    {
+        string key = "GrowUpChange";
+        string content = "";
+
+        if (debugContent.ContainsKey(key))
+        {
+            content = debugContent[key];
+        }
+        else
+        {
+            debugContent.Add(key, content);
+        }
+
+        content += "\nframe " + frame + " -> " + " log " + log + "\n" + new System.Diagnostics.StackTrace().ToString();
+        debugContent[key] = (content);
+    }
+
+    public static void RecordMsgByStackTrace(string key, int frame, string log)
+    {
+        string content = "";
+
+        if (debugContent.ContainsKey(key))
+        {
+            content = debugContent[key];
+        }
+        else
+        {
+            debugContent.Add(key, content);
+        }
+
+        content += "\nframe " + frame + " -> " + " log " + log + "\n" + new System.Diagnostics.StackTrace().ToString();
+        debugContent[key] = content;
     }
 
     public static void OutPutDebugRecord()

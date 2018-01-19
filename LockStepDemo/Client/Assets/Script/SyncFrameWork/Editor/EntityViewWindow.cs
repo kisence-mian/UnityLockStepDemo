@@ -72,9 +72,9 @@ public class EntityViewWindow : EditorWindow
         }
     }
 
- 
 
-    
+
+    string serchEntity = "";
     private int selectEntityItem =-1;
     private Vector2 pos0;
     private Vector2 pos1;
@@ -85,11 +85,25 @@ public class EntityViewWindow : EditorWindow
     private void ShowEntitysGUI(WorldBase world)
     {
         List<EntityBase> allEntitys = world.m_entityList;
-     
+
+        GUILayout.BeginHorizontal();
+        serchEntity = GUILayout.TextField( serchEntity, "SearchTextField");
+        if(GUILayout.Button("", "SearchCancelButton",GUILayout.Width(Screen.width / 3)))
+        {
+            serchEntity = "";
+        }
+        GUILayout.EndHorizontal();
+
         List<string> names = new List<string>();
         foreach (var item in allEntitys)
         {
-            names.Add(item.name);
+            string newName = item.ID +" > "+item.name;
+
+            if(serchEntity != "" && !newName.Contains(serchEntity))
+            {
+                continue;
+            }
+            names.Add(newName);
         }
         selectEntityItem = ShowLeftPartWindow("Entity",names, selectEntityItem);
         if (selectEntityItem != -1)
@@ -250,7 +264,7 @@ public class EntityViewWindow : EditorWindow
     private int ShowLeftPartWindow(string ShowName, List<string> names, int select)
     {
         int num = select;
-        Rect leftRect = new Rect(0, leftRectY, Screen.width / 3, Screen.height - leftRectY);
+        Rect leftRect = new Rect(0, leftRectY + 15, Screen.width / 3, Screen.height - leftRectY );
         GUILayout.BeginArea(leftRect, ShowName, "box");
         GUILayout.Space(20);
 

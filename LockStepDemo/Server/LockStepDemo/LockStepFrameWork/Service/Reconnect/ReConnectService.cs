@@ -72,7 +72,7 @@ public class ReConnectService : ServiceBase
     {
         WorldBase world = (WorldBase)objs[0];
 
-        List<EntityBase> list = world.GetEntiyList(new string[] { "ConnectionComponent" });
+        List<EntityBase> list = world.GetEntityList(new string[] { "ConnectionComponent" });
 
         //移除所有的重连信息
         for (int i = 0; i < list.Count; i++)

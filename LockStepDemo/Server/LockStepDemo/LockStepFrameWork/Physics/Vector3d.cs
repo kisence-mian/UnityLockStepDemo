@@ -28,6 +28,12 @@ namespace Lockstep
             this.y = FixedMath.Create(vec3.y);
             this.z = FixedMath.Create(vec3.z);
         }
+        public Vector3d(Vector3d vec3)
+        {
+            this.x = vec3.x;
+            this.y =vec3.y;
+            this.z =vec3.z;
+        }
         public Vector3d(int X, int Y, int Z)
         {
             this.x = FixedMath.Create(X);
@@ -39,7 +45,11 @@ namespace Lockstep
             y = Y;
             z = Z;
         }
-
+       public long Magnitude()
+        {
+            long magnitude = FixedMath.Sqrt(x.Mul(x) + y.Mul(y) + z.Mul(z));
+            return magnitude;
+        }
         public void Normalize () {
             long magnitude = FixedMath.Sqrt(x.Mul(x) + y.Mul(y) + z.Mul(z));
             x = x.Div(magnitude);
@@ -70,6 +80,10 @@ namespace Lockstep
             x += other.x;
             y += other.y;
             z += other.z;
+        }
+        public static Vector3d operator -(Vector3d v3,Vector3d other)
+        {
+            return new Vector3d(v3.x - other.x, v3.y - other.y, v3.z - other.z);
         }
         public void Mul (long f1) {
             x *= f1;

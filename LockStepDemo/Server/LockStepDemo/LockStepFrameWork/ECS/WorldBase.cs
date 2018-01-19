@@ -340,6 +340,16 @@ public abstract class WorldBase
     {
         if (IsStart)
         {
+#if UNITY_ANDROID
+
+            //超过5帧不再预测
+            ConnectStatusComponent csc = GetSingletonComp<ConnectStatusComponent>();
+            if (csc.confirmFrame <= m_frameCount - 4 && IsLocal == false)
+            {
+                return;
+            }
+#endif
+
             //只有客户端才记录过去值
             if (IsClient)
             {
@@ -362,11 +372,26 @@ public abstract class WorldBase
         }
     }
 
-    public void InterFixedLoop(int deltaTime)
+    public void OptimisticFixedLoop(int deltaTime) //乐观帧同步
     {
-        IsInterFrame = true;
-        FixedLoop(deltaTime);
-        IsInterFrame = false;
+        if (IsStart)
+        {
+            IsCertainty = true;
+
+            FrameCount++;
+
+            BeforeFixedUpdate(deltaTime);
+            FixedUpdate(deltaTime);
+            LateFixedUpdate(deltaTime);
+
+            LazyExecuteEntityOperation();
+
+            EndFrame(deltaTime);
+        }
+        else
+        {
+            OnlyCallByPause();
+        }
     }
 
     /// <summary>
@@ -396,7 +421,7 @@ public abstract class WorldBase
 
         EndFrame(deltaTime);
     }
-    #endregion
+#endregion
 
     #region Update 只在客户端执行
     void BeforeUpdate(int deltaTime)
@@ -424,7 +449,7 @@ public abstract class WorldBase
         }
     }
 
-    #endregion
+#endregion
 
     #region FixUpdate 前后端以同样频率执行
 
@@ -452,7 +477,7 @@ public abstract class WorldBase
         }
     }
 
-    #endregion
+#endregion
 
     #region 其他时刻
 
@@ -472,9 +497,9 @@ public abstract class WorldBase
         }
     }
 
-    #endregion
+#endregion
 
-    #endregion
+#endregion
 
     #region 回滚相关 
 
@@ -524,6 +549,9 @@ public abstract class WorldBase
 
     public void Record(int frame)
     {
+        if (IsLocal)
+            return;
+
         RandomRecord(frame);
 
         for (int i = 0; i < m_recordList.Count; i++)
@@ -592,7 +620,7 @@ public abstract class WorldBase
         return m_recordDict.ContainsKey(name);
     }
 
-    #region 实体回滚
+#region 实体回滚
 
     void RecordEntityCreate(EntityBase entity)
     {
@@ -782,15 +810,15 @@ public abstract class WorldBase
     }
 
 
-    #endregion
+#endregion
 
-    #region 组件回滚
+#region 组件回滚
 
 
 
-    #endregion
+#endregion
 
-    #endregion
+#endregion
 
     #region 实体相关
 
@@ -813,7 +841,7 @@ public abstract class WorldBase
         destroyCache.Clear();
     }
 
-    #region 创建
+#region 创建
 
     public EntityBase CreateEntity(string identifier, params ComponentBase[] comps)
     {
@@ -837,6 +865,8 @@ public abstract class WorldBase
         {
             throw new Exception("CreateEntity Entity ID has exist ! ->" + ID + "<-");
         }
+
+        SyncDebugSystem.AddDebugMsg("Create " + ID + " " + name);
 
         EntityBase entity = NewEntity(name,ID, compList);
         AddEntity(entity);
@@ -942,9 +972,9 @@ public abstract class WorldBase
         DispatchCreate(entity);
     }
 
-    #endregion
+#endregion
 
-    #region 摧毁
+#region 摧毁
 
     public void ClientDestroyEntity(int ID)
     {
@@ -1037,9 +1067,9 @@ public abstract class WorldBase
         DestroyEntityAndDispatch(entity);
     }
 
-    #endregion
+#endregion
 
-    #region 获取对象
+#region 获取对象
 
     public int GetEntityID(string identifier)
     {
@@ -1065,7 +1095,7 @@ public abstract class WorldBase
         }
     }
 
-    public List<EntityBase> GetEntiyList(string[] compNames)
+    public List<EntityBase> GetEntityList(string[] compNames)
     {
         List<EntityBase> tupleList = new List<EntityBase>();
         for (int i = 0; i < m_entityList.Count; i++)
@@ -1091,9 +1121,9 @@ public abstract class WorldBase
         return true;
     }
 
-    #endregion
+#endregion
 
-    #region 回滚相关
+#region 回滚相关
 
     List<EntityBase> dispatchDestroyCache = new List<EntityBase>();
     List<EntityBase> dispatchCreateCache = new List<EntityBase>();
@@ -1257,9 +1287,9 @@ public abstract class WorldBase
         return false;
     }
 
-    #endregion
+#endregion
 
-    #endregion
+#endregion
 
     #region 单例组件
 
@@ -1336,7 +1366,7 @@ public abstract class WorldBase
         comp.World = this;
     }
 
-    #endregion
+#endregion
 
     #region 事件派发
 
@@ -1464,7 +1494,7 @@ public abstract class WorldBase
 
     public delegate void EntityChangedCallBack(EntityBase entity);
 
-    #endregion
+#endregion
 
     #region 随机数
 
@@ -1527,8 +1557,83 @@ public abstract class WorldBase
     }
 
     #endregion
+#if !Server
+    #region 乐观帧同步
 
+    public bool GetIsAllMsg()
+    {
+        List<EntityBase> list = GetPlayerList();
+        bool isAllMessage = true;
+        
+        for (int j = 0; j < list.Count; j++)
+        {
+            AddRecordComponent(list[j]);
+            PlayerCommandRecordComponent tmp = list[j].GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
+            isAllMessage &= tmp.GetAllMessage(FrameCount + 1);
+        }
+
+        return isAllMessage;
+    }
+
+    public int GetCacheCount()
+    {
+        int count = 0;
+        List<EntityBase> list = GetPlayerList();
+
+        bool isAllMessage = true;
+        for (int i = m_frameCount + 1; ; i++)
+        {
+            if (list.Count == 0)
+            {
+                break;
+            }
+
+            for (int j = 0; j < list.Count; j++)
+            {
+                AddRecordComponent(list[j]);
+                PlayerCommandRecordComponent tmp = list[j].GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
+                isAllMessage &= tmp.GetAllMessage(i);
+            }
+
+            if (isAllMessage)
+            {
+                count++;
+            }
+            else
+            {
+                break;
+            }
+        }
+        return count;
+    }
+
+    public void AddRecordComponent(EntityBase entity)
+    {
+        if (!entity.GetExistComp(ComponentType.PlayerCommandRecordComponent))
+        {
+            PlayerCommandRecordComponent rc = new PlayerCommandRecordComponent();
+
+            //自动添加记录组件
+            entity.AddComp(rc);
+        }
+    }
+
+    private bool isGetHashCode = false;
+    private int filterNameHashCode;
+    string[] filter = new string[] { "CommandComponent", "RealPlayerComponent" };
+    public List<EntityBase> GetPlayerList()
+    {
+        if (!isGetHashCode)
+        {
+            isGetHashCode = true;
+
+            filterNameHashCode = group.StringArrayToInt(filter);
+        }
+        return group.GetEntityByFilter(filterNameHashCode, filter);
+    }
     #endregion
+#endif
+#endregion
 }
 
 /// <summary>
