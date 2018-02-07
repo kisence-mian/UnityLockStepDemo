@@ -49,7 +49,8 @@ public class ConnectionComponent : ServiceComponent
         {
             for (int i = 0; i < m_commandList.Count; i++)
             {
-                if (m_commandList[i].frame == frame)
+                if (m_commandList[i] != null 
+                    && m_commandList[i].frame == frame)
                 {
                     return m_commandList[i];
                 }
@@ -103,8 +104,13 @@ public class ConnectionComponent : ServiceComponent
 
     public bool AddCommand(PlayerCommandBase cmd)
     {
-        if(m_commandList.Count > 0
-            && m_commandList[m_commandList.Count - 1].frame == cmd.frame)
+        //if (m_commandList.Count > 0
+        //    && m_commandList[m_commandList.Count - 1].frame == cmd.frame)
+        //{
+        //    cmd.frame++;
+        //}
+
+        while (GetExitCommand(cmd.frame))
         {
             cmd.frame++;
         }
@@ -112,6 +118,29 @@ public class ConnectionComponent : ServiceComponent
         LastInputFrame = cmd.frame;
         m_commandList.Add(cmd);
 
+        //if (m_commandList.Count > 0
+        //    && m_commandList[m_commandList.Count - 1].frame == cmd.frame)
+        //{
+        //    m_commandList[m_commandList.Count - 1] = cmd;
+        //    return true;
+        //}
+
+        //LastInputFrame = cmd.frame;
+        //m_commandList.Add(cmd);
+
         return true;
+    }
+
+    public bool GetExitCommand(int frame)
+    {
+        for (int i = m_commandList.Count - 1 ; i >= 0; i--)
+        {
+            if(m_commandList[i].frame == frame)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

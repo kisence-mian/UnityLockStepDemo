@@ -41,7 +41,7 @@ public class WorldManager
         set
         {
             s_updateSpped = value;
-            Time.timeScale = s_updateSpped;
+            //Time.timeScale = s_updateSpped;
         }
     }
 

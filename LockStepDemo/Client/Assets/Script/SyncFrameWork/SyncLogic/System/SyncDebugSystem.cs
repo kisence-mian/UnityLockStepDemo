@@ -9,7 +9,7 @@ using UnityEngine;
 public class SyncDebugSystem : SystemBase
 {
     public static bool isDebug = true;
-    public static bool isPlayerOnly = false;
+    public static bool isPlayerOnly = true;
     public static bool isFlyObject = false;
 
     public const string c_isAllMessage = "AllMessage";
@@ -18,19 +18,17 @@ public class SyncDebugSystem : SystemBase
     public const string c_Recalc       = "Recalc";
 
     public static string[] DebugFilter = new string[] {
-        //"LifeSpanComponent",
-        //"MoveComponent",
-        //"PlayerComponent",
-        //"LifeComponent",
-        //"SkillStatusComponent",
-        //"BlowFlyComponent",
-        //"FlyObjectComponent",
-        //"GrowUpComponent",
+        "LifeSpanComponent",
+        "MoveComponent",
+        "PlayerComponent",
+        "LifeComponent",
+        "BlowFlyComponent",
+        "FlyObjectComponent",
+        "GrowUpComponent",
         "AIComponent",
-        "CollisionComponent",
     };
 
-    public static string[] SingleCompFilter = new string[] { "MapGridStateComponent", /*"LogicRuntimeMachineComponent" */};
+    public static string[] SingleCompFilter = new string[] { /*"MapGridStateComponent",*/ /*"LogicRuntimeMachineComponent" */};
 
     //public static string syncLog = "";
 
@@ -42,6 +40,14 @@ public class SyncDebugSystem : SystemBase
     public static StringBuilder msgCache = new StringBuilder();
 
     public static WorldBase s_world;
+
+    public override Type[] GetFilter()
+    {
+        return new Type[]
+            {
+                typeof(SelfComponent),
+            };
+    }
 
     public override void Init()
     {
@@ -67,6 +73,20 @@ public class SyncDebugSystem : SystemBase
         if(isDebug && GUILayout.Button("Print"))
         {
             OutPutDebugRecord();
+        }
+
+        if (isDebug && GUILayout.Button("Query"))
+        {
+            List<EntityBase> list = GetEntityList();
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                QueryCommand qc = new QueryCommand();
+                qc.frame = m_world.FrameCount - 10;
+                qc.id = list[i].ID;
+
+                ProtocolAnalysisService.SendCommand(qc);
+            }
         }
     }
 

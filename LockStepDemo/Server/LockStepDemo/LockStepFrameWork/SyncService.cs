@@ -22,6 +22,8 @@ public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
 
     AIService m_aiService = new AIService();
 
+    MsgTestService msgTestService = new MsgTestService();
+
     public SyncService() : base(new ProtocolReceiveFilterFactory())
     {
 
@@ -53,6 +55,8 @@ public class SyncService : AppServer<SyncSession, ProtocolRequestBase>
         settlementService.Init(this, config);
 
         m_aiService.Init(this,config);
+
+        msgTestService.Init(this, config);
 
         CommandMessageService<CommandComponent>.Init();
 

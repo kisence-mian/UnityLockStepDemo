@@ -37,6 +37,9 @@ public static class PhyscisExpandMethod
     //向量顺时针
     public static Vector2d Vector2dRotateInXZ2(this Vector2d dir, long angle)
     {
+        return dir.Vector2dRotateInXZ(-angle);
+
+
         angle = angle.Mul(Deg2Rad);
 
         long cos = FixedMath.Trig.Cos(angle);

@@ -205,7 +205,9 @@ public class SyncSystem<T> : ViewSystemBase where T : PlayerCommandBase, new()
             pcrc.RecordCommand(cmd);
 
             //数据完整校验
-            if(cmd.frame != 0 && pcrc.GetAllMessage(cmd.frame) && !pcrc.GetAllMessage(cmd.frame - 1))
+            if(cmd.frame != 0 && pcrc.GetAllMessage(cmd.frame) && !pcrc.GetAllMessage(cmd.frame - 1)
+                //&& RandomService.GetRand(0,100) < 10
+                )
             {
                 ReSendMessage(cmd.frame - 1,cmd.id);
             }

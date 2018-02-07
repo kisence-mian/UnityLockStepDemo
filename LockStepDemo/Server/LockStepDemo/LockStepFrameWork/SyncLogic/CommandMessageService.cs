@@ -41,13 +41,18 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
         {
             WorldBase world = connectComp.Entity.World;
 
-            msg.frame = world.FrameCount + 1;
+            if(world.FrameCount <= msg.frame + 4)
+            {
+                connectComp.AddCommand(msg);
+            }
 
-                //广播这帧
-                if(connectComp.AddCommand(msg))
-                {
-                    //BroadcastCommand(world, connectComp, msg, false);
-                }
+            //msg.frame = world.FrameCount + 1;
+
+            //    //广播这帧
+            //    if(connectComp.AddCommand(msg))
+            //    {
+            //        //BroadcastCommand(world, connectComp, msg, false);
+            //    }
             //}
             //else
             //{
@@ -164,22 +169,26 @@ public class CommandMessageService<T> where T : PlayerCommandBase, new()
         {
             WorldBase world = connectComp.Entity.World;
 
-            //取上一帧的数据
-            T scmd = (T)connectComp.GetCommand(msg.frame - 1).DeepCopy();
-
-            //msg.frame = world.FrameCount + 1;
-            
+            if (world.FrameCount <= msg.frame + 4)
+            {
+                //取上一帧的数据
+                T scmd = (T)connectComp.GetCommand(msg.frame - 1).DeepCopy();
                 scmd.frame = world.FrameCount + 1;
+                connectComp.AddCommand(scmd);
+            }
 
-            if (connectComp.AddCommand(scmd))
-                {
-                    //BroadcastSameCommand(world, connectComp, msg, true);
-                }
+            //    //取上一帧的数据
+            //    T scmd = (T)connectComp.GetCommand(msg.frame - 1).DeepCopy();
+            ////msg.frame = world.FrameCount + 1;
+            //    scmd.frame = world.FrameCount + 1;
+            //if (connectComp.AddCommand(scmd))
+            //    {
+            //        //BroadcastSameCommand(world, connectComp, msg, true);
+            //    }
             //}
             //else
             //{
             //    //Debug.Log("Same frame " + world.FrameCount);
-
             //    //scmd.frame = world.FrameCount + 1;
             //    //connectComp.AddCommand(scmd);
             //}

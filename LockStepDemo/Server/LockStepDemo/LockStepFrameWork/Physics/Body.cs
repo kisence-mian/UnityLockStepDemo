@@ -316,36 +316,13 @@ public class Body
         switch (body.bodyType)
         {
             case BodyType.Circle: return Circle_Sector(body, this);
-            //case BodyType.Rectangle: return Sector_Rectangle(this, body);
+            case BodyType.Rectangle: return Sector_Rectangle(this, body);
             //case BodyType.Sector: return Sector_Sector(body, this);
         }
         return true;
     }
 
-    private bool Standard_Rectangle(Body body)
-    {
-        switch (body.bodyType)
-        {
-            case BodyType.Circle: return Circle_Rectangle(body, this);
-            case BodyType.Rectangle: return Rectangle_Rectangle(body, this);
-                //case BodyType.Sector: return Sector_Rectangle(area, this);
-        }
-
-        return true;
-    }
-
-        ////自己是扇形
-        //private bool Sector(Body body)
-        //{
-        //    switch (area.bodyType)
-        //    {
-        //        case BodyType.Circle: return Circle_Sector(area, this);
-        //        case BodyType.Rectangle: return Sector_Rectangle(this, area);
-        //        case BodyType.Sector: return Sector_Sector(area, this);
-        //    }
-        //    return true;
-        //}
-        #endregion
+    #endregion
 
     #region 相交判断
 
@@ -364,6 +341,9 @@ public class Body
         return false;
     }
 
+    long gen2 = FixedMath.Create(1.42f);
+    Vector2d xAxis = new Vector2d(1, 0);
+
     private bool Circle_Rectangle(Body circle, Body rectangle)
     {
         Vector2d newCirclePos = circle.position;
@@ -375,7 +355,7 @@ public class Body
             long y1 = circle.position.y - rectangle.position.y;
             long d1 = x1.Mul(x1) + y1.Mul(y1);
 
-            long r1 = circle.radius + FixedMath.Create(1.42f).Mul(rectangle.width + rectangle.length);
+            long r1 = circle.radius + gen2.Mul(rectangle.width + rectangle.length);
             long d2 = r1.Mul(r1);
 
             if (d1 > d2)
@@ -384,32 +364,36 @@ public class Body
             }
 
             //先把圆形归位
-            long angle = rectangle.direction.GetRotationAngle(new Vector2d(1, 0));
+            long angle = rectangle.direction.GetRotationAngle(xAxis);
             newCirclePos = circle.position.PostionRotateInXZ(rectangle.position, angle);
         }
 
         long cx, cy;
 
-        if (newCirclePos.x < rectangle.position.x - rectangle.length.Mul(FixedMath.Half))
+        long halfLength = rectangle.length.Mul(FixedMath.Half);
+
+        if (newCirclePos.x < rectangle.position.x - halfLength)
         {
-            cx = rectangle.position.x - rectangle.length.Mul(FixedMath.Half);
+            cx = rectangle.position.x - halfLength;
         }
-        else if (newCirclePos.x > rectangle.position.x + rectangle.length.Mul(FixedMath.Half))
+        else if (newCirclePos.x > rectangle.position.x + halfLength)
         {
-            cx = rectangle.position.x + rectangle.length.Mul(FixedMath.Half);
+            cx = rectangle.position.x + halfLength;
         }
         else
         {
             cx = newCirclePos.x;
         }
 
-        if (newCirclePos.y < rectangle.position.y - rectangle.width.Mul(FixedMath.Half))
+        long halfWidth = rectangle.width.Mul(FixedMath.Half);
+
+        if (newCirclePos.y < rectangle.position.y - halfWidth)
         {
-            cy = rectangle.position.y - rectangle.width.Mul(FixedMath.Half);
+            cy = rectangle.position.y - halfWidth;
         }
-        else if (newCirclePos.y > rectangle.position.y + rectangle.width.Mul(FixedMath.Half))
+        else if (newCirclePos.y > rectangle.position.y + halfWidth)
         {
-            cy = rectangle.position.y + rectangle.width.Mul(FixedMath.Half);
+            cy = rectangle.position.y + halfWidth;
         }
         else
         {
@@ -438,6 +422,34 @@ public class Body
         }
 
         Vector2d dir = (circle.position - sector.position);
+        dir.Normalize();
+        sector.direction.Normalize();
+
+        long angle = sector.direction.GetRotationAngle(dir);
+
+        //Debug.Log("angle " + angle.ToFloat() + " sector.angle/2 -> " + sector.angle.Mul(FixedMath.Half).ToFloat() + " (360 - sector.angle / 2) " + (FixedMath.Create(360) - sector.angle.Mul(FixedMath.Half)).ToFloat());
+
+        if (angle < sector.angle.Mul(FixedMath.Half)
+            || angle > FixedMath.Create(360) - sector.angle.Mul(FixedMath.Half)
+            )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    //TODO 非常粗略的判断
+    private bool Sector_Rectangle(Body sector, Body rectangle)
+    {
+        if (rectangle.position.FastDistance(sector.position) > (rectangle.width + sector.radius) * (rectangle.length + sector.radius))
+        {
+            return false;
+        }
+
+        Vector2d dir = (rectangle.position - sector.position);
         dir.Normalize();
         sector.direction.Normalize();
 
@@ -658,61 +670,35 @@ public class Body
             newCirclePos = circle.position.PostionRotateInXZ(position, rot);
         }
 
-        
-        //long cx, cy;
-
-        //if (newCirclePos.x < rectangle.position.x - rectangle.length.Mul(FixedMath.Half))
-        //{
-        //    cx = rectangle.position.x - rectangle.length.Mul(FixedMath.Half);
-        //}
-        //else if (newCirclePos.x > rectangle.position.x + rectangle.length.Mul(FixedMath.Half))
-        //{
-        //    cx = rectangle.position.x + rectangle.length.Mul(FixedMath.Half);
-        //}
-        //else
-        //{
-        //    cx = newCirclePos.x;
-        //}
-
-        //if (newCirclePos.y < rectangle.position.y - rectangle.width.Mul(FixedMath.Half))
-        //{
-        //    cy = rectangle.position.y - rectangle.width.Mul(FixedMath.Half);
-        //}
-        //else if (newCirclePos.y > rectangle.position.y + rectangle.width.Mul(FixedMath.Half))
-        //{
-        //    cy = rectangle.position.y + rectangle.width.Mul(FixedMath.Half);
-        //}
-        //else
-        //{
-        //    cy = newCirclePos.y;
-        //}
-
+       
         Vector2d oc =  newCirclePos - position;
 
-        //Debug.DrawLine(position.ToVector3(), (position + oc.Vector2dRotateInXZ(rot)).ToVector3(),Color.yellow);
+        long halfLength = length.Mul(FixedMath.Half);
 
         Vector2d offset = new Vector2d();
 
-        if (oc.x > FixedMath.Create( 0) && oc.x < length.Mul(FixedMath.Half) + circle.radius)
+        if (oc.x > FixedMath.Create( 0) && oc.x < halfLength + circle.radius)
         {
-            offset.x = (length.Mul(FixedMath.Half) - oc.x) + circle.radius;
+            offset.x = (halfLength - oc.x) + circle.radius;
         }
-        else if (oc.x < FixedMath.Create(0) && oc.x > -length.Mul(FixedMath.Half) - circle.radius)
+        else if (oc.x < FixedMath.Create(0) && oc.x > -halfLength - circle.radius)
         {
-            offset.x = (-length.Mul( FixedMath.Half) - oc.x) - circle.radius;
+            offset.x = (-halfLength - oc.x) - circle.radius;
         }
         else
         {
             offset.x = 0;
         }
 
-        if (oc.y > FixedMath.Create(0) && oc.y < width.Mul(FixedMath.Half) + circle.radius)
+        long halfWidth = width.Mul(FixedMath.Half);
+
+        if (oc.y > FixedMath.Create(0) && oc.y < halfWidth + circle.radius)
         {
-            offset.y = (width.Mul(FixedMath.Half) - oc.y) + circle.radius;
+            offset.y = (halfWidth - oc.y) + circle.radius;
         }
-        else if (oc.y < FixedMath.Create(0) && oc.y > -width.Mul(FixedMath.Half) - circle.radius)
+        else if (oc.y < FixedMath.Create(0) && oc.y > -halfWidth - circle.radius)
         {
-            offset.y = (-width.Mul(FixedMath.Half) - oc.y) - circle.radius;
+            offset.y = (-halfWidth - oc.y) - circle.radius;
         }
         else
         {
@@ -779,28 +765,32 @@ public class Body
         Vector2d newPos = point;
         if(!rect.isStandard)
         {
-            long angle = rect.direction.GetRotationAngle(new Vector2d(1, 0));
+            long angle = rect.direction.GetRotationAngle(xAxis);
             newPos = newPos.PostionRotateInXZ(rect.position, angle);
         }
 
         Vector2d offset = newPos - rect.position;
 
-        if(offset.x > 0 &&  offset.x > rect.length.Mul(FixedMath.Half))
+        long halfLength = rect.length.Mul(FixedMath.Half);
+
+        if (offset.x > 0 &&  offset.x > halfLength)
         {
             return false;
         }
 
-        if (offset.x < 0 && offset.x < - rect.length.Mul(FixedMath.Half))
+        if (offset.x < 0 && offset.x < -halfLength)
         {
             return false;
         }
 
-        if (offset.y > 0 && offset.y > rect.width.Mul(FixedMath.Half))
+        long halfWidth = rect.width.Mul(FixedMath.Half);
+
+        if (offset.y > 0 && offset.y > halfWidth)
         {
             return false;
         }
 
-        if (offset.y < 0 && offset.y < -rect.width.Mul(FixedMath.Half))
+        if (offset.y < 0 && offset.y < -halfWidth)
         {
             return false;
         }
@@ -811,34 +801,41 @@ public class Body
     #endregion
 
     #region 绘制和打印
+    private const float drawHeight = 0.5f;
 
     public void Draw()
     {
+        Draw(Color.green);
+    }
+
+
+    public void Draw(Color color)
+    {
         if(bodyType == BodyType.Rectangle)
         {
-            Vector3 a = new Vector2d(LeftBound,UpBound).ToVector3(10);
-            Vector3 b = new Vector2d(LeftBound, DownBound).ToVector3(10);
-            Vector3 c = new Vector2d(RightBound, UpBound).ToVector3(10);
-            Vector3 d = new Vector2d(RightBound, DownBound).ToVector3(10);
+            Vector3 a = new Vector2d(LeftBound,UpBound).ToVector3(drawHeight);
+            Vector3 b = new Vector2d(LeftBound, DownBound).ToVector3(drawHeight);
+            Vector3 c = new Vector2d(RightBound, UpBound).ToVector3(drawHeight);
+            Vector3 d = new Vector2d(RightBound, DownBound).ToVector3(drawHeight);
 
-            Debug.DrawLine(a, c, Color.green, 60);
-            Debug.DrawLine(c, d, Color.green, 60);
-            Debug.DrawLine(d, b, Color.green, 60);
-            Debug.DrawLine(b, a, Color.green, 60);
+            Debug.DrawLine(a, c, color, 5f);
+            Debug.DrawLine(c, d, color, 5f);
+            Debug.DrawLine(d, b, color, 5f);
+            Debug.DrawLine(b, a, color, 5f);
         }
         else if(bodyType == BodyType.Circle)
         {
-            Vector3 pos=  new Vector3(position.x.ToFloat(),10,position.y.ToFloat());
+            Vector3 pos=  new Vector3(position.x.ToFloat(), drawHeight, position.y.ToFloat());
             
             float r = radius.ToFloat();
-            Vector3 a = new Vector3(pos.x+r,10,pos.z+r);
-            Vector3 b = new Vector3(pos.x - r,10, pos.z+ r);
-            Vector3 c = new Vector3(pos.x - r,10, pos.z - r);
-            Vector3 d = new Vector3(pos.x + r,10, pos.z - r);
-            Debug.DrawLine(a, b, Color.red);
-            Debug.DrawLine(a, d, Color.red);
-            Debug.DrawLine(c, b, Color.red);
-            Debug.DrawLine(c, d, Color.red);
+            Vector3 a = new Vector3(pos.x+r, drawHeight, pos.z+r);
+            Vector3 b = new Vector3(pos.x - r, drawHeight, pos.z+ r);
+            Vector3 c = new Vector3(pos.x - r, drawHeight, pos.z - r);
+            Vector3 d = new Vector3(pos.x + r, drawHeight, pos.z - r);
+            Debug.DrawLine(a, b, color, 5f);
+            Debug.DrawLine(a, d, color, 5f);
+            Debug.DrawLine(c, b, color, 5f);
+            Debug.DrawLine(c, d, color, 5f);
         }
     }
 
@@ -846,7 +843,7 @@ public class Body
     {
         if(bodyType == BodyType.Rectangle)
         {
-            return "Rectangle -> Pos:" + position + " Dir: " + direction + " Length: " + Length + " Width " + Width ;
+            return "Rectangle -> Pos:" + position + " Dir: " + direction + " Length: " + Length + " Width " + Width + " isStandard " + isStandard;
         }
         else
         {
@@ -865,19 +862,30 @@ public class Body
 
     public void Normal()
     {
-        if (FixedMath.Abs(direction.GetRotationAngle(new Vector2d(1, 0))) < 1)
+        //Debug.Log(direction.GetRotationAngle(new Vector2d(1, 0)).ToFloat());
+        //Debug.Log(direction.GetRotationAngle(new Vector2d(-1, 0)).ToFloat());
+        //Debug.Log(direction.GetRotationAngle(new Vector2d(0, 1)).ToFloat());
+        //Debug.Log(direction.GetRotationAngle(new Vector2d(0, -1)).ToFloat());
+
+        if (FixedMath.Abs(direction.GetRotationAngle(new Vector2d(1, 0))) < FixedMath.Create(10)
+            || direction == new Vector2d(1, 0)
+            )
         {
             direction = new Vector2d(1, 0);
             isStandard = true;
         }
 
-        if (FixedMath.Abs(direction.GetRotationAngle(new Vector2d(-1, 0))) < 1)
+        if (FixedMath.Abs(direction.GetRotationAngle(new Vector2d(-1, 0))) < FixedMath.Create(10)
+            || direction == new Vector2d(-1, 0)
+            )
         {
             direction = new Vector2d(1, 0);
             isStandard = true;
         }
 
-        if (FixedMath.Abs(direction.GetRotationAngle(new Vector2d(0, 1))) < 1)
+        if (FixedMath.Abs(direction.GetRotationAngle(new Vector2d(0, 1))) < FixedMath.Create(10)
+            || direction == new Vector2d(0, 1)
+            )
         {
             direction = new Vector2d(1, 0);
             isStandard = true;
@@ -887,7 +895,9 @@ public class Body
             width = tmp;
         }
 
-        if (FixedMath.Abs(direction.GetRotationAngle(new Vector2d(0, -1))) < 1)
+        if (FixedMath.Abs(direction.GetRotationAngle(new Vector2d(0, -1))) < FixedMath.Create(10)
+            || direction == new Vector2d(0, -1)
+            )
         {
             direction = new Vector2d(1, 0);
             isStandard = true;

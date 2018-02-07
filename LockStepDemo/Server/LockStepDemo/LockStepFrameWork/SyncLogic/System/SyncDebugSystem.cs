@@ -141,10 +141,20 @@ class SyncDebugSystem : SystemBase
             info.m_compName = SingleCompFilter[i];
             info.content = Serializer.Serialize(sc);
 
-            //if(info.m_compName == "MapGridStateComponent")
-            //{
-            //    MapGridStateComponent msc = des.Deserialize<MapGridStateComponent>(info.content);
-            //}
+            if (info.m_compName == "MapGridStateComponent")
+            {
+                MapGridStateComponent lmsc = (MapGridStateComponent)sc;
+                MapGridStateComponent msc = des.Deserialize<MapGridStateComponent>(info.content);
+
+                if (!JudgeDict(msc.globalRandomCellHaveItemList, lmsc.globalRandomCellHaveItemList))
+                {
+                    Debug.Log("验证错误" + m_world.FrameCount);
+                }
+                else
+                {
+                    Debug.Log("验证通过 " + m_world.FrameCount);
+                }
+            }
 
             msg.singleCompInfo.Add(info);
         }
@@ -156,6 +166,46 @@ class SyncDebugSystem : SystemBase
             ConnectionComponent cc = list[i].GetComp<ConnectionComponent>();
             ProtocolAnalysisService.SendMsg(cc.m_session, msg);
         }
+    }
+
+    bool JudgeDict(Dictionary<int, MapCell> a, Dictionary<int, MapCell> b)
+    {
+        foreach (var item in a)
+        {
+            if (b.ContainsKey(item.Key))
+            {
+                if (!b[item.Key].Eq(item.Value))
+                {
+                    Debug.LogWarning("dont Eq " + item.Key);
+                    return false;
+                }
+            }
+            else
+            {
+                Debug.LogWarning("dont ContainsKey " + item.Key);
+
+                return false;
+            }
+        }
+
+        foreach (var item in b)
+        {
+            if (a.ContainsKey(item.Key))
+            {
+                if (!a[item.Key].Eq(item.Value))
+                {
+                    Debug.LogWarning("dont Eq " + item.Key);
+                    return false;
+                }
+            }
+            else
+            {
+                Debug.LogWarning("dont ContainsKey " + item.Key);
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public static bool IsFilter(string compName)

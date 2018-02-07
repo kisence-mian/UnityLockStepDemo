@@ -257,6 +257,8 @@ public abstract class WorldBase
 
     public void Dispose()
     {
+        Debug.Log("world dispose " + m_entityList.Count);
+
         while(m_entityList.Count > 0)
         {
             DestroyEntityAndDispatch(m_entityList[0]);

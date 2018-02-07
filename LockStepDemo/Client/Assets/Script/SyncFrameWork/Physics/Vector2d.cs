@@ -291,6 +291,11 @@ namespace Lockstep
             return Distance(other.x, other.y);
         }
 
+        public long SqrDistance(Vector2d other)
+        {
+            return SqrDistance(other.x, other.y);
+        }
+
         public long SqrDistance(long otherX, long otherY)
         {
 

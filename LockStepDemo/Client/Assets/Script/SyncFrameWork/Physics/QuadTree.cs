@@ -18,7 +18,7 @@ public class QuadTree
     public int m_depth;
 
     int m_objectListCount = 0;
-    int m_childListCount = 0;
+    int m_childListCount  = 0;
 
     public QuadTree(Body body, int depth)
     {
@@ -241,20 +241,22 @@ public class QuadTree
             root = this;
         }
 
-        //这里会出现死循环
-        //如果根节点没有完全覆盖地图碰撞盒
-        for (int i = 0; i < m_objectListCount; i++)
+        //根节点不做这个处理
+        if (root != this)
         {
-            CollisionComponent cc = m_objectList[i];
-            if (!cc.isStatic)
+            for (int i = 0; i < m_objectListCount; i++)
             {
-                if (!m_body.CheckIsInnner(cc.area))
+                CollisionComponent cc = m_objectList[i];
+                if (!cc.isStatic)
                 {
-                    m_objectList.RemoveAt(i);
-                    m_objectListCount--;
-                    i--;
+                    if (!m_body.CheckIsInnner(cc.area))
+                    {
+                        m_objectList.RemoveAt(i);
+                        m_objectListCount--;
+                        i--;
 
-                    root.Insert(cc);
+                        root.Insert(cc);
+                    }
                 }
             }
         }
@@ -347,6 +349,11 @@ public class QuadTree
             for (int i = 0; i < m_objectList.Count; i++)
             {
                 m_objectList[i].area.Draw();
+            }
+
+            for (int i = 0; i < m_childList.Count; i++)
+            {
+                m_childList[i].m_body.Draw();
             }
         }
 
