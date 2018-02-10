@@ -18,11 +18,11 @@ public class DestroyEffectSystem : SystemBase
 
     public override void OnEntityOptimizeWillBeDestroy(EntityBase entity)
     {
-        if(entity.GetExistComp<FlyObjectComponent>()
-            && entity.GetExistComp<PerfabComponent>())
-        {
-            OnFlyDestroy(entity);
-        }
+        //if(entity.GetExistComp<FlyObjectComponent>()
+        //    && entity.GetExistComp<PerfabComponent>())
+        //{
+        //    OnFlyDestroy(entity);
+        //}
     }
 
     void OnFlyDestroy(EntityBase entity)

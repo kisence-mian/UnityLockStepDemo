@@ -77,17 +77,17 @@ public class PlayerAnimSystem : SystemBase
         }
         else
         {
-            Vector3 Dir = pc.faceDir.ToVector();
-            if (entity.GetExistComp<SelfComponent>())
-            {
-                Dir = InputSystem.skillDirCache;
-            }
+            //Vector3 Dir = pc.faceDir.ToVector();
+            //if (entity.GetExistComp<SelfComponent>())
+            //{
+            //    Dir = InputSystem.skillDirCache;
+            //}
 
-            ac.anim.Play("wait");
-            if(pc.faceDir.ToVector() != Vector3.zero)
-            {
-                ac.perfab.transform.forward = Dir;
-            }
+            //ac.anim.Play("wait");
+            //if(pc.faceDir.ToVector() != Vector3.zero)
+            //{
+            //    ac.perfab.transform.forward = Dir;
+            //}
         }
 
         //上层动画
@@ -103,10 +103,10 @@ public class PlayerAnimSystem : SystemBase
 
         Vector3 aimWaistDir = pc.faceDir.ToVector();
 
-        if (entity.GetExistComp<SelfComponent>())
-        {
-            aimWaistDir = InputSystem.skillDirCache;
-        }
+        //if (entity.GetExistComp<SelfComponent>())
+        //{
+        //    aimWaistDir = InputSystem.skillDirCache;
+        //}
 
         float euler = Mathf.Atan2(aimWaistDir.x, aimWaistDir.z) * Mathf.Rad2Deg;
         if (aimWaistDir.z == 0)

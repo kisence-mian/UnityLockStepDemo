@@ -111,16 +111,6 @@ public class ReusingScrollRect : ScrollRectInput
         SetItemDisplay();
     }
 
-    public void UpdateContent()
-    {
-        Debug.Log("m_items.Count " + m_items.Count);
-
-        for (int j = m_startPos,i = 0; i < m_items.Count; i++,j++)
-        {
-            m_items[i].SetContent(j, m_datas[j]);
-        }
-    }
-
     #endregion
 
     #region 继承方法
@@ -175,19 +165,21 @@ public class ReusingScrollRect : ScrollRectInput
     {
         Vector3 size = m_itemSize;
 
-        if(horizontal)
+        if (horizontal)
         {
             size.x *= count;
-            size.y = m_rectTransform.sizeDelta.y;
+            size.y = 0;
         }
 
         if(vertical)
         {
             size.y *= count;
-            size.x = m_rectTransform.sizeDelta.x;
+            size.x = 0;
         }
 
         content.sizeDelta = size;
+
+        Debug.Log(m_itemSize + "" + size + " m_rectTransform.sizeDelta " + m_rectTransform.sizeDelta, m_rectTransform );
     }
 
     void UpdateIndexList(int count)
@@ -212,8 +204,7 @@ public class ReusingScrollRect : ScrollRectInput
     }
 
     List<ReusingData> m_indexList = new List<ReusingData>();
-    bool m_clip = false;   //剪枝标志位，性能优化使用
-    int m_startPos = 0;
+
     void SetItemDisplay(bool isRebuild = false)
     {
         if(content == null)
@@ -221,25 +212,10 @@ public class ReusingScrollRect : ScrollRectInput
             throw new Exception("SetItemDisplay Exception: content is null !");
         }
 
-
-        m_clip = false;
         //计算已显示的哪些需要隐藏
         for (int i = 0; i < m_items.Count; i++)
         {
             m_items[i].OnDrag();
-
-            if (!m_clip)
-            {
-                m_startPos = m_items[i].m_index;
-                m_clip = true;
-            }
-            else
-            {
-                if (m_startPos > m_items[i].m_index)
-                {
-                    m_startPos = m_items[i].m_index;
-                }
-            }
 
             //已经完全离开了显示区域
             if (!m_viewBounds.Intersects(GetItemBounds(m_items[i].m_index)))
@@ -259,24 +235,18 @@ public class ReusingScrollRect : ScrollRectInput
             }
         }
 
-        if (m_startPos > 0)
-        {
-            m_startPos--;
-        }
-
-        //Debug.Log(m_startPos);
-
-        m_clip = false;
-
         //计算出哪些需要显示
         //如果有未显示的则显示出来，从对象池取出对象
-        for (int i = m_startPos; i < m_indexList.Count; i++)
+        bool m_clip = false;
+        for (int i = 0; i < m_indexList.Count; i++)
         {
             if (m_indexList[i].status == ReusingStatus.Hide)
             {
+
                 if (m_viewBounds.Intersects(GetItemBounds(m_indexList[i].index)))
                 {
                     ShowItem(i, isRebuild, m_datas[i]);
+
 
                     m_indexList[i].status = ReusingStatus.Show;
                     m_clip = true;
@@ -491,12 +461,12 @@ public class ReusingScrollRect : ScrollRectInput
 
         if (horizontal)
         {
-            size.y = m_rectTransform.sizeDelta.y;
+            size.y = 0;
         }
 
         if (vertical)
         {
-            size.x = m_rectTransform.sizeDelta.x;
+            size.x = 0;
         }
         return size;
     }

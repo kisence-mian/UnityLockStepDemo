@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using HDJ.Framework.Utils;
 using System;
 using System.Collections.Generic;
 
@@ -37,7 +36,9 @@ public  class ComponentsNameToConstEditorTool
 
         string code = CreateCode(0, userTypes.ToArray());
 
-        FileUtils.CreateTextFile(CommontCodePath + "ComponentType.cs", code);
+        //FileUtils.CreateTextFile();
+
+        ResourceIOTool.WriteStringByFile(CommontCodePath + "ComponentType.cs", code);
 
         AssetDatabase.Refresh();
     }

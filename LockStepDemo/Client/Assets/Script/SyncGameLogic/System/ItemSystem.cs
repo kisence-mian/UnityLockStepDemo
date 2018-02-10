@@ -26,14 +26,14 @@ using System.Text;
 
             for (int j = 0; j < cc.CollisionList.Count; j++)
             {
-                if(cc.CollisionList[j].GetExistComp<PlayerComponent>())
-                {
-                    PlayerComponent pc = cc.CollisionList[j].GetComp<PlayerComponent>();
+                //if(cc.CollisionList[j].GetExistComp<PlayerComponent>())
+                //{
+                //    PlayerComponent pc = cc.CollisionList[j].GetComp<PlayerComponent>();
 
-                    pc.AddElement(ic.ItemID);
-                    m_world.ClientDestroyEntity(list[i].ID);
-                    break;
-                }
+                //    pc.AddElement(ic.ItemID);
+                //    m_world.ClientDestroyEntity(list[i].ID);
+                //    break;
+                //}
             }
         }
     }

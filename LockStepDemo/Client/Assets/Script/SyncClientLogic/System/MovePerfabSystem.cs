@@ -41,21 +41,21 @@ public class MovePerfabSystem : ViewSystemBase
 
                 perfab.transform.position = pos;
 
-                if (move.dir.ToVector() != Vector3.zero)
-                {
-                    if (list[i].GetExistComp<SelfComponent>())
-                    {
-                        if (InputSystem.moveDirCache != Vector3.zero)
-                        {
-                            perfab.transform.forward = InputSystem.moveDirCache;
-                        }
-                    }
-                    else
-                    {
-                        perfab.transform.forward = move.dir.ToVector();
-                    }
+                //if (move.dir.ToVector() != Vector3.zero)
+                //{
+                //    if (list[i].GetExistComp<SelfComponent>())
+                //    {
+                //        if (InputSystem.moveDirCache != Vector3.zero)
+                //        {
+                //            perfab.transform.forward = InputSystem.moveDirCache;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        perfab.transform.forward = move.dir.ToVector();
+                //    }
 
-                }
+                //}
             }
         }
     }

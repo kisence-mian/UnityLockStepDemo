@@ -49,7 +49,7 @@ public class ReconnectSystem : SystemBase
 
             Debug.Log("主动重连");
 
-            ApplicationStatusManager.GetStatus<LoginState>().Login(SystemInfo.deviceUniqueIdentifier, UserData.NickName);
+            //ApplicationStatusManager.GetStatus<LoginState>().Login(SystemInfo.deviceUniqueIdentifier, UserData.NickName);
         }
     }
 }

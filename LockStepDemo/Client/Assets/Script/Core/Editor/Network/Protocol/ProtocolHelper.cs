@@ -27,7 +27,6 @@ namespace FrameWork.Protocol
         #region c# -> protocol
 
         [MenuItem("Tools/Protocol/c# -> protocol")]
-
         static void StartGenerate()
         {
             GenerateList();
@@ -38,10 +37,10 @@ namespace FrameWork.Protocol
             Debug.Log(protocolContent);
             Debug.Log(protocolList);
 
-            string ProtocolSavePath = Application.dataPath + "/Resources/Network/" + ProtocolService.c_ProtocolFileName + ".txt";
+            string ProtocolSavePath = Application.dataPath + "/Resources/Network/" + ProtocolNetworkService.c_ProtocolFileName + ".txt";
             ResourceIOTool.WriteStringByFile(ProtocolSavePath, protocolContent);
 
-            string MethodSavePath = Application.dataPath + "/Resources/Network/" + ProtocolService.c_methodNameInfoFileName + ".txt";
+            string MethodSavePath = Application.dataPath + "/Resources/Network/" + ProtocolNetworkService.c_methodNameInfoFileName + ".txt";
             ResourceIOTool.WriteStringByFile(MethodSavePath, protocolList);
 
             AssetDatabase.Refresh();
@@ -105,7 +104,10 @@ namespace FrameWork.Protocol
 
             for (int i = 0; i < fields.Length; i++)
             {
-                content += GetTab(1) + GenerateProtocolMessageField(fields[i], ref index);
+                if(!fields[i].IsStatic)
+                {
+                    content += GetTab(1) + GenerateProtocolMessageField(fields[i], ref index);
+                }
             }
 
             content += "}\n";
@@ -130,6 +132,27 @@ namespace FrameWork.Protocol
                     return "required int32 " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
                 }
             }
+
+            else if (field.FieldType == typeof(long))
+            {
+                if (field.GetCustomAttributes(typeof(Int8Attribute), true).Length > 0)
+                {
+                    return "required int8 " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
+                }
+                else if (field.GetCustomAttributes(typeof(Int16Attribute), true).Length > 0)
+                {
+                    return "required int16 " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
+                }
+                else if (field.GetCustomAttributes(typeof(Int32Attribute), true).Length > 0)
+                {
+                    return "required int32 " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
+                }
+                else
+                {
+                    return "required int64 " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
+                }
+            }
+
             else if (field.FieldType == typeof(bool))
             {
                 return "required bool " + GenerateProtocolFieldName(field) + " = " + count++ + ";\n";
@@ -186,6 +209,26 @@ namespace FrameWork.Protocol
                 else
                 {
                     return "int32";
+                }
+            }
+
+            else if (type == typeof(long))
+            {
+                if (type.GetCustomAttributes(typeof(Int8Attribute), true).Length > 0)
+                {
+                    return "int8";
+                }
+                else if (type.GetCustomAttributes(typeof(Int16Attribute), true).Length > 0)
+                {
+                    return "int16";
+                }
+                else if (type.GetCustomAttributes(typeof(Int32Attribute), true).Length > 0)
+                {
+                    return "int32";
+                }
+                else
+                {
+                    return "int64";
                 }
             }
             else if (type == typeof(bool))
@@ -259,18 +302,18 @@ namespace FrameWork.Protocol
             string log = "自动生成 c# 类：->\n";
 
             s_SubStruct = new List<string>();
-            string path = Application.dataPath + "/Resources/Network/"+ ProtocolService .c_ProtocolFileName+ ".txt";
+            string path = Application.dataPath + "/Resources/Network/"+ ProtocolNetworkService .c_ProtocolFileName+ ".txt";
             string content = ResourceIOTool.ReadStringByFile(path);
 
-            Dictionary<string, List<Dictionary<string, object>>> protocolInfo = ProtocolService.ReadProtocolInfo(content);
+            Dictionary<string, List<Dictionary<string, object>>> protocolInfo = ProtocolNetworkService.ReadProtocolInfo(content);
 
-            path = Application.dataPath + "/Resources/Network/" + ProtocolService.c_methodNameInfoFileName + ".txt";
+            path = Application.dataPath + "/Resources/Network/" + ProtocolNetworkService.c_methodNameInfoFileName + ".txt";
             content = ResourceIOTool.ReadStringByFile(path);
 
             Dictionary<int, string> methodNameInfo;
             Dictionary<string, int> methodIndexInfo;
 
-            ProtocolService.ReadMethodNameInfo(out methodNameInfo,out methodIndexInfo, content);
+            ProtocolNetworkService.ReadMethodNameInfo(out methodNameInfo,out methodIndexInfo, content);
 
             string output = "using System.Collections.Generic;\n";
             output += "namespace Protocol\n{\n";
@@ -459,22 +502,22 @@ namespace FrameWork.Protocol
             int repeat = (int)currentFeidInfo["spl"];
             string content = "";
 
-            if (type == ProtocolService.TYPE_int32
-                || type == ProtocolService.TYPE_int16
-                || type == ProtocolService.TYPE_int8
+            if (type == ProtocolNetworkService.TYPE_int32
+                || type == ProtocolNetworkService.TYPE_int16
+                || type == ProtocolNetworkService.TYPE_int8
                 )
             {
                 content = "int";
             }
-            else if (type == ProtocolService.TYPE_string)
+            else if (type == ProtocolNetworkService.TYPE_string)
             {
                 content = "string";
             }
-            else if (type == ProtocolService.TYPE_double)
+            else if (type == ProtocolNetworkService.TYPE_double)
             {
                 content = "float";
             }
-            else if (type == ProtocolService.TYPE_bool)
+            else if (type == ProtocolNetworkService.TYPE_bool)
             {
                 content = "bool";
             }
@@ -488,7 +531,7 @@ namespace FrameWork.Protocol
                 }
             }
 
-            if(repeat == ProtocolService.RT_repeated)
+            if(repeat == ProtocolNetworkService.RT_repeated)
             {
                 content = "List<" + content + ">";
             }
@@ -502,11 +545,11 @@ namespace FrameWork.Protocol
 
             int type = (int)currentFeidInfo["type"];
 
-            if (type == ProtocolService.TYPE_int16)
+            if (type == ProtocolNetworkService.TYPE_int16)
             {
                 content = GetTab(tab) + "[Int16]\n";
             }
-            else if(type == ProtocolService.TYPE_int8)
+            else if(type == ProtocolNetworkService.TYPE_int8)
             {
                 content = GetTab(tab) + "[Int8]\n";
             }
@@ -743,7 +786,7 @@ namespace FrameWork.Protocol
 
             for (int i = 0; i < msgList.Count; i++)
             {
-                if(GetSendMode(msgList[i]) == SendMode.ToClient
+                if (GetSendMode(msgList[i]) == SendMode.ToClient
                     || GetSendMode(msgList[i]) == SendMode.Both)
                 {
                     csharpContent += GenerateReceviceCommandContent(msgList[i]);
@@ -999,7 +1042,10 @@ namespace FrameWork.Protocol
 
             for (int i = 0; i < fields.Length; i++)
             {
-                content += GenerateSerializeFieldContent(tab, fields[i],aimName,sourceName);
+                if(!fields[i].IsStatic)
+                {
+                    content += GenerateSerializeFieldContent(tab, fields[i], aimName, sourceName);
+                }
             }
 
             return content;
@@ -1111,17 +1157,24 @@ namespace FrameWork.Protocol
                 {
                     content += GetTab(tab) + aimName +"." + field.Name + " = " + "(int)"+ sourceName + "[\"" + GenerateProtocolFieldName(field) + "\"];\n";
                 }
+                //目前不支持Long类型
+                else if (field.FieldType == typeof(long))
+                {
+                    content += GetTab(tab) + aimName + "." + field.Name + " = " + "(int)" + sourceName + "[\"" + GenerateProtocolFieldName(field) + "\"];\n";
+                }
+
                 else if (field.FieldType == typeof(bool))
                 {
                     content += GetTab(tab) + aimName + "." + field.Name + " = " + "(bool)" + sourceName + "[\"" + GenerateProtocolFieldName(field) + "\"];\n";
                 }
+
                 else if (field.FieldType == typeof(float))
                 {
                     content += GetTab(tab) + aimName + "." + field.Name + " = " + "(float)(double)" + sourceName + "[\"" + GenerateProtocolFieldName(field) + "\"];\n";
                 }
                 else if (field.FieldType.IsSubclassOf(typeof(Enum)))
                 {
-                    content += GetTab(tab) + aimName + "." + field.Name + " = " + "(" + field.FieldType.Name + ")" + sourceName + "[\"" + GenerateProtocolFieldName(field) + "\"];\n";
+                    content += GetTab(tab) + aimName + "." + field.Name + " = " + "(" + field.FieldType.FullName.Replace('+','.') + ")" + sourceName + "[\"" + GenerateProtocolFieldName(field) + "\"];\n";
                 }
 
                 else if (field.FieldType == typeof(string))
@@ -1189,7 +1242,10 @@ namespace FrameWork.Protocol
 
             for (int i = 0; i < fields.Length; i++)
             {
-                content += GenerateAnalysisContent(tab, fields[i], aimName, sourceName);
+                if(!fields[i].IsStatic)
+                {
+                    content += GenerateAnalysisContent(tab, fields[i], aimName, sourceName);
+                }
             }
 
             return content;
@@ -1201,6 +1257,12 @@ namespace FrameWork.Protocol
             {
                 return true;
             }
+
+            else if (type == typeof(long))
+            {
+                return true;
+            }
+
             else if (type == typeof(bool))
             {
                 return true;

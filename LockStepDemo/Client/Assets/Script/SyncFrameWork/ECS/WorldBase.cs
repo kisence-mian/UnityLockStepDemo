@@ -1570,8 +1570,8 @@ public abstract class WorldBase
         for (int j = 0; j < list.Count; j++)
         {
             AddRecordComponent(list[j]);
-            PlayerCommandRecordComponent tmp = list[j].GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
-            isAllMessage &= tmp.GetAllMessage(FrameCount + 1);
+            //PlayerCommandRecordComponent tmp = list[j].GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
+            //isAllMessage &= tmp.GetAllMessage(FrameCount + 1);
         }
 
         return isAllMessage;
@@ -1593,8 +1593,8 @@ public abstract class WorldBase
             for (int j = 0; j < list.Count; j++)
             {
                 AddRecordComponent(list[j]);
-                PlayerCommandRecordComponent tmp = list[j].GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
-                isAllMessage &= tmp.GetAllMessage(i);
+                //PlayerCommandRecordComponent tmp = list[j].GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
+                //isAllMessage &= tmp.GetAllMessage(i);
             }
 
             if (isAllMessage)
@@ -1611,13 +1611,13 @@ public abstract class WorldBase
 
     public void AddRecordComponent(EntityBase entity)
     {
-        if (!entity.GetExistComp(ComponentType.PlayerCommandRecordComponent))
-        {
-            PlayerCommandRecordComponent rc = new PlayerCommandRecordComponent();
+        //if (!entity.GetExistComp(ComponentType.PlayerCommandRecordComponent))
+        //{
+        //    PlayerCommandRecordComponent rc = new PlayerCommandRecordComponent();
 
-            //自动添加记录组件
-            entity.AddComp(rc);
-        }
+        //    //自动添加记录组件
+        //    entity.AddComp(rc);
+        //}
     }
 
     private bool isGetHashCode = false;

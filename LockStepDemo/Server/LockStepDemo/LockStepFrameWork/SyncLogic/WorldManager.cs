@@ -8,7 +8,17 @@ public static class WorldManager
 {
     static List<WorldBase> s_worldList = new List<WorldBase>();
 
-    public static List<WorldBase> WorldList { get => s_worldList; set => s_worldList = value; }
+    public static List<WorldBase> WorldList
+    {
+        get
+       {
+            return s_worldList;
+        }
+        set
+        {
+            s_worldList = value;
+        }
+    }
 
     public static WorldBase CreateWorld<T>() where T : WorldBase, new()
     {

@@ -11,23 +11,23 @@ class DemoWorld : WorldBase
             //逻辑层
             typeof(CollisionSystem),
             typeof(OperationSystem),
-            typeof(BlowFlySystem),
+            //typeof(BlowFlySystem),
             typeof(MoveSystem),
             typeof(FireSystem),
             typeof(SkillStatusSystem),
-            typeof(SkillSystem),
+            //typeof(SkillSystem),
             typeof(LifeSpanSystem),
-            typeof(CollisionDamageSystem),
+            //typeof(CollisionDamageSystem),
             typeof(FlyObjectCollisionSystem),
             typeof(GameSystem),
             typeof(ResurgenceSystem),
             typeof(CreateItemSystem),
             typeof(ItemSystem),
             typeof(RankSystem),
-            typeof(BuffSystem),
+            //typeof(BuffSystem),
 
             //初始化
-            typeof(InitSystem),
+            //typeof(InitSystem),
             
             //表现层
             typeof(HealthBarSystem),
@@ -35,7 +35,7 @@ class DemoWorld : WorldBase
             typeof(CreatePerfabSystem),
             typeof(MovePerfabSystem),
             typeof(InputSystem),
-            typeof(SyncSystem<CommandComponent>),
+            //typeof(SyncSystem<CommandComponent>),
             typeof(PlayerAnimSystem),
             typeof(SkillBehaviorSystem),
             typeof(DestroyEffectSystem),

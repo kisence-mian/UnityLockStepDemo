@@ -27,21 +27,21 @@ public class InitSystemBase : SystemBase
 
     public override void OnEntityCreate(EntityBase entity)
     {
-        //服务器这里要改成判断connection组件进来
-        if (entity.GetExistComp(ComponentType.SelfComponent ) || entity.GetExistComp(ComponentType.TheirComponent ))
-        {
-            OnPlayerJoin(entity);
-        }
+        ////服务器这里要改成判断connection组件进来
+        //if (entity.GetExistComp(ComponentType.SelfComponent ) || entity.GetExistComp(ComponentType.TheirComponent ))
+        //{
+        //    OnPlayerJoin(entity);
+        //}
     }
 
     public override void OnEntityCompAdd(EntityBase entity, int compIndex, ComponentBase component)
     {
-        //Debug.Log("OnEntityCompAdd " + compName);
+        ////Debug.Log("OnEntityCompAdd " + compName);
 
-        if (compIndex == ComponentType.SelfComponent|| compIndex == ComponentType.TheirComponent)
-        {
-            OnPlayerJoin(entity);
-        }
+        //if (compIndex == ComponentType.SelfComponent|| compIndex == ComponentType.TheirComponent)
+        //{
+        //    OnPlayerJoin(entity);
+        //}
     }
 
 

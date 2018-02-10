@@ -179,7 +179,7 @@ public class SyncDebugSystem : SystemBase
 
         if (msg.frame == m_world.FrameCount)
         {
-            CheckCurrentFrame(msg);
+            //CheckCurrentFrame(msg);
         }
         else if (msg.frame < m_world.FrameCount)
         {
@@ -252,17 +252,17 @@ public class SyncDebugSystem : SystemBase
             EntityBase entity = m_world.m_entityList[i];
 
             bool isFilter = false;
-            if (isPlayerOnly
-                 && !entity.GetExistComp(ComponentType.PlayerComponent))
-            {
-                isFilter = true;
-            }
+            //if (isPlayerOnly
+            //     && !entity.GetExistComp(ComponentType.PlayerComponent))
+            //{
+            //    isFilter = true;
+            //}
 
-            if (isFlyObject
-                 && !entity.GetExistComp(ComponentType.FlyObjectComponent))
-            {
-                isFilter = true;
-            }
+            //if (isFlyObject
+            //     && !entity.GetExistComp(ComponentType.FlyObjectComponent))
+            //{
+            //    isFilter = true;
+            //}
 
             if (isFilter)
             {
@@ -445,80 +445,77 @@ public class SyncDebugSystem : SystemBase
 //#if UNITY_EDITOR
         foreach (var item in debugContent)
         {
-            //Debug.Log(item.Key + "\n" + item.Value);
-            PersistentFileManager.SaveData(UserData.NickName+"_" + item.Key, item.Value.ToString());
-
-            //ResourceIOTool.WriteStringByFile(Application.dataPath + "/.OutPut/" + item.Key + ".txt", item.Value.ToString());
+            //PersistentFileManager.SaveData(UserData.NickName+"_" + item.Key, item.Value.ToString());
         }
 //#endif
     }
 
-    void CheckCurrentFrame(DebugMsg msg)
-    {
-        //Debug.Log("CheckCurrentFrame " + msg.frame);
-        for (int i = 0; i < msg.infos.Count; i++)
-        {
-            if (m_world.GetEntityIsExist(msg.infos[i].id))
-            {
-                EntityBase entity = m_world.GetEntity(msg.infos[i].id);
+    //void CheckCurrentFrame(DebugMsg msg)
+    //{
+    //    //Debug.Log("CheckCurrentFrame " + msg.frame);
+    //    for (int i = 0; i < msg.infos.Count; i++)
+    //    {
+    //        if (m_world.GetEntityIsExist(msg.infos[i].id))
+    //        {
+    //            EntityBase entity = m_world.GetEntity(msg.infos[i].id);
 
-                for (int j = 0; j < msg.infos[i].infos.Count; j++)
-                {
-                    if (msg.infos[i].infos[j].m_compName == "CommandComponent")
-                    {
-                        CheckCommandLogic(msg, msg.infos[i], msg.infos[i].infos[j]);
-                    }
-                    else
-                    {
-                        CheckCurrentComponentLogic(msg, entity, msg.infos[i], msg.infos[i].infos[j]);
-                    }
-                }
-            }
-            else
-            {
-                //string log = "error not find entity frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + msg.infos[i].id + "\n";
-                //Debug.LogWarning(log);
-                //syncLog += log;
-            }
-        }
+    //            for (int j = 0; j < msg.infos[i].infos.Count; j++)
+    //            {
+    //                if (msg.infos[i].infos[j].m_compName == "CommandComponent")
+    //                {
+    //                    CheckCommandLogic(msg, msg.infos[i], msg.infos[i].infos[j]);
+    //                }
+    //                else
+    //                {
+    //                    CheckCurrentComponentLogic(msg, entity, msg.infos[i], msg.infos[i].infos[j]);
+    //                }
+    //            }
+    //        }
+    //        else
+    //        {
+    //            //string log = "error not find entity frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + msg.infos[i].id + "\n";
+    //            //Debug.LogWarning(log);
+    //            //syncLog += log;
+    //        }
+    //    }
 
-        for (int i = 0; i < msg.singleCompInfo.Count; i++)
-        {
-            CheckCurrentSingleComponentLogic(msg, msg.singleCompInfo[i]);
-        }
-    }
+    //    for (int i = 0; i < msg.singleCompInfo.Count; i++)
+    //    {
+    //        CheckCurrentSingleComponentLogic(msg, msg.singleCompInfo[i]);
+    //    }
+    //}
 
-    void CheckHistotryFrame(DebugMsg msg)
-    {
-        //Debug.Log("CheckHistotryFrame");
-        for (int i = 0; i < msg.infos.Count; i++)
-        {
-            if (m_world.GetEntityIsExist(msg.infos[i].id))
-            {
-                for (int j = 0; j < msg.infos[i].infos.Count; j++)
-                {
-                    if (msg.infos[i].infos[j].m_compName == "CommandComponent")
-                    {
-                        CheckCommandLogic(msg, msg.infos[i], msg.infos[i].infos[j]);
-                    }
-                    else
-                    {
-                        CheckComponentLogic(msg, msg.infos[i], msg.infos[i].infos[j]);
-                    }
-                }
-            }
-            else
-            {
-                //string log = "error not find entity frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + msg.infos[i].id + "\n";
-                //Debug.LogWarning(log);
-            }
-        }
+    //void CheckHistotryFrame(DebugMsg msg)
+    //{
+    //    //Debug.Log("CheckHistotryFrame");
+    //    for (int i = 0; i < msg.infos.Count; i++)
+    //    {
+    //        if (m_world.GetEntityIsExist(msg.infos[i].id))
+    //        {
+    //            for (int j = 0; j < msg.infos[i].infos.Count; j++)
+    //            {
+    //                if (msg.infos[i].infos[j].m_compName == "CommandComponent")
+    //                {
+    //                    CheckCommandLogic(msg, msg.infos[i], msg.infos[i].infos[j]);
+    //                }
+    //                else
+    //                {
+    //                    CheckComponentLogic(msg, msg.infos[i], msg.infos[i].infos[j]);
+    //                }
+    //            }
+    //        }
+    //        else
+    //        {
+    //            //string log = "error not find entity frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " id:" + msg.infos[i].id + "\n";
+    //            //Debug.LogWarning(log);
+    //        }
+    //    }
 
-        for (int i = 0; i < msg.singleCompInfo.Count; i++)
-        {
-            CheckSingleComponentLogic(msg, msg.singleCompInfo[i]);
-        }
-    }
+    //    for (int i = 0; i < msg.singleCompInfo.Count; i++)
+    //    {
+    //        CheckSingleComponentLogic(msg, msg.singleCompInfo[i]);
+    //    }
+    //}
 
     //void CheckCurrentCommandLogic(DebugMsg msg, EntityBase entity, EntityInfo entityInfo, ComponentInfo compInfo)
     //{
@@ -567,18 +564,18 @@ public class SyncDebugSystem : SystemBase
 
         if(info.m_compName == "MapGridStateComponent")
         {
-            MapGridStateComponent lmsc = (MapGridStateComponent)sc;
+            //MapGridStateComponent lmsc = (MapGridStateComponent)sc;
 
-            MapGridStateComponent msc = des.Deserialize<MapGridStateComponent>(info.content);
+            //MapGridStateComponent msc = des.Deserialize<MapGridStateComponent>(info.content);
 
-            if(!JudgeDict(msc.globalRandomCellHaveItemList, lmsc.globalRandomCellHaveItemList))
-            {
-                string content = Serializer.Serialize(sc);
-                string log = "error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount + " singleComp:" + info.m_compName + "\n remote:" + info.content + "\n local:" + content + "\n";
-                Debug.LogWarning(log);
+            //if(!JudgeDict(msc.globalRandomCellHaveItemList, lmsc.globalRandomCellHaveItemList))
+            //{
+            //    string content = Serializer.Serialize(sc);
+            //    string log = "error: frame" + msg.frame + " currentFrame:" + m_world.FrameCount + " singleComp:" + info.m_compName + "\n remote:" + info.content + "\n local:" + content + "\n";
+            //    Debug.LogWarning(log);
 
-                OutPutDebugRecord();
-            }
+            //    OutPutDebugRecord();
+            //}
         }
         else
         {
@@ -603,89 +600,89 @@ public class SyncDebugSystem : SystemBase
 
     }
 
-    bool JudgeDict(Dictionary<int,MapCell> a, Dictionary<int, MapCell> b)
-    {
-        foreach (var item in a)
-        {
-            if(b.ContainsKey(item.Key))
-            {
-                if(!b[item.Key].Eq(item.Value))
-                {
-                    Debug.LogWarning("dont Eq " + item.Key);
-                    return false;
-                }
-            }
-            else
-            {
-                Debug.LogWarning("dont ContainsKey " + item.Key);
+    //bool JudgeDict(Dictionary<int,MapCell> a, Dictionary<int, MapCell> b)
+    //{
+    //    foreach (var item in a)
+    //    {
+    //        if(b.ContainsKey(item.Key))
+    //        {
+    //            if(!b[item.Key].Eq(item.Value))
+    //            {
+    //                Debug.LogWarning("dont Eq " + item.Key);
+    //                return false;
+    //            }
+    //        }
+    //        else
+    //        {
+    //            Debug.LogWarning("dont ContainsKey " + item.Key);
 
-                return false;
-            }
-        }
+    //            return false;
+    //        }
+    //    }
 
-        foreach (var item in b)
-        {
-            if (a.ContainsKey(item.Key))
-            {
-                if (!a[item.Key].Eq(item.Value))
-                {
-                    Debug.LogWarning("dont Eq " + item.Key);
-                    return false;
-                }
-            }
-            else
-            {
-                Debug.LogWarning("dont ContainsKey " + item.Key);
-                return false;
-            }
-        }
+    //    foreach (var item in b)
+    //    {
+    //        if (a.ContainsKey(item.Key))
+    //        {
+    //            if (!a[item.Key].Eq(item.Value))
+    //            {
+    //                Debug.LogWarning("dont Eq " + item.Key);
+    //                return false;
+    //            }
+    //        }
+    //        else
+    //        {
+    //            Debug.LogWarning("dont ContainsKey " + item.Key);
+    //            return false;
+    //        }
+    //    }
 
-        return true;
-    }
+    //    return true;
+    //}
 
 
-    void CheckCommandLogic(DebugMsg msg, EntityInfo entityInfo, ComponentInfo compInfo)
-    {
-        if(!m_world.GetEntity(entityInfo.id).GetExistComp(ComponentType.PlayerCommandRecordComponent))
-        {
-            return;
-        }
+    //void CheckCommandLogic(DebugMsg msg, EntityInfo entityInfo, ComponentInfo compInfo)
+    //{
+    //    if(!m_world.GetEntity(entityInfo.id).GetExistComp(ComponentType.PlayerCommandRecordComponent))
+    //    {
+    //        return;
+    //    }
 
-        PlayerCommandRecordComponent pcrc = m_world.GetEntity(entityInfo.id).GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
-        PlayerCommandBase compLocal = pcrc.GetInputCahae(msg.frame);
+    //    PlayerCommandRecordComponent pcrc = m_world.GetEntity(entityInfo.id).GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
+    //    PlayerCommandBase compLocal = pcrc.GetInputCahae(msg.frame);
 
-        if (compLocal == null)
-        {
-            return;
-        }
+    //    if (compLocal == null)
+    //    {
+    //        return;
+    //    }
 
-        compLocal.time = 0;
-        compLocal.frame = msg.frame;
-        string content = Serializer.Serialize(compLocal);
+    //    compLocal.time = 0;
+    //    compLocal.frame = msg.frame;
+    //    string content = Serializer.Serialize(compLocal);
 
-        if (!content.Equals(compInfo.content))
-        {
-            string log = "error: frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " msg.id " + entityInfo.id + " comp:" + compInfo.m_compName + "\n remote:" + compInfo.content + "\n local:" + content + "\n";
-            Debug.LogWarning(log);
-            string record = "";
+    //    if (!content.Equals(compInfo.content))
+    //    {
+    //        string log = "error: frame " + msg.frame + " currentFrame:" + m_world.FrameCount + " msg.id " + entityInfo.id + " comp:" + compInfo.m_compName + "\n remote:" + compInfo.content + "\n local:" + content + "\n";
+    //        Debug.LogWarning(log);
+    //        string record = "";
 
-            for (int k = msg.frame; k > msg.frame - 10; k--)
-            {
-                PlayerCommandBase tmp = pcrc.GetInputCahae(k);
+    //        for (int k = msg.frame; k > msg.frame - 10; k--)
+    //        {
+    //            PlayerCommandBase tmp = pcrc.GetInputCahae(k);
 
-                record += "\nframe " + k + " c: " + Serializer.Serialize(tmp);
-            }
+    //            record += "\nframe " + k + " c: " + Serializer.Serialize(tmp);
+    //        }
 
-            Debug.Log(record);
+    //        Debug.Log(record);
 
-            Time.timeScale = 0;
-            OutPutDebugRecord();
-        }
-        else
-        {
-            //Debug.Log(" confirm " + compInfo.content);
-        }
-    }
+    //        Time.timeScale = 0;
+    //        OutPutDebugRecord();
+    //    }
+    //    else
+    //    {
+    //        //Debug.Log(" confirm " + compInfo.content);
+    //    }
+    //}
 
     void CheckComponentLogic(DebugMsg msg, EntityInfo entityInfo, ComponentInfo compInfo)
     {

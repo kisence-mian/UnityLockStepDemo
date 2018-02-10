@@ -42,10 +42,10 @@ public class BuffBehaviorSystem : SystemBase
 
     void AddComp(EntityBase entity)
     {
-        if (!entity.GetExistComp<BuffEffectComponent>())
-        {
-            entity.AddComp<BuffEffectComponent>();
-        }
+        //if (!entity.GetExistComp<BuffEffectComponent>())
+        //{
+        //    entity.AddComp<BuffEffectComponent>();
+        //}
     }
 
     void BuffEffectLogic(EntityBase entity)

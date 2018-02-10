@@ -1,4 +1,4 @@
-﻿#if UNITY_5_5
+﻿#if UNITY_5_5_OR_NEWER
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ public static class UIModelShowTool  {
         ca.clearFlags = CameraClearFlags.SolidColor;
         ca.backgroundColor = new Color(0, 0, 0, 5 / 255f);
         ca.orthographic = true;
-        ca.orthographicSize = 0.68f;
+        ca.orthographicSize = 0.72f;
         ca.depth = 100;
         ca.cullingMask =1<< LayerMask.NameToLayer("UI");
 

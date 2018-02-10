@@ -33,7 +33,7 @@ public abstract class GameWorldBase<T> : WorldBase where T: PlayerCommandBase,ne
     {
         return new Type[]
            {
-            typeof(SyncSystem<T>),
+            //typeof(SyncSystem<T>),
             typeof(ReconnectSystem),
 
             //Debug

@@ -28,18 +28,18 @@ public class ClientOperationSystem : SystemBase
 
         for (int i = 0; i < list.Count; i++)
         {
-            if(!list[i].GetExistComp<OperationWindowComponent>())
-            {
-                OperationWindow ui = UIManager.OpenUIWindow<OperationWindow>();
-                ui.m_entity = list[i];
-                ui.ElementInit(); //初始化元素显示
-                ui.InitRank();    //初始化排行榜显示
+            //if(!list[i].GetExistComp<OperationWindowComponent>())
+            //{
+            //    OperationWindow ui = UIManager.OpenUIWindow<OperationWindow>();
+            //    ui.m_entity = list[i];
+            //    ui.ElementInit(); //初始化元素显示
+            //    ui.InitRank();    //初始化排行榜显示
 
-                OperationWindowComponent oc = new OperationWindowComponent();
-                oc.ui = ui;
+            //    OperationWindowComponent oc = new OperationWindowComponent();
+            //    oc.ui = ui;
 
-                list[i].AddComp(oc);
-            }
+            //    list[i].AddComp(oc);
+            //}
         }
     }
 }

@@ -25,7 +25,7 @@ public class LoginService : ServiceBase
         }
 
         //保存玩家数据
-        SavePlayerData(session.player);
+        //SavePlayerData(session.player);
 
         //玩家退出登陆
         m_service.OnPlayerLogout(session.player);
@@ -70,28 +70,28 @@ public class LoginService : ServiceBase
             Debug.Log(""+ session.player.playerID +" 已经登录，不需要重复登录！ ");
         }
 
-        string clauseContent = "ID ='" + e.playerID + "'";
-        var result = DataBaseService.database.Query(c_playerTableName,null, clauseContent, null,null,null,null);
+        //string clauseContent = "ID ='" + e.playerID + "'";
+        //var result = DataBaseService.database.Query(c_playerTableName,null, clauseContent, null,null,null,null);
 
-        if(result.MoveToNext())
-        {
-            Debug.Log("查询到记录！ ");
+        //if(result.MoveToNext())
+        //{
+        //    Debug.Log("查询到记录！ ");
 
-            session.player = GetOldPlayer(result);
+        //    session.player = GetOldPlayer(result);
 
-            result.Close();
-        }
-        else
-        {
-            result.Close();
-            Debug.Log("未查询到记录！");
+        //    result.Close();
+        //}
+        //else
+        //{
+            //result.Close();
+            //Debug.Log("未查询到记录！");
 
-            session.player = GetNewPlayer();
+        session.player = GetNewPlayer();
+        Dictionary<string, string> value = new Dictionary<string, string>();
+        value.Add("ID", e.playerID);
 
-            Dictionary<string, string> value = new Dictionary<string, string>();
-            value.Add("ID", e.playerID);
-            DataBaseService.database.Insert(c_playerTableName, null, value);
-        }
+            //DataBaseService.database.Insert(c_playerTableName, null, value);
+        //}
 
         session.player.playerID = e.playerID;
         session.player.nickName = e.nickName;

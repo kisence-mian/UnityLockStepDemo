@@ -552,8 +552,39 @@ public class AnimSystem : MonoBehaviour
 
         l_tmp.m_animType = AnimType.Custom_Vector3;
         l_tmp.m_fromV3 = from;
-        l_tmp.m_toV2 = to;
+        l_tmp.m_toV3 = to;
         l_tmp.m_customMethodV3 = method;
+
+        l_tmp.m_delayTime = delayTime;
+        l_tmp.m_totalTime = time;
+        l_tmp.m_interpolationType = interp;
+        l_tmp.m_repeatType = repeatType;
+        l_tmp.m_repeatCount = repeatCount;
+        l_tmp.m_ignoreTimeScale = IsIgnoreTimeScale;
+        l_tmp.m_callBack = callBack;
+        l_tmp.m_parameter = parameter;
+
+        l_tmp.Init();
+
+        GetInstance().animList.Add(l_tmp);
+        return l_tmp;
+    }
+
+    public static AnimData CustomMethodToVector4(AnimCustomMethodVector4 method, Vector4 from, Vector4 to,
+    float time = 0.5f,
+    float delayTime = 0,
+    InterpType interp = InterpType.Default,
+    bool IsIgnoreTimeScale = false,
+    RepeatType repeatType = RepeatType.Once,
+    int repeatCount = -1,
+    AnimCallBack callBack = null, object[] parameter = null)
+    {
+        AnimData l_tmp = new AnimData(); ;
+
+        l_tmp.m_animType = AnimType.Custom_Vector4;
+        l_tmp.m_fromV4 = from;
+        l_tmp.m_toV4 = to;
+        l_tmp.m_customMethodV4 = method;
 
         l_tmp.m_delayTime = delayTime;
         l_tmp.m_totalTime = time;
@@ -703,36 +734,6 @@ public class AnimSystem : MonoBehaviour
         GetInstance().animList.Add(l_tmp);
 
         return l_tmp;
-
-
-        //AnimType animType;
-        //if (isLocal)
-        //{
-        //    animType = AnimType.LocalPosition;
-        //}
-        //else
-        //{
-        //    animType = AnimType.Position;
-        //}
-
-
-        //AnimParamHash animParnHash = HashTemp.SetData(
-        //    AnimParamType.GameObj, animObject,
-        //    AnimParamType.AnimType, animType,
-        //    AnimParamType.FromV3, from,
-        //    AnimParamType.ToV3, to,
-        //    AnimParamType.Time, time,
-        //    AnimParamType.InteType, interp,
-        //    AnimParamType.IsLocal, isLocal,
-        //    AnimParamType.PathType, bezierMoveType,
-        //    AnimParamType.floatControl, t_Bezier_contralRadius,
-        //    AnimParamType.RepeatType, repeatType,
-        //    AnimParamType.CallBack, callBack,
-        //    AnimParamType.CallBackParams, parameter
-        //    );
-
-        //return ValueTo(animParnHash);
-
     }
 
     public static AnimData BezierMove(GameObject animObject, Vector3 from, Vector3 to, float time,
@@ -1020,6 +1021,7 @@ public class AnimSystem : MonoBehaviour
 
 public delegate void AnimCallBack(params object[] arg);
 
+public delegate void AnimCustomMethodVector4(Vector4 data);
 public delegate void AnimCustomMethodVector3(Vector3 data);
 public delegate void AnimCustomMethodVector2(Vector2 data);
 public delegate void AnimCustomMethodFloat(float data);
@@ -1041,6 +1043,7 @@ public enum AnimType
     UGUI_AnchoredPosition,
     UGUI_SizeDetal,
 
+    Custom_Vector4,
     Custom_Vector3,
     Custom_Vector2,
     Custom_Float,

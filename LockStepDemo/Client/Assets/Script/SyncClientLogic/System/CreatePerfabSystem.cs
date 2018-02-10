@@ -28,19 +28,19 @@ public class CreatePerfabSystem : ViewSystemBase
 
     public override void OnEntityOptimizeDestroy(EntityBase entity)
     {
-        if (entity.GetExistComp<PerfabComponent>())
-        {
-            Debug.Log("接收到销毁 ");
+        //if (entity.GetExistComp<PerfabComponent>())
+        //{
+        //    Debug.Log("接收到销毁 ");
 
-            PerfabComponent pc = entity.GetComp<PerfabComponent>();
+        //    PerfabComponent pc = entity.GetComp<PerfabComponent>();
 
-            if(pc.perfab != null)
-            {
-                GameObjectManager.DestroyGameObjectByPool(pc.perfab);
-                pc.perfab = null;
-            }
+        //    if(pc.perfab != null)
+        //    {
+        //        GameObjectManager.DestroyGameObjectByPool(pc.perfab);
+        //        pc.perfab = null;
+        //    }
 
-        }
+        //}
     }
 
     public override void OnEntityOptimizeCreate(EntityBase entity)
@@ -65,13 +65,13 @@ public class CreatePerfabSystem : ViewSystemBase
             else
             {
                 EntityBase parent = m_world.GetEntity(tc.parentID);
-                if (parent.GetExistComp<PerfabComponent>())
-                {
-                    PerfabComponent pc = parent.GetComp<PerfabComponent>();
+                //if (parent.GetExistComp<PerfabComponent>())
+                //{
+                //    PerfabComponent pc = parent.GetComp<PerfabComponent>();
 
-                    comp.perfab.transform.SetParent(pc.perfab.transform);
+                //    comp.perfab.transform.SetParent(pc.perfab.transform);
 
-                }
+                //}
                 comp.perfab.transform.localPosition = tc.pos.ToVector();
             }
 
@@ -88,9 +88,9 @@ public class CreatePerfabSystem : ViewSystemBase
 
     void AddComp(EntityBase entity)
     {
-        if (!entity.GetExistComp<PerfabComponent>())
-        {
-            entity.AddComp<PerfabComponent>();
-        }
+        //if (!entity.GetExistComp<PerfabComponent>())
+        //{
+        //    entity.AddComp<PerfabComponent>();
+        //}
     }
 }

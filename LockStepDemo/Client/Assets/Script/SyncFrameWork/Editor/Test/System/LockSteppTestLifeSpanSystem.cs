@@ -8,7 +8,6 @@ public class LockStepTestLifeSpanSystem : SystemBase
     public override Type[] GetFilter()
     {
         return new Type[] {
-
             typeof(LifeSpanComponent),
         };
     }
@@ -17,17 +16,17 @@ public class LockStepTestLifeSpanSystem : SystemBase
     {
         List<EntityBase> list = GetEntityList();
 
-        for (int i = 0; i < list.Count; i++)
-        {
-            LifeSpanComponent lsc = list[i].GetComp<LifeSpanComponent>(ComponentType.LifeSpanComponent);
-            lsc.lifeTime -= deltaTime;
+        //for (int i = 0; i < list.Count; i++)
+        //{
+        //    LifeSpanComponent lsc = list[i].GetComp<LifeSpanComponent>(ComponentType.LifeSpanComponent);
+        //    lsc.lifeTime -= deltaTime;
 
-            //Debug.Log("lsc.lifeTime  " + lsc.lifeTime + " frame " + m_world.FrameCount + " ID " + lsc.Entity.ID);
+        //    //Debug.Log("lsc.lifeTime  " + lsc.lifeTime + " frame " + m_world.FrameCount + " ID " + lsc.Entity.ID);
 
-            if (lsc.lifeTime <= 0)
-            {
-                m_world.ClientDestroyEntity(list[i].ID);
-            }
-        }
+        //    if (lsc.lifeTime <= 0)
+        //    {
+        //        m_world.ClientDestroyEntity(list[i].ID);
+        //    }
+        //}
     }
 }

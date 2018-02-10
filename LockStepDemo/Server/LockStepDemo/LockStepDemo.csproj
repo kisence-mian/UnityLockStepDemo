@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>LockStepDemo</RootNamespace>
     <AssemblyName>LockStepDemo</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile>
@@ -35,7 +35,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;Server</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -101,28 +101,52 @@
     <Compile Include="Generate\Data\SkillStatusDataGenerate.cs" />
     <Compile Include="LockStepFrameWork\Calc\Calc.cs" />
     <Compile Include="LockStepFrameWork\ECS\ComponentBase.cs" />
+    <Compile Include="LockStepFrameWork\ECS\ComponentTypeBase.cs" />
     <Compile Include="LockStepFrameWork\ECS\ECSEvent.cs" />
+    <Compile Include="LockStepFrameWork\ECS\ECSGroup.cs" />
+    <Compile Include="LockStepFrameWork\ECS\ECSGroupManager.cs" />
     <Compile Include="LockStepFrameWork\ECS\EntityBase.cs" />
     <Compile Include="LockStepFrameWork\ECS\InputCommandManager.cs" />
     <Compile Include="LockStepFrameWork\ECS\MomentComponentBase.cs" />
+    <Compile Include="LockStepFrameWork\ECS\MomentSingletonComponent.cs" />
     <Compile Include="LockStepFrameWork\ECS\Record\RecordComponent.cs" />
     <Compile Include="LockStepFrameWork\ECS\Record\RecordSystem.cs" />
     <Compile Include="LockStepFrameWork\ECS\Record\RecordSystemBase.cs" />
     <Compile Include="LockStepFrameWork\ECS\SingletonComponent.cs" />
     <Compile Include="LockStepFrameWork\ECS\SyncComponentBase.cs" />
     <Compile Include="LockStepFrameWork\ECS\SystemBase.cs" />
+    <Compile Include="LockStepFrameWork\ECS\Tools\ComponentPool.cs" />
     <Compile Include="LockStepFrameWork\ECS\TupleBase.cs" />
     <Compile Include="LockStepFrameWork\ECS\ViewSystemBase.cs" />
     <Compile Include="LockStepFrameWork\ECS\WorldBase.cs" />
+    <Compile Include="LockStepFrameWork\FastCollections\BiDictionary.cs" />
+    <Compile Include="LockStepFrameWork\FastCollections\FastDictionary.cs" />
+    <Compile Include="LockStepFrameWork\FastCollections\FastList.cs" />
+    <Compile Include="LockStepFrameWork\FastCollections\FastQueue.cs" />
+    <Compile Include="LockStepFrameWork\FastCollections\FastStack.cs" />
+    <Compile Include="LockStepFrameWork\FastCollections\LSEnumerable.cs" />
+    <Compile Include="LockStepFrameWork\FastCollections\Shortcuts.cs" />
+    <Compile Include="LockStepFrameWork\GameWorldBase.cs" />
+    <Compile Include="LockStepFrameWork\KCPSession.cs" />
+    <Compile Include="LockStepFrameWork\KCPUpdate.cs" />
     <Compile Include="LockStepFrameWork\Message\SyncMessage.cs" />
+    <Compile Include="LockStepFrameWork\Physics\Body.cs" />
+    <Compile Include="LockStepFrameWork\Physics\CustomAttributes.cs" />
+    <Compile Include="LockStepFrameWork\Physics\FixedMath.cs" />
+    <Compile Include="LockStepFrameWork\Physics\PhyscisExpandMethod.cs" />
+    <Compile Include="LockStepFrameWork\Physics\QuadTree.cs" />
+    <Compile Include="LockStepFrameWork\Physics\Vector2d.cs" />
+    <Compile Include="LockStepFrameWork\Physics\Vector3d.cs" />
     <Compile Include="LockStepFrameWork\Reflect\DeJson.cs" />
     <Compile Include="LockStepFrameWork\Reflect\MiniJSON.cs" />
     <Compile Include="LockStepFrameWork\Reflect\ReflectTool.cs" />
+    <Compile Include="LockStepFrameWork\Service\Reconnect\CloseConnectTestSystem.cs" />
     <Compile Include="LockStepFrameWork\Service\Reconnect\ReConnectService.cs" />
     <Compile Include="LockStepFrameWork\SyncLogic\CommandMessageService.cs" />
+    <Compile Include="LockStepFrameWork\SyncLogic\Component\AIComponentBase.cs" />
     <Compile Include="LockStepFrameWork\SyncLogic\Component\ConnectionComponent.cs" />
-    <Compile Include="LockStepFrameWork\SyncLogic\Component\EntityRecordComponent.cs" />
     <Compile Include="LockStepFrameWork\SyncLogic\Component\PlayerCommandBase.cs" />
+    <Compile Include="LockStepFrameWork\SyncLogic\Component\RealPlayerComponent.cs" />
     <Compile Include="LockStepFrameWork\SyncLogic\Component\SelfComponent.cs" />
     <Compile Include="LockStepFrameWork\SyncLogic\Component\ServiceComponent.cs" />
     <Compile Include="LockStepFrameWork\SyncLogic\Component\SyncComponent.cs" />
@@ -135,6 +159,7 @@
     <Compile Include="LockStepFrameWork\SyncLogic\System\SyncDebugSystem.cs" />
     <Compile Include="LockStepFrameWork\SyncLogic\UpdateEngine.cs" />
     <Compile Include="LockStepFrameWork\SyncLogic\WorldManager.cs" />
+    <Compile Include="LockStepFrameWork\System\InitSystemBase.cs" />
     <Compile Include="LockStepFrameWork\Utils\MD5Tool.cs" />
     <Compile Include="LockStepFrameWork\Utils\ServiceTime.cs" />
     <Compile Include="ServiceFrameWork\Database\Common\Database.cs" />
@@ -312,6 +337,8 @@
     <Content Include="Data\SkillStatusData.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="LockStepFrameWork\libs\Box2DX.dll" />
+    <Content Include="LockStepFrameWork\libs\UnityEngine.dll" />
     <Content Include="Map\elementCreatePointData.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -343,6 +370,13 @@
     <Content Include="Config\log4net.unix.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="LockStepFrameWork\Physics\Body.cs.meta" />
+    <None Include="LockStepFrameWork\Physics\CustomAttributes.cs.meta" />
+    <None Include="LockStepFrameWork\Physics\FixedMath.cs.meta" />
+    <None Include="LockStepFrameWork\Physics\PhyscisExpandMethod.cs.meta" />
+    <None Include="LockStepFrameWork\Physics\QuadTree.cs.meta" />
+    <None Include="LockStepFrameWork\Physics\Vector2d.cs.meta" />
+    <None Include="LockStepFrameWork\Physics\Vector3d.cs.meta" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

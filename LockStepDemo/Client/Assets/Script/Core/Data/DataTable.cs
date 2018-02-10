@@ -655,14 +655,22 @@ public class SingleData : Dictionary<string, string>
         {
             if (this.ContainsKey(key))
             {
+                //String 读取null 的改进，兼容旧代码
+#if Compatibility
                 return this[key];
+#else
+                return StringFilter(this[key]);
+#endif
             }
 
             if (data.m_defaultValue.ContainsKey(key))
             {
+#if Compatibility
                 return data.m_defaultValue[key];
+#else
+                return StringFilter(data.m_defaultValue[key]);
+#endif
             }
-
         }
         catch (Exception e)
         {
@@ -670,6 +678,24 @@ public class SingleData : Dictionary<string, string>
         }
 
         throw new Exception("Don't Exist Value or DefaultValue by ->" + key + "<- TableName is : ->" + data.m_tableName + "<- singleDataName : ->" + m_SingleDataKey + "<-");// throw  
+    }
+
+    string StringFilter(string content)
+    {
+        if(content == "Null"
+            || content == "null"
+            || content == "NULL"
+            || content == "nu11"
+            || content == "none"
+            || content == "nil"
+            || content == "")
+        {
+            return null;
+        }
+        else
+        {
+            return content;
+        }
     }
 
     public Vector2 GetVector2(string key)
