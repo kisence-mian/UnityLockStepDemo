@@ -1,0 +1,453 @@
+﻿package all;
+
+
+message m_user_test_s
+{
+    required int8 code = 1;
+    required int16 age = 2;
+    required int32 lv = 3;
+     required int8 attr = 4;
+}
+
+message m_user_heartbeat_s
+{
+}
+
+message m_user_heartbeat_c
+{
+
+}
+
+
+message m_role_kick_c
+{
+    required int32 code = 1;
+}
+
+message m_role_login_s
+{
+	required string account = 1;
+}
+
+message m_role_login_c
+{
+	required int32 code = 1;
+	required int32 create = 2;
+}
+
+
+message m_role_create_s
+{
+	required string nick = 1;
+	required int32 sex = 2;
+	required string model_id = 3;
+	required string head = 4;
+}
+
+
+message m_role_create_c
+{
+	required int32 code = 1;
+}
+
+
+message m_fight_createflyobjectcmd_s
+{
+	required string m_flyname = 1;
+	required int32 m_flyid = 2;
+	required string m_skillid = 3;
+	required int32 m_createrid = 4;
+	required double m_posx = 5;
+	required double m_posy = 6;
+	required double m_posz = 7;
+	required double m_dirx = 8;
+	required double m_diry = 9;
+	required double m_dirz = 10;
+	required double m_executetime = 11;
+}
+message m_fight_createflyobjectcmd_c
+{
+	required string m_flyname = 1;
+	required int32 m_flyid = 2;
+	required string m_skillid = 3;
+	required int32 m_createrid = 4;
+	required double m_posx = 5;
+	required double m_posy = 6;
+	required double m_posz = 7;
+	required double m_dirx = 8;
+	required double m_diry = 9;
+	required double m_dirz = 10;
+	required double m_executetime = 11;
+}
+
+message m_fight_destroyflyobjectcmd_s
+{
+	required int32 m_flyid = 1;
+	required bool m_isshowhiteffect = 2;
+	required double m_posx = 3;
+	required double m_posy = 4;
+	required double m_posz = 5;
+	required double m_executetime = 6;
+}
+message m_fight_destroyflyobjectcmd_c
+{
+	required int32 m_flyid = 1;
+	required bool m_isshowhiteffect = 2;
+	required double m_posx = 3;
+	required double m_posy = 4;
+	required double m_posz = 5;
+	required double m_executetime = 6;
+}
+
+message m_fight_createcharactercmd_s
+{
+	required int8 m_charactertype = 1;
+	required string m_charactername = 2;
+	required int32 m_characterid = 3;
+	required int8 m_camp = 4;
+	required double m_posx = 5;
+	required double m_posy = 6;
+	required double m_posz = 7;
+	required double m_dirx = 8;
+	required double m_diry = 9;
+	required double m_dirz = 10;
+	required double m_amplification = 11;
+	required double m_executetime = 12;
+}
+message m_fight_createcharactercmd_c
+{
+	required int8 m_charactertype = 1;
+	required string m_charactername = 2;
+	required int32 m_characterid = 3;
+	required int8 m_camp = 4;
+	required double m_posx = 5;
+	required double m_posy = 6;
+	required double m_posz = 7;
+	required double m_dirx = 8;
+	required double m_diry = 9;
+	required double m_dirz = 10;
+	required double m_amplification = 11;
+	required double m_executetime = 12;
+}
+
+message m_fight_removecharactercmd_s
+{
+	required int16 m_characterid = 1;
+	required double m_executetime = 2;
+}
+message m_fight_removecharactercmd_c
+{
+	required int16 m_characterid = 1;
+	required double m_executetime = 2;
+}
+
+message m_fight_createskilltokencmd_s
+{
+	required string m_skillid = 1;
+	required int32 m_createrid = 2;
+	required int8 m_camp = 3;
+	required double m_posx = 4;
+	required double m_posy = 5;
+	required double m_posz = 6;
+	required double m_dirx = 7;
+	required double m_diry = 8;
+	required double m_dirz = 9;
+	required double m_executetime = 10;
+}
+message m_fight_createskilltokencmd_c
+{
+	required string m_skillid = 1;
+	required int32 m_createrid = 2;
+	required int8 m_camp = 3;
+	required double m_posx = 4;
+	required double m_posy = 5;
+	required double m_posz = 6;
+	required double m_dirx = 7;
+	required double m_diry = 8;
+	required double m_dirz = 9;
+	required double m_executetime = 10;
+}
+
+message m_fight_diecmd_s
+{
+	required int32 m_characterid = 1;
+	required int32 m_killerid = 2;
+	required double m_executetime = 3;
+}
+message m_fight_diecmd_c
+{
+	required int32 m_characterid = 1;
+	required int32 m_killerid = 2;
+	required double m_executetime = 3;
+}
+
+message m_fight_damagecmd_s
+{
+	required int32 m_characterid = 1;
+	required int32 m_attackerid = 2;
+	required int32 m_damagenumber = 3;
+	required string m_skillid = 4;
+	required string m_buffid = 5;
+	required bool m_crit = 6;
+	required bool m_disrupting = 7;
+	required double m_executetime = 8;
+}
+message m_fight_damagecmd_c
+{
+	required int32 m_characterid = 1;
+	required int32 m_attackerid = 2;
+	required int32 m_damagenumber = 3;
+	required string m_skillid = 4;
+	required string m_buffid = 5;
+	required bool m_crit = 6;
+	required bool m_disrupting = 7;
+	required double m_executetime = 8;
+}
+
+message m_fight_recovercmd_s
+{
+	required int32 m_characterid = 1;
+	required int32 m_attackerid = 2;
+	required int32 m_recovernumber = 3;
+	required bool m_isautorecover = 4;
+	required string m_skillid = 5;
+	required string m_buffid = 6;
+	required double m_executetime = 7;
+}
+message m_fight_recovercmd_c
+{
+	required int32 m_characterid = 1;
+	required int32 m_attackerid = 2;
+	required int32 m_recovernumber = 3;
+	required bool m_isautorecover = 4;
+	required string m_skillid = 5;
+	required string m_buffid = 6;
+	required double m_executetime = 7;
+}
+
+message m_fight_addbuffcmd_s
+{
+	required int32 m_characterid = 1;
+	required int32 m_attackerid = 2;
+	required string m_buffid = 3;
+	required string m_skillid = 4;
+	required double m_executetime = 5;
+}
+message m_fight_addbuffcmd_c
+{
+	required int32 m_characterid = 1;
+	required int32 m_attackerid = 2;
+	required string m_buffid = 3;
+	required string m_skillid = 4;
+	required double m_executetime = 5;
+}
+
+message m_fight_removebuffcmd_s
+{
+	required int32 m_characterid = 1;
+	required string m_buffid = 2;
+	required double m_executetime = 3;
+}
+message m_fight_removebuffcmd_c
+{
+	required int32 m_characterid = 1;
+	required string m_buffid = 2;
+	required double m_executetime = 3;
+}
+
+message m_fight_blowflycmd_s
+{
+	required int32 m_flyerid = 1;
+	required int32 m_attackerid = 2;
+	required string m_shiftid = 3;
+	required double m_attackerposx = 4;
+	required double m_attackerposy = 5;
+	required double m_attackerposz = 6;
+	required double m_hurterposx = 7;
+	required double m_hurterposy = 8;
+	required double m_hurterposz = 9;
+	required double m_executetime = 10;
+}
+message m_fight_blowflycmd_c
+{
+	required int32 m_flyerid = 1;
+	required int32 m_attackerid = 2;
+	required string m_shiftid = 3;
+	required double m_attackerposx = 4;
+	required double m_attackerposy = 5;
+	required double m_attackerposz = 6;
+	required double m_hurterposx = 7;
+	required double m_hurterposy = 8;
+	required double m_hurterposz = 9;
+	required double m_executetime = 10;
+}
+
+message m_fight_createtrapcmd_s
+{
+	required int32 m_trapid = 1;
+	required string m_trapname = 2;
+	required double m_posx = 3;
+	required double m_posy = 4;
+	required double m_posz = 5;
+	required double m_dirx = 6;
+	required double m_diry = 7;
+	required double m_dirz = 8;
+	required int8 m_camp = 9;
+	required double m_executetime = 10;
+}
+message m_fight_createtrapcmd_c
+{
+	required int32 m_trapid = 1;
+	required string m_trapname = 2;
+	required double m_posx = 3;
+	required double m_posy = 4;
+	required double m_posz = 5;
+	required double m_dirx = 6;
+	required double m_diry = 7;
+	required double m_dirz = 8;
+	required int8 m_camp = 9;
+	required double m_executetime = 10;
+}
+
+message m_fight_traptriggercmd_s
+{
+	required int32 m_trapid = 1;
+	required double m_executetime = 2;
+}
+message m_fight_traptriggercmd_c
+{
+	required int32 m_trapid = 1;
+	required double m_executetime = 2;
+}
+
+message m_fight_createbloodvialcmd_s
+{
+	required int32 m_bloodvialid = 1;
+	required int8 m_camp = 2;
+	required double m_posx = 3;
+	required double m_posy = 4;
+	required double m_posz = 5;
+	required double m_executetime = 6;
+}
+message m_fight_createbloodvialcmd_c
+{
+	required int32 m_bloodvialid = 1;
+	required int8 m_camp = 2;
+	required double m_posx = 3;
+	required double m_posy = 4;
+	required double m_posz = 5;
+	required double m_executetime = 6;
+}
+
+message m_fight_pickupbloodvialcmd_s
+{
+	required int32 m_bloodvialid = 1;
+	required int32 m_characterid = 2;
+	required double m_executetime = 3;
+}
+message m_fight_pickupbloodvialcmd_c
+{
+	required int32 m_bloodvialid = 1;
+	required int32 m_characterid = 2;
+	required double m_executetime = 3;
+}
+
+message m_fight_destroybloodvialcmd_s
+{
+	required int32 m_bloodvialid = 1;
+	required double m_executetime = 2;
+}
+message m_fight_destroybloodvialcmd_c
+{
+	required int32 m_bloodvialid = 1;
+	required double m_executetime = 2;
+}
+
+message m_fight_changeweaponcmd_s
+{
+	required string m_weaponid = 1;
+	required int16 m_creatcomandtime = 2;
+	required int8 m_characterid = 3;
+}
+message m_fight_changeweaponcmd_c
+{
+	required string m_weaponid = 1;
+	required int16 m_creatcomandtime = 2;
+	required int8 m_characterid = 3;
+}
+
+message m_fight_resurgencecmd_s
+{
+	required int16 m_creatcomandtime = 1;
+	required int8 m_characterid = 2;
+}
+message m_fight_resurgencecmd_c
+{
+	required int16 m_creatcomandtime = 1;
+	required int8 m_characterid = 2;
+}
+
+message m_fight_attackcmd_s
+{
+	required double m_dirx = 1;
+	required double m_diry = 2;
+	required double m_dirz = 3;
+	required double m_posx = 4;
+	required double m_posy = 5;
+	required double m_posz = 6;
+	required int16 m_creatcomandtime = 7;
+	required int8 m_characterid = 8;
+}
+message m_fight_attackcmd_c
+{
+	required double m_dirx = 1;
+	required double m_diry = 2;
+	required double m_dirz = 3;
+	required double m_posx = 4;
+	required double m_posy = 5;
+	required double m_posz = 6;
+	required int16 m_creatcomandtime = 7;
+	required int8 m_characterid = 8;
+}
+
+message m_fight_movecmd_s
+{
+	required int16 m_posx = 1;
+	required int16 m_posz = 2;
+	required bool m_isonlyturn = 3;
+	required int16 m_creatcomandtime = 4;
+	required int8 m_characterid = 5;
+}
+message m_fight_movecmd_c
+{
+	required int16 m_posx = 1;
+	required int16 m_posz = 2;
+	required bool m_isonlyturn = 3;
+	required int16 m_creatcomandtime = 4;
+	required int8 m_characterid = 5;
+}
+
+message m_fight_skillcmd_s
+{
+	required string m_skillid = 1;
+	required double m_posx = 2;
+	required double m_posy = 3;
+	required double m_posz = 4;
+	required double m_skilldirx = 5;
+	required double m_skilldiry = 6;
+	required double m_skilldirz = 7;
+	required int16 m_creatcomandtime = 8;
+	required int8 m_characterid = 9;
+}
+message m_fight_skillcmd_c
+{
+	required string m_skillid = 1;
+	required double m_posx = 2;
+	required double m_posy = 3;
+	required double m_posz = 4;
+	required double m_skilldirx = 5;
+	required double m_skilldiry = 6;
+	required double m_skilldirz = 7;
+	required int16 m_creatcomandtime = 8;
+	required int8 m_characterid = 9;
+}

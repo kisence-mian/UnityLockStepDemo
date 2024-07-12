@@ -1,0 +1,2408 @@
+﻿2017-09-27 17:33:08,519 Performance - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 51,027,968.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:33:08
+Is Running: True
+Total Connections: 0
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 0
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 256
+Total Sending Queue Items: 256
+
+2017-09-27 17:34:08,492 Performance - ---------------------------------------------------
+CPU Usage: 0.04%, Physical Memory Usage: 54,296,576.00, Total Thread Count: 32
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:33:08
+Is Running: True
+Total Connections: 1
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 2
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 255
+Total Sending Queue Items: 256
+
+2017-09-27 17:38:14,254 Performance - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 52,269,056.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 0
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 0
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 256
+Total Sending Queue Items: 256
+
+2017-09-27 17:39:14,245 Performance - ---------------------------------------------------
+CPU Usage: 0.52%, Physical Memory Usage: 62,218,240.00, Total Thread Count: 36
+AvailableWorkingThreads: 32765, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 452
+Request Handling Speed (#/second): 8
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 17:40:14,253 Performance - ---------------------------------------------------
+CPU Usage: 0.60%, Physical Memory Usage: 63,004,672.00, Total Thread Count: 36
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 1,053
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 17:41:14,251 Performance - ---------------------------------------------------
+CPU Usage: 0.56%, Physical Memory Usage: 62,476,288.00, Total Thread Count: 37
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 1,653
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 17:42:14,248 Performance - ---------------------------------------------------
+CPU Usage: 0.56%, Physical Memory Usage: 60,264,448.00, Total Thread Count: 37
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 2,253
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 17:43:14,257 Performance - ---------------------------------------------------
+CPU Usage: 0.57%, Physical Memory Usage: 61,292,544.00, Total Thread Count: 37
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 2,853
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 17:44:14,260 Performance - ---------------------------------------------------
+CPU Usage: 0.73%, Physical Memory Usage: 60,608,512.00, Total Thread Count: 37
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 4
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 3,364
+Request Handling Speed (#/second): 9
+Avialable Sending Queue Items: 252
+Total Sending Queue Items: 256
+
+2017-09-27 17:45:14,263 Performance - ---------------------------------------------------
+CPU Usage: 0.89%, Physical Memory Usage: 60,424,192.00, Total Thread Count: 36
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 4
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 3,908
+Request Handling Speed (#/second): 9
+Avialable Sending Queue Items: 252
+Total Sending Queue Items: 256
+
+2017-09-27 17:46:14,259 Performance - ---------------------------------------------------
+CPU Usage: 0.73%, Physical Memory Usage: 60,252,160.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 4
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 4,208
+Request Handling Speed (#/second): 5
+Avialable Sending Queue Items: 252
+Total Sending Queue Items: 256
+
+2017-09-27 17:47:14,257 Performance - ---------------------------------------------------
+CPU Usage: 0.66%, Physical Memory Usage: 61,075,456.00, Total Thread Count: 35
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 4
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 4,416
+Request Handling Speed (#/second): 3
+Avialable Sending Queue Items: 252
+Total Sending Queue Items: 256
+
+2017-09-27 17:48:14,269 Performance - ---------------------------------------------------
+CPU Usage: 0.87%, Physical Memory Usage: 60,420,096.00, Total Thread Count: 31
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 4
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 4,416
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 252
+Total Sending Queue Items: 256
+
+2017-09-27 17:49:14,276 Performance - ---------------------------------------------------
+CPU Usage: 0.97%, Physical Memory Usage: 61,280,256.00, Total Thread Count: 31
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 4
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 4,416
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 252
+Total Sending Queue Items: 256
+
+2017-09-27 17:50:14,282 Performance - ---------------------------------------------------
+CPU Usage: 1.07%, Physical Memory Usage: 61,603,840.00, Total Thread Count: 31
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 4
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 4,416
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 252
+Total Sending Queue Items: 256
+
+2017-09-27 17:51:14,288 Performance - ---------------------------------------------------
+CPU Usage: 1.05%, Physical Memory Usage: 62,537,728.00, Total Thread Count: 31
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 4
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 4,416
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 252
+Total Sending Queue Items: 256
+
+2017-09-27 17:52:14,283 Performance - ---------------------------------------------------
+CPU Usage: 1.09%, Physical Memory Usage: 61,108,224.00, Total Thread Count: 32
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 4
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 4,416
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 252
+Total Sending Queue Items: 256
+
+2017-09-27 17:53:14,283 Performance - ---------------------------------------------------
+CPU Usage: 1.13%, Physical Memory Usage: 64,749,568.00, Total Thread Count: 32
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 6
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 4,419
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 250
+Total Sending Queue Items: 256
+
+2017-09-27 17:54:14,280 Performance - ---------------------------------------------------
+CPU Usage: 1.90%, Physical Memory Usage: 69,087,232.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 6
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 5,035
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 250
+Total Sending Queue Items: 256
+
+2017-09-27 17:55:14,279 Performance - ---------------------------------------------------
+CPU Usage: 1.95%, Physical Memory Usage: 72,347,648.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 6
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 5,670
+Request Handling Speed (#/second): 11
+Avialable Sending Queue Items: 250
+Total Sending Queue Items: 256
+
+2017-09-27 17:56:14,288 Performance - ---------------------------------------------------
+CPU Usage: 1.77%, Physical Memory Usage: 68,370,432.00, Total Thread Count: 34
+AvailableWorkingThreads: 32765, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 6
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 6,268
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 250
+Total Sending Queue Items: 256
+
+2017-09-27 17:57:14,286 Performance - ---------------------------------------------------
+CPU Usage: 2.08%, Physical Memory Usage: 72,826,880.00, Total Thread Count: 31
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 6
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 6,482
+Request Handling Speed (#/second): 4
+Avialable Sending Queue Items: 250
+Total Sending Queue Items: 256
+
+2017-09-27 17:58:14,285 Performance - ---------------------------------------------------
+CPU Usage: 1.77%, Physical Memory Usage: 73,768,960.00, Total Thread Count: 31
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 6
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 6,482
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 250
+Total Sending Queue Items: 256
+
+2017-09-27 17:59:14,285 Performance - ---------------------------------------------------
+CPU Usage: 1.99%, Physical Memory Usage: 76,304,384.00, Total Thread Count: 31
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 6
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 6,482
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 250
+Total Sending Queue Items: 256
+
+2017-09-27 18:00:14,288 Performance - ---------------------------------------------------
+CPU Usage: 2.49%, Physical Memory Usage: 63,762,432.00, Total Thread Count: 31
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 6
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 6,482
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 250
+Total Sending Queue Items: 256
+
+2017-09-27 18:01:14,290 Performance - ---------------------------------------------------
+CPU Usage: 1.93%, Physical Memory Usage: 69,406,720.00, Total Thread Count: 32
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 6
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 6,482
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 250
+Total Sending Queue Items: 256
+
+2017-09-27 18:02:14,293 Performance - ---------------------------------------------------
+CPU Usage: 2.09%, Physical Memory Usage: 81,416,192.00, Total Thread Count: 31
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 6
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 6,482
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 250
+Total Sending Queue Items: 256
+
+2017-09-27 18:03:14,300 Performance - ---------------------------------------------------
+CPU Usage: 2.05%, Physical Memory Usage: 70,356,992.00, Total Thread Count: 31
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 6
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 6,482
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 250
+Total Sending Queue Items: 256
+
+2017-09-27 18:04:14,304 Performance - ---------------------------------------------------
+CPU Usage: 2.12%, Physical Memory Usage: 81,674,240.00, Total Thread Count: 32
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 6
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 6,482
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 250
+Total Sending Queue Items: 256
+
+2017-09-27 18:05:14,300 Performance - ---------------------------------------------------
+CPU Usage: 2.39%, Physical Memory Usage: 87,359,488.00, Total Thread Count: 31
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 6
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 6,482
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 250
+Total Sending Queue Items: 256
+
+2017-09-27 18:06:14,300 Performance - ---------------------------------------------------
+CPU Usage: 2.27%, Physical Memory Usage: 74,436,608.00, Total Thread Count: 31
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 6
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 6,482
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 250
+Total Sending Queue Items: 256
+
+2017-09-27 18:07:14,308 Performance - ---------------------------------------------------
+CPU Usage: 2.75%, Physical Memory Usage: 84,480,000.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 8
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 6,658
+Request Handling Speed (#/second): 3
+Avialable Sending Queue Items: 248
+Total Sending Queue Items: 256
+
+2017-09-27 18:08:14,316 Performance - ---------------------------------------------------
+CPU Usage: 3.69%, Physical Memory Usage: 83,202,048.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 8
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,244
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 248
+Total Sending Queue Items: 256
+
+2017-09-27 18:09:14,303 Performance - ---------------------------------------------------
+CPU Usage: 3.90%, Physical Memory Usage: 90,288,128.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 8
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,843
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 248
+Total Sending Queue Items: 256
+
+2017-09-27 18:10:14,310 Performance - ---------------------------------------------------
+CPU Usage: 4.15%, Physical Memory Usage: 96,555,008.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 8
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 8,432
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 248
+Total Sending Queue Items: 256
+
+2017-09-27 18:11:14,325 Performance - ---------------------------------------------------
+CPU Usage: 4.17%, Physical Memory Usage: 95,014,912.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 999
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 8
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 9,021
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 248
+Total Sending Queue Items: 256
+
+2017-09-27 18:12:14,326 Performance - ---------------------------------------------------
+CPU Usage: 4.23%, Physical Memory Usage: 92,913,664.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 8
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 9,534
+Request Handling Speed (#/second): 9
+Avialable Sending Queue Items: 248
+Total Sending Queue Items: 256
+
+2017-09-27 18:13:14,324 Performance - ---------------------------------------------------
+CPU Usage: 4.30%, Physical Memory Usage: 76,951,552.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 8
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 9,892
+Request Handling Speed (#/second): 6
+Avialable Sending Queue Items: 248
+Total Sending Queue Items: 256
+
+2017-09-27 18:14:14,325 Performance - ---------------------------------------------------
+CPU Usage: 4.44%, Physical Memory Usage: 95,305,728.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 8
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 10,236
+Request Handling Speed (#/second): 6
+Avialable Sending Queue Items: 248
+Total Sending Queue Items: 256
+
+2017-09-27 18:15:14,335 Performance - ---------------------------------------------------
+CPU Usage: 4.65%, Physical Memory Usage: 77,115,392.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 8
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 10,537
+Request Handling Speed (#/second): 5
+Avialable Sending Queue Items: 248
+Total Sending Queue Items: 256
+
+2017-09-27 18:16:14,338 Performance - ---------------------------------------------------
+CPU Usage: 4.91%, Physical Memory Usage: 85,532,672.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 8
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 10,828
+Request Handling Speed (#/second): 5
+Avialable Sending Queue Items: 248
+Total Sending Queue Items: 256
+
+2017-09-27 18:17:14,330 Performance - ---------------------------------------------------
+CPU Usage: 5.13%, Physical Memory Usage: 107,667,456.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 17:38:14
+Is Running: True
+Total Connections: 10
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 11,030
+Request Handling Speed (#/second): 3
+Avialable Sending Queue Items: 244
+Total Sending Queue Items: 256
+
+2017-09-27 18:32:03,672 Performance - ---------------------------------------------------
+CPU Usage: 0.00%, Physical Memory Usage: 52,310,016.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 0
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 0
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 256
+Total Sending Queue Items: 256
+
+2017-09-27 18:33:03,649 Performance - ---------------------------------------------------
+CPU Usage: 0.57%, Physical Memory Usage: 62,242,816.00, Total Thread Count: 38
+AvailableWorkingThreads: 32764, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 531
+Request Handling Speed (#/second): 9
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:34:03,647 Performance - ---------------------------------------------------
+CPU Usage: 0.48%, Physical Memory Usage: 63,135,744.00, Total Thread Count: 35
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 1,131
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:35:03,649 Performance - ---------------------------------------------------
+CPU Usage: 0.53%, Physical Memory Usage: 60,743,680.00, Total Thread Count: 38
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 1,731
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:36:03,648 Performance - ---------------------------------------------------
+CPU Usage: 0.55%, Physical Memory Usage: 59,990,016.00, Total Thread Count: 37
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 2,331
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:37:03,649 Performance - ---------------------------------------------------
+CPU Usage: 0.59%, Physical Memory Usage: 61,231,104.00, Total Thread Count: 36
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 2,931
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:38:03,654 Performance - ---------------------------------------------------
+CPU Usage: 0.72%, Physical Memory Usage: 60,473,344.00, Total Thread Count: 36
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 3,531
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:39:03,649 Performance - ---------------------------------------------------
+CPU Usage: 0.70%, Physical Memory Usage: 61,464,576.00, Total Thread Count: 37
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 4,131
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:40:03,649 Performance - ---------------------------------------------------
+CPU Usage: 0.51%, Physical Memory Usage: 60,469,248.00, Total Thread Count: 38
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 4,731
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:41:03,657 Performance - ---------------------------------------------------
+CPU Usage: 0.68%, Physical Memory Usage: 60,776,448.00, Total Thread Count: 36
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 5,331
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:42:03,652 Performance - ---------------------------------------------------
+CPU Usage: 0.60%, Physical Memory Usage: 60,248,064.00, Total Thread Count: 37
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 5,931
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:43:03,660 Performance - ---------------------------------------------------
+CPU Usage: 0.67%, Physical Memory Usage: 60,297,216.00, Total Thread Count: 36
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 6,531
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:44:03,652 Performance - ---------------------------------------------------
+CPU Usage: 0.55%, Physical Memory Usage: 60,334,080.00, Total Thread Count: 37
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,127
+Request Handling Speed (#/second): 10
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:45:03,654 Performance - ---------------------------------------------------
+CPU Usage: 0.38%, Physical Memory Usage: 61,530,112.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 1
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:46:03,653 Performance - ---------------------------------------------------
+CPU Usage: 0.38%, Physical Memory Usage: 60,207,104.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:47:03,673 Performance - ---------------------------------------------------
+CPU Usage: 0.47%, Physical Memory Usage: 60,227,584.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:48:03,662 Performance - ---------------------------------------------------
+CPU Usage: 0.44%, Physical Memory Usage: 62,504,960.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:49:03,662 Performance - ---------------------------------------------------
+CPU Usage: 0.46%, Physical Memory Usage: 62,066,688.00, Total Thread Count: 35
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:50:03,662 Performance - ---------------------------------------------------
+CPU Usage: 0.44%, Physical Memory Usage: 62,173,184.00, Total Thread Count: 35
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:51:03,663 Performance - ---------------------------------------------------
+CPU Usage: 0.44%, Physical Memory Usage: 62,316,544.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:52:03,664 Performance - ---------------------------------------------------
+CPU Usage: 0.47%, Physical Memory Usage: 62,509,056.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:53:03,665 Performance - ---------------------------------------------------
+CPU Usage: 0.48%, Physical Memory Usage: 61,898,752.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:54:03,665 Performance - ---------------------------------------------------
+CPU Usage: 0.53%, Physical Memory Usage: 61,210,624.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:55:03,677 Performance - ---------------------------------------------------
+CPU Usage: 0.53%, Physical Memory Usage: 59,691,008.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:56:03,673 Performance - ---------------------------------------------------
+CPU Usage: 0.54%, Physical Memory Usage: 61,362,176.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:57:03,676 Performance - ---------------------------------------------------
+CPU Usage: 0.57%, Physical Memory Usage: 64,319,488.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:58:03,683 Performance - ---------------------------------------------------
+CPU Usage: 0.64%, Physical Memory Usage: 65,523,712.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 18:59:03,678 Performance - ---------------------------------------------------
+CPU Usage: 0.53%, Physical Memory Usage: 66,801,664.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:00:03,684 Performance - ---------------------------------------------------
+CPU Usage: 0.59%, Physical Memory Usage: 60,854,272.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:01:03,694 Performance - ---------------------------------------------------
+CPU Usage: 0.62%, Physical Memory Usage: 64,061,440.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:02:03,700 Performance - ---------------------------------------------------
+CPU Usage: 0.70%, Physical Memory Usage: 60,940,288.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:03:03,708 Performance - ---------------------------------------------------
+CPU Usage: 0.74%, Physical Memory Usage: 64,376,832.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:04:03,706 Performance - ---------------------------------------------------
+CPU Usage: 0.74%, Physical Memory Usage: 60,858,368.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:05:03,700 Performance - ---------------------------------------------------
+CPU Usage: 0.71%, Physical Memory Usage: 59,772,928.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 252
+Total Sending Queue Items: 256
+
+2017-09-27 19:06:03,703 Performance - ---------------------------------------------------
+CPU Usage: 0.72%, Physical Memory Usage: 60,657,664.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:07:03,702 Performance - ---------------------------------------------------
+CPU Usage: 0.65%, Physical Memory Usage: 64,815,104.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:08:03,721 Performance - ---------------------------------------------------
+CPU Usage: 0.79%, Physical Memory Usage: 62,316,544.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:09:03,697 Performance - ---------------------------------------------------
+CPU Usage: 0.80%, Physical Memory Usage: 59,772,928.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:10:03,708 Performance - ---------------------------------------------------
+CPU Usage: 0.75%, Physical Memory Usage: 59,789,312.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:11:03,707 Performance - ---------------------------------------------------
+CPU Usage: 0.80%, Physical Memory Usage: 67,117,056.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:12:03,711 Performance - ---------------------------------------------------
+CPU Usage: 0.79%, Physical Memory Usage: 61,345,792.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:13:03,722 Performance - ---------------------------------------------------
+CPU Usage: 0.90%, Physical Memory Usage: 66,109,440.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:14:03,717 Performance - ---------------------------------------------------
+CPU Usage: 0.78%, Physical Memory Usage: 66,215,936.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:15:03,714 Performance - ---------------------------------------------------
+CPU Usage: 0.77%, Physical Memory Usage: 69,709,824.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:16:03,728 Performance - ---------------------------------------------------
+CPU Usage: 0.59%, Physical Memory Usage: 70,074,368.00, Total Thread Count: 35
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:17:03,819 Performance - ---------------------------------------------------
+CPU Usage: 0.74%, Physical Memory Usage: 68,550,656.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 253
+Total Sending Queue Items: 256
+
+2017-09-27 19:18:04,087 Performance - ---------------------------------------------------
+CPU Usage: 0.76%, Physical Memory Usage: 68,796,416.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 252
+Total Sending Queue Items: 256
+
+2017-09-27 19:19:03,852 Performance - ---------------------------------------------------
+CPU Usage: 0.76%, Physical Memory Usage: 72,597,504.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:20:03,849 Performance - ---------------------------------------------------
+CPU Usage: 0.77%, Physical Memory Usage: 62,521,344.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:21:03,852 Performance - ---------------------------------------------------
+CPU Usage: 0.71%, Physical Memory Usage: 58,949,632.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:22:03,854 Performance - ---------------------------------------------------
+CPU Usage: 0.71%, Physical Memory Usage: 68,628,480.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:23:03,952 Performance - ---------------------------------------------------
+CPU Usage: 0.81%, Physical Memory Usage: 61,685,760.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:24:03,908 Performance - ---------------------------------------------------
+CPU Usage: 0.86%, Physical Memory Usage: 65,376,256.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:25:03,868 Performance - ---------------------------------------------------
+CPU Usage: 0.89%, Physical Memory Usage: 69,783,552.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:26:03,888 Performance - ---------------------------------------------------
+CPU Usage: 0.89%, Physical Memory Usage: 62,545,920.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:27:03,895 Performance - ---------------------------------------------------
+CPU Usage: 0.85%, Physical Memory Usage: 71,294,976.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:28:03,888 Performance - ---------------------------------------------------
+CPU Usage: 0.92%, Physical Memory Usage: 63,135,744.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:29:03,891 Performance - ---------------------------------------------------
+CPU Usage: 0.88%, Physical Memory Usage: 72,187,904.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:30:03,885 Performance - ---------------------------------------------------
+CPU Usage: 0.95%, Physical Memory Usage: 63,909,888.00, Total Thread Count: 35
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:31:03,898 Performance - ---------------------------------------------------
+CPU Usage: 0.95%, Physical Memory Usage: 63,795,200.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:32:03,899 Performance - ---------------------------------------------------
+CPU Usage: 1.05%, Physical Memory Usage: 68,493,312.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:33:03,883 Performance - ---------------------------------------------------
+CPU Usage: 0.96%, Physical Memory Usage: 71,299,072.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:34:03,887 Performance - ---------------------------------------------------
+CPU Usage: 1.00%, Physical Memory Usage: 69,566,464.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:35:03,888 Performance - ---------------------------------------------------
+CPU Usage: 1.08%, Physical Memory Usage: 74,715,136.00, Total Thread Count: 35
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:36:03,895 Performance - ---------------------------------------------------
+CPU Usage: 0.97%, Physical Memory Usage: 59,404,288.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:37:03,903 Performance - ---------------------------------------------------
+CPU Usage: 0.90%, Physical Memory Usage: 69,472,256.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:38:03,922 Performance - ---------------------------------------------------
+CPU Usage: 1.01%, Physical Memory Usage: 59,670,528.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:39:03,921 Performance - ---------------------------------------------------
+CPU Usage: 1.05%, Physical Memory Usage: 75,431,936.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:40:03,903 Performance - ---------------------------------------------------
+CPU Usage: 1.08%, Physical Memory Usage: 71,032,832.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:41:03,908 Performance - ---------------------------------------------------
+CPU Usage: 1.11%, Physical Memory Usage: 59,293,696.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:42:03,907 Performance - ---------------------------------------------------
+CPU Usage: 1.05%, Physical Memory Usage: 59,629,568.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:43:03,907 Performance - ---------------------------------------------------
+CPU Usage: 1.01%, Physical Memory Usage: 70,656,000.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:44:03,921 Performance - ---------------------------------------------------
+CPU Usage: 1.07%, Physical Memory Usage: 65,536,000.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:45:03,919 Performance - ---------------------------------------------------
+CPU Usage: 1.14%, Physical Memory Usage: 77,004,800.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:46:03,915 Performance - ---------------------------------------------------
+CPU Usage: 1.14%, Physical Memory Usage: 71,208,960.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:47:03,922 Performance - ---------------------------------------------------
+CPU Usage: 1.16%, Physical Memory Usage: 80,265,216.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:48:03,927 Performance - ---------------------------------------------------
+CPU Usage: 1.32%, Physical Memory Usage: 60,211,200.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:49:03,923 Performance - ---------------------------------------------------
+CPU Usage: 1.39%, Physical Memory Usage: 72,245,248.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:50:03,921 Performance - ---------------------------------------------------
+CPU Usage: 1.22%, Physical Memory Usage: 78,766,080.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:51:03,919 Performance - ---------------------------------------------------
+CPU Usage: 1.42%, Physical Memory Usage: 73,019,392.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:52:03,932 Performance - ---------------------------------------------------
+CPU Usage: 1.36%, Physical Memory Usage: 67,387,392.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:53:03,931 Performance - ---------------------------------------------------
+CPU Usage: 1.15%, Physical Memory Usage: 67,637,248.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:54:03,931 Performance - ---------------------------------------------------
+CPU Usage: 1.27%, Physical Memory Usage: 68,042,752.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:55:03,938 Performance - ---------------------------------------------------
+CPU Usage: 1.04%, Physical Memory Usage: 68,288,512.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:56:03,947 Performance - ---------------------------------------------------
+CPU Usage: 1.03%, Physical Memory Usage: 61,734,912.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:57:03,942 Performance - ---------------------------------------------------
+CPU Usage: 1.13%, Physical Memory Usage: 81,596,416.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:58:03,947 Performance - ---------------------------------------------------
+CPU Usage: 1.09%, Physical Memory Usage: 62,181,376.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 19:59:03,945 Performance - ---------------------------------------------------
+CPU Usage: 1.04%, Physical Memory Usage: 82,653,184.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:00:03,951 Performance - ---------------------------------------------------
+CPU Usage: 1.09%, Physical Memory Usage: 76,206,080.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:01:03,950 Performance - ---------------------------------------------------
+CPU Usage: 1.10%, Physical Memory Usage: 76,378,112.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:02:03,958 Performance - ---------------------------------------------------
+CPU Usage: 1.10%, Physical Memory Usage: 70,189,056.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:03:03,956 Performance - ---------------------------------------------------
+CPU Usage: 1.22%, Physical Memory Usage: 63,356,928.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:04:03,957 Performance - ---------------------------------------------------
+CPU Usage: 1.15%, Physical Memory Usage: 63,442,944.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:05:03,954 Performance - ---------------------------------------------------
+CPU Usage: 1.19%, Physical Memory Usage: 78,110,720.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:06:03,957 Performance - ---------------------------------------------------
+CPU Usage: 1.26%, Physical Memory Usage: 70,291,456.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:07:03,960 Performance - ---------------------------------------------------
+CPU Usage: 1.28%, Physical Memory Usage: 63,369,216.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:08:03,954 Performance - ---------------------------------------------------
+CPU Usage: 1.19%, Physical Memory Usage: 67,182,592.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:09:03,955 Performance - ---------------------------------------------------
+CPU Usage: 1.17%, Physical Memory Usage: 86,122,496.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:10:03,981 Performance - ---------------------------------------------------
+CPU Usage: 1.38%, Physical Memory Usage: 71,208,960.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:11:03,949 Performance - ---------------------------------------------------
+CPU Usage: 1.26%, Physical Memory Usage: 79,216,640.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:12:03,950 Performance - ---------------------------------------------------
+CPU Usage: 1.41%, Physical Memory Usage: 79,667,200.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:13:03,968 Performance - ---------------------------------------------------
+CPU Usage: 1.33%, Physical Memory Usage: 87,810,048.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:14:03,963 Performance - ---------------------------------------------------
+CPU Usage: 1.33%, Physical Memory Usage: 80,072,704.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:15:03,964 Performance - ---------------------------------------------------
+CPU Usage: 1.34%, Physical Memory Usage: 84,545,536.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:16:03,982 Performance - ---------------------------------------------------
+CPU Usage: 1.37%, Physical Memory Usage: 80,953,344.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:17:03,972 Performance - ---------------------------------------------------
+CPU Usage: 1.37%, Physical Memory Usage: 89,575,424.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:18:03,972 Performance - ---------------------------------------------------
+CPU Usage: 1.41%, Physical Memory Usage: 81,649,664.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:19:03,988 Performance - ---------------------------------------------------
+CPU Usage: 1.35%, Physical Memory Usage: 65,433,600.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:20:03,961 Performance - ---------------------------------------------------
+CPU Usage: 1.41%, Physical Memory Usage: 74,166,272.00, Total Thread Count: 35
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:21:03,963 Performance - ---------------------------------------------------
+CPU Usage: 1.47%, Physical Memory Usage: 74,620,928.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:22:03,973 Performance - ---------------------------------------------------
+CPU Usage: 1.33%, Physical Memory Usage: 66,256,896.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:23:03,974 Performance - ---------------------------------------------------
+CPU Usage: 1.50%, Physical Memory Usage: 75,042,816.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:24:03,969 Performance - ---------------------------------------------------
+CPU Usage: 1.22%, Physical Memory Usage: 114,630,656.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:25:03,972 Performance - ---------------------------------------------------
+CPU Usage: 1.25%, Physical Memory Usage: 75,743,232.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:26:03,993 Performance - ---------------------------------------------------
+CPU Usage: 1.30%, Physical Memory Usage: 62,496,768.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:27:03,997 Performance - ---------------------------------------------------
+CPU Usage: 1.59%, Physical Memory Usage: 75,984,896.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:28:03,995 Performance - ---------------------------------------------------
+CPU Usage: 1.46%, Physical Memory Usage: 76,320,768.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:29:03,989 Performance - ---------------------------------------------------
+CPU Usage: 1.22%, Physical Memory Usage: 90,189,824.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:30:03,980 Performance - ---------------------------------------------------
+CPU Usage: 1.20%, Physical Memory Usage: 76,685,312.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:31:03,994 Performance - ---------------------------------------------------
+CPU Usage: 1.15%, Physical Memory Usage: 63,025,152.00, Total Thread Count: 35
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:32:03,991 Performance - ---------------------------------------------------
+CPU Usage: 1.65%, Physical Memory Usage: 86,355,968.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:33:03,984 Performance - ---------------------------------------------------
+CPU Usage: 1.71%, Physical Memory Usage: 86,704,128.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:34:03,988 Performance - ---------------------------------------------------
+CPU Usage: 1.63%, Physical Memory Usage: 68,390,912.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:35:04,010 Performance - ---------------------------------------------------
+CPU Usage: 1.41%, Physical Memory Usage: 68,923,392.00, Total Thread Count: 35
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:36:04,000 Performance - ---------------------------------------------------
+CPU Usage: 1.41%, Physical Memory Usage: 87,691,264.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:37:04,000 Performance - ---------------------------------------------------
+CPU Usage: 1.61%, Physical Memory Usage: 88,166,400.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:38:04,005 Performance - ---------------------------------------------------
+CPU Usage: 1.54%, Physical Memory Usage: 93,331,456.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:39:04,020 Performance - ---------------------------------------------------
+CPU Usage: 1.54%, Physical Memory Usage: 68,960,256.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:40:03,999 Performance - ---------------------------------------------------
+CPU Usage: 1.51%, Physical Memory Usage: 99,065,856.00, Total Thread Count: 34
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+
+2017-09-27 20:41:04,010 Performance - ---------------------------------------------------
+CPU Usage: 1.56%, Physical Memory Usage: 79,388,672.00, Total Thread Count: 33
+AvailableWorkingThreads: 32766, AvailableCompletionPortThreads: 1000
+MaxWorkingThreads: 32767, MaxCompletionPortThreads: 1000
+LockStepDemo ----------------------------------
+Started Time: 2017/9/27 18:32:03
+Is Running: True
+Total Connections: 2
+Maximum Allowed Connection Number: 100
+Total Handled Requests: 7,211
+Request Handling Speed (#/second): 0
+Avialable Sending Queue Items: 254
+Total Sending Queue Items: 256
+

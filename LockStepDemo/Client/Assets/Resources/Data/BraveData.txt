@@ -1,0 +1,7 @@
+RoleID	ModelID	walkAnimName	cloakAnimName	IdleAnimName	HurtAnimName	HurtAnimTime	DieAnimName	ShowAniName	DropOutID	Speed	Radius	MaxHp	MaxMp	IsOnlyDamageValue	BloodHight	FootstepSFX
+type	String	String	String	String	String	Float	String	String	String	Float	Float	Int	Int	Bool	Float	String
+note									ID						Y	脚步声
+default	null	war_run	ass_female_qianru	ass_female_zhanli	shoushang	0.2	ass_female_siwang	war_female_chaofeng	null	5	1	1000	50	FALSE	-0.1	null
+SkillToken	SkillToken									0						
+war_female_01	war_female_03			war_stand												
+war_male_01	war_male_02	war_run		war_stand												

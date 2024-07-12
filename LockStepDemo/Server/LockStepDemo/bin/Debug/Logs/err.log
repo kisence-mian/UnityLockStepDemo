@@ -1,1 +1,78 @@
-﻿
+﻿2017-09-30 12:09:35,354 [19968] ERROR LockStepDemo - 2080 error: System.ArgumentOutOfRangeException: 索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+   在 System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   在 System.Collections.Generic.List`1.RemoveAt(Int32 index)
+   在 System.Collections.Generic.List`1.Remove(T item)
+   在 CommandMessageService`1.ReceviceAffirmMsg(SyncSession session, AffirmMsg msg) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\CommandMessageService.cs:行号 78
+2017-09-30 12:11:56,769 [6316] ERROR LockStepDemo - methodIndex:301 Ex:System.Exception: AnalysisData Excepiton Data is ->commandcomponent<-
+FieldName:-><-
+FieldType:->Error<-
+RepeatType:->RT_equired<-
+CustomType:-><-
+System.Exception: ProtocolInfo NOT Exist ->m_commandcomponent_s<-
+   在 Protocol.ProtocolReceiveFilter.AnalysisData(String MessageType, Byte[] bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 329
+   在 Protocol.ProtocolReceiveFilter.AnalysisData(String MessageType, Byte[] bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 422
+   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 297
+2017-09-30 12:11:56,776 [21956] ERROR LockStepDemo - methodIndex:301 Ex:System.Exception: AnalysisData Excepiton Data is ->commandcomponent<-
+FieldName:-><-
+FieldType:->Error<-
+RepeatType:->RT_equired<-
+CustomType:-><-
+System.Exception: ProtocolInfo NOT Exist ->m_commandcomponent_s<-
+   在 Protocol.ProtocolReceiveFilter.AnalysisData(String MessageType, Byte[] bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 329
+   在 Protocol.ProtocolReceiveFilter.AnalysisData(String MessageType, Byte[] bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 422
+   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 297
+2017-09-30 12:11:56,780 [7372] ERROR LockStepDemo - methodIndex:301 Ex:System.Exception: AnalysisData Excepiton Data is ->commandcomponent<-
+FieldName:-><-
+FieldType:->Error<-
+RepeatType:->RT_equired<-
+CustomType:-><-
+System.Exception: ProtocolInfo NOT Exist ->m_commandcomponent_s<-
+   在 Protocol.ProtocolReceiveFilter.AnalysisData(String MessageType, Byte[] bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 329
+   在 Protocol.ProtocolReceiveFilter.AnalysisData(String MessageType, Byte[] bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 422
+   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 297
+2017-09-30 12:11:56,796 [7372] ERROR LockStepDemo - SyncSession
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ProtocolAnalysisService.ReceviceCommandComponent(SyncSession session, ProtocolRequestBase e) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Generate\Protocol\ProtocolAnalysisService.cs:行号 441
+   在 ProtocolAnalysisService.AnalysisAndDispatchMessage(SyncSession session, ProtocolRequestBase cmd) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Generate\Protocol\ProtocolAnalysisService.cs:行号 260
+   在 SyncSession.HandleUnknownRequest(ProtocolRequestBase requestInfo) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\SyncSession.cs:行号 23
+   在 SuperSocket.SocketBase.AppSession`2.InternalHandleUnknownRequest(TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(IAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)
+2017-09-30 12:11:56,796 [21956] ERROR LockStepDemo - SyncSession
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ProtocolAnalysisService.ReceviceCommandComponent(SyncSession session, ProtocolRequestBase e) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Generate\Protocol\ProtocolAnalysisService.cs:行号 441
+   在 ProtocolAnalysisService.AnalysisAndDispatchMessage(SyncSession session, ProtocolRequestBase cmd) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Generate\Protocol\ProtocolAnalysisService.cs:行号 260
+   在 SyncSession.HandleUnknownRequest(ProtocolRequestBase requestInfo) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\SyncSession.cs:行号 23
+   在 SuperSocket.SocketBase.AppSession`2.InternalHandleUnknownRequest(TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(IAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)
+2017-09-30 12:11:56,796 [6316] ERROR LockStepDemo - SyncSession
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ProtocolAnalysisService.ReceviceCommandComponent(SyncSession session, ProtocolRequestBase e) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Generate\Protocol\ProtocolAnalysisService.cs:行号 441
+   在 ProtocolAnalysisService.AnalysisAndDispatchMessage(SyncSession session, ProtocolRequestBase cmd) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Generate\Protocol\ProtocolAnalysisService.cs:行号 260
+   在 SyncSession.HandleUnknownRequest(ProtocolRequestBase requestInfo) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\SyncSession.cs:行号 23
+   在 SuperSocket.SocketBase.AppSession`2.InternalHandleUnknownRequest(TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(IAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)
+2017-09-30 12:11:56,799 [20216] ERROR LockStepDemo - methodIndex:301 Ex:System.Exception: AnalysisData Excepiton Data is ->commandcomponent<-
+FieldName:-><-
+FieldType:->Error<-
+RepeatType:->RT_equired<-
+CustomType:-><-
+System.Exception: ProtocolInfo NOT Exist ->m_commandcomponent_s<-
+   在 Protocol.ProtocolReceiveFilter.AnalysisData(String MessageType, Byte[] bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 329
+   在 Protocol.ProtocolReceiveFilter.AnalysisData(String MessageType, Byte[] bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 422
+   在 Protocol.ProtocolReceiveFilter.Analysis(ByteArray bytes) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolReceiveFilter.cs:行号 297
+2017-09-30 12:11:56,858 [20216] ERROR LockStepDemo - SyncSession
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ProtocolAnalysisService.ReceviceCommandComponent(SyncSession session, ProtocolRequestBase e) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Generate\Protocol\ProtocolAnalysisService.cs:行号 441
+   在 ProtocolAnalysisService.AnalysisAndDispatchMessage(SyncSession session, ProtocolRequestBase cmd) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Generate\Protocol\ProtocolAnalysisService.cs:行号 260
+   在 SyncSession.HandleUnknownRequest(ProtocolRequestBase requestInfo) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\SyncSession.cs:行号 23
+   在 SuperSocket.SocketBase.AppSession`2.InternalHandleUnknownRequest(TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(TAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppServerBase`2.ExecuteCommand(IAppSession session, TRequestInfo requestInfo)
+   在 SuperSocket.SocketBase.AppSession`2.SuperSocket.SocketBase.IAppSession.ProcessRequest(Byte[] readBuffer, Int32 offset, Int32 length, Boolean toBeCopied)

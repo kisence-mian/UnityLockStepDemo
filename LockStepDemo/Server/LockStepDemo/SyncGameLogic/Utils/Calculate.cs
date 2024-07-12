@@ -27,155 +27,13 @@ public class Area
         position.y = 0;
         switch (areaType)
         {
-            case AreaType.Circle: return Circle(area);
+            case AreaType.Circle:    return Circle(area);
             case AreaType.Rectangle: return Rectangle(area);
-            case AreaType.Sector: return Sector(area);
+            case AreaType.Sector:    return Sector(area);
         }
 
         return true;
     }
-
-    public SyncVector3 GetOffsetPos(Area area)
-    {
-        switch (areaType)
-        {
-            case AreaType.Circle: return Offset_Circle(area);
-            case AreaType.Rectangle: return Offset_Rectangle(area);
-            case AreaType.Sector: return Offset_Sector(area);
-        }
-
-        return new SyncVector3();
-    }
-
-    #region 计算最小平移距离
-
-    SyncVector3 Offset_Circle(Area area)
-    {
-        switch (area.areaType)
-        {
-            case AreaType.Circle: return Offset_Circle_Circle(area);
-            case AreaType.Rectangle: return Offset_Circle_Rectangle(area);
-            case AreaType.Sector: return Offset_Sector(area);
-        }
-
-        return new SyncVector3();
-    }
-
-    SyncVector3 Offset_Rectangle(Area area)
-    {
-        switch (area.areaType)
-        {
-            case AreaType.Circle: return Offset_Rectangle_Circle(area);
-            case AreaType.Rectangle: return Offset_Rectangle_Rectangle(area);
-            case AreaType.Sector: return Offset_Sector(area);
-        }
-
-        return new SyncVector3();
-    }
-
-    SyncVector3 Offset_Sector(Area area)
-    {
-        return new SyncVector3();
-    }
-
-    SyncVector3 Offset_Circle_Circle(Area area)
-    {
-        float distance = Vector3.Distance(position, area.position);
-
-        float r = radius + area.radius;
-
-        //Debug.Log("distance " + distance + " r " + r + " ");
-
-        if (distance < r)
-        {
-            SyncVector3 offset = new SyncVector3();
-            offset.FromVector((area.position - position).normalized * (r - distance));
-
-            return offset;
-        }
-        else
-        {
-            return new SyncVector3();
-        }
-    }
-
-    //弹走矩形
-    SyncVector3 Offset_Circle_Rectangle(Area rectangle)
-    {
-        return new SyncVector3();
-    }
-
-    //弹走圆形
-    SyncVector3 Offset_Rectangle_Circle(Area circle)
-    {
-        float angle = direction.GetRotationAngle(new Vector3(1, 0, 0));
-        //先把圆形归位
-        Vector3 newCirclePos = circle.position.PostionRotateInXZ(position, angle);
-
-        //Debug.Log("position " + position);
-        //Debug.Log("circle.position " + circle.position);
-        //Debug.Log("newCirclePos " + newCirclePos);
-
-        //Debug.Log("angle " + angle);
-
-        float cx, cz;
-
-        if (newCirclePos.x < position.x - length * 0.5f)
-        {
-            cx = position.x - length * 0.5f;
-        }
-        else if (newCirclePos.x > position.x + length * 0.5f)
-        {
-            cx = position.x + length * 0.5f;
-        }
-        else
-        {
-            cx = newCirclePos.x;
-        }
-
-        if (newCirclePos.z < position.z - Width * 0.5f)
-        {
-            cz = position.z - Width * 0.5f;
-        }
-        else if (newCirclePos.z > position.z + Width * 0.5f)
-        {
-            cz = position.z + Width * 0.5f;
-        }
-        else
-        {
-            cz = newCirclePos.z;
-        }
-
-        Vector3 oc = new Vector3(cx, 0, cz);
-
-        float d = (cx - newCirclePos.x) * (cx - newCirclePos.x) + (cz - newCirclePos.z) * (cz - newCirclePos.z);
-
-        if (d < (circle.radius * circle.radius))
-        {
-            Vector3 offset = (oc - newCirclePos).Vector3RotateInXZ(-angle).normalized * (circle.radius - (float)Math.Sqrt(d));
-            return new SyncVector3().FromVector(offset);
-        }
-
-        return new SyncVector3();
-    }
-
-    float DistanceFromPointToLine(Vector3 p, Vector3 start, Vector3 end)
-    {
-        float a = end.y - start.y;
-        float b = end.x - start.x;
-        float c = end.x * start.y - start.x * end.y;
-
-        //assert(fabs(a) > 0.00001f || fabs(b) > 0.00001f);
-
-        return (float)(Math.Abs(a * p.x + b * p.y + c) / Math.Sqrt(a * a + b * b));
-    }
-
-    SyncVector3 Offset_Rectangle_Rectangle(Area area)
-    {
-        return new SyncVector3();
-    }
-
-    #endregion
 
     #region 自己形状的三种情况
     //自己是圆形
@@ -184,11 +42,11 @@ public class Area
         switch (area.areaType)
         {
             case AreaType.Circle: return Circle_Circle(this, area);
-            case AreaType.Rectangle: return Circle_Rectangle(this, area);
-            case AreaType.Sector: return Circle_Sector(this, area);
+            case AreaType.Rectangle: return Circle_Rectangle(this,area);
+            case AreaType.Sector: return Circle_Sector(this,area);
         }
         return true;
-
+        
     }
 
     //自己是矩形
@@ -199,9 +57,9 @@ public class Area
         //Debug.Log(this.position + "长 ：" + this.length + "宽： " + this.Width + "forward" + direction);
         switch (area.areaType)
         {
-            case AreaType.Circle: return Circle_Rectangle(area, this);
-            case AreaType.Rectangle: return Rectangle_Rectangle(area, this);
-            case AreaType.Sector: return Sector_Rectangle(area, this);
+            case AreaType.Circle: return Circle_Rectangle(area,this);
+            case AreaType.Rectangle: return Rectangle_Rectangle(area,this);
+            case AreaType.Sector: return Sector_Rectangle(area,this);
         }
 
         return true;
@@ -213,9 +71,9 @@ public class Area
 
         switch (area.areaType)
         {
-            case AreaType.Circle: return Circle_Sector(area, this);
-            case AreaType.Rectangle: return Sector_Rectangle(this, area);
-            case AreaType.Sector: return Sector_Sector(area, this);
+            case AreaType.Circle: return Circle_Sector(area,this);
+            case AreaType.Rectangle: return Sector_Rectangle(this,area);
+            case AreaType.Sector: return Sector_Sector(area,this);
         }
         return true;
     }
@@ -229,74 +87,17 @@ public class Area
         return Vector3.Distance(area1.position, area2.position) < (area1.radius + area2.radius);
     }
 
-    //圆——矩形相交
-    private bool Circle_Rectangle(Area circle, Area rectangle)
+    //圆——矩形相交（近似）
+    private bool Circle_Rectangle(Area areaCircle, Area areaRectangle)
     {
-        //先进行一次剪枝
-        float x1 = circle.position.x - rectangle.position.x;
-        float z1 = circle.position.z - rectangle.position.z;
-        float d1 = x1 * x1 + z1 * z1;
-
-        float r1 = circle.radius + 1.42f * (rectangle.Width + rectangle.length);
-        float d2 = r1 * r1;
-
-        if (d1 > d2)
-        {
-            return false;
-        }
-
-        //先把圆形归位
-        float angle = direction.GetRotationAngle(new Vector3(1, 0, 0));
-        //先把圆形归位
-        Vector3 newCirclePos = circle.position.PostionRotateInXZ(rectangle.position, angle);
-
-        float cx, cz;
-
-        if (newCirclePos.x < rectangle.position.x - rectangle.length * 0.5f)
-        {
-            cx = rectangle.position.x - rectangle.length * 0.5f;
-        }
-        else if (newCirclePos.x > rectangle.position.x + rectangle.length * 0.5f)
-        {
-            cx = rectangle.position.x + rectangle.length * 0.5f;
-        }
-        else
-        {
-            cx = newCirclePos.x;
-        }
-
-        if (newCirclePos.y < rectangle.position.y - rectangle.Width * 0.5f)
-        {
-            cz = rectangle.position.y - rectangle.Width * 0.5f;
-        }
-        else if (newCirclePos.y > rectangle.position.y + rectangle.Width * 0.5f)
-        {
-            cz = rectangle.position.y + rectangle.Width * 0.5f;
-        }
-        else
-        {
-            cz = newCirclePos.y;
-        }
-
-        float d = (cx - newCirclePos.x) * (cx - newCirclePos.x) + (cz - newCirclePos.y) * (cz - newCirclePos.y);
-
-        if (d < (circle.radius * circle.radius))
-        {
-            return true;
-        }
-
-        return false;
-
-
-
-        ////近似方式： 将矩形四个边扩大圆的半径，将圆缩小为一个点，然后判断这个点是否在扩大的矩形内
-        //return PointInRectangle(areaCircle.position, areaRectangle, areaCircle.radius * 2, areaCircle.radius * 2);
+        //近似方式： 将矩形四个边扩大圆的半径，将圆缩小为一个点，然后判断这个点是否在扩大的矩形内
+        return PointInRectangle(areaCircle.position, areaRectangle, areaCircle.radius * 2, areaCircle.radius * 2);
     }
 
     //圆——扇形相交（近似）
     private bool Circle_Sector(Area areaCircle, Area areaSector)
     {
-
+        
         //近似方法：将扇形半径根据圆的半径进行扩大，然后判断圆心是否在扩大后的扇形内
         if (PointInSector(areaCircle.position, areaSector, areaCircle.radius))
         {
@@ -314,13 +115,13 @@ public class Area
         }
 
 
-        return false;
+            return false;
     }
 
     //扇形——扇形相交（近似）
     private bool Sector_Sector(Area area1, Area area2)
     {
-
+        
         //分别判断扇形的三个顶点以及中轴线上的N个点是否在另一个扇形内
         Vector3[] area1Points = GetSectorPoints(area1);
         Vector3[] area2Points = GetSectorPoints(area2);
@@ -342,7 +143,7 @@ public class Area
     //扇形——矩形相交（近似）
     private bool Sector_Rectangle(Area areaSector, Area areaRectangle)
     {
-
+        
         //1.先判断扇形的重要点是否在矩形内
         Vector3[] l_sectorPoints = GetSectorPoints(areaSector);
         for (int i = 0; i < l_sectorPoints.Length; i++)
@@ -363,11 +164,11 @@ public class Area
                 //Debug.Log(l_rectanglePoints[i]);
                 return true;
             }
-
+ 
         }
 
         //3.判断矩形的长边方向的N个点是否在扇形内
-        Vector3[] l_rectangleLongDirPoints = GetRectangleLongDirPoints(areaRectangle, areaSector.radius * 0.3f);
+        Vector3[] l_rectangleLongDirPoints = GetRectangleLongDirPoints(areaRectangle,areaSector.radius*0.3f);
 
         for (int i = 0; i < l_rectangleLongDirPoints.Length; i++)
         {
@@ -470,14 +271,14 @@ public class Area
     /// <summary>
     /// 判断一个点是否在一个(可能经过扩大的)矩形内
     /// </summary>
-    public bool PointInRectangle(Vector3 point, Area area, float lenghAdd = 0, float widthAdd = 0)
+    public bool PointInRectangle(Vector3 point, Area area,float lenghAdd = 0,float widthAdd = 0)
     {
 
         Vector3 l_v3_newPos = GetPointPosInRectangle(area, point);
         //Debug.Log(l_v3_newPos);
 
-        if (Mathf.Abs(l_v3_newPos.x) < (area.length + lenghAdd) * 0.5f
-            && Mathf.Abs(l_v3_newPos.z) < (area.Width + widthAdd) * 0.5f)
+        if (Mathf.Abs( l_v3_newPos.x) < (area.length + lenghAdd) * 0.5f 
+            && Mathf.Abs( l_v3_newPos.z) < (area.Width + widthAdd) * 0.5f)
         {
             //Debug.Log("点：" + point + "在矩形：" + area.position + "内");
             return true;
@@ -490,7 +291,7 @@ public class Area
             //MyDebug("area.Width + widthAdd)" + (area.Width + widthAdd));
             return false;
         }
-
+ 
     }
 
     /// <summary>
@@ -500,7 +301,7 @@ public class Area
     {
         radiusAdd *= 1.1f;
         Vector3 l_v3_forward = area.direction;//扇形的正方向
-        Vector3 l_v3_newPos = area.position - l_v3_forward * Mathf.Cos(area.angle * 0.5f * Mathf.Deg2Rad) * 2 * radiusAdd;//扇形新圆心
+        Vector3 l_v3_newPos = area.position - l_v3_forward  * Mathf.Cos(area.angle * 0.5f*Mathf.Deg2Rad) * 2 * radiusAdd;//扇形新圆心
         Vector3 l_v3_v = point - l_v3_newPos;//新扇形中心指向该点
         if (l_v3_v == Vector3.zero)
         {
@@ -510,7 +311,7 @@ public class Area
         float l_angle = Vector3.Angle(l_v3_forward, l_v3_v);
         float l_newRadius = area.radius + radiusAdd * Mathf.Cos(area.angle * 0.5f * Mathf.Deg2Rad) * 2 * radiusAdd;
 
-        if (l_angle < area.angle * 0.5f || l_angle < 0.05f)
+        if (l_angle < area.angle * 0.5f || l_angle<0.05f)
         {
             if (l_v3_v.magnitude < l_newRadius)
             {
@@ -527,7 +328,7 @@ public class Area
 
     #region 工具函数
 
-
+    
     /// <summary>
     /// 获取一个点在一个矩形内的局部坐标
     /// </summary>
@@ -541,7 +342,7 @@ public class Area
         {
             l_angle = 180 - l_angle;
         }
-
+         
         float l_magnitude = l_v3_v.magnitude;
 
         Vector3 l_v3_roForward = l_v3_forward.Vector3RotateInXZ(l_angle * Mathf.Rad2Deg);
@@ -563,9 +364,9 @@ public class Area
     /// <summary>
     /// 一个矩形中心，在该中心到某点的方向上，到达边界的长度
     /// </summary>
-    private float GetRectangleCenterToPointDistance(Area area, Vector3 point)
+    private float GetRectangleCenterToPointDistance(Area area,Vector3 point)
     {
-
+ 
 
         Vector3 l_v3_forward = area.direction;
         Vector3 l_v3_left = l_v3_forward.Vector3RotateInXZ(90);
@@ -576,7 +377,7 @@ public class Area
         Vector3 l_v3_toAcme1 = l_v3_forward * area.length * 0.5f + l_v3_left * area.Width * 0.5f;
         //Debug.Log(l_v3_toAcme1);
 
-        float l_acmeAngle1 = Vector3.Angle(l_v3_toAcme1, l_v3_forward) * Mathf.Deg2Rad;
+        float l_acmeAngle1 = Vector3.Angle(l_v3_toAcme1, l_v3_forward)*Mathf.Deg2Rad;
         l_acmeAngle1 = Rad2FirstQuartile(l_acmeAngle1);
         //Debug.Log(l_acmeAngle1);
 
@@ -602,7 +403,7 @@ public class Area
         }
 
         return l_dis;
-
+ 
     }
 
     /// <summary>
@@ -612,9 +413,9 @@ public class Area
     {
         Vector3[] l_points = new Vector3[5];
 
-        Vector3 l_v3_forward = area.direction * area.length * 0.5f;
-        Vector3 l_v3_back = -1 * l_v3_forward;
-        Vector3 l_v3_left = l_v3_forward.Vector3RotateInXZ(90).normalized * area.Width * 0.5f;
+        Vector3 l_v3_forward = area.direction * area.length*0.5f;
+        Vector3 l_v3_back = -1 * l_v3_forward; 
+        Vector3 l_v3_left = l_v3_forward.Vector3RotateInXZ(90).normalized * area.Width*0.5f;
         Vector3 l_v3_right = -1 * l_v3_left;
 
         l_points[0] = area.position + l_v3_forward + l_v3_left;
@@ -628,21 +429,21 @@ public class Area
     /// <summary>
     /// 获取矩形长边方向上的N个点,步长为l_short的四分之一
     /// </summary>
-    private Vector3[] GetRectangleLongDirPoints(Area area, float l_short)
+    private Vector3[] GetRectangleLongDirPoints(Area area,float l_short)
     {
-        Vector3 l_v3_forward = area.direction * area.length * 0.5f;
+        Vector3 l_v3_forward = area.direction * area.length*0.5f;
 
         Vector3 l_v3_longDir;
 
         float l_long1 = 0;
-        if (area.length > area.Width)
+        if(area.length >area.Width)
         {
             l_v3_longDir = l_v3_forward;
-            l_long1 = area.length;
+             l_long1 = area.length;
         }
         else
         {
-            l_v3_longDir = l_v3_forward.Vector3RotateInXZ(90).normalized * area.Width * 0.5f;
+            l_v3_longDir = l_v3_forward.Vector3RotateInXZ(90).normalized * area.Width*0.5f;
             l_long1 = area.Width;
         }
 
@@ -653,7 +454,7 @@ public class Area
 
         Vector3[] l_points = new Vector3[num];
 
-
+            
         for (int i = 0; i < num; i++)
         {
             l_points[i] = area.position - l_v3_longDir.normalized * l_long1 * 0.5f + l_v3_longDir.normalized * step * i;
@@ -679,7 +480,7 @@ public class Area
         float step = 1 / (float)(6);
         for (int i = 3; i < 9; i++)
         {
-            areaPoints[i] = area.position + area.direction * area.radius * (step * (i - 2));
+            areaPoints[i] = area.position + area.direction * area.radius * (step * (i-2));
         }
 
         return areaPoints;
@@ -690,13 +491,13 @@ public class Area
     /// </summary>
     private float Rad2FirstQuartile(float rad)
     {
-        if (rad < 0)
+        if(rad <0)
         {
             rad *= -1;
         }
         if (rad > (Math.PI * 1.5f))
         {
-            return (float)(2 * Mathf.PI - rad);
+            return (float)(2* Mathf.PI -  rad );
         }
         if (rad > Math.PI)
         {

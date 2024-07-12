@@ -1,0 +1,320 @@
+weaponid	weaponfield	name	weaponname	info	Qualitylevel	qualitynumber	Qualityframe	icon	gs	outfitnumber	gem_count	enchant_count	enchant_money_need	enchant_item_need_211	enchant_item_need_212	enchant_item_need_213	enchant_item_need_214	enchant_item_need_215	att	def	hp	hprecover	crit	critdamage	ignoredef	hpabsorb	movespeed	tough	ModelName	local_position	local_euler_angles	local_scale	AttackList	SkillList	WalkAnimName	m_idleAnimName
+type	Int	String	String	String	String	Float	String	String	Float	Float	Int	Int	Int	Int	Int	Int	Int	Int	Int	Int	Int	Int	Int	Int	Int	Int	Int	Int	StringArray|AnimType	Vector3	Vector3	Vector3	StringArray|AnimType	StringArray|AnimType	String	String
+note	装备位置id: 1 武器 2 肩膀 3胸甲 4 手腕 5 腰带 6裤子 7鞋子	装备名称	装备名称	说明	品质等级	装备品质系数	品质边框id	图标id	装备等级	装备等级系数	可镶嵌宝石数量	可附魔条数	附魔需要的钱	附魔需要的材料211数量	附魔需要的材料212数量	附魔需要的材料213数量	附魔需要的材料214数量	附魔需要的材料215数量	攻击力	防御力	生命值	生命恢复	暴击率	暴击伤害	破防	吸血	移动速度	韧性	武器模型名字，竖线分割给01,02号挂载点	位置	旋转	缩放	攻击列表 	技能列表	行走动画	站立动画
+default	1	这是一个装备的说明	匕首	匕首	white	2.000	zb_hover_1	Icon_zb_030	0.0	1.000	0	0	0	0	0	0	0	0	50	0	0	0	0	0	0	0	0	0	null	-14|126|0	-90|90|0	400|400|400	null	null	null	null
+1201	1	铁剑	白色大剑	白色大剑	white	0.048	zb_hover_1	Icon_zb_220	16.0	0.160	1	1	0	1	0	0	0	0	25	0	0	0	0	0	0	0	0	0	wp_dajian_01	-14|126|0	-90|90|0	400|400|400	att11|att12|att13|att14	chongZhuang|qinLong|lieDiJi|XuanFengZhan	war_run	war_stand
+1202	1	铁剑	白色大剑	白色大剑	white	0.050	zb_hover_1	Icon_zb_220	41.4	0.414	0	1	0	1	0	0	0	0	96	0	0	0	0	0	0	0	0	0	wp_dajian_01	-14|126|0	-90|90|0	400|400|400	att11|att12|att13|att14	chongZhuang|qinLong|lieDiJi|XuanFengZhan	war_run	war_stand
+1203	1	铁剑	白色大剑	白色大剑	white	0.049	zb_hover_1	Icon_zb_220	31.8	0.318	1	1	0	1	0	0	0	0	57	0	0	0	0	0	0	0	0	0	wp_dajian_01	-14|126|0	-90|90|0	400|400|400	att11|att12|att13|att14	chongZhuang|qinLong|lieDiJi|XuanFengZhan	war_run	war_stand
+1204	1	铁剑	白色大剑	白色大剑	white	0.051	zb_hover_1	Icon_zb_220	54.0	0.540	0	0	0	0	0	0	0	0	135	0	0	0	0	0	0	0	0	0	wp_dajian_01	-14|126|0	-90|90|0	400|400|400	att11|att12|att13|att14	lieDiJi|XuanFengZhan	war_run	war_stand
+1205	1	暴风大剑	白色大剑	白色大剑	white	0.051	zb_hover_1	Icon_zb_220	58.8	0.588	0	0	0	0	0	0	0	0	147	0	0	0	0	0	0	0	0	0	wp_dajian_01	-14|126|0	-90|90|0	400|400|400	att11|att12|att13|att14	qinLong|XuanFengZhan	war_run	war_stand
+1206	1	暴风大剑	蓝色大剑	蓝色大剑	blue	0.050	zb_hover_2	Icon_zb_221	38.0	0.380	1	2	0	2	1	0	0	0	80	0	0	0	0	0	0	0	0	0	wp_dajian_01	-14|126|0	-90|90|0	400|400|400	att11|att12|att13|att14	qinLong|lieDiJi|XuanFengZhan	war_run	war_stand
+1207	1	暴风大剑	蓝色大剑	蓝色大剑	blue	0.051	zb_hover_2	Icon_zb_221	43.8	0.438	1	0	0	0	0	0	0	0	113	0	0	0	0	0	0	0	0	0	wp_dajian_01	-14|126|0	-90|90|0	400|400|400	att11|att12|att13|att14	chongZhuang|lieDiJi|XuanFengZhan	war_run	war_stand
+1208	1	暴风大剑	蓝色大剑	蓝色大剑	blue	0.051	zb_hover_2	Icon_zb_221	36.0	0.360	0	1	0	1	0	0	0	0	98	0	0	0	0	0	0	0	0	0	wp_dajian_01	-14|126|0	-90|90|0	400|400|400	att11|att12|att13|att14	chongZhuang|qinLong|XuanFengZhan	war_run	war_stand
+1209	1	暴风大剑	蓝色大剑	蓝色大剑	blue	0.051	zb_hover_2	Icon_zb_221	53.0	0.530	0	0	0	0	0	0	0	0	156	0	0	0	0	0	0	0	0	0	wp_dajian_01	-14|126|0	-90|90|0	400|400|400	att11|att12|att13|att14	chongZhuang|qinLong|lieDiJi	war_run	war_stand
+1210	1	水晶剑	紫色大剑	紫色大剑	purple	0.050	zb_hover_3	Icon_zb_222	61.2	0.612	3	2	0	2	1	0	0	0	140	0	0	0	0	0	0	0	0	0	wp_dajian_01	-14|126|0	-90|90|0	400|400|400	att11|att12|att13|att14	qinLong|lieDiJi|XuanFengZhan	war_run	war_stand
+1211	1	水晶剑	紫色大剑	紫色大剑	purple	0.051	zb_hover_3	Icon_zb_222	60.9	0.609	2	1	0	1	0	0	0	0	163	0	0	0	0	0	0	0	0	0	wp_dajian_01	-14|126|0	-90|90|0	400|400|400	att11|att12|att13|att14	chongZhuang|qinLong|lieDiJi|XuanFengZhan	war_run	war_stand
+1212	1	水晶剑	紫色大剑	紫色大剑	purple	0.051	zb_hover_3	Icon_zb_222	66.0	0.660	1	1	0	1	0	0	0	0	196	0	0	0	0	0	0	0	0	0	wp_dajian_01	-14|126|0	-90|90|0	400|400|400	att11|att12|att13|att14	chongZhuang|qinLong|lieDiJi|XuanFengZhan	war_run	war_stand
+1213	1	水晶剑	紫色大剑	紫色大剑	purple	0.050	zb_hover_3	Icon_zb_222	54.0	0.540	3	1	0	1	0	0	0	0	124	0	0	0	0	0	0	0	0	0	wp_dajian_01	-14|126|0	-90|90|0	400|400|400	att11|att12|att13|att14	chongZhuang|qinLong|XuanFengZhan	war_run	war_stand
+1214	1	炽天使之剑	金色大剑	金色大剑	gold	0.051	zb_hover_4	Icon_zb_223	67.2	0.672	2	4	0	4	3	2	1	0	180	0	0	0	0	0	0	0	0	0	wp_dajian_01	-14|126|0	-90|90|0	400|400|400	att11|att12|att13|att14	chongZhuang|qinLong|lieDiJi|XuanFengZhan	war_run	war_stand
+1215	1	天堂审判之剑	橙色大剑	橙色大剑	epic	0.051	zb_hover_5	Icon_zb_224	67.2	0.672	3	2	0	2	1	0	0	0	220	0	0	0	0	0	0	0	0	0	wp_dajian_01	-14|126|0	-90|90|0	400|400|400	att11|att12|att13|att14	chongZhuang|qinLong|lieDiJi|XuanFengZhan	war_run	war_stand
+1301	1	魔力法杖	白色法杖	白色法杖	white	0.048	zb_hover_1	Icon_zb_130	16.0	0.160	1	0	0	0	0	0	0	0	25	0	0	0	0	0	0	0	0	0	wp_faZhang_01	-10.4|298.44|0	-90|90|0	300|300|300	att21|att22|att23|att24	baoLie|hanBing|feiDan|heiDong	wiz_run	wiz_stand
+1302	1	魔力法杖	白色法杖	白色法杖	white	0.050	zb_hover_1	Icon_zb_130	33.8	0.338	0	1	0	1	0	0	0	0	77	0	0	0	0	0	0	0	0	0	wp_faZhang_01	-10.4|298.44|0	-90|90|0	300|300|300	att21|att22|att23|att24	feiDan	wiz_run	wiz_stand
+1303	1	魔力法杖	白色法杖	白色法杖	white	0.048	zb_hover_1	Icon_zb_130	24.6	0.246	1	1	0	1	0	0	0	0	39	0	0	0	0	0	0	0	0	0	wp_faZhang_01	-10.4|298.44|0	-90|90|0	300|300|300	att21|att22|att23|att24	hanBing|feiDan	wiz_run	wiz_stand
+1304	1	魔力法杖	白色法杖	白色法杖	white	0.051	zb_hover_1	Icon_zb_130	41.6	0.416	0	0	0	0	0	0	0	0	104	0	0	0	0	0	0	0	0	0	wp_faZhang_01	-10.4|298.44|0	-90|90|0	300|300|300	att21|att22|att23|att24	baoLie|feiDan	wiz_run	wiz_stand
+1305	1	魔力法杖	白色法杖	白色法杖	white	0.051	zb_hover_1	Icon_zb_130	50.4	0.504	0	0	0	0	0	0	0	0	126	0	0	0	0	0	0	0	0	0	wp_faZhang_01	-10.4|298.44|0	-90|90|0	300|300|300	att21|att22|att23|att24	baoLie|hanBing|feiDan|heiDong	wiz_run	wiz_stand
+1306	1	幽魂权杖	蓝色法杖	蓝色法杖	blue	0.050	zb_hover_2	Icon_zb_131	38.0	0.380	1	2	0	2	1	0	0	0	80	0	0	0	0	0	0	0	0	0	wp_faZhang_01	-10.4|298.44|0	-90|90|0	300|300|300	att21|att22|att23|att24	hanBing|feiDan|heiDong	wiz_run	wiz_stand
+1307	1	幽魂权杖	蓝色法杖	蓝色法杖	blue	0.051	zb_hover_2	Icon_zb_131	39.7	0.397	1	0	0	0	0	0	0	0	101	0	0	0	0	0	0	0	0	0	wp_faZhang_01	-10.4|298.44|0	-90|90|0	300|300|300	att21|att22|att23|att24	baoLie|feiDan|heiDong	wiz_run	wiz_stand
+1308	1	幽魂权杖	蓝色法杖	蓝色法杖	blue	0.051	zb_hover_2	Icon_zb_131	29.6	0.296	0	1	0	1	0	0	0	0	79	0	0	0	0	0	0	0	0	0	wp_faZhang_01	-10.4|298.44|0	-90|90|0	300|300|300	att21|att22|att23|att24	baoLie|hanBing|heiDong	wiz_run	wiz_stand
+1309	1	幽魂权杖	蓝色法杖	蓝色法杖	blue	0.051	zb_hover_2	Icon_zb_131	45.6	0.456	0	0	0	0	0	0	0	0	134	0	0	0	0	0	0	0	0	0	wp_faZhang_01	-10.4|298.44|0	-90|90|0	300|300|300	att21|att22|att23|att24	baoLie|hanBing|feiDan	wiz_run	wiz_stand
+1310	1	虚灵法杖	紫色法杖	紫色法杖	purple	0.050	zb_hover_3	Icon_zb_132	69.2	0.692	3	2	0	2	1	0	0	0	140	0	0	0	0	0	0	0	0	0	wp_faZhang_01	-10.4|298.44|0	-90|90|0	300|300|300	att21|att22|att23|att24	baoLie|hanBing|feiDan|heiDong	wiz_run	wiz_stand
+1311	1	虚灵法杖	紫色法杖	紫色法杖	purple	0.050	zb_hover_3	Icon_zb_132	61.4	0.614	2	1	0	1	0	0	0	0	141	0	0	0	0	0	0	0	0	0	wp_faZhang_01	-10.4|298.44|0	-90|90|0	300|300|300	att21|att22|att23|att24	baoLie|hanBing|feiDan|heiDong	wiz_run	wiz_stand
+1312	1	虚灵法杖	紫色法杖	紫色法杖	purple	0.051	zb_hover_3	Icon_zb_132	67.6	0.676	1	1	0	1	0	0	0	0	175	0	0	0	0	0	0	0	0	0	wp_faZhang_01	-10.4|298.44|0	-90|90|0	300|300|300	att21|att22|att23|att24	baoLie|hanBing|feiDan|heiDong	wiz_run	wiz_stand
+1313	1	虚灵法杖	紫色法杖	紫色法杖	purple	0.049	zb_hover_3	Icon_zb_132	55.6	0.556	3	1	0	1	0	0	0	0	108	0	0	0	0	0	0	0	0	0	wp_faZhang_01	-10.4|298.44|0	-90|90|0	300|300|300	att21|att22|att23|att24	baoLie|hanBing|feiDan	wiz_run	wiz_stand
+1314	1	阿哈利姆神杖	金色法杖	金色法杖	gold	0.051	zb_hover_4	Icon_zb_133	67.2	0.672	2	4	0	4	3	2	1	0	180	0	0	0	0	0	0	0	0	0	wp_faZhang_01	-10.4|298.44|0	-90|90|0	300|300|300	att21|att22|att23|att24	baoLie|hanBing|feiDan|heiDong	wiz_run	wiz_stand
+1315	1	逐风者的祝福	橙色法杖	橙色法杖	epic	0.051	zb_hover_5	Icon_zb_134	67.2	0.672	3	2	0	2	1	0	0	0	220	0	0	0	0	0	0	0	0	0	wp_faZhang_01	-10.4|298.44|0	-90|90|0	300|300|300	att21|att22|att23|att24	baoLie|hanBing|feiDan|heiDong	wiz_run	wiz_stand
+1316	1	幽魂权杖	蓝色法杖	蓝色法杖	blue	0.051	zb_hover_2	Icon_zb_131	39.7	0.397	1	0	0	2	1	0	0	0	220	0	0	0	0	0	0	0	0	0	wp_faZhang_01	-10.4|298.44|0	-90|90|0	300|300|300	att21|att22|att23|att24	leiguangshuLv1|hanBing|feiDan|heiDong	wiz_run	wiz_stand
+1401	1	欢欣之刃	白色匕首	白色匕首	white	0.048	zb_hover_1	Icon_zb_030	16.0	0.160	1	0	0	0	0	0	0	0	25	0	0	0	0	0	0	0	0	0	wp_shuangDao_01|wp_shuangDao_01	-14|126|0	-90|0|0	500|500|500	att31|att32|att33|att34	beiCi|jieSha|yanFan|fanGun	ass_run	ass_stand
+1402	1	欢欣之刃	白色匕首	白色匕首	white	0.050	zb_hover_1	Icon_zb_030	31.0	0.310	0	1	0	1	0	0	0	0	70	0	0	0	0	0	0	0	0	0	wp_shuangDao_01|wp_shuangDao_01	-14|126|0	-90|0|0	500|500|500	att31|att32|att33|att34	beiCi|jieSha|yanFan|fanGun	ass_run	ass_stand
+1403	1	欢欣之刃	白色匕首	白色匕首	white	0.049	zb_hover_1	Icon_zb_030	24.2	0.242	1	1	0	1	0	0	0	0	38	0	0	0	0	0	0	0	0	0	wp_shuangDao_01|wp_shuangDao_01	-14|126|0	-90|0|0	500|500|500	att31|att32|att33|att34	beiCi|jieSha|yanFan|fanGun	ass_run	ass_stand
+1404	1	欢欣之刃	白色匕首	白色匕首	white	0.051	zb_hover_1	Icon_zb_030	38.0	0.380	0	0	0	0	0	0	0	0	95	0	0	0	0	0	0	0	0	0	wp_shuangDao_01|wp_shuangDao_01	-14|126|0	-90|0|0	500|500|500	att31|att32|att33|att34	jieSha|yanFan	ass_run	ass_stand
+1405	1	欢欣之刃	白色匕首	白色匕首	white	0.051	zb_hover_1	Icon_zb_030	41.6	0.416	0	0	0	0	0	0	0	0	104	0	0	0	0	0	0	0	0	0	wp_shuangDao_01|wp_shuangDao_01	-14|126|0	-90|0|0	500|500|500	att31|att32|att33|att34	jieSha|fanGun	ass_run	ass_stand
+1406	1	夜叉	蓝色匕首	蓝色匕首	blue	0.050	zb_hover_2	Icon_zb_031	32.6	0.326	1	2	0	2	1	0	0	0	64	0	0	0	0	0	0	0	0	0	wp_shuangDao_01|wp_shuangDao_01	-14|126|0	-90|0|0	500|500|500	att31|att32|att33|att34	jieSha|yanFan|fanGun	ass_run	ass_stand
+1407	1	夜叉	蓝色匕首	蓝色匕首	blue	0.051	zb_hover_2	Icon_zb_031	34.0	0.340	1	0	0	0	0	0	0	0	84	0	0	0	0	0	0	0	0	0	wp_shuangDao_01|wp_shuangDao_01	-14|126|0	-90|0|0	500|500|500	att31|att32|att33|att34	beiCi|jieSha|yanFan	ass_run	ass_stand
+1408	1	夜叉	蓝色匕首	蓝色匕首	blue	0.051	zb_hover_2	Icon_zb_031	24.8	0.248	0	1	0	1	0	0	0	0	65	0	0	0	0	0	0	0	0	0	wp_shuangDao_01|wp_shuangDao_01	-14|126|0	-90|0|0	500|500|500	att31|att32|att33|att34	beiCi|jieSha|fanGun	ass_run	ass_stand
+1409	1	夜叉	蓝色匕首	蓝色匕首	blue	0.051	zb_hover_2	Icon_zb_031	40.5	0.405	0	0	0	0	0	0	0	0	119	0	0	0	0	0	0	0	0	0	wp_shuangDao_01|wp_shuangDao_01	-14|126|0	-90|0|0	500|500|500	att31|att32|att33|att34	beiCi|yanFan|fanGun	ass_run	ass_stand
+1410	1	散夜对剑	紫色匕首	紫色匕首	purple	0.050	zb_hover_3	Icon_zb_032	52.8	0.528	3	2	0	2	1	0	0	0	112	0	0	0	0	0	0	0	0	0	wp_shuangDao_01|wp_shuangDao_01	-14|126|0	-90|0|0	500|500|500	att31|att32|att33|att34	jieSha|yanFan|fanGun	ass_run	ass_stand
+1411	1	散夜对剑	紫色匕首	紫色匕首	purple	0.051	zb_hover_3	Icon_zb_032	48.3	0.483	2	1	0	1	0	0	0	0	121	0	0	0	0	0	0	0	0	0	wp_shuangDao_01|wp_shuangDao_01	-14|126|0	-90|0|0	500|500|500	att31|att32|att33|att34	beiCi|jieSha|yanFan|fanGun	ass_run	ass_stand
+1412	1	散夜对剑	紫色匕首	紫色匕首	purple	0.051	zb_hover_3	Icon_zb_032	51.0	0.510	1	1	0	1	0	0	0	0	146	0	0	0	0	0	0	0	0	0	wp_shuangDao_01|wp_shuangDao_01	-14|126|0	-90|0|0	500|500|500	att31|att32|att33|att34	beiCi|jieSha|yanFan|fanGun	ass_run	ass_stand
+1413	1	散夜对剑	紫色匕首	紫色匕首	purple	0.050	zb_hover_3	Icon_zb_032	46.5	0.465	3	1	0	1	0	0	0	0	99	0	0	0	0	0	0	0	0	0	wp_shuangDao_01|wp_shuangDao_01	-14|126|0	-90|0|0	500|500|500	att31|att32|att33|att34	beiCi|jieSha|yanFan|fanGun	ass_run	ass_stand
+1414	1	嗜血之刃	金色匕首	金色匕首	gold	0.051	zb_hover_4	Icon_zb_033	58.8	0.588	2	4	0	4	3	2	1	0	150	0	0	0	0	0	0	0	0	0	wp_shuangDao_01|wp_shuangDao_01	-14|126|0	-90|0|0	500|500|500	att31|att32|att33|att34	beiCi|jieSha|yanFan|fanGun	ass_run	ass_stand
+1415	1	鱼藏剑	橙色匕首	橙色匕首	epic	0.051	zb_hover_5	Icon_zb_034	62.4	0.624	3	2	0	2	1	0	0	0	200	0	0	0	0	0	0	0	0	0	wp_shuangDao_01|wp_shuangDao_01	-14|126|0	-90|0|0	500|500|500	att31|att32|att33|att34	beiCi|jieSha|yanFan	ass_run	ass_stand
+3000	2	破了洞的肩甲	白色刺客肩膀1	白色刺客肩膀1	white	0.047	zb_hover_1	Icon_zb_010	15.0	0.150	1	1	0	1	0	0	0	0	0	20	0	0	0	0	0	0	0	0	null				null	null	null	null
+3001	2	破了洞的肩甲	白色刺客肩膀1	白色刺客肩膀1	white	0.052	zb_hover_1	Icon_zb_010	30.9	0.309	0	0	0	0	0	0	0	0	0	103	0	0	0	0	0	0	0	0	null				null	null	null	null
+3002	2	破了洞的肩甲	白色刺客肩膀1	白色刺客肩膀1	white	0.051	zb_hover_1	Icon_zb_010	32.4	0.324	1	0	0	0	0	0	0	0	0	88	0	0	0	0	0	0	0	0	null				null	null	null	null
+3003	2	破了洞的肩甲	白色刺客肩膀1	白色刺客肩膀1	white	0.051	zb_hover_1	Icon_zb_010	25.8	0.258	0	1	0	1	0	0	0	0	0	76	0	0	0	0	0	0	0	0	null				null	null	null	null
+3004	2	破了洞的肩甲	白色刺客肩膀1	白色刺客肩膀1	white	0.052	zb_hover_1	Icon_zb_010	37.2	0.372	0	0	0	0	0	0	0	0	0	124	0	0	0	0	0	0	0	0	null				null	null	null	null
+3005	2	天蓝肩甲	蓝色刺客肩膀2	蓝色刺客肩膀2	blue	0.050	zb_hover_2	Icon_zb_011	32.8	0.328	2	2	0	2	1	0	0	0	0	65	0	0	0	0	0	0	0	0	null				null	null	null	null
+3006	2	天蓝肩甲	蓝色刺客肩膀2	蓝色刺客肩膀2	blue	0.049	zb_hover_2	Icon_zb_011	36.6	0.366	2	1	0	1	0	0	0	0	0	72	0	0	0	0	0	0	0	0	null				null	null	null	null
+3007	2	天蓝肩甲	蓝色刺客肩膀2	蓝色刺客肩膀2	blue	0.051	zb_hover_2	Icon_zb_011	42.3	0.423	0	1	0	1	0	0	0	0	0	131	0	0	0	0	0	0	0	0	null				null	null	null	null
+3008	2	天蓝肩甲	蓝色刺客肩膀2	蓝色刺客肩膀2	blue	0.051	zb_hover_2	Icon_zb_011	49.8	0.498	1	0	0	0	0	0	0	0	0	146	0	0	0	0	0	0	0	0	null				null	null	null	null
+3009	2	薰衣草做的肩甲	紫色刺客肩膀2	紫色刺客肩膀2	purple	0.049	zb_hover_3	Icon_zb_012	57.0	0.570	3	3	0	3	2	1	0	0	0	100	0	0	0	0	0	0	0	0	null				null	null	null	null
+3010	2	薰衣草做的肩甲	紫色刺客肩膀2	紫色刺客肩膀2	purple	0.050	zb_hover_3	Icon_zb_012	55.2	0.552	2	2	0	2	1	0	0	0	0	124	0	0	0	0	0	0	0	0	null				null	null	null	null
+3011	2	薰衣草做的肩甲	紫色刺客肩膀2	紫色刺客肩膀2	purple	0.051	zb_hover_3	Icon_zb_012	57.9	0.579	1	2	0	2	1	0	0	0	0	153	0	0	0	0	0	0	0	0	null				null	null	null	null
+3012	2	薰衣草做的肩甲	紫色刺客肩膀2	紫色刺客肩膀2	purple	0.051	zb_hover_3	Icon_zb_012	51.3	0.513	0	1	0	1	0	0	0	0	0	161	0	0	0	0	0	0	0	0	null				null	null	null	null
+3013	2	镀金肩甲	金色刺客肩膀4	金色刺客肩膀4	gold	0.051	zb_hover_4	Icon_zb_013	53.5	0.536	4	4	0	4	3	2	1	0	0	135	0	0	0	0	0	0	0	0	null				null	null	null	null
+3014	2	祖传肩甲	橙色刺客肩膀5	橙色刺客肩膀5	epic	0.051	zb_hover_5	Icon_zb_014	62.8	0.628	5	5	0	5	4	3	2	1	0	199	0	0	0	0	0	0	0	0	null				null	null	null	null
+3100	2	破了洞的肩甲	白色法师肩膀1	白色法师肩膀1	white	0.053	zb_hover_1	Icon_zb_110	22.5	0.225	1	1	0	1	0	0	0	0	0	0	180	0	0	0	0	0	0	0	null				null	null	null	null
+3101	2	破了洞的肩甲	白色法师肩膀1	白色法师肩膀1	white	0.053	zb_hover_1	Icon_zb_110	21.1	0.211	1	0	0	0	0	0	0	0	0	0	201	0	0	0	0	0	0	0	null				null	null	null	null
+3102	2	破了洞的肩甲	白色法师肩膀1	白色法师肩膀1	white	0.054	zb_hover_1	Icon_zb_110	142.9	1.430	0	0	0	0	0	0	0	0	0	0	1906	0	0	0	0	0	0	0	null				null	null	null	null
+3103	2	破了洞的肩甲	白色法师肩膀1	白色法师肩膀1	white	0.054	zb_hover_1	Icon_zb_110	55.6	0.557	0	1	0	1	0	0	0	0	0	0	702	0	0	0	0	0	0	0	null				null	null	null	null
+3104	2	破了洞的肩甲	白色法师肩膀1	白色法师肩膀1	white	0.054	zb_hover_1	Icon_zb_110	155.0	1.550	0	0	0	0	0	0	0	0	0	0	2067	0	0	0	0	0	0	0	null				null	null	null	null
+3105	2	天蓝肩甲	蓝色法师肩膀2	蓝色法师肩膀2	blue	0.054	zb_hover_2	Icon_zb_111	73.7	0.737	2	2	0	2	1	0	0	0	0	0	742	0	0	0	0	0	0	0	null				null	null	null	null
+3106	2	天蓝肩甲	蓝色法师肩膀2	蓝色法师肩膀2	blue	0.054	zb_hover_2	Icon_zb_111	139.7	1.397	1	1	0	1	0	0	0	0	0	0	1743	0	0	0	0	0	0	0	null				null	null	null	null
+3107	2	天蓝肩甲	蓝色法师肩膀2	蓝色法师肩膀2	blue	0.054	zb_hover_2	Icon_zb_111	186.2	1.862	0	0	0	0	0	0	0	0	0	0	2483	0	0	0	0	0	0	0	null				null	null	null	null
+3108	2	天蓝肩甲	蓝色法师肩膀2	蓝色法师肩膀2	blue	0.054	zb_hover_2	Icon_zb_111	98.0	0.980	2	0	0	0	0	0	0	0	0	0	1147	0	0	0	0	0	0	0	null				null	null	null	null
+3109	2	薰衣草做的肩甲	紫色法师肩膀3	紫色法师肩膀3	purple	0.054	zb_hover_3	Icon_zb_112	139.7	1.397	3	3	0	3	2	1	0	0	0	0	1502	0	0	0	0	0	0	0	null				null	null	null	null
+3110	2	薰衣草做的肩甲	紫色法师肩膀3	紫色法师肩膀3	purple	0.054	zb_hover_3	Icon_zb_112	166.2	1.662	2	2	0	2	1	0	0	0	0	0	1976	0	0	0	0	0	0	0	null				null	null	null	null
+3111	2	薰衣草做的肩甲	紫色法师肩膀3	紫色法师肩膀3	purple	0.054	zb_hover_3	Icon_zb_112	162.3	1.623	1	1	0	1	0	0	0	0	0	0	2044	0	0	0	0	0	0	0	null				null	null	null	null
+3112	2	薰衣草做的肩甲	紫色法师肩膀3	紫色法师肩膀3	purple	0.054	zb_hover_3	Icon_zb_112	197.3	1.973	0	0	0	0	0	0	0	0	0	0	2631	0	0	0	0	0	0	0	null				null	null	null	null
+3113	2	镀金肩甲	金色法师肩膀4	金色法师肩膀4	gold	0.054	zb_hover_4	Icon_zb_113	119.7	1.197	4	4	0	4	3	2	1	0	0	0	1800	0	0	0	0	0	0	0	null				null	null	null	null
+3114	2	祖传肩甲	橙色法师肩膀5	橙色法师肩膀5	epic	0.054	zb_hover_5	Icon_zb_114	162.0	1.620	5	5	0	5	4	3	2	1	0	0	3000	0	0	0	0	0	0	0	null				null	null	null	null
+3200	2	破了洞的肩甲	白色战士肩膀1	白色战士肩膀1	white	0.047	zb_hover_1	Icon_zb_210	15.0	0.150	1	1	0	1	0	0	0	0	0	20	0	0	0	0	0	0	0	0	null				null	null	null	null
+3201	2	破了洞的肩甲	白色战士肩膀1	白色战士肩膀1	white	0.049	zb_hover_1	Icon_zb_210	21.9	0.219	1	1	0	1	0	0	0	0	0	43	0	0	0	0	0	0	0	0	null				null	null	null	null
+3202	2	破了洞的肩甲	白色战士肩膀1	白色战士肩膀1	white	0.051	zb_hover_1	Icon_zb_210	28.5	0.285	1	0	0	0	0	0	0	0	0	75	0	0	0	0	0	0	0	0	null				null	null	null	null
+3203	2	破了洞的肩甲	白色战士肩膀1	白色战士肩膀1	white	0.052	zb_hover_1	Icon_zb_210	29.4	0.294	0	0	0	0	0	0	0	0	0	98	0	0	0	0	0	0	0	0	null				null	null	null	null
+3204	2	破了洞的肩甲	白色战士肩膀1	白色战士肩膀1	white	0.052	zb_hover_1	Icon_zb_210	37.5	0.375	0	0	0	0	0	0	0	0	0	125	0	0	0	0	0	0	0	0	null				null	null	null	null
+3205	2	天蓝肩甲	蓝色战士肩膀2	蓝色战士肩膀2	blue	0.049	zb_hover_2	Icon_zb_211	37.5	0.375	2	2	0	2	1	0	0	0	0	65	0	0	0	0	0	0	0	0	null				null	null	null	null
+3206	2	天蓝肩甲	蓝色战士肩膀2	蓝色战士肩膀2	blue	0.049	zb_hover_2	Icon_zb_211	36.9	0.369	2	1	0	1	0	0	0	0	0	73	0	0	0	0	0	0	0	0	null				null	null	null	null
+3207	2	天蓝肩甲	蓝色战士肩膀2	蓝色战士肩膀2	blue	0.051	zb_hover_2	Icon_zb_211	40.2	0.402	1	0	0	0	0	0	0	0	0	114	0	0	0	0	0	0	0	0	null				null	null	null	null
+3208	2	天蓝肩甲	蓝色战士肩膀2	蓝色战士肩膀2	blue	0.052	zb_hover_2	Icon_zb_211	41.4	0.414	0	0	0	0	0	0	0	0	0	138	0	0	0	0	0	0	0	0	null				null	null	null	null
+3209	2	薰衣草做的肩甲	紫色战士肩膀3	紫色战士肩膀3	purple	0.049	zb_hover_3	Icon_zb_212	57.0	0.570	3	3	0	3	2	1	0	0	0	100	0	0	0	0	0	0	0	0	null				null	null	null	null
+3210	2	薰衣草做的肩甲	紫色战士肩膀3	紫色战士肩膀3	purple	0.050	zb_hover_3	Icon_zb_212	56.1	0.561	2	2	0	2	1	0	0	0	0	127	0	0	0	0	0	0	0	0	null				null	null	null	null
+3211	2	薰衣草做的肩甲	紫色战士肩膀3	紫色战士肩膀3	purple	0.051	zb_hover_3	Icon_zb_212	54.3	0.543	1	1	0	1	0	0	0	0	0	151	0	0	0	0	0	0	0	0	null				null	null	null	null
+3212	2	薰衣草做的肩甲	紫色战士肩膀3	紫色战士肩膀3	purple	0.052	zb_hover_3	Icon_zb_212	51.9	0.519	0	0	0	0	0	0	0	0	0	173	0	0	0	0	0	0	0	0	null				null	null	null	null
+3213	2	镀金肩甲	金色战士肩膀4	金色战士肩膀4	gold	0.051	zb_hover_4	Icon_zb_213	53.5	0.536	4	4	0	4	3	2	1	0	0	135	0	0	0	0	0	0	0	0	null				null	null	null	null
+3214	2	祖传肩甲	橙色战士肩膀5	橙色战士肩膀5	epic	0.051	zb_hover_5	Icon_zb_214	62.8	0.628	5	5	0	5	4	3	2	1	0	199	0	0	0	0	0	0	0	0	null				null	null	null	null
+4000	3	刀枪不入	白色刺客胸甲1	白色刺客胸甲1	white	0.048	zb_hover_1	Icon_zb_020	23.0	0.230	1	1	0	1	0	0	0	0	0	0	0	0	35	0	0	0	0	0	null				null	null	null	null
+4001	3	刀枪不入	白色刺客胸甲1	白色刺客胸甲1	white	0.049	zb_hover_1	Icon_zb_020	27.6	0.276	1	0	0	0	0	0	0	0	0	0	0	0	54	0	0	0	0	0	null				null	null	null	null
+4002	3	刀枪不入	白色刺客胸甲1	白色刺客胸甲1	white	0.050	zb_hover_1	Icon_zb_020	27.8	0.278	0	1	0	1	0	0	0	0	0	0	0	0	62	0	0	0	0	0	null				null	null	null	null
+4003	3	刀枪不入	白色刺客胸甲1	白色刺客胸甲1	white	0.051	zb_hover_1	Icon_zb_020	50.0	0.500	0	0	0	0	0	0	0	0	0	0	0	0	125	0	0	0	0	0	null				null	null	null	null
+4004	3	刀枪不入	白色刺客胸甲1	白色刺客胸甲1	white	0.051	zb_hover_1	Icon_zb_020	54.8	0.548	0	0	0	0	0	0	0	0	0	0	0	0	137	0	0	0	0	0	null				null	null	null	null
+4005	3	防弹衣	蓝色刺客胸甲2	蓝色刺客胸甲2	blue	0.048	zb_hover_2	Icon_zb_021	48.0	0.480	2	2	0	2	1	0	0	0	0	0	0	0	75	0	0	0	0	0	null				null	null	null	null
+4006	3	防弹衣	蓝色刺客胸甲2	蓝色刺客胸甲2	blue	0.050	zb_hover_2	Icon_zb_021	44.6	0.446	1	1	0	1	0	0	0	0	0	0	0	0	89	0	0	0	0	0	null				null	null	null	null
+4007	3	防弹衣	蓝色刺客胸甲2	蓝色刺客胸甲2	blue	0.050	zb_hover_2	Icon_zb_021	52.8	0.528	1	0	0	0	0	0	0	0	0	0	0	0	117	0	0	0	0	0	null				null	null	null	null
+4008	3	防弹衣	蓝色刺客胸甲2	蓝色刺客胸甲2	blue	0.051	zb_hover_2	Icon_zb_021	56.8	0.568	0	0	0	0	0	0	0	0	0	0	0	0	142	0	0	0	0	0	null				null	null	null	null
+4009	3	振奋铠甲	紫色刺客胸甲3	紫色刺客胸甲3	purple	0.048	zb_hover_3	Icon_zb_022	75.0	0.750	3	3	0	3	2	1	0	0	0	0	0	0	120	0	0	0	0	0	null				null	null	null	null
+4010	3	振奋铠甲	紫色刺客胸甲3	紫色刺客胸甲3	purple	0.049	zb_hover_3	Icon_zb_022	74.4	0.744	2	2	0	2	1	0	0	0	0	0	0	0	141	0	0	0	0	0	null				null	null	null	null
+4011	3	振奋铠甲	紫色刺客胸甲3	紫色刺客胸甲3	purple	0.050	zb_hover_3	Icon_zb_022	74.6	0.746	1	1	0	1	0	0	0	0	0	0	0	0	164	0	0	0	0	0	null				null	null	null	null
+4012	3	振奋铠甲	紫色刺客胸甲3	紫色刺客胸甲3	purple	0.051	zb_hover_3	Icon_zb_022	77.2	0.772	0	0	0	0	0	0	0	0	0	0	0	0	193	0	0	0	0	0	null				null	null	null	null
+4013	3	荆棘之甲	金色刺客胸甲4	金色刺客胸甲4	gold	0.050	zb_hover_4	Icon_zb_023	74.2	0.742	4	4	0	4	1	2	1	0	0	0	0	0	175	0	0	0	0	0	null				null	null	null	null
+4014	3	影魔T恤	橙色刺客胸甲5	橙色刺客胸甲5	epic	0.051	zb_hover_5	Icon_zb_024	75.0	0.750	5	5	0	5	4	3	2	1	0	0	0	0	200	0	0	0	0	0	null				null	null	null	null
+4100	3	刀枪不入	白色法师胸甲1	白色法师胸甲1	white	0.053	zb_hover_1	Icon_zb_120	22.5	0.225	1	1	0	1	0	0	0	0	0	0	180	0	0	0	0	0	0	0	null				null	null	null	null
+4101	3	刀枪不入	白色法师胸甲1	白色法师胸甲1	white	0.053	zb_hover_1	Icon_zb_120	26.8	0.268	1	1	0	1	0	0	0	0	0	0	237	0	0	0	0	0	0	0	null				null	null	null	null
+4102	3	刀枪不入	白色法师胸甲1	白色法师胸甲1	white	0.054	zb_hover_1	Icon_zb_120	59.5	0.596	1	0	0	0	0	0	0	0	0	0	714	0	0	0	0	0	0	0	null				null	null	null	null
+4103	3	刀枪不入	白色法师胸甲1	白色法师胸甲1	white	0.054	zb_hover_1	Icon_zb_120	130.6	1.306	0	0	0	0	0	0	0	0	0	0	1741	0	0	0	0	0	0	0	null				null	null	null	null
+4104	3	刀枪不入	白色法师胸甲1	白色法师胸甲1	white	0.054	zb_hover_1	Icon_zb_120	148.8	1.488	0	0	0	0	0	0	0	0	0	0	1984	0	0	0	0	0	0	0	null				null	null	null	null
+4105	3	防弹衣	蓝色法师胸甲2	蓝色法师胸甲2	blue	0.053	zb_hover_2	Icon_zb_121	51.8	0.518	2	2	0	2	1	0	0	0	0	0	450	0	0	0	0	0	0	0	null				null	null	null	null
+4106	3	防弹衣	蓝色法师胸甲2	蓝色法师胸甲2	blue	0.054	zb_hover_2	Icon_zb_121	78.5	0.785	2	1	0	1	0	0	0	0	0	0	847	0	0	0	0	0	0	0	null				null	null	null	null
+4107	3	防弹衣	蓝色法师胸甲2	蓝色法师胸甲2	blue	0.054	zb_hover_2	Icon_zb_121	134.9	1.349	1	1	0	1	0	0	0	0	0	0	1679	0	0	0	0	0	0	0	null				null	null	null	null
+4108	3	防弹衣	蓝色法师胸甲2	蓝色法师胸甲2	blue	0.054	zb_hover_2	Icon_zb_121	166.7	1.667	0	0	0	0	0	0	0	0	0	0	2223	0	0	0	0	0	0	0	null				null	null	null	null
+4109	3	振奋铠甲	紫色法师胸甲3	紫色法师胸甲3	purple	0.054	zb_hover_3	Icon_zb_122	117.0	1.170	3	3	0	3	2	1	0	0	0	0	1200	0	0	0	0	0	0	0	null				null	null	null	null
+4110	3	振奋铠甲	紫色法师胸甲3	紫色法师胸甲3	purple	0.054	zb_hover_3	Icon_zb_122	140.8	1.409	2	2	0	2	1	0	0	0	0	0	1638	0	0	0	0	0	0	0	null				null	null	null	null
+4111	3	振奋铠甲	紫色法师胸甲3	紫色法师胸甲3	purple	0.054	zb_hover_3	Icon_zb_122	194.5	1.945	1	1	0	1	0	0	0	0	0	0	2473	0	0	0	0	0	0	0	null				null	null	null	null
+4112	3	振奋铠甲	紫色法师胸甲3	紫色法师胸甲3	purple	0.054	zb_hover_3	Icon_zb_122	201.1	2.011	0	0	0	0	0	0	0	0	0	0	2681	0	0	0	0	0	0	0	null				null	null	null	null
+4113	3	荆棘之甲	金色法师胸甲4	金色法师胸甲4	gold	0.054	zb_hover_4	Icon_zb_123	119.7	1.197	4	4	0	4	3	2	1	0	0	0	1800	0	0	0	0	0	0	0	null				null	null	null	null
+4114	3	影魔T恤	橙色法师胸甲5	橙色法师胸甲5	epic	0.054	zb_hover_5	Icon_zb_124	162.0	1.620	5	5	0	5	4	3	2	1	0	0	3000	0	0	0	0	0	0	0	null				null	null	null	null
+4200	3	刀枪不入	白色战士胸甲1	白色战士胸甲1	white	0.053	zb_hover_1	Icon_zb_230	22.5	0.225	1	1	0	1	0	0	0	0	0	0	90	0	0	0	0	0	0	0	null				null	null	null	null
+4201	3	刀枪不入	白色战士胸甲1	白色战士胸甲1	white	0.054	zb_hover_1	Icon_zb_230	37.6	0.376	1	0	0	0	0	0	0	0	0	0	421	0	0	0	0	0	0	0	null				null	null	null	null
+4202	3	刀枪不入	白色战士胸甲1	白色战士胸甲1	white	0.054	zb_hover_1	Icon_zb_230	32.0	0.320	0	1	0	1	0	0	0	0	0	0	387	0	0	0	0	0	0	0	null				null	null	null	null
+4203	3	刀枪不入	白色战士胸甲1	白色战士胸甲1	white	0.054	zb_hover_1	Icon_zb_230	119.2	1.192	0	0	0	0	0	0	0	0	0	0	1589	0	0	0	0	0	0	0	null				null	null	null	null
+4204	3	刀枪不入	白色战士胸甲1	白色战士胸甲1	white	0.054	zb_hover_1	Icon_zb_230	131.2	1.312	0	0	0	0	0	0	0	0	0	0	1749	0	0	0	0	0	0	0	null				null	null	null	null
+4205	3	防弹衣	蓝色战士胸甲2	蓝色战士胸甲2	blue	0.054	zb_hover_2	Icon_zb_231	73.3	0.734	2	2	0	2	1	0	0	0	0	0	738	0	0	0	0	0	0	0	null				null	null	null	null
+4206	3	防弹衣	蓝色战士胸甲2	蓝色战士胸甲2	blue	0.054	zb_hover_2	Icon_zb_231	85.7	0.857	2	1	0	1	0	0	0	0	0	0	943	0	0	0	0	0	0	0	null				null	null	null	null
+4207	3	防弹衣	蓝色战士胸甲2	蓝色战士胸甲2	blue	0.054	zb_hover_2	Icon_zb_231	147.4	1.475	1	1	0	1	0	0	0	0	0	0	1846	0	0	0	0	0	0	0	null				null	null	null	null
+4208	3	防弹衣	蓝色战士胸甲2	蓝色战士胸甲2	blue	0.054	zb_hover_2	Icon_zb_231	163.2	1.632	0	0	0	0	0	0	0	0	0	0	2176	0	0	0	0	0	0	0	null				null	null	null	null
+4209	3	振奋铠甲	紫色战士胸甲3	紫色战士胸甲3	purple	0.054	zb_hover_3	Icon_zb_232	141.5	1.415	3	3	0	3	2	1	0	0	0	0	1527	0	0	0	0	0	0	0	null				null	null	null	null
+4210	3	振奋铠甲	紫色战士胸甲3	紫色战士胸甲3	purple	0.054	zb_hover_3	Icon_zb_232	163.1	1.631	2	2	0	2	1	0	0	0	0	0	1934	0	0	0	0	0	0	0	null				null	null	null	null
+4211	3	振奋铠甲	紫色战士胸甲3	紫色战士胸甲3	purple	0.054	zb_hover_3	Icon_zb_232	195.2	1.952	1	1	0	1	0	0	0	0	0	0	2483	0	0	0	0	0	0	0	null				null	null	null	null
+4212	3	振奋铠甲	紫色战士胸甲3	紫色战士胸甲3	purple	0.054	zb_hover_3	Icon_zb_232	195.8	1.958	0	0	0	0	0	0	0	0	0	0	2611	0	0	0	0	0	0	0	null				null	null	null	null
+4213	3	荆棘之甲	金色战士胸甲4	金色战士胸甲4	gold	0.054	zb_hover_4	Icon_zb_233	119.7	1.197	4	4	0	4	3	2	1	0	0	0	1800	0	0	0	0	0	0	0	null				null	null	null	null
+4214	3	影魔T恤	橙色战士胸甲5	橙色战士胸甲5	epic	0.054	zb_hover_5	Icon_zb_234	162.0	1.620	5	5	0	5	4	3	2	1	0	0	3000	0	0	0	0	0	0	0	null				null	null	null	null
+5000	4	白色手腕	白色刺客手腕1	白色刺客手腕1	white	0.045	zb_hover_1	Icon_zb_040	15.0	0.150	1	1	0	1	0	0	0	0	15	0	0	0	0	0	0	0	0	0	null				null	null	null	null
+5001	4	白色手腕	白色刺客手腕1	白色刺客手腕1	white	0.050	zb_hover_1	Icon_zb_040	11.0	0.110	1	1	0	1	0	0	0	0	27	0	0	0	0	0	0	0	0	0	null				null	null	null	null
+5002	4	白色手腕	白色刺客手腕1	白色刺客手腕1	white	0.053	zb_hover_1	Icon_zb_040	11.7	0.117	1	0	0	0	0	0	0	0	76	0	0	0	0	0	0	0	0	0	null				null	null	null	null
+5003	4	白色手腕	白色刺客手腕1	白色刺客手腕1	white	0.054	zb_hover_1	Icon_zb_040	10.9	0.109	0	1	0	1	0	0	0	0	105	0	0	0	0	0	0	0	0	0	null				null	null	null	null
+5004	4	白色手腕	白色刺客手腕1	白色刺客手腕1	white	0.054	zb_hover_1	Icon_zb_040	9.9	0.099	0	0	0	0	0	0	0	0	132	0	0	0	0	0	0	0	0	0	null				null	null	null	null
+5005	4	蓝色手腕	蓝色刺客手腕2	蓝色刺客手腕2	blue	0.051	zb_hover_2	Icon_zb_041	22.1	0.221	2	2	0	2	1	0	0	0	55	0	0	0	0	0	0	0	0	0	null				null	null	null	null
+5006	4	蓝色手腕	蓝色刺客手腕2	蓝色刺客手腕2	blue	0.052	zb_hover_2	Icon_zb_041	17.5	0.175	2	0	0	0	0	0	0	0	73	0	0	0	0	0	0	0	0	0	null				null	null	null	null
+5007	4	蓝色手腕	蓝色刺客手腕2	蓝色刺客手腕2	blue	0.053	zb_hover_2	Icon_zb_041	18.3	0.183	1	1	0	1	0	0	0	0	124	0	0	0	0	0	0	0	0	0	null				null	null	null	null
+5008	4	蓝色手腕	蓝色刺客手腕2	蓝色刺客手腕2	blue	0.053	zb_hover_2	Icon_zb_041	17.0	0.170	1	0	0	0	0	0	0	0	147	0	0	0	0	0	0	0	0	0	null				null	null	null	null
+5009	4	鬼手	紫色刺客手腕3	紫色刺客手腕3	purple	0.052	zb_hover_3	Icon_zb_042	36.0	0.360	3	3	0	3	2	1	0	0	120	0	0	0	0	0	0	0	0	0	null				null	null	null	null
+5010	4	鬼手	紫色刺客手腕3	紫色刺客手腕3	purple	0.053	zb_hover_3	Icon_zb_042	28.6	0.287	2	2	0	2	1	0	0	0	142	0	0	0	0	0	0	0	0	0	null				null	null	null	null
+5011	4	鬼手	紫色刺客手腕3	紫色刺客手腕3	purple	0.053	zb_hover_3	Icon_zb_042	21.1	0.211	1	1	0	1	0	0	0	0	161	0	0	0	0	0	0	0	0	0	null				null	null	null	null
+5012	4	鬼手	紫色刺客手腕3	紫色刺客手腕3	purple	0.054	zb_hover_3	Icon_zb_042	14.2	0.142	0	0	0	0	0	0	0	0	189	0	0	0	0	0	0	0	0	0	null				null	null	null	null
+5013	4	璀璨手腕	金色刺客手腕4	金色刺客手腕4	gold	0.050	zb_hover_4	Icon_zb_043	72.8	0.728	4	4	0	4	3	2	1	0	170	0	0	0	0	0	0	0	0	0	null				null	null	null	null
+5014	4	麒麟手腕	橙色刺客手腕5	橙色刺客手腕5	epic	0.051	zb_hover_5	Icon_zb_044	75.0	0.750	5	5	0	5	4	3	2	1	200	0	0	0	0	0	0	0	0	0	null				null	null	null	null
+5100	4	白色手腕	白色法师手腕1	白色法师手腕1	white	0.048	zb_hover_1	Icon_zb_140	23.0	0.230	1	1	0	1	0	0	0	0	0	0	0	0	0	35	0	0	0	0	null				null	null	null	null
+5101	4	白色手腕	白色法师手腕1	白色法师手腕1	white	0.053	zb_hover_1	Icon_zb_140	10.4	0.104	1	0	0	0	0	0	0	0	0	0	0	0	0	58	0	0	0	0	null				null	null	null	null
+5102	4	白色手腕	白色法师手腕1	白色法师手腕1	white	0.053	zb_hover_1	Icon_zb_140	8.6	0.086	0	1	0	1	0	0	0	0	0	0	0	0	0	74	0	0	0	0	null				null	null	null	null
+5103	4	白色手腕	白色法师手腕1	白色法师手腕1	white	0.054	zb_hover_1	Icon_zb_140	7.8	0.078	0	0	0	0	0	0	0	0	0	0	0	0	0	104	0	0	0	0	null				null	null	null	null
+5104	4	白色手腕	白色法师手腕1	白色法师手腕1	white	0.054	zb_hover_1	Icon_zb_140	9.2	0.092	0	0	0	0	0	0	0	0	0	0	0	0	0	123	0	0	0	0	null				null	null	null	null
+5105	4	蓝色手腕	蓝色法师手腕2	蓝色法师手腕2	blue	0.051	zb_hover_2	Icon_zb_141	23.6	0.236	2	2	0	2	1	0	0	0	0	0	0	0	0	75	0	0	0	0	null				null	null	null	null
+5106	4	蓝色手腕	蓝色法师手腕2	蓝色法师手腕2	blue	0.052	zb_hover_2	Icon_zb_141	21.8	0.218	2	1	0	1	0	0	0	0	0	0	0	0	0	91	0	0	0	0	null				null	null	null	null
+5107	4	蓝色手腕	蓝色法师手腕2	蓝色法师手腕2	blue	0.053	zb_hover_2	Icon_zb_141	18.5	0.185	1	1	0	1	0	0	0	0	0	0	0	0	0	127	0	0	0	0	null				null	null	null	null
+5108	4	蓝色手腕	蓝色法师手腕2	蓝色法师手腕2	blue	0.054	zb_hover_2	Icon_zb_141	14.5	0.145	0	1	0	1	0	0	0	0	0	0	0	0	0	153	0	0	0	0	null				null	null	null	null
+5109	4	鬼手	紫色法师手腕3	紫色法师手腕3	purple	0.052	zb_hover_3	Icon_zb_142	36.0	0.360	3	3	0	3	2	1	0	0	0	0	0	0	0	120	0	0	0	0	null				null	null	null	null
+5110	4	鬼手	紫色法师手腕3	紫色法师手腕3	purple	0.053	zb_hover_3	Icon_zb_142	29.0	0.290	2	2	0	2	1	0	0	0	0	0	0	0	0	147	0	0	0	0	null				null	null	null	null
+5111	4	鬼手	紫色法师手腕3	紫色法师手腕3	purple	0.053	zb_hover_3	Icon_zb_142	21.1	0.212	1	1	0	1	0	0	0	0	0	0	0	0	0	162	0	0	0	0	null				null	null	null	null
+5112	4	鬼手	紫色法师手腕3	紫色法师手腕3	purple	0.054	zb_hover_3	Icon_zb_142	13.6	0.136	0	0	0	0	0	0	0	0	0	0	0	0	0	181	0	0	0	0	null				null	null	null	null
+5113	4	璀璨手腕	金色法师手腕4	金色法师手腕4	gold	0.050	zb_hover_4	Icon_zb_143	74.2	0.742	4	4	0	4	3	2	1	0	0	0	0	0	0	175	0	0	0	0	null				null	null	null	null
+5114	4	麒麟手腕	橙色法师手腕5	橙色法师手腕5	epic	0.051	zb_hover_5	Icon_zb_144	75.0	0.750	5	5	0	5	4	3	2	1	0	0	0	0	0	200	0	0	0	0	null				null	null	null	null
+5200	4	白色手腕	白色战士手腕1	白色战士手腕1	white	0.050	zb_hover_1	Icon_zb_240	23.4	0.234	1	1	0	1	0	0	0	0	0	0	0	0	0	0	0	48	0	0	null				null	null	null	null
+5201	4	白色手腕	白色战士手腕1	白色战士手腕1	white	0.053	zb_hover_1	Icon_zb_240	11.0	0.110	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	67	0	0	null				null	null	null	null
+5202	4	白色手腕	白色战士手腕1	白色战士手腕1	white	0.053	zb_hover_1	Icon_zb_240	9.7	0.097	0	1	0	1	0	0	0	0	0	0	0	0	0	0	0	89	0	0	null				null	null	null	null
+5203	4	白色手腕	白色战士手腕1	白色战士手腕1	white	0.054	zb_hover_1	Icon_zb_240	9.3	0.093	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	124	0	0	null				null	null	null	null
+5204	4	白色手腕	白色战士手腕1	白色战士手腕1	white	0.054	zb_hover_1	Icon_zb_240	10.7	0.107	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	143	0	0	null				null	null	null	null
+5205	4	蓝色手腕	蓝色战士手腕2	蓝色战士手腕2	blue	0.052	zb_hover_2	Icon_zb_241	24.1	0.242	2	2	0	2	1	0	0	0	0	0	0	0	0	0	0	82	0	0	null				null	null	null	null
+5206	4	蓝色手腕	蓝色战士手腕2	蓝色战士手腕2	blue	0.053	zb_hover_2	Icon_zb_241	19.2	0.192	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	96	0	0	null				null	null	null	null
+5207	4	蓝色手腕	蓝色战士手腕2	蓝色战士手腕2	blue	0.053	zb_hover_2	Icon_zb_241	20.6	0.206	1	1	0	1	0	0	0	0	0	0	0	0	0	0	0	154	0	0	null				null	null	null	null
+5208	4	蓝色手腕	蓝色战士手腕2	蓝色战士手腕2	blue	0.053	zb_hover_2	Icon_zb_241	19.6	0.196	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	181	0	0	null				null	null	null	null
+5209	4	鬼手	紫色战士手腕3	紫色战士手腕3	purple	0.052	zb_hover_3	Icon_zb_242	37.8	0.378	3	3	0	3	2	1	0	0	0	0	0	0	0	0	0	144	0	0	null				null	null	null	null
+5210	4	鬼手	紫色战士手腕3	紫色战士手腕3	purple	0.053	zb_hover_3	Icon_zb_242	30.2	0.302	2	2	0	2	1	0	0	0	0	0	0	0	0	0	0	163	0	0	null				null	null	null	null
+5211	4	鬼手	紫色战士手腕3	紫色战士手腕3	purple	0.053	zb_hover_3	Icon_zb_242	22.8	0.228	1	1	0	1	0	0	0	0	0	0	0	0	0	0	0	184	0	0	null				null	null	null	null
+5212	4	鬼手	紫色战士手腕3	紫色战士手腕3	purple	0.054	zb_hover_3	Icon_zb_242	15.1	0.151	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	201	0	0	null				null	null	null	null
+5213	4	璀璨手腕	金色战士手腕4	金色战士手腕4	gold	0.051	zb_hover_4	Icon_zb_243	60.7	0.607	4	4	0	4	3	2	1	0	0	0	0	0	0	0	0	169	0	0	null				null	null	null	null
+5214	4	麒麟手腕	橙色战士手腕5	橙色战士手腕5	epic	0.052	zb_hover_5	Icon_zb_244	69.1	0.691	5	5	0	5	4	3	2	1	0	0	0	0	0	0	0	234	0	0	null				null	null	null	null
+6000	5	巨人腰带	白色刺客腰带1	白色刺客腰带1	white	0.053	zb_hover_1	Icon_zb_050	22.5	0.225	1	1	0	1	0	0	0	0	0	0	180	0	0	0	0	0	0	0	null				null	null	null	null
+6001	5	巨人腰带	白色刺客腰带1	白色刺客腰带1	white	0.054	zb_hover_1	Icon_zb_050	38.8	0.388	1	0	0	0	0	0	0	0	0	0	437	0	0	0	0	0	0	0	null				null	null	null	null
+6002	5	巨人腰带	白色刺客腰带1	白色刺客腰带1	white	0.054	zb_hover_1	Icon_zb_050	61.3	0.613	0	1	0	1	0	0	0	0	0	0	777	0	0	0	0	0	0	0	null				null	null	null	null
+6003	5	巨人腰带	白色刺客腰带1	白色刺客腰带1	white	0.054	zb_hover_1	Icon_zb_050	122.0	1.220	0	0	0	0	0	0	0	0	0	0	1627	0	0	0	0	0	0	0	null				null	null	null	null
+6004	5	巨人腰带	白色刺客腰带1	白色刺客腰带1	white	0.054	zb_hover_1	Icon_zb_050	147.8	1.478	0	0	0	0	0	0	0	0	0	0	1970	0	0	0	0	0	0	0	null				null	null	null	null
+6005	5	比蒙腰带	蓝色刺客腰带2	蓝色刺客腰带2	blue	0.053	zb_hover_2	Icon_zb_051	51.8	0.518	2	2	0	2	1	0	0	0	0	0	450	0	0	0	0	0	0	0	null				null	null	null	null
+6006	5	比蒙腰带	蓝色刺客腰带2	蓝色刺客腰带2	blue	0.054	zb_hover_2	Icon_zb_051	93.3	0.933	2	0	0	0	0	0	0	0	0	0	1084	0	0	0	0	0	0	0	null				null	null	null	null
+6007	5	比蒙腰带	蓝色刺客腰带2	蓝色刺客腰带2	blue	0.054	zb_hover_2	Icon_zb_051	141.2	1.412	1	1	0	1	0	0	0	0	0	0	1762	0	0	0	0	0	0	0	null				null	null	null	null
+6008	5	比蒙腰带	蓝色刺客腰带2	蓝色刺客腰带2	blue	0.054	zb_hover_2	Icon_zb_051	174.2	1.742	1	2	0	2	1	0	0	0	0	0	2163	0	0	0	0	0	0	0	null				null	null	null	null
+6009	5	泰坦腰带	紫色刺客腰带3	紫色刺客腰带3	purple	0.054	zb_hover_3	Icon_zb_052	117.0	1.170	3	3	0	3	2	1	0	0	0	0	1200	0	0	0	0	0	0	0	null				null	null	null	null
+6010	5	泰坦腰带	紫色刺客腰带3	紫色刺客腰带3	purple	0.054	zb_hover_3	Icon_zb_052	157.1	1.571	2	2	0	2	1	0	0	0	0	0	1855	0	0	0	0	0	0	0	null				null	null	null	null
+6011	5	泰坦腰带	紫色刺客腰带3	紫色刺客腰带3	purple	0.054	zb_hover_3	Icon_zb_052	177.5	1.775	1	1	0	1	0	0	0	0	0	0	2247	0	0	0	0	0	0	0	null				null	null	null	null
+6012	5	泰坦腰带	紫色刺客腰带3	紫色刺客腰带3	purple	0.054	zb_hover_3	Icon_zb_052	197.0	1.970	0	0	0	0	0	0	0	0	0	0	2627	0	0	0	0	0	0	0	null				null	null	null	null
+6013	5	黄金腰带	金色刺客腰带4	金色刺客腰带4	gold	0.054	zb_hover_4	Icon_zb_053	119.7	1.197	4	4	0	4	3	2	1	0	0	0	1800	0	0	0	0	0	0	0	null				null	null	null	null
+6014	5	祖传腰带	橙色刺客腰带5	橙色刺客腰带5	epic	0.054	zb_hover_5	Icon_zb_054	162.0	1.620	5	5	0	5	4	3	2	1	0	0	3000	0	0	0	0	0	0	0	null				null	null	null	null
+6100	5	巨人腰带	白色法师腰带1	白色法师腰带1	white	0.047	zb_hover_1	Icon_zb_150	15.0	0.150	1	1	0	1	0	0	0	0	0	20	0	0	0	0	0	0	0	0	null				null	null	null	null
+6101	5	巨人腰带	白色法师腰带1	白色法师腰带1	white	0.053	zb_hover_1	Icon_zb_150	11.8	0.118	1	0	0	0	0	0	0	0	0	77	0	0	0	0	0	0	0	0	null				null	null	null	null
+6102	5	巨人腰带	白色法师腰带1	白色法师腰带1	white	0.053	zb_hover_1	Icon_zb_150	10.1	0.101	0	1	0	1	0	0	0	0	0	94	0	0	0	0	0	0	0	0	null				null	null	null	null
+6103	5	巨人腰带	白色法师腰带1	白色法师腰带1	white	0.054	zb_hover_1	Icon_zb_150	8.6	0.086	0	0	0	0	0	0	0	0	0	114	0	0	0	0	0	0	0	0	null				null	null	null	null
+6104	5	巨人腰带	白色法师腰带1	白色法师腰带1	white	0.054	zb_hover_1	Icon_zb_150	10.4	0.104	0	0	0	0	0	0	0	0	0	139	0	0	0	0	0	0	0	0	null				null	null	null	null
+6105	5	比蒙腰带	蓝色法师腰带2	蓝色法师腰带2	blue	0.051	zb_hover_2	Icon_zb_151	22.9	0.229	2	2	0	2	1	0	0	0	0	65	0	0	0	0	0	0	0	0	null				null	null	null	null
+6106	5	比蒙腰带	蓝色法师腰带2	蓝色法师腰带2	blue	0.052	zb_hover_2	Icon_zb_151	22.4	0.224	2	1	0	1	0	0	0	0	0	99	0	0	0	0	0	0	0	0	null				null	null	null	null
+6107	5	比蒙腰带	蓝色法师腰带2	蓝色法师腰带2	blue	0.053	zb_hover_2	Icon_zb_151	22.4	0.224	1	2	0	2	1	0	0	0	0	138	0	0	0	0	0	0	0	0	null				null	null	null	null
+6108	5	比蒙腰带	蓝色法师腰带2	蓝色法师腰带2	blue	0.053	zb_hover_2	Icon_zb_151	21.3	0.213	1	1	0	1	0	0	0	0	0	164	0	0	0	0	0	0	0	0	null				null	null	null	null
+6109	5	泰坦腰带	紫色法师腰带3	紫色法师腰带3	purple	0.051	zb_hover_3	Icon_zb_152	34.5	0.345	3	3	0	3	2	1	0	0	0	100	0	0	0	0	0	0	0	0	null				null	null	null	null
+6110	5	泰坦腰带	紫色法师腰带3	紫色法师腰带3	purple	0.052	zb_hover_3	Icon_zb_152	27.1	0.271	2	2	0	2	1	0	0	0	0	121	0	0	0	0	0	0	0	0	null				null	null	null	null
+6111	5	泰坦腰带	紫色法师腰带3	紫色法师腰带3	purple	0.053	zb_hover_3	Icon_zb_152	20.9	0.209	1	1	0	1	0	0	0	0	0	158	0	0	0	0	0	0	0	0	null				null	null	null	null
+6112	5	泰坦腰带	紫色法师腰带3	紫色法师腰带3	purple	0.054	zb_hover_3	Icon_zb_152	14.2	0.142	0	0	0	0	0	0	0	0	0	189	0	0	0	0	0	0	0	0	null				null	null	null	null
+6113	5	黄金腰带	金色法师腰带4	金色法师腰带4	gold	0.051	zb_hover_4	Icon_zb_153	53.5	0.536	4	4	0	4	3	2	1	0	0	135	0	0	0	0	0	0	0	0	null				null	null	null	null
+6114	5	祖传腰带	橙色法师腰带5	橙色法师腰带5	epic	0.051	zb_hover_5	Icon_zb_154	62.8	0.628	5	5	0	5	4	3	2	1	0	199	0	0	0	0	0	0	0	0	null				null	null	null	null
+6200	5	巨人腰带	白色战士腰带1	白色战士腰带1	white	0.048	zb_hover_1	Icon_zb_250	23.0	0.230	1	1	0	1	0	0	0	0	0	0	0	0	35	0	0	0	0	0	null				null	null	null	null
+6201	5	巨人腰带	白色战士腰带1	白色战士腰带1	white	0.053	zb_hover_1	Icon_zb_250	10.9	0.110	1	0	0	0	0	0	0	0	0	0	0	0	66	0	0	0	0	0	null				null	null	null	null
+6202	5	巨人腰带	白色战士腰带1	白色战士腰带1	white	0.053	zb_hover_1	Icon_zb_250	9.3	0.093	0	1	0	1	0	0	0	0	0	0	0	0	84	0	0	0	0	0	null				null	null	null	null
+6203	5	巨人腰带	白色战士腰带1	白色战士腰带1	white	0.054	zb_hover_1	Icon_zb_250	8.7	0.087	0	0	0	0	0	0	0	0	0	0	0	0	116	0	0	0	0	0	null				null	null	null	null
+6204	5	巨人腰带	白色战士腰带1	白色战士腰带1	white	0.054	zb_hover_1	Icon_zb_250	10.1	0.101	0	0	0	0	0	0	0	0	0	0	0	0	134	0	0	0	0	0	null				null	null	null	null
+6205	5	比蒙腰带	蓝色战士腰带2	蓝色战士腰带2	blue	0.051	zb_hover_2	Icon_zb_251	23.6	0.236	2	2	0	2	1	0	0	0	0	0	0	0	75	0	0	0	0	0	null				null	null	null	null
+6206	5	比蒙腰带	蓝色战士腰带2	蓝色战士腰带2	blue	0.052	zb_hover_2	Icon_zb_251	18.7	0.187	1	2	0	2	1	0	0	0	0	0	0	0	89	0	0	0	0	0	null				null	null	null	null
+6207	5	比蒙腰带	蓝色战士腰带2	蓝色战士腰带2	blue	0.053	zb_hover_2	Icon_zb_251	18.5	0.185	1	1	0	1	0	0	0	0	0	0	0	0	127	0	0	0	0	0	null				null	null	null	null
+6208	5	比蒙腰带	蓝色战士腰带2	蓝色战士腰带2	blue	0.054	zb_hover_2	Icon_zb_251	15.2	0.152	0	1	0	1	0	0	0	0	0	0	0	0	163	0	0	0	0	0	null				null	null	null	null
+6209	5	泰坦腰带	紫色战士腰带3	紫色战士腰带3	purple	0.052	zb_hover_3	Icon_zb_252	36.0	0.360	3	3	0	3	2	1	0	0	0	0	0	0	120	0	0	0	0	0	null				null	null	null	null
+6210	5	泰坦腰带	紫色战士腰带3	紫色战士腰带3	purple	0.053	zb_hover_3	Icon_zb_252	28.6	0.286	2	2	0	2	1	0	0	0	0	0	0	0	141	0	0	0	0	0	null				null	null	null	null
+6211	5	泰坦腰带	紫色战士腰带3	紫色战士腰带3	purple	0.053	zb_hover_3	Icon_zb_252	21.2	0.212	1	1	0	1	0	0	0	0	0	0	0	0	163	0	0	0	0	0	null				null	null	null	null
+6212	5	泰坦腰带	紫色战士腰带3	紫色战士腰带3	purple	0.054	zb_hover_3	Icon_zb_252	13.8	0.138	0	0	0	0	0	0	0	0	0	0	0	0	184	0	0	0	0	0	null				null	null	null	null
+6213	5	黄金腰带	金色战士腰带4	金色战士腰带4	gold	0.050	zb_hover_4	Icon_zb_253	74.2	0.742	4	4	0	4	3	2	1	0	0	0	0	0	175	0	0	0	0	0	null				null	null	null	null
+6214	5	祖传腰带	橙色战士腰带5	橙色战士腰带5	epic	0.051	zb_hover_5	Icon_zb_254	75.0	0.750	5	5	0	5	4	3	2	1	0	0	0	0	200	0	0	0	0	0	null				null	null	null	null
+7000	6	麻布裤子	白色刺客裤子1	白色刺客裤子1	white	0.048	zb_hover_1	Icon_zb_060	23.0	0.230	1	1	0	1	0	0	0	0	0	0	0	0	0	35	0	0	0	0	null				null	null	null	null
+7001	6	麻布裤子	白色刺客裤子1	白色刺客裤子1	white	0.053	zb_hover_1	Icon_zb_060	10.4	0.104	1	0	0	0	0	0	0	0	0	0	0	0	0	59	0	0	0	0	null				null	null	null	null
+7002	6	麻布裤子	白色刺客裤子1	白色刺客裤子1	white	0.053	zb_hover_1	Icon_zb_060	10.1	0.101	0	1	0	1	0	0	0	0	0	0	0	0	0	94	0	0	0	0	null				null	null	null	null
+7003	6	麻布裤子	白色刺客裤子1	白色刺客裤子1	white	0.054	zb_hover_1	Icon_zb_060	8.8	0.088	0	0	0	0	0	0	0	0	0	0	0	0	0	117	0	0	0	0	null				null	null	null	null
+7004	6	麻布裤子	白色刺客裤子1	白色刺客裤子1	white	0.054	zb_hover_1	Icon_zb_060	10.6	0.106	0	0	0	0	0	0	0	0	0	0	0	0	0	141	0	0	0	0	null				null	null	null	null
+7005	6	蛇皮裤子	蓝色刺客裤子2	蓝色刺客裤子2	blue	0.051	zb_hover_2	Icon_zb_061	23.6	0.236	2	2	0	2	1	0	0	0	0	0	0	0	0	75	0	0	0	0	null				null	null	null	null
+7006	6	蛇皮裤子	蓝色刺客裤子2	蓝色刺客裤子2	blue	0.053	zb_hover_2	Icon_zb_061	21.5	0.215	1	2	0	2	1	0	0	0	0	0	0	0	0	127	0	0	0	0	null				null	null	null	null
+7007	6	蛇皮裤子	蓝色刺客裤子2	蓝色刺客裤子2	blue	0.053	zb_hover_2	Icon_zb_061	17.3	0.173	1	0	0	0	0	0	0	0	0	0	0	0	0	150	0	0	0	0	null				null	null	null	null
+7008	6	蛇皮裤子	蓝色刺客裤子2	蓝色刺客裤子2	blue	0.054	zb_hover_2	Icon_zb_061	16.0	0.160	0	1	0	1	0	0	0	0	0	0	0	0	0	173	0	0	0	0	null				null	null	null	null
+7009	6	蛟皮裤子	紫色刺客裤子3	紫色刺客裤子3	purple	0.052	zb_hover_3	Icon_zb_062	36.0	0.360	3	3	0	3	2	1	0	0	0	0	0	0	0	120	0	0	0	0	null				null	null	null	null
+7010	6	蛟皮裤子	紫色刺客裤子3	紫色刺客裤子3	purple	0.052	zb_hover_3	Icon_zb_062	28.3	0.283	2	2	0	2	1	0	0	0	0	0	0	0	0	137	0	0	0	0	null				null	null	null	null
+7011	6	蛟皮裤子	紫色刺客裤子3	紫色刺客裤子3	purple	0.053	zb_hover_3	Icon_zb_062	20.5	0.205	1	1	0	1	0	0	0	0	0	0	0	0	0	153	0	0	0	0	null				null	null	null	null
+7012	6	蛟皮裤子	紫色刺客裤子3	紫色刺客裤子3	purple	0.054	zb_hover_3	Icon_zb_062	13.7	0.137	0	0	0	0	0	0	0	0	0	0	0	0	0	182	0	0	0	0	null				null	null	null	null
+7013	6	真龙皮裤	金色刺客裤子4	金色刺客裤子4	gold	0.050	zb_hover_4	Icon_zb_063	74.2	0.742	4	4	0	4	3	2	1	0	0	0	0	0	0	175	0	0	0	0	null				null	null	null	null
+7014	6	应龙皮裤	橙色刺客裤子5	橙色刺客裤子5	epic	0.051	zb_hover_5	Icon_zb_064	75.0	0.750	5	5	0	5	4	3	2	1	0	0	0	0	0	200	0	0	0	0	null				null	null	null	null
+7100	6	麻布裤子	白色法师裤子1	白色法师裤子1	white	0.047	zb_hover_1	Icon_zb_160	15.0	0.150	1	1	0	1	0	0	0	0	0	20	0	0	0	0	0	0	0	0	null				null	null	null	null
+7101	6	麻布裤子	白色法师裤子1	白色法师裤子1	white	0.053	zb_hover_1	Icon_zb_160	6.7	0.067	0	1	0	1	0	0	0	0	0	49	0	0	0	0	0	0	0	0	null				null	null	null	null
+7102	6	麻布裤子	白色法师裤子1	白色法师裤子1	white	0.054	zb_hover_1	Icon_zb_160	5.7	0.057	0	0	0	0	0	0	0	0	0	76	0	0	0	0	0	0	0	0	null				null	null	null	null
+7103	6	麻布裤子	白色法师裤子1	白色法师裤子1	white	0.053	zb_hover_1	Icon_zb_160	12.8	0.128	1	0	0	0	0	0	0	0	0	91	0	0	0	0	0	0	0	0	null				null	null	null	null
+7104	6	麻布裤子	白色法师裤子1	白色法师裤子1	white	0.054	zb_hover_1	Icon_zb_160	8.9	0.089	0	0	0	0	0	0	0	0	0	118	0	0	0	0	0	0	0	0	null				null	null	null	null
+7105	6	蛇皮裤子	蓝色法师裤子2	蓝色法师裤子2	blue	0.051	zb_hover_2	Icon_zb_161	22.9	0.229	2	2	0	2	1	0	0	0	0	65	0	0	0	0	0	0	0	0	null				null	null	null	null
+7106	6	蛇皮裤子	蓝色法师裤子2	蓝色法师裤子2	blue	0.053	zb_hover_2	Icon_zb_161	19.1	0.191	1	2	0	2	1	0	0	0	0	94	0	0	0	0	0	0	0	0	null				null	null	null	null
+7107	6	蛇皮裤子	蓝色法师裤子2	蓝色法师裤子2	blue	0.053	zb_hover_2	Icon_zb_161	26.6	0.266	2	1	0	1	0	0	0	0	0	154	0	0	0	0	0	0	0	0	null				null	null	null	null
+7108	6	蛇皮裤子	蓝色法师裤子2	蓝色法师裤子2	blue	0.054	zb_hover_2	Icon_zb_161	13.3	0.133	0	0	0	0	0	0	0	0	0	177	0	0	0	0	0	0	0	0	null				null	null	null	null
+7109	6	蛟皮裤子	紫色法师裤子3	紫色法师裤子3	purple	0.051	zb_hover_3	Icon_zb_162	34.5	0.345	3	3	0	3	2	1	0	0	0	100	0	0	0	0	0	0	0	0	null				null	null	null	null
+7110	6	蛟皮裤子	紫色法师裤子3	紫色法师裤子3	purple	0.052	zb_hover_3	Icon_zb_162	26.3	0.263	2	2	0	2	1	0	0	0	0	111	0	0	0	0	0	0	0	0	null				null	null	null	null
+7111	6	蛟皮裤子	紫色法师裤子3	紫色法师裤子3	purple	0.053	zb_hover_3	Icon_zb_162	19.1	0.191	1	1	0	1	0	0	0	0	0	134	0	0	0	0	0	0	0	0	null				null	null	null	null
+7112	6	蛟皮裤子	紫色法师裤子3	紫色法师裤子3	purple	0.054	zb_hover_3	Icon_zb_162	11.3	0.113	0	0	0	0	0	0	0	0	0	150	0	0	0	0	0	0	0	0	null				null	null	null	null
+7113	6	真龙皮裤	金色法师裤子4	金色法师裤子4	gold	0.051	zb_hover_4	Icon_zb_163	53.5	0.536	4	4	0	4	3	2	1	0	0	135	0	0	0	0	0	0	0	0	null				null	null	null	null
+7114	6	应龙皮裤	橙色法师裤子5	橙色法师裤子5	epic	0.051	zb_hover_5	Icon_zb_164	62.8	0.628	5	5	0	5	4	3	2	1	0	199	0	0	0	0	0	0	0	0	null				null	null	null	null
+7200	6	麻布裤子	白色战士裤子1	白色战士裤子1	white	0.053	zb_hover_1	Icon_zb_260	22.5	0.225	1	1	0	1	0	0	0	0	0	0	75	0	0	0	0	0	0	0	null				null	null	null	null
+7201	6	麻布裤子	白色战士裤子1	白色战士裤子1	white	0.054	zb_hover_1	Icon_zb_260	72.6	0.726	1	1	0	1	0	0	0	0	0	0	848	0	0	0	0	0	0	0	null				null	null	null	null
+7202	6	麻布裤子	白色战士裤子1	白色战士裤子1	white	0.054	zb_hover_1	Icon_zb_260	84.2	0.842	0	1	0	1	0	0	0	0	0	0	1083	0	0	0	0	0	0	0	null				null	null	null	null
+7203	6	麻布裤子	白色战士裤子1	白色战士裤子1	white	0.054	zb_hover_1	Icon_zb_260	121.7	1.217	1	0	0	0	0	0	0	0	0	0	1543	0	0	0	0	0	0	0	null				null	null	null	null
+7204	6	麻布裤子	白色战士裤子1	白色战士裤子1	white	0.054	zb_hover_1	Icon_zb_260	137.8	1.378	0	0	0	0	0	0	0	0	0	0	1837	0	0	0	0	0	0	0	null				null	null	null	null
+7205	6	蛇皮裤子	蓝色战士裤子2	蓝色战士裤子2	blue	0.053	zb_hover_2	Icon_zb_261	51.8	0.518	2	2	0	2	1	0	0	0	0	0	450	0	0	0	0	0	0	0	null				null	null	null	null
+7206	6	蛇皮裤子	蓝色战士裤子2	蓝色战士裤子2	blue	0.054	zb_hover_2	Icon_zb_261	92.9	0.929	1	1	0	1	0	0	0	0	0	0	1119	0	0	0	0	0	0	0	null				null	null	null	null
+7207	6	蛇皮裤子	蓝色战士裤子2	蓝色战士裤子2	blue	0.054	zb_hover_2	Icon_zb_261	145.8	1.458	1	0	0	0	0	0	0	0	0	0	1864	0	0	0	0	0	0	0	null				null	null	null	null
+7208	6	蛇皮裤子	蓝色战士裤子2	蓝色战士裤子2	blue	0.054	zb_hover_2	Icon_zb_261	175.5	1.755	0	0	0	0	0	0	0	0	0	0	2340	0	0	0	0	0	0	0	null				null	null	null	null
+7209	6	蛟皮裤子	紫色战士裤子3	紫色战士裤子3	purple	0.054	zb_hover_3	Icon_zb_262	117.0	1.170	3	3	0	3	2	1	0	0	0	0	1200	0	0	0	0	0	0	0	null				null	null	null	null
+7210	6	蛟皮裤子	紫色战士裤子3	紫色战士裤子3	purple	0.054	zb_hover_3	Icon_zb_262	157.7	1.577	2	2	0	2	1	0	0	0	0	0	1863	0	0	0	0	0	0	0	null				null	null	null	null
+7211	6	蛟皮裤子	紫色战士裤子3	紫色战士裤子3	purple	0.054	zb_hover_3	Icon_zb_262	191.8	1.919	1	1	0	1	0	0	0	0	0	0	2438	0	0	0	0	0	0	0	null				null	null	null	null
+7212	6	蛟皮裤子	紫色战士裤子3	紫色战士裤子3	purple	0.054	zb_hover_3	Icon_zb_262	203.3	2.033	0	0	0	0	0	0	0	0	0	0	2710	0	0	0	0	0	0	0	null				null	null	null	null
+7213	6	真龙皮裤	金色战士裤子4	金色战士裤子4	gold	0.054	zb_hover_4	Icon_zb_263	119.7	1.197	4	4	0	4	3	2	1	0	0	0	1800	0	0	0	0	0	0	0	null				null	null	null	null
+7214	6	应龙皮裤	橙色战士裤子5	橙色战士裤子5	epic	0.054	zb_hover_5	Icon_zb_264	162.0	1.620	5	5	0	5	4	3	2	1	0	0	3000	0	0	0	0	0	0	0	null				null	null	null	null
+8000	7	草鞋	白色刺客鞋子1	白色刺客鞋子1	white	0.050	zb_hover_1	Icon_zb_070	23.4	0.234	1	1	0	1	0	0	0	0	0	0	0	0	0	0	0	48	0	0	null				null	null	null	null
+8001	7	草鞋	白色刺客鞋子1	白色刺客鞋子1	white	0.053	zb_hover_1	Icon_zb_070	11.4	0.114	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	72	0	0	null				null	null	null	null
+8002	7	草鞋	白色刺客鞋子1	白色刺客鞋子1	white	0.053	zb_hover_1	Icon_zb_070	10.1	0.101	0	1	0	1	0	0	0	0	0	0	0	0	0	0	0	94	0	0	null				null	null	null	null
+8003	7	草鞋	白色刺客鞋子1	白色刺客鞋子1	white	0.053	zb_hover_1	Icon_zb_070	18.5	0.185	1	1	0	1	0	0	0	0	0	0	0	0	0	0	0	127	0	0	null				null	null	null	null
+8004	7	草鞋	白色刺客鞋子1	白色刺客鞋子1	white	0.054	zb_hover_1	Icon_zb_070	11.5	0.115	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	153	0	0	null				null	null	null	null
+8005	7	布鞋	蓝色刺客鞋子2	蓝色刺客鞋子2	blue	0.052	zb_hover_2	Icon_zb_071	24.1	0.242	2	2	0	2	1	0	0	0	0	0	0	0	0	0	0	82	0	0	null				null	null	null	null
+8006	7	布鞋	蓝色刺客鞋子2	蓝色刺客鞋子2	blue	0.053	zb_hover_2	Icon_zb_071	14.7	0.147	0	2	0	2	1	0	0	0	0	0	0	0	0	0	0	116	0	0	null				null	null	null	null
+8007	7	布鞋	蓝色刺客鞋子2	蓝色刺客鞋子2	blue	0.053	zb_hover_2	Icon_zb_071	19.7	0.197	1	1	0	1	0	0	0	0	0	0	0	0	0	0	0	143	0	0	null				null	null	null	null
+8008	7	布鞋	蓝色刺客鞋子2	蓝色刺客鞋子2	blue	0.053	zb_hover_2	Icon_zb_071	18.9	0.189	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	172	0	0	null				null	null	null	null
+8009	7	皮鞋	紫色刺客鞋子3	紫色刺客鞋子3	purple	0.052	zb_hover_3	Icon_zb_072	37.8	0.378	3	3	0	3	2	1	0	0	0	0	0	0	0	0	0	144	0	0	null				null	null	null	null
+8010	7	皮鞋	紫色刺客鞋子3	紫色刺客鞋子3	purple	0.053	zb_hover_3	Icon_zb_072	30.5	0.305	2	2	0	2	1	0	0	0	0	0	0	0	0	0	0	167	0	0	null				null	null	null	null
+8011	7	皮鞋	紫色刺客鞋子3	紫色刺客鞋子3	purple	0.053	zb_hover_3	Icon_zb_072	22.7	0.227	1	1	0	1	0	0	0	0	0	0	0	0	0	0	0	183	0	0	null				null	null	null	null
+8012	7	皮鞋	紫色刺客鞋子3	紫色刺客鞋子3	purple	0.054	zb_hover_3	Icon_zb_072	15.1	0.151	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	201	0	0	null				null	null	null	null
+8013	7	黄金鞋	金色刺客鞋子4	金色刺客鞋子4	gold	0.051	zb_hover_4	Icon_zb_073	60.7	0.607	4	4	0	4	3	2	1	0	0	0	0	0	0	0	0	169	0	0	null				null	null	null	null
+8014	7	飞毛腿	橙色刺客鞋子5	橙色刺客鞋子5	epic	0.052	zb_hover_5	Icon_zb_074	69.1	0.691	5	5	0	5	4	3	2	1	0	0	0	0	0	0	0	234	0	0	null				null	null	null	null
+8100	7	草鞋	白色法师鞋子1	白色法师鞋子1	white	0.048	zb_hover_1	Icon_zb_170	23.0	0.230	1	1	0	1	0	0	0	0	0	0	0	0	35	0	0	0	0	0	null				null	null	null	null
+8101	7	草鞋	白色法师鞋子1	白色法师鞋子1	white	0.053	zb_hover_1	Icon_zb_170	15.6	0.156	1	1	0	1	0	0	0	0	0	0	0	0	88	0	0	0	0	0	null				null	null	null	null
+8102	7	草鞋	白色法师鞋子1	白色法师鞋子1	white	0.053	zb_hover_1	Icon_zb_170	13.0	0.130	1	0	0	0	0	0	0	0	0	0	0	0	93	0	0	0	0	0	null				null	null	null	null
+8103	7	草鞋	白色法师鞋子1	白色法师鞋子1	white	0.054	zb_hover_1	Icon_zb_170	11.8	0.118	0	1	0	1	0	0	0	0	0	0	0	0	117	0	0	0	0	0	null				null	null	null	null
+8104	7	草鞋	白色法师鞋子1	白色法师鞋子1	white	0.054	zb_hover_1	Icon_zb_170	10.4	0.104	0	0	0	0	0	0	0	0	0	0	0	0	139	0	0	0	0	0	null				null	null	null	null
+8105	7	布鞋	蓝色法师鞋子2	蓝色法师鞋子2	blue	0.051	zb_hover_2	Icon_zb_171	23.6	0.236	2	2	0	2	1	0	0	0	0	0	0	0	75	0	0	0	0	0	null				null	null	null	null
+8106	7	布鞋	蓝色法师鞋子2	蓝色法师鞋子2	blue	0.052	zb_hover_2	Icon_zb_171	18.8	0.188	1	2	0	2	1	0	0	0	0	0	0	0	91	0	0	0	0	0	null				null	null	null	null
+8107	7	布鞋	蓝色法师鞋子2	蓝色法师鞋子2	blue	0.053	zb_hover_2	Icon_zb_171	24.3	0.243	2	1	0	1	0	0	0	0	0	0	0	0	124	0	0	0	0	0	null				null	null	null	null
+8108	7	布鞋	蓝色法师鞋子2	蓝色法师鞋子2	blue	0.053	zb_hover_2	Icon_zb_171	23.5	0.235	2	0	0	0	0	0	0	0	0	0	0	0	153	0	0	0	0	0	null				null	null	null	null
+8109	7	皮鞋	紫色法师鞋子3	紫色法师鞋子3	purple	0.052	zb_hover_3	Icon_zb_172	36.0	0.360	3	3	0	3	2	1	0	0	0	0	0	0	120	0	0	0	0	0	null				null	null	null	null
+8110	7	皮鞋	紫色法师鞋子3	紫色法师鞋子3	purple	0.052	zb_hover_3	Icon_zb_172	28.3	0.283	2	2	0	2	1	0	0	0	0	0	0	0	137	0	0	0	0	0	null				null	null	null	null
+8111	7	皮鞋	紫色法师鞋子3	紫色法师鞋子3	purple	0.053	zb_hover_3	Icon_zb_172	20.9	0.209	1	1	0	1	0	0	0	0	0	0	0	0	159	0	0	0	0	0	null				null	null	null	null
+8112	7	皮鞋	紫色法师鞋子3	紫色法师鞋子3	purple	0.054	zb_hover_3	Icon_zb_172	14.2	0.142	0	0	0	0	0	0	0	0	0	0	0	0	189	0	0	0	0	0	null				null	null	null	null
+8113	7	黄金鞋	金色法师鞋子4	金色法师鞋子4	gold	0.050	zb_hover_4	Icon_zb_173	74.2	0.742	4	4	0	4	3	2	1	0	0	0	0	0	175	0	0	0	0	0	null				null	null	null	null
+8114	7	飞毛腿	橙色法师鞋子5	橙色法师鞋子5	epic	0.051	zb_hover_5	Icon_zb_174	75.0	0.750	5	5	0	5	4	3	2	1	0	0	0	0	200	0	0	0	0	0	null				null	null	null	null
+8200	7	草鞋	白色战士鞋子1	白色战士鞋子1	white	0.053	zb_hover_1	Icon_zb_270	22.5	0.225	1	1	0	1	0	0	0	0	0	0	60	0	0	0	0	0	0	0	null				null	null	null	null
+8201	7	草鞋	白色战士鞋子1	白色战士鞋子1	white	0.054	zb_hover_1	Icon_zb_270	63.3	0.633	1	0	0	0	0	0	0	0	0	0	764	0	0	0	0	0	0	0	null				null	null	null	null
+8202	7	草鞋	白色战士鞋子1	白色战士鞋子1	white	0.054	zb_hover_1	Icon_zb_270	80.1	0.801	1	0	0	0	0	0	0	0	0	0	988	0	0	0	0	0	0	0	null				null	null	null	null
+8203	7	草鞋	白色战士鞋子1	白色战士鞋子1	white	0.054	zb_hover_1	Icon_zb_270	98.7	0.987	0	1	0	1	0	0	0	0	0	0	1276	0	0	0	0	0	0	0	null				null	null	null	null
+8204	7	草鞋	白色战士鞋子1	白色战士鞋子1	white	0.054	zb_hover_1	Icon_zb_270	136.5	1.365	0	0	0	0	0	0	0	0	0	0	1820	0	0	0	0	0	0	0	null				null	null	null	null
+8205	7	布鞋	蓝色战士鞋子2	蓝色战士鞋子2	blue	0.053	zb_hover_2	Icon_zb_271	51.8	0.518	2	2	0	2	1	0	0	0	0	0	450	0	0	0	0	0	0	0	null				null	null	null	null
+8206	7	布鞋	蓝色战士鞋子2	蓝色战士鞋子2	blue	0.054	zb_hover_2	Icon_zb_271	119.1	1.191	1	2	0	2	1	0	0	0	0	0	1428	0	0	0	0	0	0	0	null				null	null	null	null
+8207	7	布鞋	蓝色战士鞋子2	蓝色战士鞋子2	blue	0.054	zb_hover_2	Icon_zb_271	149.9	1.499	2	0	0	0	0	0	0	0	0	0	1839	0	0	0	0	0	0	0	null				null	null	null	null
+8208	7	布鞋	蓝色战士鞋子2	蓝色战士鞋子2	blue	0.054	zb_hover_2	Icon_zb_271	184.7	1.847	1	1	0	1	0	0	0	0	0	0	2342	0	0	0	0	0	0	0	null				null	null	null	null
+8209	7	皮鞋	紫色战士鞋子3	紫色战士鞋子3	purple	0.054	zb_hover_3	Icon_zb_272	117.0	1.170	3	3	0	3	2	1	0	0	0	0	1200	0	0	0	0	0	0	0	null				null	null	null	null
+8210	7	皮鞋	紫色战士鞋子3	紫色战士鞋子3	purple	0.054	zb_hover_3	Icon_zb_272	156.2	1.562	2	2	0	2	1	0	0	0	0	0	1843	0	0	0	0	0	0	0	null				null	null	null	null
+8211	7	皮鞋	紫色战士鞋子3	紫色战士鞋子3	purple	0.054	zb_hover_3	Icon_zb_272	172.0	1.720	1	1	0	1	0	0	0	0	0	0	2173	0	0	0	0	0	0	0	null				null	null	null	null
+8212	7	皮鞋	紫色战士鞋子3	紫色战士鞋子3	purple	0.054	zb_hover_3	Icon_zb_272	208.3	2.083	0	0	0	0	0	0	0	0	0	0	2777	0	0	0	0	0	0	0	null				null	null	null	null
+8213	7	黄金鞋	金色战士鞋子4	金色战士鞋子4	gold	0.054	zb_hover_4	Icon_zb_273	119.7	1.197	4	4	0	4	3	2	1	0	0	0	1800	0	0	0	0	0	0	0	null				null	null	null	null
+8214	7	飞毛腿	橙色战士鞋子5	橙色战士鞋子5	epic	0.054	zb_hover_5	Icon_zb_274	162.0	1.620	5	5	0	5	4	3	2	1	0	0	3000	0	0	0	0	0	0	0	null				null	null	null	null

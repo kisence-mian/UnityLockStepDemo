@@ -1,0 +1,6 @@
+id	Address	port	name
+type	String	Int	String
+note			
+default		6666	
+1	192.168.89.146	7500	内网
+Address	127.0.0.1	7500	hedongjun

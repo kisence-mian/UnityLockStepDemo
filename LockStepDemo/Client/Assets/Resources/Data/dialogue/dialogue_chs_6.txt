@@ -1,0 +1,14 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia	教官	big_head_7			你们说在侦查过程中遇到奇怪的现象？
+2	dia			player	big_head_5|big_head_6	一群食尸鬼在召唤什么东西，还引出了一个死亡骑士，不过貌似是一个幻象。
+3	dia	教官	big_head_7			这件事不简单，我们在西部一处废墟遗迹里也发现了一小股的魔族聚集，很可能有什么阴谋。
+4	dia			player	big_head_5|big_head_6	那现在我们应该怎么办？
+5	dia	教官	big_head_7			我需要一队人前往深入侦查一下，看看他们是否也在召唤什么东西！
+6	dia			player	big_head_5|big_head_6	不要找我啊！我只是个新兵，上次那个死亡骑士差点就宰了我，我才不要去呢！
+7	dia	教官	big_head_7			没办法，人手有限，这次我们换一种方式，采用潜入，不要惊动那些魔族，就安全了。
+8	dia			player	big_head_5|big_head_6	潜入？？
+9	dia	教官	big_head_7			拿着这套行头，可以帮你顺利潜入。。。
+10      dia 				player	big_head_5|big_head_6	说实话。。我的内心是拒绝的。。。

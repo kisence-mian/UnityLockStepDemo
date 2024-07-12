@@ -1,0 +1,21 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia			奇怪的食尸鬼	big_head_ssg	谢谢你救我出来，不然我就会被永远冰冻在这里。。。
+2	dia           	player	big_head_5|big_head_6			一只食尸鬼？？会说话的食尸鬼？？？我一定没睡醒
+3	dia           			奇怪的食尸鬼	big_head_ssg	我也不想变成这样。。还能保持理性，一定是圣光的庇护
+4	dia           	player	big_head_5|big_head_6			那么，你是谁？或者说，生前是谁？
+5	dia           			奇怪的食尸鬼	big_head_ssg	我的记忆已经模糊了，忘记了名字，但是我记得我是一名士兵
+6	dia           			奇怪的食尸鬼	big_head_ssg	我应该是跟着某个伟大的人物一起来到这里，为了阻止魔王对世界的破坏
+7	dia           	player	big_head_5|big_head_6			天啦。。你该不会是那场战争中的一员？传说中深入魔穴的英雄？
+8	dia           			奇怪的食尸鬼	big_head_ssg	我不知道。。。我不记得了。但是现在有更重要的事情！！
+9	dia           			奇怪的食尸鬼	big_head_ssg	自从我清醒过来后，一直在想办法逃出去，然而我发现了一件事情，不得不留下来
+10	dia           			奇怪的食尸鬼	big_head_ssg	看到旁边那个魔王的雕像了吗？在很多魔族遗迹都有这种雕像
+11	dia           			奇怪的食尸鬼	big_head_ssg	这种雕像里都有一丝魔王的精神意念，魔王通过它们就可以监视魔界和所有魔族
+12	dia           			奇怪的食尸鬼	big_head_ssg	并且从其他魔族身上获得信仰之力
+13	dia           	player	big_head_5|big_head_6			难怪看起来很可怕的样子。。。
+14	dia           			奇怪的食尸鬼	big_head_ssg	魔王正在尝试复活！！他的手下们正在收集这些魔像中的精神意念，然后注入一种奇怪的晶体里面
+15	dia           			奇怪的食尸鬼	big_head_ssg	那种晶体给我一种奇怪的熟悉感。。。
+16	dia           	player	big_head_5|big_head_6			圣光之眼的碎片？？看样子事情有点眉目了，我的立即汇报回去，你怎么办？
+17	dia           			奇怪的食尸鬼	big_head_ssg	不用管我，我打算再去其他领地探查一下，之后有机会再见吧。

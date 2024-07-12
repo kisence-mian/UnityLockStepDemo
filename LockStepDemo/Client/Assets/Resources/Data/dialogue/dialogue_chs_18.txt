@@ -1,0 +1,12 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia	圣女	big_head_2			老师，这是我们从圣城附近找到的东西，我感觉它应该是圣光之眼的碎片
+2	dia			大祭司	big_head_9	不错，这确实是圣光之眼的碎片，但是里面包含了非常强大的暗黑魔力，圣光之眼的力量几乎都被转化为黑暗力量了。
+3	dia	圣女	big_head_2			我们一名天启骑士那里获得的消息，他们似乎试图利用碎片复活魔王
+4	dia			大祭司	big_head_9	什么？？复活魔王？怎么可能！！
+5	dia	圣女	big_head_2			我也不知道，当时就是这位勇士发现了碎片，在一个遗迹里，魔族在利用某个仪式召唤什么东西？
+6	dia			大祭司	big_head_9	神秘仪式？最近我也听闻在我们萨图城北方发现了一个遗迹废墟，据说有人在晚上看到奇怪的光芒，难道。。。
+7	dia	player	big_head_5|big_head_6			我有不好的预感。。你们不会让我去吧。。
+8	dia			圣女	big_head_2	（用温柔的眼光注视着你） 我还是很相信你的实力的。。

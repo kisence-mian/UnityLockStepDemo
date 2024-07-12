@@ -1,0 +1,17 @@
+id	name	info	item_type	icon	att	hp	movespeed	resistdamage	invincible	noclip	time	chipid	chipnum	addatt	addhp	addmovespeed	adddef	modelid	pickupEffect	Qualityframe	quality
+type	String	String	String	String	Int	Int	Float	Int	Int	Bool	Float	Int	Int	Int	Int	Int	Int	String	String	String	Int
+note	名字	物品说明	类别	图标	攻击	血量	移动速度	抵挡伤害	无敌	穿墙	持续时间	碎片	碎片数量	增加攻击力	增加血量上限	增加移速	增加防御	模型ID	捡的动作	品质边框id	1白，2蓝，3紫，4金，5橙
+default	other	一个物品	other	Icon_zb_154	0	0	0	0	0	FALSE	0	1000	10	0	0	0	0	other	other	zb_hover_5	0
+50	人民币			UI_shop_word06																zb_hover_5	5
+51	金币	发家致富		Icon_wp_100																zb_hover_5	1
+52	钻石	有钱自豪		Icon_wp_101																zb_hover_5	1
+100	火				10													EFX_res_fire			
+101	水							13										EFX_water_01_1			
+102	雷						0.1											EFX_soil_01_1			
+103	土					3												EFX_res_earth			
+1000	火碎片																	EFX_res_fire			
+1010	水碎片																	EFX_res_water			
+1020	雷碎片																	EFX_res_bolt			
+1030	土碎片																	EFX_res_earth			
+2000	血球																	EFX_res_earth			
+3000																					

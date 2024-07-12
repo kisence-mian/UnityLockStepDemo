@@ -1,0 +1,9 @@
+active	item1	num1	item2	num2
+Int	Int	Int	Int	Int
+活跃值	道具1ID	道具1数量	道具2ID	道具2数量
+default	0	0	0	0
+20	201	1		
+40	201	1	101	500
+60	211	1	101	500
+80	101	2000	301	5
+100	102	20	303	5

@@ -1,0 +1,34 @@
+id	mapid	limit_level	dialogue	dialogue_after
+type	String	Int	String	String
+note	进入的地图ID	进入等级限制	触发的对话ID	战斗回主城后触发的对话ID
+default	none	0	0	0
+1	level_0	1	0	0
+2	level_1	1	dialogue_chs_4	dialogue_chs_6_1
+3	level_2	1	0	dialogue_chs_6
+4	level_3	1	0	dialogue_chs_7
+5	level_4	1	0	dialogue_chs_10
+6	level_5	1	0	dialogue_chs_13
+7	level_6	1	0	dialogue_chs_16
+8	level_7	1	0	dialogue_chs_18
+9	level_8	1	0	dialogue_chs_19
+10	level_9	1	0	dialogue_chs_20
+11	level_10	1	0	dialogue_chs_juqing11_0
+12	level_11	10		dialogue_chs_juqing12_0
+13	level_12	10		dialogue_chs_juqing13_0
+14	level_13	10		dialogue_chs_juqing14_0
+15	level_14	10		
+16	level_15	10		
+17	level_16	10		
+18	level_17	10		
+19	level_18	10		
+20	level_19	10		
+21	level_20	10		
+22	level_21	10		
+23	level_22	10		
+24	level_23	10		
+25	level_24	10		
+26	level_25	10		
+27	level_26	10		
+28	level_27	10		
+29	level_28	10		
+30	level_29	10		

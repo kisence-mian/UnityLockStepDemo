@@ -8,18 +8,14 @@
 205,debugmsg
 206,destroyentitymsg
 207,pursuemsg
-208,querycommand
-209,startsyncmsg
-210,syncentitymsg
+208,startsyncmsg
+209,syncentitymsg
 
 3,Command
 301,commandcomponent
 
 10,ProtocolMessage
-1001,playerbuycharacter
-1002,playerloginmsg
-1003,playermatchmsg
-1004,playerrename
-1005,playerresurgence
-1006,playerselectcharacter
-1007,playersettlement
+1001,playerloginmsg
+1002,playermatchmsg
+1003,playerresurgence
+1004,playerselectcharacter

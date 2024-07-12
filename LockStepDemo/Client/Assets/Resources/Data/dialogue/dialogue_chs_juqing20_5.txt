@@ -1,0 +1,5 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia			player	big_head_5|big_head_6	怎么会！在前哨站的战役中这巫妖不是阵亡了吗？不管了，先救出神秘食尸鬼再说！

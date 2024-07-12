@@ -1,0 +1,7 @@
+id	name	dec	npc_img
+type	String	String	String
+note	页签名	说明	店老板形像
+default	未命名商店	充得多送得多	big_head_9
+1	充值	1.首充100送10\n2.充1000送100\n3.充得多送得多	big_head_10
+2	钻石商店	1.首充100钻送10钻\n2.充1000钻送100钻\n3.充得多送得多	big_head_11
+3	金币商店	1.首充100金币送10金币\n2.充1000金币送100金币\n3.充得多送得多	big_head_12

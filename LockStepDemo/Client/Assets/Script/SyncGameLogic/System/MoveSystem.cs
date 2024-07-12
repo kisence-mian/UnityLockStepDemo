@@ -53,7 +53,7 @@ public class MoveSystem : SystemBase
             string content = "id: " + mc.Entity.ID + " m_pos " + mc.pos.ToVector() + " deltaTime " + deltaTime + " m_velocity " + mc.m_velocity + " m_dir " + mc.dir.ToVector();
             //Debug.Log(content);
 
-            //SyncDebugSystem.syncLog += content + "\n";
+            SyncDebugSystem.syncLog += content + "\n";
         }
     }
 

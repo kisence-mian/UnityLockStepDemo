@@ -1,0 +1,8 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia			圣女	big_head_2	碎片能够及时送到真是太好了，我现在就开始启用法阵净化碎片！
+2	dia			圣女	big_head_2	不过我净化碎片的时候会变得相当虚弱，这段时间拜托你保护我的安全！
+3	dia			圣女	big_head_2	魔王是不会轻易让我完成仪式的，我已经感觉到强大的邪恶力量在慢慢靠近！
+4	dia			player	big_head_5|big_head_6	圣女大人您集中精神净化碎片！其他的事情交给我了！

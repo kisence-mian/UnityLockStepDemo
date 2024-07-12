@@ -1,0 +1,6 @@
+Name	StringValue	FloatValue	Vector3Value	BoolValue
+type	String	Float|AnimType	Vector3	Bool
+note				
+default	null	0	0|0|0	FALSE
+aimCircleName	aimCircle			
+aimCircleFXName	zhidao			

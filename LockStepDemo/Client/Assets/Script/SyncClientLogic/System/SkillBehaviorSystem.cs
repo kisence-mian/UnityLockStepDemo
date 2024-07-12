@@ -38,10 +38,10 @@ public class SkillBehaviorSystem : SystemBase
 
     void AddComp(EntityBase entity)
     {
-        //if(!entity.GetExistComp<SkillBehaviorCompoent>())
-        //{
-        //    entity.AddComp<SkillBehaviorCompoent>();
-        //}
+        if(!entity.GetExistComp<SkillBehaviorCompoent>())
+        {
+            entity.AddComp<SkillBehaviorCompoent>();
+        }
     }
 
     void SkillBehaviorLogic(EntityBase entity,int deltaTime)
@@ -78,8 +78,7 @@ public class SkillBehaviorSystem : SystemBase
         sbc.isTriggerFX = false;
     }
 
-    //CreatMesh RangeTip;
-
+    CreatMesh RangeTip;
 
     public void CreatSkillEffect(EntityBase entity,SkillStatusComponent skillComp)
     {
@@ -197,13 +196,13 @@ public class SkillBehaviorSystem : SystemBase
 
     public void CreateSkillAreaTip(EntityBase entity, SkillStatusComponent status)
     {
-        //if (RangeTip == null)
-        //{
-        //    GameObject tip = GameObjectManager.CreateGameObjectByPool("AreaTips");
-        //    RangeTip = tip.GetComponent<CreatMesh>();
-        //}
-        //RangeTip.gameObject.SetActive(true);
-        //RangeTip.SetMesh(entity, status.m_currentSkillData.SkillInfo.m_EffectArea, true, status.m_currentSkillData.SkillInfo.m_AreaTexture);
+        if (RangeTip == null)
+        {
+            GameObject tip = GameObjectManager.CreateGameObjectByPool("AreaTips");
+            RangeTip = tip.GetComponent<CreatMesh>();
+        }
+        RangeTip.gameObject.SetActive(true);
+        RangeTip.SetMesh(entity, status.m_currentSkillData.SkillInfo.m_EffectArea, true, status.m_currentSkillData.SkillInfo.m_AreaTexture);
     }
 
     class EffectData

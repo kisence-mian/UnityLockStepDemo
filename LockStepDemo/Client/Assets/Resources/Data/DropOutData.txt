@@ -1,0 +1,6 @@
+DropOutID	FXName	FXNum	FXRange	FXLifeTime	SFXName	SFXDelay	OutTime	WaitTime	BackTime	DeltaTime	ModelName
+type	String	Int	Float	Float	String	Float	Float	Float	Float	Float	String
+note	特效名称，非装备使用	特效数目	扩散范围	特效存活时间	音效名称	音效延迟	特效飞到目的地的时间	在目的地停留时间	飞回来的时间	两个之间的间隔	模型名称，非装备使用
+default		0	0	1	null	0	1	0.5	0.3	0.02	null
+jinbi	jinbidl_04	5	5	2		0	1	0.5	0.3	0.04	jinbi
+baoxiang01	jinbidl_04	1	5	4.5		0	1.5	3	0.3	0.02	jinbi

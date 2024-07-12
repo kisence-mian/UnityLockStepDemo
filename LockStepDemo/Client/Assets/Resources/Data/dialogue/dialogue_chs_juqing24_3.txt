@@ -1,0 +1,11 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia			魅魔	big_head_13	这两个人还有点实力，看来我大意了！
+2	dia			魅魔	big_head_13	等等...我突然想到一件好玩的事情！
+3	dia			魅魔	big_head_13	不知道这位血气方刚的教官大人是什么滋味，让我试试吧！
+4	dia			教官	big_head_1	啊...不好，有什么东西正在吞噬我心智！
+5	dia			player	big_head_5|big_head_6	死妖女，快放开教官！
+6	dia			魅魔	big_head_13	哈哈哈，好的，这就放开！现在我们换一个二对一的方式！
+7	dia			player	big_head_5|big_head_6	可恶，我一定不会让你跑掉!

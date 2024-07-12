@@ -7,7 +7,6 @@ public class PlayerDataGenerate : DataGenerateBase
 {
 	public string m_key;
 	public int m_type; //类型
-	public string m_pic; //角色图片
 	public string m_playername; //玩家名
 	public string m_playerint; //玩家介绍
 	public int m_att; //攻击力
@@ -23,10 +22,10 @@ public class PlayerDataGenerate : DataGenerateBase
 	public string m_LeftWalkAnim; //左走动画
 	public string m_RightWalkAnim; //右走动画
 	public string m_cloakAnimName;
-	public string m_IdleAnimName; //待机动作
-	public string m_HurtAnimName; //受击动作
-	public float m_HurtAnimTime; //受击动作时间
-	public string m_DieAnimName; //死亡动作
+	public string m_IdleAnimName;
+	public string m_HurtAnimName;
+	public float m_HurtAnimTime;
+	public string m_DieAnimName;
 	public string m_ShowAniName;
 	public float m_Radius; //半径
 	public bool m_IsOnlyDamageValue;
@@ -58,7 +57,6 @@ public class PlayerDataGenerate : DataGenerateBase
 
 		m_key = key;
 		m_type = data.GetInt("type");
-		m_pic = data.GetString("pic");
 		m_playername = data.GetString("playername");
 		m_playerint = data.GetString("playerint");
 		m_att = data.GetInt("att");

@@ -1,0 +1,1233 @@
+package all;
+
+message m_user_heartbeat_s
+{
+}
+
+message m_user_heartbeat_c
+{
+}
+
+message m_role_create_c
+{
+	required int32 code = 1;
+}
+
+message m_role_create_s
+{
+	required string nick = 1;
+	required int32 sex = 2;
+	required string model_id = 3;
+	required string head = 4;
+}
+
+message m_role_auth_c
+{
+	required string key = 1;
+}
+
+message m_role_auth_s
+{
+}
+
+message m_role_attr_change_c
+{
+	required int32 role_id = 1;
+	repeatedp_role_attr_change changes = 2;
+}
+
+message m_role_login_c
+{
+	required int32 code = 1;
+	required int32 create = 2;
+}
+
+message m_role_login_s
+{
+	required string account = 1;
+}
+
+message m_role_kick_c
+{
+	required int32 code = 1;
+}
+
+message m_role_attr_c
+{
+	required int32 role_id = 1;
+	required int32 gold = 2;
+	required int32 diamond = 3;
+	required int32 lv = 4;
+	required int32 exp = 5;
+	required int32 expneed = 6;
+	required int32 phy = 7;
+	required int32 renown = 8;
+	required int32 power = 9;
+	required int32 att = 10;
+	required int32 def = 11;
+	required int32 hp = 12;
+	required int32 hprecover = 13;
+	required int32 crit = 14;
+	required int32 critdamage = 15;
+	required int32 ignoredef = 16;
+	required int32 hpabsorb = 17;
+	required int32 movespeed = 18;
+	required int32 tough = 19;
+	required string model_id = 20;
+	required int32 oid = 21;
+	required string nick = 22;
+	required string head = 23;
+	required int32 sex = 24;
+	required string weapon = 25;
+	required string hero = 26;
+}
+
+message m_role_money_c
+{
+	required int32 gold = 1;
+	required int32 diamond = 2;
+}
+
+message m_role_money_s
+{
+}
+
+message m_bag_info_c
+{
+	repeatedgoods1 list = 1;
+}
+
+message m_bag_sell_s
+{
+	repeatedgoods1 sellgoods = 1;
+}
+
+message m_bag_info_s
+{
+}
+
+message m_bag_use_s
+{
+	required int32 id = 1;
+	required int32 num = 2;
+}
+
+message m_bag_use_c
+{
+	required int32 result = 1;
+}
+
+message m_bag_sell_c
+{
+	required int32 result = 1;
+}
+
+message m_bag_changedgoods_c
+{
+	repeatedgoods1 del = 1;
+	repeatedgoods1 changed = 2;
+}
+
+message m_bag_changedgoods_s
+{
+}
+
+message m_bag_add_c
+{
+	repeatedgoods1 bag = 1;
+}
+
+message m_bag_diamondnum_c
+{
+	required int32 diamondnum = 1;
+}
+
+message m_bag_diamondnum_s
+{
+	required int32 gold = 1;
+	repeatedgoods1 goods = 2;
+}
+
+message m_mail_attach_c
+{
+	required int32 code = 1;
+}
+
+message m_mail_read_s
+{
+	required int32 id = 1;
+}
+
+message m_mail_read_c
+{
+	required int32 code = 1;
+}
+
+message m_mail_attach_s
+{
+	required int32 id = 1;
+}
+
+message m_mail_new_s
+{
+}
+
+message m_mail_del_c
+{
+	repeatedint32 ids = 1;
+}
+
+message m_mail_del_s
+{
+	repeatedint32 ids = 1;
+}
+
+message m_mail_list_c
+{
+	repeatedp_mail_info list = 1;
+}
+
+message m_mail_list_s
+{
+}
+
+message m_mail_new_c
+{
+	required int32 type = 1;
+	required int32 num = 2;
+}
+
+message m_task_award_s
+{
+	required int32 id = 1;
+}
+
+message m_task_award_c
+{
+	required int32 code = 1;
+	required int32 id = 2;
+	repeatedp_item_info items = 3;
+}
+
+message m_task_ach_s
+{
+	required int32 type = 1;
+}
+
+message m_task_list_s
+{
+}
+
+message m_task_list_c
+{
+	repeatedtask_info data = 1;
+}
+
+message m_task_cat_c
+{
+	repeatedp_task_cat data = 1;
+}
+
+message m_task_ach_c
+{
+	required int32 type = 1;
+	repeatedtask_info data = 2;
+}
+
+message m_task_cat_s
+{
+}
+
+message m_equip_strength_c
+{
+	required int32 code = 1;
+	required int32 lv = 2;
+}
+
+message m_equip_fuse_s
+{
+	repeatedint32 ids = 1;
+}
+
+message m_equip_enchanting_c
+{
+	required int32 code = 1;
+	required int32 item_id = 2;
+	repeatedp_equip_attr attrs = 3;
+}
+
+message m_equip_strength_s
+{
+	required int32 id = 1;
+}
+
+message m_equip_syn_c
+{
+	required int32 code = 1;
+	required int32 id = 2;
+	required int32 new_id = 3;
+	required int32 new_num = 4;
+}
+
+message m_equip_inlay_s
+{
+	required int32 item_id = 1;
+	required int32 diamondid = 2;
+	required int32 diamond_pos = 3;
+}
+
+message m_equip_fuse_c
+{
+	required int32 code = 1;
+	required int32 gold = 2;
+	repeatedp_item_info items = 3;
+}
+
+message m_equip_syn_s
+{
+	required int32 id = 1;
+	required int32 num = 2;
+}
+
+message m_equip_inlay_c
+{
+	required int32 code = 1;
+	required int32 item_id = 2;
+	required int32 diamondid = 3;
+	required int32 diamond_pos = 4;
+}
+
+message m_equip_bag_s
+{
+}
+
+message m_equip_bag_c
+{
+	repeatedp_equip_item list = 1;
+}
+
+message m_equip_list_s
+{
+}
+
+message m_equip_list_c
+{
+	repeatedp_equip_wear list = 1;
+}
+
+message m_equip_skill_s
+{
+	required int32 id = 1;
+	required string skill_id = 2;
+}
+
+message m_equip_wear_c
+{
+	required int32 code = 1;
+	required int32 pos = 2;
+	required int32 id = 3;
+	required string item_id = 4;
+}
+
+message m_equip_enchanting_s
+{
+	required int32 item_id = 1;
+}
+
+message m_equip_skill_c
+{
+	required int32 code = 1;
+	required int32 id = 2;
+	required string skill_id = 3;
+}
+
+message m_equip_wear_s
+{
+	required int32 pos = 1;
+	required int32 id = 2;
+	required string item_id = 3;
+}
+
+message m_shop_list_c
+{
+	required int32 type = 1;
+	repeatedint32 list = 2;
+}
+
+message m_shop_list_s
+{
+	required int32 type = 1;
+}
+
+message m_shop_buy_c
+{
+	required int32 code = 1;
+	required int32 id = 2;
+}
+
+message m_shop_buy_s
+{
+	required int32 id = 1;
+}
+
+message m_friend_info_c
+{
+	repeatedfriend list = 1;
+}
+
+message m_friend_op_s
+{
+	required int32 role_id = 1;
+	required int32 type = 2;
+}
+
+message m_friend_new_c
+{
+}
+
+message m_friend_info_s
+{
+}
+
+message m_friend_op_c
+{
+	required int32 role_id = 1;
+	required int32 type = 2;
+	required int32 code = 3;
+}
+
+message m_friend_search_s
+{
+	required string name = 1;
+}
+
+message m_friend_search_c
+{
+	repeatedfriend list = 1;
+}
+
+message m_friend_request_s
+{
+}
+
+message m_friend_request_c
+{
+	repeatedfriend list = 1;
+}
+
+message m_chat_msg_s
+{
+	required int32 to = 1;
+	required int32 channel = 2;
+	required string msg = 3;
+}
+
+message m_chat_msg_c
+{
+	required int32 code = 1;
+	required int32 from_id = 2;
+	required string from_name = 3;
+	required int32 channel = 4;
+	required string msg = 5;
+}
+
+message m_guide_add_c
+{
+	required int32 code = 1;
+	required int32 id = 2;
+}
+
+message m_guide_list_s
+{
+}
+
+message m_guide_msg_s
+{
+	required int32 id = 1;
+}
+
+message m_guide_add_s
+{
+	required int32 id = 1;
+}
+
+message m_guide_list_c
+{
+	required int32 value = 1;
+}
+
+message m_signin_get_c
+{
+	required int32 time = 1;
+	required int32 id = 2;
+}
+
+message m_signin_online_s
+{
+	required int32 id = 1;
+}
+
+message m_signin_online_c
+{
+	required int32 code = 1;
+	required int32 id = 2;
+}
+
+message m_signin_award_s
+{
+}
+
+message m_signin_award_c
+{
+	required int32 code = 1;
+	repeatedp_item_info items = 2;
+}
+
+message m_signin_get_s
+{
+}
+
+message m_signin_info_c
+{
+	required int32 num = 1;
+	required bool ok = 2;
+}
+
+message m_signin_rep_s
+{
+	required int32 day = 1;
+}
+
+message m_signin_rep_c
+{
+	required int32 code = 1;
+	required int32 day = 2;
+}
+
+message m_signin_add_s
+{
+}
+
+message m_signin_add_c
+{
+	required int32 code = 1;
+	required int32 num = 2;
+	repeatedp_item_info items = 3;
+}
+
+message m_signin_info_s
+{
+}
+
+message m_liveness_award_c
+{
+	required int32 code = 1;
+	repeatedp_item_info items = 2;
+	required int32 pos = 3;
+}
+
+message m_liveness_award_s
+{
+	required int32 pos = 1;
+}
+
+message m_liveness_list_c
+{
+	repeatedp_daily task = 1;
+	repeatedint32 box = 2;
+	required int32 score = 3;
+}
+
+message m_liveness_list_s
+{
+}
+
+message m_time_syncreturn_c
+{
+	required double sendtime = 1;
+	required double servicetime = 2;
+}
+
+message m_time_sync_s
+{
+	required double sendtime = 1;
+}
+
+message m_time_resync_c
+{
+}
+
+message m_time_resync_s
+{
+}
+
+message m_room2_pool_c
+{
+	repeatedpool_data list = 1;
+	required int32 time = 2;
+}
+
+message m_room2_task_s
+{
+	required string id = 1;
+}
+
+message m_room2_level_c
+{
+	required int32 op = 1;
+	required int32 val = 2;
+}
+
+message m_room2_pool_s
+{
+}
+
+message m_room2_join_c
+{
+	required int32 code = 1;
+}
+
+message m_room2_reflashp_s
+{
+}
+
+message m_room2_task_c
+{
+	required int32 code = 1;
+	required int32 num = 2;
+}
+
+message m_room2_join_s
+{
+}
+
+message m_room2_exit_c
+{
+	required int32 code = 1;
+}
+
+message m_room2_exit_s
+{
+}
+
+message m_room2_cityadd_s
+{
+}
+
+message m_room2_users_c
+{
+	repeatedroom_user list = 1;
+}
+
+message m_room2_info_c
+{
+	repeatedString roominfo = 1;
+	required int32 gameplay = 2;
+}
+
+message m_room2_info_s
+{
+	repeatedString roominfo = 1;
+	required int32 gameplay = 2;
+}
+
+message m_room2_changeserver_c
+{
+	required bool server = 1;
+}
+
+message m_room2_report_s
+{
+	required double time = 1;
+}
+
+message m_room2_citymove_s
+{
+	required int16 role_id = 1;
+	required int16 x = 2;
+	required int16 z = 3;
+	required int32 time = 4;
+}
+
+message m_room2_citydel_c
+{
+	repeatedint32 list = 1;
+}
+
+message m_room2_level_s
+{
+	required int32 op = 1;
+	required int32 val = 2;
+}
+
+message m_room2_citymove_c
+{
+	required int16 role_id = 1;
+	required int16 x = 2;
+	required int16 z = 3;
+	required int32 time = 4;
+}
+
+message m_room2_timesync_s
+{
+	required double client_time = 1;
+}
+
+message m_room2_cityadd_c
+{
+	repeatedcity_player list = 1;
+}
+
+message m_room2_cityexit_s
+{
+}
+
+message m_room2_timesync_c
+{
+	required double client_time = 1;
+	required double server_time = 2;
+}
+
+message m_room2_reflashp_c
+{
+	required int32 code = 1;
+}
+
+message m_fight_loading_s
+{
+}
+
+message m_fight_loading_c
+{
+}
+
+message m_fight_cancel_s
+{
+}
+
+message m_fight_cancel_c
+{
+	required int32 code = 1;
+}
+
+message m_createflyobjectcmd_s
+{
+	required string m_flyname = 1;
+	required int32 m_flyid = 2;
+	required string m_skillid = 3;
+	required int32 m_createrid = 4;
+	required double m_posx = 5;
+	required double m_posy = 6;
+	required double m_posz = 7;
+	required double m_dirx = 8;
+	required double m_diry = 9;
+	required double m_dirz = 10;
+	required double m_executetime = 11;
+}
+message m_createflyobjectcmd_c
+{
+	required string m_flyname = 1;
+	required int32 m_flyid = 2;
+	required string m_skillid = 3;
+	required int32 m_createrid = 4;
+	required double m_posx = 5;
+	required double m_posy = 6;
+	required double m_posz = 7;
+	required double m_dirx = 8;
+	required double m_diry = 9;
+	required double m_dirz = 10;
+	required double m_executetime = 11;
+}
+
+message m_removecharactercmd_s
+{
+	required int32 m_characterid = 1;
+	required double m_executetime = 2;
+}
+message m_removecharactercmd_c
+{
+	required int32 m_characterid = 1;
+	required double m_executetime = 2;
+}
+
+message m_createskilltokencmd_s
+{
+	required string m_skillid = 1;
+	required int32 m_createrid = 2;
+	required int8 m_camp = 3;
+	required double m_posx = 4;
+	required double m_posy = 5;
+	required double m_posz = 6;
+	required double m_dirx = 7;
+	required double m_diry = 8;
+	required double m_dirz = 9;
+	required double m_executetime = 10;
+}
+message m_createskilltokencmd_c
+{
+	required string m_skillid = 1;
+	required int32 m_createrid = 2;
+	required int8 m_camp = 3;
+	required double m_posx = 4;
+	required double m_posy = 5;
+	required double m_posz = 6;
+	required double m_dirx = 7;
+	required double m_diry = 8;
+	required double m_dirz = 9;
+	required double m_executetime = 10;
+}
+
+message m_destroyflyobjectcmd_s
+{
+	required int32 m_flyid = 1;
+	required bool m_isshowhiteffect = 2;
+	required double m_posx = 3;
+	required double m_posy = 4;
+	required double m_posz = 5;
+	required double m_executetime = 6;
+}
+message m_destroyflyobjectcmd_c
+{
+	required int32 m_flyid = 1;
+	required bool m_isshowhiteffect = 2;
+	required double m_posx = 3;
+	required double m_posy = 4;
+	required double m_posz = 5;
+	required double m_executetime = 6;
+}
+
+message m_createcharactercmd_s
+{
+	required int8 m_charactertype = 1;
+	required string m_charactername = 2;
+	required int32 m_characterid = 3;
+	required int8 m_camp = 4;
+	required double m_posx = 5;
+	required double m_posy = 6;
+	required double m_posz = 7;
+	required double m_dirx = 8;
+	required double m_diry = 9;
+	required double m_dirz = 10;
+	required double m_amplification = 11;
+	required double m_executetime = 12;
+}
+message m_createcharactercmd_c
+{
+	required int8 m_charactertype = 1;
+	required string m_charactername = 2;
+	required int32 m_characterid = 3;
+	required int8 m_camp = 4;
+	required double m_posx = 5;
+	required double m_posy = 6;
+	required double m_posz = 7;
+	required double m_dirx = 8;
+	required double m_diry = 9;
+	required double m_dirz = 10;
+	required double m_amplification = 11;
+	required double m_executetime = 12;
+}
+
+message m_fight_setrole_s
+{
+	required string id = 1;
+}
+
+message m_fight_setrole_c
+{
+	required int8 code = 1;
+}
+
+message m_fight_end_s
+{
+}
+
+message m_fight_end_c
+{
+}
+
+message m_fight_match_s
+{
+}
+
+message m_createitemcmd_s
+{
+	required int32 m_itemid = 1;
+	required string m_itemname = 2;
+	required double m_posx = 3;
+	required double m_posy = 4;
+	required double m_posz = 5;
+	required double m_executetime = 6;
+}
+
+message m_createitemcmd_c
+{
+	repeatedp_map_item list = 1;
+	required double m_executetime = 2;
+}
+
+message m_fight_match_c
+{
+	required int32 code = 1;
+}
+
+message m_fight_rank_c
+{
+	repeatedp_rank lists = 1;
+}
+
+message m_diecmd_s
+{
+	required int32 m_characterid = 1;
+	required int32 m_killerid = 2;
+	required double m_executetime = 3;
+}
+message m_diecmd_c
+{
+	required int32 m_characterid = 1;
+	required int32 m_killerid = 2;
+	required double m_executetime = 3;
+}
+
+message m_createtrapcmd_s
+{
+	required int32 m_trapid = 1;
+	required string m_trapname = 2;
+	required double m_posx = 3;
+	required double m_posy = 4;
+	required double m_posz = 5;
+	required double m_dirx = 6;
+	required double m_diry = 7;
+	required double m_dirz = 8;
+	required int8 m_camp = 9;
+	required double m_executetime = 10;
+}
+message m_createtrapcmd_c
+{
+	required int32 m_trapid = 1;
+	required string m_trapname = 2;
+	required double m_posx = 3;
+	required double m_posy = 4;
+	required double m_posz = 5;
+	required double m_dirx = 6;
+	required double m_diry = 7;
+	required double m_dirz = 8;
+	required int8 m_camp = 9;
+	required double m_executetime = 10;
+}
+
+message m_traptriggercmd_s
+{
+	required int32 m_trapid = 1;
+	required double m_executetime = 2;
+}
+message m_traptriggercmd_c
+{
+	required int32 m_trapid = 1;
+	required double m_executetime = 2;
+}
+
+message m_skillcmd_s
+{
+	required string m_skillid = 1;
+	required double m_posx = 2;
+	required double m_posy = 3;
+	required double m_posz = 4;
+	required double m_skilldirx = 5;
+	required double m_skilldiry = 6;
+	required double m_skilldirz = 7;
+	required int16 m_creatcomandtime = 8;
+	required int32 m_characterid = 9;
+}
+message m_skillcmd_c
+{
+	required string m_skillid = 1;
+	required double m_posx = 2;
+	required double m_posy = 3;
+	required double m_posz = 4;
+	required double m_skilldirx = 5;
+	required double m_skilldiry = 6;
+	required double m_skilldirz = 7;
+	required int16 m_creatcomandtime = 8;
+	required int32 m_characterid = 9;
+}
+
+message m_rotationcmd_s
+{
+	required double m_dirx = 1;
+	required double m_diry = 2;
+	required double m_dirz = 3;
+	required int16 m_creatcomandtime = 4;
+	required int32 m_characterid = 5;
+}
+message m_rotationcmd_c
+{
+	required double m_dirx = 1;
+	required double m_diry = 2;
+	required double m_dirz = 3;
+	required int16 m_creatcomandtime = 4;
+	required int32 m_characterid = 5;
+}
+
+message m_createbloodvialcmd_s
+{
+	required int32 m_bloodvialid = 1;
+	required int8 m_camp = 2;
+	required double m_posx = 3;
+	required double m_posy = 4;
+	required double m_posz = 5;
+	required double m_executetime = 6;
+}
+message m_createbloodvialcmd_c
+{
+	required int32 m_bloodvialid = 1;
+	required int8 m_camp = 2;
+	required double m_posx = 3;
+	required double m_posy = 4;
+	required double m_posz = 5;
+	required double m_executetime = 6;
+}
+
+message m_pickupitemcmd_s
+{
+	required int32 m_itemid = 1;
+	required int32 m_characterid = 2;
+	required double m_executetime = 3;
+}
+message m_pickupitemcmd_c
+{
+	required int32 m_itemid = 1;
+	required int32 m_characterid = 2;
+	required double m_executetime = 3;
+}
+
+message m_destroyitemcmd_s
+{
+	required int32 m_itemid = 1;
+	required double m_executetime = 2;
+}
+message m_destroyitemcmd_c
+{
+	required int32 m_itemid = 1;
+	required double m_executetime = 2;
+}
+
+message m_pickupbloodvialcmd_s
+{
+	required int32 m_bloodvialid = 1;
+	required int32 m_characterid = 2;
+	required double m_executetime = 3;
+}
+message m_pickupbloodvialcmd_c
+{
+	required int32 m_bloodvialid = 1;
+	required int32 m_characterid = 2;
+	required double m_executetime = 3;
+}
+
+message m_destroybloodvialcmd_s
+{
+	required int32 m_bloodvialid = 1;
+	required double m_executetime = 2;
+}
+message m_destroybloodvialcmd_c
+{
+	required int32 m_bloodvialid = 1;
+	required double m_executetime = 2;
+}
+
+message m_addbuffcmd_s
+{
+	required int32 m_characterid = 1;
+	required int32 m_attackerid = 2;
+	required string m_buffid = 3;
+	required string m_skillid = 4;
+	required double m_executetime = 5;
+}
+message m_addbuffcmd_c
+{
+	required int32 m_characterid = 1;
+	required int32 m_attackerid = 2;
+	required string m_buffid = 3;
+	required string m_skillid = 4;
+	required double m_executetime = 5;
+}
+
+message m_removebuffcmd_s
+{
+	required int32 m_characterid = 1;
+	required string m_buffid = 2;
+	required double m_executetime = 3;
+}
+message m_removebuffcmd_c
+{
+	required int32 m_characterid = 1;
+	required string m_buffid = 2;
+	required double m_executetime = 3;
+}
+
+message m_damagecmd_s
+{
+	required int32 m_characterid = 1;
+	required int32 m_attackerid = 2;
+	required int32 m_damagenumber = 3;
+	required string m_skillid = 4;
+	required string m_buffid = 5;
+	required bool m_crit = 6;
+	required bool m_disrupting = 7;
+	required double m_executetime = 8;
+}
+message m_damagecmd_c
+{
+	required int32 m_characterid = 1;
+	required int32 m_attackerid = 2;
+	required int32 m_damagenumber = 3;
+	required string m_skillid = 4;
+	required string m_buffid = 5;
+	required bool m_crit = 6;
+	required bool m_disrupting = 7;
+	required double m_executetime = 8;
+}
+
+message m_recovercmd_s
+{
+	required int32 m_characterid = 1;
+	required int32 m_attackerid = 2;
+	required int32 m_recovernumber = 3;
+	required bool m_isautorecover = 4;
+	required string m_skillid = 5;
+	required string m_buffid = 6;
+	required double m_executetime = 7;
+}
+message m_recovercmd_c
+{
+	required int32 m_characterid = 1;
+	required int32 m_attackerid = 2;
+	required int32 m_recovernumber = 3;
+	required bool m_isautorecover = 4;
+	required string m_skillid = 5;
+	required string m_buffid = 6;
+	required double m_executetime = 7;
+}
+
+message m_blowflycmd_s
+{
+	required int32 m_flyerid = 1;
+	required int32 m_attackerid = 2;
+	required string m_shiftid = 3;
+	required double m_attackerposx = 4;
+	required double m_attackerposy = 5;
+	required double m_attackerposz = 6;
+	required double m_hurterposx = 7;
+	required double m_hurterposy = 8;
+	required double m_hurterposz = 9;
+	required double m_executetime = 10;
+}
+message m_blowflycmd_c
+{
+	required int32 m_flyerid = 1;
+	required int32 m_attackerid = 2;
+	required string m_shiftid = 3;
+	required double m_attackerposx = 4;
+	required double m_attackerposy = 5;
+	required double m_attackerposz = 6;
+	required double m_hurterposx = 7;
+	required double m_hurterposy = 8;
+	required double m_hurterposz = 9;
+	required double m_executetime = 10;
+}
+
+message m_attackcmd_s
+{
+	required double m_dirx = 1;
+	required double m_diry = 2;
+	required double m_dirz = 3;
+	required double m_posx = 4;
+	required double m_posy = 5;
+	required double m_posz = 6;
+	required int16 m_creatcomandtime = 7;
+	required int32 m_characterid = 8;
+}
+message m_attackcmd_c
+{
+	required double m_dirx = 1;
+	required double m_diry = 2;
+	required double m_dirz = 3;
+	required double m_posx = 4;
+	required double m_posy = 5;
+	required double m_posz = 6;
+	required int16 m_creatcomandtime = 7;
+	required int32 m_characterid = 8;
+}
+
+message m_movecmd_s
+{
+	required int16 m_dirx = 1;
+	required int16 m_dirz = 2;
+	required int32 m_test = 3;
+	required double m_posx = 4;
+	required double m_posy = 5;
+	required double m_posz = 6;
+	required bool m_isonlyturn = 7;
+	required int16 m_creatcomandtime = 8;
+	required int32 m_characterid = 9;
+}
+message m_movecmd_c
+{
+	required int16 m_dirx = 1;
+	required int16 m_dirz = 2;
+	required int32 m_test = 3;
+	required double m_posx = 4;
+	required double m_posy = 5;
+	required double m_posz = 6;
+	required bool m_isonlyturn = 7;
+	required int16 m_creatcomandtime = 8;
+	required int32 m_characterid = 9;
+}
+
+message m_changeweaponcmd_s
+{
+	required string m_weaponid = 1;
+	required int16 m_creatcomandtime = 2;
+	required int32 m_characterid = 3;
+}
+message m_changeweaponcmd_c
+{
+	required string m_weaponid = 1;
+	required int16 m_creatcomandtime = 2;
+	required int32 m_characterid = 3;
+}
+
+message m_resurgencecmd_s
+{
+	required int16 m_creatcomandtime = 1;
+	required int32 m_characterid = 2;
+}
+message m_resurgencecmd_c
+{
+	required int16 m_creatcomandtime = 1;
+	required int32 m_characterid = 2;
+}
+
+message m_chest_open_c
+{
+	required int32 code = 1;
+	required int32 id = 2;
+	required int32 time = 3;
+	repeatedp_item_info items = 4;
+}
+
+message m_chest_open_s
+{
+	required int32 id = 1;
+}
+
+message m_chest_init_c
+{
+	required int32 id = 1;
+	required int32 time = 2;
+}
+
+message m_chest_init_s
+{
+}
+

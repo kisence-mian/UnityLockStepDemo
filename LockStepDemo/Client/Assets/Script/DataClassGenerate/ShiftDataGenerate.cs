@@ -6,11 +6,11 @@ using UnityEngine;
 public class ShiftDataGenerate : DataGenerateBase 
 {
 	public string m_key;
-	public DirectionEnum m_Direction; //方向
-	public float m_Distance; //距离
-	public float m_Height; //高度
-	public float m_Time; //时间
-	public Vector3 m_GhostColor; //残影颜色
+	public DirectionEnum m_Direction;
+	public float m_Distance;
+	public float m_Height;
+	public float m_Time;
+	public Vector3 m_GhostColor;
 
 	public override void LoadData(string key) 
 	{

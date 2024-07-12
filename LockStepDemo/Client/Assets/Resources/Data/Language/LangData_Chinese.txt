@@ -1,0 +1,41 @@
+key	value
+default	NoValue
+NoUpdate	无需更新
+NeedUpdateApplication	需要整包更新
+VersionFileDownLoadFail	版本文件下载失败
+Md5FileDownLoadFail	索引文件下载失败
+UpdateFail	更新失败
+UpdateSuccess	更新成功
+DownLoadingMd5File	正在取得索引表
+DownLoadingVersionFile	正在获取服务器版本
+Updating	更新中
+EnemyWaves	第{0}波
+task_title_info	找到圣女
+level_4_info2	护送圣女离开沙漠
+level_0_name	决一死战
+level_1_name	序章：第一幕 新兵
+level_2_name	序章：第二幕 侦查
+level_3_name	序章：第三幕 隐秘
+task_title	序章：第四幕 驰援
+level_5_name	序章：第五幕 陷阱
+level_6_name	序章：第六幕 真相
+level_7_name	序章：第七幕 危机
+level_8_name	序章：第八幕 封印
+level_9_name	序章：第九幕 净化
+level_10_name	序章：终幕 魔王归来
+level_11_name	第一章：圣女危机
+mission_1_1	调查遗迹
+mission_1_2	消灭所有魔怪
+mission_2_1	破坏仪式{0}/1
+mission_3_1	杀死暗黑萨满 {0}/1
+mission_4_1	找到圣女的藏身处
+mission_4_2	护送圣女安全离开
+mission_5_1	保护圣女{0}秒
+mission_6_1	击败死亡骑士 {0}/1
+mission_7_1	护送圣女
+mission_8_1	破坏仪式 {0}/3
+mission_9_1	杀死幽魂 {0}/3
+mission_10_1	守护圣女 {0} 秒
+mission_0_1	突破魔王的防守 {0}/3
+mission_0_2	击败魔王
+mission_9_2	杀死幽魂

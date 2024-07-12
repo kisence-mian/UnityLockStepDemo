@@ -1,0 +1,8 @@
+ShokeID	TimeLength	Amount	DecreaseFactor	RandomOffest	weight
+type	Float	Float	Float	Vector3	Vector3
+note	时长	振幅	震动速度	起始偏移	权重
+default	0	0	0	0|0|0	1|1|1
+normalLeft	0.2	0.25	1	-0.1|0|0	
+normalRight	0.2	0.25	1	0.1|0|0	
+largeLeft	0.3	0.4	1	-0.1|0|0	
+largeForward	0.3	0.4	1	0|0|0.2	0|0|1

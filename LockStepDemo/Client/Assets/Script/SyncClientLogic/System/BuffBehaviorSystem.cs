@@ -42,10 +42,10 @@ public class BuffBehaviorSystem : SystemBase
 
     void AddComp(EntityBase entity)
     {
-        //if (!entity.GetExistComp<BuffEffectComponent>())
-        //{
-        //    entity.AddComp<BuffEffectComponent>();
-        //}
+        if (!entity.GetExistComp<BuffEffectComponent>())
+        {
+            entity.AddComp<BuffEffectComponent>();
+        }
     }
 
     void BuffEffectLogic(EntityBase entity)
@@ -158,11 +158,11 @@ public class BuffBehaviorSystem : SystemBase
 
                 bep.buffEffectID = EffectID;
 
-                Debug.Log("创建BUFF " + EffectID);
+                //Debug.Log("创建BUFF " + EffectID);
             }
             else
             {
-                Debug.Log("已存在");
+                //Debug.Log("已存在");
             }
         }
     }

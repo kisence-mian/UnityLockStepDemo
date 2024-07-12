@@ -1,13 +1,13 @@
-ID	ModelName	HitFXCreatPoint	HitEffect	Speed	Radius	LiveTime	CollisionTrigger	TriggerSkill	AcrossEnemy	HitSFX
-type	String	Enum|HardPointEnum	String	Float	Float	Float	Bool	String	Bool	String
-note				é£è¡Œé€Ÿåº¦	ç¢°æ’åŠå¾„	å­˜æ´»æ—¶é—´	æ˜¯å¦è¿›è¡Œç¢°æ’æ£€æµ‹	ç¢°æ’åé‡Šæ”¾æŠ€èƒ½	ç©¿é€æ•Œäºº	
-default	AssMFX_DuBiao_fly_00	chest	AssMFX_DuBiao_hit_00	30	0.2	5	TRUE	null	FALSE	null
-att1999Fly	EFX_atk_01	chest	EFX_atk_02	4	0.2	1.2	TRUE	null	FALSE	null
-att2000Fly	EFX_fire_01_1	chest	EFX_fire_01_3	4	0.3	1.2	TRUE	null	FALSE	null
-att2001Fly	EFX_water_01_1	chest	EFX_water_01_3	3.8	0.15	1.35	TRUE	null	FALSE	null
-att2003Fly	EFX_soil_01_1	chest	EFX_soil_01_3	2	0.25	2	FALSE	null	TRUE	null
-att2101Fly	EFX_soil_01_1	chest	EFX_soil_01_3	4.5	0.15	1	TRUE	3000	FALSE	null
-att2102Fly		chest								
-att2103Fly		chest								
-att2104Fly		chest								
-att2105Fly		chest								
+ID	ModelName	HitFXCreatPoint	HitEffect	Speed	Radius	LiveTime	CollisionTrigger	TriggerSkill	AcrossEnemy	HitSFX	HurtBuff	BlowFlyID
+type	String	Enum|HardPointEnum	String	Float	Float	Float	Bool	String	Bool	String	StringArray	String
+note				·ÉĞĞËÙ¶È	Åö×²°ë¾¶	´æ»îÊ±¼ä	ÊÇ·ñ½øĞĞÅö×²¼ì²â	Åö×²ºóÊÍ·Å¼¼ÄÜ	´©Í¸µĞÈË		¸ø±ğÈËbuff	Ôì³ÉÄ¿±ê»÷·ÉID
+default	AssMFX_DuBiao_fly_00	chest	AssMFX_DuBiao_hit_00	30	0.2	5	TRUE	null	FALSE	null	null	null
+att1999Fly	EFX_atk_01	chest	EFX_atk_02	8	0.2	1.2	TRUE	null	FALSE	null	null	null
+att2000Fly	EFX_fire_01_1	chest	EFX_fire_01_3	8	0.3	1.2	TRUE	null	FALSE	null	2000	
+att2001Fly	EFX_water_01_1	chest	EFX_water_01_3	6.5	0.3	1.8	TRUE	null	FALSE	null	2001	null
+att2003Fly	EFX_soil_01_1	chest	EFX_soil_01_3	2	0.25	2	FALSE	null	TRUE	null	null	null
+att2101Fly	EFX_soil_01_1	chest	EFX_soil_01_3	4.5	0.15	1	TRUE	3000	FALSE	null	null	null
+att2102Fly	EFX_firesoil_01_1	chest	EFX_fire_01_3	4	1	1	FALSE					null
+att2103Fly		chest										null
+att2104Fly		chest										null
+att2105Fly		chest										null

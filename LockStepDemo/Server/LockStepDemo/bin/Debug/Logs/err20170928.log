@@ -1,0 +1,52 @@
+﻿2017-09-28 17:06:23,261 [24328] ERROR LockStepDemo - UpdateWorld Exception：System.ArgumentOutOfRangeException: 索引超出范围。必须为非负值并小于集合大小。
+参数名: index
+   在 System.ThrowHelper.ThrowArgumentOutOfRangeException(ExceptionArgument argument, ExceptionResource resource)
+   在 System.Collections.Generic.List`1.get_Item(Int32 index)
+   在 ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 42
+   在 PlayerInputSystem.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 38
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 293
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 236
+   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-09-28 17:48:49,884 [27844] ERROR LockStepDemo - UpdateWorld Exception：System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ConnectionComponent.GetForecast(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 64
+   在 ConnectionComponent.GetCommand(Int32 frame) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\Component\ConnectionComponent.cs:行号 34
+   在 PlayerInputSystem.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\ServiceLogic\System\PlayerInputSystem.cs:行号 23
+   在 WorldBase.NoRecalcBeforeFixedUpdate(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 293
+   在 WorldBase.FixedLoop(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\ECS\WorldBase.cs:行号 236
+   在 UpdateEngine.UpdateWorld(Int32 deltaTime) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Service\Game\UpdateEngine.cs:行号 66
+2017-09-28 17:51:47,400 [24104] ERROR LockStepDemo - Session: 192.168.89.146:54589/192.168.89.146:54589
+The session is refused because the it's ID already exists!
+2017-09-28 17:51:47,400 [23836] ERROR LockStepDemo - Session: 192.168.89.146:54589/192.168.89.146:54589
+The session is refused because the it's ID already exists!
+2017-09-28 17:51:47,400 [22396] ERROR LockStepDemo - Session: 192.168.89.146:54589/192.168.89.146:54589
+The session is refused because the it's ID already exists!
+2017-09-28 17:51:48,821 [22396] ERROR LockStepDemo - Session: 192.168.89.146:54588/192.168.89.146:54588
+The session is refused because the it's ID already exists!
+2017-09-28 17:52:47,395 [27776] ERROR LockStepDemo - Session: 192.168.89.146:54589/192.168.89.146:54589
+The session is refused because the it's ID already exists!
+2017-09-28 17:56:39,275 [17976] ERROR LockStepDemo - Session: 192.168.89.146:53316/192.168.89.146:53316
+The session is refused because the it's ID already exists!
+2017-09-28 17:56:39,275 [21288] ERROR LockStepDemo - Session: 192.168.89.146:53316/192.168.89.146:53316
+The session is refused because the it's ID already exists!
+2017-09-28 17:56:39,276 [28772] ERROR LockStepDemo - Session: 192.168.89.146:53316/192.168.89.146:53316
+The session is refused because the it's ID already exists!
+2017-09-28 17:56:42,433 [21288] ERROR LockStepDemo - Session: 192.168.89.146:53318/192.168.89.146:53318
+The session is refused because the it's ID already exists!
+2017-09-28 18:08:33,074 [11916] ERROR LockStepDemo - Session: 192.168.89.146:58769/192.168.89.146:58769
+The session is refused because the it's ID already exists!
+2017-09-28 18:08:33,074 [9856] ERROR LockStepDemo - Session: 192.168.89.146:58769/192.168.89.146:58769
+The session is refused because the it's ID already exists!
+2017-09-28 18:08:33,074 [29620] ERROR LockStepDemo - Session: 192.168.89.146:58769/192.168.89.146:58769
+The session is refused because the it's ID already exists!
+2017-09-28 19:09:03,345 [30972] ERROR LockStepDemo - Send Messge Exception System.TimeoutException: The sending attempt timed out
+   在 SuperSocket.SocketBase.AppSession`2.InternalSend(ArraySegment`1 segment)
+   在 SuperSocket.SocketBase.AppSession`2.Send(Byte[] data, Int32 offset, Int32 length)
+   在 LockStepDemo.SessionSendExpand.SendMsg(SyncSession session, String key, Dictionary`2 data) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolSendExpand.cs:行号 66
+2017-09-28 19:13:39,099 [30972] ERROR LockStepDemo - Send Messge Exception System.TimeoutException: The sending attempt timed out
+   在 SuperSocket.SocketBase.AppSession`2.InternalSend(ArraySegment`1 segment)
+   在 SuperSocket.SocketBase.AppSession`2.Send(Byte[] data, Int32 offset, Int32 length)
+   在 LockStepDemo.SessionSendExpand.SendMsg(SyncSession session, String key, Dictionary`2 data) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolSendExpand.cs:行号 66
+2017-09-28 19:14:48,136 [30972] ERROR LockStepDemo - Send Messge Exception System.TimeoutException: The sending attempt timed out
+   在 SuperSocket.SocketBase.AppSession`2.InternalSend(ArraySegment`1 segment)
+   在 SuperSocket.SocketBase.AppSession`2.Send(Byte[] data, Int32 offset, Int32 length)
+   在 LockStepDemo.SessionSendExpand.SendMsg(SyncSession session, String key, Dictionary`2 data) 位置 F:\workTable\UnityProject\LockStepDemo\LockStepDemo\Server\LockStepDemo\Protocol\ProtocolSendExpand.cs:行号 66

@@ -44,26 +44,26 @@ public class ResurgenceSystem :SystemBase
         }
     }
 
-    //public override void OnEntityCompChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
-    //{
-    //    if(compName == "LifeComponent")
-    //    {
-    //        LifeComponent oldLc = (LifeComponent)previousComponent;
-    //        LifeComponent newLc = (LifeComponent)newComponent;
+    public override void OnEntityCompChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
+    {
+        if(compName == "LifeComponent")
+        {
+            LifeComponent oldLc = (LifeComponent)previousComponent;
+            LifeComponent newLc = (LifeComponent)newComponent;
 
-    //        //Debug.Log("OnEntityCompChange " + oldLc.life + " --> " + newLc.life);
+            //Debug.Log("OnEntityCompChange " + oldLc.life + " --> " + newLc.life);
 
-    //        if (oldLc.life < 0 && newLc.life > 0)
-    //        {
-    //            m_world.eventSystem.DispatchEvent(GameUtils.GetEventKey(entity.ID, CharacterEventType.Recover), entity);
-    //        }
+            if (oldLc.life < 0 && newLc.life > 0)
+            {
+                m_world.eventSystem.DispatchEvent(GameUtils.GetEventKey(entity.ID, CharacterEventType.Recover), entity);
+            }
 
-    //        if (oldLc.life > 0 && newLc.life < 0)
-    //        {
-    //            m_world.eventSystem.DispatchEvent(GameUtils.GetEventKey(entity.ID, CharacterEventType.Die), entity);
-    //        }
-    //    }
-    //}
+            if (oldLc.life > 0 && newLc.life < 0)
+            {
+                m_world.eventSystem.DispatchEvent(GameUtils.GetEventKey(entity.ID, CharacterEventType.Die), entity);
+            }
+        }
+    }
 
     //void DispatchEvent(LifeComponent comp)
     //{

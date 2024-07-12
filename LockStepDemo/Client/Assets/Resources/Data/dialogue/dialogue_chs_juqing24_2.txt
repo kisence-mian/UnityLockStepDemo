@@ -1,0 +1,10 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia			魅魔	big_head_13	终于来啦！人家等得好着急呢！
+2	dia			魅魔	big_head_13	人家一个柔弱的小女人，难道你们两想一起上么！
+3	dia			教官	big_head_1	额...这好像是有点欺负人的感觉！
+4	dia			player	big_head_5|big_head_6	教官你清醒一点，别中了魅魔的诡计！
+5	dia			魅魔	big_head_13	什么诡计不诡计啊...难道你们都不会怜香惜玉么...
+6	dia			player	big_head_5|big_head_6	你这怪物不知道魅魔了多少人，今天我们是不会中你的计的，受死吧！

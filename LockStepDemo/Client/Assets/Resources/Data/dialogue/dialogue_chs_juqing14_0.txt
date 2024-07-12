@@ -1,0 +1,15 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia			player	big_head_5|big_head_6	总算逃回来了，圣女殿下没事吧？
+2	dia	教官	big_head_7			幸亏有你接应，否则后果不堪设想，我这就用冰晶来去除火毒唤醒圣女
+3	dia			圣女	big_head_2	我。。。这是哪里？啊！！不好！
+4	dia			player	big_head_5|big_head_6	你总算醒了，差点你就被魔族的人抓走了！他们好像在对你施加过一个仪式。。
+5	dia			圣女	big_head_2	是的！我的意识被他们拉入了一场梦魇中，我看到了很多东西，我知道他们想干什么了！
+6	dia	教官	big_head_7			有什么有用的情报吗？我们对魔族的动向一无所知，实在太被动了
+7	dia			圣女	big_head_2	圣光之眼！他们找到了一种利用圣光之眼，污染圣光力量来培养魔王魔念的方法！
+8	dia			圣女	big_head_2	魔王并没有完全复活，我们之前遇到的只是一缕魔念，但是他们就快成功了！
+9	dia			player	big_head_5|big_head_6	那我们怎么办？坐以待毙吗？
+10	dia			圣女	big_head_2	我已经知道他们下一个目标在哪里了，我们需要抢在他们前面收集其剩余的圣光之眼碎片！
+11	dia			圣女	big_head_2	立即出发，下一个圣光之眼碎片的下落我已经知道，你先去，我恢复一下就赶去！

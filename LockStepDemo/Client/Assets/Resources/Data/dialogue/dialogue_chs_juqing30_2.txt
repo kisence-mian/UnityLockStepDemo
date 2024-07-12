@@ -1,0 +1,8 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia			波拉特	big_head_12	愚蠢的人类，真是毫无智慧，你们以为我会毫无准备就来攻打圣城吗？
+2	dia			波拉特	big_head_12	你们的防御力量早已经被瓦解，现在你们已经身在我的陷阱之中，乖乖的受死吧！
+3	dia			player	big_head_5|big_head_6	不好，我们好像无法和圣城取得任何联系！
+4	dia			圣女	big_head_2	“波拉特”被一股神秘的力量保护着，我们无法对他造成伤害，我们先暂时撤退，在路上我会想办法破除这种力量！

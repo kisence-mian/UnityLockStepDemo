@@ -15,13 +15,10 @@ public class BuffDataGenerate : DataGenerateBase
 	public float m_AttackChangePercantage; //攻击百分比
 	public int m_SpeedChange; //速度改变
 	public float m_SpeedChangePercentage; //速度百分比
+	public bool m_Dizziness;
 	public float m_BuffEffectSpace; //生效间隔
-	public bool m_Invincible; //无敌
-	public string m_BuffCreateSFX; //Buff创建音效
-	public string m_BuffExitSFX; //buff消失音效
-	public string m_BuffSFX; //Buff持续音效
-	public bool m_Dizziness; //眩晕
 	public bool m_Cloaking; //隐形
+	public bool m_Invincible; //无敌
 	public bool m_BeDamageInterrupt; //伤害打断
 	public bool m_UseSkilIinterrupt; //使用技能打断
 	public int m_RecoverNumber; //生命恢复值
@@ -29,6 +26,9 @@ public class BuffDataGenerate : DataGenerateBase
 	public bool m_IsTakeOver; //是否接管角色
 	public string m_AnimName; //接管角色后的动画名
 	public bool m_TrueSight; //真视
+	public string m_BuffCreateSFX; //Buff创建音效
+	public string m_BuffExitSFX; //buff消失音效
+	public string m_BuffSFX; //Buff持续音效
 	public string m_BuffhitSFX; //Buff伤害音效
 	public int m_defChange; //防御力改变
 	public int m_hprecoverChange; //生命恢复改变
@@ -68,13 +68,10 @@ public class BuffDataGenerate : DataGenerateBase
 		m_AttackChangePercantage = data.GetFloat("AttackChangePercantage");
 		m_SpeedChange = data.GetInt("SpeedChange");
 		m_SpeedChangePercentage = data.GetFloat("SpeedChangePercentage");
-		m_BuffEffectSpace = data.GetFloat("BuffEffectSpace");
-		m_Invincible = data.GetBool("Invincible");
-		m_BuffCreateSFX = data.GetString("BuffCreateSFX");
-		m_BuffExitSFX = data.GetString("BuffExitSFX");
-		m_BuffSFX = data.GetString("BuffSFX");
 		m_Dizziness = data.GetBool("Dizziness");
+		m_BuffEffectSpace = data.GetFloat("BuffEffectSpace");
 		m_Cloaking = data.GetBool("Cloaking");
+		m_Invincible = data.GetBool("Invincible");
 		m_BeDamageInterrupt = data.GetBool("BeDamageInterrupt");
 		m_UseSkilIinterrupt = data.GetBool("UseSkilIinterrupt");
 		m_RecoverNumber = data.GetInt("RecoverNumber");
@@ -82,6 +79,9 @@ public class BuffDataGenerate : DataGenerateBase
 		m_IsTakeOver = data.GetBool("IsTakeOver");
 		m_AnimName = data.GetString("AnimName");
 		m_TrueSight = data.GetBool("TrueSight");
+		m_BuffCreateSFX = data.GetString("BuffCreateSFX");
+		m_BuffExitSFX = data.GetString("BuffExitSFX");
+		m_BuffSFX = data.GetString("BuffSFX");
 		m_BuffhitSFX = data.GetString("BuffhitSFX");
 		m_defChange = data.GetInt("defChange");
 		m_hprecoverChange = data.GetInt("hprecoverChange");

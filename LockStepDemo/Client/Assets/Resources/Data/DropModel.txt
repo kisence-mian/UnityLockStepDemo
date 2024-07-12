@@ -1,0 +1,9 @@
+typeID	modelName	dropOutID
+type	String	String
+note		
+default	null	null
+baoxiang	jinbidl_03	baoxiang01
+0	jinbidl_03	baoxiang01
+1	dajian	baoxiang01
+2	fazhang	baoxiang01
+3	shuangdao	baoxiang01

@@ -1,0 +1,53 @@
+﻿2017-09-22 18:46:58,751 [44128] INFO  SyncService-46104728 - The server instance SyncService-46104728 has been started!
+2017-09-22 18:47:22,107 [44764] INFO  SyncService-46104728 - Session: 2c5a77ee-476e-43c9-a65a-6be781840861/192.168.89.146:56714
+A new session connected!
+2017-09-22 18:47:43,710 [44764] INFO  SyncService-46104728 - Session: 47209be9-f4a4-4e76-ac26-828603f0d79e/192.168.89.146:56801
+A new session connected!
+2017-09-22 18:50:24,001 [7952] INFO  SyncService-46104728 - The server instance SyncService-46104728 has been started!
+2017-09-22 18:50:34,002 [45628] INFO  SyncService-46104728 - Session: be2950b0-737c-48d6-8c50-88c45608f823/192.168.89.146:57325
+A new session connected!
+2017-09-22 18:53:06,549 [37796] INFO  SyncService-46104728 - The server instance SyncService-46104728 has been started!
+2017-09-22 18:53:13,153 [45592] INFO  SyncService-46104728 - Session: ab109de5-2b64-4f81-854d-d77b5ff7b285/192.168.89.146:57764
+A new session connected!
+2017-09-22 18:54:06,131 [44936] INFO  SyncService-46104728 - The server instance SyncService-46104728 has been started!
+2017-09-22 18:54:07,821 [45900] INFO  SyncService-46104728 - Session: 63c3d84b-49cd-49c5-bbdb-a6f8a77475a3/192.168.89.146:57930
+A new session connected!
+2017-09-22 18:56:55,999 [46200] INFO  SyncService-46104728 - The server instance SyncService-46104728 has been started!
+2017-09-22 18:57:00,699 [46652] INFO  SyncService-46104728 - Session: bca53661-ef5e-4582-bff7-67524bb8f57d/192.168.89.146:58422
+A new session connected!
+2017-09-22 19:00:35,430 [45980] INFO  SyncService-46104728 - The server instance SyncService-46104728 has been started!
+2017-09-22 19:00:43,753 [36980] INFO  SyncService-46104728 - Session: 304b56ba-968d-4b06-a305-2c02d243f8b3/192.168.89.146:59039
+A new session connected!
+2017-09-22 19:12:55,188 [47400] INFO  SyncService-46104728 - The server instance SyncService-46104728 has been started!
+2017-09-22 19:13:00,642 [41204] INFO  SyncService-46104728 - Session: 5006a803-8b8b-4f8e-b0ba-10a36655dc3d/192.168.89.146:60990
+A new session connected!
+2017-09-22 19:13:37,388 [45008] INFO  SyncService-46104728 - The server instance SyncService-46104728 has been started!
+2017-09-22 19:13:42,139 [47532] INFO  SyncService-46104728 - Session: bf414901-0279-40fa-b64d-c2d3ae3cdc31/192.168.89.146:61104
+A new session connected!
+2017-09-22 19:13:58,516 [47532] INFO  SyncService-46104728 - Session: f8de7174-21c6-4156-b3fb-0868c8080a8f/192.168.89.146:61156
+A new session connected!
+2017-09-22 19:14:13,586 [38556] INFO  SyncService-46104728 - Session: f8de7174-21c6-4156-b3fb-0868c8080a8f/192.168.89.146:61156
+This session was closed for ClientClosing!
+2017-09-22 19:14:14,679 [37424] INFO  SyncService-46104728 - Session: bf414901-0279-40fa-b64d-c2d3ae3cdc31/192.168.89.146:61104
+This session was closed for ClientClosing!
+2017-09-22 19:14:22,860 [47532] INFO  SyncService-46104728 - Session: 2a788908-ee73-4e2c-b2bf-630a54ab8fce/192.168.89.146:61243
+A new session connected!
+2017-09-22 19:14:26,779 [37424] INFO  SyncService-46104728 - Session: 2a788908-ee73-4e2c-b2bf-630a54ab8fce/192.168.89.146:61243
+This session was closed for ClientClosing!
+2017-09-22 19:14:31,255 [47532] INFO  SyncService-46104728 - Session: 14da2771-038c-43bc-85ad-282530644ff4/192.168.89.146:61269
+A new session connected!
+2017-09-22 19:14:33,230 [47148] INFO  SyncService-46104728 - Session: 14da2771-038c-43bc-85ad-282530644ff4/192.168.89.146:61269
+This session was closed for ClientClosing!
+2017-09-22 19:14:37,385 [47532] INFO  SyncService-46104728 - Session: 17bd7247-bd35-4d3f-a741-db21fc5d0607/192.168.89.146:61286
+A new session connected!
+2017-09-22 19:14:40,287 [47148] INFO  SyncService-46104728 - Session: 17bd7247-bd35-4d3f-a741-db21fc5d0607/192.168.89.146:61286
+This session was closed for SocketError!
+2017-09-22 19:16:59,677 [41960] INFO  SyncService-46104728 - The server instance SyncService-46104728 has been started!
+2017-09-22 19:17:05,957 [48360] INFO  SyncService-46104728 - Session: ce05c8b6-d182-4f42-aae7-a40e64b2ef47/192.168.89.146:61691
+A new session connected!
+2017-09-22 19:17:11,567 [48360] INFO  SyncService-46104728 - Session: 1cf9920b-8dbe-47a7-9908-f4ffb8167d4d/192.168.89.146:61710
+A new session connected!
+2017-09-22 19:17:18,380 [48360] INFO  SyncService-46104728 - Session: ce05c8b6-d182-4f42-aae7-a40e64b2ef47/192.168.89.146:61691
+This session was closed for SocketError!
+2017-09-22 19:17:51,005 [48688] INFO  SyncService-46104728 - Session: 1cf9920b-8dbe-47a7-9908-f4ffb8167d4d/192.168.89.146:61710
+This session was closed for ClientClosing!

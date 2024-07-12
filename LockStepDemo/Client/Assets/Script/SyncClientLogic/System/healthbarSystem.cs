@@ -7,12 +7,12 @@ public class HealthBarSystem :SystemBase
 {
     public override void Init()
     {
-        AddEntityOptimizeDestroyLisnter();
+        AddEntityDestroyLisnter();
     }
 
     public override void Dispose()
     {
-        RemoveEntityOptimizeDestroyLisnter();
+        RemoveEntityDestroyLisnter();
     }
 
     public override Type[] GetFilter()
@@ -25,29 +25,29 @@ public class HealthBarSystem :SystemBase
 
     public override void Update(int deltaTime)
     {
-        //List<EntityBase> list = GetEntityList();
+        List<EntityBase> list = GetEntityList();
 
-        //for (int i = 0; i < list.Count; i++)
-        //{
-        //    if(!list[i].GetExistComp<HealthBarComponent>())
-        //    {
-        //        FightBehaveWindow ui = UIManager.OpenUIWindow<FightBehaveWindow>();
-        //        ui.SetEntity(list[i]);
+        for (int i = 0; i < list.Count; i++)
+        {
+            if(!list[i].GetExistComp<HealthBarComponent>())
+            {
+                FightBehaveWindow ui = UIManager.OpenUIWindow<FightBehaveWindow>();
+                ui.SetEntity(list[i]);
 
-        //        HealthBarComponent hbc = new HealthBarComponent();
-        //        hbc.m_ui = ui;
+                HealthBarComponent hbc = new HealthBarComponent();
+                hbc.m_ui = ui;
 
-        //        list[i].AddComp(hbc);
-        //    }
-        //}
+                list[i].AddComp(hbc);
+            }
+        }
     }
 
-    public override void OnEntityOptimizeDestroy(EntityBase entity)
+    public override void OnEntityDestroy(EntityBase entity)
     {
-        //if(entity.GetExistComp<HealthBarComponent>())
-        //{
-        //    HealthBarComponent hc = entity.GetComp<HealthBarComponent>();
-        //    UIManager.CloseUIWindow(hc.m_ui);
-        //}
+        if(entity.GetExistComp<HealthBarComponent>())
+        {
+            HealthBarComponent hc = entity.GetComp<HealthBarComponent>();
+            UIManager.CloseUIWindow(hc.m_ui);
+        }
     }
 }

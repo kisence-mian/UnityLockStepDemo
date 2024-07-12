@@ -1,16 +1,5 @@
 package all;
 
-message m_affirmmsg_s
-{
-	required int32 index = 1;
-	required int32 time = 2;
-}
-message m_affirmmsg_c
-{
-	required int32 index = 1;
-	required int32 time = 2;
-}
-
 message m_changecomponentmsg_s
 {
 	required int32 frame = 1;
@@ -33,19 +22,6 @@ message m_changesingletoncomponentmsg_c
 {
 	required int32 frame = 1;
 	required componentinfo info = 2;
-}
-
-message m_commandmsg_s
-{
-	required int32 index = 1;
-	required int32 servertime = 2;
-	repeated commandinfo msg = 3;
-}
-message m_commandmsg_c
-{
-	required int32 index = 1;
-	required int32 servertime = 2;
-	repeated commandinfo msg = 3;
 }
 
 message m_debugmsg_s
@@ -72,32 +48,13 @@ message m_destroyentitymsg_c
 
 message m_pursuemsg_s
 {
-	required int32 id = 1;
-	required int32 recalcframe = 2;
-	required int32 frame = 3;
-	required int32 advancecount = 4;
-	required int32 servertime = 5;
-	required double updatespeed = 6;
+	required int32 frame = 1;
+	required int32 advancecount = 2;
 }
 message m_pursuemsg_c
 {
-	required int32 id = 1;
-	required int32 recalcframe = 2;
-	required int32 frame = 3;
-	required int32 advancecount = 4;
-	required int32 servertime = 5;
-	required double updatespeed = 6;
-}
-
-message m_querycommand_s
-{
 	required int32 frame = 1;
-	required int32 id = 2;
-}
-message m_querycommand_c
-{
-	required int32 frame = 1;
-	required int32 id = 2;
+	required int32 advancecount = 2;
 }
 
 message m_startsyncmsg_s
@@ -106,8 +63,7 @@ message m_startsyncmsg_s
 	required int32 advancecount = 2;
 	required int32 intervaltime = 3;
 	required int32 createentityindex = 4;
-	required int32 randomseed = 5;
-	required int8 syncrule = 6;
+	required int8 syncrule = 5;
 }
 message m_startsyncmsg_c
 {
@@ -115,8 +71,7 @@ message m_startsyncmsg_c
 	required int32 advancecount = 2;
 	required int32 intervaltime = 3;
 	required int32 createentityindex = 4;
-	required int32 randomseed = 5;
-	required int8 syncrule = 6;
+	required int8 syncrule = 5;
 }
 
 message m_syncentitymsg_s
@@ -141,7 +96,6 @@ message m_commandcomponent_s
 	required bool isfire = 5;
 	required int32 id = 6;
 	required int32 frame = 7;
-	required int32 time = 8;
 }
 message m_commandcomponent_c
 {
@@ -152,32 +106,17 @@ message m_commandcomponent_c
 	required bool isfire = 5;
 	required int32 id = 6;
 	required int32 frame = 7;
-	required int32 time = 8;
-}
-
-message m_playerbuycharacter_c
-{
-	required int32 code = 1;
-}
-
-message m_playerbuycharacter_s
-{
-	required string characterid = 1;
 }
 
 message m_playerloginmsg_c
 {
-	required int32 code = 1;
-	required string characterid = 2;
-	repeated string owncharacter = 3;
-	required int32 coin = 4;
-	required int32 diamond = 5;
+	required int32 code0 = 1;
+	required string content = 2;
 }
 
 message m_playerloginmsg_s
 {
 	required string playerid = 1;
-	required string nickname = 2;
 }
 
 message m_playermatchmsg_c
@@ -191,41 +130,12 @@ message m_playermatchmsg_s
 	required bool iscancel = 1;
 }
 
-message m_playerrename_c
-{
-	required int32 code = 1;
-	required string newname = 2;
-}
-
-message m_playerrename_s
-{
-	required string newname = 1;
-}
-
 message m_playerresurgence_c
 {
 }
 
 message m_playerresurgence_s
 {
-}
-
-message m_playerselectcharacter_c
-{
-	required int32 code = 1;
-}
-
-message m_playerselectcharacter_s
-{
-	required string characterid = 1;
-}
-
-message m_playersettlement_c
-{
-	required int32 rank = 1;
-	required int32 score = 2;
-	required int32 historicalhighest = 3;
-	required int32 diamond = 4;
 }
 
 message syncvector3
@@ -243,14 +153,4 @@ message componentinfo
 {
 	required string m_compname = 1;
 	required string content = 2;
-}
-message commandinfo
-{
-	required int32 frame = 1;
-	required int32 id = 2;
-	required syncvector3 movedir = 3;
-	required syncvector3 skilldir = 4;
-	required int32 element1 = 5;
-	required int32 element2 = 6;
-	required bool isfire = 7;
 }

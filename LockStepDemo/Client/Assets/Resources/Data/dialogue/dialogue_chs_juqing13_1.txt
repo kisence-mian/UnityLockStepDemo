@@ -1,0 +1,7 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia	士兵	big_head_3			这边！！圣女大人就在前面，我们快抵挡不住了！！
+2	dia			player	big_head_5|big_head_6	坚持住！我马上就来帮你们！
+3	dia	巫师				给我上！杀了这些入侵者！我们的仪式马上就要成功了！

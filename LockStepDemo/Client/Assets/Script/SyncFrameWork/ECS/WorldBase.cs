@@ -1,19 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using UnityEngine;
 
-public abstract class WorldBase
+public class WorldBase
 {
-    #region 属性
-
-    #region 基础属性
-
-    public string name;
-
     SyncRule m_syncRule;
+
     public SyncRule SyncRule
     {
         get
@@ -28,26 +21,11 @@ public abstract class WorldBase
     }
 
     bool m_isStart = false;
-    bool isFinish = false;   //游戏结束
+    bool m_isView = false; //是否是在客户端运行
+    public bool m_isCertainty = false;
+    public bool m_isRecalc = false;
+    public bool m_isLocal = false;
 
-    bool m_isClient = false; //是否是在客户端运行
-    bool m_isLocal = false;  //是否单机运行
-
-    bool m_isInterFrame = false;  //是否是插值帧
-
-    int m_frameCount = 0;
-    public bool IsClient
-    {
-        get
-        {
-            return m_isClient;
-        }
-
-        set
-        {
-            m_isClient = value;
-        }
-    }
     public bool IsStart
     {
         get
@@ -60,32 +38,8 @@ public abstract class WorldBase
             m_isStart = value;
         }
     }
-    public bool IsLocal
-    {
-        get
-        {
-            return m_isLocal;
-        }
 
-        set
-        {
-            m_isLocal = value;
-        }
-    }
-
-    public bool IsInterFrame
-    {
-        get
-        {
-            return m_isInterFrame;
-        }
-
-        set
-        {
-            m_isInterFrame = value;
-        }
-    }
-
+    int m_frameCount = 0;
     public int FrameCount
     {
         get
@@ -98,84 +52,50 @@ public abstract class WorldBase
             m_frameCount = value;
         }
     }
-    public bool IsFinish
+
+    int m_entityIndex = 0;
+    public int EntityIndex
     {
         get
         {
-            return isFinish;
+            return m_entityIndex;
         }
 
         set
         {
-            isFinish = value;
+            m_entityIndex = value;
         }
     }
 
-    public ComponentTypeBase componentType;
     /// <summary>
-    /// 组件实体缓存池
+    /// 客户端实体ID都为负数
     /// </summary>
-    public ComponentPool heapComponentPool;
-    #endregion
+    int m_clientEntityIndex = -1;
 
-    #region 对象和系统的集合
+    public int ClientEntityIndex
+    {
+        get
+        {
+            return m_clientEntityIndex;
+        }
 
-    //Stack<EntityBase> m_entitiesPool = new Stack<EntityBase>();  //TODO: 实体对象池
+        set
+        {
+            m_clientEntityIndex = value;
+        }
+    }
 
-    public ECSGroupManager group = null;
     public List<SystemBase> m_systemList = new List<SystemBase>();                 //世界里所有的System列表
 
     public Dictionary<int, EntityBase> m_entityDict = new Dictionary<int, EntityBase>(); //世界里所有的entity集合
     public List<EntityBase> m_entityList = new List<EntityBase>();                       //世界里所有的entity列表
 
-    public Dictionary<string, SingletonComponent> m_singleCompDict = new Dictionary<string, SingletonComponent>(); //所有的单例组件集合
-    //public SingletonComponent[] singletonComponents = null;
-
-    #endregion
-
-    #region 回滚相关
-
-    bool m_isCertainty = false;
-    public bool IsCertainty
-    {
-        get {
-
-            if(IsLocal)
-            {
-                return true;
-            }
-
-            if(!IsClient)
-            {
-                return true;
-            }
-
-            return m_isCertainty; }
-        set
-        {
-            m_isCertainty = value;
-        }
-    }
-
-    bool m_isRecalc = false;
-    public bool IsRecalc
-    {
-        get { return m_isRecalc; }
-        set { m_isRecalc = value; }
-    }
-
     public List<RecordSystemBase> m_recordList = new List<RecordSystemBase>();           //世界里所有的RecordSystem列表
     public Dictionary<string, RecordSystemBase> m_recordDict = new Dictionary<string, RecordSystemBase>(); //世界里所有的RecordSystem集合
 
-    #endregion
+    public Dictionary<string, SingletonComponent> m_singleCompDict = new Dictionary<string, SingletonComponent>(); //所有的单例组件集合
 
-    #region 事件
-
-    public ECSEvent eventSystem = null;
-
-    public event EntityChangedCallBack OnEntityOptimizeCreated;
-    public event EntityChangedCallBack OnEntityOptimizeWillBeDestroyed;
-    public event EntityChangedCallBack OnEntityOptimizeDestroyed;
+    Stack<EntityBase> m_entitiesPool = new Stack<EntityBase>();  //TODO: 实体对象池
 
     public event EntityChangedCallBack OnEntityCreated;
     public event EntityChangedCallBack OnEntityWillBeDestroyed;
@@ -185,11 +105,10 @@ public abstract class WorldBase
     public event EntityComponentChangedCallBack OnEntityComponentRemoved;
     public event EntityComponentReplaceCallBack OnEntityComponentChange;
 
-    #endregion
+    public ECSEvent eventSystem = null;
 
-    #endregion
-
-    #region 方法
+    //游戏结束
+    public bool isFinish = false;
 
     #region 重载方法
     public virtual Type[] GetSystemTypes()
@@ -202,8 +121,7 @@ public abstract class WorldBase
         return new Type[0];
     }
 
-    //要回滚的单例组件
-    public virtual Type[] GetRecordSingletonTypes()
+    public virtual Type[] GetRecordSystemTypes()
     {
         return new Type[0];
     }
@@ -212,74 +130,71 @@ public abstract class WorldBase
 
     #region 生命周期
 
-    public void Init(bool isClient)
+    public void Init(bool isView)
     {
         eventSystem = new ECSEvent(this);
 
-        componentType = GetComponentType();
-         heapComponentPool = new ComponentPool(componentType.Count(),this);
-        //singletonComponents = new SingletonComponent[componentType.Count()];
-        //Debug.Log(" componentType: " + componentType.GetType().FullName);
-       IsClient = isClient;
+        m_isView = isView;
         try
         {
-            InitSystem();
+            Type[] types = GetSystemTypes();
 
-            if(IsClient)
+            for (int i = 0; i < types.Length; i++)
             {
-                InitRecordSystem();
+                SystemBase tmp = (SystemBase)types[i].Assembly.CreateInstance(types[i].FullName);
+                m_systemList.Add(tmp);
+                tmp.m_world = this;
+                tmp.Init();
             }
 
-            InitGroup();
-            GameStart();
+            //初始化RecordComponent
+            types = GetRecordTypes();
+            for (int i = 0; i < types.Length; i++)
+            {
+                Type type = typeof(RecordSystem<>);
+                type = type.MakeGenericType(types[i]);
+
+                RecordSystemBase tmp = (RecordSystemBase)Activator.CreateInstance(type); ;
+                m_recordList.Add(tmp);
+                m_recordDict.Add(types[i].Name, tmp);
+                tmp.m_world = this;
+                tmp.Init();
+            }
+
+            //初始化RecordSystem
+            types = GetRecordSystemTypes();
+            for (int i = 0; i < types.Length; i++)
+            {
+                RecordSystemBase tmp = (RecordSystemBase)types[i].Assembly.CreateInstance(types[i].FullName);
+                m_recordList.Add(tmp);
+                tmp.m_world = this;
+                tmp.Init();
+            }
         }
         catch (Exception e)
         {
             Debug.LogError("WorldBase Init Exception:" + e.ToString());
         }
-    }
 
-    private ComponentTypeBase GetComponentType()
-    {
-        Type t = typeof(ComponentTypeBase);
-        Assembly assem = Assembly.GetAssembly(t);
-
-        foreach (Type tChild in assem.GetTypes())
-        {
-            if (tChild.BaseType == t)
-            {
-                return (ComponentTypeBase)Activator.CreateInstance(tChild);
-            }
-
-        }
-       return  (ComponentTypeBase)Activator.CreateInstance(t);
     }
 
     public void Dispose()
     {
-        Debug.Log("world dispose " + m_entityList.Count);
-
-        while(m_entityList.Count > 0)
+        for (int i = 0; i < m_entityList.Count; i++)
         {
-            DestroyEntityAndDispatch(m_entityList[0]);
+            if (OnEntityDestroyed != null)
+            {
+                OnEntityDestroyed(m_entityList[i]);
+            }
         }
-
-        //createCache.Clear();
-
-        for (int i = 0; i < destroyCache.Count; i++)
-        {
-            DispatchEntityWillBeDestroyed(destroyCache[i]);
-            DispatchOptimizeDestroy(destroyCache[i]);
-        }
-        destroyCache.Clear();
-
-        m_entityList.Clear();
-        m_entityDict.Clear();
 
         for (int i = 0; i < m_systemList.Count; i++)
         {
             m_systemList[i].Dispose();
         }
+
+        m_entityList.Clear();
+        m_entityDict.Clear();
 
         m_systemList.Clear();
 
@@ -287,43 +202,9 @@ public abstract class WorldBase
         m_recordDict.Clear();
     }
 
-    void InitSystem()
-    {
-        Type[] types = GetSystemTypes();
-
-        for (int i = 0; i < types.Length; i++)
-        {
-            SystemBase tmp = (SystemBase)types[i].Assembly.CreateInstance(types[i].FullName);
-            m_systemList.Add(tmp);
-            tmp.m_world = this;
-            tmp.Init();
-        }
-    }
-
-    void InitGroup()
-    {
-        group = new ECSGroupManager(this);
-        OnEntityComponentAdded += group.OnEntityComponentChange;
-        OnEntityComponentRemoved += group.OnEntityComponentChange;
-        //OnEntityComponentChange += (entity, compName, previousComponent, newComponent) =>
-        //{
-        //    group.OnEntityComponentChange(entity, compName, newComponent);
-        //};
-    }
-
-    void GameStart()
-    {
-        for (int i = 0; i < m_systemList.Count; i++)
-        {
-            m_systemList[i].OnGameStart();
-        }
-    }
-
     #endregion
 
     #region Update
-
-    #region 外部接口
 
     /// <summary>
     /// 服务器不执行Loop
@@ -334,7 +215,7 @@ public abstract class WorldBase
         {
             BeforeUpdate(deltaTime);
             Update(deltaTime);
-            //LateUpdate 另行调用
+            //LateUpdate(deltaTime);
         }
     }
 
@@ -342,68 +223,33 @@ public abstract class WorldBase
     {
         if (IsStart)
         {
-#if UNITY_ANDROID
-
-            //超过5帧不再预测
-            ConnectStatusComponent csc = GetSingletonComp<ConnectStatusComponent>();
-            if (csc.confirmFrame <= m_frameCount - 4 && IsLocal == false)
-            {
-                return;
-            }
-#endif
-
-            //只有客户端才记录过去值
-            if (IsClient)
-            {
-                Record(FrameCount);
-            }
+            Record(FrameCount);
 
             FrameCount++;
+
+            if (SyncDebugSystem.isDebug)
+            {
+                string content = "Begin FixedLoop " + FrameCount + "------------\n";
+                SyncDebugSystem.syncLog += content;
+            }
+
+            NoRecalcBeforeFixedUpdate(deltaTime);
 
             BeforeFixedUpdate(deltaTime);
             FixedUpdate(deltaTime);
             LateFixedUpdate(deltaTime);
 
-            LazyExecuteEntityOperation();
-
-            EndFrame(deltaTime);
-        }
-        else
-        {
-            OnlyCallByPause();
-        }
-    }
-
-    public void OptimisticFixedLoop(int deltaTime) //乐观帧同步
-    {
-        if (IsStart)
-        {
-            IsCertainty = true;
-
-            FrameCount++;
-
-            BeforeFixedUpdate(deltaTime);
-            FixedUpdate(deltaTime);
-            LateFixedUpdate(deltaTime);
+            NoRecalcLateFixedUpdate(deltaTime);
 
             LazyExecuteEntityOperation();
 
             EndFrame(deltaTime);
-        }
-        else
-        {
-            OnlyCallByPause();
-        }
-    }
 
-    /// <summary>
-    /// 调用重演算
-    /// </summary>
-    public void CallRecalc()
-    {
-        for (int i = 0; i < m_systemList.Count; i++)
-        {
-            m_systemList[i].Recalc();
+            if (SyncDebugSystem.isDebug)
+            {
+                string content = "End FixedLoop " + FrameCount + "------------\n";
+                SyncDebugSystem.syncLog += content;
+            }
         }
     }
 
@@ -411,26 +257,40 @@ public abstract class WorldBase
     /// 重演算接口
     /// </summary>
     /// <param name="deltaTime"></param>
-    public void Recalc(int frame, int deltaTime)
+    public void Recalc(int frame,int deltaTime)
     {
-        FrameCount = frame;
+        FrameCount++;
+
+        OnlyCallByReCalc(frame,deltaTime);
 
         BeforeFixedUpdate(deltaTime);
         FixedUpdate(deltaTime);
         LateFixedUpdate(deltaTime);
 
         LazyExecuteEntityOperation();
-
-        EndFrame(deltaTime);
     }
-#endregion
 
-    #region Update 只在客户端执行
     void BeforeUpdate(int deltaTime)
     {
         for (int i = 0; i < m_systemList.Count; i++)
         {
             m_systemList[i].BeforeUpdate(deltaTime);
+        }
+    }
+
+    void BeforeFixedUpdate(int deltaTime)
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].BeforeFixedUpdate(deltaTime);
+        }
+    }
+
+    void NoRecalcBeforeFixedUpdate(int deltaTime)
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].NoRecalcBeforeFixedUpdate(deltaTime);
         }
     }
 
@@ -451,18 +311,6 @@ public abstract class WorldBase
         }
     }
 
-#endregion
-
-    #region FixUpdate 前后端以同样频率执行
-
-    void BeforeFixedUpdate(int deltaTime)
-    {
-        for (int i = 0; i < m_systemList.Count; i++)
-        {
-            m_systemList[i].BeforeFixedUpdate(deltaTime);
-        }
-    }
-
     void FixedUpdate(int deltaTime)
     {
         for (int i = 0; i < m_systemList.Count; i++)
@@ -479,9 +327,13 @@ public abstract class WorldBase
         }
     }
 
-#endregion
-
-    #region 其他时刻
+    void NoRecalcLateFixedUpdate(int deltaTime)
+    {
+        for (int i = 0; i < m_systemList.Count; i++)
+        {
+            m_systemList[i].NoRecalcLateFixedUpdate(deltaTime);
+        }
+    }
 
     void EndFrame(int deltaTime)
     {
@@ -491,71 +343,20 @@ public abstract class WorldBase
         }
     }
 
-    void OnlyCallByPause()
+    void OnlyCallByReCalc(int frame,int deltaTime)
     {
         for (int i = 0; i < m_systemList.Count; i++)
         {
-            m_systemList[i].RunByPause();
+            m_systemList[i].OnlyCallByRecalc(frame,deltaTime);
         }
     }
 
-#endregion
-
-#endregion
+    #endregion
 
     #region 回滚相关 
 
-    void InitRecordSystem()
-    {
-        //初始化RecordSystem
-        Type[] types = GetRecordTypes();
-        for (int i = 0; i < types.Length; i++)
-        {
-            if (types[i].IsSubclassOf(typeof(MomentComponentBase)))
-            {
-                Type type = typeof(RecordSystem<>);
-                type = type.MakeGenericType(types[i]);
-
-                RecordSystemBase tmp = (RecordSystemBase)Activator.CreateInstance(type); ;
-                m_recordList.Add(tmp);
-                m_recordDict.Add(types[i].Name, tmp);
-                tmp.m_world = this;
-                tmp.Init();
-            }
-            else
-            {
-                Debug.LogError(types[i].FullName + " not is MomentComponent!");
-            }
-        }
-
-        types = GetRecordSingletonTypes();
-        for (int i = 0; i < types.Length; i++)
-        {
-            if(types[i].IsSubclassOf(typeof(MomentSingletonComponent)))
-            {
-                Type type = typeof(RecordSingletonSystem<>);
-                type = type.MakeGenericType(types[i]);
-
-                RecordSystemBase tmp2 = (RecordSystemBase)Activator.CreateInstance(type); ;
-                m_recordList.Add(tmp2);
-                m_recordDict.Add(types[i].Name, tmp2);
-                tmp2.m_world = this;
-                tmp2.Init();
-            }
-            else
-            {
-                Debug.LogError(types[i].FullName + " not is MomentSingletonComponent!");
-            }
-        }
-    }
-
     public void Record(int frame)
     {
-        if (IsLocal)
-            return;
-
-        RandomRecord(frame);
-
         for (int i = 0; i < m_recordList.Count; i++)
         {
             m_recordList[i].Record(frame);
@@ -564,9 +365,6 @@ public abstract class WorldBase
 
     public void RevertToFrame(int frame)
     {
-        RandomRevertToFrame(frame); //随机数回滚
-        EntityRevertToFrame(frame); //实体回滚
-
         for (int i = 0; i < m_recordList.Count; i++)
         {
             m_recordList[i].RevertToFrame(frame);
@@ -591,22 +389,6 @@ public abstract class WorldBase
         }
     }
 
-    public void ClearRecordAt(int frame)
-    {
-        for (int i = 0; i < m_recordList.Count; i++)
-        {
-            m_recordList[i].ClearRecordAt(frame);
-        }
-    }
-
-    public void ClearAll()
-    {
-        for (int i = 0; i < m_recordList.Count; i++)
-        {
-            m_recordList[i].ClearAll();
-        }
-    }
-
     public RecordSystemBase GetRecordSystemBase(string name)
     {
         if (!m_recordDict.ContainsKey(name))
@@ -617,224 +399,21 @@ public abstract class WorldBase
         return m_recordDict[name];
     }
 
-    public bool GetExistRecordSystem(string name)
-    {
-        return m_recordDict.ContainsKey(name);
-    }
-
-#region 实体回滚
-
-    void RecordEntityCreate(EntityBase entity)
-    {
-        if (!IsClient)
-            return;
-
-        //Debug.Log("EntityRecordSystem OnEntityCreate！ " + entity.ID + " m_isCertainty " + m_isCertainty);
-
-        //只记录预测时的操作
-        if (IsCertainty)
-        {
-            return;
-        }
-
-        //Debug.Log(" 记录创建 ID: " + entity.ID + " frame " + entity.m_CreateFrame);
-
-        EntityRecordComponent erc = GetSingletonComp<EntityRecordComponent>();
-
-        //如果此帧有这个ID的摧毁记录，把它抵消掉
-        if (erc.GetReordIsExist(entity.CreateFrame, entity.ID,/* systemName, timing,*/ EntityChangeType.Destroy))
-        {
-            EntityRecordInfo record = erc.GetReord(entity.CreateFrame, entity.ID, /*systemName, timing,*/ EntityChangeType.Destroy);
-            //Debug.Log("抵消掉摧毁记录 " + entity.ID);
-            erc.m_list.Remove(record);
-        }
-        else
-        {
-            EntityRecordInfo info = new EntityRecordInfo();
-            info.changeType = EntityChangeType.Create;
-            info.id = entity.ID;
-            info.frame = entity.CreateFrame;
-            //info.systemName = systemName;
-            //info.timing = timing;
-            info.SaveComp(entity);
-
-            erc.m_list.Add(info);
-        }
-    }
-
-    void RecordEntityDestroy(EntityBase entity)
-    {
-        if (!IsClient)
-            return;
-        //Debug.Log("EntityRecordSystem OnEntityDestroy！ " + entity.ID + " m_isCertainty " + m_isCertainty);
-
-        //只记录预测时的操作
-        if (IsCertainty)
-        {
-            return;
-        }
-
-        //Debug.Log(" 记录摧毁 ID: " + entity.ID + " frame " + entity.m_DestroyFrame);
-
-        EntityRecordComponent erc = GetSingletonComp<EntityRecordComponent>();
-
-        //如果此帧有这个ID的创建记录，把它抵消掉
-        if (erc.GetReordIsExist(entity.DestroyFrame, entity.ID,  EntityChangeType.Create))
-        {
-            //Debug.Log("抵消掉创建记录 " + entity.ID);
-            EntityRecordInfo record = erc.GetReord(entity.DestroyFrame, entity.ID,EntityChangeType.Create);
-            erc.m_list.Remove(record);
-        }
-        else
-        {
-            EntityRecordInfo info = new EntityRecordInfo();
-            info.changeType = EntityChangeType.Destroy;
-            info.id = entity.ID;
-            info.frame = entity.DestroyFrame;
-            //info.systemName = systemName;
-            //info.timing = timing;
-            info.SaveComp(entity);
-
-            erc.m_list.Add(info);
-        }
-    }
-
-    void EntityRevertToFrame(int frame/*,string systemName,RecordEntityTiming timing*/)
-    {
-        ////Debug.Log("RevertToFrame m_world.Frame " + m_world.FrameCount + " frame " + frame);
-
-        //逐帧倒放
-        for (int i = FrameCount; i >= frame + 1; i--)
-        {
-            EntityRevertOneFrame(i/*, systemName, timing*/);
-        }
-    }
-
-    void EntityRevertDestroyToFrame(int frame)
-    {
-        ////Debug.Log("RevertToFrame m_world.Frame " + m_world.FrameCount + " frame " + frame);
-
-        //逐帧倒放
-        for (int i = FrameCount; i >= frame + 1; i--)
-        {
-            EntityRevertDestroyOneFrame(i);
-        }
-    }
-
-    void EntityRevertOneFrame(int frame/*, string systemName, RecordEntityTiming timing*/)
-    {
-        //Debug.Log("回退到 " + frame);
-
-        EntityRecordComponent erc = GetSingletonComp<EntityRecordComponent>();
-
-        for (int i = 0; i < erc.m_list.Count; i++)
-        {
-            if (erc.m_list[i].frame == frame
-                //&& erc.m_list[i].systemName == systemName
-                // && erc.m_list[i].timing == timing
-                  //&& erc.m_list[i].changeType == EntityChangeType.Create
-                )
-            {
-                EntityRevertOneFrame(erc.m_list[i]);
-
-                erc.m_list.RemoveAt(i);
-                i--;
-            }
-        }
-
-        //Debug.Log("回退结束");
-    }
-
-    void EntityRevertDestroyOneFrame(int frame)
-    {
-        //Debug.Log("回退到 " + frame);
-
-        EntityRecordComponent erc = GetSingletonComp<EntityRecordComponent>();
-
-        for (int i = 0; i < erc.m_list.Count; i++)
-        {
-            if (erc.m_list[i].frame == frame
-                  && erc.m_list[i].changeType == EntityChangeType.Destroy
-                )
-            {
-                EntityRevertOneFrame(erc.m_list[i]);
-
-                erc.m_list.RemoveAt(i);
-                i--;
-            }
-        }
-
-        //Debug.Log("回退结束");
-    }
-
-    void EntityRevertOneFrame(EntityRecordInfo data)
-    {
-        if (data.changeType == EntityChangeType.Create)
-        {
-            //Debug.Log("RevertRecord DestroyEntityNoDispatch " + data.id + " frame " + data.frame + " worldFrame " + FrameCount);
-            RollbackCreateEntity(data.id, data.frame);
-        }
-        else
-        {
-            //Debug.Log("RevertRecord CreateEntityNoDispatch " + data.id + " frame " + data.frame + " worldFrame" + FrameCount);
-            RollbackDestroyEntity(data.id, data.frame, data.compList.ToArray());
-        }
-    }
-
-    void RollbackCreateEntity(int ID, int frame)
-    {
-        EntityBase entity = GetEntity(ID);
-
-        entity.DestroyFrame = frame;
-
-        DestroyEntityNoDispatch(entity);
-
-        AddDestroyCache(entity);
-    }
-
-    /// <summary>
-    /// 回滚摧毁一个实体，不派发事件，并将回滚对象存入缓存
-    /// </summary>
-    /// <param name="ID"></param>
-    /// <param name="compList"></param>
-    /// <returns></returns>
-    EntityBase RollbackDestroyEntity(int ID, int frame, params ComponentBase[] compList)
-    {
-        EntityBase entity = NewEntity("RollbackDestroyEntity", ID, compList);
-
-        entity.CreateFrame = frame;
-
-        CreateEntityNoDispatch(entity);
-
-        AddCreateCache(entity);
-
-        return entity;
-    }
-
-
-#endregion
-
-#region 组件回滚
-
-
-
-#endregion
-
-#endregion
+    #endregion
 
     #region 实体相关
 
-    //List<EntityBase> createCache = new List<EntityBase>();
+    List<EntityBase> createCache = new List<EntityBase>();
     List<EntityBase> destroyCache = new List<EntityBase>();
 
     //集中执行实体的创建删除操作
     public void LazyExecuteEntityOperation()
     {
-        //for (int i = 0; i < createCache.Count; i++)
-        //{
-        //    AddEntity(createCache[i]);
-        //}
-        //createCache.Clear();
+        for (int i = 0; i < createCache.Count; i++)
+        {
+            AddEntity(createCache[i]);
+        }
+        createCache.Clear();
 
         for (int i = 0; i < destroyCache.Count; i++)
         {
@@ -843,121 +422,137 @@ public abstract class WorldBase
         destroyCache.Clear();
     }
 
-#region 创建
-
-    public EntityBase CreateEntity(string identifier, params ComponentBase[] comps)
+    public bool GetExistByCreateCache(int id)
     {
-        identifier = FrameCount + identifier;
-        int EntityID = identifier.ToHash();
-        EntityBase entity = CreateEntity(identifier, EntityID, comps);
+        for (int i = 0; i < createCache.Count; i++)
+        {
+            if(createCache[i].ID == id)
+            {
+                return true;
+            }
+        }
 
-        //Debug.Log("CreateEntity " + identifier + " id " + EntityID);
-
-        return entity;
+        return false;
     }
+
+    public bool GetExistByDestroyCache(int id)
+    {
+        for (int i = 0; i < destroyCache.Count; i++)
+        {
+            if (destroyCache[i].ID == id)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    #region 创建
+
+    public void CreateEntity(string identifier, params ComponentBase[] comps)
+    {
+        //状态同步本地不创建实体
+        //if (m_isView && m_syncRule == SyncRule.Status)
+        //{
+        //    return;
+        //}
+
+        identifier = FrameCount + identifier;
+
+        //Debug.Log("identifier " + identifier);
+
+        CreateEntity(identifier.ToHash(), comps);
+    }
+
+    ///// <summary>
+    ///// 客户端创建的实体,不影响同步
+    ///// </summary>
+    ///// <param name="comps"></param>
+    //public void CreateClientEntity(params ComponentBase[] comps)
+    //{
+    //    //状态同步本地不创建实体
+    //    if (m_isView && m_syncRule == SyncRule.Status)
+    //    {
+    //        return;
+    //    }
+
+    //    CreateEntity(ClientEntityIndex--, comps);
+    //}
 
     /// <summary>
     /// 使用指定的实体ID创建实体，不建议直接使用
     /// </summary>
     /// <param name="ID"></param>
     /// <returns></returns>
-    public EntityBase CreateEntity(string name,int ID, params ComponentBase[] compList)
+    public EntityBase CreateEntity(int ID, params ComponentBase[] compList)
     {
-        if (m_entityDict.ContainsKey(ID))
-        {
-            throw new Exception("CreateEntity Entity ID has exist ! ->" + ID + "<-");
-        }
-
-        SyncDebugSystem.AddDebugMsg("Create " + ID + " " + name);
-
-        EntityBase entity = NewEntity(name,ID, compList);
-        AddEntity(entity);
-
-        return entity;
-    }
-
-    /// <summary>
-    /// 立即创建一个实体，不要在游戏逻辑中使用
-    /// </summary>
-    public EntityBase CreateEntityImmediately(string identifier, params ComponentBase[] compList)
-    {
-        identifier = FrameCount + identifier;
-        int ID = identifier.ToHash();
-
         if (m_entityDict.ContainsKey(ID))
         {
             throw new Exception("CreateEntity Exception: Entity ID has exist ! ->" + ID + "<-");
         }
 
-        EntityBase entity = NewEntity(identifier, ID, compList);
-        CreateEntityAndDispatch(entity);
+        EntityBase entity = NewEntity(ID, compList);
+
+        createCache.Add(entity);
 
         return entity;
     }
 
-    EntityBase NewEntity(string name,int ID, params ComponentBase[] compList)
+    EntityBase NewEntity(int ID, params ComponentBase[] compList)
     {
-        EntityBase entity = null;
+        EntityBase entity = new EntityBase();
+        entity.ID = ID;
 
-        if(GetIsExistDispatchDestroyCache(ID))
-        {
-            entity = GetDispatchDestroyCache(ID);
-            CopyValue(compList, entity);
-        }
-        else
-        {
-            entity = new EntityBase(this);
-            entity.ID = ID;
-            entity.name = name;
-            entity.CreateFrame = FrameCount;
+        entity.World = this;
 
-            if (compList != null)
+        if (compList != null)
+        {
+            for (int i = 0; i < compList.Length; i++)
             {
-                for (int i = 0; i < compList.Length; i++)
-                {
-                    if(compList[i] != null)
-                    {
-                        entity.AddComp(compList[i].GetType().Name, compList[i]);
-                    }
-                    else
-                    {
-                        Debug.LogError("NewEntity component is null ! name " + name + " id " + ID);
-                    }
-                }
+                entity.AddComp(compList[i].GetType().Name, compList[i]);
             }
         }
-
-
 
         return entity;
     }
 
     void AddEntity(EntityBase entity)
     {
-        if(IsRecalc)
+        if(m_isRecalc)
         {
             RecalcCreateEntity(entity);
         }
         else
         {
-            //Debug.Log("预测创建 " + entity.ID + " frame " + FrameCount + " m_isCertainty " + m_isCertainty);
+            //Debug.Log("预测创建 " + entity.ID + " frame " + FrameCount);
             CreateEntityAndDispatch(entity);
-            RecordEntityCreate(entity);
         }
     }
 
     void CreateEntityAndDispatch(EntityBase entity)
     {
         CreateEntityNoDispatch(entity);
-        DispatchOptimizeCreate(entity);
+        DispatchCreate(entity);
     }
 
-
+    void DispatchCreate(EntityBase entity)
+    {
+        try
+        {
+            if (OnEntityCreated != null)
+            {
+                OnEntityCreated(entity);
+            }
+        }
+        catch(Exception e)
+        {
+            Debug.LogError("DispatchCreate " + e.ToString());
+        }
+    }
 
     void CreateEntityNoDispatch(EntityBase entity)
     {
-        //Debug.Log("从实体列表中添加 " + entity.ID + " frame " + FrameCount);
-
         if (m_entityDict.ContainsKey(entity.ID))
         {
             Debug.LogError("CreateEntityNoDispatch 创建实体 id 冲突！ " + entity.ID);
@@ -969,14 +564,11 @@ public abstract class WorldBase
         entity.OnComponentAdded += DispatchEntityComponentAdded;
         entity.OnComponentRemoved += DispatchEntityComponentRemoved;
         entity.OnComponentReplaced += DispatchEntityComponentChange;
-
-        group.OnEntityCreate(entity);
-        DispatchCreate(entity);
     }
 
-#endregion
+    #endregion
 
-#region 摧毁
+    #region 摧毁
 
     public void ClientDestroyEntity(int ID)
     {
@@ -989,89 +581,82 @@ public abstract class WorldBase
         //    }
         //}
 
-        //if (!m_isCertainty)
-        //    return;
-
-        //Debug.Log("ClientDestroyEntity ID " + ID + " frame " + FrameCount);
-
         DestroyEntity(ID);
     }
 
     public void DestroyEntity(int ID)
     {
-        //Debug.Log("DestroyEntity ID " + ID + " frame " + FrameCount);
-
-        if (m_entityDict.ContainsKey(ID))
+        if (!m_entityDict.ContainsKey(ID))
         {
-            EntityBase entity = m_entityDict[ID];
-
-            entity.DestroyFrame = FrameCount;
-
-            if (!destroyCache.Contains(entity))
-                destroyCache.Add(entity);
+            throw new Exception("DestroyEntity Exception: Entity ID has not exist ! ->" + ID + "<-");
         }
-        else
-        {
-            ////如果还在创建队列则直接移除
-            //for (int i = 0; i < createCache.Count; i++)
-            //{
-            //    if(createCache[i].ID == ID)
-            //    {
-            //        createCache.RemoveAt(i);
-            //        return;
-            //    }
-            //}
-           
-            Debug.LogError("DestroyEntity dont ContainsKey ->" + ID + "<-");
-        }
+
+        EntityBase entity = m_entityDict[ID];
+
+        if(!destroyCache.Contains(entity))
+            destroyCache.Add(entity);
     }
 
     void RemoveEntity(EntityBase entity)
     {
-        if(IsRecalc)
+        if(m_isRecalc)
         {
             RecalcDestroyEntity(entity);
         }
         else
         {
-            //Debug.Log("预测摧毁 " + entity.ID + " frame " + FrameCount + " m_isCertainty " + m_isCertainty);
+            //Debug.Log("预测摧毁 " + entity.ID + " frame " + FrameCount);
             DestroyEntityAndDispatch(entity);
-            RecordEntityDestroy(entity);
         }
     }
 
     void DestroyEntityAndDispatch(EntityBase entity)
     {
-        DispatchEntityWillBeDestroyed(entity);
         DestroyEntityNoDispatch(entity);
-        DispatchOptimizeDestroy(entity);
+        DispatchDestroy(entity);
+    }
+
+    void DispatchDestroy(EntityBase entity)
+    {
+        try
+        {
+            if (OnEntityWillBeDestroyed != null)
+            {
+                OnEntityWillBeDestroyed(entity);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("DispatchDestroy OnEntityWillBeDestroyed: " + e.ToString());
+        }
+
+        try
+        {
+
+            if (OnEntityDestroyed != null)
+            {
+                OnEntityDestroyed(entity);
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("DispatchDestroy OnEntityDestroyed: " + e.ToString());
+        }
     }
 
     void DestroyEntityNoDispatch(EntityBase entity)
     {
-        DispatchWillBeDestroy(entity);
-
-        //Debug.Log("从实体列表中移除 " + entity.ID + " frame " + FrameCount);
         m_entityList.Remove(entity);
         m_entityDict.Remove(entity.ID);
-        group.OnEntityDestroy(entity);
-
-        DispatchDestroy(entity);
 
         entity.OnComponentAdded -= DispatchEntityComponentAdded;
         entity.OnComponentRemoved -= DispatchEntityComponentRemoved;
         entity.OnComponentReplaced -= DispatchEntityComponentChange;
     }
 
-    public void DestroyEntityImmediately(int id)
-    {
-        EntityBase entity = GetEntity(id);
-        DestroyEntityAndDispatch(entity);
-    }
+    #endregion
 
-#endregion
-
-#region 获取对象
+    #region 获取对象
 
     public int GetEntityID(string identifier)
     {
@@ -1087,17 +672,15 @@ public abstract class WorldBase
 
     public EntityBase GetEntity(int ID)
     {
-        try
-        {
-            return m_entityDict[ID];
-        }
-        catch
+        if (!m_entityDict.ContainsKey(ID))
         {
             throw new Exception("GetEntity Exception: Entity ID has not exist ! ->" + ID + "<-");
         }
+
+        return m_entityDict[ID];
     }
 
-    public List<EntityBase> GetEntityList(string[] compNames)
+    public List<EntityBase> GetEntiyList(string[] compNames)
     {
         List<EntityBase> tupleList = new List<EntityBase>();
         for (int i = 0; i < m_entityList.Count; i++)
@@ -1123,138 +706,131 @@ public abstract class WorldBase
         return true;
     }
 
-#endregion
+    #endregion
 
-#region 回滚相关
+    #region 回滚相关
 
-    List<EntityBase> dispatchDestroyCache = new List<EntityBase>();
-    List<EntityBase> dispatchCreateCache = new List<EntityBase>();
+    List<EntityBase> rollbackCreateCache = new List<EntityBase>();
+    List<EntityBase> rollbackDestroyCache = new List<EntityBase>();
 
-    void AddCreateCache(EntityBase entity)
+    /// <summary>
+    /// 回滚摧毁一个实体，不派发事件，并将回滚对象存入缓存
+    /// </summary>
+    /// <param name="ID"></param>
+    /// <param name="compList"></param>
+    /// <returns></returns>
+    public EntityBase RollbackDestroyEntity(int ID, params ComponentBase[] compList)
     {
-        //Debug.Log("AddCreateCache " + dispatchDestroyCache.Count);
+        EntityBase entity = NewEntity(ID, compList);
 
-        //去重
-        if (dispatchCreateCache.Contains(entity))
-        {
-            Debug.LogError("已在创建缓存中存在 " + entity.ID);
-            return;
-        }
+        CreateEntityNoDispatch(entity);
 
-        //如果创建列表已经存在这个对象则抵消
-        if (dispatchDestroyCache.Contains(entity))
-        {
-            //Debug.Log("抵消创建 " + entity.ID);
-            dispatchDestroyCache.Remove(entity);
-        }
-        else
-        {
-            dispatchCreateCache.Add(entity);
+        rollbackDestroyCache.Add(entity);
 
-            //加入派发队列
-            //Debug.Log("加入派发创建缓存 " + entity.ID + " " + dispatchCreateCache.Count);
-        }
+        return entity;
     }
 
-    void AddDestroyCache(EntityBase entity)
+    public void RollbackCreateEntity(int ID)
     {
-        //Debug.Log("AddDestroyCache " + dispatchCreateCache.Count);
+        EntityBase entity = GetEntity(ID);
 
-        //去重
-        if (dispatchDestroyCache.Contains(entity))
-        {
-            Debug.LogError("已在摧毁缓存中存在 " + entity.ID);
-            return;
-        }
+        DestroyEntityNoDispatch(entity);
 
-        if (dispatchCreateCache.Contains(entity))
-        {
-            //Debug.Log("抵消摧毁 " + entity.ID);
-            dispatchCreateCache.Remove(entity);
-        }
-        else
-        {
-            //判断抵消
-            //Debug.Log("加入派发摧毁缓存 " + entity.ID);
-            dispatchDestroyCache.Add(entity);
-        }
+        rollbackCreateCache.Add(entity);
     }
 
+    //重计算结束，延迟派发事件
     public void EndRecalc()
     {
-        //Debug.Log("重计算结束 延迟派发事件");
-
-        for (int i = 0; i < dispatchDestroyCache.Count; i++)
+        for (int i = 0; i < rollbackCreateCache.Count; i++)
         {
-            //Debug.Log("派发摧毁 " + dispatchDestroyCache[i].ID + " frame " + FrameCount);
-            DispatchEntityWillBeDestroyed(dispatchDestroyCache[i]);
-            DispatchOptimizeDestroy(dispatchDestroyCache[i]);
+            //Debug.Log("派发摧毁 " + rollbackCreateCache[i].ID + " frame " + FrameCount);
+            DispatchDestroy(rollbackCreateCache[i]);
         }
-        dispatchDestroyCache.Clear();
+        rollbackCreateCache.Clear();
 
-        for (int i = 0; i < dispatchCreateCache.Count; i++)
+        for (int i = 0; i < rollbackDestroyCache.Count; i++)
         {
-            //Debug.Log("派发创建 " + dispatchCreateCache[i].ID + " frame " + FrameCount);
-            DispatchOptimizeCreate(dispatchCreateCache[i]);
+            //Debug.Log("派发创建 " + rollbackDestroyCache[i].ID + " frame " + FrameCount);
+            DispatchCreate(rollbackDestroyCache[i]);
         }
-        dispatchCreateCache.Clear();
+        rollbackDestroyCache.Clear();
     }
 
     void RecalcCreateEntity(EntityBase entity)
     {
         //Debug.Log("重计算 创建 " + entity.ID + " frame " + FrameCount);
+        if (GetIsExistCreateRollbackCache(entity.ID))
+        {
+            //Debug.Log("摧毁 不派发 " + entity.ID + " frame " + FrameCount);
 
-        AddCreateCache(entity);
-
-        CreateEntityNoDispatch(entity);
-
-        RecordEntityCreate(entity);
-
+            EntityBase cache = GetCreateRollbackCache(entity.ID);
+            CopyValue(entity, cache);
+            CreateEntityNoDispatch(cache);
+            rollbackCreateCache.Remove(cache);
+        }
+        else
+        {
+            //Debug.Log("创建并派发 " + entity.ID);
+            //否则，创建并派发，因为这是一个新对象
+            CreateEntityAndDispatch(entity);
+        }
     }
 
     void RecalcDestroyEntity(EntityBase entity)
     {
         //Debug.Log("重计算 摧毁 " + entity.ID + " frame " + FrameCount);
+        if(GetIsExistDestroyRollbackCache(entity.ID))
+        {
+            //Debug.Log("摧毁 不派发 " + entity.ID + " frame " + FrameCount);
 
-        AddDestroyCache(entity);
-
-        DestroyEntityNoDispatch(entity);
-
-        RecordEntityDestroy(entity);
+            EntityBase cache = GetDestroyRollbackCache(entity.ID);
+            //CopyValue(entity, cache);
+            DestroyEntityNoDispatch(cache);
+            rollbackDestroyCache.Remove(cache);
+        }
+        else
+        {
+            //Debug.Log("摧毁并派发 " + entity.ID + " frame " + FrameCount);
+            //否则，摧毁并派发，因为这是在重计算中需要被摧毁的新对象
+            DestroyEntityAndDispatch(entity);
+        }
     }
 
-    void CopyValue(ComponentBase[] from,EntityBase to)
+    void CopyValue(EntityBase from,EntityBase to)
     {
-        for (int i = 0; i < from.Length; i++)
+        foreach (var item in from.m_compDict)
         {
-            if(from[i] is MomentComponentBase)
+            if(item.Value is MomentComponentBase)
             {
-                MomentComponentBase mc = (MomentComponentBase)from[i];
+                MomentComponentBase mc = (MomentComponentBase)item.Value;
 
-                //MomentComponentBase copy = mc.DeepCopy();
-                to.ChangeComp(mc.GetType().ToString(), mc);
+                MomentComponentBase copy = mc.DeepCopy();
+                to.ChangeComp(item.Key, copy);
+
+                //Debug.Log("数据拷贝 " + Serializer.Serialize(copy));
             }
         }
     }
 
-    public EntityBase GetDispatchDestroyCache(int ID)
+    public EntityBase GetCreateRollbackCache(int ID)
     {
-        for (int i = 0; i < dispatchDestroyCache.Count; i++)
+        for (int i = 0; i < rollbackCreateCache.Count; i++)
         {
-            if (dispatchDestroyCache[i].ID == ID)
+            if (rollbackCreateCache[i].ID == ID)
             {
-                return dispatchDestroyCache[i];
+                return rollbackCreateCache[i];
             }
         }
 
         throw new Exception("GetCreateRollbackCache not find " + ID);
     }
 
-    public bool GetIsExistDispatchDestroyCache(int ID)
+    public bool GetIsExistCreateRollbackCache(int ID)
     {
-        for (int i = 0; i < dispatchDestroyCache.Count; i++)
+        for (int i = 0; i < rollbackCreateCache.Count; i++)
         {
-            if (dispatchDestroyCache[i].ID == ID)
+            if (rollbackCreateCache[i].ID == ID)
             {
                 return true;
             }
@@ -1263,24 +839,24 @@ public abstract class WorldBase
         return false;
     }
 
-    public EntityBase GetDispatchCreateCache(int ID)
+    public EntityBase GetDestroyRollbackCache(int ID)
     {
-        for (int i = 0; i < dispatchCreateCache.Count; i++)
+        for (int i = 0; i < rollbackDestroyCache.Count; i++)
         {
-            if (dispatchCreateCache[i].ID == ID)
+            if (rollbackDestroyCache[i].ID == ID)
             {
-                return dispatchCreateCache[i];
+                return rollbackDestroyCache[i];
             }
         }
 
         throw new Exception("GetDestroyRollbackCache not find " + ID);
     }
 
-    public bool GetIsExistDispatchCreateCache(int ID)
+    public bool GetIsExistDestroyRollbackCache(int ID)
     {
-        for (int i = 0; i < dispatchCreateCache.Count; i++)
+        for (int i = 0; i < rollbackDestroyCache.Count; i++)
         {
-            if (dispatchCreateCache[i].ID == ID)
+            if (rollbackDestroyCache[i].ID == ID)
             {
                 return true;
             }
@@ -1289,9 +865,9 @@ public abstract class WorldBase
         return false;
     }
 
-#endregion
+    #endregion
 
-#endregion
+    #endregion
 
     #region 单例组件
 
@@ -1316,7 +892,6 @@ public abstract class WorldBase
         {
             comp = new T();
             comp.Init();
-            comp.World = this;
             m_singleCompDict.Add(key, comp);
         }
 
@@ -1325,21 +900,17 @@ public abstract class WorldBase
 
     public SingletonComponent GetSingletonComp(string compName)
     {
-       
-        //int index = componentType.GetComponentIndex(compName);
         SingletonComponent comp = null;
+
         if (m_singleCompDict.ContainsKey(compName))
         {
-             comp = m_singleCompDict[compName];
+            comp = m_singleCompDict[compName];
         }
         else
         {
             Type compType = Type.GetType(compName);
 
             comp = (SingletonComponent)compType.Assembly.CreateInstance(compType.FullName);
-            comp.Init();
-            comp.World = this;
-            //singletonComponents[index] = comp;
             m_singleCompDict.Add(compName, comp);
         }
 
@@ -1356,286 +927,72 @@ public abstract class WorldBase
     {
         if (m_singleCompDict.ContainsKey(compName))
         {
-           int index = componentType.GetComponentIndex(compName);
-            heapComponentPool.PutObject(index, m_singleCompDict[compName]);
             m_singleCompDict[compName] = comp;
         }
         else
         {
             m_singleCompDict.Add(compName, comp);
         }
-
-        comp.World = this;
     }
 
-#endregion
+    #endregion
 
     #region 事件派发
 
-    void DispatchOptimizeCreate(EntityBase entity)
-    {
-        //Debug.Log("派发创建 " + entity.ID);
+    //void DispatchEntityCreate(EntityBase entity)
+    //{
+    //    if (OnEntityCreated != null)
+    //    {
+    //        OnEntityCreated(entity);
+    //    }
+    //}
 
-        try
-        {
-            if (OnEntityOptimizeCreated != null)
-            {
-                OnEntityOptimizeCreated(entity);
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("DispatchCreate " + e.ToString());
-        }
-    }
+    //void DispatchEntityDestroy(EntityBase entity)
+    //{
+    //    if (OnEntityDestroyed != null)
+    //    {
+    //        OnEntityDestroyed(entity);
+    //    }
+    //}
 
-    void DispatchCreate(EntityBase entity)
-    {
-        //Debug.Log("派发创建 " + entity.ID);
-        try
-        {
-            if (OnEntityCreated != null)
-            {
-                OnEntityCreated(entity);
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("DispatchCreate " + e.ToString());
-        }
-    }
     void DispatchEntityWillBeDestroyed(EntityBase entity)
     {
-        try
+        if (OnEntityWillBeDestroyed != null)
         {
-            if (OnEntityOptimizeWillBeDestroyed != null)
-            {
-                OnEntityOptimizeWillBeDestroyed(entity);
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("DispatchDestroy OnEntityWillBeDestroyed: " + e.ToString());
+            OnEntityWillBeDestroyed(entity);
         }
     }
 
-    void DispatchOptimizeDestroy(EntityBase entity)
-    {
-        //Debug.Log("派发摧毁 " + entity.ID);
-
-        try
-        {
-            if (OnEntityOptimizeDestroyed != null)
-            {
-                OnEntityOptimizeDestroyed(entity);
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("DispatchDestroy OnEntityDestroyed: " + e.ToString());
-        }
-    }
-
-    void DispatchDestroy(EntityBase entity)
-    {
-        //Debug.Log("派发摧毁 " + entity.ID);
-
-        try
-        {
-            if (OnEntityDestroyed != null)
-            {
-                OnEntityDestroyed(entity);
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("DispatchDestroy OnEntityDestroyed: " + e.ToString());
-        }
-    }
-
-    void DispatchWillBeDestroy(EntityBase entity)
-    {
-        //Debug.Log("派发摧毁 " + entity.ID);
-
-        try
-        {
-            if (OnEntityWillBeDestroyed != null)
-            {
-                OnEntityWillBeDestroyed(entity);
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("DispatchDestroy OnEntityDestroyed: " + e.ToString());
-        }
-    }
-
-    void DispatchEntityComponentAdded(EntityBase entity, int compIndex, ComponentBase component)
+    void DispatchEntityComponentAdded(EntityBase entity, string compName, ComponentBase component)
     {
         if (OnEntityComponentAdded != null)
         {
-            OnEntityComponentAdded(entity, compIndex, component);
+            OnEntityComponentAdded(entity, compName, component);
         }
     }
 
-    void DispatchEntityComponentRemoved(EntityBase entity, int compIndex, ComponentBase component)
+    void DispatchEntityComponentRemoved(EntityBase entity, string compName, ComponentBase component)
     {
         if (OnEntityComponentRemoved != null)
         {
-            OnEntityComponentRemoved(entity, compIndex, component);
+            OnEntityComponentRemoved(entity, compName, component);
         }
     }
 
-    void DispatchEntityComponentChange(EntityBase entity, int compIndex, ComponentBase previousComponent, ComponentBase newComponent)
+    void DispatchEntityComponentChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
     {
         if (OnEntityComponentChange != null)
         {
-            OnEntityComponentChange(entity, compIndex, previousComponent, newComponent);
+            OnEntityComponentChange(entity, compName, previousComponent, newComponent);
         }
     }
+
 
     public delegate void EntityChangedCallBack(EntityBase entity);
 
-#endregion
 
-    #region 随机数
-
-    public int m_RandomSeed = 0;
-
-    int m_randomA = 9301;
-    int m_randomB = 49297;
-    int m_randomC = 233280;
-
-    public int GetRandom()
-    {
-        m_RandomSeed = Math.Abs((m_RandomSeed * m_randomA + m_randomB) % m_randomC);
-
-        if (SyncDebugSystem.isDebug)
-        {
-            SyncDebugSystem.RecordRandomChange(FrameCount, m_RandomSeed, "");
-        }
-
-        return m_RandomSeed;
-    }
-
-    /// <summary>
-    /// 不包括max
-    /// </summary>
-    /// <param name="min"></param>
-    /// <param name="max"></param>
-    /// <returns></returns>
-    public int GetRandom(int min,int max)
-    {
-        int result = GetRandom();
-
-        result = min + result % (max - min);
-
-        return result;
-    }
-
-    Dictionary<int, int> m_randomDict = new Dictionary<int, int>();
-    void RandomRevertToFrame(int frame)
-    {
-        if (m_randomDict.ContainsKey(frame))
-        {
-            m_RandomSeed = m_randomDict[frame];
-        }
-        else
-        {
-            Debug.LogError("随机数回滚失败  " + frame);
-        }
-    }
-
-    void RandomRecord(int frame)
-    {
-        if(m_randomDict.ContainsKey(frame))
-        {
-            m_randomDict[frame] = m_RandomSeed;
-        }
-        else
-        {
-            m_randomDict.Add(frame, m_RandomSeed);
-        }
-    }
 
     #endregion
-#if !Server
-    #region 乐观帧同步
-
-    public bool GetIsAllMsg()
-    {
-        List<EntityBase> list = GetPlayerList();
-        bool isAllMessage = true;
-        
-        for (int j = 0; j < list.Count; j++)
-        {
-            AddRecordComponent(list[j]);
-            //PlayerCommandRecordComponent tmp = list[j].GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
-            //isAllMessage &= tmp.GetAllMessage(FrameCount + 1);
-        }
-
-        return isAllMessage;
-    }
-
-    public int GetCacheCount()
-    {
-        int count = 0;
-        List<EntityBase> list = GetPlayerList();
-
-        bool isAllMessage = true;
-        for (int i = m_frameCount + 1; ; i++)
-        {
-            if (list.Count == 0)
-            {
-                break;
-            }
-
-            for (int j = 0; j < list.Count; j++)
-            {
-                AddRecordComponent(list[j]);
-                //PlayerCommandRecordComponent tmp = list[j].GetComp<PlayerCommandRecordComponent>(ComponentType.PlayerCommandRecordComponent);
-                //isAllMessage &= tmp.GetAllMessage(i);
-            }
-
-            if (isAllMessage)
-            {
-                count++;
-            }
-            else
-            {
-                break;
-            }
-        }
-        return count;
-    }
-
-    public void AddRecordComponent(EntityBase entity)
-    {
-        //if (!entity.GetExistComp(ComponentType.PlayerCommandRecordComponent))
-        //{
-        //    PlayerCommandRecordComponent rc = new PlayerCommandRecordComponent();
-
-        //    //自动添加记录组件
-        //    entity.AddComp(rc);
-        //}
-    }
-
-    private bool isGetHashCode = false;
-    private int filterNameHashCode;
-    string[] filter = new string[] { "CommandComponent", "RealPlayerComponent" };
-    public List<EntityBase> GetPlayerList()
-    {
-        if (!isGetHashCode)
-        {
-            isGetHashCode = true;
-
-            filterNameHashCode = group.StringArrayToInt(filter);
-        }
-        return group.GetEntityByFilter(filterNameHashCode, filter);
-    }
-    #endregion
-#endif
-#endregion
 }
 
 /// <summary>

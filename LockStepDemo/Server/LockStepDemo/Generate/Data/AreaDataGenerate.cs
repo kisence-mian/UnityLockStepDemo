@@ -8,7 +8,6 @@ public class AreaDataGenerate : DataGenerateBase
 	public string m_key;
 	public DirectionEnum m_SkewDirection; //方向
 	public float m_SkewDistance; //偏移距离
-	public float m_distance; //操作偏移最大距离
 	public AreaType m_Shape; //形状
 	public float m_Length; //矩形长
 	public float m_Width; //矩形宽
@@ -29,7 +28,6 @@ public class AreaDataGenerate : DataGenerateBase
 		m_key = key;
 		m_SkewDirection = data.GetEnum<DirectionEnum>("SkewDirection");
 		m_SkewDistance = data.GetFloat("SkewDistance");
-		m_distance = data.GetFloat("distance");
 		m_Shape = data.GetEnum<AreaType>("Shape");
 		m_Length = data.GetFloat("Length");
 		m_Width = data.GetFloat("Width");

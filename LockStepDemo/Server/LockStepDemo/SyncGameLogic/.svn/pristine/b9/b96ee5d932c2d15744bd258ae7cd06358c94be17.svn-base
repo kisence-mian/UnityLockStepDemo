@@ -1,0 +1,59 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using UnityEngine;
+
+public class SkillUtils
+{
+    public static void FlyDamageLogic(WorldBase world, EntityBase fly, EntityBase entity)
+    {
+        FlyObjectComponent fc = fly.GetComp<FlyObjectComponent>();
+        LifeComponent lc = entity.GetComp<LifeComponent>();
+        CampComponent campComp = fly.GetComp<CampComponent>();
+        MoveComponent mc = fly.GetComp<MoveComponent>();
+
+        lc.life -= fc.damage;
+        //派发事件
+        ECSEvent.DispatchEvent(GameUtils.GetEventKey(entity.ID, CharacterEventType.Damage), entity);
+
+        Debug.Log("FlyDamageLogic !" + lc.life);
+
+        //释放触发技能
+
+        TokenUseSkill(world,campComp.creater,fc.FlyData.m_TriggerSkill, mc.pos.ToVector(),mc.dir.ToVector());
+    }
+
+    #region 技能代处理
+
+    public static void TokenUseSkill(WorldBase world,int createrID, string skillID, Vector3 pos, Vector3 dir)
+    {
+        if (skillID != null 
+            && skillID != "null" 
+            && skillID != "Null")
+        {
+            MoveComponent mc = new MoveComponent();
+            mc.pos.FromVector(pos);
+            mc.dir.FromVector(dir);
+
+            SkillStatusComponent ssc = new SkillStatusComponent();
+            ssc.m_skillTime = 0;
+            ssc.m_skillStstus = SkillStatusEnum.Before;
+            ssc.m_isTriggerSkill = false;
+            ssc.m_skillList.Add(new SkillData(skillID));
+            ssc.m_currentSkillData = ssc.GetSkillData(skillID);
+            ssc.m_currentSkillData.UpdateInfo();
+            ssc.skillDir.FromVector(dir);
+
+            CampComponent cc = new CampComponent();
+            cc.creater = createrID;
+
+            LifeSpanComponent lsc = new LifeSpanComponent();
+            lsc.lifeTime = (int)(ssc.m_currentSkillData.LaterTime * 1000);
+
+            world.CreateEntity(mc, ssc, cc, lsc);
+        }
+    }
+
+    #endregion
+}

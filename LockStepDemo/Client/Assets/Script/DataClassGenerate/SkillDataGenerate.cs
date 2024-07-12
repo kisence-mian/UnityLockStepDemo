@@ -25,7 +25,6 @@ public class SkillDataGenerate : DataGenerateBase
 	public string m_FlyObjectArea; //飞行物释放范围
 	public int m_FlyDamageValue; //飞行物伤害
 	public string[] m_FlyObjectName; //飞行物模组名
-	public float m_flydistance; //陨石掉落身前距离
 	public int m_uplv; //升级等级
 	public string m_nextskill; //下级技能
 	public int m_moneytype; //金币或者钻石
@@ -86,7 +85,6 @@ public class SkillDataGenerate : DataGenerateBase
 		m_FlyObjectArea = data.GetString("FlyObjectArea");
 		m_FlyDamageValue = data.GetInt("FlyDamageValue");
 		m_FlyObjectName = data.GetStringArray("FlyObjectName");
-		m_flydistance = data.GetFloat("flydistance");
 		m_uplv = data.GetInt("uplv");
 		m_nextskill = data.GetString("nextskill");
 		m_moneytype = data.GetInt("moneytype");
@@ -116,4 +114,6 @@ public class SkillDataGenerate : DataGenerateBase
 		m_IsAreaTip = data.GetBool("IsAreaTip");
 		m_SkillAgency = data.GetString("SkillAgency");
 	}
+
+
 }

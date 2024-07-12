@@ -9,8 +9,8 @@ public class SystemBase
 
     #region 私有属性
 
-   string[] m_filter;
-  public  string[] Filter
+    string[] m_filter;
+    string[] Filter
     {
         get
         {
@@ -25,25 +25,6 @@ public class SystemBase
             }
 
             return m_filter;
-        }
-    }
-
-    private string name;
-    public string Name
-    {
-        get
-        {
-            if (string.IsNullOrEmpty(name))
-            {
-                name = GetType().FullName;
-            }
-
-            return name;
-        }
-
-        set
-        {
-            name = value;
         }
     }
 
@@ -63,11 +44,6 @@ public class SystemBase
 
     }
 
-    public virtual void OnGameStart()
-    {
-
-    }
-
     #endregion
 
     #region 过滤器
@@ -81,8 +57,12 @@ public class SystemBase
 
     #region Update
 
-    #region Update 客户端以刷新频率执行
-
+    /// <summary>
+    /// 只在回滚时调用
+    /// </summary>
+    /// <param name="deltaTime"></param>
+    public virtual void OnlyCallByRecalc(int frame,int deltaTime) { }
+   
     /// <summary>
     /// 服务器不执行
     /// </summary>
@@ -101,9 +81,11 @@ public class SystemBase
     /// <param name="deltaTime"></param>
     public virtual void LateUpdate(int deltaTime) { }
 
-    #endregion
-
-    #region FixUpdate 前后端以同样频率执行
+    /// <summary>
+    /// 重新演算时不执行
+    /// </summary>
+    /// <param name="deltaTime"></param>
+    public virtual void NoRecalcBeforeFixedUpdate(int deltaTime) { }
 
     public virtual void BeforeFixedUpdate(int deltaTime) { }
 
@@ -111,48 +93,19 @@ public class SystemBase
 
     public virtual void LateFixedUpdate(int deltaTime) { }
 
-    #endregion
-
-    #region 特殊接口
+    /// <summary>
+    /// 重新演算时不执行
+    /// </summary>
+    public virtual void NoRecalcLateFixedUpdate(int deltaTime) { }
 
     /// <summary>
     /// 帧的最后执行
     /// </summary>
     public virtual void EndFrame(int deltaTime) { }
 
-    /// <summary>
-    /// 在游戏暂停时执行
-    /// </summary>
-    public virtual void RunByPause()
-    {
-
-    }
-
-    /// <summary>
-    /// 重计算，只限给SyncSystem使用
-    /// </summary>
-    public virtual void Recalc() { }
-
-    #endregion
-
     #endregion
 
     #region 事件回调
-
-    public virtual void OnEntityOptimizeCreate(EntityBase entity)
-    {
-
-    }
-
-    public virtual void OnEntityOptimizeDestroy(EntityBase entity)
-    {
-
-    }
-
-    public virtual void OnEntityOptimizeWillBeDestroy(EntityBase entity)
-    {
-
-    }
 
     public virtual void OnEntityCreate(EntityBase entity)
     {
@@ -169,17 +122,17 @@ public class SystemBase
 
     }
 
-    public virtual void OnEntityCompAdd(EntityBase entity, int compIndex, ComponentBase component)
+    public virtual void OnEntityCompAdd(EntityBase entity, string compName, ComponentBase component)
     {
 
     }
 
-    public virtual void OnEntityCompRemove(EntityBase entity, int compIndex, ComponentBase component)
+    public virtual void OnEntityCompRemove(EntityBase entity, string compName, ComponentBase component)
     {
 
     }
 
-    public virtual void OnEntityCompChange(EntityBase entity, int compIndex, ComponentBase previousComponent, ComponentBase newComponent)
+    public virtual void OnEntityCompChange(EntityBase entity, string compName, ComponentBase previousComponent, ComponentBase newComponent)
     {
 
     }
@@ -201,65 +154,48 @@ public class SystemBase
         return true;
     }
 
-    private bool isGetHashCode = false;
-    private int filterNameHashCode;
+    List<EntityBase> m_tupleList = new List<EntityBase>();
     public List<EntityBase> GetEntityList()
     {
-        if (!isGetHashCode)
+        m_tupleList.Clear();
+        for (int i = 0; i < m_world.m_entityList.Count; i++)
         {
-            isGetHashCode = true;
-
-            filterNameHashCode = m_world.group.StringArrayToInt(Filter);
+            if (GetAllExistComp(Filter, m_world.m_entityList[i]))
+            {
+                m_tupleList.Add(m_world.m_entityList[i]);
+            }
         }
-       return m_world.group.GetEntityByFilter(filterNameHashCode,Filter);
+
+        return m_tupleList;
     }
 
     public List<EntityBase> GetEntityList(string[] filter)
     {
-        int hashCode = m_world.group.StringArrayToInt(filter);
+        List<EntityBase> tupleList = new List<EntityBase>();
+        for (int i = 0; i < m_world.m_entityList.Count; i++)
+        {
+            if (GetAllExistComp(filter, m_world.m_entityList[i]))
+            {
+                tupleList.Add(m_world.m_entityList[i]);
+            }
+        }
 
-        return m_world.group.GetEntityByFilter(hashCode, filter);
+        return tupleList;
     }
-
-    public int GetGroupHashCode(string[] filter)
-    {
-        return m_world.group.StringArrayToInt(filter);
-    }
-
-    public List<EntityBase> GetEntityListByCahce(int hashCode ,string[] filter)
-    {
-        return m_world.group.GetEntityByFilter(hashCode, filter);
-    }
-
     #region 事件监听
-    protected void AddEntityOptimizeCreaterLisnter()
-    {
-        m_world.OnEntityOptimizeCreated += OnEntityOptimizeCreate;
-    }
-
-    protected void AddEntityOptimizeDestroyLisnter()
-    {
-        m_world.OnEntityOptimizeDestroyed += OnEntityOptimizeDestroy;
-    }
-
-    protected void AddEntityOptimizeWillBeDestroyLisnter()
-    {
-        m_world.OnEntityOptimizeWillBeDestroyed += OnEntityOptimizeWillBeDestroy;
-    }
-
     protected void AddEntityCreaterLisnter()
     {
-        m_world.OnEntityCreated += OnEntityCreate;
+        m_world.OnEntityCreated += ReceviceEntityCreate;
     }
 
     protected void AddEntityDestroyLisnter()
     {
-        m_world.OnEntityDestroyed += OnEntityDestroy;
+        m_world.OnEntityDestroyed += ReceviceEntityDestroy;
     }
 
     protected void AddEntityWillBeDestroyLisnter()
     {
-        m_world.OnEntityWillBeDestroyed += OnEntityWillBeDestroy;
+        m_world.OnEntityWillBeDestroyed += ReceviceEntityWillBeDestroy;
     }
 
     protected void AddEntityCompAddLisenter()
@@ -277,34 +213,19 @@ public class SystemBase
         m_world.OnEntityComponentChange += OnEntityCompChange;
     }
 
-    protected void RemoveEntityOptimizeCreaterLisnter()
-    {
-        m_world.OnEntityOptimizeCreated -= OnEntityOptimizeCreate;
-    }
-
-    protected void RemoveEntityOptimizeDestroyLisnter()
-    {
-        m_world.OnEntityOptimizeDestroyed -= OnEntityOptimizeDestroy;
-    }
-
-    protected void RemoveEntityOptimizeWillBeDestroyLisnter()
-    {
-        m_world.OnEntityOptimizeWillBeDestroyed += OnEntityOptimizeWillBeDestroy;
-    }
-
     protected void RemoveEntityCreaterLisnter()
     {
-        m_world.OnEntityCreated -= OnEntityCreate;
+        m_world.OnEntityCreated -= ReceviceEntityCreate;
     }
 
     protected void RemoveEntityDestroyLisnter()
     {
-        m_world.OnEntityDestroyed -= OnEntityDestroy;
+        m_world.OnEntityDestroyed -= ReceviceEntityDestroy;
     }
 
     protected void RemoveEntityWillBeDestroyLisnter()
     {
-        m_world.OnEntityWillBeDestroyed += OnEntityWillBeDestroy;
+        m_world.OnEntityWillBeDestroyed += ReceviceEntityWillBeDestroy;
     }
 
     protected void RemoveEntityCompAddLisenter()
@@ -324,6 +245,30 @@ public class SystemBase
 
 
     #endregion
+
+    void ReceviceEntityCreate(EntityBase entity)
+    {
+        //if (GetAllExistComp(Filter, entity))
+        {
+            OnEntityCreate(entity);
+        }
+    }
+
+    void ReceviceEntityDestroy(EntityBase entity)
+    {
+        //if (GetAllExistComp(Filter, entity))
+        {
+            OnEntityDestroy(entity);
+        }
+    }
+
+    void ReceviceEntityWillBeDestroy(EntityBase entity)
+    {
+        //if (GetAllExistComp(Filter, entity))
+        {
+            OnEntityWillBeDestroy(entity);
+        }
+    }
 
     #endregion
 }

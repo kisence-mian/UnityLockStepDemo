@@ -1,0 +1,8 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia           	player	big_head_5|big_head_6			我回来了，东西到手啦～幸不辱命！
+2	dia			教官	big_head_7	我靠，你才回来！！昨天半夜有人潜入进来，将圣女劫走了！
+3	dia           	player	big_head_5|big_head_6			啊？？什么？？
+4	dia			教官	big_head_7	我们的先头部队和斥候追了出去，半路截上了那群魔族，赶紧去支援，救回圣女！

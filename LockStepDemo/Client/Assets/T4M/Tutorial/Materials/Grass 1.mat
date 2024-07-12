@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Grass 1
+  m_Shader: {fileID: 4800000, guid: e451d45053f05a04883e7c440ea1b964, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 27a4e46e1adc0be44a3295f5546be508, type: 3}
+          m_Scale: {x: 10, y: 10}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BumpMap
+        second:
+          m_Texture: {fileID: 2800000, guid: 85e729f6998af8e4ab4f4e2ebee2d0a8, type: 3}
+          m_Scale: {x: 10, y: 10}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Control
+        second:
+          m_Texture: {fileID: 2800000, guid: 2fdcfe5b354729545ad7fedca8f8b852, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Splat0
+        second:
+          m_Texture: {fileID: 2800000, guid: 27a4e46e1adc0be44a3295f5546be508, type: 3}
+          m_Scale: {x: 10, y: 10}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Splat1
+        second:
+          m_Texture: {fileID: 2800000, guid: 68fd3ed55c7d4af4d9f31f8422746645, type: 3}
+          m_Scale: {x: 10, y: 10}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Splat2
+        second:
+          m_Texture: {fileID: 2800000, guid: 784ef887bcb2c964595a98bb8548dabe, type: 3}
+          m_Scale: {x: 10, y: 10}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Splat3
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BumpSplat0
+        second:
+          m_Texture: {fileID: 2800000, guid: 85e729f6998af8e4ab4f4e2ebee2d0a8, type: 3}
+          m_Scale: {x: 10, y: 10}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BumpSplat1
+        second:
+          m_Texture: {fileID: 2800000, guid: 85e729f6998af8e4ab4f4e2ebee2d0a8, type: 3}
+          m_Scale: {x: 10, y: 10}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BumpSplat2
+        second:
+          m_Texture: {fileID: 2800000, guid: 85e729f6998af8e4ab4f4e2ebee2d0a8, type: 3}
+          m_Scale: {x: 10, y: 10}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _BumpSplat3
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _ShininessL0
+        second: .078125
+      data:
+        first:
+          name: _ShininessL1
+        second: .078125
+      data:
+        first:
+          name: _ShininessL2
+        second: .078125
+      data:
+        first:
+          name: _ShininessL3
+        second: .078125
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: 1, g: 1, b: 1, a: 1}

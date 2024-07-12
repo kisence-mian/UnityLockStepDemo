@@ -1,0 +1,7 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia			player	big_head_5|big_head_6	哇塞，美女，你这个出场方式还挺酷炫的，以前怎么没见你用过呀
+2	dia			圣女	big_head_2	以前我并不会这种能力，刚刚从脑海里出现的法术，试用了一下，没想到这么强大
+3	dia			圣女	big_head_2	没时间聊天了，保护我1分钟，我需要取下这个碎片！

@@ -77,17 +77,13 @@ public class PlayerAnimSystem : SystemBase
         }
         else
         {
-            //Vector3 Dir = pc.faceDir.ToVector();
-            //if (entity.GetExistComp<SelfComponent>())
-            //{
-            //    Dir = InputSystem.skillDirCache;
-            //}
+            Vector3 Dir = pc.faceDir.ToVector();
 
-            //ac.anim.Play("wait");
-            //if(pc.faceDir.ToVector() != Vector3.zero)
-            //{
-            //    ac.perfab.transform.forward = Dir;
-            //}
+            ac.anim.Play("wait");
+            if(Dir != Vector3.zero)
+            {
+                ac.perfab.transform.forward = Vector3.Lerp(ac.perfab.transform.forward,Dir,Time.deltaTime * 10f);
+            }
         }
 
         //上层动画
@@ -98,15 +94,16 @@ public class PlayerAnimSystem : SystemBase
     {
         AnimComponent ac = entity.GetComp<AnimComponent>();
         PlayerComponent pc = entity.GetComp<PlayerComponent>();
+        SkillStatusComponent sc = entity.GetComp<SkillStatusComponent>();
+        MoveComponent mc = entity.GetComp<MoveComponent>();
 
         Vector3 rot = ac.waistNode.transform.eulerAngles;
-
         Vector3 aimWaistDir = pc.faceDir.ToVector();
 
-        //if (entity.GetExistComp<SelfComponent>())
-        //{
-        //    aimWaistDir = InputSystem.skillDirCache;
-        //}
+        if(aimWaistDir == Vector3.zero)
+        {
+            aimWaistDir = ac.perfab.transform.forward;
+        }
 
         float euler = Mathf.Atan2(aimWaistDir.x, aimWaistDir.z) * Mathf.Rad2Deg;
         if (aimWaistDir.z == 0)
@@ -114,13 +111,23 @@ public class PlayerAnimSystem : SystemBase
             euler = 0;
         }
 
-        float amend = 0;
-
         rot.x = ac.waistNode.transform.eulerAngles.x;
-        rot.y = euler - 90 + amend;
+        rot.y = euler - 90;
         rot.z = ac.waistNode.transform.eulerAngles.z;
 
-        ac.waistNode.transform.eulerAngles = rot;
+        ac.waistDir.x = ac.waistNode.transform.eulerAngles.x;
+        ac.waistDir.z = ac.waistNode.transform.eulerAngles.z;
+
+        ac.waistDir.y = Mathf.LerpAngle(ac.waistDir.y, rot.y, Time.deltaTime * 10);
+        ac.waistNode.transform.eulerAngles = ac.waistDir;
+
+        Debug.DrawRay(ac.waistNode.transform.position, ac.waistNode.transform.forward * 5, Color.red);
+
+        Debug.DrawRay(ac.perfab.transform.position, pc.faceDir.ToVector() * 3, Color.green);
+
+        Debug.DrawRay(ac.perfab.transform.position, ac.perfab.transform.forward * 2, Color.yellow);
+
+        Debug.DrawRay(ac.perfab.transform.position, aimWaistDir * 4, Color.blue);
     }
 
     public void UpperAnim(EntityBase entity, AnimComponent ac)
@@ -146,7 +153,6 @@ public class PlayerAnimSystem : SystemBase
             }
             if (attackAnimName != "null")
             {
-                //TODO 将来可能对动画做追赶
                 ac.anim.Play(attackAnimName, 1);
             }
             else
@@ -171,26 +177,36 @@ public class PlayerAnimSystem : SystemBase
 
         moveDir.y = 0;
 
+        Vector3 fdir = moveDir;
+
         switch (status)
         {
             case TurnStatus.Forward:
-                character.transform.forward = moveDir;
+                fdir =  moveDir;
                 break;
             case TurnStatus.Back:
-                character.transform.forward = -moveDir;
+                fdir = -moveDir;
                 break;
             case TurnStatus.Right:
-                character.transform.forward = moveDir.Vector3RotateInXZ(90);
+                fdir = moveDir.Vector3RotateInXZ(90);
                 break;
             case TurnStatus.Left:
-                character.transform.forward = moveDir.Vector3RotateInXZ2(90);
+                fdir = moveDir.Vector3RotateInXZ2(90);
+
                 break;
         }
+
+        character.transform.forward = Vector3.Lerp(character.transform.forward, fdir, Time.deltaTime * 10f);
     }
 
 
     public TurnStatus GetTurnStatus(Vector3 dir, Vector3 faceDir)
     {
+        if(faceDir == Vector3.zero)
+        {
+            return TurnStatus.Forward;
+        }
+
         float angle = Vector3.Angle(dir, faceDir);
 
         if (angle < 45)

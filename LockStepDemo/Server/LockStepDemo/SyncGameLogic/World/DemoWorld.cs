@@ -13,7 +13,6 @@ class DemoWorld : WorldBase
             typeof(OperationSystem),
             typeof(BlowFlySystem),
             typeof(MoveSystem),
-            typeof(TranslationOverlapSystem),
             typeof(FireSystem),
             typeof(SkillStatusSystem),
             typeof(SkillSystem),
@@ -26,7 +25,6 @@ class DemoWorld : WorldBase
             typeof(ItemSystem),
             typeof(RankSystem),
             typeof(BuffSystem),
-            typeof(GrassSystem),
 
             //初始化
             typeof(InitSystem),
@@ -44,8 +42,6 @@ class DemoWorld : WorldBase
     public override Type[] GetRecordTypes()
     {
         return new Type[] {
-            //typeof(FlyObjectComponent),
-            //typeof(ItemCreatePointComponent),
         };
     }
 

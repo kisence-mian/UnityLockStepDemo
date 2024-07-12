@@ -1,184 +1,124 @@
-﻿#if Server
-using DeJson;
-#endif
-using FastCollections;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
 
-public class RecordSystem<T> : RecordSystemBase where T : MomentComponentBase, new()
+public class RecordSystem<T> : RecordSystemBase where T: MomentComponentBase ,new()
 {
-    public FastList<T> m_record = new FastList<T>();
-    int hashCode = 0;
-
     public override Type[] GetFilter()
     {
         return new Type[] { typeof(T) };
     }
 
-    public override void Init()
-    {
-        hashCode = m_world.componentType.GetComponentIndex(typeof(T).Name);
-    }
-
     public override void Record(int frame)
     {
-        List<EntityBase> list = GetEntityList();
+        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>> ();
 
+        List<EntityBase> list = GetEntityList();
         for (int i = 0; i < list.Count; i++)
         {
-            EntityBase entity = list[i];
-            T data = entity.GetComp<T>(hashCode);
+            T record = (T)list[i].GetComp<T>().DeepCopy();
+            record.Frame = frame;
+            record.ID    = list[i].ID;
 
-            //if(data.IsChange)
-            {
-                data.IsChange = false;
-
-                T record = (T)data.DeepCopy();
-                record.Frame = frame;
-                record.ID = entity.ID;
-                record.World = entity.World;
-
-                m_record.Add(record);
-            }
+            rc.m_record.Add(record);
+            //if (SyncDebugSystem.IsFilter(typeof(T).Name))
+            //{
+            //    Debug.Log("数据记录 ID：" + list[i].ID + " frame:" + frame + " conent:" + Serializer.Serialize(record));
+            //}
         }
     }
 
     public override void RevertToFrame(int frame)
     {
-        //Debug.Log("RevertToFrame " + frame + " count " + m_record.Count);
+        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
 
-        for (int i = 0; i < m_record.Count; i++)
+        List<T> list = rc.GetRecordList(frame);
+
+        //if (SyncDebugSystem.IsFilter(typeof(T).Name))
+        //{
+        //    Debug.Log("数据回滚  frame:" + frame + " Count:" + list.Count);
+        //}
+
+        for (int i = 0; i < list.Count; i++)
         {
-            T record = m_record[i];
-
-            //Debug.Log("record.Frame " + record.Frame);
-
-            if (record.Frame == frame)
+            if(m_world.GetEntityIsExist(list[i].ID))
             {
-                if (m_world.GetEntityIsExist(record.ID))
-                {
-                    EntityBase entity = m_world.GetEntity(record.ID);
-                    entity.ChangeComp(hashCode, (T)record.DeepCopy());
-                    //if (SyncDebugSystem.isDebug && SyncDebugSystem.IsFilter(typeof(T).Name))
-                    //{
-                    //    Debug.Log("RevertToFrame " + frame + " ->> " + Serializer.Serialize((T)record.DeepCopy()));
-                    //}
-                }
-                else if (m_world.GetIsExistDispatchDestroyCache(record.ID))
-                {
-                    EntityBase entity = m_world.GetDispatchDestroyCache(record.ID);
-                    entity.ChangeComp(hashCode, (T)record.DeepCopy());
-                }
-                else if (m_world.GetIsExistDispatchCreateCache(record.ID))
-                {
-                    EntityBase entity = m_world.GetDispatchCreateCache(record.ID);
-                    entity.ChangeComp(hashCode, (T)record.DeepCopy());
-                }
-                else
-                {
-                    Debug.Log("没有找到回滚对象 ！ " + record.ID);
-                }
-
-                m_record.RemoveAt(i);
-                i--;
-
-                m_world.heapComponentPool.PutObject(hashCode, record);
+                EntityBase entity = m_world.GetEntity(list[i].ID);
+                entity.ChangeComp((T)list[i].DeepCopy());
             }
-        }
-    }
-
-    public override MomentComponentBase GetRecord(int id, int frame)
-    {
-        for (int i = 0; i < m_record.Count; i++)
-        {
-            if(m_record[i].ID == id &&
-                m_record[i].Frame == frame)
+            else if(m_world.GetIsExistCreateRollbackCache(list[i].ID))
             {
-                return m_record[i];
-            }
-        }
-        return null;
-    }
+                
+                //Debug.Log("GetIsExistCreateRollbackCache " + list[i].ID);
 
-    public override void PrintRecord(int id)
-    {
-        string content = "compName : " + typeof(T).Name + "\n";
-        for (int i = 0; i < m_record.Count; i++)
-        {
-            if(m_record[i].Frame > m_world.FrameCount - 10)
+                EntityBase entity = m_world.GetCreateRollbackCache(list[i].ID);
+                entity.ChangeComp((T)list[i].DeepCopy());
+            }
+            else if(m_world.GetIsExistDestroyRollbackCache(list[i].ID))
             {
-                if (id == -1 || m_record[i].ID == id)
-                {
-                    content += " ID:" + m_record[i].ID + " Frame:" +m_record[i].Frame + " content:" + Serializer.Serialize(m_record[i]) + "\n";
-                }
+                //Debug.Log("GetIsExistDestroyRollbackCache " + list[i].ID);
+
+                EntityBase entity = m_world.GetDestroyRollbackCache(list[i].ID);
+                entity.ChangeComp((T)list[i].DeepCopy());
             }
-        }
-        Debug.LogWarning("PrintRecord:" + content);
-    }
-
-    public override void ClearAll()
-    {
-        //Debug.Log("ClearAll");
-
-        for (int i = 0; i < m_record.Count; i++)
-        {
-            m_world.heapComponentPool.PutObject(hashCode, m_record[i]);
-        }
-
-        m_record.Clear();
-    }
-
-    public override void ClearRecordAt(int frame)
-    {
-        //Debug.Log("ClearRecordAt " + frame);
-
-        for (int i = 0; i < m_record.Count; i++)
-        {
-            T record = m_record[i];
-            if (record.Frame == frame)
+            else
             {
-                m_record.RemoveAt(i);
-                i--;
-
-                m_world.heapComponentPool.PutObject(hashCode, record);
+                //Debug.Log("没有找到回滚对象 " + list[i].ID + " frame " + frame);
             }
+
+            //if (SyncDebugSystem.IsFilter(typeof(T).Name))
+            //{
+            //    Debug.Log("数据回滚 ID：" + list[i].ID + " frame:" + list[i].Frame + " conent:" + Serializer.Serialize(list[i]));
+            //}
+
         }
     }
 
     public override void ClearAfter(int frame)
     {
-        //Debug.Log("ClearAfter " + frame);
-
-        for (int i = 0; i < m_record.Count; i++)
-        {
-            T record = m_record[i];
-            if (record.Frame > frame)
-            {
-                m_record.RemoveAt(i);
-                i--;
-
-                m_world.heapComponentPool.PutObject(hashCode, record);
-            }
-        }
+        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
+        rc.ClearAfter(frame);
     }
 
     public override void ClearBefore(int frame)
     {
-        //Debug.Log("ClearBefore " + frame);
+        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
+        rc.ClearBefore(frame);
+    }
 
-        for (int i = 0; i < m_record.Count; i++)
+    public override MomentComponentBase GetRecord(int id, int frame)
+    {
+        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
+        for (int i = 0; i < rc.m_record.Count; i++)
         {
-            T record = m_record[i];
-            if (record.Frame < frame)
+            if(rc.m_record[i].ID == id &&
+                rc.m_record[i].Frame == frame)
             {
-                m_record.RemoveAt(i);
-                i--;
-
-                m_world.heapComponentPool.PutObject(hashCode, record);
+                return rc.m_record[i];
             }
         }
+
+        return null;
+    }
+    public override void PrintRecord(int id)
+    {
+        RecordComponent<T> rc = m_world.GetSingletonComp<RecordComponent<T>>();
+
+        string content = "compName : " + typeof(T).Name + "\n";
+        for (int i = 0; i < rc.m_record.Count; i++)
+        {
+            if(id == -1 || rc.m_record[i].ID == id)
+            {
+                content += " ID:" + rc.m_record[i].ID + " Frame:" + rc.m_record[i].Frame + " content:" + Serializer.Serialize(rc.m_record[i]) + "\n";
+            }
+        }
+        Debug.LogWarning("PrintRecord:" + content);
+    }
+
+    public override void Record(int frame, EntityBase entity)
+    {
+        throw new NotImplementedException();
     }
 }

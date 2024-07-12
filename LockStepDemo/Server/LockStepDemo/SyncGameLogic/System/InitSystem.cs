@@ -15,8 +15,6 @@ public class InitSystem : SystemBase
         InitMap();
 
         InitElementCreatePoint();
-
-        InitGrass();
     }
 
     public override void OnEntityCreate(EntityBase entity)
@@ -45,15 +43,7 @@ public class InitSystem : SystemBase
 
         //将角色ID传入游戏
         playerComp.characterID = connectComp.m_session.player.characterID;
-        playerComp.nickName = connectComp.m_session.player.nickName;
-
-        Debug.Log("characterID ->" + playerComp.characterID + "<-");
-
-        if (playerComp.characterID == ""
-            || playerComp.characterID == null)
-        {
-            playerComp.characterID = "1";
-        }
+        playerComp.nickName = connectComp.m_session.player.playerID;
 
         ElementData e1 = new ElementData();
         e1.id = 100;
@@ -112,7 +102,6 @@ public class InitSystem : SystemBase
             for (int i = 0; i < data.TableIDs.Count; i++)
             {
                 c.m_skillList.Add(new SkillData(data.TableIDs[i], i));
-                c.m_CDList.Add(0);
             }
             entity.AddComp(c);
         }
@@ -140,7 +129,7 @@ public class InitSystem : SystemBase
         {
             CollisionComponent c = new CollisionComponent();
             c.area.areaType = AreaType.Circle;
-            c.area.radius = playerComp.CharacterData.m_Radius;
+            c.area.radius = 0.5f;
             entity.AddComp(c);
         }
 
@@ -168,7 +157,7 @@ public class InitSystem : SystemBase
         }
 
         GameTimeComponent gtc = m_world.GetSingletonComp<GameTimeComponent>();
-        gtc.GameTime = 50 * 60 * 1000;
+        gtc.GameTime = 10000 * 1000;
     }
 
     Deserializer deserializer = new Deserializer();
@@ -194,15 +183,13 @@ public class InitSystem : SystemBase
             CollisionComponent cc = new CollisionComponent();
             cc.area = list[i];
 
-            cc.isStatic = true;
-
             SyncComponent sc = new SyncComponent();
 
             BlockComponent bc = new BlockComponent();
 
             m_world.CreateEntityImmediately("Block" + i,cc, sc, bc);
 
-            //Debug.Log("Create map");
+            Debug.Log("Create map");
         }
     }
 
@@ -223,34 +210,7 @@ public class InitSystem : SystemBase
                 cc.area.areaType = AreaType.Circle;
                 cc.area.radius = 1;
 
-                cc.isStatic = true;
-
                 m_world.CreateEntityImmediately("ElementCreatePoint" + i,tmp, sc,cc);
-            }
-        }
-    }
-
-    void InitGrass()
-    {
-        string content = FileTool.ReadStringByFile(Environment.CurrentDirectory + "/Map/GrassData.txt");
-        string[] contentArray = content.Split('\n');
-
-        for (int i = 0; i < contentArray.Length; i++)
-        {
-            if (contentArray[i] != "")
-            {
-                SyncComponent sc = new SyncComponent();
-
-                Area aera = deserializer.Deserialize<Area>(contentArray[i]);
-                GrassComponent gc = new GrassComponent();
-
-                CollisionComponent cc = new CollisionComponent();
-                cc.area = aera;
-                cc.isStatic = true;
-
-                m_world.CreateEntityImmediately("Grass" + i, gc, cc, sc);
-
-                //Debug.Log("Create Grass");
             }
         }
     }

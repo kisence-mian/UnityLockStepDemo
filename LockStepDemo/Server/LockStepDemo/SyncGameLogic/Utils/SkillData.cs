@@ -8,7 +8,7 @@ public class SkillData
     /// </summary>
     private int index = 0;
     public string m_skillID;
-    public int cd = 0; //上次执行时间，用来作为CD判断
+    private float lastExecuteTime = -1; //上次执行时间，用来作为CD判断
 
     private SkillDataGenerate skillInfo;
     private SkillStatusDataGenerate beforeInfo;
@@ -86,7 +86,7 @@ public class SkillData
         }
     }
 
-    public int BeforeTime
+    public float BeforeTime
     {
         get
         {
@@ -94,7 +94,7 @@ public class SkillData
         }
     }
 
-    public int HitTime
+    public float HitTime
     {
         get
         {
@@ -102,7 +102,7 @@ public class SkillData
         }
     }
 
-    public int CurrentTime
+    public float CurrentTime
     {
         get
         {
@@ -110,7 +110,7 @@ public class SkillData
         }
     }
 
-    public int LaterTime
+    public float LaterTime
     {
         get
         {
@@ -118,7 +118,7 @@ public class SkillData
         }
     }
 
-    public int CDSpace
+    public float CDSpace
     {
         get
         {
@@ -139,6 +139,18 @@ public class SkillData
         }
     }
 
+    public float LastExecuteTime
+    {
+        get
+        {
+            return lastExecuteTime;
+        }
+
+        set
+        {
+            lastExecuteTime = value;
+        }
+    }
 
     public SkillData()
     {
@@ -162,7 +174,7 @@ public class SkillData
     //开始cd
     public void BegionCD(float lastExecuteTime)
     {
-        //cd = 0;
+        LastExecuteTime = lastExecuteTime + 0.4f;
     }
 
     /// <summary>
@@ -170,13 +182,7 @@ public class SkillData
     /// </summary>
     public void Reset()
     {
-        cd = 0;
-    }
-
-    //判断CD结束
-    public bool CDFinished()
-    {
-        return cd <= 0;
+        LastExecuteTime = -1;
     }
 
     #endregion
@@ -195,7 +201,7 @@ public class SkillData
     public SkillData DeepCopy()
     {
         SkillData sd = new SkillData(m_skillID, Index);
-        sd.cd = cd;
+
         return sd;
     }
 }

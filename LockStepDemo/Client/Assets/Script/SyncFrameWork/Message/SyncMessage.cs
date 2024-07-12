@@ -19,7 +19,6 @@ namespace Protocol
         public int advanceCount; //客户端提前量
         public int intervalTime;
         public int createEntityIndex;
-        public int randomSeed;
         public SyncRule SyncRule;
     }
 
@@ -32,8 +31,6 @@ namespace Protocol
         public int advanceCount; //客户端提前量
         public int serverTime;   //服务器时间
 
-        public float updateSpeed; //客户端执行速度 1 为正常 2为两倍速
-
         //public List<string> m_commandList;
     }
 
@@ -42,7 +39,7 @@ namespace Protocol
         public int frame;
         public List<EntityInfo> infos;
 
-        //public List<int> destroyList;
+        public List<int> destroyList;
     }
 
     //TODO 废弃
@@ -68,37 +65,14 @@ namespace Protocol
     //客户端确认消息送达，并用以计算Ping值
     public class AffirmMsg : SyncModule
     {
-        public int index;
-        public int time;
-    }
-
-    public class QueryCommand : SyncModule
-    {
         public int frame;
-        public int id;
-    }
-
-    //相同的指令发送这个消息，节约带宽
-    public class SameCommand : SyncModule
-    {
         public int time;
-        public int frame;
-        public int id;
     }
 
     public class DebugMsg : SyncModule
     {
         public int frame;
-        public int seed;
         public List<EntityInfo> infos;
-        public List<ComponentInfo> singleCompInfo;
-        public string msg;
-    }
-
-    public class VerificationMsg : SyncModule
-    {
-        public int frame;
-        public int hash;
     }
 
     public class EntityInfo : IProtocolStructInterface
@@ -113,71 +87,57 @@ namespace Protocol
         public string content;
     }
 
-    ////转发玩家消息
-    //public class CommandMsg : SyncModule
-    //{
-    //    public int index;        //消息编号
-    //    public int serverTime;   //服务器时间
-    //    public List<CommandInfo> msg;
+    //转发玩家消息
+    public class CommandMsg : SyncModule
+    {
+        public int frame;
+        public int serverTime;   //服务器时间
+        public List<CommandInfo> msg;
+    }
 
-    //    public bool GetIsExist(int frame, int id)
-    //    {
-    //        for (int i = 0; i < msg.Count; i++)
-    //        {
-    //            if (msg[i].id == id && msg[i].frame == frame)
-    //            {
-    //                return true;
-    //            }
-    //        }
+    public class CommandInfo : IProtocolStructInterface
+    {
+        public int frame;
+        public int id;
 
-    //        return false;
-    //    }
-    //}
+        public SyncVector3 moveDir = new SyncVector3();
+        public SyncVector3 skillDir = new SyncVector3();
 
-    //public class CommandInfo : IProtocolStructInterface
-    //{
-    //    public int frame;
-    //    public int id;
+        public int element1;
+        public int element2;
 
-    //    public SyncVector3 moveDir = new SyncVector3();
-    //    public SyncVector3 skillDir = new SyncVector3();
+        public bool isFire = false;
 
-    //    public int element1;
-    //    public int element2;
+        public void FromCommand(CommandComponent comp)
+        {
+            moveDir = comp.moveDir.DeepCopy();
+            skillDir = comp.skillDir.DeepCopy();
 
-    //    public bool isFire = false;
+            element1 = comp.element1;
+            element2 = comp.element2;
+            isFire = comp.isFire;
 
-    //    public void FromCommand(CommandComponent comp)
-    //    {
-    //        //moveDir = comp.moveDir.DeepCopy();
-    //        //skillDir = comp.skillDir.DeepCopy();
+            frame = comp.frame;
+            id = comp.id;
+        }
 
-    //        //element1 = comp.element1;
-    //        //element2 = comp.element2;
-    //        //isFire = comp.isFire;
+        public CommandComponent ToCommand()
+        {
+            CommandComponent cmd = new CommandComponent();
 
-    //        //frame = comp.frame;
-    //        //id = comp.id;
-    //    }
+            cmd.moveDir = moveDir.DeepCopy();
+            cmd.skillDir = skillDir.DeepCopy();
+            cmd.element1 = element1;
+            cmd.element2 = element2;
 
-    //    public CommandComponent ToCommand()
-    //    {
-    //        CommandComponent cmd = new CommandComponent();
+            cmd.isFire = isFire;
 
-    //        //cmd.moveDir = moveDir.DeepCopy();
-    //        //cmd.skillDir = skillDir.DeepCopy();
-    //        //cmd.element1 = element1;
-    //        //cmd.element2 = element2;
+            cmd.frame = frame;
+            cmd.id = id;
 
-    //        //cmd.isFire = isFire;
-
-    //        //cmd.frame = frame;
-    //        //cmd.id = id;
-
-    //        return cmd;
-    //    }
-
-    //}
+            return cmd;
+        }
+    }
 
     public enum ChangeStatus
     {

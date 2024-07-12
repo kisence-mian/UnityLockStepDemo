@@ -130,12 +130,12 @@ public class SyncDebugEditorWindow : EditorWindow
         GUILayout.Label("Frame :" + m_aimWorld.FrameCount);
         GUILayout.Label("AheadFrame :" + m_aimWorld.GetSingletonComp<ConnectStatusComponent>().aheadFrame);
         GUILayout.Label("ClearFrame :" + m_aimWorld.GetSingletonComp<ConnectStatusComponent>().ClearFrame);
-        GUILayout.Label("isAllFrame :" + m_aimWorld.GetSingletonComp<ConnectStatusComponent>().confirmFrame);
+        GUILayout.Label("isAllFrame :" + m_aimWorld.GetSingletonComp<ConnectStatusComponent>().isAllFrame);
         GUILayout.Label("未确认帧数 :" + m_aimWorld.GetSingletonComp<ConnectStatusComponent>().unConfirmFrame.Count);
     }
 
     const int ShowCount = 50;
-    //int ShowRow  = 3;
+    int ShowRow  = 3;
     Texture2D showTexture;
     void FrameStreamGUI()
     {
@@ -312,7 +312,7 @@ public class SyncDebugEditorWindow : EditorWindow
 
     void ReceviceAffirmMsg(AffirmMsg msg, params object[] objs)
     {
-        SyncDebugData data = GetSyncData(msg.index);
+        SyncDebugData data = GetSyncData(msg.frame);
         data.AffirmMsgCount++;
     }
     void ReceviceSyncEntity(SyncEntityMsg msg, params object[] objs)

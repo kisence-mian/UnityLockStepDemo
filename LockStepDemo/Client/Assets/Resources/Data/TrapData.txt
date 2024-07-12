@@ -1,0 +1,195 @@
+TrapID	ModelID	IdleAnimName	HurtAnimName	HurtAnimTime	DieAnimName	DropOutID	hp	lv	power	att	def	hprecover	crit	critdamage	ignoredef	hpabsorb	tough	BloodHight	AttackList	SkillList	AutoTrigger	TriggerSpace	TriggerArea	BodyArea	EveryOneCanRemove	RemoveSkill	isCollideTrigger
+type	String	String	String	Float	String	String	Int	Int	Int	Int	Int	Int	Int	Int	Int	Int	Int	Float	StringArray|HardPointEnum	StringArray|HardPointEnum	Bool	Float	String	String	Bool	String	Bool
+note						ID		等级	战斗力	攻击力	防御力	生命恢复	暴击率	暴击伤害	破防	吸血	韧性	Y			自动触发	触发间隔			每个人都能拆除	拆除技能	是否通过碰撞触发
+default	null	null	null	0	null	null	0	1	500	500	5	3	3	3	3	3	3	0	null	null	FALSE	3	Rectangle1x1	Rectangle1x1	FALSE	null	FALSE
+TanBan_00	Tanban_00_00								5	20	0	0	10	20	0	0	0		Tanban_Trigger	TrapInvincible|TrapCloaking		5	Rectangle1x1	Rectangle1x1			
+TanBan_01	Tanban_00_00								5	32	0	0	26	32	0	0	0		Tanban_Trigger	TrapInvincible|TrapCloaking		5	Rectangle1x1	Rectangle1x1			
+TanBan_02	Tanban_00_00								5	65	0	0	42	65	0	0	0		Tanban_Trigger	TrapInvincible|TrapCloaking		5	Rectangle1x1	Rectangle1x1			
+TanBan_03	Tanban_00_00								5	98	0	0	102	98	0	0	0		Tanban_Trigger	TrapInvincible|TrapCloaking		5	Rectangle1x1	Rectangle1x1			
+TanBan_04	Tanban_00_00								5	152	0	0	191	152	0	0	0		Tanban_Trigger	TrapInvincible|TrapCloaking		5	Rectangle1x1	Rectangle1x1			
+TanBan_05	Tanban_00_00								5	243	0	0	338	243	0	0	0		Tanban_Trigger	TrapInvincible|TrapCloaking		5	Rectangle1x1	Rectangle1x1			
+TanBan_06	Tanban_00_00								5	378	0	0	482	378	0	0	0		Tanban_Trigger	TrapInvincible|TrapCloaking		5	Rectangle1x1	Rectangle1x1			
+TanBan_07	Tanban_00_00								5	568	0	0	672	568	0	0	0		Tanban_Trigger	TrapInvincible|TrapCloaking		5	Rectangle1x1	Rectangle1x1			
+TanBan_08	Tanban_00_00								5	756	0	0	860	756	0	0	0		Tanban_Trigger	TrapInvincible|TrapCloaking		5	Rectangle1x1	Rectangle1x1			
+TanBan_09	Tanban_00_00								5	987	0	0	860	987	0	0	0		Tanban_Trigger	TrapInvincible|TrapCloaking		5	Rectangle1x1	Rectangle1x1			
+LuZhang_00	Luzhang_02_00				Luzhang_02_00_die		2000													TrapInvincible|				Rectangle1x3			
+HuoYan_00	PenzuiA_00_00									30	0	0	10	30	0	0	0		PenHuo	TrapInvincible|	TRUE	5					
+HuoYan_01	PenzuiA_00_00									41	0	0	26	41	0	0	0		PenHuo	TrapInvincible|	TRUE	5					
+HuoYan_02	PenzuiA_00_00									101	0	0	42	101	0	0	0		PenHuo	TrapInvincible|	TRUE	5					
+HuoYan_03	PenzuiA_00_00									142	0	0	102	142	0	0	0		PenHuo	TrapInvincible|	TRUE	5					
+HuoYan_04	PenzuiA_00_00									225	0	0	191	225	0	0	0		PenHuo	TrapInvincible|	TRUE	5					
+HuoYan_05	PenzuiA_00_00									351	0	0	338	351	0	0	0		PenHuo	TrapInvincible|	TRUE	5					
+HuoYan_06	PenzuiA_00_00									498	0	0	482	498	0	0	0		PenHuo	TrapInvincible|	TRUE	5					
+HuoYan_07	PenzuiA_00_00									745	0	0	672	745	0	0	0		PenHuo	TrapInvincible|	TRUE	5					
+HuoYan_08	PenzuiA_00_00									965	0	0	860	965	0	0	0		PenHuo	TrapInvincible|	TRUE	5					
+HuoYan_09	PenzuiA_00_00									1213	0	0	860	1213	0	0	0		PenHuo	TrapInvincible|	TRUE	5					
+Ximozhe	Ximozhe_00_00						150												shuairuo	|							
+Ximozhe_1	Ximozhe_00_00						254												shuairuo	|							
+Ximozhe_2	Ximozhe_00_00						452												shuairuo	|							
+Ximozhe_3	Ximozhe_00_00						820												shuairuo	|							
+Ximozhe_4	Ximozhe_00_00						1437												shuairuo	|							
+Ximozhe_5	Ximozhe_00_00						2669												shuairuo	|							
+Ximozhe_6	Ximozhe_00_00						5412												shuairuo	|							
+Ximozhe_7	Ximozhe_00_00						8730												shuairuo	|							
+Ximozhe_8	Ximozhe_00_00						12822												shuairuo	|							
+Ximozhe_9	Ximozhe_00_00						18960												shuairuo	|							
+Baifu_00	Baifu_00_00									40	0	0	10	40	0	0	0		Baifu	TrapInvincible|		0.75					TRUE
+Baifu_01	Baifu_00_00									64	0	0	26	64	0	0	0		Baifu	TrapInvincible|		0.75					TRUE
+Baifu_02	Baifu_00_00									113	0	0	42	113	0	0	0		Baifu	TrapInvincible|		0.75					TRUE
+Baifu_03	Baifu_00_00									175	0	0	102	175	0	0	0		Baifu	TrapInvincible|		0.75					TRUE
+Baifu_04	Baifu_00_00									280	0	0	191	280	0	0	0		Baifu	TrapInvincible|		0.75					TRUE
+Baifu_05	Baifu_00_00									430	0	0	338	430	0	0	0		Baifu	TrapInvincible|		0.75					TRUE
+Baifu_06	Baifu_00_00									604	0	0	482	604	0	0	0		Baifu	TrapInvincible|		0.75					TRUE
+Baifu_07	Baifu_00_00									852	0	0	672	852	0	0	0		Baifu	TrapInvincible|		0.75					TRUE
+Baifu_08	Baifu_00_00									1230	0	0	860	1230	0	0	0		Baifu	TrapInvincible|		0.75					TRUE
+Baifu_09	Baifu_00_00									1510	0	0	860	1510	0	0	0		Baifu	TrapInvincible|		0.75					TRUE
+Baimu_00	Baimu_00_00									40	0	0	10	40	0	0	0		Baimu	TrapInvincible|							TRUE
+Baimu_01	Baimu_00_00									64	0	0	26	64	0	0	0		Baimu	TrapInvincible|							TRUE
+Baimu_02	Baimu_00_00									113	0	0	42	113	0	0	0		Baimu	TrapInvincible|							TRUE
+Baimu_03	Baimu_00_00									175	0	0	102	175	0	0	0		Baimu	TrapInvincible|							TRUE
+Baimu_04	Baimu_00_00									280	0	0	191	280	0	0	0		Baimu	TrapInvincible|							TRUE
+Baimu_05	Baimu_00_00									430	0	0	338	430	0	0	0		Baimu	TrapInvincible|							TRUE
+Baimu_06	Baimu_00_00									604	0	0	482	604	0	0	0		Baimu	TrapInvincible|							TRUE
+Baimu_07	Baimu_00_00									852	0	0	672	852	0	0	0		Baimu	TrapInvincible|							TRUE
+Baimu_08	Baimu_00_00									1230	0	0	860	1230	0	0	0		Baimu	TrapInvincible|							TRUE
+Baimu_09	Baimu_00_00									1510	0	0	860	1510	0	0	0		Baimu	TrapInvincible|							TRUE
+Bao_zhao	Baozha_00_00									45	0	0	10	45	0	0	0		Baozha	TrapInvincible|			Circle_3				
+Bao_zhao_1	Baozha_00_00									69	0	0	26	69	0	0	0		Baozha	TrapInvincible|			Circle_3				
+Bao_zhao_2	Baozha_00_00									120	0	0	42	120	0	0	0		Baozha	TrapInvincible|			Circle_3				
+Bao_zhao_3	Baozha_00_00									179	0	0	102	179	0	0	0		Baozha	TrapInvincible|			Circle_3				
+Bao_zhao_4	Baozha_00_00									288	0	0	191	288	0	0	0		Baozha	TrapInvincible|			Circle_3				
+Bao_zhao_5	Baozha_00_00									426	0	0	338	426	0	0	0		Baozha	TrapInvincible|			Circle_3				
+Bao_zhao_6	Baozha_00_00									611	0	0	482	611	0	0	0		Baozha	TrapInvincible|			Circle_3				
+Bao_zhao_7	Baozha_00_00									862	0	0	672	862	0	0	0		Baozha	TrapInvincible|			Circle_3				
+Bao_zhao_8	Baozha_00_00									1240	0	0	860	1240	0	0	0		Baozha	TrapInvincible|			Circle_3				
+Bao_zhao_9	Baozha_00_00									1560	0	0	860	1560	0	0	0		Baozha	TrapInvincible|			Circle_3				
+Dangban_00	Dangban_00_00																		Gunshi	TrapInvincible|							
+Dingci_00	Dingci_00_00									30	0	0	10	30	0	0	0		Dingci	TrapInvincible|							
+Dingci_01	Dingci_00_00									41	0	0	26	41	0	0	0		Dingci	TrapInvincible|							
+Dingci_02	Dingci_00_00									101	0	0	42	101	0	0	0		Dingci	TrapInvincible|							
+Dingci_03	Dingci_00_00									142	0	0	102	142	0	0	0		Dingci	TrapInvincible|							
+Dingci_04	Dingci_00_00									225	0	0	191	225	0	0	0		Dingci	TrapInvincible|							
+Dingci_05	Dingci_00_00									351	0	0	338	351	0	0	0		Dingci	TrapInvincible|							
+Dingci_06	Dingci_00_00									498	0	0	482	498	0	0	0		Dingci	TrapInvincible|							
+Dingci_07	Dingci_00_00									745	0	0	672	745	0	0	0		Dingci	TrapInvincible|							
+Dingci_08	Dingci_00_00									965	0	0	860	965	0	0	0		Dingci	TrapInvincible|							
+Dingci_09	Dingci_00_00									1213	0	0	860	1213	0	0	0		Dingci	TrapInvincible|							
+Duwu_00	Duwu_00_00									30	0	0	10	30	0	0	0		Duwu	TrapInvincible|			Circle_3				
+Duwu_01	Duwu_00_00									41	0	0	26	41	0	0	0		Duwu_1	TrapInvincible|			Circle_3				
+Duwu_02	Duwu_00_00									101	0	0	42	101	0	0	0		Duwu_2	TrapInvincible|			Circle_3				
+Duwu_03	Duwu_00_00									142	0	0	102	142	0	0	0		Duwu_3	TrapInvincible|			Circle_3				
+Duwu_04	Duwu_00_00									225	0	0	191	225	0	0	0		Duwu_4	TrapInvincible|			Circle_3				
+Duwu_05	Duwu_00_00									351	0	0	338	351	0	0	0		Duwu_5	TrapInvincible|			Circle_3				
+Duwu_06	Duwu_00_00									498	0	0	482	498	0	0	0		Duwu_6	TrapInvincible|			Circle_3				
+Duwu_07	Duwu_00_00									745	0	0	672	745	0	0	0		Duwu_7	TrapInvincible|			Circle_3				
+Duwu_08	Duwu_00_00									965	0	0	860	965	0	0	0		Duwu_8	TrapInvincible|			Circle_3				
+Duwu_09	Duwu_00_00									1213	0	0	860	1213	0	0	0		Duwu_9	TrapInvincible|			Circle_3				
+Emoyuan_00	Emoyuan_00_00																		Emoyuan	TrapInvincible|	TRUE						
+Emoyuan_01	Emoyuan_00_00																		Emoyuan_1	TrapInvincible|	TRUE						
+Emoyuan_02	Emoyuan_00_00																		Emoyuan_2	TrapInvincible|	TRUE						
+Emoyuan_03	Emoyuan_00_00																		Emoyuan_3	TrapInvincible|	TRUE						
+Emoyuan_04	Emoyuan_00_00																		Emoyuan_4	TrapInvincible|	TRUE						
+Emoyuan_05	Emoyuan_00_00																		Emoyuan_5	TrapInvincible|	TRUE						
+Emoyuan_06	Emoyuan_00_00																		Emoyuan_6	TrapInvincible|	TRUE						
+Emoyuan_07	Emoyuan_00_00																		Emoyuan_7	TrapInvincible|	TRUE						
+Emoyuan_08	Emoyuan_00_00																		Emoyuan_8	TrapInvincible|	TRUE						
+Emoyuan_09	Emoyuan_00_00																		Emoyuan_9	TrapInvincible|	TRUE						
+Gunshi_00	Gunshi_00_00									45	0	0	10	45	0	0	0		Gunshi	TrapInvincible|		5	Rectangle10x2.5OffSet				
+Gunshi_01	Gunshi_00_00									69	0	0	26	69	0	0	0		Gunshi	TrapInvincible|		5	Rectangle10x2.5OffSet				
+Gunshi_02	Gunshi_00_00									120	0	0	42	120	0	0	0		Gunshi	TrapInvincible|		5	Rectangle10x2.5OffSet				
+Gunshi_03	Gunshi_00_00									179	0	0	102	179	0	0	0		Gunshi	TrapInvincible|		5	Rectangle10x2.5OffSet				
+Gunshi_04	Gunshi_00_00									288	0	0	191	288	0	0	0		Gunshi	TrapInvincible|		5	Rectangle10x2.5OffSet				
+Gunshi_05	Gunshi_00_00									426	0	0	338	426	0	0	0		Gunshi	TrapInvincible|		5	Rectangle10x2.5OffSet				
+Gunshi_06	Gunshi_00_00									611	0	0	482	611	0	0	0		Gunshi	TrapInvincible|		5	Rectangle10x2.5OffSet				
+Gunshi_07	Gunshi_00_00									862	0	0	672	862	0	0	0		Gunshi	TrapInvincible|		5	Rectangle10x2.5OffSet				
+Gunshi_08	Gunshi_00_00									1240	0	0	860	1240	0	0	0		Gunshi	TrapInvincible|		5	Rectangle10x2.5OffSet				
+Gunshi_09	Gunshi_00_00									1560	0	0	860	1560	0	0	0		Gunshi	TrapInvincible|		5	Rectangle10x2.5OffSet				
+Hanbing_00	Hanbing_00_00									45	0	0	10	45	0	0	0		hanbingbaozha	TrapInvincible|			Circle_3				
+Hanbing_01	Hanbing_00_00									69	0	0	26	69	0	0	0		hanbingbaozha_1	TrapInvincible|			Circle_3				
+Hanbing_02	Hanbing_00_00									120	0	0	42	120	0	0	0		hanbingbaozha_2	TrapInvincible|			Circle_3				
+Hanbing_03	Hanbing_00_00									179	0	0	102	179	0	0	0		hanbingbaozha_3	TrapInvincible|			Circle_3				
+Hanbing_04	Hanbing_00_00									288	0	0	191	288	0	0	0		hanbingbaozha_4	TrapInvincible|			Circle_3				
+Hanbing_05	Hanbing_00_00									426	0	0	338	426	0	0	0		hanbingbaozha_5	TrapInvincible|			Circle_3				
+Hanbing_06	Hanbing_00_00									611	0	0	482	611	0	0	0		hanbingbaozha_6	TrapInvincible|			Circle_3				
+Hanbing_07	Hanbing_00_00									862	0	0	672	862	0	0	0		hanbingbaozha_7	TrapInvincible|			Circle_3				
+Hanbing_08	Hanbing_00_00									1240	0	0	860	1240	0	0	0		hanbingbaozha_8	TrapInvincible|			Circle_3				
+Hanbing_09	Hanbing_00_00									1560	0	0	860	1560	0	0	0		hanbingbaozha_9	TrapInvincible|			Circle_3				
+Heianmen_00	Heianmen_00_00						150												Heianmen	|		10	Circle_3				
+Heianmen_01	Heianmen_00_00						254												Heianmen_1	|		10	Circle_3				
+Heianmen_02	Heianmen_00_00						452												Heianmen_2	|		10	Circle_3				
+Heianmen_03	Heianmen_00_00						820												Heianmen_3	|		10	Circle_3				
+Heianmen_04	Heianmen_00_00						1437												Heianmen_4	|		10	Circle_3				
+Heianmen_05	Heianmen_00_00						2669												Heianmen_5	|		10	Circle_3				
+Heianmen_06	Heianmen_00_00						5412												Heianmen_6	|		10	Circle_3				
+Heianmen_07	Heianmen_00_00						8730												Heianmen_7	|		10	Circle_3				
+Heianmen_08	Heianmen_00_00						12822												Heianmen_8	|		10	Circle_3				
+Heianmen_09	Heianmen_00_00						18960												Heianmen_9	|		10	Circle_3				
+Jian_00	Nu_01_00									20	0	0	10	20	0	0	0		Jian	TrapInvincible|	TRUE						
+Jian_01	Nu_01_00									32	0	0	26	32	0	0	0		Jian	TrapInvincible|	TRUE						
+Jian_02	Nu_01_00									65	0	0	42	65	0	0	0		Jian	TrapInvincible|	TRUE						
+Jian_03	Nu_01_00									98	0	0	102	98	0	0	0		Jian	TrapInvincible|	TRUE						
+Jian_04	Nu_01_00									152	0	0	191	152	0	0	0		Jian	TrapInvincible|	TRUE						
+Jian_05	Nu_01_00									243	0	0	338	243	0	0	0		Jian	TrapInvincible|	TRUE						
+Jian_06	Nu_01_00									378	0	0	482	378	0	0	0		Jian	TrapInvincible|	TRUE						
+Jian_07	Nu_01_00									568	0	0	672	568	0	0	0		Jian	TrapInvincible|	TRUE						
+Jian_08	Nu_01_00									756	0	0	860	756	0	0	0		Jian	TrapInvincible|	TRUE						
+Jian_09	Nu_01_00									987	0	0	860	987	0	0	0		Jian	TrapInvincible|	TRUE						
+Jianci_00	Jianci_00_00									30	0	0	10	30	0	0	0		Jianci	TrapInvincible|							TRUE
+Jianci_01	Jianci_00_00									41	0	0	26	41	0	0	0		Jianci_1	TrapInvincible|							TRUE
+Jianci_02	Jianci_00_00									101	0	0	42	101	0	0	0		Jianci_2	TrapInvincible|							TRUE
+Jianci_03	Jianci_00_00									142	0	0	102	142	0	0	0		Jianci_3	TrapInvincible|							TRUE
+Jianci_04	Jianci_00_00									225	0	0	191	225	0	0	0		Jianci_4	TrapInvincible|							TRUE
+Jianci_05	Jianci_00_00									351	0	0	338	351	0	0	0		Jianci_5	TrapInvincible|							TRUE
+Jianci_06	Jianci_00_00									498	0	0	482	498	0	0	0		Jianci_6	TrapInvincible|							TRUE
+Jianci_07	Jianci_00_00									745	0	0	672	745	0	0	0		Jianci_7	TrapInvincible|							TRUE
+Jianci_08	Jianci_00_00									965	0	0	860	965	0	0	0		Jianci_8	TrapInvincible|							TRUE
+Jianci_09	Jianci_00_00									1213	0	0	860	1213	0	0	0		Jianci_9	TrapInvincible|							TRUE
+Kuangfeng_00	Kuangfeng_00_00																		Kuangfeng	TrapInvincible|	TRUE						
+Mabi_00	Mabi_00_00																		Mabi	TrapInvincible|							
+Mabi_01	Mabi_00_00																		Mabi_1	TrapInvincible|							
+Mabi_02	Mabi_00_00																		Mabi_2	TrapInvincible|							
+Mabi_03	Mabi_00_00																		Mabi_3	TrapInvincible|							
+Mabi_04	Mabi_00_00																		Mabi_4	TrapInvincible|							
+Mabi_05	Mabi_00_00																		Mabi_5	TrapInvincible|							
+Mabi_06	Mabi_00_00																		Mabi_6	TrapInvincible|							
+Mabi_07	Mabi_00_00																		Mabi_7	TrapInvincible|							
+Mabi_08	Mabi_00_00																		Mabi_8	TrapInvincible|							
+Mabi_09	Mabi_00_00																		Mabi_9	TrapInvincible|							
+Nu_00	Nu_02_00									30	0	0	10	30	0	0	0		Nu	TrapInvincible|	TRUE						
+Nu_01	Nu_02_00									41	0	0	26	41	0	0	0		Nu_1	TrapInvincible|	TRUE						
+Nu_02	Nu_02_00									101	0	0	42	101	0	0	0		Nu_2	TrapInvincible|	TRUE						
+Nu_03	Nu_02_00									142	0	0	102	142	0	0	0		Nu_3	TrapInvincible|	TRUE						
+Nu_04	Nu_02_00									225	0	0	191	225	0	0	0		Nu_4	TrapInvincible|	TRUE						
+Nu_05	Nu_02_00									351	0	0	338	351	0	0	0		Nu_5	TrapInvincible|	TRUE						
+Nu_06	Nu_02_00									498	0	0	482	498	0	0	0		Nu_6	TrapInvincible|	TRUE						
+Nu_07	Nu_02_00									745	0	0	672	745	0	0	0		Nu_7	TrapInvincible|	TRUE						
+Nu_08	Nu_02_00									965	0	0	860	965	0	0	0		Nu_8	TrapInvincible|	TRUE						
+Nu_09	Nu_02_00									1213	0	0	860	1213	0	0	0		Nu_9	TrapInvincible|	TRUE						
+Qiangdian_00	Qiangdian_00_00									30	0	0	10	30	0	0	0		Qiangdian	TrapInvincible|							
+Qiangdian_01	Qiangdian_00_00									41	0	0	26	41	0	0	0		Qiangdian	TrapInvincible|							
+Qiangdian_02	Qiangdian_00_00									101	0	0	42	101	0	0	0		Qiangdian	TrapInvincible|							
+Qiangdian_03	Qiangdian_00_00									142	0	0	102	142	0	0	0		Qiangdian	TrapInvincible|							
+Qiangdian_04	Qiangdian_00_00									225	0	0	191	225	0	0	0		Qiangdian	TrapInvincible|							
+Qiangdian_05	Qiangdian_00_00									351	0	0	338	351	0	0	0		Qiangdian	TrapInvincible|							
+Qiangdian_06	Qiangdian_00_00									498	0	0	482	498	0	0	0		Qiangdian	TrapInvincible|							
+Qiangdian_07	Qiangdian_00_00									745	0	0	672	745	0	0	0		Qiangdian	TrapInvincible|							
+Qiangdian_08	Qiangdian_00_00									965	0	0	860	965	0	0	0		Qiangdian	TrapInvincible|							
+Qiangdian_09	Qiangdian_00_00									1213	0	0	860	1213	0	0	0		Qiangdian	TrapInvincible|							
+Yinli_00	Yinli_00_00																		Yinli	TrapInvincible|		4.5	Circle_3				
+Yinli_01	Yinli_00_00																		Yinli_1	TrapInvincible|		4.5	Circle_3				
+Yinli_02	Yinli_00_00																		Yinli_2	TrapInvincible|		4.5	Circle_3				
+Yinli_03	Yinli_00_00																		Yinli_3	TrapInvincible|		4.5	Circle_3				
+Zhendang_00	Zhendang_00_00									20	0	0	10	20	0	0	0		Zhendang	TrapInvincible|							
+Zhendang_01	Zhendang_00_00									32	0	0	26	32	0	0	0		Zhendang_1	TrapInvincible|							
+Zhendang_02	Zhendang_00_00									65	0	0	42	65	0	0	0		Zhendang_2	TrapInvincible|							
+Zhendang_03	Zhendang_00_00									98	0	0	102	98	0	0	0		Zhendang_3	TrapInvincible|							
+Zhendang_04	Zhendang_00_00									152	0	0	191	152	0	0	0		Zhendang_4	TrapInvincible|							
+Zhendang_05	Zhendang_00_00									243	0	0	338	243	0	0	0		Zhendang_5	TrapInvincible|							
+Zhendang_06	Zhendang_00_00									378	0	0	482	378	0	0	0		Zhendang_6	TrapInvincible|							
+Zhendang_07	Zhendang_00_00									568	0	0	672	568	0	0	0		Zhendang_7	TrapInvincible|							
+Zhendang_08	Zhendang_00_00									756	0	0	860	756	0	0	0		Zhendang_8	TrapInvincible|							
+Zhendang_09	Zhendang_00_00									987	0	0	860	987	0	0	0		Zhendang_9	TrapInvincible|							
+Zhuwang_00	Zhuwang_00_00																		ZhuWang	TrapInvincible|			Circle_3				
+paota_00	Ximozhe_00_01						1800			165	45	0	0	0	0	0	0	-0.05	paotai_0				Circle_5	Rectangle1x1			
+Mon_emzx_00	Mon_emzx_00	daiji	shoushang		siwang		1				0	0					0			TrapInvincible|				Circle_05	TRUE	caiji	
+bingjing01	bingjing01	daiji	shoushang		siwang		1				0	0					0			TrapInvincible|				Circle_05	TRUE	caiji	

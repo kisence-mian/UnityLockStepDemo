@@ -1,0 +1,160 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class InitSystem : SystemBase
+{
+    public override void Init()
+    {
+        AddEntityCreaterLisnter();
+        AddEntityDestroyLisnter();
+
+        InitMap();
+
+        InitElementCreatePoint();
+    }
+
+    public override void Dispose()
+    {
+        RemoveEntityCreaterLisnter();
+        RemoveEntityDestroyLisnter();
+    }
+
+    public override void OnEntityCreate(EntityBase entity)
+    {
+        //服务器这里要改成判断connection组件进来
+        if(entity.GetExistComp<SelfComponent>() || entity.GetExistComp<TheirComponent>())
+        {
+            PlayerJoin(entity);
+        }
+    }
+
+    public void PlayerJoin(EntityBase entity)
+    {
+        if(!entity.GetExistComp<CommandComponent>())
+        {
+            CommandComponent c = new CommandComponent();
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<ViewComponent>())
+        {
+            ViewComponent c = new ViewComponent();
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<AssetComponent>())
+        {
+            AssetComponent c = new AssetComponent();
+            c.m_assetName = "male_01";
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<PlayerComponent>())
+        {
+            PlayerComponent c = new PlayerComponent();
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<SkillStatusComponent>())
+        {
+            SkillStatusComponent c = new SkillStatusComponent();
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<CDComponent>())
+        {
+            CDComponent c = new CDComponent();
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<CampComponent>())
+        {
+            CampComponent c = new CampComponent();
+            c.creater = m_world.EntityIndex;
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<CollisionComponent>())
+        {
+            CollisionComponent c = new CollisionComponent();
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<CollisionComponent>())
+        {
+            CollisionComponent c = new CollisionComponent();
+            c.area.radius = 1;
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<MoveComponent>())
+        {
+            MoveComponent c = new MoveComponent();
+            entity.AddComp(c);
+        }
+
+        if (!entity.GetExistComp<BlowFlyComponent>())
+        {
+            BlowFlyComponent c = new BlowFlyComponent();
+            entity.AddComp(c);
+        }
+
+
+    }
+
+    Deserializer deserializer = new Deserializer();
+    public void InitMap()
+    {
+        List<Area> list = new List<Area>();
+
+        string content = ResourceManager.ReadTextFile("mapData");
+        string[] contentArray = content.Split('\n');
+
+        for (int i = 0; i < contentArray.Length; i++)
+        {
+            if (contentArray[i] != "")
+            {
+                list.Add(deserializer.Deserialize<Area>(contentArray[i]));
+            }
+        }
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            CollisionComponent cc = new CollisionComponent();
+            cc.area = list[i];
+
+            m_world.CreateEntity(cc);
+        }
+
+
+        //创建一个可以捡的道具
+        ItemComponent ic = new ItemComponent();
+
+        AssetComponent assert = new AssetComponent();
+        assert.m_assetName = "EFX_res_bolt";
+
+        CollisionComponent colc = new CollisionComponent();
+        colc.area.position = new Vector3(10,0.5f,0);
+        colc.area.areaType = AreaType.Circle;
+        colc.area.radius = 0.5f;
+
+        m_world.CreateEntity(colc, ic, assert);
+    }
+
+    void InitElementCreatePoint()
+    {
+        string content = ResourceManager.ReadTextFile("elementCreatePointData");
+        string[] contentArray = content.Split('\n');
+
+        for (int i = 0; i < contentArray.Length; i++)
+        {
+            if (contentArray[i] != "")
+            {
+                ItemCreatePointComponent tmp = deserializer.Deserialize<ItemCreatePointComponent>(contentArray[i]);
+
+                m_world.CreateEntity(tmp);
+            }
+        }
+    }
+}

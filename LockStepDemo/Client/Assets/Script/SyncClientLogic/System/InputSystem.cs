@@ -23,23 +23,23 @@ public class InputSystem : CommandSyncSystem<CommandComponent>
 
     public override void Update(int deltaTime)
     {
-        //if(GameData.ChoiceList.Count > 0)
-        //{
-        //    element1Cache = GameData.ChoiceList[0];
-        //}
-        //else
-        //{
-        //    element1Cache = GameUtils.c_element_default;
-        //}
+        if(GameData.ChoiceList.Count > 0)
+        {
+            element1Cache = GameData.ChoiceList[0];
+        }
+        else
+        {
+            element1Cache = GameUtils.c_element_default;
+        }
         
-        //if(GameData.ChoiceList.Count > 1)
-        //{
-        //    element2Cache = GameData.ChoiceList[1];
-        //}
-        //else
-        //{
-        //    element1Cache = GameUtils.c_element_default;
-        //}
+        if(GameData.ChoiceList.Count > 1)
+        {
+            element2Cache = GameData.ChoiceList[1];
+        }
+        else
+        {
+            element1Cache = GameUtils.c_element_default;
+        }
         
         Vector3 keyCache = Vector3.zero;
 
@@ -99,6 +99,9 @@ public class InputSystem : CommandSyncSystem<CommandComponent>
         command.isFire = isFireCache;
         command.element1 = element1Cache;
         command.element2 = element2Cache;
+
+        moveDirCache = Vector3.zero;
+        skillDirCache = Vector3.zero;
     }
 
     public void ReceviceMove(InputMoveCommand cmd)

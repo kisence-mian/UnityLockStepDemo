@@ -1,0 +1,10 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia			食尸鬼	big_head_ssg	谢天谢地你终于赶到了！
+2	dia			食尸鬼	big_head_ssg	袭击哨站的巫妖，是魅魔女王的一名下属，魅魔凯莉只是一名普通魅魔罢了！
+3	dia			食尸鬼	big_head_ssg	只是巫妖受“魂匣”的保护，现在是不死之身，除非破坏掉“魂匣”！
+4	dia			食尸鬼	big_head_ssg	我这里有“魂匣”线索，你们去试试寻找“魂匣”吧...
+5	dia			player	big_head_5|big_head_6	谢谢你的线索，跟我们回圣城，或许可以弄清楚你身上所发生的事！
+6	dia			食尸鬼	big_head_ssg	不了！我还要继续去完成我的使命...再见！

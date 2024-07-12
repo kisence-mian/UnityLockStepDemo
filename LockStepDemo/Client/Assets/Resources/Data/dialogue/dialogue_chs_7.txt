@@ -1,0 +1,13 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia	player	big_head_5|big_head_6			教官大人，你看看这是什么玩意儿？一群魔族誓死在保卫这个东西。
+2	dia			教官	big_head_7	这个东西看起来很眼熟。。好像在什么地方见过，这件东西充满了怪异的气息，里面混杂了浓郁的神圣气息，但是又包含了强大的魔气，太奇怪了。
+3	dia			教官	big_head_7	或许圣女大人知道这玩意是什么
+4	dia	player	big_head_5|big_head_6			圣女大人？？
+5	dia			教官	big_head_7	对，新一任的圣女大人已经选出来了，正好她近期就要抵达，你小子有眼福了，嘿嘿嘿。。。
+6	dia	士兵	big_head_3			报告！！紧急情况！！
+7	dia			教官	big_head_7	什么事，慌慌张张的？
+8	dia	士兵	big_head_3			报告将军大人，圣女大人在郊外遇到危机情况，发来求救信号！
+9	dia			教官	big_head_7	什么？？  立即准备作战！

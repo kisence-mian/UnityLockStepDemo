@@ -1,0 +1,425 @@
+fileFormatVersion: 2
+guid: a8b33301180c7e14195b2c331598e145
+timeCreated: 1505127441
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Box001
+    100002: Box098
+    100004: Box099
+    100006: Box_008
+    100008: Box_01
+    100010: Box_02
+    100012: Box_03
+    100014: Box_04
+    100016: Box_05
+    100018: Box_06
+    100020: Box_07
+    100022: Cylinder001
+    100024: Cylinder008
+    100026: Cylinder009
+    100028: Cylinder010
+    100030: Cylinder013
+    100032: Cylinder014
+    100034: //RootNode
+    100036: fng004
+    100038: fng005
+    100040: GeoSphere007
+    100042: Grass_007
+    100044: Grass_01
+    100046: Grass_02
+    100048: Grass_03
+    100050: Grass_05
+    100052: Grass_06
+    100054: Group003
+    100056: Hill
+    100058: Line001
+    100060: Object007
+    100062: Object184
+    100064: Object276
+    100066: Object278
+    100068: shidui_04
+    100070: shidui_05
+    100072: shidui_06
+    100074: shidui_07
+    100076: shidui_08
+    100078: sitou
+    100080: Terrain
+    100082: Tower_01
+    100084: Tower_02
+    100086: Tower_02 1
+    100088: Tower_03
+    100090: tree_01
+    100092: tree_02
+    100094: Tree_04
+    100096: Tree_05
+    100098: Tree_06
+    100100: Tree_06 1
+    100102: Tree_07
+    100104: Tree_07 1
+    100106: Tree_08
+    100108: Tree_08 1
+    100110: Tree_09
+    100112: Tree_09 1
+    100114: Tree_10
+    100116: Tree_10 1
+    100118: Tree_11
+    100120: Tree_12
+    100122: vxc
+    100124: vxc001
+    100126: Wall_01
+    100128: Wall_02
+    100130: Wall_03
+    100132: Wall_03 1
+    100134: Wall_04
+    100136: Wall_04 1
+    100138: zhongxinshuijingta_01
+    100140: "\u5BF9\u8C61006"
+    100142: "\u5BF9\u8C61007"
+    100144: "\u5BF9\u8C61019"
+    400000: Box001
+    400002: Box098
+    400004: Box099
+    400006: Box_008
+    400008: Box_01
+    400010: Box_02
+    400012: Box_03
+    400014: Box_04
+    400016: Box_05
+    400018: Box_06
+    400020: Box_07
+    400022: Cylinder001
+    400024: Cylinder008
+    400026: Cylinder009
+    400028: Cylinder010
+    400030: Cylinder013
+    400032: Cylinder014
+    400034: //RootNode
+    400036: fng004
+    400038: fng005
+    400040: GeoSphere007
+    400042: Grass_007
+    400044: Grass_01
+    400046: Grass_02
+    400048: Grass_03
+    400050: Grass_05
+    400052: Grass_06
+    400054: Group003
+    400056: Hill
+    400058: Line001
+    400060: Object007
+    400062: Object184
+    400064: Object276
+    400066: Object278
+    400068: shidui_04
+    400070: shidui_05
+    400072: shidui_06
+    400074: shidui_07
+    400076: shidui_08
+    400078: sitou
+    400080: Terrain
+    400082: Tower_01
+    400084: Tower_02
+    400086: Tower_02 1
+    400088: Tower_03
+    400090: tree_01
+    400092: tree_02
+    400094: Tree_04
+    400096: Tree_05
+    400098: Tree_06
+    400100: Tree_06 1
+    400102: Tree_07
+    400104: Tree_07 1
+    400106: Tree_08
+    400108: Tree_08 1
+    400110: Tree_09
+    400112: Tree_09 1
+    400114: Tree_10
+    400116: Tree_10 1
+    400118: Tree_11
+    400120: Tree_12
+    400122: vxc
+    400124: vxc001
+    400126: Wall_01
+    400128: Wall_02
+    400130: Wall_03
+    400132: Wall_03 1
+    400134: Wall_04
+    400136: Wall_04 1
+    400138: zhongxinshuijingta_01
+    400140: "\u5BF9\u8C61006"
+    400142: "\u5BF9\u8C61007"
+    400144: "\u5BF9\u8C61019"
+    2300000: Box001
+    2300002: Box098
+    2300004: Box099
+    2300006: Box_008
+    2300008: Box_01
+    2300010: Box_02
+    2300012: Box_03
+    2300014: Box_04
+    2300016: Box_05
+    2300018: Box_06
+    2300020: Box_07
+    2300022: Cylinder001
+    2300024: Cylinder008
+    2300026: Cylinder009
+    2300028: Cylinder010
+    2300030: Cylinder013
+    2300032: Cylinder014
+    2300034: fng004
+    2300036: fng005
+    2300038: GeoSphere007
+    2300040: Grass_007
+    2300042: Grass_01
+    2300044: Grass_02
+    2300046: Grass_03
+    2300048: Grass_05
+    2300050: Grass_06
+    2300052: Hill
+    2300054: Line001
+    2300056: Object007
+    2300058: Object276
+    2300060: Object278
+    2300062: shidui_04
+    2300064: shidui_05
+    2300066: shidui_06
+    2300068: shidui_07
+    2300070: shidui_08
+    2300072: sitou
+    2300074: Terrain
+    2300076: Tower_01
+    2300078: Tower_02
+    2300080: Tower_02 1
+    2300082: Tower_03
+    2300084: tree_01
+    2300086: tree_02
+    2300088: Tree_04
+    2300090: Tree_05
+    2300092: Tree_06
+    2300094: Tree_06 1
+    2300096: Tree_07
+    2300098: Tree_07 1
+    2300100: Tree_08
+    2300102: Tree_08 1
+    2300104: Tree_09
+    2300106: Tree_09 1
+    2300108: Tree_10
+    2300110: Tree_10 1
+    2300112: Tree_11
+    2300114: Tree_12
+    2300116: vxc
+    2300118: vxc001
+    2300120: Wall_01
+    2300122: Wall_02
+    2300124: Wall_03
+    2300126: Wall_04
+    2300128: Wall_04 1
+    2300130: zhongxinshuijingta_01
+    2300132: "\u5BF9\u8C61006"
+    2300134: "\u5BF9\u8C61007"
+    3300000: Box001
+    3300002: Box098
+    3300004: Box099
+    3300006: Box_008
+    3300008: Box_01
+    3300010: Box_02
+    3300012: Box_03
+    3300014: Box_04
+    3300016: Box_05
+    3300018: Box_06
+    3300020: Box_07
+    3300022: Cylinder001
+    3300024: Cylinder008
+    3300026: Cylinder009
+    3300028: Cylinder010
+    3300030: Cylinder013
+    3300032: Cylinder014
+    3300034: fng004
+    3300036: fng005
+    3300038: GeoSphere007
+    3300040: Grass_007
+    3300042: Grass_01
+    3300044: Grass_02
+    3300046: Grass_03
+    3300048: Grass_05
+    3300050: Grass_06
+    3300052: Hill
+    3300054: Line001
+    3300056: Object007
+    3300058: Object276
+    3300060: Object278
+    3300062: shidui_04
+    3300064: shidui_05
+    3300066: shidui_06
+    3300068: shidui_07
+    3300070: shidui_08
+    3300072: sitou
+    3300074: Terrain
+    3300076: Tower_01
+    3300078: Tower_02
+    3300080: Tower_02 1
+    3300082: Tower_03
+    3300084: tree_01
+    3300086: tree_02
+    3300088: Tree_04
+    3300090: Tree_05
+    3300092: Tree_06
+    3300094: Tree_06 1
+    3300096: Tree_07
+    3300098: Tree_07 1
+    3300100: Tree_08
+    3300102: Tree_08 1
+    3300104: Tree_09
+    3300106: Tree_09 1
+    3300108: Tree_10
+    3300110: Tree_10 1
+    3300112: Tree_11
+    3300114: Tree_12
+    3300116: vxc
+    3300118: vxc001
+    3300120: Wall_01
+    3300122: Wall_02
+    3300124: Wall_03
+    3300126: Wall_04
+    3300128: Wall_04 1
+    3300130: zhongxinshuijingta_01
+    3300132: "\u5BF9\u8C61006"
+    3300134: "\u5BF9\u8C61007"
+    4300000: zhongxinshuijingta_01
+    4300002: shidui_05
+    4300004: Grass_02
+    4300006: shidui_07
+    4300008: shidui_06
+    4300010: Box099
+    4300012: sitou
+    4300014: Grass_007
+    4300016: Box_008
+    4300018: Grass_05
+    4300020: Box_05
+    4300022: shidui_08
+    4300024: Hill
+    4300026: Wall_02
+    4300028: Tower_01
+    4300030: Tree_07
+    4300032: "\u5BF9\u8C61006"
+    4300034: Box001
+    4300036: "\u5BF9\u8C61007"
+    4300038: Object007
+    4300040: Grass_03
+    4300042: Grass_06
+    4300044: Tree_08
+    4300046: Tower_03
+    4300048: Wall_04
+    4300050: Tree_09
+    4300052: Wall_04
+    4300054: Tower_02
+    4300056: Tree_08
+    4300058: Tree_07
+    4300060: Tree_06
+    4300062: Tree_10
+    4300064: Tree_09
+    4300066: Tree_11
+    4300068: Tree_12
+    4300070: tree_01
+    4300072: tree_02
+    4300074: Tree_06
+    4300076: Box_06
+    4300078: Tree_04
+    4300080: Tree_05
+    4300082: Tower_02
+    4300084: Box098
+    4300086: Box_02
+    4300088: Box_01
+    4300090: Box_07
+    4300092: Wall_01
+    4300094: Wall_03
+    4300096: Object276
+    4300098: Tree_10
+    4300100: Terrain
+    4300102: Cylinder009
+    4300104: vxc
+    4300106: Cylinder010
+    4300108: Cylinder013
+    4300110: vxc001
+    4300112: Cylinder014
+    4300114: Box_03
+    4300116: fng005
+    4300118: Cylinder001
+    4300120: Line001
+    4300122: Box_04
+    4300124: shidui_04
+    4300126: Grass_01
+    4300128: GeoSphere007
+    4300130: fng004
+    4300132: Cylinder008
+    4300134: Object278
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

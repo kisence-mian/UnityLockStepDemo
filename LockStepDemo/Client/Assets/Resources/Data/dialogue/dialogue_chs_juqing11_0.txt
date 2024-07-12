@@ -1,0 +1,15 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia	教官	big_head_7			你这家伙命还挺大的居然醒过来了
+2	dia			player	big_head_5|big_head_6	发生什么事情了我怎么回来了？
+3	dia	教官	big_head_7			我们把你们抬回来了，你们受了伤，圣女殿下现在还在晕迷中，你们到底遇到什么事了？
+4	dia			player	big_head_5|big_head_6	我们在破除封印，然后一个巨大的黑影降临，毁天灭地！太可怕了！
+5	dia	教官	big_head_7			圣女大人晕过去之前一直反复念叨“魔王降临了”。。但是不可能啊。。
+6	dia			player	big_head_5|big_head_6	为什么？那个巨大的黑影是魔王么？太可怕了，你没见到那个场面，一片火海啊！
+7	dia	教官	big_head_7			我也不知道，如果是魔王的话，你们不可能还能活着回来。。只能等圣女殿下醒过来再问问看了
+8	dia			player	big_head_5|big_head_6	圣女殿下怎么了？
+9	dia	教官	big_head_7			受了伤，火毒攻心，晕迷了过去。想要她快点醒过来的话，倒不是没有办法。。
+10      dia 				player	big_head_5|big_head_6	什么办法？
+11	dia	教官	big_head_7			一处废弃的魔族遗迹里面，传闻有寒冰妖出没，它们会凝结冰晶，这个可以去除火毒

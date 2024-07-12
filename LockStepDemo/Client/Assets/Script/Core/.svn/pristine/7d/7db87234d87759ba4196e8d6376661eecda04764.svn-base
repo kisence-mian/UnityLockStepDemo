@@ -1,0 +1,51 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public static class UIModelShowTool  {
+
+
+    public static GameObject Create(string prefabName,out RenderTexture tex)
+    {
+        GameObject temp0 = new GameObject("UIModelShow");
+        GameObject temp1 = new GameObject("Camera");
+        temp1.transform.SetParent(temp0.transform);
+        temp1.transform.localPosition = new Vector3(0, 5000, 0);
+       Camera ca= temp1.AddComponent<Camera>();
+        ca.clearFlags = CameraClearFlags.SolidColor;
+        ca.backgroundColor = new Color(0, 0, 0, 5 / 255f);
+        ca.orthographic = true;
+        ca.orthographicSize = 0.68f;
+        ca.depth = 100;
+        ca.cullingMask =1<< LayerMask.NameToLayer("UI");
+
+        GameObject root = new GameObject("Root");
+        root.transform.SetParent(temp1.transform);
+        root.transform.localPosition = new Vector3(0, 0, 100);
+        root.transform.eulerAngles = new Vector3(0, 180, 0);
+
+        GameObject obj = GameObjectManager.CreateGameObjectByPool(prefabName);
+        obj.transform.SetParent(root.transform);
+        obj.transform.localPosition = new Vector3(0, 0, 0);
+        obj.transform.localEulerAngles = Vector3.zero;
+  
+        Transform[] trans = obj.GetComponentsInChildren<Transform>();
+        for (int i = 0; i < trans.Length; i++)
+        {
+            trans[i].gameObject.layer = LayerMask.NameToLayer("UI");
+        }
+
+
+        tex = new RenderTexture(512, 512, 100);
+        tex.autoGenerateMips = false;
+        tex.anisoLevel = 1;
+
+        //  tex.antiAliasing = 2
+       
+        ca.targetTexture = tex;
+        return obj;
+    }
+
+
+
+}

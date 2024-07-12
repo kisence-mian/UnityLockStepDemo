@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SkillStatusSystem : SystemBase
 {
-    public override void OnEntityOptimizeCreate(EntityBase entity)
+    public override void OnEntityCreate(EntityBase entity)
     {
     }
 

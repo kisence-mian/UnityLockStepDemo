@@ -1,0 +1,10 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia	player	big_head_5|big_head_6			美女。。你认识那个怪物？？
+2	dia			圣女	big_head_2	如果我没猜错的话，它是魔王手下的天启四骑士之一
+3	dia	player	big_head_5|big_head_6			看起来很屌，但是不经打呀。。
+4	dia			圣女	big_head_2	和我们战斗的，应该只是它的幻象投影，四骑士是魔王麾下最强大的战士，实力极为恐怖。
+5	dia			圣女	big_head_3	他们一定有什么阴谋，我在它身上留下了一个记号，乘它还在恢复的时候，一举消灭它，看看他们到底在搞什么名堂。
+6	dia	player	big_head_5|big_head_6			不是吧。。我不想再和这个家伙打了。

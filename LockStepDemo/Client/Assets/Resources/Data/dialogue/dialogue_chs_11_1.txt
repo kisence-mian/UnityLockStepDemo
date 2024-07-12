@@ -1,0 +1,7 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia			player	big_head_5|big_head_6	奇怪，这个地方和上次来的时候不一样了啊，这个祭坛是什么时候搭起来的？
+2	dia	圣女	big_head_2			这里有很浓烈的圣光之眼的气息，我需要查看一下这个祭坛
+3	dia			player	big_head_5|big_head_6	那你小心点，我会尽量保护你的。

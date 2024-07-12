@@ -1,0 +1,12 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia	教官	big_head_7			有什么发现吗？
+2	dia			player	big_head_5|big_head_6	有一些低级魔物轻松解决了，不过发现了一个骑士一样的怪物，但是他们逃跑了
+3	dia	教官	big_head_7			骑士？逃跑了？
+4	dia			player	big_head_5|big_head_6	貌似他们往西边去了，好像在找什么东西？
+5	dia	教官	big_head_7			情报太少了，我觉得你应该追踪一下他们，看看他们到底在干嘛。。
+6	dia			player	big_head_5|big_head_6	不是吧。。我是新手。。。
+7	dia	教官	big_head_7			少废话了，人手紧缺，难道我自己去啊！
+8	dia			player	big_head_5|big_head_6	……

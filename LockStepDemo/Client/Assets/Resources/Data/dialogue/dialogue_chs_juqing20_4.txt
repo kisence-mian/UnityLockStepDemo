@@ -1,0 +1,5 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	"功能选择,dia为对话,其他待定"	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia			巫妖	big_head_15	可恶的人类！居然能追到这里，不能让他们发现我的秘密！

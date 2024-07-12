@@ -1,0 +1,7 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia			圣女	big_head_2	我已经找到了削弱“死亡骑士-波拉特”的方法，快进入圣光中！
+2	dia			波拉特	big_head_12	你们这些蝼蚁，不可能跑掉，快给我出来！
+3	dia			player	big_head_5|big_head_6	“死亡骑士-波拉特”你玷污了这个神圣之地，我一定要把你送入地狱!

@@ -1,0 +1,7 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	功能选择,dia为对话,其他待定	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia			player	big_head_5|big_head_6	就是这里，有一股强大的邪恶力量，得小心敌人突然出现！
+2	dia			巫妖	big_head_15	这怎么可能！居然能追到这里，那你就在这里长眠吧！
+3	dia			巫妖	big_head_15	出来吧！我的仆人，该你们效忠了...

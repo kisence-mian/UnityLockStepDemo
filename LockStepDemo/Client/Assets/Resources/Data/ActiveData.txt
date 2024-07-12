@@ -1,0 +1,16 @@
+id	name	icon	numl	active
+type	String	String	Int	Int
+note	活跃度事件	事情Icon	事件次数	单次活跃度获得数量
+default	null	null	0	0
+1	装备铸造	Icon_wp_001	10	2
+2	装备附魔	Icon_wp_001	5	2
+3	装备镶嵌	Icon_wp_001	1	5
+4	剧情副本战斗	Icon_wp_001	1	2
+5	护送副本	Icon_wp_001	2	2
+6	采集副本	Icon_wp_001	2	2
+7	探险副本	Icon_wp_001	5	2
+8	Boss战副本	Icon_wp_001	1	10
+9	秘境副本	Icon_wp_001	5	2
+10	营救副本	Icon_wp_001	1	10
+11	潜入副本	Icon_wp_001	5	3
+12	坚守副本	Icon_wp_001	2	5

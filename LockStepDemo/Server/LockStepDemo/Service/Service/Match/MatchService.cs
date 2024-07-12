@@ -1,26 +1,17 @@
-﻿using SuperSocket.SocketBase.Config;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
 public class MatchService : ServiceBase
 {
-    int roomPeopleNum = 2;
+    const int roomPeopleNum = 2;
     List<Player> matchList = new List<Player>(); //匹配列表
 
-    public override void OnInit(IServerConfig config)
+    public override void OnInit()
     {
         EventService.AddTypeEvent<PlayerMatchMsg_s>(ReceviceMatchMsg);
-
-        try
-        {
-            roomPeopleNum = int.Parse(config.Options.Get("RoomPeopleNum"));
-        }
-        catch
-        {
-
-        }
     }
 
     void ReceviceMatchMsg(SyncSession session, PlayerMatchMsg_s msg)
@@ -41,11 +32,6 @@ public class MatchService : ServiceBase
         {
             Match(session.player);
         }
-    }
-
-    public override void OnPlayerLogout(Player player)
-    {
-        CancelMatch(player);
     }
 
     void CancelMatch(Player player)
@@ -97,17 +83,13 @@ public class MatchService : ServiceBase
     void StartGame(Player[] players)
     {
         WorldBase world = WorldManager.CreateWorld<DemoWorld>();
-
-        //TODO 模式选择没用了
+        world.IsStart = true;
         world.SyncRule = SyncRule.Status;
-
-        world.m_RandomSeed = new Random().Next(); //随机一个种子
 
         for (int i = 0; i < players.Length; i++)
         {
             ConnectionComponent conn = new ConnectionComponent();
             conn.m_session = players[i].session;
-            conn.m_playerID = players[i].playerID;
 
             SyncComponent sc = new SyncComponent();
 
@@ -117,7 +99,6 @@ public class MatchService : ServiceBase
 
             world.eventSystem.DispatchEvent(ServiceEventDefine.c_playerJoin, conn.Entity);
 
-            Debug.Log("Send Game Start");
             //派发游戏开始消息
             PlayerMatchMsg_c msg = new PlayerMatchMsg_c();
             msg.predictTime = 0;
@@ -125,7 +106,5 @@ public class MatchService : ServiceBase
 
             ProtocolAnalysisService.SendMsg(players[i].session, msg);
         }
-
-        world.IsStart = true;
     }
 }

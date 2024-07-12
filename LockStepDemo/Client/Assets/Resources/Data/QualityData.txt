@@ -1,0 +1,9 @@
+qualityID	qualityName	fxName
+type	String	String
+note		掉落特效名称
+default	白	null
+white	白	currency_01
+blue	蓝	blue_01
+purple	紫	Purple_01
+gold	金	Gold_01
+epic	橙	Orange_01

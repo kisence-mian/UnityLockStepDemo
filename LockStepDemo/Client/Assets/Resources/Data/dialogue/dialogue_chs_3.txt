@@ -1,0 +1,8 @@
+id	func	name_text_left	img_left	name_text_right	img_right	dia_text
+type	String	String	String	String	String	String
+note	"功能选择,dia为对话,其他待定"	左边的角色名字	左边的角色头像	右边的角色名字	右边的角色头像	对话内容
+default	dia	none	none	none	none	none
+1	dia	魔王	big_head_4			没想到你们这群喽罗还能站到这里来
+2	dia			大骑士长	big_head_1	你这个万恶之源，居然发动战争妄图屠灭人类，今天就是你的死期！
+3	dia	魔王	big_head_4			放屁！卑鄙的人类！若非你们那些贪婪的冒险者入侵我魔界，杀害我的女儿，取走她的圣魔之心制作法器，我又怎会发动战争！
+4	dia			大骑士长	big_head_1	正邪不两立！多说无益，今日不是你死就是我活！

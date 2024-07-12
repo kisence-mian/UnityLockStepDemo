@@ -1,0 +1,41 @@
+GuideID	GuideStart	GuideEnd	IsFight	GuideNpcID	LevelLimit	IsClickToNext	IsClickNPCToNext	IsCallToNext	GuideContent	GuidePosition	TipPos	WindowName	ObjectName	ItemName	UIEffectName	IsEffectFollowUI	UIEffectPos	MaskAlpha	IsShowFinger	clickHideFinger	FingerFollow	IsfingerAnim	fingerOffsetPos
+type	Bool	Bool	Bool	Int	Int	Bool	Bool	Bool	String	Vector3	Vector3	String	StringArray	String	String	Bool	Vector3	Float	Bool	Bool	Bool	Bool	Vector3
+note	引导开始点	引导结束点	是否战斗引导	引导的NpcID	玩家等级限制	是否接收点击去下一步引导	是否接收点击NPC去下一步引导	是否接收调用去下一步引导	新手引导提示字符	引导位置	提示文本的显示位置	监听的界面名称	高亮显示的对象列表	高亮显示的Item	UI特效名称	UI特效和UI位置创建在一起	UI特效位置	遮罩的ALpha值	显示手指	点击隐藏手指	手指位置跟随UI动画	开启手指动画(缩放加闪烁)	手指与目标的偏移
+default	FALSE	FALSE	FALSE	0	-1	TRUE	FALSE	FALSE	null	0|0|0	0|400|0	null	null	null	null	TRUE	0|0|0	0.75	TRUE	TRUE	FALSE	TRUE	-5|-40|0
+-5	TRUE		TRUE			FALSE		TRUE	使用<color=red>摇杆</color>控制角色向<color=red>光圈</color>移动		0|400|0	FightWindow	JoyStick		UI_fx_yaogan			0.75	TRUE				
+-4			TRUE			FALSE		TRUE	点击按钮使用<color=red>普通攻击</color>		0|400|0	FightWindow	skill1|JoyStick		UI_fx_pugong			0.3	TRUE				
+-3			TRUE			FALSE		TRUE	点击按钮使用冲撞<color=red>技能，</color>可以对敌人造成更多伤害		0|400|0	FightWindow	skill2|skill1|JoyStick		UI_fx_jineng			0.3	TRUE				
+-2			TRUE			FALSE		TRUE	点击按钮使用擒龙手<color=red>技能，</color>可以对敌人造成更多伤害		0|400|0	FightWindow	skill3|skill2|skill1|JoyStick					0.3	TRUE				
+-1			TRUE			FALSE		TRUE	点击按钮使用裂地击和旋风斩<color=red>技能，</color>可以对敌人造成更多伤害		0|500|0	FightWindow	skill5|skill2|skill3|skill4|skill1|JoyStick					0.3	TRUE				
+0		TRUE	TRUE			FALSE		TRUE	使用技能和普攻<color=red>击败魔王</color>		0|500|0	FightWindow	skill5|skill2|skill3|skill4|skill1|JoyStick					0.3	TRUE				
+1	TRUE								点击<color=red>剧情副本</color>			CityWindow	storyStart		UI_fx_fuben250x440				TRUE				
+2		TRUE																					
+3	TRUE								点击<color=red>装备界面</color>			CityWindow	b_equip										
+4									点击<color=red>装备Icon</color>进入装备界面进行换装		0|-100|0	EquipmentWindow		eq_ui_outside	UI_fx_zhuangbeihuanzhuang200x200								
+5		TRUE							关闭<color=red>装备</color>界面			EquipmentWindow	exit										30|-20|0
+6	TRUE								点击<color=red>剧情副本</color>			CityWindow	storyStart		UI_fx_fuben250x440								
+7		TRUE																					
+8	TRUE								点击<color=red>战役池</color>			CityWindow	fightStart										
+9									点击战役图标			FightEnterWindow		FightEnterWindow_item							TRUE		
+10									点击<color=red>继续</color>按钮			FightEnterWindow	btn_continue										
+11									点击<color=red>进入战斗</color>按钮			CarbonWindow	btn_fightenter										
+12		TRUE							关闭<color=red>战役池</color>			FightEnterWindow	btn_close						FALSE				
+13	TRUE			7	6		TRUE		点击前往NPC进行装备附魔	-6|0|-22		CityJoyStickWindow	JoyStick					0.2					
+14									选择<color=red>装备附魔</color>按钮			EquipmentWindow	zhuangbeifumo		UI_fx_zhuangbeifumo722x199								
+15									选择一件装备，进行附魔			EquipmentWindow		weapon_ui_outside							TRUE		-50|-60|0
+16									点击<color=red>附魔</color>按钮			EquipmentWindow	ech_button								TRUE		30|-60|0
+17		TRUE							关闭<color=red>装备附魔</color>界面			EquipmentWindow	exit								TRUE		60|-70|0
+18	TRUE			2			TRUE		点击前往NPC处进行武器铸造	-14|0|1		CityJoyStickWindow	JoyStick					0.2			TRUE		60|-210|0
+19									选择一件装备，进行武器铸造			EquipmentWindow		weapon_ui_outside							TRUE		
+20									点击<color=red>升级</color>按钮按钮			EquipmentWindow		weapon_skill_ui_outside	UI_fx_shengji91x46		240|-110|0				TRUE		30|-215|0
+21		TRUE							关闭<color=red>武器铸造</color>界面			EquipmentWindow	exit								TRUE		60|-70|0
+22	TRUE			7	10		TRUE		点击前往NPC进行装备镶嵌	-6|0|-22		CityJoyStickWindow	JoyStick					0.2			TRUE		
+23									选择<color=red>装备镶嵌</color>按钮			EquipmentWindow	baoshixiangqian		UI_fx_zhuangbeifumo722x199						TRUE		
+24									选择一件装备，进行装备镶嵌			EquipmentWindow		weapon_ui_outside							TRUE		-30|-90|0
+25									点击宝石进行镶嵌			EquipmentWindow		gem_ui_outside							TRUE		
+26		TRUE							关闭<color=red>装备界面</color>界面			EquipmentWindow	exit								TRUE		60|-70|0
+27	TRUE			7			TRUE		点击前往NPC处进行装备铸造			CityJoyStickWindow	JoyStick					0.2			TRUE		
+28									点击<color=red>装备铸造</color>进行装备铸造			EquipmentWindow	zhuangbeizhuzao		UI_fx_zhuangbeifumo722x199						TRUE		
+29									选择一件装备，进行铸造			EquipmentWindow		weapon_ui_outside							TRUE		
+30									点击<color=red>铸造</color>按钮			EquipmentWindow	eq_up_button		UI_fx_zhuangbeizhuzao288x128						TRUE		
+31		TRUE							关闭<color=red>装备</color>界面			EquipmentWindow	exit								TRUE		60|-70|0

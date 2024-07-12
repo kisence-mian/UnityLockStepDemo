@@ -1,0 +1,905 @@
+ID	MonsterName	HeadIcon	ModelID	walkAnimName	IdleAnimName	HurtAnimName	HurtAnimTime	DieAnimName	ShowAniName	DropOutID	movespeed	Radius	hp	lv	power	att	def	hprecover	crit	critdamage	ignoredef	hpabsorb	tough	IsOnlyDamageValue	BloodHight	AttackList	SkillList	AIConfig	VisableArea
+type	String	String	String	String	String	String	Float	String	String	String	Float	Float	Int	Int	Int	Int	Int	Int	Int	Int	Int	Int	Int	Bool	Float	StringArray|AnimType	StringArray|AnimType	String	String
+note		头像图标		移动动作	待机动作	受伤动作	受伤动作播放时间	死亡动作	pose动作	掉落id	移动速度	占地半径		等级	战斗力	攻击力	防御力	生命恢复	暴击率	暴击伤害	破防	吸血	韧性	受伤动画	血条高度	攻击列表	技能列表	AI控制	警戒范围
+default		Icon_tx_mw_002	null	null	null	null	0.2	siwang	show	jinbi	20	1.5	1	1	100	5	100	0	5	5	3	3	3	FALSE	-0.05	null	null	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+Mon_emq_00	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	144	1		18	3	0	10	18	0	0	10	FALSE	-0.05	siyao			
+Mon_emq_01	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	224	2		26	6	0	18	26	0	0	18	FALSE	-0.05	siyao			
+Mon_emq_02	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	304	3		34	9	0	26	34	0	0	26	FALSE	-0.05	siyao			
+Mon_emq_03	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	386	4		42	12	0	34	42	0	0	34	FALSE	-0.05	siyao			
+Mon_emq_04	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	465	5		50	15	0	42	50	0	0	42	FALSE	-0.05	siyao			
+Mon_emq_05	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	791	6		60	30	0	62	60	0	0	62	FALSE	-0.05	siyao			
+Mon_emq_06	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1344	7		82	45	0	82	82	0	0	82	FALSE	-0.05	siyao			
+Mon_emq_07	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2047	8		123	60	0	102	123	0	0	102	FALSE	-0.05	siyao			
+Mon_emq_08	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2697	9		145	75	0	122	145	0	0	122	FALSE	-0.05	siyao			
+Mon_emq_09	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3200	10		170	90	0	142	170	0	0	142	FALSE	-0.05	siyao			
+Mon_emq_10	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4306	11		220	123	0	191	220	0	0	191	FALSE	-0.05	siyao			
+Mon_emq_11	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5412	12		270	156	0	240	270	0	0	240	FALSE	-0.05	siyao			
+Mon_emq_12	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6518	13		320	189	0	289	320	0	0	289	FALSE	-0.05	siyao			
+Mon_emq_13	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	7624	14		370	222	0	338	370	0	0	338	FALSE	-0.05	siyao			
+Mon_emq_14	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8730	15		420	255	0	387	420	0	0	387	FALSE	-0.05	siyao			
+Mon_emq_15	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	10776	16		516	312	0	482	516	0	0	482	FALSE	-0.05	siyao			
+Mon_emq_16	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	12822	17		612	369	0	577	612	0	0	577	FALSE	-0.05	siyao			
+Mon_emq_17	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	14868	18		708	426	0	672	708	0	0	672	FALSE	-0.05	siyao			
+Mon_emq_18	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	16914	19		804	483	0	767	804	0	0	767	FALSE	-0.05	siyao			
+Mon_emq_19	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	18960	20		900	540	0	860	900	0	0	860	FALSE	-0.05	siyao			
+Mon_emq_20	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21533	21		1020	607	0	948	1020	0	0	948	FALSE	-0.05	siyao			
+Mon_emq_21	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	25106	22		1170	684	0	1056	1170	0	0	1056	FALSE	-0.05	siyao			
+Mon_emq_22	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	29679	23		1350	771	0	1184	1350	0	0	1184	FALSE	-0.05	siyao			
+Mon_emq_23	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	35252	24		1560	868	0	1332	1560	0	0	1332	FALSE	-0.05	siyao			
+Mon_emq_24	恶魔犬		Mon_emq_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	41828	25		1800	975	0	1500	1800	0	0	1500	FALSE	-0.05	siyao			
+Mon_bf_00	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	144	1		15	5	0	10	15	0	0	10	FALSE	-0.05	kenshi	firebat_xianji		
+Mon_bf_01	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	224	2		23	8	0	18	23	0	0	18	FALSE	-0.05	kenshi	firebat_xianji		
+Mon_bf_02	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	304	3		31	11	0	26	31	0	0	26	FALSE	-0.05	kenshi	firebat_xianji		
+Mon_bf_03	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	386	4		39	14	0	34	39	0	0	34	FALSE	-0.05	kenshi	firebat_xianji_1		
+Mon_bf_04	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	465	5		48	17	0	42	48	0	0	42	FALSE	-0.05	kenshi	firebat_xianji_1		
+Mon_bf_05	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	791	6		68	36	0	62	68	0	0	62	FALSE	-0.05	kenshi	firebat_xianji_1		
+Mon_bf_06	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1344	7		88	55	0	82	88	0	0	82	FALSE	-0.05	kenshi	firebat_xianji_2		
+Mon_bf_07	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2047	8		108	74	0	102	108	0	0	102	FALSE	-0.05	kenshi	firebat_xianji_2		
+Mon_bf_08	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2697	9		128	93	0	122	128	0	0	122	FALSE	-0.05	kenshi	firebat_xianji_2		
+Mon_bf_09	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3200	10		150	112	0	142	150	0	0	142	FALSE	-0.05	kenshi	firebat_xianji_3		
+Mon_bf_10	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4306	11		196	142	0	191	196	0	0	191	FALSE	-0.05	kenshi	firebat_xianji_3		
+Mon_bf_11	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5412	12		242	172	0	240	242	0	0	240	FALSE	-0.05	kenshi	firebat_xianji_3		
+Mon_bf_12	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6518	13		288	202	0	289	288	0	0	289	FALSE	-0.05	kenshi	firebat_xianji_3		
+Mon_bf_13	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	7624	14		334	232	0	338	334	0	0	338	FALSE	-0.05	kenshi	firebat_xianji_4		
+Mon_bf_14	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8730	15		380	262	0	387	380	0	0	387	FALSE	-0.05	kenshi	firebat_xianji_4		
+Mon_bf_15	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	10776	16		472	325	0	482	472	0	0	482	FALSE	-0.05	kenshi	firebat_xianji_4		
+Mon_bf_16	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	12822	17		564	388	0	577	564	0	0	577	FALSE	-0.05	kenshi	firebat_xianji_4		
+Mon_bf_17	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	14868	18		656	451	0	672	656	0	0	672	FALSE	-0.05	kenshi	firebat_xianji_5		
+Mon_bf_18	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	16914	19		748	514	0	767	748	0	0	767	FALSE	-0.05	kenshi	firebat_xianji_5		
+Mon_bf_19	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	18960	20		840	580	0	860	840	0	0	860	FALSE	-0.05	kenshi	firebat_xianji_5		
+Mon_bf_20	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21533	21		934	664	0	948	934	0	0	948	FALSE	-0.05	kenshi	firebat_xianji_5		
+Mon_bf_21	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	25106	22		1043	763	0	1056	1043	0	0	1056	FALSE	-0.05	kenshi	firebat_xianji_6		
+Mon_bf_22	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	29679	23		1167	877	0	1184	1167	0	0	1184	FALSE	-0.05	kenshi	firebat_xianji_6		
+Mon_bf_23	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	35252	24		1306	1006	0	1332	1306	0	0	1332	FALSE	-0.05	kenshi	firebat_xianji_6		
+Mon_bf_24	火蝠魔		Mon_bf_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	41828	25		1460	1150	0	1500	1460	0	0	1500	FALSE	-0.05	kenshi	firebat_xianji_6		
+Mon_hby_00	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	276	1		40	8	2	10	40	0	0	10	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_01	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	400	2		52	12	5	18	52	0	0	18	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_02	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	526	3		64	16	8	26	64	0	0	26	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_03	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	650	4		76	20	11	34	76	0	0	34	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_04	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	778	5		88	24	14	42	88	0	0	42	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_05	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	850	6		117	41	24	62	117	0	0	62	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_06	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1350	7		146	58	34	82	146	0	0	82	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_07	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2080	8		175	75	44	102	175	0	0	102	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_08	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3140	9		204	92	54	122	204	0	0	122	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_09	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4169	10		230	112	64	142	230	0	0	142	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_10	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5519	11		280	147	96	191	280	0	0	191	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_11	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6869	12		330	182	128	240	330	0	0	240	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_12	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8219	13		380	217	160	289	380	0	0	289	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_13	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	9569	14		430	252	192	338	430	0	0	338	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_14	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	10919	15		480	286	224	387	480	0	0	387	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_15	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	13476	16		604	344	263	482	604	0	0	482	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_16	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	16033	17		728	402	302	577	728	0	0	577	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_17	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	18590	18		852	460	341	672	852	0	0	672	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_18	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21147	19		976	518	380	767	976	0	0	767	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_19	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	23704	20		1100	578	419	860	1100	0	0	860	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_20	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	26259	16		1240	684	469	948	1240	0	0	948	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_21	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	30314	17		1410	805	534	1056	1410	0	0	1056	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_22	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	35869	18		1610	941	614	1184	1610	0	0	1184	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_23	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	42924	19		1830	1092	709	1332	1830	0	0	1332	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_hby_24	寒冰妖		Mon_hby_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	51480	20		2100	1260	821	1500	2100	0	0	1500	FALSE	-0.05	hanbingyao_bingjian	hanbingbaozha	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ssg_00	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	180	1		30	5	0	10	30	0	0	10	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_01	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	256	2		39	8	0	18	39	0	0	18	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_02	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	331	3		48	11	0	26	48	0	0	26	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_03	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	406	4		57	14	0	34	57	0	0	34	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_04	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	482	5		66	17	0	42	66	0	0	42	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_05	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	812	6		92	33	0	62	92	0	0	62	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_06	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1322	7		118	49	0	82	118	0	0	82	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_07	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1932	8		144	65	0	102	144	0	0	102	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_08	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2582	9		170	81	0	122	170	0	0	122	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_09	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3300	10		196	98	0	142	196	0	0	142	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_10	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4484	11		250	133	0	191	250	0	0	191	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_11	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5668	12		304	168	0	240	304	0	0	240	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_12	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6852	13		358	203	0	289	358	0	0	289	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_13	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8036	14		412	238	0	338	412	0	0	338	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_14	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	9218	15		468	272	0	387	468	0	0	387	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_15	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	11228	16		560	330	0	482	560	0	0	482	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_16	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	13238	17		652	388	0	577	652	0	0	577	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_17	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	15248	18		744	446	0	672	744	0	0	672	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_18	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	17258	19		836	504	0	767	836	0	0	767	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_19	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	19268	20		928	562	0	860	928	0	0	860	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_20	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21819	21		1052	632	0	948	1052	0	0	948	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_21	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	25370	22		1206	712	0	1056	1206	0	0	1056	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_22	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	29921	23		1390	802	0	1184	1390	0	0	1184	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_23	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	35472	24		1604	902	0	1332	1604	0	0	1332	FALSE	-0.05	zhuaji	qinbao		
+Mon_ssg_24	食尸鬼		Mon_ssg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	42021	25		1848	1012	0	1500	1848	0	0	1500	FALSE	-0.05	zhuaji	qinbao		
+Mon_bsr_00	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	180	1		20	10	0	10	20	0	0	10	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_01	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	256	2		27	16	0	18	27	0	0	18	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_02	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	331	3		34	22	0	26	34	0	0	26	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_03	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	406	4		41	28	0	34	41	0	0	34	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_04	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	482	5		48	34	0	42	48	0	0	42	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_05	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	812	6		71	54	0	62	71	0	0	62	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_06	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	1322	7		94	74	0	82	94	0	0	82	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_07	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	1932	8		117	94	0	102	117	0	0	102	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_08	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	2582	9		140	114	0	122	140	0	0	122	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_09	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	3300	10		166	132	0	142	166	0	0	142	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_10	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	4484	11		210	160	0	191	210	0	0	191	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_11	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	5668	12		254	188	0	240	254	0	0	240	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_12	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	6852	13		298	216	0	289	298	0	0	289	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_13	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	8036	14		342	244	0	338	342	0	0	338	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_14	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	9218	15		386	272	0	387	386	0	0	387	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_15	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	11228	16		477	330	0	482	477	0	0	482	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_16	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	13238	17		568	388	0	577	568	0	0	577	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_17	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	15248	18		659	446	0	672	659	0	0	672	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_18	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	17258	19		750	504	0	767	750	0	0	767	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_19	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	19268	20		840	562	0	860	840	0	0	860	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_20	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	21819	21		934	642	0	948	934	0	0	948	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_21	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	25370	22		1043	742	0	1056	1043	0	0	1056	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_22	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	29921	23		1167	862	0	1184	1167	0	0	1184	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_23	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	35472	24		1306	1002	0	1332	1306	0	0	1332	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_bsr_24	半兽人		Mon_bsr_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	2	42021	25		1460	1162	0	1500	1460	0	0	1500	FALSE	-0.05	banshouren_huikan	zaisheng		Circle_5
+Mon_klzs_00	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	204	1		30	14	0	10	30	0	0	10	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_01	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	288	2		39	16	0	18	39	0	0	18	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_02	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	384	3		48	22	0	26	48	0	0	26	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_03	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	432	4		57	28	0	34	57	0	0	34	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_04	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	482	5		66	34	0	42	66	0	0	42	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_05	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	812	6		92	54	0	62	92	0	0	62	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_06	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	1322	7		118	74	0	82	118	0	0	82	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_07	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	1932	8		144	94	0	102	144	0	0	102	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_08	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	2582	9		170	114	0	122	170	0	0	122	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_09	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	3300	10		196	132	0	142	196	0	0	142	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_10	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	4484	11		250	160	0	191	250	0	0	191	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_11	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	5668	12		304	188	0	240	304	0	0	240	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_12	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	6852	13		358	216	0	289	358	0	0	289	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_13	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	8036	14		412	244	0	338	412	0	0	338	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_14	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	9218	15		468	272	0	387	468	0	0	387	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_15	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	11228	16		560	330	0	482	560	0	0	482	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_16	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	13238	17		652	388	0	577	652	0	0	577	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_17	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	15248	18		744	446	0	672	744	0	0	672	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_18	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	17258	19		836	504	0	767	836	0	0	767	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_19	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	19268	20		928	562	0	860	928	0	0	860	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_20	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	21819	21		1052	642	0	948	1052	0	0	948	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_21	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	25370	22		1206	742	0	1056	1206	0	0	1056	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_22	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	29921	23		1390	862	0	1184	1390	0	0	1184	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_23	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	35472	24		1604	1002	0	1332	1604	0	0	1332	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klzs_24	骷髅战士		Mon_klzs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1	42021	25		1848	1162	0	1500	1848	0	0	1500	FALSE	-0.05	kulouzhanshi_huikan	kulouzhanshi_dunji		Circle_5
+Mon_klgjs_00	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	120	1		25	1	0	10	25	0	0	10	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_01	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	181	2		29	3	0	18	29	0	0	18	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_02	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	242	3		33	5	0	26	33	0	0	26	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_03	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	304	4		37	7	0	34	37	0	0	34	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_04	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	427	5		41	9	0	42	41	0	0	42	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_05	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	680	6		64	20	0	62	64	0	0	62	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_06	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	1144	7		87	31	0	82	87	0	0	82	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_07	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	1656	8		110	42	0	102	110	0	0	102	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_08	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	2268	9		133	53	0	122	133	0	0	122	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_09	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	2978	10		156	65	0	142	156	0	0	142	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_10	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	3638	11		204	95	0	191	204	0	0	191	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_11	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	4398	12		252	125	0	240	252	0	0	240	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_12	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	5258	13		300	155	0	289	300	0	0	289	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_13	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	6218	14		348	185	0	338	348	0	0	338	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_14	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	7276	15		396	215	0	387	396	0	0	387	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_15	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	8981	16		490	262	0	482	490	0	0	482	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_16	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	10686	17		584	309	0	577	584	0	0	577	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_17	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	12391	18		678	356	0	672	678	0	0	672	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_18	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	14096	19		772	403	0	767	772	0	0	767	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_19	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	15802	20		866	450	0	860	866	0	0	860	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_20	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	17802	21		968	502	0	948	968	0	0	948	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_21	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	20663	22		1095	569	0	1056	1095	0	0	1056	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_22	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	24324	23		1247	651	0	1184	1247	0	0	1184	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_23	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	28785	24		1424	748	0	1332	1424	0	0	1332	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klgjs_24	骷髅弓箭手		Mon_klgjs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	4	1.5	34106	25		1626	860	0	1500	1626	0	0	1500	FALSE	-0.05	xulijian	sansheJ	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_10
+Mon_klfs_00	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	156	1		40	3	0	10	40	0	0	10	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_01	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	181	2		52	6	0	18	52	0	0	18	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_02	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	242	3		64	9	0	26	64	0	0	26	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_03	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	303	4		76	12	0	34	76	0	0	34	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_04	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	427	5		88	15	0	42	88	0	0	42	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_05	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	680	6		117	30	0	62	117	0	0	62	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_06	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	1144	7		146	45	0	82	146	0	0	82	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_07	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	1656	8		175	60	0	102	175	0	0	102	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_08	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	2268	9		204	75	0	122	204	0	0	122	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_09	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	2978	10		230	90	0	142	230	0	0	142	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_10	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	3638	11		280	123	0	191	280	0	0	191	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_11	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	4398	12		330	156	0	240	330	0	0	240	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_12	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	5258	13		380	189	0	289	380	0	0	289	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_13	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	6218	14		430	222	0	338	430	0	0	338	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_14	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	7276	15		480	255	0	387	480	0	0	387	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_15	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	8981	16		604	312	0	482	604	0	0	482	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_16	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	10686	17		728	369	0	577	728	0	0	577	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_17	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	12391	18		852	426	0	672	852	0	0	672	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_18	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	14096	19		976	483	0	767	976	0	0	767	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_19	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	15802	20		1100	540	0	860	1100	0	0	860	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_20	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	17802	21		1240	607	0	948	1240	0	0	948	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_21	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	20663	22		1410	684	0	1056	1410	0	0	1056	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_22	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	24324	23		1610	771	0	1184	1610	0	0	1184	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_23	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	28785	24		1830	868	0	1332	1830	0	0	1332	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_klfs_24	骷髅法师		Mon_klfs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	34106	25		2100	975	0	1500	2100	0	0	1500	FALSE	-0.05	huodanshu	zuzhoushu|anyinghudun	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_00	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	156	1		10	2	0	10	10	0	0	10	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_01	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	181	2		12	4	0	18	12	0	0	18	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_02	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	242	3		14	6	0	26	14	0	0	26	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_03	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	303	4		16	8	0	34	16	0	0	34	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_04	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	427	5		18	10	0	42	18	0	0	42	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_05	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	680	6		42	23	0	62	42	0	0	62	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_06	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	1144	7		66	36	0	82	66	0	0	82	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_07	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	1656	8		90	49	0	102	90	0	0	102	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_08	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	2268	9		114	62	0	122	114	0	0	122	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_09	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	2978	10		138	75	0	142	138	0	0	142	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_10	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	3638	11		176	105	0	191	176	0	0	191	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_11	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	4398	12		214	135	0	240	214	0	0	240	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_12	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	5258	13		252	165	0	289	252	0	0	289	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_13	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	6218	14		290	195	0	338	290	0	0	338	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_14	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	7276	15		328	225	0	387	328	0	0	387	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_15	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	8981	16		408	271	0	482	408	0	0	482	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_16	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	10686	17		488	317	0	577	488	0	0	577	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_17	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	12391	18		568	363	0	672	568	0	0	672	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_18	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	14096	19		648	409	0	767	648	0	0	767	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_19	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	15802	20		728	455	0	860	728	0	0	860	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_20	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	17802	21		934	500	0	948	934	0	0	948	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_21	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	20663	22		1043	560	0	1056	1043	0	0	1056	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_22	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	24324	23		1167	635	0	1184	1167	0	0	1184	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_23	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	28785	24		1306	725	0	1332	1306	0	0	1332	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ahsm_24	暗黑萨满		Mon_ahsm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.8	34106	25		1460	829	0	1500	1460	0	0	1500	FALSE	-0.05	annengdan	zhiliaotuteng	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_stg_00	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	307	1		25	14	0	10	25	0	0	10	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_01	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	438	2		29	20	0	18	29	0	0	18	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_02	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	571	3		33	26	0	26	33	0	0	26	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_03	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	706	4		37	32	0	34	37	0	0	34	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_04	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	844	5		41	40	0	42	41	0	0	42	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_05	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1020	6		64	54	0	62	64	0	0	62	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_06	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1350	7		87	74	0	82	87	0	0	82	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_07	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2080	8		110	94	0	102	110	0	0	102	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_08	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3140	9		133	114	0	122	133	0	0	122	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_09	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4169	10		156	132	0	142	156	0	0	142	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_10	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5519	11		204	160	0	191	204	0	0	191	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_11	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6869	12		252	188	0	240	252	0	0	240	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_12	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8219	13		300	216	0	289	300	0	0	289	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_13	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	9569	14		348	244	0	338	348	0	0	338	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_14	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	10919	15		396	272	0	387	396	0	0	387	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_15	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	13476	16		490	330	0	482	490	0	0	482	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_16	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	16033	17		584	388	0	577	584	0	0	577	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_17	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	18590	18		678	446	0	672	678	0	0	672	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_18	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21147	19		772	504	0	767	772	0	0	767	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_19	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	23704	20		866	562	0	860	866	0	0	860	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_20	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	26259	21		968	642	0	948	968	0	0	948	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_21	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	30314	22		1095	742	0	1056	1095	0	0	1056	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_22	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	35869	23		1247	862	0	1184	1247	0	0	1184	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_23	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	42924	24		1424	1002	0	1332	1424	0	0	1332	FALSE	-0.05	chuiji	chihuanshu		
+Mon_stg_24	双头怪		Mon_stg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	51480	25		1626	1162	0	1500	1626	0	0	1500	FALSE	-0.05	chuiji	chihuanshu		
+Mon_yh_00	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	110	1		8	1	0	10	8	0	0	10	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_01	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	170	2		10	3	0	18	10	0	0	18	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_02	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	230	3		12	5	0	26	12	0	0	26	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_03	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	290	4		14	7	0	34	14	0	0	34	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_04	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	350	5		16	9	0	42	16	0	0	42	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_05	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	570	6		36	20	0	62	36	0	0	62	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_06	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	948	7		56	31	0	82	56	0	0	82	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_07	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1426	8		76	42	0	102	76	0	0	102	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_08	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2004	9		96	53	0	122	96	0	0	122	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_09	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2680	10		116	65	0	142	116	0	0	142	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_10	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3253	11		152	95	0	191	152	0	0	191	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_11	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3926	12		188	125	0	240	188	0	0	240	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_12	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4699	13		224	155	0	289	224	0	0	289	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_13	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5572	14		260	185	0	338	260	0	0	338	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_14	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6548	15		296	215	0	387	296	0	0	387	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_15	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8083	16		374	262	0	482	374	0	0	482	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_16	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	9618	17		452	309	0	577	452	0	0	577	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_17	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	11153	18		530	356	0	672	530	0	0	672	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_18	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	12688	19		608	403	0	767	608	0	0	767	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_19	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	14222	20		686	450	0	860	686	0	0	860	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_20	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	16091	21		776	502	0	948	776	0	0	948	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_21	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	18660	22		881	569	0	1056	881	0	0	1056	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_22	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21929	23		1001	651	0	1184	1001	0	0	1184	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_23	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	25898	24		1136	748	0	1332	1136	0	0	1332	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_yh_24	幽魂		Mon_yh_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	30566	25		1286	860	0	1500	1286	0	0	1500	FALSE	-0.05	youhunjian	lingnengfanpu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{"MinAttackCount":0},{},{},{}]}	
+Mon_slm_00	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	180	1		18	0	0	10	18	0	0	10	FALSE	-0.05	suanjian			
+Mon_slm_01	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	256	2		21	2	0	18	21	0	0	18	FALSE	-0.05	suanjian			
+Mon_slm_02	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	331	3		24	4	0	26	24	0	0	26	FALSE	-0.05	suanjian			
+Mon_slm_03	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	407	4		27	6	0	34	27	0	0	34	FALSE	-0.05	suanjian			
+Mon_slm_04	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	482	5		30	8	0	42	30	0	0	42	FALSE	-0.05	suanjian			
+Mon_slm_05	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	812	6		54	13	0	62	54	0	0	62	FALSE	-0.05	suanjian			
+Mon_slm_06	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1322	7		78	24	0	82	78	0	0	82	FALSE	-0.05	suanjian			
+Mon_slm_07	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1932	8		102	35	0	102	102	0	0	102	FALSE	-0.05	suanjian			
+Mon_slm_08	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2582	9		126	46	0	122	126	0	0	122	FALSE	-0.05	suanjian			
+Mon_slm_09	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3300	10		150	56	0	142	150	0	0	142	FALSE	-0.05	suanjian			
+Mon_slm_10	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4484	11		192	83	0	191	192	0	0	191	FALSE	-0.05	suanjian			
+Mon_slm_11	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5668	12		234	110	0	240	234	0	0	240	FALSE	-0.05	suanjian			
+Mon_slm_12	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6852	13		276	137	0	289	276	0	0	289	FALSE	-0.05	suanjian			
+Mon_slm_13	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8036	14		318	164	0	338	318	0	0	338	FALSE	-0.05	suanjian			
+Mon_slm_14	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	9218	15		360	192	0	387	360	0	0	387	FALSE	-0.05	suanjian			
+Mon_slm_15	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	11228	16		444	226	0	482	444	0	0	482	FALSE	-0.05	suanjian			
+Mon_slm_16	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	13238	17		528	260	0	577	528	0	0	577	FALSE	-0.05	suanjian			
+Mon_slm_17	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	15248	18		612	294	0	672	612	0	0	672	FALSE	-0.05	suanjian			
+Mon_slm_18	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	17258	19		696	328	0	767	696	0	0	767	FALSE	-0.05	suanjian			
+Mon_slm_19	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	19268	20		780	362	0	860	780	0	0	860	FALSE	-0.05	suanjian			
+Mon_slm_20	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21819	21		888	401	0	948	888	0	0	948	FALSE	-0.05	suanjian			
+Mon_slm_21	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	25370	22		1016	450	0	1056	1016	0	0	1056	FALSE	-0.05	suanjian			
+Mon_slm_22	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	29921	23		1164	509	0	1184	1164	0	0	1184	FALSE	-0.05	suanjian			
+Mon_slm_23	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	35472	24		1342	578	0	1332	1342	0	0	1332	FALSE	-0.05	suanjian			
+Mon_slm_24	史莱姆		Mon_slm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	42021	25		1520	654	0	1500	1520	0	0	1500	FALSE	-0.05	suanjian			
+Mon_my_00	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	110	1		5	0	0	10	5	0	0	10	FALSE	-0.05	ningshi			
+Mon_my_01	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	170	2		6	2	0	18	6	0	0	18	FALSE	-0.05	ningshi			
+Mon_my_02	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	230	3		7	4	0	26	7	0	0	26	FALSE	-0.05	ningshi			
+Mon_my_03	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	290	4		8	6	0	34	8	0	0	34	FALSE	-0.05	ningshi			
+Mon_my_04	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	350	5		9	8	0	42	9	0	0	42	FALSE	-0.05	ningshi			
+Mon_my_05	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	570	6		27	13	0	62	27	0	0	62	FALSE	-0.05	ningshi			
+Mon_my_06	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	948	7		45	24	0	82	45	0	0	82	FALSE	-0.05	ningshi			
+Mon_my_07	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1426	8		63	35	0	102	63	0	0	102	FALSE	-0.05	ningshi			
+Mon_my_08	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2004	9		81	46	0	122	81	0	0	122	FALSE	-0.05	ningshi			
+Mon_my_09	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2680	10		99	56	0	142	99	0	0	142	FALSE	-0.05	ningshi			
+Mon_my_10	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3253	11		139	83	0	191	139	0	0	191	FALSE	-0.05	ningshi			
+Mon_my_11	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3926	12		179	110	0	240	179	0	0	240	FALSE	-0.05	ningshi			
+Mon_my_12	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4699	13		219	137	0	289	219	0	0	289	FALSE	-0.05	ningshi			
+Mon_my_13	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5572	14		259	164	0	338	259	0	0	338	FALSE	-0.05	ningshi			
+Mon_my_14	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6548	15		299	192	0	387	299	0	0	387	FALSE	-0.05	ningshi			
+Mon_my_15	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8083	16		353	226	0	482	353	0	0	482	FALSE	-0.05	ningshi			
+Mon_my_16	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	9618	17		407	260	0	577	407	0	0	577	FALSE	-0.05	ningshi			
+Mon_my_17	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	11153	18		461	294	0	672	461	0	0	672	FALSE	-0.05	ningshi			
+Mon_my_18	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	12688	19		515	328	0	767	515	0	0	767	FALSE	-0.05	ningshi			
+Mon_my_19	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	14222	20		569	362	0	860	569	0	0	860	FALSE	-0.05	ningshi			
+Mon_my_20	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	16091	21		643	401	0	948	643	0	0	948	FALSE	-0.05	ningshi			
+Mon_my_21	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	18660	22		737	450	0	1056	737	0	0	1056	FALSE	-0.05	ningshi			
+Mon_my_22	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21929	23		851	509	0	1184	851	0	0	1184	FALSE	-0.05	ningshi			
+Mon_my_23	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	25898	24		985	578	0	1332	985	0	0	1332	FALSE	-0.05	ningshi			
+Mon_my_24	魔眼		Mon_my_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	30566	25		1139	654	0	1500	1139	0	0	1500	FALSE	-0.05	ningshi			
+Mon_wxg_00	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	180	1		18	5	0	10	18	0	0	10	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_01	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	256	2		26	8	0	18	26	0	0	18	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_02	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	331	3		34	11	0	26	34	0	0	26	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_03	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	407	4		42	14	0	34	42	0	0	34	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_04	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	482	5		50	17	0	42	50	0	0	42	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_05	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	812	6		60	36	0	62	60	0	0	62	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_06	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1322	7		82	55	0	82	82	0	0	82	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_07	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1932	8		123	74	0	102	123	0	0	102	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_08	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2582	9		145	93	0	122	145	0	0	122	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_09	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3300	10		170	112	0	142	170	0	0	142	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_10	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4484	11		220	142	0	191	220	0	0	191	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_11	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5668	12		270	172	0	240	270	0	0	240	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_12	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6852	13		320	202	0	289	320	0	0	289	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_13	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8036	14		370	232	0	338	370	0	0	338	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_14	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	9218	15		420	262	0	387	420	0	0	387	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_15	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	11228	16		516	325	0	482	516	0	0	482	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_16	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	13238	17		612	388	0	577	612	0	0	577	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_17	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	15248	18		708	451	0	672	708	0	0	672	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_18	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	17258	19		804	514	0	767	804	0	0	767	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_19	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	19268	20		900	580	0	860	900	0	0	860	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_20	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21819	21		1020	664	0	948	1020	0	0	948	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_21	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	25370	22		1170	763	0	1056	1170	0	0	1056	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_22	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	29921	23		1350	877	0	1184	1350	0	0	1184	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_23	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	35472	24		1560	1006	0	1332	1560	0	0	1332	FALSE	-0.05	siyao	kuizeng		
+Mon_wxg_24	伪箱怪		Mon_wxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	42021	25		1800	1150	0	1500	1800	0	0	1500	FALSE	-0.05	siyao	kuizeng		
+Mon_wlys_00	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	480	1		18	8	2	10	18	0	0	10	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_01	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	627	2		21	12	5	18	21	0	0	18	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_02	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	774	3		24	16	8	26	24	0	0	26	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_03	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	921	4		27	20	11	34	27	0	0	34	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_04	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1018	5		30	24	14	42	30	0	0	42	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_05	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1934	6		54	41	24	62	54	0	0	62	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_06	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3052	7		78	58	34	82	78	0	0	82	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_07	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4267	8		102	75	44	102	102	0	0	102	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_08	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5634	9		126	92	54	122	126	0	0	122	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_09	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	7147	10		150	112	64	142	150	0	0	142	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_10	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8760	11		192	147	96	191	192	0	0	191	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_11	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	10597	12		234	182	128	240	234	0	0	240	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_12	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	12660	13		276	217	160	289	276	0	0	289	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_13	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	14947	14		318	252	192	338	318	0	0	338	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_14	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	17463	15		360	286	224	387	360	0	0	387	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_15	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	20655	16		444	344	263	482	444	0	0	482	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_16	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	24297	17		528	402	302	577	528	0	0	577	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_17	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	28389	18		612	460	341	672	612	0	0	672	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_18	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	32931	19		696	518	380	767	696	0	0	767	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_19	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	37924	20		780	578	419	860	780	0	0	860	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_20	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	43427	21		888	684	469	948	888	0	0	948	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_21	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	50430	22		1016	805	534	1056	1016	0	0	1056	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_22	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	58933	23		1164	941	614	1184	1164	0	0	1184	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_23	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	68936	24		1342	1092	709	1332	1342	0	0	1332	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_wlys_24	亡灵勇士		Mon_wlys_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	80438	25		1520	1260	821	1500	1520	0	0	1500	FALSE	-0.05	mengpi	shunpizhan|wanglingyongshu_chongfeng		
+Mon_xxg_00	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	960	1		40	14	2	10	40	0	10	10	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_01	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1254	2		52	18	5	18	52	0	18	18	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_02	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1548	3		64	22	8	26	64	0	26	26	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_03	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1842	4		76	26	11	34	76	0	34	34	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_04	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2136	5		88	30	14	42	88	0	42	42	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_05	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3969	6		117	41	24	62	117	0	62	62	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_06	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6102	7		146	58	34	82	146	0	82	82	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_07	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8535	8		175	75	44	102	175	0	102	102	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_08	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	11268	9		204	92	54	122	204	0	122	122	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_09	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	14295	10		230	112	64	142	230	0	142	142	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_10	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	17520	11		280	147	96	191	280	0	191	191	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_11	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21195	12		330	182	128	240	330	0	240	240	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_12	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	25320	13		380	217	160	289	380	0	289	289	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_13	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	29895	14		430	252	192	338	430	0	338	338	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_14	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	34926	15		480	286	224	387	480	0	387	387	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_15	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	41310	16		604	344	263	482	604	0	482	482	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_16	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	48594	17		728	402	302	577	728	0	577	577	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_17	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	56778	18		852	460	341	672	852	0	672	672	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_18	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	65862	19		976	518	380	767	976	0	767	767	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_19	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	75849	20		1100	578	419	860	1100	0	860	860	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_20	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	88854	21		1240	684	469	948	1240	0	948	948	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_21	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	103857	22		1410	805	534	1056	1410	0	1056	1056	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_22	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	120862	23		1610	941	614	1184	1610	0	1184	1184	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_23	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	139865	24		1830	1092	709	1332	1830	0	1332	1332	FALSE	-0.05	xuebian	xuezhou		
+Mon_xxg_24	吸血鬼		Mon_xxg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	160875	25		2100	1260	821	1500	2100	0	1500	1500	FALSE	-0.05	xuebian	xuezhou		
+Mon_tsz_00	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	276	1		45	4	0	10	45	0	0	10	FALSE	-0.05	tianshi			
+Mon_tsz_01	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	400	2		48	8	0	18	48	0	0	18	FALSE	-0.05	tianshi			
+Mon_tsz_02	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	526	3		52	12	0	26	52	0	0	26	FALSE	-0.05	tianshi			
+Mon_tsz_03	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	650	4		55	14	0	34	55	0	0	34	FALSE	-0.05	tianshi			
+Mon_tsz_04	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	778	5		59	18	0	42	59	0	0	42	FALSE	-0.05	tianshi			
+Mon_tsz_05	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	850	6		85	23	0	62	85	0	0	62	FALSE	-0.05	tianshi			
+Mon_tsz_06	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1350	7		111	36	0	82	111	0	0	82	FALSE	-0.05	tianshi			
+Mon_tsz_07	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2080	8		137	49	0	102	137	0	0	102	FALSE	-0.05	tianshi			
+Mon_tsz_08	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3140	9		163	62	0	122	163	0	0	122	FALSE	-0.05	tianshi			
+Mon_tsz_09	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4169	10		189	75	0	142	189	0	0	142	FALSE	-0.05	tianshi			
+Mon_tsz_10	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5519	11		245	105	0	191	245	0	0	191	FALSE	-0.05	tianshi			
+Mon_tsz_11	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6869	12		301	135	0	240	301	0	0	240	FALSE	-0.05	tianshi			
+Mon_tsz_12	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8219	13		357	165	0	289	357	0	0	289	FALSE	-0.05	tianshi			
+Mon_tsz_13	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	9569	14		413	195	0	338	413	0	0	338	FALSE	-0.05	tianshi			
+Mon_tsz_14	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	10919	15		469	225	0	387	469	0	0	387	FALSE	-0.05	tianshi			
+Mon_tsz_15	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	13476	16		573	271	0	482	573	0	0	482	FALSE	-0.05	tianshi			
+Mon_tsz_16	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	16033	17		677	317	0	577	677	0	0	577	FALSE	-0.05	tianshi			
+Mon_tsz_17	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	18590	18		781	363	0	672	781	0	0	672	FALSE	-0.05	tianshi			
+Mon_tsz_18	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21147	19		885	409	0	767	885	0	0	767	FALSE	-0.05	tianshi			
+Mon_tsz_19	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	23704	20		989	455	0	860	989	0	0	860	FALSE	-0.05	tianshi			
+Mon_tsz_20	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	26259	21		1131	500	0	948	1131	0	0	948	FALSE	-0.05	tianshi			
+Mon_tsz_21	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	30314	22		1303	560	0	1056	1303	0	0	1056	FALSE	-0.05	tianshi			
+Mon_tsz_22	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	35869	23		1505	635	0	1184	1505	0	0	1184	FALSE	-0.05	tianshi			
+Mon_tsz_23	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	42924	24		1737	725	0	1332	1737	0	0	1332	FALSE	-0.05	tianshi			
+Mon_tsz_24	舔舐者		Mon_tsz_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	51480	25		1999	829	0	1500	1999	0	0	1500	FALSE	-0.05	tianshi			
+Mon_mm_00	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	180	1		45	4	0	10	45	0	0	10	FALSE	-0.05	bianda	meihuo		
+Mon_mm_01	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	256	2		48	7	0	18	48	0	0	18	FALSE	-0.05	bianda	meihuo		
+Mon_mm_02	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	331	3		52	10	0	26	52	0	0	26	FALSE	-0.05	bianda	meihuo		
+Mon_mm_03	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	407	4		55	13	0	34	55	0	0	34	FALSE	-0.05	bianda	meihuo		
+Mon_mm_04	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	482	5		59	16	0	42	59	0	0	42	FALSE	-0.05	bianda	meihuo		
+Mon_mm_05	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	812	6		85	32	0	62	85	0	0	62	FALSE	-0.05	bianda	meihuo		
+Mon_mm_06	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1322	7		111	48	0	82	111	0	0	82	FALSE	-0.05	bianda	meihuo		
+Mon_mm_07	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1932	8		137	64	0	102	137	0	0	102	FALSE	-0.05	bianda	meihuo		
+Mon_mm_08	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2582	9		163	80	0	122	163	0	0	122	FALSE	-0.05	bianda	meihuo		
+Mon_mm_09	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3300	10		189	96	0	142	189	0	0	142	FALSE	-0.05	bianda	meihuo		
+Mon_mm_10	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4484	11		245	132	0	191	245	0	0	191	FALSE	-0.05	bianda	meihuo		
+Mon_mm_11	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5668	12		301	168	0	240	301	0	0	240	FALSE	-0.05	bianda	meihuo		
+Mon_mm_12	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6852	13		357	204	0	289	357	0	0	289	FALSE	-0.05	bianda	meihuo		
+Mon_mm_13	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8036	14		413	240	0	338	413	0	0	338	FALSE	-0.05	bianda	meihuo		
+Mon_mm_14	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	9218	15		469	276	0	387	469	0	0	387	FALSE	-0.05	bianda	meihuo		
+Mon_mm_15	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	11228	16		573	338	0	482	573	0	0	482	FALSE	-0.05	bianda	meihuo		
+Mon_mm_16	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	13238	17		677	400	0	577	677	0	0	577	FALSE	-0.05	bianda	meihuo		
+Mon_mm_17	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	15248	18		781	462	0	672	781	0	0	672	FALSE	-0.05	bianda	meihuo		
+Mon_mm_18	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	17258	19		885	524	0	767	885	0	0	767	FALSE	-0.05	bianda	meihuo		
+Mon_mm_19	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	19268	20		989	586	0	860	989	0	0	860	FALSE	-0.05	bianda	meihuo		
+Mon_mm_20	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21819	21		1131	641	0	948	1131	0	0	948	FALSE	-0.05	bianda	meihuo		
+Mon_mm_21	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	25370	22		1303	716	0	1056	1303	0	0	1056	FALSE	-0.05	bianda	meihuo		
+Mon_mm_22	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	29921	23		1505	811	0	1184	1505	0	0	1184	FALSE	-0.05	bianda	meihuo		
+Mon_mm_23	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	35472	24		1737	926	0	1332	1737	0	0	1332	FALSE	-0.05	bianda	meihuo		
+Mon_mm_24	魅魔		Mon_mm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	42021	25		1999	1058	0	1500	1999	0	0	1500	FALSE	-0.05	bianda	meihuo		
+Mon_ldg_00	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	180	1		18	4	0	10	18	0	0	10	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_01	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	256	2		21	7	0	18	21	0	0	18	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_02	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	331	3		24	10	0	26	24	0	0	26	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_03	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	407	4		27	13	0	34	27	0	0	34	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_04	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	482	5		30	16	0	42	30	0	0	42	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_05	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	812	6		54	32	0	62	54	0	0	62	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_06	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1322	7		78	48	0	82	78	0	0	82	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_07	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1932	8		102	64	0	102	102	0	0	102	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_08	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2582	9		126	80	0	122	126	0	0	122	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_09	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3300	10		150	96	0	142	150	0	0	142	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_10	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4484	11		192	132	0	191	192	0	0	191	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_11	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5668	12		234	168	0	240	234	0	0	240	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_12	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6852	13		276	204	0	289	276	0	0	289	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_13	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8036	14		318	240	0	338	318	0	0	338	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_14	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	9218	15		360	276	0	387	360	0	0	387	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_15	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	11228	16		444	338	0	482	444	0	0	482	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_16	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	13238	17		528	400	0	577	528	0	0	577	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_17	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	15248	18		612	462	0	672	612	0	0	672	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_18	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	17258	19		696	524	0	767	696	0	0	767	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_19	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	19268	20		780	586	0	860	780	0	0	860	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_20	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21819	21		888	641	0	948	888	0	0	948	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_21	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	25370	22		1016	716	0	1056	1016	0	0	1056	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_22	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	29921	23		1164	811	0	1184	1164	0	0	1184	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_23	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	35472	24		1342	926	0	1332	1342	0	0	1332	FALSE	-0.05	liudanguai_zibao			
+Mon_ldg_24	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	42021	25		1520	1058	0	1500	1520	0	0	1500	FALSE	-0.05	liudanguai_zibao			
+Mon_jm_00	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	276	1		40	4	0	10	40	0	0	10	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_01	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	400	2		52	7	0	18	52	0	0	18	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_02	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	526	3		64	10	0	26	64	0	0	26	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_03	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	650	4		76	13	0	34	76	0	0	34	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_04	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	778	5		88	16	0	42	88	0	0	42	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_05	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	850	6		117	32	0	62	117	0	0	62	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_06	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1350	7		146	48	0	82	146	0	0	82	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_07	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2080	8		175	64	0	102	175	0	0	102	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_08	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3140	9		204	80	0	122	204	0	0	122	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_09	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4169	10		230	96	0	142	230	0	0	142	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_10	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5519	11		280	132	0	191	280	0	0	191	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_11	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6869	12		330	168	0	240	330	0	0	240	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_12	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8219	13		380	204	0	289	380	0	0	289	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_13	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	9569	14		430	240	0	338	430	0	0	338	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_14	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	10919	15		480	276	0	387	480	0	0	387	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_15	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	13476	16		604	338	0	482	604	0	0	482	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_16	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	16033	17		728	400	0	577	728	0	0	577	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_17	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	18590	18		852	462	0	672	852	0	0	672	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_18	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21147	19		976	524	0	767	976	0	0	767	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_19	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	23704	20		1100	586	0	860	1100	0	0	860	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_20	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	26259	21		1240	641	0	948	1240	0	0	948	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_21	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	30314	22		1410	716	0	1056	1410	0	0	1056	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_22	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	35869	23		1610	811	0	1184	1610	0	0	1184	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_23	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	42924	24		1830	926	0	1332	1830	0	0	1332	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_jm_24	巨魔		Mon_jm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	51480	25		2100	1058	0	1500	2100	0	0	1500	FALSE	-0.05	jumo_zhongji	jumo_XueFei		
+Mon_ws_00	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	276	1		45	8	0	10	45	0	0	10	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_01	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	400	2		48	12	0	18	48	0	0	18	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_02	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	526	3		52	16	0	26	52	0	0	26	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_03	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	650	4		55	20	0	34	55	0	0	34	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_04	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	778	5		59	24	0	42	59	0	0	42	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_05	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	850	6		85	41	0	62	85	0	0	62	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_06	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1350	7		111	58	0	82	111	0	0	82	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_07	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2080	8		137	75	0	102	137	0	0	102	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_08	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3140	9		163	92	0	122	163	0	0	122	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_09	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4169	10		189	112	0	142	189	0	0	142	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_10	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5519	11		245	147	0	191	245	0	0	191	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_11	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6869	12		301	182	0	240	301	0	0	240	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_12	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8219	13		357	217	0	289	357	0	0	289	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_13	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	9569	14		413	252	0	338	413	0	0	338	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_14	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	10919	15		469	286	0	387	469	0	0	387	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_15	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	13476	16		573	344	0	482	573	0	0	482	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_16	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	16033	17		677	402	0	577	677	0	0	577	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_17	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	18590	18		781	460	0	672	781	0	0	672	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_18	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21147	19		885	518	0	767	885	0	0	767	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_19	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	23704	20		989	578	0	860	989	0	0	860	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_20	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	26259	21		1131	651	0	948	1131	0	0	948	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_21	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	30314	22		1303	734	0	1056	1303	0	0	1056	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_22	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	35869	23		1505	827	0	1184	1505	0	0	1184	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_23	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	42924	24		1737	930	0	1332	1737	0	0	1332	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ws_24	巫师		Mon_ws_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	51480	25		1999	1044	0	1500	1999	0	0	1500	FALSE	-0.05	AnNengDianaQiu	ShanDianFengBao	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_swqs_00	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	960	1		65	14	4	10	65	65	0	10	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_01	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	1254	2		69	18	10	18	69	69	0	18	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_02	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	1548	3		73	22	16	26	73	73	0	26	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_03	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	1842	4		77	26	22	34	77	77	0	34	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_04	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	2136	5		81	30	28	42	81	81	0	42	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_05	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	3969	6		115	41	48	62	115	115	0	62	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_06	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	6102	7		149	58	68	82	149	149	0	82	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_07	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	8535	8		183	75	84	102	183	183	0	102	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_08	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	11268	9		217	92	108	122	217	217	0	122	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_09	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	14295	10		251	112	128	142	251	251	0	142	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_10	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	17520	11		313	147	192	191	313	313	0	191	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_11	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	21195	12		375	182	248	240	375	375	0	240	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_12	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	25320	13		437	217	320	289	437	437	0	289	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_13	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	29895	14		499	252	384	338	499	499	0	338	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_14	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	34926	15		561	286	448	387	561	561	0	387	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_15	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	41310	16		689	344	526	482	689	689	0	482	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_16	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	48594	17		827	402	604	577	827	827	0	577	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_17	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	56778	18		975	460	682	672	975	975	0	672	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_18	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	65862	19		1133	518	760	767	1133	1133	0	767	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_19	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	75849	20		1301	578	838	860	1301	1301	0	860	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_20	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	88854	21		1480	666	938	948	1480	1480	0	948	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_21	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	103857	22		1710	784	1058	1056	1710	1710	0	1056	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_22	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	120862	23		1990	932	1198	1184	1990	1990	0	1184	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_23	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	139865	24		2320	1110	1358	1332	2320	2320	0	1332	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_swqs_24	死亡骑士	Icon_Mon_swqs_0	Mon_swqs_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	6	1.5	160875	25		2700	1316	1538	1500	2700	2700	0	1500	FALSE	-0.05	banyuezhan	lieyanzhan|Dkchongzhuang|lieyanbaozha		
+Mon_dyny_00	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	276	1		18	8	0	10	18	0	0	10	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_01	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	400	2		26	12	0	18	26	0	0	18	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_02	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	526	3		34	16	0	26	34	0	0	26	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_03	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	650	4		42	20	0	34	42	0	0	34	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_04	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	778	5		50	24	0	42	50	0	0	42	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_05	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	850	6		60	41	0	62	60	0	0	62	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_06	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1350	7		82	58	0	82	82	0	0	82	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_07	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2080	8		123	75	0	102	123	0	0	102	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_08	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3140	9		145	92	0	122	145	0	0	122	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_09	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4169	10		170	112	0	142	170	0	0	142	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_10	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5519	11		220	147	0	191	220	0	0	191	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_11	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6869	12		270	182	0	240	270	0	0	240	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_12	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8219	13		320	217	0	289	320	0	0	289	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_13	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	9569	14		370	252	0	338	370	0	0	338	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_14	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	10919	15		420	286	0	387	420	0	0	387	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_15	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	13476	16		516	344	0	482	516	0	0	482	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_16	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	16033	17		612	402	0	577	612	0	0	577	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_17	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	18590	18		708	460	0	672	708	0	0	672	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_18	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21147	19		804	518	0	767	804	0	0	767	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_19	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	23704	20		900	578	0	860	900	0	0	860	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_20	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	26259	21		1020	651	0	948	1020	0	0	948	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_21	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	30314	22		1170	734	0	1056	1170	0	0	1056	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_22	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	35869	23		1350	827	0	1184	1350	0	0	1184	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_23	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	42924	24		1560	930	0	1332	1560	0	0	1332	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_dyny_24	地狱女妖		Mon_dyny_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	51480	25		1800	1044	0	1500	1800	0	0	1500	FALSE	-0.05	diyunvyao_zhuahen	diyunvyao_shezhou		
+Mon_zw_00	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	480	1		18	8	0	10	18	0	0	10	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_01	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	627	2		21	12	0	18	21	0	0	18	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_02	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	774	3		24	16	0	26	24	0	0	26	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_03	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	921	4		27	20	0	34	27	0	0	34	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_04	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1018	5		30	24	0	42	30	0	0	42	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_05	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1934	6		54	41	0	62	54	0	0	62	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_06	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3052	7		78	58	0	82	78	0	0	82	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_07	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4267	8		102	75	0	102	102	0	0	102	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_08	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5634	9		126	92	0	122	126	0	0	122	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_09	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	7147	10		150	112	0	142	150	0	0	142	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_10	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8760	11		192	147	0	191	192	0	0	191	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_11	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	10597	12		234	182	0	240	234	0	0	240	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_12	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	12660	13		276	217	0	289	276	0	0	289	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_13	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	14947	14		318	252	0	338	318	0	0	338	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_14	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	17463	15		360	286	0	387	360	0	0	387	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_15	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	20655	16		444	344	0	482	444	0	0	482	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_16	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	24297	17		528	402	0	577	528	0	0	577	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_17	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	28389	18		612	460	0	672	612	0	0	672	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_18	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	32931	19		696	518	0	767	696	0	0	767	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_19	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	37924	20		780	578	0	860	780	0	0	860	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_20	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	43427	21		888	651	0	948	888	0	0	948	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_21	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	50430	22		1016	734	0	1056	1016	0	0	1056	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_22	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	58933	23		1164	827	0	1184	1164	0	0	1184	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_23	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	68936	24		1342	930	0	1332	1342	0	0	1332	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_zw_24	憎恶		Mon_zw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	80438	25		1520	1044	0	1500	1520	0	0	1500	FALSE	-0.05	zaji	tuogou|zengwutunshi		
+Mon_mlw_00	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	960	1		65	20	4	10	65	65	0	10	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_01	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1254	2		69	24	10	18	69	69	0	18	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_02	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1548	3		73	30	16	26	73	73	0	26	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_03	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1842	4		77	34	22	34	77	77	0	34	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_04	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2136	5		81	40	28	42	81	81	0	42	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_05	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3969	6		115	51	48	62	115	115	0	62	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_06	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6102	7		149	65	68	82	149	149	0	82	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_07	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8535	8		183	82	84	102	183	183	0	102	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_08	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	11268	9		217	101	108	122	217	217	0	122	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_09	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	14295	10		251	116	128	142	251	251	0	142	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_10	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	17520	11		313	154	192	191	313	313	0	191	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_11	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21195	12		375	189	248	240	375	375	0	240	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_12	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	25320	13		437	268	320	289	437	437	0	289	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_13	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	29895	14		499	300	384	338	499	499	0	338	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_14	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	34926	15		561	350	448	387	561	561	0	387	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_15	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	41310	16		689	423	526	482	689	689	0	482	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_16	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	48594	17		827	512	604	577	827	827	0	577	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_17	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	56778	18		975	596	682	672	975	975	0	672	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_18	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	65862	19		1133	643	760	767	1133	1133	0	767	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_19	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	75849	20		1301	710	838	860	1301	1301	0	860	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_20	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	88854	21		1480	781	938	948	1480	1480	0	948	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_21	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	103857	22		1710	882	1058	1056	1710	1710	0	1056	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_22	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	120862	23		1990	1013	1198	1184	1990	1990	0	1184	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_23	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	139865	24		2320	1174	1358	1332	2320	2320	0	1332	FALSE	-0.05	silie	Qlzhanshu		
+Mon_mlw_24	魔狼王		Mon_mlw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	160875	25		2700	1365	1538	1500	2700	2700	0	1500	FALSE	-0.05	silie	Qlzhanshu		
+Mon_wyw_00	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	960	1		65	20	4	10	65	65	0	10	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_01	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1254	2		69	24	10	18	69	69	0	18	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_02	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1548	3		73	30	16	26	73	73	0	26	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_03	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1842	4		77	34	22	34	77	77	0	34	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_04	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2136	5		81	40	28	42	81	81	0	42	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_05	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3969	6		115	51	48	62	115	115	0	62	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_06	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6102	7		149	65	68	82	149	149	0	82	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_07	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8535	8		183	82	84	102	183	183	0	102	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_08	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	11268	9		217	101	108	122	217	217	0	122	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_09	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	14295	10		251	116	128	142	251	251	0	142	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_10	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	17520	11		313	154	192	191	313	313	0	191	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_11	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21195	12		375	189	248	240	375	375	0	240	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_12	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	25320	13		437	268	320	289	437	437	0	289	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_13	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	29895	14		499	300	384	338	499	499	0	338	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_14	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	34926	15		561	350	448	387	561	561	0	387	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_15	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	41310	16		689	423	526	482	689	689	0	482	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_16	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	48594	17		827	512	604	577	827	827	0	577	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_17	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	56778	18		975	596	682	672	975	975	0	672	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_18	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	65862	19		1133	643	760	767	1133	1133	0	767	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_19	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	75849	20		1301	710	838	860	1301	1301	0	860	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_20	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	86924	21		1502	781	938	948	1502	1502	0	948	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_21	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	99999	22		1734	882	1058	1056	1734	1734	0	1056	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_22	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	115074	23		1996	1013	1198	1184	1996	1996	0	1184	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_23	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	132149	24		2288	1174	1358	1332	2288	2288	0	1332	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_wyw_24	巫妖王		Mon_wyw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	151223	25		2610	1365	1538	1500	2610	2610	0	1500	FALSE	-0.05	hanbingyao_bingjian		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_00	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	960	1		65	20	4	10	65	65	0	10	FALSE	-0.05	zhendangbo	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_01	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1254	2		69	24	10	18	69	69	0	18	FALSE	-0.05	fushipentu	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_02	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1548	3		73	30	16	26	73	73	0	26	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_03	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1842	4		77	34	22	34	77	77	0	34	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_04	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2136	5		81	40	28	42	81	81	0	42	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_05	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3969	6		115	51	48	62	115	115	0	62	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_06	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6102	7		149	65	68	82	149	149	0	82	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_07	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8535	8		183	82	84	102	183	183	0	102	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_08	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	11268	9		217	101	108	122	217	217	0	122	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_09	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	14295	10		251	116	128	142	251	251	0	142	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_10	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	17520	11		313	154	192	191	313	313	0	191	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_11	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21195	12		375	189	248	240	375	375	0	240	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_12	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	25320	13		437	268	320	289	437	437	0	289	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_13	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	29895	14		499	300	384	338	499	499	0	338	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_14	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	34926	15		561	350	448	387	561	561	0	387	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_15	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	41310	16		689	423	526	482	689	689	0	482	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_16	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	48594	17		827	512	604	577	827	827	0	577	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_17	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	56778	18		975	596	682	672	975	975	0	672	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_18	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	65862	19		1133	643	760	767	1133	1133	0	767	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_19	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	75849	20		1301	710	838	860	1301	1498	0	860	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_20	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	88142	21		1498	800	938	948	1498	1746	0	948	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_21	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	103434	22		1746	920	1058	1056	1746	2044	0	1056	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_22	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	121726	23		2044	1070	1198	1184	2044	2392	0	1184	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_23	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	143018	24		2392	1250	1358	1332	2392	2790	0	1332	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_fdm_24	伏地魔		Mon_fdm_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	167310	25		2790	1460	1538	1500	2790	1301	0	1500	FALSE	-0.05	chuanci1	zhendangbo|fushipentu	{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_00	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	960	1		65	20	4	10	65	65	0	10	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_01	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1254	2		69	24	10	18	69	69	0	18	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_02	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1548	3		73	30	16	26	73	73	0	26	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_03	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1842	4		77	34	22	34	77	77	0	34	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_04	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2136	5		81	40	28	42	81	81	0	42	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_05	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3969	6		115	51	48	62	115	115	0	62	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_06	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6102	7		149	65	68	82	149	149	0	82	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_07	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8535	8		183	82	84	102	183	183	0	102	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_08	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	11268	9		217	101	108	122	217	217	0	122	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_09	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	14295	10		251	116	128	142	251	251	0	142	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_10	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	17520	11		313	154	192	191	313	313	0	191	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_11	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21195	12		375	189	248	240	375	375	0	240	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_12	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	25320	13		437	268	320	289	437	437	0	289	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_13	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	29895	14		499	300	384	338	499	499	0	338	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_14	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	34926	15		561	350	448	387	561	561	0	387	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_15	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	41310	16		689	423	526	482	689	689	0	482	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_16	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	48594	17		827	512	604	577	827	827	0	577	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_17	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	56778	18		975	596	682	672	975	975	0	672	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_18	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	65862	19		1133	643	760	767	1133	1133	0	767	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_19	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	75849	20		1301	710	838	860	1301	1301	0	860	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_20	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	88142	21		1498	800	938	948	1498	1746	0	948	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_21	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	103434	22		1746	920	1058	1056	1746	2044	0	1056	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_22	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	121726	23		2044	1070	1198	1184	2044	2392	0	1184	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_23	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	143018	24		2392	1250	1358	1332	2392	2790	0	1332	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_dlts_24	堕落天使		Mon_dlts_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	167310	25		2790	1460	1538	1500	2790	1301	0	1500	FALSE	-0.05	annengdan		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_kjmw_00	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	960	1		65	20	4	10	65	65	0	10	FALSE	-0.05	morizhan			
+Mon_kjmw_01	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1254	2		69	24	10	18	69	69	0	18	FALSE	-0.05	morizhan			
+Mon_kjmw_02	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1548	3		73	30	16	26	73	73	0	26	FALSE	-0.05	morizhan			
+Mon_kjmw_03	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1842	4		77	34	22	34	77	77	0	34	FALSE	-0.05	morizhan			
+Mon_kjmw_04	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2136	5		81	40	28	42	81	81	0	42	FALSE	-0.05	morizhan			
+Mon_kjmw_05	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3969	6		115	51	48	62	115	115	0	62	FALSE	-0.05	morizhan			
+Mon_kjmw_06	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6102	7		149	65	68	82	149	149	0	82	FALSE	-0.05	morizhan			
+Mon_kjmw_07	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8535	8		183	82	84	102	183	183	0	102	FALSE	-0.05	morizhan			
+Mon_kjmw_08	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	11268	9		217	101	108	122	217	217	0	122	FALSE	-0.05	morizhan			
+Mon_kjmw_09	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	14295	10		251	116	128	142	251	251	0	142	FALSE	-0.05	morizhan			
+Mon_kjmw_10	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	17520	11		313	154	192	191	313	313	0	191	FALSE	-0.05	morizhan			
+Mon_kjmw_11	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21195	12		375	189	248	240	375	375	0	240	FALSE	-0.05	morizhan			
+Mon_kjmw_12	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	25320	13		437	268	320	289	437	437	0	289	FALSE	-0.05	morizhan			
+Mon_kjmw_13	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	29895	14		499	300	384	338	499	499	0	338	FALSE	-0.05	morizhan			
+Mon_kjmw_14	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	34926	15		561	350	448	387	561	561	0	387	FALSE	-0.05	morizhan			
+Mon_kjmw_15	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	41310	16		689	423	526	482	689	689	0	482	FALSE	-0.05	morizhan			
+Mon_kjmw_16	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	48594	17		827	512	604	577	827	827	0	577	FALSE	-0.05	morizhan			
+Mon_kjmw_17	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	56778	18		975	596	682	672	975	975	0	672	FALSE	-0.05	morizhan			
+Mon_kjmw_18	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	65862	19		1133	643	760	767	1133	1133	0	767	FALSE	-0.05	morizhan			
+Mon_kjmw_19	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	75849	20		1301	710	838	860	1301	1301	0	860	FALSE	-0.05	morizhan			
+Mon_kjmw_20	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	88142	21		1502	781	938	948	1502	1502	0	948	FALSE	-0.05	morizhan			
+Mon_kjmw_21	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	103434	22		1734	882	1058	1056	1734	1734	0	1056	FALSE	-0.05	morizhan			
+Mon_kjmw_22	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	121726	23		1996	1013	1198	1184	1996	1996	0	1184	FALSE	-0.05	morizhan			
+Mon_kjmw_23	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	143018	24		2288	1174	1358	1332	2288	2288	0	1332	FALSE	-0.05	morizhan			
+Mon_kjmw_24	恐惧魔王		Mon_kjmw_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	167310	25		2610	1365	1538	1500	2610	2610	0	1500	FALSE	-0.05	morizhan			
+Boss_mw_00	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	1350	1		76	25	4	10	76	76	0	10	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_01	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	1541	2		101	30	10	18	101	101	0	18	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_02	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	1882	3		126	35	16	26	126	126	0	26	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_03	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	2273	4		151	40	22	34	151	151	0	34	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_04	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	2916	5		175	45	28	42	175	175	0	42	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_05	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	4706	6		208	63	48	62	208	208	0	62	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_06	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	7096	7		241	81	68	82	241	241	0	82	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_07	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	10086	8		274	99	84	102	274	274	0	102	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_08	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	13676	9		307	117	108	122	307	307	0	122	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_09	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	17868	10		340	135	128	142	340	340	0	142	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_10	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	21026	11		440	184	192	191	440	440	0	191	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_11	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	25184	12		540	233	248	240	540	540	0	240	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_12	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	30342	13		640	282	320	289	640	640	0	289	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_13	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	36500	14		740	331	384	338	740	740	0	338	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_14	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	43659	15		840	382	448	387	840	840	0	387	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_15	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	50889	16		1032	468	526	482	1032	1032	0	482	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_16	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	59619	17		1224	554	604	577	1224	1224	0	577	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_17	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	69849	18		1416	640	682	672	1416	1416	0	672	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_18	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	81579	19		1608	726	760	767	1608	1608	0	767	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_19	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	94812	20		1800	810	838	860	1800	1800	0	860	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_20	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	111034	21		2060	939	938	948	2060	2060	0	948	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_21	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	130256	22		2370	1098	1058	1056	2370	2370	0	1056	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_22	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	152478	23		2730	1287	1198	1184	2730	2730	0	1184	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_23	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	177700	24		3140	1506	1358	1332	3140	3140	0	1332	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Boss_mw_24	魔王BOSS	Icon_tx_mw_001	Boss_mw	xingzou	daiji			siwang	show		7	1.5	205920	25		3600	1755	1538	1500	3600	3600	0	1500	TRUE	-0.05	mowang_putonggongji	mowang_2duanji|mowang_diyulieyan|mowang_qiulong		
+Mon_jzxb_00	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	480	1		18	3	3	10	18	18	0	10	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_01	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	627	2		26	6	6	18	26	26	0	18	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_02	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	774	3		34	9	9	26	34	34	0	26	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_03	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	921	4		42	12	12	34	42	42	0	34	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_04	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	1018	5		50	15	15	42	50	50	0	42	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_05	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	1934	6		60	30	30	62	60	60	0	62	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_06	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	3052	7		82	45	45	82	82	82	0	82	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_07	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	4267	8		123	60	60	102	123	123	0	102	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_08	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	5634	9		145	75	75	122	145	145	0	122	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_09	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	7147	10		170	90	90	142	170	170	0	142	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_10	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	8760	11		220	123	123	191	220	220	0	191	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_11	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	10597	12		270	156	156	240	270	270	0	240	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_12	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	12660	13		320	189	189	289	320	320	0	289	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_13	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	14947	14		370	222	222	338	370	370	0	338	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_14	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	17463	15		420	255	255	387	420	420	0	387	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_15	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	20655	16		516	312	312	482	516	516	0	482	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_16	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	24297	17		612	369	369	577	612	612	0	577	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_17	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	28389	18		708	426	426	672	708	708	0	672	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_18	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	32931	19		804	483	483	767	804	804	0	767	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_19	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	37924	20		900	540	540	860	900	900	0	860	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_20	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	43427	21		1020	607	607	948	1020	1020	0	948	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_21	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	50430	22		1170	684	684	1056	1170	1170	0	1056	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_22	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	58933	23		1350	771	771	1184	1350	1350	0	1184	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_23	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	68936	24		1560	868	868	1332	1560	1560	0	1332	FALSE	-0.05	tongyong_putonggongji			
+Mon_jzxb_24	骑兵小兵		Mon_jzxb_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	80438	25		1800	975	975	1500	1800	1800	0	1500	FALSE	-0.05	tongyong_putonggongji			
+Mon_ycxb_00	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	480	1		18	3	3	10	18	18	0	10	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_01	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	627	2		26	6	6	18	26	26	0	18	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_02	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	774	3		34	9	9	26	34	34	0	26	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_03	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	921	4		42	12	12	34	42	42	0	34	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_04	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	1018	5		50	15	15	42	50	50	0	42	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_05	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	1934	6		60	30	30	62	60	60	0	62	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_06	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	3052	7		82	45	45	82	82	82	0	82	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_07	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	4267	8		123	60	60	102	123	123	0	102	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_08	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	5634	9		145	75	75	122	145	145	0	122	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_09	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	7147	10		170	90	90	142	170	170	0	142	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_10	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	8760	11		220	123	123	191	220	220	0	191	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_11	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	10597	12		270	156	156	240	270	270	0	240	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_12	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	12660	13		320	189	189	289	320	320	0	289	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_13	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	14947	14		370	222	222	338	370	370	0	338	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_14	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	17463	15		420	255	255	387	420	420	0	387	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_15	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	20655	16		516	312	312	482	516	516	0	482	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_16	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	24297	17		612	369	369	577	612	612	0	577	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_17	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	28389	18		708	426	426	672	708	708	0	672	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_18	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	32931	19		804	483	483	767	804	804	0	767	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_19	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	37924	20		900	540	540	860	900	900	0	860	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_20	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	43427	21		1020	607	607	948	1020	1020	0	948	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_21	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	50430	22		1170	684	684	1056	1170	1170	0	1056	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_22	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	58933	23		1350	771	771	1184	1350	1350	0	1184	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_23	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	68936	24		1560	868	868	1332	1560	1560	0	1332	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+Mon_ycxb_24	一个枪兵		Mon_ycxb_00	paobu	daiji	shoushang	0.2	siwang	show	jinbi	5	1.5	80438	25		1800	975	975	1500	1800	1800	0	1500	FALSE	-0.05	kulougongjianshou_sheji		{"MoveConfig":{"MaxDistance":10,"MinDistance":3,"Close":false},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	
+ass_female_00	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	276	1		40	20	2	10	40	40	0	10	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_01	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	400	2		52	24	5	18	52	52	0	18	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_02	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	526	3		64	28	8	26	64	64	0	26	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_03	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	650	4		76	32	11	34	76	76	0	34	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_04	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	778	5		88	36	14	42	88	88	0	42	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_05	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	850	6		117	44	24	62	117	117	0	62	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_06	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	1350	7		146	52	34	82	146	146	0	82	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_07	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	2080	8		175	60	44	102	175	175	0	102	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_08	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	3140	9		204	68	54	122	204	204	0	122	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_09	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	4169	10		230	76	64	142	230	230	0	142	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_10	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	5519	11		280	105	96	191	280	280	0	191	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_11	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	6869	12		330	135	128	240	330	330	0	240	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_12	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	8219	13		380	165	160	289	380	380	0	289	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_13	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	9569	14		430	195	192	338	430	430	0	338	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_14	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	10919	15		480	225	224	387	480	480	0	387	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_15	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	13476	16		604	271	263	482	604	604	0	482	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_16	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	16033	17		728	317	302	577	728	728	0	577	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_17	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	18590	18		852	363	341	672	852	852	0	672	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_18	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	21147	19		976	409	380	767	976	976	0	767	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_19	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	23704	20		1100	455	419	860	1100	1100	0	860	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_20	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	26259	21		1240	500	469	948	1240	1240	0	948	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_21	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	30314	22		1410	560	534	1056	1410	1410	0	1056	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_22	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	35869	23		1610	635	614	1184	1610	1610	0	1184	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_23	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	42924	24		1830	725	709	1332	1830	1830	0	1332	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+ass_female_24	刺客女		ass_female_07	ass_run	ass_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	51480	25		2100	829	821	1500	2100	2100	0	1500	FALSE	-0.05	att31	att32|att33|att34|att31	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_00	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	276	1		40	20	2	10	40	40	0	10	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_01	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	400	2		52	24	5	18	52	52	0	18	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_02	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	526	3		64	28	8	26	64	64	0	26	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_03	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	650	4		76	32	11	34	76	76	0	34	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_04	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	778	5		88	36	14	42	88	88	0	42	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_05	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	850	6		117	44	24	62	117	117	0	62	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_06	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	1350	7		146	52	34	82	146	146	0	82	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_07	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	2080	8		175	60	44	102	175	175	0	102	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_08	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	3140	9		204	68	54	122	204	204	0	122	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_09	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	4169	10		230	76	64	142	230	230	0	142	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_10	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	5519	11		280	105	96	191	280	280	0	191	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_11	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	6869	12		330	135	128	240	330	330	0	240	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_12	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	8219	13		380	165	160	289	380	380	0	289	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_13	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	9569	14		430	195	192	338	430	430	0	338	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_14	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	10919	15		480	225	224	387	480	480	0	387	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_15	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	13476	16		604	271	263	482	604	604	0	482	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_16	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	16033	17		728	317	302	577	728	728	0	577	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_17	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	18590	18		852	363	341	672	852	852	0	672	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_18	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	21147	19		976	409	380	767	976	976	0	767	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_19	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	23704	20		1100	455	419	860	1100	1100	0	860	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_20	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	26259	21		1240	500	469	948	1240	1240	0	948	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_21	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	30314	22		1410	560	534	1056	1410	1410	0	1056	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_22	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	35869	23		1610	635	614	1184	1610	1610	0	1184	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_23	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	42924	24		1830	725	709	1332	1830	1830	0	1332	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+wiz_female_24	法师女		wiz_female_07	wiz_run	wiz_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	51480	25		2100	829	821	1500	2100	2100	0	1500	FALSE	-0.05	att21	baoLie|hanBing|feiDan|heiDong	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+Mon_emzx_00	恶魔之心		Mon_emzx_00		daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1000											FALSE	-0.05				
+war_male_00	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	276	1		40	20	2	10	40	40	0	10	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_01	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	400	2		52	24	5	18	52	52	0	18	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_02	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	526	3		64	28	8	26	64	64	0	26	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_03	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	650	4		76	32	11	34	76	76	0	34	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_04	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	778	5		88	36	14	42	88	88	0	42	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_05	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	850	6		117	44	24	62	117	117	0	62	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_06	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	1350	7		146	52	34	82	146	146	0	82	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_07	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	2080	8		175	60	44	102	175	175	0	102	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_08	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	3140	9		204	68	54	122	204	204	0	122	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_09	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	4169	10		230	76	64	142	230	230	0	142	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_10	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	5519	11		280	105	96	191	280	280	0	191	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_11	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	6869	12		330	135	128	240	330	330	0	240	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_12	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	8219	13		380	165	160	289	380	380	0	289	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_13	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	9569	14		430	195	192	338	430	430	0	338	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_14	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	10919	15		480	225	224	387	480	480	0	387	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_15	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	13476	16		604	271	263	482	604	604	0	482	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_16	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	16033	17		728	317	302	577	728	728	0	577	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_17	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	18590	18		852	363	341	672	852	852	0	672	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_18	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	21147	19		976	409	380	767	976	976	0	767	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_19	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	23704	20		1100	455	419	860	1100	1100	0	860	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_20	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	26259	21		1240	500	469	948	1240	1240	0	948	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_21	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	30314	22		1410	560	534	1056	1410	1410	0	1056	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_22	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	35869	23		1610	635	614	1184	1610	1610	0	1184	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_23	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	42924	24		1830	725	709	1332	1830	1830	0	1332	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+war_male_24	教官		war_male_06	war_run	war_stand	shoushang	0.2	ass_female_siwang	show	jinbi	5	1.5	51480	25		2100	829	821	1500	2100	2100	0	1500	FALSE	-0.05		jiaoguan_att11|jiaoguan_att12|jiaoguan_att13|jiaoguan_att14	{"MoveConfig":{},"AttackConfig":{},"SkillConfig":[{},{},{},{}]}	Circle_5
+Mon_ldgw_00	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	180	1		18	4	0	10	18	0	0	10	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_01	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	256	2		21	7	0	18	21	0	0	18	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_02	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	331	3		24	10	0	26	24	0	0	26	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_03	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	407	4		27	13	0	34	27	0	0	34	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_04	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	482	5		30	16	0	42	30	0	0	42	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_05	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	812	6		54	32	0	62	54	0	0	62	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_06	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1322	7		78	48	0	82	78	0	0	82	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_07	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	1932	8		102	64	0	102	102	0	0	102	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_08	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	2582	9		126	80	0	122	126	0	0	122	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_09	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	3300	10		150	96	0	142	150	0	0	142	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_10	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	4484	11		192	132	0	191	192	0	0	191	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_11	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	5668	12		234	168	0	240	234	0	0	240	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_12	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	6852	13		276	204	0	289	276	0	0	289	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_13	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	8036	14		318	240	0	338	318	0	0	338	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_14	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	9218	15		360	276	0	387	360	0	0	387	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_15	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	11228	16		444	338	0	482	444	0	0	482	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_16	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	13238	17		528	400	0	577	528	0	0	577	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_17	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	15248	18		612	462	0	672	612	0	0	672	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_18	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	17258	19		696	524	0	767	696	0	0	767	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_19	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	19268	20		780	586	0	860	780	0	0	860	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_20	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	21819	21		888	641	0	948	888	0	0	948	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_21	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	25370	22		1016	716	0	1056	1016	0	0	1056	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_22	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	29921	23		1164	811	0	1184	1164	0	0	1184	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_23	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	35472	24		1342	926	0	1332	1342	0	0	1332	FALSE	-0.05	liudanguaiw_zibao			
+Mon_ldgw_24	榴弹怪		Mon_ldg_00	xingzou	daiji	shoushang	0.2	siwang	show	jinbi	3	1.5	42021	25		1520	1058	0	1500	1520	0	0	1500	FALSE	-0.05	liudanguaiw_zibao			

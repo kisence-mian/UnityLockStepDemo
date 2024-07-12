@@ -8,21 +8,21 @@ public class DestroyEffectSystem : SystemBase
 {
     public override void Init()
     {
-        AddEntityOptimizeWillBeDestroyLisnter();
+        AddEntityWillBeDestroyLisnter();
     }
 
     public override void Dispose()
     {
-        RemoveEntityOptimizeWillBeDestroyLisnter();
+        RemoveEntityWillBeDestroyLisnter();
     }
 
-    public override void OnEntityOptimizeWillBeDestroy(EntityBase entity)
+    public override void OnEntityWillBeDestroy(EntityBase entity)
     {
-        //if(entity.GetExistComp<FlyObjectComponent>()
-        //    && entity.GetExistComp<PerfabComponent>())
-        //{
-        //    OnFlyDestroy(entity);
-        //}
+        if(entity.GetExistComp<FlyObjectComponent>()
+            && entity.GetExistComp<PerfabComponent>())
+        {
+            OnFlyDestroy(entity);
+        }
     }
 
     void OnFlyDestroy(EntityBase entity)
@@ -30,6 +30,13 @@ public class DestroyEffectSystem : SystemBase
         FlyObjectComponent fc = entity.GetComp<FlyObjectComponent>();
         PerfabComponent pc = entity.GetComp<PerfabComponent>();
 
-        EffectManager.ShowEffect(fc.FlyData.m_HitEffect, pc.perfab.transform.position + pc.perfab.transform.forward * 0.3f, 1);
+        if(pc.perfab != null)
+        {
+            EffectManager.ShowEffect(fc.FlyData.m_HitEffect, pc.perfab.transform.position + pc.perfab.transform.forward * 0.3f, 1);
+        }
+        else
+        {
+            Debug.LogError("飞行物已被销毁 不能创建销毁特效 flyID " + entity.ID);
+        }
     }
 }
