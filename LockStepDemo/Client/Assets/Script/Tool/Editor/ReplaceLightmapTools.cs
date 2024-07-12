@@ -65,7 +65,7 @@ class ReplaceLightmapTools
 		LightmapData[] lightmaps = LightmapSettings.lightmaps;
 		foreach (LightmapData lmd in lightmaps)
 		{
-			Texture f = lmd.lightmapLight;
+			Texture f = lmd.lightmapColor;
 			Texture n = lmd.lightmapDir;
 			if (n != null)
 			{
@@ -92,7 +92,7 @@ class ReplaceLightmapTools
 			return;
 		string abSceneName = EditorApplication.currentScene;
 		
-		string lightmapName = lightmaps[0].lightmapLight.name;
+		string lightmapName = lightmaps[0].lightmapColor.name;
 		lightmapName = lightmapName.Remove(lightmapName.LastIndexOf('-'));
 		
 		Renderer[] renderer = GameObject.FindObjectsOfType(typeof(Renderer)) as Renderer[];

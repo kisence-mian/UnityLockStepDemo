@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "T4MShaders/ShaderModel2/Unlit/T4M 6 Textures Unlit NoLM" {
 Properties {
     _Splat0 ("Layer1 (RGB)", 2D) = "white" {}
@@ -43,7 +45,7 @@ SubShader {
 		v2f vert (appdata_full  v)
 		{
 			v2f o;
-			o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
+			o.pos = UnityObjectToClipPos (v.vertex);
 			o.uv[0] = TRANSFORM_TEX (v.texcoord, _Splat0);
 			o.uv[1] = TRANSFORM_TEX (v.texcoord, _Splat1);
 			o.uv[2] = TRANSFORM_TEX (v.texcoord, _Splat2);

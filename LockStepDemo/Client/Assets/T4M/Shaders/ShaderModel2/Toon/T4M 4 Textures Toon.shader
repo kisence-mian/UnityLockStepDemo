@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "T4MShaders/ShaderModel2/Toon/T4M 4 Textures Toon" {
 	Properties {
 		_Splat0 ("Layer 1", 2D) = "white" {}
@@ -41,7 +43,7 @@ Shader "T4MShaders/ShaderModel2/Toon/T4M 4 Textures Toon" {
 		v2f vert (appdata v)
 		{
 			v2f o;
-			o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
+			o.pos = UnityObjectToClipPos (v.vertex);
 			o.uv[0] = TRANSFORM_TEX (v.texcoord, _Splat0);
 			o.uv[1] = TRANSFORM_TEX (v.texcoord, _Splat1);
 			o.uv[2] = TRANSFORM_TEX (v.texcoord, _Splat2);

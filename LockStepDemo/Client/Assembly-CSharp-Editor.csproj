@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_3;UNITY_5_6;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_3;UNITY_5_6;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -39,10 +39,10 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>D:/unity5.6/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>D:/unity5.6/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -69,7 +69,6 @@
      <Compile Include="Assets\Script\Core\Editor\SDKManager\SDKEditorWindow.cs" />
      <Compile Include="Assets\Script\Core\Editor\SDKManager\SchemeDataService.cs" />
      <Compile Include="Assets\Script\Core\Editor\Test\Application\ApplicationLunchTest.cs" />
-     <Compile Include="Assets\Script\Core\Editor\Test\Protocol\ProtocolMsgTest.cs" />
      <Compile Include="Assets\Script\Core\Editor\Test\ResourcesLoad\ResourcesTest.cs" />
      <Compile Include="Assets\Script\Core\Editor\Test\UI\UITest.cs" />
      <Compile Include="Assets\Script\Core\Editor\UI\EditorGUIStyleData.cs" />
@@ -83,7 +82,6 @@
      <Compile Include="Assets\Script\Core\Editor\UI\UITemplate.cs" />
      <Compile Include="Assets\Script\Core\Editor\UI\componment\LanguageComponmentEditor.cs" />
      <Compile Include="Assets\Script\Core\Editor\UI\componment\ReusingScrollRectEditor.cs" />
-     <Compile Include="Assets\Script\Core\Editor\Utils\AppyPrefabs.cs" />
      <Compile Include="Assets\Script\Core\Editor\Utils\BatchReplaceNameTool.cs" />
      <Compile Include="Assets\Script\Core\Editor\Utils\EditorCoroutineRunner.cs" />
      <Compile Include="Assets\Script\Core\Editor\Utils\EditorExpand.cs" />
@@ -114,116 +112,349 @@
      <Compile Include="Assets\Script\Core\Lua\ToLua\Editor\ToLuaExport.cs" />
      <Compile Include="Assets\Script\Core\Lua\ToLua\Editor\ToLuaMenu.cs" />
      <Compile Include="Assets\Script\Core\Lua\ToLua\Editor\ToLuaTree.cs" />
-     <Compile Include="Assets\Script\SyncFrameWork\Editor\ComponentsNameToConstEditorTool.cs" />
-     <Compile Include="Assets\Script\SyncFrameWork\Editor\EntityViewWindow.cs" />
+     <Compile Include="Assets\Script\Editor\Convert\Csharp2Erlang.cs" />
+     <Compile Include="Assets\Script\Editor\SkillEditorWindow\ConfigTool.cs" />
+     <Compile Include="Assets\Script\Editor\SkillEditorWindow\SkillEditorWindow.cs" />
+     <Compile Include="Assets\Script\Editor\Tool\CheckUIResName.cs" />
+     <Compile Include="Assets\Script\Editor\Tool\TransverterCreater.cs" />
+     <Compile Include="Assets\Script\Framework\Editor\BaseEditor\EditorMonoBehaviour.cs" />
+     <Compile Include="Assets\Script\Framework\Editor\GlobalEditorAttributes\EditorExtendAttribute.cs" />
+     <Compile Include="Assets\Script\Framework\Editor\GlobalEditorAttributes\EditorExtendAttributeUtils.cs" />
+     <Compile Include="Assets\Script\Framework\Editor\ReplaceFont4uGUI.cs" />
+     <Compile Include="Assets\Script\Framework\Editor\Utils\EditorDrawGUIUtil.cs" />
+     <Compile Include="Assets\Script\Framework\Editor\Utils\EditorDrawToolBarGUI.cs" />
+     <Compile Include="Assets\Script\Framework\Editor\Utils\ScriptableObjectUtils.cs" />
+     <Compile Include="Assets\Script\Framework\LogicSystem\Editor\EditorExtendBase.cs" />
+     <Compile Include="Assets\Script\Framework\LogicSystem\Editor\LogicObjectBehaviourEditor.cs" />
+     <Compile Include="Assets\Script\Framework\LogicSystem\Editor\LogicSystemAttributeEditorGUI.cs" />
+     <Compile Include="Assets\Script\Framework\LogicSystem\Editor\LogicSystemWindowUpdater.cs" />
+     <Compile Include="Assets\Script\Framework\LogicSystem\Editor\Tools\LogicSystemEditorTools.cs" />
+     <Compile Include="Assets\Script\Framework\LogicSystem\Editor\Window\LogicObjectBackUpEditor.cs" />
+     <Compile Include="Assets\Script\Framework\LogicSystem\Editor\Window\LogicObjectDataEditor.cs" />
+     <Compile Include="Assets\Script\Framework\LogicSystem\Editor\Window\LogicSystemEditorWindow.cs" />
+     <Compile Include="Assets\Script\Framework\LogicSystem\Editor\Window\SelectLogicObjectEditor.cs" />
+     <Compile Include="Assets\Script\Framework\LogicSystem\Model\Actions\Editor\Action_Componet_CanUseComponetExtend.cs" />
+     <Compile Include="Assets\Script\Framework\LogicSystem\Model\Actions\Editor\Action_Debug_LogExtend.cs" />
+     <Compile Include="Assets\Script\Framework\LogicSystem\Model\Condition\Editor\Condition_Value_ValueCompareExtendEditor.cs" />
+     <Compile Include="Assets\Script\Framework\LogicSystem\Model\Event\Editor\Event_Timer_CountdownExtend.cs" />
+     <Compile Include="Assets\Script\Framework\StateMachineEditor\Editor\MachineDataController.cs" />
+     <Compile Include="Assets\Script\Framework\StateMachineEditor\Editor\MachineStateGUI.cs" />
+     <Compile Include="Assets\Script\Framework\StateMachineEditor\Editor\MachineStateGUIDataControl.cs" />
+     <Compile Include="Assets\Script\Framework\StateMachineEditor\Editor\MachineStateGUIInspector.cs" />
+     <Compile Include="Assets\Script\Framework\StateMachineEditor\Editor\MachineStateInputEventController.cs" />
+     <Compile Include="Assets\Script\Framework\StateMachineEditor\Editor\SelectObject.cs" />
+     <Compile Include="Assets\Script\Framework\StateMachineEditor\Editor\StateBehaviourGUIBase.cs" />
+     <Compile Include="Assets\Script\Framework\StateMachineEditor\Editor\StateMachineBGGUI.cs" />
+     <Compile Include="Assets\Script\Framework\StateMachineEditor\Editor\StateMachineDataControl.cs" />
+     <Compile Include="Assets\Script\Framework\StateMachineEditor\Editor\StateMachineEditorGUI.cs" />
+     <Compile Include="Assets\Script\Framework\StateMachineEditor\Editor\StateMachineEditorWindow.cs" />
+     <Compile Include="Assets\Script\Framework\StateMachineEditor\Editor\StateMachineUtils.cs" />
+     <Compile Include="Assets\Script\Framework\StateMachineEditor\Editor\StateTransitionArrowLine.cs" />
+     <Compile Include="Assets\Script\Framework\StateMachineEditor\Editor\StateTransitionArrowLineDataControl.cs" />
+     <Compile Include="Assets\Script\Framework\StateMachineEditor\Editor\StateTransitionArrowLineInspector.cs" />
+     <Compile Include="Assets\Script\Framework\StateMachineEditor\Editor\StateTransitionGUI.cs" />
      <Compile Include="Assets\Script\SyncFrameWork\Editor\SyncDebugEditorWindow.cs" />
-     <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\Component\TestCommandComponent.cs" />
-     <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\Component\TestLifeSpanComponent.cs" />
-     <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\Component\TestMoveComponent.cs" />
-     <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\Component\TestSingleComponent.cs" />
-     <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\LockStepEntityTestWorld.cs" />
-     <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\LockStepFrameUnitTest.cs" />
-     <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\System\LockStepInputSystem.cs" />
-     <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\System\LockStepTestFireSystem.cs" />
-     <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\System\LockStepTestInitSystem.cs" />
-     <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\System\LockStepTestMoveSystem.cs" />
-     <Compile Include="Assets\Script\SyncFrameWork\Editor\Test\System\LockSteppTestLifeSpanSystem.cs" />
+     <Compile Include="Assets\Script\Tool\Editor\ReplaceLightmapTools.cs" />
+     <Compile Include="Assets\T4M\Editor\T4MExtendsSC.cs" />
+     <Compile Include="Assets\T4M\Editor\T4MSC.cs" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing20_3.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\DirectionLM\T4M 3 TexturesBumped DLM.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing24_4.txt" />
+     <None Include="Assets\Resources\Data\DropModel.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing12_2.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing30_3.txt" />
+     <None Include="Assets\Resources\Data\DropOutData.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel3\Specular\T4M 3 TexturesSpec.shader" />
      <None Include="Assets\Script\Core\Editor\res\LuaLib\LuaEventDispatcher.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing23_3.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_6_1.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing13_1.txt" />
      <None Include="Assets\Script\Core\Editor\res\ScriptTemplates\87-C# Script-NewGameStatusScript.cs.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Unified\T4M 3 TexturesUnified.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing21_1.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing20_4.txt" />
+     <None Include="Assets\Resources\Data\ShopData.txt" />
+     <None Include="Assets\Resources\Data\MonsterData.txt" />
+     <None Include="Assets\_Res\Shaders\MODEL\Alpha_CutOff.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing13_3.txt" />
+     <None Include="Assets\_Res\Shaders\MODEL\ClipTwoFace.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_9_1.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Diffuse\T4M 4 Textures.shader" />
+     <None Include="Assets\Resources\Data\ShiftData.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel1\T4M 2 Textures ManualAdd BeastLM_1DC.shader" />
+     <None Include="Assets\Resources\Data\ConstantData.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Diffuse\T4M 3 Textures.shader" />
+     <None Include="Assets\Resources\Data\Language\LangData_English.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel3\BumpSpec\T4M 2 TexturesBumpSpec.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\4TexturesUnlit.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing16_2.txt" />
+     <None Include="Assets\Resources\Data\WeaponData.txt" />
+     <None Include="Assets\Resources\Data\BraveData.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_9.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing12_0.txt" />
+     <None Include="Assets\_Res\Shaders\MODEL\Dissolve.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing22_3.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing20_6.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing21_2.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing29_1.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Bump\T4M 2 TexturesBumped Mobile.shader" />
      <None Include="Assets\Script\Core\Editor\res\EditorWindow\FindTexture获取.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing14_0.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Bump\T4M 3 TexturesBumped.shader" />
+     <None Include="Assets\Resources\Data\OnLineData.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing24_1.txt" />
      <None Include="Assets\Script\Core\Editor\res\LuaLib\luaJson.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\BumpSpec\T4M 2 TexturesBumpSpec Mobile.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_13.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\6TexturesUnlitNoLM.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel3\Diffuse\T4M 3 Textures.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing11_2.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel3\BumpSpec\T4M 4 TexturesBumpSpec.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel3\Specular\T4M 2 TexturesSpec.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_1_3.txt" />
      <None Include="Assets\Script\Core\Editor\res\EditorWindow\LoadIcon获取.txt" />
+     <None Include="Assets\T4M\Shaders\BrushPreview.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel3\Bump\T4M 4 TexturesBump.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\DirectionLM\T4M 2 TexturesBumped DLM.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Diffuse\T4M 6 Textures.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing23_4.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_5_2.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing19_1.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing24_2.txt" />
+     <None Include="Assets\Resources\Data\Language\English\LangData_English_default.txt" />
+     <None Include="Assets\Resources\Data\MapInfoData.txt" />
+     <None Include="Assets\Resources\Data\FlyData.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_20.txt" />
+     <None Include="Assets\Resources\Data\StoryModeData.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing13_0.txt" />
      <None Include="Assets\Resources\Data\SkillStatusData.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_10.txt" />
      <None Include="Assets\Script\Core\Editor\res\LuaLib\FrameWork\LuaFrameWorkEventName.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel3\Diffuse\T4M 4 Textures.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing20_5.txt" />
      <None Include="Assets\Script\Core\Editor\res\LuaLib\LuaDataHelper.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Specular\T4M 4 Textures Spec.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Bump\T4M 4 TexturesBumped.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing12_1.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel3\Diffuse\T4M 2 Textures.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel3\Specular\T4M 4 TexturesSpec.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing16_1.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing16_3.txt" />
      <None Include="Assets\Script\Core\Editor\res\UILuaScriptTemplate.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_2_1.txt" />
+     <None Include="Assets\T4M\READMEFIRST.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_5_1.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing24_3.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing28_1.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_1_2.txt" />
      <None Include="Assets\Script\Core\Editor\res\UIWindowClassTemplate.txt" />
+     <None Include="Assets\Resources\Data\expget.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_19.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_5_4.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Diffuse\T4M 2 Textures.shader" />
+     <None Include="Assets\Resources\Data\RoleAttr.txt" />
      <None Include="Assets\Script\Core\Editor\res\LuaLib\FrameWork\UI\LuaUIManager.txt" />
      <None Include="Assets\Script\Core\Editor\res\LuaLib\FrameWork\Data\LuaDataHelper.txt" />
-     <None Include="Assets\Resources\Data\AreaData.txt" />
-     <None Include="Assets\Resources\Data\ShiftData.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Toon\T4M 3 Textures Toon.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing17_1.txt" />
+     <None Include="Assets\Resources\Data\CameraShokeData.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel3\Diffuse\T4M 5 Textures.shader" />
+     <None Include="Assets\Resources\Data\ChestData.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Toon\T4M 2 Textures Toon.shader" />
+     <None Include="Assets\_Res\UI\Fonts\ziti01-export.fnt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_17.txt" />
+     <None Include="Assets\Resources\Data\Language\LangData_Chinese.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_2_2.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_11_1.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing21_3.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing20_2.txt" />
+     <None Include="Assets\Resources\Data\ServerData.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\3TexturesUnlit.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_22_1.txt" />
+     <None Include="Assets\_Doc\改动文档.txt" />
+     <None Include="Assets\Resources\Data\EnchantmentData.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Specular\T4M 3 Textures Spec.shader" />
      <None Include="Assets\Script\Core\Editor\res\EditorWindow\IconContent获取.txt" />
-     <None Include="Assets\_Doc\待办事项.txt" />
-     <None Include="Assets\Resources\Data\SkillData.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\T4M World Projection Shader Unlit+LM.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Specular\T4M 2 Textures Spec.shader" />
+     <None Include="Assets\Resources\Data\AreaData.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_6.txt" />
+     <None Include="Assets\Resources\Data\DropData.txt" />
+     <None Include="Assets\Resources\Data\GuideData.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_1_1.txt" />
+     <None Include="Assets\_Res\Shaders\Alpha_CutOff.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel3\Bump\T4M 3 TexturesBump.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing27_3.txt" />
+     <None Include="Assets\Resources\Data\equip_up_data.txt" />
      <None Include="Assets\Script\Core\Editor\res\readme\SDKCacheReadme.txt" />
+     <None Include="Assets\Resources\Data\Language\ChineseSimplified\LangData_ChineseSimplified_default.txt" />
      <None Include="Assets\Script\Core\Editor\res\LuaLib\LuaPrintTable.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing22_2.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing20_1.txt" />
+     <None Include="Assets\_Doc\项目目录以及文件命名规范.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing25_1.txt" />
+     <None Include="Assets\_Res\Shaders\ClipTwoFace.shader" />
      <None Include="Assets\Script\Core\Editor\res\LuaLib\FrameWork\UI\LuaUIWindowMetatable.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_17_1.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing30_1.txt" />
+     <None Include="Assets\Resources\Shader\Ghost.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Unified\T4M 4 TexturesUnified.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing17_4.txt" />
      <None Include="Assets\Script\Core\Editor\res\LuaExportListTemplate.txt" />
-     <None Include="Assets\Resources\Data\FlyData.txt" />
-     <None Include="Assets\Resources\Data\CombineData.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing11_1.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing14_2.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing23_2.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_boss1.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel1\T4M 2 Textures ManualAdd CustoLM 1DC.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Bump\T4M 2 TexturesBumped.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Unified\T4M 2 TexturesUnified.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_5_3.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\6TexturesUnlit.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing22_1.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing11_0.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing19_2.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\BumpSpec\T4M 3 TexturesBumpSpec.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel3\Diffuse\T4M 6 Textures.shader" />
      <None Include="Assets\Script\Core\Editor\res\UIGuideWindowClassTemplate.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing17_2.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing29_2.txt" />
      <None Include="Assets\Script\Core\Editor\res\EditorWindow\内置窗口图标.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_15.txt" />
+     <None Include="Assets\Resources\Data\QualityData.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_1.txt" />
      <None Include="Assets\Script\Core\Editor\res\LuaLib\FrameWork\Update\LuaUpdate.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing29_3.txt" />
+     <None Include="Assets\Resources\Data\TrapData.txt" />
      <None Include="Assets\Script\Core\Editor\res\LuaLib\Unity\LuaUnityDefine.txt" />
      <None Include="Assets\Script\Core\Editor\res\LuaLib\FrameWork\Status\LuaStatusMetaTable.txt" />
-     <None Include="Assets\Script\Core\Editor\res\GuideSyetemTemplate.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_11_3.txt" />
      <None Include="Assets\Resources\Network\ProtocolInfo.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_8.txt" />
+     <None Include="Assets\Script\Core\Editor\res\GuideSyetemTemplate.txt" />
+     <None Include="Assets\Resources\Data\PlayerData.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing21_4.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing14_1.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_21_1.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Bump\T4M 3 TexturesBumped Mobile.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_11.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\5TexturesUnlit.shader" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_7.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_qianruj2.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing28_2.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_18.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_14.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing17_3.txt" />
+     <None Include="Assets\Resources\Data\ActiveData.txt" />
+     <None Include="Assets\Resources\Data\BuffData.txt" />
+     <None Include="Assets\Resources\MapData\elementCreatePointData.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing18_3.txt" />
+     <None Include="Assets\Resources\Data\SkillData.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_5.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing30_2.txt" />
+     <None Include="Assets\Resources\Data\ItemsData.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing25_3.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_3.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_8_1.txt" />
+     <None Include="Assets\Resources\Data\CombineData.txt" />
+     <None Include="Assets\Resources\Data\livenessData.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel1\T4M 2 Textures Auto BeastLM 2DrawCall.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel3\Bump\T4M 2 TexturesBump.shader" />
+     <None Include="Assets\Resources\MapData\mapData.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing19_3.txt" />
      <None Include="Assets\Script\Core\Editor\res\LuaLib\LuaFormatTools.txt" />
-     <None Include="Assets\Script\Core\Editor\res\LuaLib\LuaStringHelper.txt" />
-     <None Include="Assets\Script\Core\Editor\res\LuaLib\FrameWork\Status\LuaStatusManager.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing27_1.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing13_2.txt" />
+     <None Include="Assets\T4M\Shaders\PlantPreview.shader" />
+     <None Include="Assets\Resources\Data\GameCGData.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing25_2.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_16.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_4.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing23_1.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_22_2.txt" />
+     <None Include="Assets\Resources\Data\signData.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_12.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_11_2.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing18_2.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing27_2.txt" />
      <None Include="Assets\Resources\Network\MethodInfo.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_qianrujiaoxue.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_21_2.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing26_1.txt" />
+     <None Include="Assets\Resources\Data\GemData.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Toon\T4M 4 Textures Toon.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\2TexturesUnlit.shader" />
+     <None Include="Assets\_Res\Shaders\MODEL\Dissolve_Diffuse.shader" />
+     <None Include="Assets\Script\Core\Editor\res\LuaLib\LuaStringHelper.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing25_4.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Diffuse\T4M World Projection Shader.shader" />
+     <None Include="Assets\T4M\Shaders\ShaderModel3\BumpSpec\T4M 3 TexturesBumpSpec.shader" />
+     <None Include="Assets\SyncLog\syncLog.txt" />
+     <None Include="Assets\Resources\Data\ShopTableData.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\DirectionLM\T4M 2 TexturesBumped DLM mobile.shader" />
+     <None Include="Assets\Script\Core\Editor\res\LuaLib\FrameWork\Status\LuaStatusManager.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\Diffuse\T4M 5 Textures.shader" />
+     <None Include="Assets\Resources\LogicObjects\MapLogicObjects\mapLogic_0.txt" />
+     <None Include="Assets\Resources\Data\dialogue\dialogue_chs_juqing18_1.txt" />
+     <None Include="Assets\T4M\Shaders\ShaderModel2\BumpSpec\T4M 2 TexturesBumpSpec.shader" />
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>F:/Project/GitParent/UnityLockStepDemo/LockStepDemo/Client/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Advertisements">
- <HintPath>D:/unity5.6/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/unity5.6/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>D:/unity5.6/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>D:/unity5.6/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Networking">
- <HintPath>D:/unity5.6/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.TestRunner">
- <HintPath>D:/unity5.6/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>D:/unity5.6/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>D:/unity5.6/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.TreeEditor">
- <HintPath>D:/unity5.6/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>D:/unity5.6/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Analytics">
- <HintPath>D:/unity5.6/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.HoloLens">
- <HintPath>D:/unity5.6/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
- <HintPath>D:/unity5.6/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Purchasing">
- <HintPath>D:/unity5.6/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/Editor/UnityEditor.Purchasing.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/UnityExtensions/Unity/UnityPurchasing/Editor/UnityEditor.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.VR">
- <HintPath>D:/unity5.6/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.VR">
- <HintPath>D:/unity5.6/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
- <HintPath>D:/unity5.6/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.Android.Extensions">
- <HintPath>D:/unity5.6/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
- <HintPath>D:/unity5.6/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Hub/Editor/5.6.3f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="Debugger">
- <HintPath>E:/unityProject/UnityLockStepDemo/LockStepDemo/Client/Assets/Script/Core/Lua/ToLua/Plugins/Debugger.dll</HintPath>
- </Reference>
- <Reference Include="Box2DX">
- <HintPath>E:/unityProject/UnityLockStepDemo/LockStepDemo/Client/Assets/Script/SyncFrameWork/Plugins/Box2DX.dll</HintPath>
+ <HintPath>F:/Project/GitParent/UnityLockStepDemo/LockStepDemo/Client/Assets/Script/Core/Lua/ToLua/Plugins/Debugger.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
