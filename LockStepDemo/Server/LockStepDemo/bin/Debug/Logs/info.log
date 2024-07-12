@@ -1,9 +1,0 @@
-﻿2017-09-30 11:49:32,389 [21244] INFO  LockStepDemo - The server instance LockStepDemo has been started!
-2017-09-30 11:52:08,669 [20160] INFO  LockStepDemo - Session: 192.168.89.146:57611/192.168.89.146:57611
-A new session connected!
-2017-09-30 11:52:09,770 [11068] INFO  LockStepDemo - Session: 192.168.89.146:57612/192.168.89.146:57612
-A new session connected!
-2017-09-30 12:11:56,861 [5504] INFO  LockStepDemo - Session: 192.168.89.146:57612/192.168.89.146:57612
-This session was closed for ApplicationError!
-2017-09-30 12:11:57,150 [21340] INFO  LockStepDemo - Session: 192.168.89.146:57612/192.168.89.146:57612
-A new session connected!

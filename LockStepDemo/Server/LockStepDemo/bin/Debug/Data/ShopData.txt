@@ -1,8 +1,0 @@
-id	page	item_id	item_num	name	info	ItemType	headIcon	IconName	pay	cost	hot	hot_type
-type	Int	Int	Int	String	String	Int	String	String	String	Int	Int	String
-note	页签1-充值、2-兑换、3-英雄、4-道具	售卖物品ID	单词售卖物品数量	英雄道具名	信息描述	物品类型，0消耗类型，1非消耗类型	显示描述时的头像	图标名称	付款类型，可以填道具表内存在的任何实体道具或货币，比如101和102	价格	0	
-default	1	0	1	num	角色初始火元素等级为1,火元素成长为1.5倍	0	UI_touxiang_01	mm	101	100	0	0:无标,1:推荐,2:热销
-1	3	1	1	Demo	Demo is the most handsome boy	1	UI_touxiang_02	UI_hero_002	8	1000	1	
-2	3	2	1	Oscar	Oscar the best enchanter	1	UI_touxiang_01	UI_hero_001	8	2000	1	
-3	3	3	1	Oliver	Oliver could move more fast,but Lower blood volume	1	UI_touxiang_03	UI_hero_005	8	3000	1	
-4	3	4	1	Alice	Alice stronger,but poor in attack 	1	UI_touxiang_01	UI_hero_004	8	3000	1	
