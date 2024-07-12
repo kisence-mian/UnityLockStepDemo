@@ -14,7 +14,7 @@ public class DataBaseService
         long time = ServiceTime.GetServiceTime();
 
         DbConfig config = new DbConfig();
-        config.Server = "54.191.174.49";
+        config.Server = "192.168.3.210";
         config.User = "root";
         config.Password = "83dd961d3ce758ce";
         config.Database = "ElementCraft";

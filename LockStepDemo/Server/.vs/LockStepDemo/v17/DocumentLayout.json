@@ -3,23 +3,11 @@
   "WorkspaceRootPath": "F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|f:\\project\\gitparent\\unitylockstepdemo\\lockstepdemo\\server\\lockstepdemo\\lockstepframework\\synclogic\\system\\servicesyncsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|solutionrelative:lockstepdemo\\lockstepframework\\synclogic\\system\\servicesyncsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|f:\\project\\gitparent\\unitylockstepdemo\\lockstepdemo\\server\\lockstepdemo\\lockstepframework\\synclogic\\system\\connectsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|solutionrelative:lockstepdemo\\lockstepframework\\synclogic\\system\\connectsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|f:\\project\\gitparent\\unitylockstepdemo\\lockstepdemo\\server\\lockstepdemo\\service\\service\\define\\serviceeventdefine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\lockstepdemo\\service\\service\\define\\serviceeventdefine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|solutionrelative:lockstepdemo\\service\\service\\define\\serviceeventdefine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|f:\\project\\gitparent\\unitylockstepdemo\\lockstepdemo\\server\\lockstepdemo\\lockstepframework\\ecs\\componenttypebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|solutionrelative:lockstepdemo\\lockstepframework\\ecs\\componenttypebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|f:\\project\\gitparent\\unitylockstepdemo\\lockstepdemo\\server\\lockstepdemo\\generate\\protocol\\protocolanalysisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\lockstepdemo\\generate\\protocol\\protocolanalysisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|solutionrelative:lockstepdemo\\generate\\protocol\\protocolanalysisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -30,37 +18,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ConnectSystem.cs",
-              "DocumentMoniker": "F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\LockStepDemo\\LockStepFrameWork\\SyncLogic\\System\\ConnectSystem.cs",
-              "RelativeDocumentMoniker": "LockStepDemo\\LockStepFrameWork\\SyncLogic\\System\\ConnectSystem.cs",
-              "ToolTip": "F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\LockStepDemo\\LockStepFrameWork\\SyncLogic\\System\\ConnectSystem.cs",
-              "RelativeToolTip": "LockStepDemo\\LockStepFrameWork\\SyncLogic\\System\\ConnectSystem.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAjwAwAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-12T09:58:45.751Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ComponentTypeBase.cs",
-              "DocumentMoniker": "F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\LockStepDemo\\LockStepFrameWork\\ECS\\ComponentTypeBase.cs",
-              "RelativeDocumentMoniker": "LockStepDemo\\LockStepFrameWork\\ECS\\ComponentTypeBase.cs",
-              "ToolTip": "F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\LockStepDemo\\LockStepFrameWork\\ECS\\ComponentTypeBase.cs",
-              "RelativeToolTip": "LockStepDemo\\LockStepFrameWork\\ECS\\ComponentTypeBase.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAeAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-12T09:58:37.085Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "ServiceEventDefine.cs",
               "DocumentMoniker": "F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\LockStepDemo\\Service\\Service\\Define\\ServiceEventDefine.cs",
               "RelativeDocumentMoniker": "LockStepDemo\\Service\\Service\\Define\\ServiceEventDefine.cs",
@@ -73,20 +35,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ServiceSyncSystem.cs",
-              "DocumentMoniker": "F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\LockStepDemo\\LockStepFrameWork\\SyncLogic\\System\\ServiceSyncSystem.cs",
-              "RelativeDocumentMoniker": "LockStepDemo\\LockStepFrameWork\\SyncLogic\\System\\ServiceSyncSystem.cs",
-              "ToolTip": "F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\LockStepDemo\\LockStepFrameWork\\SyncLogic\\System\\ServiceSyncSystem.cs",
-              "RelativeToolTip": "LockStepDemo\\LockStepFrameWork\\SyncLogic\\System\\ServiceSyncSystem.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-12T09:57:10.092Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "ProtocolAnalysisService.cs",
               "DocumentMoniker": "F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\LockStepDemo\\Generate\\Protocol\\ProtocolAnalysisService.cs",
               "RelativeDocumentMoniker": "LockStepDemo\\Generate\\Protocol\\ProtocolAnalysisService.cs",
@@ -94,8 +43,7 @@
               "RelativeToolTip": "LockStepDemo\\Generate\\Protocol\\ProtocolAnalysisService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-12T09:57:05.39Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-12T09:57:05.39Z"
             }
           ]
         }
