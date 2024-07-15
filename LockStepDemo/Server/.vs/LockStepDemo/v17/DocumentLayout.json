@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\lockstepdemo\\service\\service\\define\\serviceeventdefine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|solutionrelative:lockstepdemo\\service\\service\\define\\serviceeventdefine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|f:\\project\\gitparent\\unitylockstepdemo\\lockstepdemo\\server\\lockstepdemo\\service\\database\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|solutionrelative:lockstepdemo\\service\\database\\databaseservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\lockstepdemo\\generate\\protocol\\protocolanalysisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|solutionrelative:lockstepdemo\\generate\\protocol\\protocolanalysisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\lockstepdemo\\service\\service\\define\\serviceeventdefine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B0429850-87BD-4953-A3CB-7BF83F3031E0}|LockStepDemo\\LockStepDemo.csproj|solutionrelative:lockstepdemo\\service\\service\\define\\serviceeventdefine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,12 +27,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "DataBaseService.cs",
+              "DocumentMoniker": "F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\LockStepDemo\\Service\\Database\\DataBaseService.cs",
+              "RelativeDocumentMoniker": "LockStepDemo\\Service\\Database\\DataBaseService.cs",
+              "ToolTip": "F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\LockStepDemo\\Service\\Database\\DataBaseService.cs",
+              "RelativeToolTip": "LockStepDemo\\Service\\Database\\DataBaseService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-12T10:13:50.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ServiceEventDefine.cs",
               "DocumentMoniker": "F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\LockStepDemo\\Service\\Service\\Define\\ServiceEventDefine.cs",
               "RelativeDocumentMoniker": "LockStepDemo\\Service\\Service\\Define\\ServiceEventDefine.cs",
               "ToolTip": "F:\\Project\\GitParent\\UnityLockStepDemo\\LockStepDemo\\Server\\LockStepDemo\\Service\\Service\\Define\\ServiceEventDefine.cs",
               "RelativeToolTip": "LockStepDemo\\Service\\Service\\Define\\ServiceEventDefine.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA0AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-12T09:57:21.86Z",
               "EditorCaption": ""
@@ -43,7 +60,8 @@
               "RelativeToolTip": "LockStepDemo\\Generate\\Protocol\\ProtocolAnalysisService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-12T09:57:05.39Z"
+              "WhenOpened": "2024-07-12T09:57:05.39Z",
+              "EditorCaption": ""
             }
           ]
         }
